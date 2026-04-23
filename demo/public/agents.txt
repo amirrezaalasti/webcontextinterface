@@ -1,0 +1,42 @@
+# agents.txt - AgentDOM Site Directives
+# ExampleShop Demo Site
+# https://example.com/agents.txt
+
+AgentDOM-Version: 1.0
+
+# -- Identity ------------------------------------------------
+Site-Name: ExampleShop Demo
+Site-Purpose: Demo e-commerce site for the AgentDOM framework showcase
+Contact: agents@agentdom.dev
+
+# -- Agent Capability Declarations ---------------------------
+AgentDOM-Supported: true
+Manifest: /agents.json
+Context: /agent.md
+
+# -- Allow / Deny Rules -------------------------------------
+Allow-Scope: registration-form
+Allow-Scope: login-form
+Allow-Scope: product-search
+Allow-Scope: product-detail
+Allow-Scope: cart
+Allow-Scope: checkout
+
+Deny-Scope: admin-panel
+Deny-Scope: user-settings-billing
+Deny-Scope: internal-debug
+
+# -- Rate Limits --------------------------------------------
+Rate-Limit-Actions: 60/minute
+Rate-Limit-Distil: 120/minute
+
+# -- Authentication -----------------------------------------
+Auth-Required: checkout, user-profile, order-history
+Auth-Method: session-cookie
+Auth-Flow-Scope: login-form
+
+# -- Data Sensitivity ---------------------------------------
+Require-Human-Confirmation: checkout, delete-account
+
+# -- Versioning ---------------------------------------------
+Last-Updated: 2026-04-22

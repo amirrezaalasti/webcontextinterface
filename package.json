@@ -1,0 +1,19 @@
+{
+  "name": "agentdom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A web framework that makes websites natively readable for LLM-based agents.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "vite demo --open",
+    "demo": "vite demo --open",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0"
+  }
+}
