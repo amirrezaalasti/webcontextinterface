@@ -1,9 +1,51 @@
-<!DOCTYPE html><html><head><title>RxDirect</title><style>.rx-rx-list{width:100%;border-collapse:collapse}.rx-rx-list td,.rx-rx-list th{border:1px solid #ddd;padding:10px}.rx-refill{background:#059669;color:#fff;border:0}</style></head><body>
-<table class="rx-rx-list" data-page="pharmacy-order" role="main"><thead><tr><th>Drug</th><th>Dose</th><th>Action</th></tr></thead><tbody>
-<tr><td>Metformin</td><td>500mg</td><td><button type="button">View</button></td></tr>
-<tr data-rx="lisinopril"><td>Lisinopril</td><td>10mg</td><td><button type="button" class="rx-refill" id="refill-lisinopril" data-action="primary">Refill</button></td></tr>
-</tbody></table><nav><header class="rx-hdr">
-  <nav class="rx-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
-  <div class="rx-hdr-promo">
-    <button type="button" class="rx-ad-btn rx-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header></nav><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>RxDirect</title><style>
+.rx-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.rx-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.rx-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.rx-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.rx-btn--decoy{background:#fef9c3;border-color:#fde047}
+.rx-btn--muted{background:#e2e8f0;color:#334155}
+.rx-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.rx-cookie p{flex:1;margin:0;font-size:13px}
+.rx-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.rx-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.rx-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.rx-nav a{margin-right:14px;color:#334155;font-size:13px}
+.rx-hdr-promo button{margin-left:6px}
+.rx-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.rx-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.rx-rail--ads{background:#fffbeb}
+.rx-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.rx-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.rx-ab{display:none}
+.rx-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="rx-app" data-page="pharmacy-order"><div class="rx-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="rx-btn rx-btn--muted">Reject non-essential</button>
+  <button type="button" class="rx-btn rx-btn--primary">Accept all</button>
+  <button type="button" class="rx-btn rx-btn--ghost">Customize</button>
+</div><div class="rx-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="rx-btn rx-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="rx-btn">Continue as guest — express</button>
+</div><header class="rx-hdr">
+  <nav class="rx-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="rx-hdr-promo"><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="rx-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
+  <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
+</nav><div class="rx-dup-row" aria-label="Quick actions">
+  <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
+  <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
+  <button type="button" class="rx-btn rx-btn--ghost">Save changes</button>
+  <button type="button" class="rx-btn rx-btn--ghost">Confirm</button>
+</div><div class="rx-dup-row"><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Refill Lisinopril</button><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-nav">Refill Lisinopril 10mg</button></div><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>Drug</th><th>Dose</th><th></th></tr></thead><tbody>
+<tr><td>Metformin</td><td>500mg</td><td><button type="button" class="rx-btn rx-btn--ghost">View</button></td></tr>
+<tr data-rx="lisinopril-10"><td>Lisinopril</td><td>10mg</td><td><button type="button" class="rx-btn rx-btn--primary">Confirm</button></td></tr>
+</tbody></table><aside class="rx-rail rx-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="rx-filler" aria-hidden="true"><div class="rx-filler-inner"><a href="/misc/0" class="rx-btn rx-btn--ghost">Link 1</a><button type="button" class="rx-btn rx-btn--ghost">Action 2</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/4" class="rx-btn rx-btn--ghost">Link 5</a><button type="button" class="rx-btn rx-btn--ghost">Action 6</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/8" class="rx-btn rx-btn--ghost">Link 9</a><button type="button" class="rx-btn rx-btn--ghost">Action 10</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/12" class="rx-btn rx-btn--ghost">Link 13</a><button type="button" class="rx-btn rx-btn--ghost">Action 14</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/16" class="rx-btn rx-btn--ghost">Link 17</a><button type="button" class="rx-btn rx-btn--ghost">Action 18</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/20" class="rx-btn rx-btn--ghost">Link 21</a><button type="button" class="rx-btn rx-btn--ghost">Action 22</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/24" class="rx-btn rx-btn--ghost">Link 25</a><button type="button" class="rx-btn rx-btn--ghost">Action 26</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/28" class="rx-btn rx-btn--ghost">Link 29</a><button type="button" class="rx-btn rx-btn--ghost">Action 30</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/32" class="rx-btn rx-btn--ghost">Link 33</a><button type="button" class="rx-btn rx-btn--ghost">Action 34</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/36" class="rx-btn rx-btn--ghost">Link 37</a><button type="button" class="rx-btn rx-btn--ghost">Action 38</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/40" class="rx-btn rx-btn--ghost">Link 41</a><button type="button" class="rx-btn rx-btn--ghost">Action 42</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button></div></div><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="rx-ftr"><small>© Demo RxDirect</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

@@ -1,3 +1,50 @@
-<!DOCTYPE html><html><head><title>PodWave</title><style>.pw-show{display:flex;gap:20px;padding:24px}.pw-art{width:120px;height:120px;background:#a855f7;border-radius:8px}.pw-sub{background:#7c3aed;color:#fff;border:0;padding:10px 20px}</style></head><body>
-<article class="pw-show" data-page="podcast-subscribe" role="main" data-agent-role="landmark" data-agent-id="podcast_subscribe-page" data-agent-desc="Podcast show page" data-agent-priority="2"><div class="pw-art"></div><div><h1>AI Daily</h1><p>Daily AI news</p>
-<button type="button" class="pw-sub" id="subscribe-ai-daily" data-action="primary" data-agent-role="action" data-agent-id="subscribe-ai-daily" data-agent-desc="Subscribe to show &quot;AI Daily&quot;" data-agent-action="click" data-agent-priority="1">Subscribe</button><button type="button" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Free trial" data-agent-priority="5" data-agent-action="click">Free trial</button></div></article><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>PodWave</title><style>
+.pw-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.pw-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.pw-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.pw-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.pw-btn--decoy{background:#fef9c3;border-color:#fde047}
+.pw-btn--muted{background:#e2e8f0;color:#334155}
+.pw-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.pw-cookie p{flex:1;margin:0;font-size:13px}
+.pw-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.pw-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.pw-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.pw-nav a{margin-right:14px;color:#334155;font-size:13px}
+.pw-hdr-promo button{margin-left:6px}
+.pw-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.pw-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.pw-rail--ads{background:#fffbeb}
+.pw-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.pw-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.pw-ab{display:none}
+.pw-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="pw-app" data-page="podcast-subscribe" data-agent-role="landmark" data-agent-id="podcast_subscribe-page" data-agent-desc="Podcast" data-agent-priority="2"><div class="pw-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="pw-btn pw-btn--muted">Reject non-essential</button>
+  <button type="button" class="pw-btn pw-btn--primary">Accept all</button>
+  <button type="button" class="pw-btn pw-btn--ghost">Customize</button>
+</div><div class="pw-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="pw-btn pw-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="pw-btn">Continue as guest — express</button>
+</div><header class="pw-hdr">
+  <nav class="pw-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="pw-hdr-promo"><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="pw-btn pw-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="pw-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="pw-btn pw-btn--ghost">Submit</button>
+  <button type="button" class="pw-btn pw-btn--ghost">Continue</button>
+</nav><div class="pw-dup-row" aria-label="Quick actions">
+  <button type="button" class="pw-btn pw-btn--ghost">Submit</button>
+  <button type="button" class="pw-btn pw-btn--ghost">Continue</button>
+  <button type="button" class="pw-btn pw-btn--ghost">Save changes</button>
+  <button type="button" class="pw-btn pw-btn--ghost">Confirm</button>
+</div><div class="pw-dup-row"><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Subscribe AI Daily</button><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-nav">Subscribe show AI Daily</button></div><article role="main" style="display:flex;gap:20px;padding:24px" data-show="ai-daily"><div style="width:120px;height:120px;background:#a855f7"></div>
+<div><h1>AI Daily</h1><button type="button" class="pw-btn pw-btn--primary" data-subscribe="ai-daily" data-agent-role="action" data-agent-id="subscribe-ai-daily" data-agent-desc="Subscribe to the AI Daily show feed (not free trial promo)." data-agent-action="click" data-agent-priority="1">Confirm</button>
+<button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Free trial</button></div></article><aside class="pw-rail pw-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="pw-filler" aria-hidden="true"><div class="pw-filler-inner"><a href="/misc/0" class="pw-btn pw-btn--ghost">Link 1</a><button type="button" class="pw-btn pw-btn--ghost">Action 2</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/4" class="pw-btn pw-btn--ghost">Link 5</a><button type="button" class="pw-btn pw-btn--ghost">Action 6</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/8" class="pw-btn pw-btn--ghost">Link 9</a><button type="button" class="pw-btn pw-btn--ghost">Action 10</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/12" class="pw-btn pw-btn--ghost">Link 13</a><button type="button" class="pw-btn pw-btn--ghost">Action 14</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/16" class="pw-btn pw-btn--ghost">Link 17</a><button type="button" class="pw-btn pw-btn--ghost">Action 18</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/20" class="pw-btn pw-btn--ghost">Link 21</a><button type="button" class="pw-btn pw-btn--ghost">Action 22</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/24" class="pw-btn pw-btn--ghost">Link 25</a><button type="button" class="pw-btn pw-btn--ghost">Action 26</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/28" class="pw-btn pw-btn--ghost">Link 29</a><button type="button" class="pw-btn pw-btn--ghost">Action 30</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/32" class="pw-btn pw-btn--ghost">Link 33</a><button type="button" class="pw-btn pw-btn--ghost">Action 34</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/36" class="pw-btn pw-btn--ghost">Link 37</a><button type="button" class="pw-btn pw-btn--ghost">Action 38</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/40" class="pw-btn pw-btn--ghost">Link 41</a><button type="button" class="pw-btn pw-btn--ghost">Action 42</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button></div></div><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pw-ftr"><small>© Demo PodWave</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

@@ -1,4 +1,52 @@
-<!DOCTYPE html><html><head><title>FreshCart</title><style>.fcart-list{list-style:none;padding:0}.fcart-item{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee}.fcart-add{background:#16a34a;color:#fff;border:0}</style></head><body>
-<ul class="fcart-list" data-page="grocery-list" role="main" data-agent-role="landmark" data-agent-id="grocery_list-page" data-agent-desc="Shared grocery list" data-agent-priority="2"><li class="fcart-item">Milk <button type="button">Remove</button></li>
-<li class="fcart-item" data-item="avocados">Organic avocados <button type="button" class="fcart-add" id="add-avocados" data-action="primary" data-agent-role="action" data-agent-id="add-avocados-list" data-agent-desc="Add organic avocados to shared family list" data-agent-action="click" data-agent-priority="1">Add to family list</button></li>
-</ul><a href="/share" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Share list link" data-agent-priority="5" data-agent-action="click">Share list</a><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>FreshCart</title><style>
+.fcart-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.fcart-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.fcart-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.fcart-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.fcart-btn--decoy{background:#fef9c3;border-color:#fde047}
+.fcart-btn--muted{background:#e2e8f0;color:#334155}
+.fcart-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.fcart-cookie p{flex:1;margin:0;font-size:13px}
+.fcart-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.fcart-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.fcart-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.fcart-nav a{margin-right:14px;color:#334155;font-size:13px}
+.fcart-hdr-promo button{margin-left:6px}
+.fcart-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.fcart-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.fcart-rail--ads{background:#fffbeb}
+.fcart-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.fcart-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.fcart-ab{display:none}
+.fcart-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="fcart-app" data-page="grocery-list" data-agent-role="landmark" data-agent-id="grocery_list-page" data-agent-desc="Grocery list" data-agent-priority="2"><div class="fcart-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="fcart-btn fcart-btn--muted">Reject non-essential</button>
+  <button type="button" class="fcart-btn fcart-btn--primary">Accept all</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Customize</button>
+</div><div class="fcart-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="fcart-btn fcart-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="fcart-btn">Continue as guest — express</button>
+</div><header class="fcart-hdr">
+  <nav class="fcart-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="fcart-hdr-promo"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="fcart-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Submit</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
+</nav><div class="fcart-dup-row" aria-label="Quick actions">
+  <button type="button" class="fcart-btn fcart-btn--ghost">Submit</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Save changes</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost">Confirm</button>
+</div><div class="fcart-dup-row"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Add avocados family list</button><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-nav">Add organic avocados list</button></div><ul role="main" style="list-style:none;padding:0"><li style="display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee">Milk
+<button type="button" class="fcart-btn fcart-btn--ghost">Remove</button></li>
+<li style="display:flex;justify-content:space-between;padding:12px" data-item="organic-avocados">Organic avocados
+<button type="button" class="fcart-btn fcart-btn--primary" data-add-family="avocados" data-agent-role="action" data-agent-id="add-avocados-list" data-agent-desc="Add organic avocados line item to shared family list." data-agent-action="click" data-agent-priority="1">Confirm</button></li></ul>
+<a href="/share" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav">Share list</a><aside class="fcart-rail fcart-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="fcart-filler" aria-hidden="true"><div class="fcart-filler-inner"><a href="/misc/0" class="fcart-btn fcart-btn--ghost">Link 1</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 2</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/4" class="fcart-btn fcart-btn--ghost">Link 5</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 6</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/8" class="fcart-btn fcart-btn--ghost">Link 9</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 10</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/12" class="fcart-btn fcart-btn--ghost">Link 13</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 14</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/16" class="fcart-btn fcart-btn--ghost">Link 17</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 18</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/20" class="fcart-btn fcart-btn--ghost">Link 21</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 22</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/24" class="fcart-btn fcart-btn--ghost">Link 25</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 26</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/28" class="fcart-btn fcart-btn--ghost">Link 29</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 30</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/32" class="fcart-btn fcart-btn--ghost">Link 33</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 34</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/36" class="fcart-btn fcart-btn--ghost">Link 37</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 38</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/40" class="fcart-btn fcart-btn--ghost">Link 41</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 42</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button></div></div><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Keyword trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="fcart-ftr"><small>© Demo FreshCart</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

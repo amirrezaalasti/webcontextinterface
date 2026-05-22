@@ -3,12 +3,12 @@
   "title": "ParkSpot",
   "icon": "🅿️",
   "difficulty": "Hard",
-  "description": "Parking spot button grid.",
+  "description": "Spot grid.",
   "challenges": [
-    "Taken vs open spots"
+    "Taken spots"
   ],
   "task": {
-    "goal": "Reserve garage spot B12 for Saturday 2pm",
+    "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "reserve-spot-b12",
+        "target": "button[data-spot=\"B12\"][data-open=\"true\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,11 +48,12 @@
     "wciNodeId": "reserve-spot-b12",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#reserve-spot-b12",
-      "button.pk-spot.open"
+      "button[data-spot=\"B12\"][data-open=\"true\"]",
+      "button.pk-btn--primary.open"
     ]
   }
 }

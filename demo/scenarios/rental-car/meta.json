@@ -3,12 +3,12 @@
   "title": "DriveAway",
   "icon": "🚙",
   "difficulty": "Very Hard",
-  "description": "Search bar + car result cards grid.",
+  "description": "Search + cards.",
   "challenges": [
-    "Select vs Reserve"
+    "Select"
   ],
   "task": {
-    "goal": "Reserve compact car pickup LAX Friday",
+    "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "reserve-lax-compact",
+        "target": "[data-vehicle=\"compact-lax-friday\"] .da-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "reserve-lax-compact",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#reserve-lax-compact"
+      "[data-vehicle=\"compact-lax-friday\"] .da-btn--primary"
     ]
   }
 }

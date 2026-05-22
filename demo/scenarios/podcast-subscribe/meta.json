@@ -3,12 +3,12 @@
   "title": "PodWave",
   "icon": "🎙️",
   "difficulty": "Hard",
-  "description": "Podcast show art + subscribe row.",
+  "description": "Show page.",
   "challenges": [
-    "Free trial decoy"
+    "Trial"
   ],
   "task": {
-    "goal": "Subscribe to show \"AI Daily\"",
+    "goal": "Subscribe to the AI Daily show feed (not free trial promo).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "subscribe-ai-daily",
+        "target": "[data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "subscribe-ai-daily",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#subscribe-ai-daily"
+      "[data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]"
     ]
   }
 }

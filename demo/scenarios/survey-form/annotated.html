@@ -1,5 +1,50 @@
-<!DOCTYPE html><html><head><title>FeedbackLoop</title><style>.fl-nps{display:flex;justify-content:space-between;max-width:400px}.fl-nps button{width:36px;height:36px;border-radius:50%;border:1px solid #999}.fl-nps button.selected{background:#3b82f6;color:#fff}</style></head><body>
-<form data-page="survey-form" role="main" style="padding:32px" data-agent-role="landmark" data-agent-id="survey_form-page" data-agent-desc="NPS survey form" data-agent-priority="2"><h1>How likely to recommend?</h1>
-<div class="fl-nps"><button type="button" data-score="0">0</button><button type="button" data-score="1">1</button><button type="button" data-score="2">2</button><button type="button" data-score="3">3</button><button type="button" data-score="4">4</button><button type="button" data-score="5">5</button><button type="button" data-score="6">6</button><button type="button" data-score="7">7</button><button type="button" data-score="8">8</button><button type="button" data-score="9" class="selected">9</button><button type="button" data-score="10">10</button></div>
-<textarea placeholder="Comment">Great product</textarea>
-<button type="submit" id="submit-nps" data-action="primary" data-agent-role="action" data-agent-id="submit-nps-9" data-agent-desc="Submit NPS score 9 with comment" data-agent-action="click" data-agent-priority="1">Submit NPS</button><button type="button" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Skip prize" data-agent-priority="5" data-agent-action="click">Skip &amp; win prize</button></form><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>FeedbackLoop</title><style>
+.fl-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.fl-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.fl-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.fl-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.fl-btn--decoy{background:#fef9c3;border-color:#fde047}
+.fl-btn--muted{background:#e2e8f0;color:#334155}
+.fl-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.fl-cookie p{flex:1;margin:0;font-size:13px}
+.fl-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.fl-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.fl-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.fl-nav a{margin-right:14px;color:#334155;font-size:13px}
+.fl-hdr-promo button{margin-left:6px}
+.fl-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.fl-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.fl-rail--ads{background:#fffbeb}
+.fl-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.fl-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.fl-ab{display:none}
+.fl-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="fl-app" data-page="survey-form" data-agent-role="landmark" data-agent-id="survey_form-page" data-agent-desc="NPS form" data-agent-priority="2"><div class="fl-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="fl-btn fl-btn--muted">Reject non-essential</button>
+  <button type="button" class="fl-btn fl-btn--primary">Accept all</button>
+  <button type="button" class="fl-btn fl-btn--ghost">Customize</button>
+</div><div class="fl-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="fl-btn fl-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="fl-btn">Continue as guest — express</button>
+</div><header class="fl-hdr">
+  <nav class="fl-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="fl-hdr-promo"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="fl-btn fl-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="fl-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="fl-btn fl-btn--ghost">Submit</button>
+  <button type="button" class="fl-btn fl-btn--ghost">Continue</button>
+</nav><div class="fl-dup-row" aria-label="Quick actions">
+  <button type="button" class="fl-btn fl-btn--ghost">Submit</button>
+  <button type="button" class="fl-btn fl-btn--ghost">Continue</button>
+  <button type="button" class="fl-btn fl-btn--ghost">Save changes</button>
+  <button type="button" class="fl-btn fl-btn--ghost">Confirm</button>
+</div><div class="fl-dup-row"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Submit NPS 9</button><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-nav">Submit NPS score 9</button></div><form role="main" style="padding:32px"><h1>NPS</h1><div style="display:flex;gap:4px"><button type="button" class="fl-btn fl-btn--ghost" data-score="0">0</button><button type="button" class="fl-btn fl-btn--ghost" data-score="1">1</button><button type="button" class="fl-btn fl-btn--ghost" data-score="2">2</button><button type="button" class="fl-btn fl-btn--ghost" data-score="3">3</button><button type="button" class="fl-btn fl-btn--ghost" data-score="4">4</button><button type="button" class="fl-btn fl-btn--ghost" data-score="5">5</button><button type="button" class="fl-btn fl-btn--ghost" data-score="6">6</button><button type="button" class="fl-btn fl-btn--ghost" data-score="7">7</button><button type="button" class="fl-btn fl-btn--ghost" data-score="8">8</button><button type="button" class="fl-btn fl-btn--ghost" data-score="9">9</button><button type="button" class="fl-btn fl-btn--ghost" data-score="10">10</button></div>
+<textarea>Great product</textarea><button type="submit" class="fl-btn fl-btn--primary" data-nps-submit="9" data-agent-role="action" data-agent-id="submit-nps-9" data-agent-desc="Submit NPS score nine with the provided positive comment (not skip prize)." data-agent-action="click" data-agent-priority="1">Confirm</button>
+<button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Skip prize</button></form><aside class="fl-rail fl-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="fl-filler" aria-hidden="true"><div class="fl-filler-inner"><a href="/misc/0" class="fl-btn fl-btn--ghost">Link 1</a><button type="button" class="fl-btn fl-btn--ghost">Action 2</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/4" class="fl-btn fl-btn--ghost">Link 5</a><button type="button" class="fl-btn fl-btn--ghost">Action 6</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/8" class="fl-btn fl-btn--ghost">Link 9</a><button type="button" class="fl-btn fl-btn--ghost">Action 10</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/12" class="fl-btn fl-btn--ghost">Link 13</a><button type="button" class="fl-btn fl-btn--ghost">Action 14</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/16" class="fl-btn fl-btn--ghost">Link 17</a><button type="button" class="fl-btn fl-btn--ghost">Action 18</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/20" class="fl-btn fl-btn--ghost">Link 21</a><button type="button" class="fl-btn fl-btn--ghost">Action 22</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/24" class="fl-btn fl-btn--ghost">Link 25</a><button type="button" class="fl-btn fl-btn--ghost">Action 26</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/28" class="fl-btn fl-btn--ghost">Link 29</a><button type="button" class="fl-btn fl-btn--ghost">Action 30</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/32" class="fl-btn fl-btn--ghost">Link 33</a><button type="button" class="fl-btn fl-btn--ghost">Action 34</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/36" class="fl-btn fl-btn--ghost">Link 37</a><button type="button" class="fl-btn fl-btn--ghost">Action 38</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/40" class="fl-btn fl-btn--ghost">Link 41</a><button type="button" class="fl-btn fl-btn--ghost">Action 42</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button></div></div><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="fl-ftr"><small>© Demo FeedbackLoop</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

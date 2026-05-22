@@ -3,12 +3,12 @@
   "title": "PawMatch",
   "icon": "🐾",
   "difficulty": "Extreme",
-  "description": "Pet profile hero image + apply CTA.",
+  "description": "Pet page.",
   "challenges": [
-    "Single pet focus"
+    "Trap labels"
   ],
   "task": {
-    "goal": "Submit adoption application for dog Max",
+    "goal": "Submit adoption application for dog Max profile.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "apply-adopt-max",
+        "target": "[data-pet=\"max\"] button[data-adopt=\"max\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "apply-adopt-max",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#apply-adopt-max"
+      "[data-pet=\"max\"] button[data-adopt=\"max\"]"
     ]
   }
 }

@@ -3,12 +3,12 @@
   "title": "HelpDesk One",
   "icon": "🎫",
   "difficulty": "Very Hard",
-  "description": "Ticket form with priority radio group.",
+  "description": "Priority ticket form.",
   "challenges": [
-    "Save draft vs submit"
+    "Draft vs confirm"
   ],
   "task": {
-    "goal": "Submit priority ticket for login outage",
+    "goal": "Submit the high-priority ticket about login outage (not draft or low priority).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "submit-priority-ticket",
+        "target": "button[data-prio=\"high\"][data-topic=\"login-outage\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "submit-priority-ticket",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-priority-ticket"
+      "button[data-prio=\"high\"][data-topic=\"login-outage\"]"
     ]
   }
 }

@@ -3,12 +3,12 @@
   "title": "AirCheck",
   "icon": "🛫",
   "difficulty": "Very Hard",
-  "description": "Airline seat map button grid.",
+  "description": "Seat grid.",
   "challenges": [
-    "Taken 12A vs window 14A"
+    "12A taken"
   ],
   "task": {
-    "goal": "Select window seat 14A for flight AA882",
+    "goal": "Select window seat 14A on flight AA882 (12A is already taken).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "select-seat-14a",
+        "target": "button[data-seat=\"14A\"][data-window=\"true\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "select-seat-14a",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#select-seat-14a"
+      "button[data-seat=\"14A\"][data-window=\"true\"]"
     ]
   }
 }

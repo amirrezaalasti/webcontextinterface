@@ -13,15 +13,11 @@ export interface ModelConfig {
 
 export const EVAL_MODELS: ModelConfig[] = [
   { id: 'gpt5Nano', name: 'GPT-5 Nano', model: 'openai/gpt-5-nano', inputPricePer1M: 0.05 },
-  { id: 'gpt5Mini', name: 'GPT-5 Mini', model: 'openai/gpt-5-mini', inputPricePer1M: 0.25 },
   { id: 'gpt5', name: 'GPT-5', model: 'openai/gpt-5', inputPricePer1M: 1.25 },
-  { id: 'gemini3Flash', name: 'Gemini 3 Flash', model: 'google/gemini-3-flash-preview', inputPricePer1M: 0.15 },
   { id: 'gemini35Flash', name: 'Gemini 3.5 Flash', model: 'google/gemini-3.5-flash', inputPricePer1M: 0.2 },
-  { id: 'gemini2FlashLite', name: 'Gemini 2.0 Flash Lite', model: 'google/gemini-2.0-flash-lite-001', inputPricePer1M: 0.075 },
-  { id: 'qwen35Flash', name: 'Qwen 3.5 Flash', model: 'qwen/qwen3.5-flash-02-23', inputPricePer1M: 0.065 },
   { id: 'qwen25_7b', name: 'Qwen 2.5 7B', model: 'qwen/qwen-2.5-7b-instruct', inputPricePer1M: 0.04 },
   { id: 'llama31_8b', name: 'Llama 3.1 8B', model: 'meta-llama/llama-3.1-8b-instruct', inputPricePer1M: 0.03 },
-  { id: 'deepseekV3', name: 'DeepSeek V3', model: 'deepseek/deepseek-chat-v3-0324', inputPricePer1M: 0.25 },
+  { id: 'gptoss20B', name: 'GPT-OSS 20B', model: 'openai/gpt-oss-20b', inputPricePer1M: 0.04 },
 ];
 
 export const EVAL_MODEL_BY_ID = Object.fromEntries(EVAL_MODELS.map((m) => [m.id, m])) as Record<

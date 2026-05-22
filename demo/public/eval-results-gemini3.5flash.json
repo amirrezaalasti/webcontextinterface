@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T22:08:47.626Z",
+  "modelOrder": [
+    {
+      "id": "gemini35Flash",
+      "name": "Gemini 3.5 Flash",
+      "openRouterModel": "google/gemini-3.5-flash"
+    }
+  ],
+  "gemini35Flash": {
+    "standard": {
+      "successRate": 41,
+      "avgTokens": 2234
+    },
+    "wci": {
+      "successRate": 98,
+      "avgTokens": 541
+    },
+    "wciFull": {
+      "successRate": 96,
+      "avgTokens": 680
+    },
+    "agentDom": {
+      "successRate": 98,
+      "avgTokens": 541
+    }
+  }
+}

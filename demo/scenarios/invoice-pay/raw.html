@@ -1,6 +1,52 @@
-<!DOCTYPE html><html><head><title>BillFlow</title><style>.bf-inv{width:100%;border-collapse:collapse}.bf-inv .overdue{color:#dc2626;font-weight:bold}.bf-pay{background:#15803d;color:#fff;border:0;padding:8px 16px}</style></head><body>
-<table class="bf-inv" data-page="invoice-pay" role="main"><thead><tr><th>Invoice</th><th>Due</th><th>Amount</th><th></th></tr></thead><tbody>
-<tr><td>INV-2026-012</td><td>May 1</td><td>$200</td><td><button type="button">View</button></td></tr>
-<tr class="overdue" data-inv="INV-2026-044"><td>INV-2026-044</td><td>Today</td><td>$1,420</td>
-<td><button type="button" class="bf-pay" id="pay-inv-044" data-action="primary">Pay now</button></td></tr>
-</tbody></table><button type="button" data-decoy="decoy-nav">Export CSV</button><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>BillFlow</title><style>
+.bf-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.bf-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.bf-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.bf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.bf-btn--decoy{background:#fef9c3;border-color:#fde047}
+.bf-btn--muted{background:#e2e8f0;color:#334155}
+.bf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.bf-cookie p{flex:1;margin:0;font-size:13px}
+.bf-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.bf-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.bf-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.bf-nav a{margin-right:14px;color:#334155;font-size:13px}
+.bf-hdr-promo button{margin-left:6px}
+.bf-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.bf-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.bf-rail--ads{background:#fffbeb}
+.bf-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.bf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.bf-ab{display:none}
+.bf-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="bf-app" data-page="invoice-pay"><div class="bf-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="bf-btn bf-btn--muted">Reject non-essential</button>
+  <button type="button" class="bf-btn bf-btn--primary">Accept all</button>
+  <button type="button" class="bf-btn bf-btn--ghost">Customize</button>
+</div><div class="bf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="bf-btn bf-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="bf-btn">Continue as guest — express</button>
+</div><header class="bf-hdr">
+  <nav class="bf-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="bf-hdr-promo"><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="bf-btn bf-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="bf-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="bf-btn bf-btn--ghost">Submit</button>
+  <button type="button" class="bf-btn bf-btn--ghost">Continue</button>
+</nav><div class="bf-dup-row" aria-label="Quick actions">
+  <button type="button" class="bf-btn bf-btn--ghost">Submit</button>
+  <button type="button" class="bf-btn bf-btn--ghost">Continue</button>
+  <button type="button" class="bf-btn bf-btn--ghost">Save changes</button>
+  <button type="button" class="bf-btn bf-btn--ghost">Confirm</button>
+</div><div class="bf-dup-row"><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">Pay INV-2026-044</button><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-nav">Pay invoice 044 today</button></div><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>Invoice</th><th>Due</th><th></th></tr></thead><tbody>
+<tr><td>INV-2026-012</td><td>May 1</td><td><button type="button" class="bf-btn bf-btn--ghost">View</button></td></tr>
+<tr data-inv="INV-2026-044" style="color:#dc2626;font-weight:bold"><td>INV-2026-044</td><td>Today</td>
+<td><button type="button" class="bf-btn bf-btn--primary" data-pay-inv="INV-2026-044">Confirm</button></td></tr>
+</tbody></table><button type="button" class="bf-btn bf-btn--ghost" data-decoy="decoy-nav">Export CSV</button><aside class="bf-rail bf-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="bf-filler" aria-hidden="true"><div class="bf-filler-inner"><a href="/misc/0" class="bf-btn bf-btn--ghost">Link 1</a><button type="button" class="bf-btn bf-btn--ghost">Action 2</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/4" class="bf-btn bf-btn--ghost">Link 5</a><button type="button" class="bf-btn bf-btn--ghost">Action 6</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/8" class="bf-btn bf-btn--ghost">Link 9</a><button type="button" class="bf-btn bf-btn--ghost">Action 10</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/12" class="bf-btn bf-btn--ghost">Link 13</a><button type="button" class="bf-btn bf-btn--ghost">Action 14</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/16" class="bf-btn bf-btn--ghost">Link 17</a><button type="button" class="bf-btn bf-btn--ghost">Action 18</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/20" class="bf-btn bf-btn--ghost">Link 21</a><button type="button" class="bf-btn bf-btn--ghost">Action 22</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/24" class="bf-btn bf-btn--ghost">Link 25</a><button type="button" class="bf-btn bf-btn--ghost">Action 26</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/28" class="bf-btn bf-btn--ghost">Link 29</a><button type="button" class="bf-btn bf-btn--ghost">Action 30</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/32" class="bf-btn bf-btn--ghost">Link 33</a><button type="button" class="bf-btn bf-btn--ghost">Action 34</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/36" class="bf-btn bf-btn--ghost">Link 37</a><button type="button" class="bf-btn bf-btn--ghost">Action 38</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/40" class="bf-btn bf-btn--ghost">Link 41</a><button type="button" class="bf-btn bf-btn--ghost">Action 42</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button></div></div><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="bf-ftr"><small>© Demo BillFlow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

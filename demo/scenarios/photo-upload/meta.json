@@ -3,12 +3,12 @@
   "title": "CloudAlbum",
   "icon": "📷",
   "difficulty": "Extreme",
-  "description": "Album thumbnails + dashed dropzone upload.",
+  "description": "Album grid.",
   "challenges": [
-    "Album thumbs noise"
+    "Thumbs"
   ],
   "task": {
-    "goal": "Upload vacation album \"Iceland 2026\"",
+    "goal": "Upload new photos into album Iceland 2026 (not other albums).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "upload-iceland-album",
+        "target": "[data-album=\"iceland-2026\"] .ca-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "upload-iceland-album",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#upload-iceland-album"
+      "[data-album=\"iceland-2026\"] .ca-btn--primary"
     ]
   }
 }

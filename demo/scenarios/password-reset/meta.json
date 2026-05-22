@@ -3,12 +3,12 @@
   "title": "AuthGate",
   "icon": "🔐",
   "difficulty": "Very Hard",
-  "description": "Admin sidebar nav + reset form panel.",
+  "description": "Admin panel.",
   "challenges": [
-    "Disable vs send"
+    "Disable"
   ],
   "task": {
-    "goal": "Send password reset link to user@corp.com",
+    "goal": "Send password reset link to user@corp.com (not disable account).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "send-reset-link",
+        "target": "button[data-action=\"send-reset\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "send-reset-link",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#send-reset-link"
+      "button[data-action=\"send-reset\"]"
     ]
   }
 }

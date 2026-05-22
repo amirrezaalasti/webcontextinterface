@@ -1,20 +1,53 @@
-<!DOCTYPE html><html><head><title>QuickBite</title><style>
-.qb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}
-.qb-resto{border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.qb-cart{position:fixed;right:0;top:0;width:280px;height:100%;background:#fff;border-left:2px solid #f97316;padding:16px}
-.qb-add{background:#f97316;color:#fff;border:0;width:100%;padding:10px;margin-top:8px}
-</style></head><body>
-<div data-page="food-delivery">
-<header class="qb-hdr">
-  <nav class="qb-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
-  <div class="qb-hdr-promo"><button type="button" class="qb-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="qb-ad-btn qb-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header>
-<main class="qb-grid" role="main">
-<article class="qb-resto"><h3>Sushi Zen</h3><button type="button">View menu</button></article>
-<article class="qb-resto" data-restaurant="tokyo-bowl"><h3>Tokyo Bowl</h3><p>Chicken Teriyaki Bowl · $12.99</p>
-<button type="button" class="qb-add" id="add-teriyaki-bowl" data-action="primary">Add Teriyaki Bowl &amp; checkout</button></article>
-<article class="qb-resto"><h3>Pizza Hub</h3><button type="button" data-decoy="decoy-promo">Free delivery promo</button></article>
-</main>
-<aside class="qb-cart"><h2>Cart (0)</h2><button type="button">Clear</button><p>Empty — add items</p></aside>
-<div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>QuickBite</title><style>
+.qb-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.qb-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.qb-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.qb-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.qb-btn--decoy{background:#fef9c3;border-color:#fde047}
+.qb-btn--muted{background:#e2e8f0;color:#334155}
+.qb-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.qb-cookie p{flex:1;margin:0;font-size:13px}
+.qb-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.qb-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.qb-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.qb-nav a{margin-right:14px;color:#334155;font-size:13px}
+.qb-hdr-promo button{margin-left:6px}
+.qb-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.qb-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.qb-rail--ads{background:#fffbeb}
+.qb-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.qb-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.qb-ab{display:none}
+.qb-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.qb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}.qb-resto{border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.qb-cart{position:fixed;right:0;top:80px;width:260px;border-left:2px solid #f97316;padding:16px;background:#fff}</style></head><body>
+<div class="qb-app" data-page="food-delivery"><div class="qb-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="qb-btn qb-btn--muted">Reject non-essential</button>
+  <button type="button" class="qb-btn qb-btn--primary">Accept all</button>
+  <button type="button" class="qb-btn qb-btn--ghost">Customize</button>
+</div><div class="qb-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="qb-btn qb-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="qb-btn">Continue as guest — express</button>
+</div><header class="qb-hdr">
+  <nav class="qb-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="qb-hdr-promo"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="qb-btn qb-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="qb-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="qb-btn qb-btn--ghost">Submit</button>
+  <button type="button" class="qb-btn qb-btn--ghost">Continue</button>
+</nav><div class="qb-dup-row" aria-label="Quick actions">
+  <button type="button" class="qb-btn qb-btn--ghost">Submit</button>
+  <button type="button" class="qb-btn qb-btn--ghost">Continue</button>
+  <button type="button" class="qb-btn qb-btn--ghost">Save changes</button>
+  <button type="button" class="qb-btn qb-btn--ghost">Confirm</button>
+</div><div class="qb-dup-row"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Add Teriyaki Bowl checkout</button><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-nav">Chicken Teriyaki Bowl cart</button></div><main class="qb-grid" role="main">
+<article class="qb-resto"><h3>Sushi Zen</h3><button type="button" class="qb-btn qb-btn--ghost">View menu</button></article>
+<article class="qb-resto" data-restaurant="tokyo-bowl" data-item="teriyaki-1299" data-price="12.99"><h3>Tokyo Bowl</h3><p>Teriyaki bowl · $12.99</p>
+<button type="button" class="qb-btn qb-btn--primary">Confirm</button></article>
+<article class="qb-resto"><h3>Pizza Hub</h3><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Free delivery</button></article>
+</main><aside class="qb-cart"><h2>Cart (0)</h2><button type="button" class="qb-btn qb-btn--ghost">Clear</button></aside><aside class="qb-rail qb-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="qb-filler" aria-hidden="true"><div class="qb-filler-inner"><a href="/misc/0" class="qb-btn qb-btn--ghost">Link 1</a><button type="button" class="qb-btn qb-btn--ghost">Action 2</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/4" class="qb-btn qb-btn--ghost">Link 5</a><button type="button" class="qb-btn qb-btn--ghost">Action 6</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/8" class="qb-btn qb-btn--ghost">Link 9</a><button type="button" class="qb-btn qb-btn--ghost">Action 10</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/12" class="qb-btn qb-btn--ghost">Link 13</a><button type="button" class="qb-btn qb-btn--ghost">Action 14</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/16" class="qb-btn qb-btn--ghost">Link 17</a><button type="button" class="qb-btn qb-btn--ghost">Action 18</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/20" class="qb-btn qb-btn--ghost">Link 21</a><button type="button" class="qb-btn qb-btn--ghost">Action 22</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/24" class="qb-btn qb-btn--ghost">Link 25</a><button type="button" class="qb-btn qb-btn--ghost">Action 26</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/28" class="qb-btn qb-btn--ghost">Link 29</a><button type="button" class="qb-btn qb-btn--ghost">Action 30</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/32" class="qb-btn qb-btn--ghost">Link 33</a><button type="button" class="qb-btn qb-btn--ghost">Action 34</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/36" class="qb-btn qb-btn--ghost">Link 37</a><button type="button" class="qb-btn qb-btn--ghost">Action 38</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/40" class="qb-btn qb-btn--ghost">Link 41</a><button type="button" class="qb-btn qb-btn--ghost">Action 42</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button></div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="qb-ftr"><small>© Demo QuickBite</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

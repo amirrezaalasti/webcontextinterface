@@ -3,12 +3,12 @@
   "title": "SubStack Billing",
   "icon": "🔔",
   "difficulty": "Hard",
-  "description": "Single plan billing card with cancel CTA.",
+  "description": "Plan card.",
   "challenges": [
-    "Upgrade vs cancel"
+    "Upgrade"
   ],
   "task": {
-    "goal": "Cancel Premium subscription effective next cycle",
+    "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "cancel-premium",
+        "target": "[data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "cancel-premium-sub",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#cancel-premium"
+      "[data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]"
     ]
   }
 }

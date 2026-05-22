@@ -3,14 +3,14 @@
   "title": "HireFlow Jobs",
   "icon": "💼",
   "difficulty": "Extreme",
-  "description": "Job board with filter sidebar, job cards list, and multiple apply buttons.",
+  "description": "Job board with filter sidebar, employer reference cards, and generic confirm CTAs.",
   "challenges": [
-    "Similar Apply buttons on other listings",
-    "Filter sidebar noise",
-    "Header promo CTA"
+    "Multiple Confirm/Apply buttons",
+    "Cookie banner and filler links",
+    "Keyword trap decoys matching employer names"
   ],
   "task": {
-    "goal": "Apply to the Senior Engineer role at Acme Corp",
+    "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "apply-acme-senior",
+        "target": "[data-employer-ref=\"ACM-447\"] .hf-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -51,11 +51,12 @@
     "acceptableNodeIds": [],
     "decoyNodeIds": [
       "decoy-promo",
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#apply-acme-senior",
-      "button.hf-apply[data-action=\"primary\"]"
+      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+      "[data-employer-ref=\"ACM-447\"] button.hf-btn--primary"
     ]
   }
 }

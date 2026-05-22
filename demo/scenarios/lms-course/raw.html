@@ -1,4 +1,50 @@
-<!DOCTYPE html><html><head><title>LearnPath LMS</title><style>.lp-layout{display:grid;grid-template-columns:2fr 1fr}.lp-video{background:#000;height:280px}.lp-modules{list-style:none;padding:0}.lp-mod{padding:10px;border-bottom:1px solid #eee}.lp-done-btn{background:#4f46e5;color:#fff;border:0}</style></head><body>
-<div class="lp-layout" data-page="lms-course"><div class="lp-video" role="main">▶ Module 4: Agents</div><ul class="lp-modules">
-<li class="lp-mod">Module 3 ✓</li><li class="lp-mod">Module 4 — in progress <button type="button" class="lp-done-btn" id="complete-module-4" data-action="primary">Mark complete</button></li>
-</ul><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>LearnPath LMS</title><style>
+.lp-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.lp-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.lp-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.lp-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.lp-btn--decoy{background:#fef9c3;border-color:#fde047}
+.lp-btn--muted{background:#e2e8f0;color:#334155}
+.lp-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.lp-cookie p{flex:1;margin:0;font-size:13px}
+.lp-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.lp-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.lp-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.lp-nav a{margin-right:14px;color:#334155;font-size:13px}
+.lp-hdr-promo button{margin-left:6px}
+.lp-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.lp-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.lp-rail--ads{background:#fffbeb}
+.lp-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.lp-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.lp-ab{display:none}
+.lp-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="lp-app" data-page="lms-course"><div class="lp-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="lp-btn lp-btn--muted">Reject non-essential</button>
+  <button type="button" class="lp-btn lp-btn--primary">Accept all</button>
+  <button type="button" class="lp-btn lp-btn--ghost">Customize</button>
+</div><div class="lp-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="lp-btn lp-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="lp-btn">Continue as guest — express</button>
+</div><header class="lp-hdr">
+  <nav class="lp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="lp-hdr-promo"><button type="button" class="lp-btn lp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="lp-btn lp-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="lp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="lp-btn lp-btn--ghost">Submit</button>
+  <button type="button" class="lp-btn lp-btn--ghost">Continue</button>
+</nav><div class="lp-dup-row" aria-label="Quick actions">
+  <button type="button" class="lp-btn lp-btn--ghost">Submit</button>
+  <button type="button" class="lp-btn lp-btn--ghost">Continue</button>
+  <button type="button" class="lp-btn lp-btn--ghost">Save changes</button>
+  <button type="button" class="lp-btn lp-btn--ghost">Confirm</button>
+</div><div class="lp-dup-row"><button type="button" class="lp-btn lp-btn--decoy" data-decoy="decoy-promo">Mark complete Module 4</button><button type="button" class="lp-btn lp-btn--decoy" data-decoy="decoy-nav">Complete module four</button></div><div style="display:grid;grid-template-columns:2fr 1fr"><div style="background:#000;height:240px;color:#fff;padding:16px" role="main">Module 4 playback</div>
+<ul style="list-style:none;padding:12px"><li>Module 3 ✓</li><li data-module="4" data-status="in-progress">Module 4
+<button type="button" class="lp-btn lp-btn--primary">Confirm</button></li></ul></div><aside class="lp-rail lp-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="lp-btn lp-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="lp-filler" aria-hidden="true"><div class="lp-filler-inner"><a href="/misc/0" class="lp-btn lp-btn--ghost">Link 1</a><button type="button" class="lp-btn lp-btn--ghost">Action 2</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/4" class="lp-btn lp-btn--ghost">Link 5</a><button type="button" class="lp-btn lp-btn--ghost">Action 6</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/8" class="lp-btn lp-btn--ghost">Link 9</a><button type="button" class="lp-btn lp-btn--ghost">Action 10</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/12" class="lp-btn lp-btn--ghost">Link 13</a><button type="button" class="lp-btn lp-btn--ghost">Action 14</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/16" class="lp-btn lp-btn--ghost">Link 17</a><button type="button" class="lp-btn lp-btn--ghost">Action 18</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/20" class="lp-btn lp-btn--ghost">Link 21</a><button type="button" class="lp-btn lp-btn--ghost">Action 22</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/24" class="lp-btn lp-btn--ghost">Link 25</a><button type="button" class="lp-btn lp-btn--ghost">Action 26</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/28" class="lp-btn lp-btn--ghost">Link 29</a><button type="button" class="lp-btn lp-btn--ghost">Action 30</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/32" class="lp-btn lp-btn--ghost">Link 33</a><button type="button" class="lp-btn lp-btn--ghost">Action 34</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/36" class="lp-btn lp-btn--ghost">Link 37</a><button type="button" class="lp-btn lp-btn--ghost">Action 38</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button><a href="/misc/40" class="lp-btn lp-btn--ghost">Link 41</a><button type="button" class="lp-btn lp-btn--ghost">Action 42</button><button type="button" class="lp-btn lp-btn--ghost">Submit</button><button type="button" class="lp-btn lp-btn--ghost">Continue</button></div></div><button type="button" class="lp-btn lp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="lp-ftr"><small>© Demo LearnPath LMS</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

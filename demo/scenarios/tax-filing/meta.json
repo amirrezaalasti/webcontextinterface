@@ -3,14 +3,14 @@
   "title": "TaxEase",
   "icon": "📑",
   "difficulty": "Very Hard",
-  "description": "Multi-step tax wizard with progress steps and W-2 import panel.",
+  "description": "Multi-step tax wizard with provider data attributes.",
   "challenges": [
-    "Manual entry vs import",
-    "Four-step progress bar",
-    "Hidden file input"
+    "Manual vs import",
+    "Progress bar",
+    "ADP keyword decoys"
   ],
   "task": {
-    "goal": "Import W-2 from employer ADP",
+    "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "import-w2-adp",
+        "target": "button[data-provider=\"ADP\"][data-form=\"W2\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -50,11 +50,12 @@
     "wciNodeId": "import-w2-adp",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#import-w2-adp",
-      "button.tx-import"
+      "button[data-provider=\"ADP\"][data-form=\"W2\"]",
+      "button.tx-btn--primary[data-provider=\"ADP\"]"
     ]
   }
 }

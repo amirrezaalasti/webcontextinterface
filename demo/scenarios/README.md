@@ -27,13 +27,40 @@ Generated pages use embedded `<style>` blocks and BEM-ish class prefixes per sit
 
 - **job-board** — filter sidebar + job card list (`ul` / `li`)
 - **tax-filing** — multi-step wizard with progress nav
-- **email-client** — nested `<table>` inbox + reading pane
+- **email-client** — nested inbox + reading pane
 - **streaming-service** — hero + horizontal title tiles
 - **wiki-edit** — toolbar + split editor / diff columns
 - **food-delivery** — restaurant grid + fixed cart drawer
 - **bug-report** — modal `<dialog>` over overlay
 
-Each page includes realistic noise: headers, ads, footers, tracking pixels, duplicate CTAs, and domain-specific decoys.
+## Difficulty design (generated scenarios)
+
+Benchmark tasks are meant to stress **reasoning**, not string-matching button labels or `#verb-noun` ids.
+
+**Raw HTML**
+
+- Primary actions use **generic labels** (`Confirm`, `Continue`, `Submit`) — not quotes from the task goal.
+- Correct targets are identified by **structure and data attributes** (e.g. `[data-employer-ref="ACM-447"] .hf-btn--primary`, `tr[data-rx="lisinopril-10"] .rx-btn--primary`), not goal-leaking `id`s.
+- **Noise shell** on every generated page: cookie banner, secondary nav, duplicate Submit/Continue rows, sponsored aside, hidden A/B variant, ~80+ filler links/buttons (pushes real CTAs later in candidate lists).
+- **Keyword trap** buttons: decoy CTAs whose visible text overlaps goal keywords so raw-html heuristics pick the wrong index.
+- Domain-specific content stays **distinct** per scenario (no shared single-button template).
+
+**Goals (`scripts/lib/scenario-goals.mjs`)**
+
+- Constraint-based requirements (cheapest nonstop, Tuesday 14:30 video slot, employer ref ACM-447, etc.).
+- Avoid naming the exact primary button label.
+
+**Annotated overlay**
+
+- Same DOM as `raw.html`; `data-agent-id` on the true target may stay semantic (`apply-senior-engineer`, `schedule-video-visit`) for WCI evals.
+- `data-agent-desc` carries the full constraint goal so WCI grounding remains high when annotations are good.
+
+**Ground truth**
+
+- `rawSelectors` are Playwright-verified structural selectors (see `npm run eval:verify`).
+- `decoyNodeIds` include `decoy-promo`, `decoy-nav`, and `decoy-extra` where injected.
+
+**Legacy (5)** — unchanged hand-authored DOM; already hard (flight, banking, checkout, social, admin). Do not simplify.
 
 ## Annotation overlay model
 
@@ -61,7 +88,10 @@ This:
 
 Implementation modules:
 
+- `scripts/lib/scenario-dom-noise.mjs` — shared cookie/filler/decoy shell
+- `scripts/lib/scenario-goals.mjs` — constraint-based task goals
 - `scripts/lib/scenario-layouts.mjs` — per-id DOM builders
+- `scripts/lib/scenario-layouts-registers.mjs` — hardened register batch layouts
 - `scripts/lib/annotate-html.mjs` — overlay injection
 
 ## Loading
@@ -79,3 +109,8 @@ npm run eval:verify -- --scenarios=job-board,healthcare-portal
 ```
 
 Default (no flag) still runs every scenario in `manifest.json`.
+
+Expected heuristic ballpark after hardening (deterministic keyword baseline, not LLM):
+
+- **raw-html** on generated set: low single digits–teens % (keyword traps + generic CTAs)
+- **wci-grounding**: high 90s–100% when annotations encode constraints

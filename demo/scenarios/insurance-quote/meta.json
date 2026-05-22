@@ -3,13 +3,13 @@
   "title": "ShieldSure",
   "icon": "🛡️",
   "difficulty": "Extreme",
-  "description": "Two-column quote form with coverage radios and estimate sidebar.",
+  "description": "Two-column quote form.",
   "challenges": [
-    "Call agent decoy",
-    "Coverage radio noise"
+    "Liability vs full",
+    "Keyword quote traps"
   ],
   "task": {
-    "goal": "Get auto insurance quote for ZIP 94105",
+    "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow).",
     "standardSteps": [
       {
         "action": "scan",
@@ -25,7 +25,7 @@
       },
       {
         "action": "click",
-        "target": "get-auto-quote-94105",
+        "target": "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -49,10 +49,12 @@
     "wciNodeId": "get-auto-quote",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#get-auto-quote-94105"
+      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+      "button[data-quote-zip=\"94105\"]"
     ]
   }
 }

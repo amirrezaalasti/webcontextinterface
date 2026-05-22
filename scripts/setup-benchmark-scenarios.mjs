@@ -9,6 +9,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildAnnotatedFromRaw } from './lib/annotate-html.mjs';
+import { HARD_GOALS } from './lib/scenario-goals.mjs';
 import { buildGeneratedLayout } from './lib/scenario-layouts.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -46,7 +47,7 @@ function buildGeneratedScenario(spec) {
   const { rawHtml, plan, rawSelectors, description, challenges } = buildGeneratedLayout(spec);
   const annotatedHtml = buildAnnotatedFromRaw(rawHtml, plan);
 
-  const primarySel = rawSelectors[0]?.replace(/^#/, '') ?? `${id}-primary-action`;
+  const primarySel = rawSelectors[0] ?? `${id}-primary-action`;
 
   const meta = {
     id,
@@ -78,53 +79,54 @@ function buildGeneratedScenario(spec) {
   return { rawHtml, annotatedHtml, meta };
 }
 
+/** Generated scenario specs — goals from HARD_GOALS (constraint-based, no button-label quotes). */
 const GENERATED_SPECS = [
-  { id: 'job-board', title: 'HireFlow Jobs', icon: '💼', goal: 'Apply to the Senior Engineer role at Acme Corp', wciId: 'apply-senior-engineer', decoys: ['decoy-promo', 'decoy-nav'] },
-  { id: 'healthcare-portal', title: 'MediGate Portal', icon: '🏥', goal: 'Schedule a video visit for next Tuesday', wciId: 'schedule-video-visit', decoys: ['decoy-nav'] },
-  { id: 'email-client', title: 'InboxPro Mail', icon: '📧', goal: 'Archive the email thread from billing@acme.com', wciId: 'archive-billing-thread', decoys: ['decoy-promo'] },
-  { id: 'calendar-app', title: 'CalSync', icon: '📅', goal: 'Create a team standup event every weekday at 9am', wciId: 'create-standup-series', decoys: [] },
-  { id: 'food-delivery', title: 'QuickBite', icon: '🍔', goal: 'Add Chicken Teriyaki Bowl to cart and checkout', wciId: 'add-teriyaki-checkout', decoys: ['decoy-promo'] },
-  { id: 'insurance-quote', title: 'ShieldSure', icon: '🛡️', goal: 'Get auto insurance quote for ZIP 94105', wciId: 'get-auto-quote', decoys: ['decoy-nav'] },
-  { id: 'real-estate', title: 'HomeNest Listings', icon: '🏠', goal: 'Save the 3BR listing at 742 Evergreen Terrace', wciId: 'save-listing-742', decoys: ['decoy-promo'] },
-  { id: 'lms-course', title: 'LearnPath LMS', icon: '🎓', goal: 'Mark Module 4 lesson as complete', wciId: 'complete-module-4', decoys: [] },
-  { id: 'support-ticket', title: 'HelpDesk One', icon: '🎫', goal: 'Submit priority ticket for login outage', wciId: 'submit-priority-ticket', decoys: ['decoy-nav'] },
-  { id: 'ecommerce-search', title: 'ShopGrid', icon: '🛍️', goal: 'Filter results to 4-star and above under $50', wciId: 'apply-rating-price-filter', decoys: ['decoy-promo'] },
-  { id: 'streaming-service', title: 'StreamVault', icon: '🎬', goal: 'Add documentary "Ocean Deep" to watchlist', wciId: 'add-ocean-deep-watchlist', decoys: [] },
-  { id: 'hotel-booking', title: 'StayFinder', icon: '🏨', goal: 'Book the downtown Marriott for 2 nights', wciId: 'book-marriott-downtown', decoys: ['decoy-promo'] },
-  { id: 'tax-filing', title: 'TaxEase', icon: '📑', goal: 'Import W-2 from employer ADP', wciId: 'import-w2-adp', decoys: ['decoy-nav'] },
-  { id: 'weather-app', title: 'SkyCast', icon: '⛅', goal: 'Enable rain alerts for San Francisco', wciId: 'enable-sf-rain-alerts', decoys: [] },
-  { id: 'parking-reservation', title: 'ParkSpot', icon: '🅿️', goal: 'Reserve garage spot B12 for Saturday 2pm', wciId: 'reserve-spot-b12', decoys: ['decoy-promo'] },
-  { id: 'gym-membership', title: 'FitClub', icon: '💪', goal: 'Upgrade membership to annual plan', wciId: 'upgrade-annual-plan', decoys: [] },
-  { id: 'pharmacy-order', title: 'RxDirect', icon: '💊', goal: 'Refill prescription for Lisinopril 10mg', wciId: 'refill-lisinopril', decoys: ['decoy-nav'] },
-  { id: 'ride-share', title: 'GoRide', icon: '🚗', goal: 'Request ride to SFO Terminal 2', wciId: 'request-sfo-ride', decoys: ['decoy-promo'] },
-  { id: 'voting-poll', title: 'VoteHub', icon: '🗳️', goal: 'Cast vote for Proposition 12', wciId: 'vote-prop-12', decoys: [] },
-  { id: 'wiki-edit', title: 'OpenWiki', icon: '📖', goal: 'Publish edit to Web Context Interface article', wciId: 'publish-wci-edit', decoys: ['decoy-nav'] },
-  { id: 'code-review', title: 'MergeLab', icon: '🔀', goal: 'Approve pull request #4182', wciId: 'approve-pr-4182', decoys: ['decoy-promo'] },
-  { id: 'inventory-mgmt', title: 'StockPilot', icon: '📦', goal: 'Reorder SKU WH-9921 quantity 500', wciId: 'reorder-sku-wh9921', decoys: [] },
-  { id: 'subscription-cancel', title: 'SubStack Billing', icon: '🔔', goal: 'Cancel Premium subscription effective next cycle', wciId: 'cancel-premium-sub', decoys: ['decoy-promo'] },
-  { id: 'password-reset', title: 'AuthGate', icon: '🔐', goal: 'Send password reset link to user@corp.com', wciId: 'send-reset-link', decoys: ['decoy-nav'] },
-  { id: 'document-sign', title: 'SignNow', icon: '✍️', goal: 'Sign employment agreement page 12', wciId: 'sign-agreement-p12', decoys: [] },
-  { id: 'survey-form', title: 'FeedbackLoop', icon: '📋', goal: 'Submit NPS score 9 with comment', wciId: 'submit-nps-9', decoys: ['decoy-promo'] },
-  { id: 'charity-donate', title: 'GiveHope', icon: '❤️', goal: 'Donate $25 monthly to clean water fund', wciId: 'donate-water-fund', decoys: [] },
-  { id: 'flight-checkin', title: 'AirCheck', icon: '🛫', goal: 'Select window seat 14A for flight AA882', wciId: 'select-seat-14a', decoys: ['decoy-nav'] },
-  { id: 'visa-application', title: 'VisaPath', icon: '🛂', goal: 'Upload passport scan for B-1 application', wciId: 'upload-passport-scan', decoys: ['decoy-promo'] },
-  { id: 'stock-trade', title: 'TradePulse', icon: '📈', goal: 'Buy 10 shares of AAPL at market', wciId: 'buy-aapl-market', decoys: [] },
-  { id: 'podcast-subscribe', title: 'PodWave', icon: '🎙️', goal: 'Subscribe to show "AI Daily"', wciId: 'subscribe-ai-daily', decoys: ['decoy-promo'] },
-  { id: 'photo-upload', title: 'CloudAlbum', icon: '📷', goal: 'Upload vacation album "Iceland 2026"', wciId: 'upload-iceland-album', decoys: [] },
-  { id: 'forum-post', title: 'DevForum', icon: '💬', goal: 'Pin the thread "WCI specification feedback"', wciId: 'pin-wci-thread', decoys: ['decoy-nav'] },
-  { id: 'dating-profile', title: 'MatchMingle', icon: '💕', goal: 'Send intro message to profile @river_kayak', wciId: 'message-river-kayak', decoys: ['decoy-promo'] },
-  { id: 'rental-car', title: 'DriveAway', icon: '🚙', goal: 'Reserve compact car pickup LAX Friday', wciId: 'reserve-lax-compact', decoys: [] },
-  { id: 'concert-tickets', title: 'TicketRush', icon: '🎵', goal: 'Buy 2 GA tickets for Neon Pulse tour', wciId: 'buy-neon-pulse-ga', decoys: ['decoy-promo'] },
-  { id: 'grocery-list', title: 'FreshCart', icon: '🥬', goal: 'Add organic avocados to shared family list', wciId: 'add-avocados-list', decoys: ['decoy-nav'] },
-  { id: 'pet-adoption', title: 'PawMatch', icon: '🐾', goal: 'Submit adoption application for dog Max', wciId: 'apply-adopt-max', decoys: [] },
-  { id: 'scholarship-apply', title: 'EduGrant', icon: '🎓', goal: 'Submit STEM scholarship application', wciId: 'submit-stem-scholarship', decoys: ['decoy-promo'] },
-  { id: 'wifi-setup', title: 'NetConfig', icon: '📶', goal: 'Connect device to guest network Guest_5G', wciId: 'connect-guest-5g', decoys: [] },
-  { id: 'invoice-pay', title: 'BillFlow', icon: '🧾', goal: 'Pay invoice INV-2026-044 due today', wciId: 'pay-inv-2026-044', decoys: ['decoy-nav'] },
-  { id: 'newsletter-sub', title: 'PostBrief', icon: '📰', goal: 'Subscribe to weekly AI digest', wciId: 'subscribe-ai-digest', decoys: ['decoy-promo'] },
-  { id: 'api-keys', title: 'DevConsole', icon: '🔑', goal: 'Rotate production API key', wciId: 'rotate-prod-api-key', decoys: [] },
-  { id: 'privacy-settings', title: 'PrivacyDesk', icon: '🔒', goal: 'Disable third-party data sharing', wciId: 'disable-third-party-share', decoys: ['decoy-nav'] },
-  { id: 'bug-report', title: 'IssueTrack', icon: '🐛', goal: 'File bug reproducing checkout timeout', wciId: 'file-checkout-timeout-bug', decoys: ['decoy-promo'] },
-];
+  { id: 'job-board', title: 'HireFlow Jobs', icon: '💼', wciId: 'apply-senior-engineer', decoys: ['decoy-promo', 'decoy-nav', 'decoy-extra'] },
+  { id: 'healthcare-portal', title: 'MediGate Portal', icon: '🏥', wciId: 'schedule-video-visit', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'email-client', title: 'InboxPro Mail', icon: '📧', wciId: 'archive-billing-thread', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'calendar-app', title: 'CalSync', icon: '📅', wciId: 'create-standup-series', decoys: ['decoy-extra'] },
+  { id: 'food-delivery', title: 'QuickBite', icon: '🍔', wciId: 'add-teriyaki-checkout', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'insurance-quote', title: 'ShieldSure', icon: '🛡️', wciId: 'get-auto-quote', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'real-estate', title: 'HomeNest Listings', icon: '🏠', wciId: 'save-listing-742', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'lms-course', title: 'LearnPath LMS', icon: '🎓', wciId: 'complete-module-4', decoys: ['decoy-extra'] },
+  { id: 'support-ticket', title: 'HelpDesk One', icon: '🎫', wciId: 'submit-priority-ticket', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'ecommerce-search', title: 'ShopGrid', icon: '🛍️', wciId: 'apply-rating-price-filter', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'streaming-service', title: 'StreamVault', icon: '🎬', wciId: 'add-ocean-deep-watchlist', decoys: ['decoy-extra'] },
+  { id: 'hotel-booking', title: 'StayFinder', icon: '🏨', wciId: 'book-marriott-downtown', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'tax-filing', title: 'TaxEase', icon: '📑', wciId: 'import-w2-adp', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'weather-app', title: 'SkyCast', icon: '⛅', wciId: 'enable-sf-rain-alerts', decoys: ['decoy-extra'] },
+  { id: 'parking-reservation', title: 'ParkSpot', icon: '🅿️', wciId: 'reserve-spot-b12', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'gym-membership', title: 'FitClub', icon: '💪', wciId: 'upgrade-annual-plan', decoys: ['decoy-extra'] },
+  { id: 'pharmacy-order', title: 'RxDirect', icon: '💊', wciId: 'refill-lisinopril', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'ride-share', title: 'GoRide', icon: '🚗', wciId: 'request-sfo-ride', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'voting-poll', title: 'VoteHub', icon: '🗳️', wciId: 'vote-prop-12', decoys: ['decoy-extra'] },
+  { id: 'wiki-edit', title: 'OpenWiki', icon: '📖', wciId: 'publish-wci-edit', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'code-review', title: 'MergeLab', icon: '🔀', wciId: 'approve-pr-4182', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'inventory-mgmt', title: 'StockPilot', icon: '📦', wciId: 'reorder-sku-wh9921', decoys: ['decoy-extra'] },
+  { id: 'subscription-cancel', title: 'SubStack Billing', icon: '🔔', wciId: 'cancel-premium-sub', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'password-reset', title: 'AuthGate', icon: '🔐', wciId: 'send-reset-link', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'document-sign', title: 'SignNow', icon: '✍️', wciId: 'sign-agreement-p12', decoys: ['decoy-extra'] },
+  { id: 'survey-form', title: 'FeedbackLoop', icon: '📋', wciId: 'submit-nps-9', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'charity-donate', title: 'GiveHope', icon: '❤️', wciId: 'donate-water-fund', decoys: ['decoy-extra'] },
+  { id: 'flight-checkin', title: 'AirCheck', icon: '🛫', wciId: 'select-seat-14a', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'visa-application', title: 'VisaPath', icon: '🛂', wciId: 'upload-passport-scan', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'stock-trade', title: 'TradePulse', icon: '📈', wciId: 'buy-aapl-market', decoys: ['decoy-extra'] },
+  { id: 'podcast-subscribe', title: 'PodWave', icon: '🎙️', wciId: 'subscribe-ai-daily', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'photo-upload', title: 'CloudAlbum', icon: '📷', wciId: 'upload-iceland-album', decoys: ['decoy-extra'] },
+  { id: 'forum-post', title: 'DevForum', icon: '💬', wciId: 'pin-wci-thread', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'dating-profile', title: 'MatchMingle', icon: '💕', wciId: 'message-river-kayak', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'rental-car', title: 'DriveAway', icon: '🚙', wciId: 'reserve-lax-compact', decoys: ['decoy-extra'] },
+  { id: 'concert-tickets', title: 'TicketRush', icon: '🎵', wciId: 'buy-neon-pulse-ga', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'grocery-list', title: 'FreshCart', icon: '🥬', wciId: 'add-avocados-list', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'pet-adoption', title: 'PawMatch', icon: '🐾', wciId: 'apply-adopt-max', decoys: ['decoy-extra'] },
+  { id: 'scholarship-apply', title: 'EduGrant', icon: '🎓', wciId: 'submit-stem-scholarship', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'wifi-setup', title: 'NetConfig', icon: '📶', wciId: 'connect-guest-5g', decoys: ['decoy-extra'] },
+  { id: 'invoice-pay', title: 'BillFlow', icon: '🧾', wciId: 'pay-inv-2026-044', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'newsletter-sub', title: 'PostBrief', icon: '📰', wciId: 'subscribe-ai-digest', decoys: ['decoy-promo', 'decoy-extra'] },
+  { id: 'api-keys', title: 'DevConsole', icon: '🔑', wciId: 'rotate-prod-api-key', decoys: ['decoy-extra'] },
+  { id: 'privacy-settings', title: 'PrivacyDesk', icon: '🔒', wciId: 'disable-third-party-share', decoys: ['decoy-nav', 'decoy-extra'] },
+  { id: 'bug-report', title: 'IssueTrack', icon: '🐛', wciId: 'file-checkout-timeout-bug', decoys: ['decoy-promo', 'decoy-extra'] },
+].map((s) => ({ ...s, goal: HARD_GOALS[s.id] }));
 
 const LEGACY_META = {
   'flight-booking': {

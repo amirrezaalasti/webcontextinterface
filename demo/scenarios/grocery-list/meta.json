@@ -3,12 +3,12 @@
   "title": "FreshCart",
   "icon": "🥬",
   "difficulty": "Extreme",
-  "description": "Grocery list UL with per-item actions.",
+  "description": "List UL.",
   "challenges": [
-    "Remove vs Add"
+    "Share"
   ],
   "task": {
-    "goal": "Add organic avocados to shared family list",
+    "goal": "Add organic avocados line item to shared family list.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "add-avocados",
+        "target": "[data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "add-avocados-list",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#add-avocados"
+      "[data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]"
     ]
   }
 }

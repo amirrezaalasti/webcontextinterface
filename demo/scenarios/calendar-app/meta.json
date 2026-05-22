@@ -3,14 +3,14 @@
   "title": "CalSync",
   "icon": "📅",
   "difficulty": "Extreme",
-  "description": "Calendar week grid with open event modal and series creation CTA.",
+  "description": "Calendar grid with modal overlay and generic series confirm.",
   "challenges": [
-    "Grid +Add cells vs series button",
-    "Open modal overlay",
-    "Multiple day columns"
+    "+ Add cells vs series confirm",
+    "Open modal",
+    "Keyword traps"
   ],
   "task": {
-    "goal": "Create a team standup event every weekday at 9am",
+    "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "create-standup-series",
+        "target": "button[data-series=\"weekday-standup-09\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -49,10 +49,12 @@
   "groundTruth": {
     "wciNodeId": "create-standup-series",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#create-standup-series",
-      "button.cs-create"
+      "button[data-series=\"weekday-standup-09\"]",
+      "button.cs-btn--primary[data-series=\"weekday-standup-09\"]"
     ]
   }
 }

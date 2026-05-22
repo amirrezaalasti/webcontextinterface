@@ -1,6 +1,52 @@
-<!DOCTYPE html><html><head><title>DevForum</title><style>.df-thread{border-bottom:1px solid #ddd;padding:12px}.df-meta{color:#6b7280;font-size:12px}.df-pin{background:#fbbf24;border:0;padding:6px}</style></head><body>
-<ul data-page="forum-post" role="main">
-<li class="df-thread"><span class="df-meta">@bob · 2h</span><h3>Random topic</h3></li>
-<li class="df-thread" data-thread="wci-feedback"><span class="df-meta">@alice · pinned?</span><h3>WCI specification feedback</h3>
-<button type="button" class="df-pin" id="pin-wci-thread" data-action="primary">Pin thread</button></li>
-</ul><button type="button" data-decoy="decoy-nav">New post</button><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>DevForum</title><style>
+.df-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.df-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.df-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.df-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.df-btn--decoy{background:#fef9c3;border-color:#fde047}
+.df-btn--muted{background:#e2e8f0;color:#334155}
+.df-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.df-cookie p{flex:1;margin:0;font-size:13px}
+.df-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.df-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.df-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.df-nav a{margin-right:14px;color:#334155;font-size:13px}
+.df-hdr-promo button{margin-left:6px}
+.df-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.df-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.df-rail--ads{background:#fffbeb}
+.df-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.df-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.df-ab{display:none}
+.df-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="df-app" data-page="forum-post"><div class="df-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="df-btn df-btn--muted">Reject non-essential</button>
+  <button type="button" class="df-btn df-btn--primary">Accept all</button>
+  <button type="button" class="df-btn df-btn--ghost">Customize</button>
+</div><div class="df-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="df-btn df-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="df-btn">Continue as guest — express</button>
+</div><header class="df-hdr">
+  <nav class="df-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="df-hdr-promo"><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="df-btn df-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="df-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="df-btn df-btn--ghost">Submit</button>
+  <button type="button" class="df-btn df-btn--ghost">Continue</button>
+</nav><div class="df-dup-row" aria-label="Quick actions">
+  <button type="button" class="df-btn df-btn--ghost">Submit</button>
+  <button type="button" class="df-btn df-btn--ghost">Continue</button>
+  <button type="button" class="df-btn df-btn--ghost">Save changes</button>
+  <button type="button" class="df-btn df-btn--ghost">Confirm</button>
+</div><div class="df-dup-row"><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">Pin WCI thread</button><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-nav">Pin WCI specification feedback</button></div><ul role="main" style="list-style:none;padding:0">
+<li style="border-bottom:1px solid #ddd;padding:12px"><h3>Random</h3></li>
+<li style="border-bottom:1px solid #ddd;padding:12px" data-thread="wci-feedback"><h3>WCI specification feedback</h3>
+<button type="button" class="df-btn df-btn--primary" data-pin="wci-feedback">Confirm</button></li></ul>
+<button type="button" class="df-btn df-btn--ghost" data-decoy="decoy-nav">New post</button><aside class="df-rail df-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="df-filler" aria-hidden="true"><div class="df-filler-inner"><a href="/misc/0" class="df-btn df-btn--ghost">Link 1</a><button type="button" class="df-btn df-btn--ghost">Action 2</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/4" class="df-btn df-btn--ghost">Link 5</a><button type="button" class="df-btn df-btn--ghost">Action 6</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/8" class="df-btn df-btn--ghost">Link 9</a><button type="button" class="df-btn df-btn--ghost">Action 10</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/12" class="df-btn df-btn--ghost">Link 13</a><button type="button" class="df-btn df-btn--ghost">Action 14</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/16" class="df-btn df-btn--ghost">Link 17</a><button type="button" class="df-btn df-btn--ghost">Action 18</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/20" class="df-btn df-btn--ghost">Link 21</a><button type="button" class="df-btn df-btn--ghost">Action 22</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/24" class="df-btn df-btn--ghost">Link 25</a><button type="button" class="df-btn df-btn--ghost">Action 26</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/28" class="df-btn df-btn--ghost">Link 29</a><button type="button" class="df-btn df-btn--ghost">Action 30</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/32" class="df-btn df-btn--ghost">Link 33</a><button type="button" class="df-btn df-btn--ghost">Action 34</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/36" class="df-btn df-btn--ghost">Link 37</a><button type="button" class="df-btn df-btn--ghost">Action 38</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/40" class="df-btn df-btn--ghost">Link 41</a><button type="button" class="df-btn df-btn--ghost">Action 42</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button></div></div><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="df-ftr"><small>© Demo DevForum</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

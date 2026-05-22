@@ -3,12 +3,12 @@
   "title": "FeedbackLoop",
   "icon": "📋",
   "difficulty": "Hard",
-  "description": "NPS 0–10 button scale + comment textarea.",
+  "description": "NPS scale.",
   "challenges": [
-    "Score buttons vs submit"
+    "Skip"
   ],
   "task": {
-    "goal": "Submit NPS score 9 with comment",
+    "goal": "Submit NPS score nine with the provided positive comment (not skip prize).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "submit-nps",
+        "target": "button[data-nps-submit=\"9\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "submit-nps-9",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-nps"
+      "button[data-nps-submit=\"9\"]"
     ]
   }
 }

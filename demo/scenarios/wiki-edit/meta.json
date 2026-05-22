@@ -3,14 +3,14 @@
   "title": "OpenWiki",
   "icon": "📖",
   "difficulty": "Extreme",
-  "description": "Wiki edit split view: toolbar, textarea editor, and diff preview column.",
+  "description": "Wiki split editor with article slug on publish confirm.",
   "challenges": [
-    "Toolbar formatting vs publish",
-    "Diff pane noise",
-    "Show history decoy"
+    "Toolbar noise",
+    "Diff column",
+    "Publish keyword traps"
   ],
   "task": {
-    "goal": "Publish edit to Web Context Interface article",
+    "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "publish-wci-article",
+        "target": "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -50,11 +50,12 @@
     "wciNodeId": "publish-wci-edit",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#publish-wci-article",
-      "button.ow-publish"
+      "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+      "button.ow-btn--primary[data-action=\"publish\"]"
     ]
   }
 }

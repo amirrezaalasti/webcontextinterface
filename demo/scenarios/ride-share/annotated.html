@@ -1,4 +1,51 @@
-<!DOCTYPE html><html><head><title>GoRide</title><style>.gr-app{display:grid;grid-template-rows:auto 1fr auto;height:100vh}.gr-map{flex:1;background:#d4d4d8;min-height:300px}.gr-dest{padding:16px}</style></head><body>
-<div class="gr-app" data-page="ride-share" data-agent-role="landmark" data-agent-id="ride_share-page" data-agent-desc="Ride share map + destination bar" data-agent-priority="2"><header>GoRide</header><div class="gr-map" role="img">Map</div>
-<div class="gr-dest" role="main"><input type="text" value="SFO Terminal 2" id="destination"><select><option>GoX</option><option>Comfort</option></select>
-<button type="button" id="request-ride-sfo" data-action="primary" data-agent-role="action" data-agent-id="request-sfo-ride" data-agent-desc="Request ride to SFO Terminal 2" data-agent-action="click" data-agent-priority="1">Request ride</button><button type="button" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo ride" data-agent-priority="5" data-agent-action="click">50% off first ride</button></div></div><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>GoRide</title><style>
+.gr-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.gr-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.gr-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.gr-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.gr-btn--decoy{background:#fef9c3;border-color:#fde047}
+.gr-btn--muted{background:#e2e8f0;color:#334155}
+.gr-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.gr-cookie p{flex:1;margin:0;font-size:13px}
+.gr-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.gr-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.gr-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.gr-nav a{margin-right:14px;color:#334155;font-size:13px}
+.gr-hdr-promo button{margin-left:6px}
+.gr-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.gr-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.gr-rail--ads{background:#fffbeb}
+.gr-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.gr-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.gr-ab{display:none}
+.gr-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="gr-app" data-page="ride-share" data-agent-role="landmark" data-agent-id="ride_share-page" data-agent-desc="Ride app" data-agent-priority="2"><div class="gr-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="gr-btn gr-btn--muted">Reject non-essential</button>
+  <button type="button" class="gr-btn gr-btn--primary">Accept all</button>
+  <button type="button" class="gr-btn gr-btn--ghost">Customize</button>
+</div><div class="gr-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="gr-btn gr-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="gr-btn">Continue as guest — express</button>
+</div><header class="gr-hdr">
+  <nav class="gr-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="gr-hdr-promo"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="gr-btn gr-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="gr-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="gr-btn gr-btn--ghost">Submit</button>
+  <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
+</nav><div class="gr-dup-row" aria-label="Quick actions">
+  <button type="button" class="gr-btn gr-btn--ghost">Submit</button>
+  <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
+  <button type="button" class="gr-btn gr-btn--ghost">Save changes</button>
+  <button type="button" class="gr-btn gr-btn--ghost">Confirm</button>
+</div><div class="gr-dup-row"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">Request ride SFO</button><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-nav">Request ride SFO Terminal 2</button></div><div style="display:grid;grid-template-rows:auto 1fr auto;min-height:50vh"><div style="background:#d4d4d8;min-height:200px">Map</div>
+<div role="main" style="padding:16px"><input type="text" value="SFO Terminal 2" readonly="" data-dest="SFO-T2">
+<button type="button" class="gr-btn gr-btn--primary" data-dest="SFO-T2" data-agent-role="action" data-agent-id="request-sfo-ride" data-agent-desc="Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer)." data-agent-action="click" data-agent-priority="1">Confirm</button>
+<button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">50% off first ride</button></div></div><aside class="gr-rail gr-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="gr-filler" aria-hidden="true"><div class="gr-filler-inner"><a href="/misc/0" class="gr-btn gr-btn--ghost">Link 1</a><button type="button" class="gr-btn gr-btn--ghost">Action 2</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/4" class="gr-btn gr-btn--ghost">Link 5</a><button type="button" class="gr-btn gr-btn--ghost">Action 6</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/8" class="gr-btn gr-btn--ghost">Link 9</a><button type="button" class="gr-btn gr-btn--ghost">Action 10</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/12" class="gr-btn gr-btn--ghost">Link 13</a><button type="button" class="gr-btn gr-btn--ghost">Action 14</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/16" class="gr-btn gr-btn--ghost">Link 17</a><button type="button" class="gr-btn gr-btn--ghost">Action 18</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/20" class="gr-btn gr-btn--ghost">Link 21</a><button type="button" class="gr-btn gr-btn--ghost">Action 22</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/24" class="gr-btn gr-btn--ghost">Link 25</a><button type="button" class="gr-btn gr-btn--ghost">Action 26</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/28" class="gr-btn gr-btn--ghost">Link 29</a><button type="button" class="gr-btn gr-btn--ghost">Action 30</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/32" class="gr-btn gr-btn--ghost">Link 33</a><button type="button" class="gr-btn gr-btn--ghost">Action 34</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/36" class="gr-btn gr-btn--ghost">Link 37</a><button type="button" class="gr-btn gr-btn--ghost">Action 38</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/40" class="gr-btn gr-btn--ghost">Link 41</a><button type="button" class="gr-btn gr-btn--ghost">Action 42</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button></div></div><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="gr-ftr"><small>© Demo GoRide</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

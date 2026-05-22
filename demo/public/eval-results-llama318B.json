@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T22:14:28.299Z",
+  "modelOrder": [
+    {
+      "id": "llama31_8b",
+      "name": "Llama 3.1 8B",
+      "openRouterModel": "meta-llama/llama-3.1-8b-instruct"
+    }
+  ],
+  "llama31_8b": {
+    "standard": {
+      "successRate": 13,
+      "avgTokens": 1767
+    },
+    "wci": {
+      "successRate": 92,
+      "avgTokens": 450
+    },
+    "wciFull": {
+      "successRate": 92,
+      "avgTokens": 561
+    },
+    "agentDom": {
+      "successRate": 92,
+      "avgTokens": 450
+    }
+  }
+}

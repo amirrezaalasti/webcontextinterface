@@ -1,10 +1,51 @@
-<!DOCTYPE html><html><head><title>StayFinder</title><style>.sf-results{display:flex;flex-direction:column;gap:12px}.sf-hotel{display:flex;border:1px solid #ddd;padding:16px;gap:16px}.sf-book{margin-left:auto;background:#0369a1;color:#fff;border:0;padding:10px}</style></head><body>
-<ul class="sf-results" data-page="hotel-booking" role="main">
-<li class="sf-hotel"><div><h2>Airport Inn</h2><p>$89/night</p></div><button type="button">Select</button></li>
-<li class="sf-hotel" data-hotel="marriott-downtown"><div><h2>Marriott Downtown</h2><p>$189/night · 2 nights</p></div>
-<button type="button" class="sf-book" id="book-marriott" data-action="primary">Book 2 nights</button></li>
-</ul><header class="sf-hdr">
-  <nav class="sf-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
-  <div class="sf-hdr-promo"><button type="button" class="sf-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="sf-ad-btn sf-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>StayFinder</title><style>
+.sf-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.sf-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.sf-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.sf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.sf-btn--decoy{background:#fef9c3;border-color:#fde047}
+.sf-btn--muted{background:#e2e8f0;color:#334155}
+.sf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.sf-cookie p{flex:1;margin:0;font-size:13px}
+.sf-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.sf-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.sf-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.sf-nav a{margin-right:14px;color:#334155;font-size:13px}
+.sf-hdr-promo button{margin-left:6px}
+.sf-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.sf-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.sf-rail--ads{background:#fffbeb}
+.sf-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.sf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.sf-ab{display:none}
+.sf-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="sf-app" data-page="hotel-booking"><div class="sf-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="sf-btn sf-btn--muted">Reject non-essential</button>
+  <button type="button" class="sf-btn sf-btn--primary">Accept all</button>
+  <button type="button" class="sf-btn sf-btn--ghost">Customize</button>
+</div><div class="sf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="sf-btn sf-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="sf-btn">Continue as guest — express</button>
+</div><header class="sf-hdr">
+  <nav class="sf-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="sf-hdr-promo"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="sf-btn sf-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="sf-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
+  <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
+</nav><div class="sf-dup-row" aria-label="Quick actions">
+  <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
+  <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
+  <button type="button" class="sf-btn sf-btn--ghost">Save changes</button>
+  <button type="button" class="sf-btn sf-btn--ghost">Confirm</button>
+</div><div class="sf-dup-row"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Book Marriott downtown</button><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-nav">Book 2 nights Marriott</button></div><ul role="main" style="list-style:none;padding:16px">
+<li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="airport-inn"><div style="flex:1"><h2>Airport Inn</h2></div><button type="button" class="sf-btn sf-btn--ghost">Select</button></li>
+<li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="marriott-downtown" data-nights="2"><div style="flex:1"><h2>Marriott Downtown</h2><p>2 nights</p></div>
+<button type="button" class="sf-btn sf-btn--primary">Confirm</button></li></ul><aside class="sf-rail sf-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="sf-filler" aria-hidden="true"><div class="sf-filler-inner"><a href="/misc/0" class="sf-btn sf-btn--ghost">Link 1</a><button type="button" class="sf-btn sf-btn--ghost">Action 2</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/4" class="sf-btn sf-btn--ghost">Link 5</a><button type="button" class="sf-btn sf-btn--ghost">Action 6</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/8" class="sf-btn sf-btn--ghost">Link 9</a><button type="button" class="sf-btn sf-btn--ghost">Action 10</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/12" class="sf-btn sf-btn--ghost">Link 13</a><button type="button" class="sf-btn sf-btn--ghost">Action 14</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/16" class="sf-btn sf-btn--ghost">Link 17</a><button type="button" class="sf-btn sf-btn--ghost">Action 18</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/20" class="sf-btn sf-btn--ghost">Link 21</a><button type="button" class="sf-btn sf-btn--ghost">Action 22</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/24" class="sf-btn sf-btn--ghost">Link 25</a><button type="button" class="sf-btn sf-btn--ghost">Action 26</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/28" class="sf-btn sf-btn--ghost">Link 29</a><button type="button" class="sf-btn sf-btn--ghost">Action 30</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/32" class="sf-btn sf-btn--ghost">Link 33</a><button type="button" class="sf-btn sf-btn--ghost">Action 34</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/36" class="sf-btn sf-btn--ghost">Link 37</a><button type="button" class="sf-btn sf-btn--ghost">Action 38</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/40" class="sf-btn sf-btn--ghost">Link 41</a><button type="button" class="sf-btn sf-btn--ghost">Action 42</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button></div></div><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sf-ftr"><small>© Demo StayFinder</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

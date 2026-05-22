@@ -3,12 +3,12 @@
   "title": "DevForum",
   "icon": "💬",
   "difficulty": "Very Hard",
-  "description": "Forum thread list items with pin action.",
+  "description": "Thread list.",
   "challenges": [
-    "New post decoy"
+    "New post"
   ],
   "task": {
-    "goal": "Pin the thread \"WCI specification feedback\"",
+    "goal": "Pin the community thread about WCI specification feedback.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "pin-wci-thread",
+        "target": "[data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "pin-wci-thread",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#pin-wci-thread"
+      "[data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]"
     ]
   }
 }

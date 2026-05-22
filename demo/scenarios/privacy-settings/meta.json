@@ -3,12 +3,12 @@
   "title": "PrivacyDesk",
   "icon": "🔒",
   "difficulty": "Very Hard",
-  "description": "Privacy settings rows with toggles.",
+  "description": "Toggle rows.",
   "challenges": [
-    "Checkbox vs save button"
+    "Download"
   ],
   "task": {
-    "goal": "Disable third-party data sharing",
+    "goal": "Save settings to disable third-party data sharing toggle.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "disable-third-party",
+        "target": "button[data-save=\"disable-third-party\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "disable-third-party-share",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#disable-third-party"
+      "button[data-save=\"disable-third-party\"]"
     ]
   }
 }

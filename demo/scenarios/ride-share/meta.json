@@ -3,12 +3,12 @@
   "title": "GoRide",
   "icon": "🚗",
   "difficulty": "Very Hard",
-  "description": "Map stack with destination input footer.",
+  "description": "Map + dest bar.",
   "challenges": [
-    "Promo vs request"
+    "Promo ride"
   ],
   "task": {
-    "goal": "Request ride to SFO Terminal 2",
+    "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "request-ride-sfo",
+        "target": "button[data-dest=\"SFO-T2\"].gr-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "request-sfo-ride",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#request-ride-sfo"
+      "button[data-dest=\"SFO-T2\"].gr-btn--primary"
     ]
   }
 }

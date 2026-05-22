@@ -3,12 +3,12 @@
   "title": "MatchMingle",
   "icon": "💕",
   "difficulty": "Very Hard",
-  "description": "Profile photo column + message compose.",
+  "description": "Dating profile.",
   "challenges": [
-    "Boost vs send"
+    "Boost"
   ],
   "task": {
-    "goal": "Send intro message to profile @river_kayak",
+    "goal": "Send intro message to profile handle river_kayak (not profile boost).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "send-intro-river",
+        "target": "[data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "message-river-kayak",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#send-intro-river"
+      "[data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]"
     ]
   }
 }

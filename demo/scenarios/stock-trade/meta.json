@@ -3,12 +3,12 @@
   "title": "TradePulse",
   "icon": "📈",
   "difficulty": "Hard",
-  "description": "Chart pane + order sidebar terminal layout.",
+  "description": "Trading UI.",
   "challenges": [
-    "Market order form"
+    "Limit option"
   ],
   "task": {
-    "goal": "Buy 10 shares of AAPL at market",
+    "goal": "Buy ten shares of AAPL at market order type.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "buy-aapl-market",
+        "target": "button[data-symbol=\"AAPL\"][data-order=\"market\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "buy-aapl-market",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#buy-aapl-market"
+      "button[data-symbol=\"AAPL\"][data-order=\"market\"]"
     ]
   }
 }

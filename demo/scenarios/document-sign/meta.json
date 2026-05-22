@@ -3,12 +3,12 @@
   "title": "SignNow",
   "icon": "✍️",
   "difficulty": "Hard",
-  "description": "Scrollable document pages + signing toolbar.",
+  "description": "Pages + tools.",
   "challenges": [
-    "Initial vs sign page 12"
+    "Initial"
   ],
   "task": {
-    "goal": "Sign employment agreement page 12",
+    "goal": "Sign employment agreement on page twelve of the document viewer.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "sign-page-12",
+        "target": "button[data-sign-page=\"12\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "sign-agreement-p12",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#sign-page-12"
+      "button[data-sign-page=\"12\"]"
     ]
   }
 }

@@ -1,5 +1,51 @@
-<!DOCTYPE html><html><head><title>VisaPath</title><style>.vp-wizard ol{display:flex;gap:8px;list-style:none}.vp-step{display:none}.vp-step.active{display:block;padding:24px}.vp-upload{border:2px dashed #6366f1;padding:40px;text-align:center}</style></head><body>
-<div data-page="visa-application" data-agent-role="landmark" data-agent-id="visa_application-page" data-agent-desc="Visa wizard documents step" data-agent-priority="2"><ol class="vp-wizard"><li>Personal</li><li>Documents</li><li>Review</li></ol>
-<section class="vp-step active" role="main"><h1>B-1 Documents</h1><div class="vp-upload"><p>Passport scan required</p>
-<button type="button" id="upload-passport" data-action="primary" data-agent-role="action" data-agent-id="upload-passport-scan" data-agent-desc="Upload passport scan for B-1 application" data-agent-action="click" data-agent-priority="1">Upload passport scan</button></div>
-<button type="button" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Expedite fee" data-agent-priority="5" data-agent-action="click">Expedite for $99</button></section><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>VisaPath</title><style>
+.vp-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.vp-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.vp-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.vp-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.vp-btn--decoy{background:#fef9c3;border-color:#fde047}
+.vp-btn--muted{background:#e2e8f0;color:#334155}
+.vp-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.vp-cookie p{flex:1;margin:0;font-size:13px}
+.vp-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.vp-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.vp-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.vp-nav a{margin-right:14px;color:#334155;font-size:13px}
+.vp-hdr-promo button{margin-left:6px}
+.vp-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.vp-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.vp-rail--ads{background:#fffbeb}
+.vp-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.vp-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.vp-ab{display:none}
+.vp-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="vp-app" data-page="visa-application" data-agent-role="landmark" data-agent-id="visa_application-page" data-agent-desc="Visa wizard" data-agent-priority="2"><div class="vp-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="vp-btn vp-btn--muted">Reject non-essential</button>
+  <button type="button" class="vp-btn vp-btn--primary">Accept all</button>
+  <button type="button" class="vp-btn vp-btn--ghost">Customize</button>
+</div><div class="vp-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="vp-btn vp-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="vp-btn">Continue as guest — express</button>
+</div><header class="vp-hdr">
+  <nav class="vp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="vp-hdr-promo"><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="vp-btn vp-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="vp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="vp-btn vp-btn--ghost">Submit</button>
+  <button type="button" class="vp-btn vp-btn--ghost">Continue</button>
+</nav><div class="vp-dup-row" aria-label="Quick actions">
+  <button type="button" class="vp-btn vp-btn--ghost">Submit</button>
+  <button type="button" class="vp-btn vp-btn--ghost">Continue</button>
+  <button type="button" class="vp-btn vp-btn--ghost">Save changes</button>
+  <button type="button" class="vp-btn vp-btn--ghost">Confirm</button>
+</div><div class="vp-dup-row"><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Upload passport scan</button><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-nav">Upload passport B-1</button></div><ol style="display:flex;gap:8px;list-style:none;padding:16px"><li>Personal</li><li>Documents</li><li>Review</li></ol>
+<section role="main" style="padding:24px"><h1>B-1 Documents</h1><div style="border:2px dashed #6366f1;padding:40px;text-align:center">
+<button type="button" class="vp-btn vp-btn--primary" data-doc="passport-scan" data-agent-role="action" data-agent-id="upload-passport-scan" data-agent-desc="Upload passport scan on B-1 documents step (not expedited paid option)." data-agent-action="click" data-agent-priority="1">Confirm</button></div>
+<button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Expedite $99</button></section><aside class="vp-rail vp-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="vp-filler" aria-hidden="true"><div class="vp-filler-inner"><a href="/misc/0" class="vp-btn vp-btn--ghost">Link 1</a><button type="button" class="vp-btn vp-btn--ghost">Action 2</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/4" class="vp-btn vp-btn--ghost">Link 5</a><button type="button" class="vp-btn vp-btn--ghost">Action 6</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/8" class="vp-btn vp-btn--ghost">Link 9</a><button type="button" class="vp-btn vp-btn--ghost">Action 10</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/12" class="vp-btn vp-btn--ghost">Link 13</a><button type="button" class="vp-btn vp-btn--ghost">Action 14</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/16" class="vp-btn vp-btn--ghost">Link 17</a><button type="button" class="vp-btn vp-btn--ghost">Action 18</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/20" class="vp-btn vp-btn--ghost">Link 21</a><button type="button" class="vp-btn vp-btn--ghost">Action 22</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/24" class="vp-btn vp-btn--ghost">Link 25</a><button type="button" class="vp-btn vp-btn--ghost">Action 26</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/28" class="vp-btn vp-btn--ghost">Link 29</a><button type="button" class="vp-btn vp-btn--ghost">Action 30</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/32" class="vp-btn vp-btn--ghost">Link 33</a><button type="button" class="vp-btn vp-btn--ghost">Action 34</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/36" class="vp-btn vp-btn--ghost">Link 37</a><button type="button" class="vp-btn vp-btn--ghost">Action 38</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/40" class="vp-btn vp-btn--ghost">Link 41</a><button type="button" class="vp-btn vp-btn--ghost">Action 42</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button></div></div><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="vp-ftr"><small>© Demo VisaPath</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

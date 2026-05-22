@@ -3,12 +3,12 @@
   "title": "TicketRush",
   "icon": "🎵",
   "difficulty": "Extreme",
-  "description": "Venue seating visual + ticket purchase aside.",
+  "description": "Venue + tickets.",
   "challenges": [
-    "VIP upsell"
+    "VIP"
   ],
   "task": {
-    "goal": "Buy 2 GA tickets for Neon Pulse tour",
+    "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "buy-neon-ga",
+        "target": "[data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "buy-neon-pulse-ga",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#buy-neon-ga"
+      "[data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]"
     ]
   }
 }

@@ -3,12 +3,12 @@
   "title": "EduGrant",
   "icon": "🎓",
   "difficulty": "Hard",
-  "description": "Multi-section scholarship application form.",
+  "description": "Multi-section form.",
   "challenges": [
-    "Fee waiver decoy"
+    "Waiver"
   ],
   "task": {
-    "goal": "Submit STEM scholarship application",
+    "goal": "Submit STEM scholarship application form (not fee waiver).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "submit-stem-app",
+        "target": "button[data-app=\"stem\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "submit-stem-scholarship",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-stem-app"
+      "button[data-app=\"stem\"]"
     ]
   }
 }

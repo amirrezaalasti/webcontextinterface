@@ -69,11 +69,12 @@
     "acceptableNodeIds": [],
     "decoyNodeIds": [
       "decoy-promo",
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#apply-acme-senior",
-      "button.hf-apply[data-action=\"primary\"]"
+      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+      "[data-employer-ref=\"ACM-447\"] button.hf-btn--primary"
     ]
   },
   "healthcare-portal": {
@@ -81,11 +82,12 @@
     "wciNodeId": "schedule-video-visit",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#schedule-video-tue",
-      "button.mg-book-primary"
+      "[data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+      "[data-slot=\"tue-1430-video\"] button.mg-btn--primary"
     ]
   },
   "email-client": {
@@ -93,20 +95,24 @@
     "wciNodeId": "archive-billing-thread",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#archive-billing-thread"
+      "[data-action-bar=\"thread-tools\"] .ip-btn--primary",
+      "[data-action-bar=\"thread-tools\"] button.ip-btn--primary"
     ]
   },
   "calendar-app": {
     "scenarioId": "calendar-app",
     "wciNodeId": "create-standup-series",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#create-standup-series",
-      "button.cs-create"
+      "button[data-series=\"weekday-standup-09\"]",
+      "button.cs-btn--primary[data-series=\"weekday-standup-09\"]"
     ]
   },
   "food-delivery": {
@@ -114,11 +120,12 @@
     "wciNodeId": "add-teriyaki-checkout",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#add-teriyaki-bowl",
-      "button.qb-add[data-action=\"primary\"]"
+      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+      "[data-item=\"teriyaki-1299\"] button.qb-btn--primary"
     ]
   },
   "insurance-quote": {
@@ -126,10 +133,12 @@
     "wciNodeId": "get-auto-quote",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#get-auto-quote-94105"
+      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+      "button[data-quote-zip=\"94105\"]"
     ]
   },
   "real-estate": {
@@ -137,19 +146,22 @@
     "wciNodeId": "save-listing-742",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#save-listing-742"
+      "[data-listing=\"evergreen-742\"] .hn-btn--primary"
     ]
   },
   "lms-course": {
     "scenarioId": "lms-course",
     "wciNodeId": "complete-module-4",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#complete-module-4"
+      "[data-module=\"4\"] .lp-btn--primary"
     ]
   },
   "support-ticket": {
@@ -157,10 +169,11 @@
     "wciNodeId": "submit-priority-ticket",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-priority-ticket"
+      "button[data-prio=\"high\"][data-topic=\"login-outage\"]"
     ]
   },
   "ecommerce-search": {
@@ -168,20 +181,23 @@
     "wciNodeId": "apply-rating-price-filter",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#apply-filters"
+      "button[data-filter=\"rating-price\"]"
     ]
   },
   "streaming-service": {
     "scenarioId": "streaming-service",
     "wciNodeId": "add-ocean-deep-watchlist",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#add-ocean-deep",
-      "button.sv-watchlist-btn[data-action=\"primary\"]"
+      "[data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+      "[data-title-id=\"ocean-deep\"] button.sv-btn--primary"
     ]
   },
   "hotel-booking": {
@@ -189,10 +205,11 @@
     "wciNodeId": "book-marriott-downtown",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#book-marriott"
+      "[data-hotel=\"marriott-downtown\"] .sf-btn--primary"
     ]
   },
   "tax-filing": {
@@ -200,20 +217,23 @@
     "wciNodeId": "import-w2-adp",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#import-w2-adp",
-      "button.tx-import"
+      "button[data-provider=\"ADP\"][data-form=\"W2\"]",
+      "button.tx-btn--primary[data-provider=\"ADP\"]"
     ]
   },
   "weather-app": {
     "scenarioId": "weather-app",
     "wciNodeId": "enable-sf-rain-alerts",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#enable-rain-alerts"
+      "[data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary"
     ]
   },
   "parking-reservation": {
@@ -221,20 +241,23 @@
     "wciNodeId": "reserve-spot-b12",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#reserve-spot-b12",
-      "button.pk-spot.open"
+      "button[data-spot=\"B12\"][data-open=\"true\"]",
+      "button.pk-btn--primary.open"
     ]
   },
   "gym-membership": {
     "scenarioId": "gym-membership",
     "wciNodeId": "upgrade-annual-plan",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#upgrade-annual"
+      "[data-plan=\"annual\"] .fc-btn--primary"
     ]
   },
   "pharmacy-order": {
@@ -242,10 +265,11 @@
     "wciNodeId": "refill-lisinopril",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#refill-lisinopril"
+      "tr[data-rx=\"lisinopril-10\"] .rx-btn--primary"
     ]
   },
   "ride-share": {
@@ -253,19 +277,22 @@
     "wciNodeId": "request-sfo-ride",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#request-ride-sfo"
+      "button[data-dest=\"SFO-T2\"].gr-btn--primary"
     ]
   },
   "voting-poll": {
     "scenarioId": "voting-poll",
     "wciNodeId": "vote-prop-12",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#cast-vote-prop12"
+      "button[data-measure-submit=\"12\"]"
     ]
   },
   "wiki-edit": {
@@ -273,11 +300,12 @@
     "wciNodeId": "publish-wci-edit",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#publish-wci-article",
-      "button.ow-publish"
+      "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+      "button.ow-btn--primary[data-action=\"publish\"]"
     ]
   },
   "code-review": {
@@ -285,19 +313,22 @@
     "wciNodeId": "approve-pr-4182",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#approve-pr-4182"
+      "[data-pr=\"4182\"] button[data-pr-action=\"approve\"]"
     ]
   },
   "inventory-mgmt": {
     "scenarioId": "inventory-mgmt",
     "wciNodeId": "reorder-sku-wh9921",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#reorder-wh9921"
+      "tr[data-sku=\"WH-9921\"] .sp-btn--primary"
     ]
   },
   "subscription-cancel": {
@@ -305,10 +336,11 @@
     "wciNodeId": "cancel-premium-sub",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#cancel-premium"
+      "[data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]"
     ]
   },
   "password-reset": {
@@ -316,19 +348,22 @@
     "wciNodeId": "send-reset-link",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#send-reset-link"
+      "button[data-action=\"send-reset\"]"
     ]
   },
   "document-sign": {
     "scenarioId": "document-sign",
     "wciNodeId": "sign-agreement-p12",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#sign-page-12"
+      "button[data-sign-page=\"12\"]"
     ]
   },
   "survey-form": {
@@ -336,19 +371,22 @@
     "wciNodeId": "submit-nps-9",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-nps"
+      "button[data-nps-submit=\"9\"]"
     ]
   },
   "charity-donate": {
     "scenarioId": "charity-donate",
     "wciNodeId": "donate-water-fund",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#donate-water-25"
+      "button[data-fund=\"water\"][data-amt=\"25\"]"
     ]
   },
   "flight-checkin": {
@@ -356,10 +394,11 @@
     "wciNodeId": "select-seat-14a",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#select-seat-14a"
+      "button[data-seat=\"14A\"][data-window=\"true\"]"
     ]
   },
   "visa-application": {
@@ -367,19 +406,22 @@
     "wciNodeId": "upload-passport-scan",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#upload-passport"
+      "button[data-doc=\"passport-scan\"]"
     ]
   },
   "stock-trade": {
     "scenarioId": "stock-trade",
     "wciNodeId": "buy-aapl-market",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#buy-aapl-market"
+      "button[data-symbol=\"AAPL\"][data-order=\"market\"]"
     ]
   },
   "podcast-subscribe": {
@@ -387,19 +429,22 @@
     "wciNodeId": "subscribe-ai-daily",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#subscribe-ai-daily"
+      "[data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]"
     ]
   },
   "photo-upload": {
     "scenarioId": "photo-upload",
     "wciNodeId": "upload-iceland-album",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#upload-iceland-album"
+      "[data-album=\"iceland-2026\"] .ca-btn--primary"
     ]
   },
   "forum-post": {
@@ -407,10 +452,11 @@
     "wciNodeId": "pin-wci-thread",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#pin-wci-thread"
+      "[data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]"
     ]
   },
   "dating-profile": {
@@ -418,19 +464,22 @@
     "wciNodeId": "message-river-kayak",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#send-intro-river"
+      "[data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]"
     ]
   },
   "rental-car": {
     "scenarioId": "rental-car",
     "wciNodeId": "reserve-lax-compact",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#reserve-lax-compact"
+      "[data-vehicle=\"compact-lax-friday\"] .da-btn--primary"
     ]
   },
   "concert-tickets": {
@@ -438,10 +487,11 @@
     "wciNodeId": "buy-neon-pulse-ga",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#buy-neon-ga"
+      "[data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]"
     ]
   },
   "grocery-list": {
@@ -449,19 +499,22 @@
     "wciNodeId": "add-avocados-list",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#add-avocados"
+      "[data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]"
     ]
   },
   "pet-adoption": {
     "scenarioId": "pet-adoption",
     "wciNodeId": "apply-adopt-max",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#apply-adopt-max"
+      "[data-pet=\"max\"] button[data-adopt=\"max\"]"
     ]
   },
   "scholarship-apply": {
@@ -469,19 +522,22 @@
     "wciNodeId": "submit-stem-scholarship",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#submit-stem-app"
+      "button[data-app=\"stem\"]"
     ]
   },
   "wifi-setup": {
     "scenarioId": "wifi-setup",
     "wciNodeId": "connect-guest-5g",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#connect-guest-5g"
+      "button[data-connect-ssid=\"Guest_5G\"]"
     ]
   },
   "invoice-pay": {
@@ -489,10 +545,11 @@
     "wciNodeId": "pay-inv-2026-044",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#pay-inv-044"
+      "button[data-pay-inv=\"INV-2026-044\"]"
     ]
   },
   "newsletter-sub": {
@@ -500,19 +557,22 @@
     "wciNodeId": "subscribe-ai-digest",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#subscribe-digest"
+      "button[data-newsletter=\"ai-digest\"]"
     ]
   },
   "api-keys": {
     "scenarioId": "api-keys",
     "wciNodeId": "rotate-prod-api-key",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#rotate-prod-key"
+      "tr[data-key=\"production\"] button[data-rotate=\"production\"]"
     ]
   },
   "privacy-settings": {
@@ -520,10 +580,11 @@
     "wciNodeId": "disable-third-party-share",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#disable-third-party"
+      "button[data-save=\"disable-third-party\"]"
     ]
   },
   "bug-report": {
@@ -531,10 +592,11 @@
     "wciNodeId": "file-checkout-timeout-bug",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#file-checkout-bug"
+      "button[data-file-bug=\"checkout-timeout\"]"
     ]
   }
 }

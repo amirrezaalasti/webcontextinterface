@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T21:51:31.066Z",
+  "modelOrder": [
+    {
+      "id": "gpt5Nano",
+      "name": "GPT-5 Nano",
+      "openRouterModel": "openai/gpt-5-nano"
+    }
+  ],
+  "gpt5Nano": {
+    "standard": {
+      "successRate": 25,
+      "avgTokens": 2049
+    },
+    "wci": {
+      "successRate": 100,
+      "avgTokens": 528
+    },
+    "wciFull": {
+      "successRate": 98,
+      "avgTokens": 655
+    },
+    "agentDom": {
+      "successRate": 100,
+      "avgTokens": 528
+    }
+  }
+}

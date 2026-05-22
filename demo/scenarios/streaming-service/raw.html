@@ -1,19 +1,53 @@
-<!DOCTYPE html><html><head><title>StreamVault</title><style>
-.sv-hero{height:200px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:32px}
-.sv-row{display:flex;gap:12px;overflow-x:auto;padding:16px}
-.sv-tile{min-width:140px;background:#1f2937;color:#fff;border-radius:6px;padding:12px}
-.sv-watchlist-btn{background:#e11d48;border:0;color:#fff;padding:8px 12px;margin-top:8px;width:100%}
-</style></head><body>
-<div data-page="streaming-service" style="background:#0f0f0f;color:#eee">
-<header class="sv-hdr">
-  <nav class="sv-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>StreamVault</title><style>
+.sv-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.sv-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.sv-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.sv-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.sv-btn--decoy{background:#fef9c3;border-color:#fde047}
+.sv-btn--muted{background:#e2e8f0;color:#334155}
+.sv-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.sv-cookie p{flex:1;margin:0;font-size:13px}
+.sv-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.sv-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.sv-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.sv-nav a{margin-right:14px;color:#334155;font-size:13px}
+.sv-hdr-promo button{margin-left:6px}
+.sv-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.sv-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.sv-rail--ads{background:#fffbeb}
+.sv-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.sv-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.sv-ab{display:none}
+.sv-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.sv-hero{height:160px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:24px}.sv-row{display:flex;gap:12px;overflow-x:auto;padding:16px}.sv-tile{min-width:140px;background:#1f2937;color:#fff;border-radius:6px;padding:12px}</style></head><body>
+<div class="sv-app" data-page="streaming-service"><div class="sv-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="sv-btn sv-btn--muted">Reject non-essential</button>
+  <button type="button" class="sv-btn sv-btn--primary">Accept all</button>
+  <button type="button" class="sv-btn sv-btn--ghost">Customize</button>
+</div><div class="sv-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="sv-btn sv-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="sv-btn">Continue as guest — express</button>
+</div><header class="sv-hdr">
+  <nav class="sv-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
   <div class="sv-hdr-promo">
-    <button type="button" class="sv-ad-btn sv-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header>
-<div class="sv-hero"><h1>Featured tonight</h1><button type="button">Play trailer</button></div>
+    <button type="button" class="sv-btn sv-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="sv-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="sv-btn sv-btn--ghost">Submit</button>
+  <button type="button" class="sv-btn sv-btn--ghost">Continue</button>
+</nav><div class="sv-dup-row" aria-label="Quick actions">
+  <button type="button" class="sv-btn sv-btn--ghost">Submit</button>
+  <button type="button" class="sv-btn sv-btn--ghost">Continue</button>
+  <button type="button" class="sv-btn sv-btn--ghost">Save changes</button>
+  <button type="button" class="sv-btn sv-btn--ghost">Confirm</button>
+</div><div class="sv-dup-row"><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-promo">Add Ocean Deep watchlist</button><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-nav">Watchlist Ocean Deep documentary</button></div><div style="background:#0f0f0f;color:#eee"><div class="sv-hero"><h1>Featured</h1><button type="button" class="sv-btn sv-btn--ghost">Play trailer</button></div>
 <section class="sv-row" role="main"><h2 style="width:100%">Documentaries</h2>
-<div class="sv-tile"><span>Arctic Light</span><button type="button">Play</button></div>
-<div class="sv-tile" data-title-id="ocean-deep"><strong>Ocean Deep</strong><span> · 52m</span>
-<button type="button" class="sv-watchlist-btn" id="add-ocean-deep" data-action="primary">+ Watchlist</button></div>
-<div class="sv-tile"><span>City Skies</span><button type="button">Play</button></div>
-</section><footer class="sv-ftr"><small>© Demo StreamVault</small><a href="/privacy">Privacy</a><span class="sv-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<div class="sv-tile"><span>Arctic Light</span><button type="button" class="sv-btn sv-btn--ghost">Play</button></div>
+<div class="sv-tile" data-title-id="ocean-deep" data-runtime="52"><strong>Ocean Deep</strong><span> · 52m</span>
+<button type="button" class="sv-btn sv-btn--primary">Confirm</button></div>
+<div class="sv-tile"><span>City Skies</span><button type="button" class="sv-btn sv-btn--ghost">Play</button></div></section></div><aside class="sv-rail sv-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="sv-filler" aria-hidden="true"><div class="sv-filler-inner"><a href="/misc/0" class="sv-btn sv-btn--ghost">Link 1</a><button type="button" class="sv-btn sv-btn--ghost">Action 2</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/4" class="sv-btn sv-btn--ghost">Link 5</a><button type="button" class="sv-btn sv-btn--ghost">Action 6</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/8" class="sv-btn sv-btn--ghost">Link 9</a><button type="button" class="sv-btn sv-btn--ghost">Action 10</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/12" class="sv-btn sv-btn--ghost">Link 13</a><button type="button" class="sv-btn sv-btn--ghost">Action 14</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/16" class="sv-btn sv-btn--ghost">Link 17</a><button type="button" class="sv-btn sv-btn--ghost">Action 18</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/20" class="sv-btn sv-btn--ghost">Link 21</a><button type="button" class="sv-btn sv-btn--ghost">Action 22</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/24" class="sv-btn sv-btn--ghost">Link 25</a><button type="button" class="sv-btn sv-btn--ghost">Action 26</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/28" class="sv-btn sv-btn--ghost">Link 29</a><button type="button" class="sv-btn sv-btn--ghost">Action 30</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/32" class="sv-btn sv-btn--ghost">Link 33</a><button type="button" class="sv-btn sv-btn--ghost">Action 34</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/36" class="sv-btn sv-btn--ghost">Link 37</a><button type="button" class="sv-btn sv-btn--ghost">Action 38</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/40" class="sv-btn sv-btn--ghost">Link 41</a><button type="button" class="sv-btn sv-btn--ghost">Action 42</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button></div></div><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sv-ftr"><small>© Demo StreamVault</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

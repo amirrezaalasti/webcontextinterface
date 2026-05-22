@@ -1,3 +1,50 @@
-<!DOCTYPE html><html><head><title>CloudAlbum</title><style>.ca-dropzone{border:3px dashed #94a3b8;padding:60px;text-align:center;border-radius:16px;margin:40px}.ca-albums{display:flex;gap:12px;flex-wrap:wrap}.ca-thumb{width:80px;height:80px;background:#e2e8f0}</style></head><body>
-<div data-page="photo-upload" role="main"><div class="ca-albums"><div class="ca-thumb">Trip</div><div class="ca-thumb">Family</div><div class="ca-thumb">Iceland 2026</div></div>
-<div class="ca-dropzone"><p>Drop photos or</p><button type="button" id="upload-iceland-album" data-action="primary">Upload to Iceland 2026</button></div><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>CloudAlbum</title><style>
+.ca-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.ca-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.ca-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.ca-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.ca-btn--decoy{background:#fef9c3;border-color:#fde047}
+.ca-btn--muted{background:#e2e8f0;color:#334155}
+.ca-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.ca-cookie p{flex:1;margin:0;font-size:13px}
+.ca-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.ca-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.ca-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.ca-nav a{margin-right:14px;color:#334155;font-size:13px}
+.ca-hdr-promo button{margin-left:6px}
+.ca-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.ca-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.ca-rail--ads{background:#fffbeb}
+.ca-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.ca-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.ca-ab{display:none}
+.ca-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="ca-app" data-page="photo-upload"><div class="ca-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="ca-btn ca-btn--muted">Reject non-essential</button>
+  <button type="button" class="ca-btn ca-btn--primary">Accept all</button>
+  <button type="button" class="ca-btn ca-btn--ghost">Customize</button>
+</div><div class="ca-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="ca-btn ca-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="ca-btn">Continue as guest — express</button>
+</div><header class="ca-hdr">
+  <nav class="ca-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="ca-hdr-promo"><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="ca-btn ca-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="ca-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="ca-btn ca-btn--ghost">Submit</button>
+  <button type="button" class="ca-btn ca-btn--ghost">Continue</button>
+</nav><div class="ca-dup-row" aria-label="Quick actions">
+  <button type="button" class="ca-btn ca-btn--ghost">Submit</button>
+  <button type="button" class="ca-btn ca-btn--ghost">Continue</button>
+  <button type="button" class="ca-btn ca-btn--ghost">Save changes</button>
+  <button type="button" class="ca-btn ca-btn--ghost">Confirm</button>
+</div><div class="ca-dup-row"><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">Upload Iceland 2026</button><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-nav">Upload album Iceland 2026</button></div><div role="main" style="padding:24px"><div style="display:flex;gap:12px"><div style="width:80px;height:80px;background:#e2e8f0">Trip</div><div style="width:80px;height:80px;background:#e2e8f0">Family</div><div style="width:80px;height:80px;background:#e2e8f0">Iceland 2026</div></div>
+<div style="border:3px dashed #94a3b8;padding:60px;text-align:center;margin-top:16px" data-album="iceland-2026">
+<button type="button" class="ca-btn ca-btn--primary">Confirm</button></div></div><aside class="ca-rail ca-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="ca-filler" aria-hidden="true"><div class="ca-filler-inner"><a href="/misc/0" class="ca-btn ca-btn--ghost">Link 1</a><button type="button" class="ca-btn ca-btn--ghost">Action 2</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/4" class="ca-btn ca-btn--ghost">Link 5</a><button type="button" class="ca-btn ca-btn--ghost">Action 6</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/8" class="ca-btn ca-btn--ghost">Link 9</a><button type="button" class="ca-btn ca-btn--ghost">Action 10</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/12" class="ca-btn ca-btn--ghost">Link 13</a><button type="button" class="ca-btn ca-btn--ghost">Action 14</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/16" class="ca-btn ca-btn--ghost">Link 17</a><button type="button" class="ca-btn ca-btn--ghost">Action 18</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/20" class="ca-btn ca-btn--ghost">Link 21</a><button type="button" class="ca-btn ca-btn--ghost">Action 22</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/24" class="ca-btn ca-btn--ghost">Link 25</a><button type="button" class="ca-btn ca-btn--ghost">Action 26</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/28" class="ca-btn ca-btn--ghost">Link 29</a><button type="button" class="ca-btn ca-btn--ghost">Action 30</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/32" class="ca-btn ca-btn--ghost">Link 33</a><button type="button" class="ca-btn ca-btn--ghost">Action 34</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/36" class="ca-btn ca-btn--ghost">Link 37</a><button type="button" class="ca-btn ca-btn--ghost">Action 38</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/40" class="ca-btn ca-btn--ghost">Link 41</a><button type="button" class="ca-btn ca-btn--ghost">Action 42</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button></div></div><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ca-ftr"><small>© Demo CloudAlbum</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

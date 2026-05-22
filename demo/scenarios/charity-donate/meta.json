@@ -3,12 +3,12 @@
   "title": "GiveHope",
   "icon": "❤️",
   "difficulty": "Very Hard",
-  "description": "Hero + preset amount buttons + donate CTA.",
+  "description": "Donation hero.",
   "challenges": [
-    "Preset amounts vs final donate"
+    "Preset amounts"
   ],
   "task": {
-    "goal": "Donate $25 monthly to clean water fund",
+    "goal": "Donate twenty-five dollars monthly to the clean water fund campaign.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "donate-water-25",
+        "target": "button[data-fund=\"water\"][data-amt=\"25\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "donate-water-fund",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#donate-water-25"
+      "button[data-fund=\"water\"][data-amt=\"25\"]"
     ]
   }
 }

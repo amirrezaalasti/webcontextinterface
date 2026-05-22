@@ -3,12 +3,12 @@
   "title": "FitClub",
   "icon": "💪",
   "difficulty": "Very Hard",
-  "description": "Pricing plan comparison cards.",
+  "description": "Pricing cards.",
   "challenges": [
-    "Current plan button"
+    "Current plan"
   ],
   "task": {
-    "goal": "Upgrade membership to annual plan",
+    "goal": "Switch from monthly to the featured annual membership plan.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "upgrade-annual",
+        "target": "[data-plan=\"annual\"] .fc-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "upgrade-annual-plan",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#upgrade-annual"
+      "[data-plan=\"annual\"] .fc-btn--primary"
     ]
   }
 }

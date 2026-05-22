@@ -3,14 +3,14 @@
   "title": "MediGate Portal",
   "icon": "🏥",
   "difficulty": "Hard",
-  "description": "Healthcare portal with patient header banner and appointment slot grid.",
+  "description": "Healthcare portal with patient banner and slot grid using data-slot attributes.",
   "challenges": [
-    "Multiple slot action buttons",
-    "In-person vs video visit labels",
-    "Patient header noise"
+    "Generic Confirm on correct slot",
+    "In-person and callback decoys",
+    "Large cookie/filler chrome"
   ],
   "task": {
-    "goal": "Schedule a video visit for next Tuesday",
+    "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "schedule-video-tue",
+        "target": "[data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -50,11 +50,12 @@
     "wciNodeId": "schedule-video-visit",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#schedule-video-tue",
-      "button.mg-book-primary"
+      "[data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+      "[data-slot=\"tue-1430-video\"] button.mg-btn--primary"
     ]
   }
 }

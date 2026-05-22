@@ -1,26 +1,53 @@
-<!DOCTYPE html><html><head><title>InboxPro Mail</title><style>
-.ip-frame{display:grid;grid-template-columns:280px 1fr 340px;height:100vh;font-family:ui-monospace,monospace}
-.ip-folders{border-right:1px solid #ccc;padding:8px}
-.ip-inbox{width:100%;border-collapse:collapse}
-.ip-inbox tr{cursor:pointer}
-.ip-inbox tr.unread{font-weight:bold}
-.ip-pane{border-left:1px solid #ccc;padding:16px;background:#fafafa}
-.ip-toolbar button{margin-right:6px}
-</style></head><body>
-<table class="ip-frame" data-page="email-client" cellpadding="0" cellspacing="0" data-agent-role="landmark" data-agent-id="email_client-page" data-agent-desc="Inbox table with reading pane" data-agent-priority="2"><tbody><tr>
-<td class="ip-folders"><header class="ip-hdr">
-  <nav class="ip-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
-  <div class="ip-hdr-promo"><button type="button" class="ip-ad-btn" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Upgrade storage promo" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="ip-ad-btn ip-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul><aside class="ip-rail ip-rail--ads" aria-label="Sponsored"><div class="ip-widget"><span>Sponsored</span><a href="/ads">Partner Ad</a></div></aside></td>
-<td><table class="ip-inbox" role="main"><thead><tr><th>From</th><th>Subject</th></tr></thead>
-<tbody>
-<tr><td>news@digest.com</td><td>Weekly roundup</td></tr>
-<tr class="unread" data-thread="billing"><td>billing@acme.com</td><td>Invoice #992 — due</td></tr>
-<tr><td>noreply@social.io</td><td>You have 3 mentions</td></tr>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>InboxPro Mail</title><style>
+.ip-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.ip-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.ip-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.ip-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.ip-btn--decoy{background:#fef9c3;border-color:#fde047}
+.ip-btn--muted{background:#e2e8f0;color:#334155}
+.ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.ip-cookie p{flex:1;margin:0;font-size:13px}
+.ip-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.ip-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.ip-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.ip-nav a{margin-right:14px;color:#334155;font-size:13px}
+.ip-hdr-promo button{margin-left:6px}
+.ip-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.ip-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.ip-rail--ads{background:#fffbeb}
+.ip-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.ip-ab{display:none}
+.ip-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.ip-frame{display:grid;grid-template-columns:260px 1fr 320px;min-height:70vh}.ip-inbox{width:100%;border-collapse:collapse}.ip-inbox tr.unread{font-weight:bold}.ip-toolbar{display:flex;gap:6px;padding:8px;flex-wrap:wrap}.ip-pane{border-left:1px solid #ccc;padding:16px}</style></head><body>
+<div class="ip-app" data-page="email-client" data-agent-role="landmark" data-agent-id="email_client-page" data-agent-desc="Inbox table with reading pane" data-agent-priority="2"><div class="ip-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="ip-btn ip-btn--muted">Reject non-essential</button>
+  <button type="button" class="ip-btn ip-btn--primary">Accept all</button>
+  <button type="button" class="ip-btn ip-btn--ghost">Customize</button>
+</div><div class="ip-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="ip-btn ip-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="ip-btn">Continue as guest — express</button>
+</div><header class="ip-hdr">
+  <nav class="ip-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="ip-hdr-promo"><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Upgrade storage" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="ip-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="ip-btn ip-btn--ghost">Submit</button>
+  <button type="button" class="ip-btn ip-btn--ghost">Continue</button>
+</nav><div class="ip-dup-row" aria-label="Quick actions">
+  <button type="button" class="ip-btn ip-btn--ghost">Submit</button>
+  <button type="button" class="ip-btn ip-btn--ghost">Continue</button>
+  <button type="button" class="ip-btn ip-btn--ghost">Save changes</button>
+  <button type="button" class="ip-btn ip-btn--ghost">Confirm</button>
+</div><div class="ip-dup-row"><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo">Archive billing thread</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav">Archive billing@acme.com</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Archive keyword trap" data-agent-priority="5" data-agent-action="click">Archive acme billing</button></div><div class="ip-frame"><aside><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul></aside>
+<div><table class="ip-inbox" role="main"><thead><tr><th>From</th><th>Subject</th></tr></thead><tbody>
+<tr data-thread="digest"><td>news@digest.com</td><td>Weekly roundup</td></tr>
+<tr class="unread" data-thread="billing-acme" data-domain="acme.com"><td>billing@acme.com</td><td>Invoice #992</td></tr>
+<tr data-thread="social"><td>noreply@social.io</td><td>3 mentions</td></tr>
 </tbody></table>
-<div class="ip-toolbar"><button type="button">Reply</button><button type="button">Forward</button>
-<button type="button" id="archive-billing-thread" data-action="primary" data-agent-role="action" data-agent-id="archive-billing-thread" data-agent-desc="Archive the email thread from billing@acme.com" data-agent-action="click" data-agent-priority="1">Archive billing thread</button>
-<button type="button" data-decoy="decoy-promo">Upgrade storage</button></div></td>
-<td class="ip-pane"><h2>billing@acme.com</h2><p>Your March invoice is attached…</p></td>
-</tr></tbody></table><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>
+<div class="ip-toolbar" data-action-bar="thread-tools"><button type="button" class="ip-btn ip-btn--ghost">Reply</button>
+<button type="button" class="ip-btn ip-btn--ghost">Forward</button><button type="button" class="ip-btn ip-btn--primary" data-agent-role="action" data-agent-id="archive-billing-thread" data-agent-desc="Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications)." data-agent-action="click" data-agent-priority="1">Confirm</button>
+<button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-promo">Upgrade storage</button></div></div>
+<aside class="ip-pane"><h2>Message</h2><p>Invoice attached…</p></aside></div><div class="ip-filler" aria-hidden="true"><div class="ip-filler-inner"><a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Action 2</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/12" class="ip-btn ip-btn--ghost">Link 13</a><button type="button" class="ip-btn ip-btn--ghost">Action 14</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/16" class="ip-btn ip-btn--ghost">Link 17</a><button type="button" class="ip-btn ip-btn--ghost">Action 18</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/20" class="ip-btn ip-btn--ghost">Link 21</a><button type="button" class="ip-btn ip-btn--ghost">Action 22</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/24" class="ip-btn ip-btn--ghost">Link 25</a><button type="button" class="ip-btn ip-btn--ghost">Action 26</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/28" class="ip-btn ip-btn--ghost">Link 29</a><button type="button" class="ip-btn ip-btn--ghost">Action 30</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/32" class="ip-btn ip-btn--ghost">Link 33</a><button type="button" class="ip-btn ip-btn--ghost">Action 34</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/36" class="ip-btn ip-btn--ghost">Link 37</a><button type="button" class="ip-btn ip-btn--ghost">Action 38</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/40" class="ip-btn ip-btn--ghost">Link 41</a><button type="button" class="ip-btn ip-btn--ghost">Action 42</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button></div></div><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ip-ftr"><small>© Demo InboxPro Mail</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

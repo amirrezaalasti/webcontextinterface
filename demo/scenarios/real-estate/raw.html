@@ -1,5 +1,52 @@
-<!DOCTYPE html><html><head><title>HomeNest Listings</title><style>.hn-wrap{display:grid;grid-template-columns:1fr 360px}.hn-map{height:240px;background:#cbd5e1}.hn-cards{display:flex;flex-wrap:wrap;gap:10px}.hn-card{width:45%;border:1px solid #ddd;padding:10px}</style></head><body>
-<div class="hn-wrap" data-page="real-estate"><div class="hn-map" role="img" aria-label="Map"></div><section role="main" class="hn-cards">
-<article class="hn-card"><h3>2BR · Oak St</h3><button type="button">Tour</button></article>
-<article class="hn-card" data-listing="742-evergreen"><h3>3BR · 742 Evergreen Terrace</h3><button type="button" id="save-listing-742" data-action="primary">Save listing</button></article>
-</section><aside class="hn-rail hn-rail--ads" aria-label="Sponsored"><div class="hn-widget"><span>Sponsored</span><a href="/ads">Partner Ad</a></div></aside><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>HomeNest Listings</title><style>
+.hn-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.hn-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.hn-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.hn-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.hn-btn--decoy{background:#fef9c3;border-color:#fde047}
+.hn-btn--muted{background:#e2e8f0;color:#334155}
+.hn-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.hn-cookie p{flex:1;margin:0;font-size:13px}
+.hn-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.hn-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.hn-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.hn-nav a{margin-right:14px;color:#334155;font-size:13px}
+.hn-hdr-promo button{margin-left:6px}
+.hn-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.hn-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.hn-rail--ads{background:#fffbeb}
+.hn-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.hn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.hn-ab{display:none}
+.hn-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="hn-app" data-page="real-estate"><div class="hn-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="hn-btn hn-btn--muted">Reject non-essential</button>
+  <button type="button" class="hn-btn hn-btn--primary">Accept all</button>
+  <button type="button" class="hn-btn hn-btn--ghost">Customize</button>
+</div><div class="hn-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="hn-btn hn-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="hn-btn">Continue as guest — express</button>
+</div><header class="hn-hdr">
+  <nav class="hn-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="hn-hdr-promo"><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="hn-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
+  <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
+</nav><div class="hn-dup-row" aria-label="Quick actions">
+  <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
+  <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
+  <button type="button" class="hn-btn hn-btn--ghost">Save changes</button>
+  <button type="button" class="hn-btn hn-btn--ghost">Confirm</button>
+</div><div class="hn-dup-row"><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">Save listing 742</button><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Save 742 Evergreen</button></div><div style="display:grid;grid-template-columns:1fr 360px"><div style="height:200px;background:#cbd5e1" role="img" aria-label="Map"></div>
+<section role="main" style="padding:16px;display:flex;flex-wrap:wrap;gap:10px">
+<article style="border:1px solid #ddd;padding:10px;width:45%" data-listing="oak-2br"><h3>2BR · Oak St</h3><button type="button" class="hn-btn hn-btn--ghost">Tour</button></article>
+<article style="border:1px solid #ddd;padding:10px;width:45%" data-listing="evergreen-742" data-beds="3"><h3>3BR · 742 Evergreen Terrace</h3>
+<button type="button" class="hn-btn hn-btn--primary">Confirm</button></article></section></div><aside class="hn-rail hn-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="hn-filler" aria-hidden="true"><div class="hn-filler-inner"><a href="/misc/0" class="hn-btn hn-btn--ghost">Link 1</a><button type="button" class="hn-btn hn-btn--ghost">Action 2</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/4" class="hn-btn hn-btn--ghost">Link 5</a><button type="button" class="hn-btn hn-btn--ghost">Action 6</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/8" class="hn-btn hn-btn--ghost">Link 9</a><button type="button" class="hn-btn hn-btn--ghost">Action 10</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/12" class="hn-btn hn-btn--ghost">Link 13</a><button type="button" class="hn-btn hn-btn--ghost">Action 14</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/16" class="hn-btn hn-btn--ghost">Link 17</a><button type="button" class="hn-btn hn-btn--ghost">Action 18</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/20" class="hn-btn hn-btn--ghost">Link 21</a><button type="button" class="hn-btn hn-btn--ghost">Action 22</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/24" class="hn-btn hn-btn--ghost">Link 25</a><button type="button" class="hn-btn hn-btn--ghost">Action 26</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/28" class="hn-btn hn-btn--ghost">Link 29</a><button type="button" class="hn-btn hn-btn--ghost">Action 30</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/32" class="hn-btn hn-btn--ghost">Link 33</a><button type="button" class="hn-btn hn-btn--ghost">Action 34</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/36" class="hn-btn hn-btn--ghost">Link 37</a><button type="button" class="hn-btn hn-btn--ghost">Action 38</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/40" class="hn-btn hn-btn--ghost">Link 41</a><button type="button" class="hn-btn hn-btn--ghost">Action 42</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button></div></div><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="hn-ftr"><small>© Demo HomeNest Listings</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

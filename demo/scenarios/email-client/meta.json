@@ -3,14 +3,14 @@
   "title": "InboxPro Mail",
   "icon": "📧",
   "difficulty": "Extreme",
-  "description": "Email client with folder sidebar, inbox table, and reading pane split layout.",
+  "description": "Email client table layout with generic toolbar Confirm for archive action.",
   "challenges": [
-    "Inbox rows look clickable",
-    "Reply/Forward similar to Archive",
-    "Promo upgrade in toolbar"
+    "billing-acme row vs toolbar",
+    "Reply/Forward duplicates",
+    "Keyword archive decoys"
   ],
   "task": {
-    "goal": "Archive the email thread from billing@acme.com",
+    "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "archive-billing-thread",
+        "target": "[data-action-bar=\"thread-tools\"] .ip-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -50,10 +50,12 @@
     "wciNodeId": "archive-billing-thread",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#archive-billing-thread"
+      "[data-action-bar=\"thread-tools\"] .ip-btn--primary",
+      "[data-action-bar=\"thread-tools\"] button.ip-btn--primary"
     ]
   }
 }

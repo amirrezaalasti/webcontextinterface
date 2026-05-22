@@ -3,14 +3,14 @@
   "title": "StreamVault",
   "icon": "🎬",
   "difficulty": "Hard",
-  "description": "Streaming hero banner plus horizontal documentary title tiles.",
+  "description": "Streaming hero and documentary tiles with runtime metadata.",
   "challenges": [
-    "Play vs Watchlist on tiles",
-    "Hero play trailer",
-    "Dark theme row scroll"
+    "Play vs confirm",
+    "data-runtime filter",
+    "Dark theme + filler"
   ],
   "task": {
-    "goal": "Add documentary \"Ocean Deep\" to watchlist",
+    "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "add-ocean-deep",
+        "target": "[data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -49,10 +49,12 @@
   "groundTruth": {
     "wciNodeId": "add-ocean-deep-watchlist",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#add-ocean-deep",
-      "button.sv-watchlist-btn[data-action=\"primary\"]"
+      "[data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+      "[data-title-id=\"ocean-deep\"] button.sv-btn--primary"
     ]
   }
 }

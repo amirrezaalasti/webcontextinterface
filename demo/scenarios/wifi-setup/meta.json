@@ -3,12 +3,12 @@
   "title": "NetConfig",
   "icon": "📶",
   "difficulty": "Very Hard",
-  "description": "WiFi SSID list with connect buttons.",
+  "description": "SSID list.",
   "challenges": [
-    "Locked vs guest network"
+    "Home locked"
   ],
   "task": {
-    "goal": "Connect device to guest network Guest_5G",
+    "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "connect-guest-5g",
+        "target": "button[data-connect-ssid=\"Guest_5G\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "connect-guest-5g",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#connect-guest-5g"
+      "button[data-connect-ssid=\"Guest_5G\"]"
     ]
   }
 }

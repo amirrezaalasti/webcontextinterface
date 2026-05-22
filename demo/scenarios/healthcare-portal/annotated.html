@@ -1,22 +1,54 @@
-<!DOCTYPE html><html><head><title>MediGate Portal</title><style>
-.mg-shell{font-family:Georgia,serif;background:#f0f7ff}
-.mg-patient{display:flex;gap:16px;padding:16px;background:#1e40af;color:#fff}
-.mg-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}
-.mg-slot{border:1px solid #93c5fd;padding:12px;text-align:center;background:#fff}
-.mg-slot button{width:100%;margin-top:8px}
-.mg-book-primary{background:#059669;color:#fff;border:0;padding:10px}
-</style></head><body>
-<div class="mg-shell" data-page="healthcare-portal" data-agent-role="landmark" data-agent-id="healthcare_portal-page" data-agent-desc="MediGate patient portal — appointment scheduling" data-agent-priority="2">
-<header class="mg-hdr">
-  <nav class="mg-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MediGate Portal</title><style>
+.mg-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.mg-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.mg-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.mg-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.mg-btn--decoy{background:#fef9c3;border-color:#fde047}
+.mg-btn--muted{background:#e2e8f0;color:#334155}
+.mg-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.mg-cookie p{flex:1;margin:0;font-size:13px}
+.mg-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.mg-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.mg-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.mg-nav a{margin-right:14px;color:#334155;font-size:13px}
+.mg-hdr-promo button{margin-left:6px}
+.mg-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.mg-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.mg-rail--ads{background:#fffbeb}
+.mg-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.mg-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.mg-ab{display:none}
+.mg-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.mg-patient{display:flex;gap:16px;padding:16px;background:#1e40af;color:#fff}.mg-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}.mg-slot{border:1px solid #93c5fd;padding:12px;background:#fff}.mg-slot__actions{margin-top:8px;display:flex;flex-direction:column;gap:4px}</style></head><body>
+<div class="mg-app" data-page="healthcare-portal" data-agent-role="landmark" data-agent-id="healthcare_portal-page" data-agent-desc="MediGate patient portal — appointment scheduling" data-agent-priority="2"><div class="mg-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="mg-btn mg-btn--muted">Reject non-essential</button>
+  <button type="button" class="mg-btn mg-btn--primary">Accept all</button>
+  <button type="button" class="mg-btn mg-btn--ghost">Customize</button>
+</div><div class="mg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="mg-btn mg-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="mg-btn">Continue as guest — express</button>
+</div><header class="mg-hdr">
+  <nav class="mg-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
   <div class="mg-hdr-promo">
-    <button type="button" class="mg-ad-btn mg-ad-btn--alt" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Request callback decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header>
-<div class="mg-patient"><div><strong>Patient:</strong> Jordan Lee · MRN 88291</div><div>Plan: PPO Gold</div></div>
-<section class="mg-slots" role="main">
-<h1>Appointment slots — next week</h1>
-<div class="mg-slot"><span>Tue 10:00</span><button type="button">In-person</button></div>
-<div class="mg-slot"><span>Tue 14:30</span><button type="button" class="mg-book-primary" id="schedule-video-tue" data-action="primary" data-agent-role="action" data-agent-id="schedule-video-visit" data-agent-desc="Schedule a video visit for next Tuesday" data-agent-action="click" data-agent-priority="1">Schedule video visit Tue</button></div>
-<div class="mg-slot"><span>Wed 09:00</span><button type="button">Call back</button></div>
-<div class="mg-slot"><span>Fri 11:00</span><button type="button" data-decoy="decoy-nav">Request callback</button></div>
-</section><footer class="mg-ftr"><small>© Demo MediGate Portal</small><a href="/privacy">Privacy</a><span class="mg-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+    <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Request callback" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header><nav class="mg-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
+  <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
+</nav><div class="mg-dup-row" aria-label="Quick actions">
+  <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
+  <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
+  <button type="button" class="mg-btn mg-btn--ghost">Save changes</button>
+  <button type="button" class="mg-btn mg-btn--ghost">Confirm</button>
+</div><div class="mg-dup-row"><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">Schedule video visit Tuesday</button><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav">Schedule video visit Tue</button><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Video visit keyword trap" data-agent-priority="5" data-agent-action="click">Book Tuesday video</button></div><div class="mg-patient"><strong>Patient:</strong> Jordan Lee · MRN 88291 · Plan PPO Gold</div>
+<section class="mg-slots" role="main"><h1>Next week</h1>
+<div class="mg-slot" data-slot="tue-10-inperson"><span>Tue 10:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost">In-person</button></div></div>
+<div class="mg-slot" data-slot="tue-1430-video" data-mode="video"><span>Tue 14:30 · Video</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" data-agent-role="action" data-agent-id="schedule-video-visit" data-agent-desc="Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div>
+<div class="mg-slot" data-slot="wed-09"><span>Wed 09:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost">Call back</button></div></div>
+<div class="mg-slot"><span>Fri 11:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav">Request callback</button></div></div>
+</section><aside class="mg-rail mg-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="mg-filler" aria-hidden="true"><div class="mg-filler-inner"><a href="/misc/0" class="mg-btn mg-btn--ghost">Link 1</a><button type="button" class="mg-btn mg-btn--ghost">Action 2</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/4" class="mg-btn mg-btn--ghost">Link 5</a><button type="button" class="mg-btn mg-btn--ghost">Action 6</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/8" class="mg-btn mg-btn--ghost">Link 9</a><button type="button" class="mg-btn mg-btn--ghost">Action 10</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/12" class="mg-btn mg-btn--ghost">Link 13</a><button type="button" class="mg-btn mg-btn--ghost">Action 14</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/16" class="mg-btn mg-btn--ghost">Link 17</a><button type="button" class="mg-btn mg-btn--ghost">Action 18</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/20" class="mg-btn mg-btn--ghost">Link 21</a><button type="button" class="mg-btn mg-btn--ghost">Action 22</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/24" class="mg-btn mg-btn--ghost">Link 25</a><button type="button" class="mg-btn mg-btn--ghost">Action 26</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/28" class="mg-btn mg-btn--ghost">Link 29</a><button type="button" class="mg-btn mg-btn--ghost">Action 30</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/32" class="mg-btn mg-btn--ghost">Link 33</a><button type="button" class="mg-btn mg-btn--ghost">Action 34</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/36" class="mg-btn mg-btn--ghost">Link 37</a><button type="button" class="mg-btn mg-btn--ghost">Action 38</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/40" class="mg-btn mg-btn--ghost">Link 41</a><button type="button" class="mg-btn mg-btn--ghost">Action 42</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button></div></div><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="mg-ftr"><small>© Demo MediGate Portal</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

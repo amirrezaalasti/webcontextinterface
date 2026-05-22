@@ -1,0 +1,2135 @@
+{
+  "generatedAt": "2026-05-22T22:38:19.452Z",
+  "methodology": "Element-grounding via OpenRouter. Baselines: raw HTML, DOM outline, interactive candidates. WCI: wci-full (full graph, no state patches) vs wci-grounding (actionable nodes, decision-point patches). Playwright validates raw paths. Temperature=0.",
+  "models": [
+    {
+      "modelId": "qwen25_7b",
+      "modelName": "Qwen 2.5 7B",
+      "openRouterModel": "qwen/qwen-2.5-7b-instruct",
+      "approaches": {
+        "raw-html": {
+          "approach": "raw-html",
+          "runs": 50,
+          "correct": 35,
+          "decoyHits": 0,
+          "successRate": 70,
+          "avgTokens": 2857,
+          "byScenario": {
+            "flight-booking": {
+              "scenarioId": "flight-booking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": ".sw-result-card[data-flight-id]:not(.sw-result-card--promo):not(.sw-result-card--partner) .sw-fare-btn--economy:has(~ .sw-flight-path__stops:contains(\"Nonstop\"))[data-price=\"329\"]",
+              "rawResponse": ".sw-result-card[data-flight-id]:not(.sw-result-card--promo):not(.sw-result-card--partner) .sw-fare-btn--economy:has(~ .sw-flight-path__stops:contains(\"Nonstop\"))[data-price=\"329\"]",
+              "tokenEstimate": 5915,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Element': '.sw-flight-path__stops:contains(\"Nonstop\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "banking": {
+              "scenarioId": "banking",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "#app-root .np-quick-transfer form button[type=\"submit\"]",
+              "rawResponse": "#app-root .np-quick-transfer form button[type=\"submit\"]",
+              "tokenEstimate": 3813
+            },
+            "checkout": {
+              "scenarioId": "checkout",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "input[value=\"Express Shipping\"]",
+              "rawResponse": "input[value=\"Express Shipping\"]",
+              "tokenEstimate": 3377,
+              "validationError": "Selector matched 0 elements"
+            },
+            "social-feed": {
+              "scenarioId": "social-feed",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "a[href*=\"@alice_dev\"] button:nth-child(4)",
+              "rawResponse": "a[href*=\"@alice_dev\"] button:nth-child(4)",
+              "tokenEstimate": 5402,
+              "validationError": "Selector matched 0 elements"
+            },
+            "admin-dashboard": {
+              "scenarioId": "admin-dashboard",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "tr[data-deal-id][td[5]:contains(\"Probability\")]:scope(~,:not(:empty)):[td[5]>'75%']",
+              "rawResponse": "tr[data-deal-id][td[5]:contains(\"Probability\")]:scope(~,:not(:empty)):[td[5]>'75%']",
+              "tokenEstimate": 4645,
+              "validationError": "locator.count: Unexpected token \"]\" while parsing css selector \"tr[data-deal-id][td[5]:contains(\"Probability\")]:scope(~,:not(:empty)):[td[5]>'75%']\". Did you mean to CSS.escape it?"
+            },
+            "job-board": {
+              "scenarioId": "job-board",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "li[data-employer-ref=\"ACM-447\"] .hf-btn.hf-btn--primary",
+              "rawResponse": "li[data-employer-ref=\"ACM-447\"] .hf-btn.hf-btn--primary",
+              "tokenEstimate": 2961
+            },
+            "healthcare-portal": {
+              "scenarioId": "healthcare-portal",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div[mg-slot=\"tue-1430-video\"] .mg-slot__actions button.mg-btn--primary",
+              "rawResponse": "div[mg-slot=\"tue-1430-video\"] .mg-slot__actions button.mg-btn--primary",
+              "tokenEstimate": 2892,
+              "validationError": "Selector matched 0 elements"
+            },
+            "email-client": {
+              "scenarioId": "email-client",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": ".ip-inbox tr.unread[data-thread=\"billing-acme\"] + .ip-toolbar > .ip-btn.ip-btn--primary",
+              "rawResponse": ".ip-inbox tr.unread[data-thread=\"billing-acme\"] + .ip-toolbar > .ip-btn.ip-btn--primary",
+              "tokenEstimate": 2795,
+              "validationError": "Selector matched 0 elements"
+            },
+            "calendar-app": {
+              "scenarioId": "calendar-app",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-series=\"weekday-standup-09\"]",
+              "rawResponse": "button[data-series=\"weekday-standup-09\"]",
+              "tokenEstimate": 2839
+            },
+            "food-delivery": {
+              "scenarioId": "food-delivery",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "article[data-restaurant=\"tokyo-bowl\"] button.qb-btn.qb-btn--primary",
+              "rawResponse": "article[data-restaurant=\"tokyo-bowl\"] button.qb-btn.qb-btn--primary",
+              "tokenEstimate": 2817
+            },
+            "insurance-quote": {
+              "scenarioId": "insurance-quote",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "form ss-form input[name=\"zip\"]+label+fieldset label[input[type=\"radio\"][value=\"liability\"]]+button:ss-btn--primary",
+              "rawResponse": "form ss-form input[name=\"zip\"]+label+fieldset label[input[type=\"radio\"][value=\"liability\"]]+button:ss-btn--primary",
+              "tokenEstimate": 2679,
+              "validationError": "locator.count: Unexpected token \"]\" while parsing css selector \"form ss-form input[name=\"zip\"]+label+fieldset label[input[type=\"radio\"][value=\"liability\"]]+button:ss-btn--primary\". Did you mean to CSS.escape it?"
+            },
+            "real-estate": {
+              "scenarioId": "real-estate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "article[data-listing=\"evergreen-742\"] button.hn-btn.hn-btn--primary",
+              "rawResponse": "article[data-listing=\"evergreen-742\"] button.hn-btn.hn-btn--primary",
+              "tokenEstimate": 2702
+            },
+            "lms-course": {
+              "scenarioId": "lms-course",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "li[data-module=\"4\"] button.lp-btn--primary",
+              "rawResponse": "li[data-module=\"4\"] button.lp-btn--primary",
+              "tokenEstimate": 2561
+            },
+            "support-ticket": {
+              "scenarioId": "support-ticket",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+              "rawResponse": "button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+              "tokenEstimate": 2614
+            },
+            "ecommerce-search": {
+              "scenarioId": "ecommerce-search",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "#rating-filter[value=\"4\"] + label + input[value=\"50\"] + button.sg-btn--primary",
+              "rawResponse": "#rating-filter[value=\"4\"] + label + input[value=\"50\"] + button.sg-btn--primary",
+              "tokenEstimate": 2633,
+              "validationError": "Selector matched 0 elements"
+            },
+            "streaming-service": {
+              "scenarioId": "streaming-service",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "sv-tile[data-title-id=\"ocean-deep\"] button.sv-btn--primary)",
+              "rawResponse": "(sv-tile[data-title-id=\"ocean-deep\"] button.sv-btn--primary)",
+              "tokenEstimate": 2750,
+              "validationError": "locator.count: Unexpected token \")\" while parsing css selector \"sv-tile[data-title-id=\"ocean-deep\"] button.sv-btn--primary)\". Did you mean to CSS.escape it?"
+            },
+            "hotel-booking": {
+              "scenarioId": "hotel-booking",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "li[data-hotel=\"marriott-downtown\"] button.sf-btn.sf-btn--primary",
+              "rawResponse": "li[data-hotel=\"marriott-downtown\"] button.sf-btn.sf-btn--primary",
+              "tokenEstimate": 2622
+            },
+            "tax-filing": {
+              "scenarioId": "tax-filing",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-provider=\"ADP\"][data-form=\"W2\"]",
+              "rawResponse": "button[data-provider=\"ADP\"][data-form=\"W2\"]",
+              "tokenEstimate": 2688
+            },
+            "weather-app": {
+              "scenarioId": "weather-app",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[data-city=\"SF\" data-alert=\"rain\"] button.sk-btn.sk-btn--primary",
+              "rawResponse": "[data-city=\"SF\" data-alert=\"rain\"] button.sk-btn.sk-btn--primary",
+              "tokenEstimate": 2539,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'matches' on 'Element': '[data-city=\"SF\" data-alert=\"rain\"]' is not a valid selector.\n    at SelectorEvaluatorImpl._matchesCSS (<anonymous>:5328:20)\n    at <anonymous>:5200:31\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesSimple (<anonymous>:5197:17)\n    at <anonymous>:5264:20\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesParents (<anonymous>:5247:17)\n    at <anonymous>:5160:54\n    at Array.filter (<anonymous>)\n    at <anonymous>:5160:29"
+            },
+            "parking-reservation": {
+              "scenarioId": "parking-reservation",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": ".pk-btn.pk-btn--primary[data-spot=\"B12\"][data-open=\"true\"]",
+              "rawResponse": ".pk-btn.pk-btn--primary[data-spot=\"B12\"][data-open=\"true\"]",
+              "tokenEstimate": 2738
+            },
+            "gym-membership": {
+              "scenarioId": "gym-membership",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "div[data-plan=\"annual\"] button.fc-btn.fc-btn--primary",
+              "rawResponse": "div[data-plan=\"annual\"] button.fc-btn.fc-btn--primary",
+              "tokenEstimate": 2563
+            },
+            "pharmacy-order": {
+              "scenarioId": "pharmacy-order",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "tr[data-rx=\"lisinopril-10\"] td:nth-last-child(1) button",
+              "rawResponse": "tr[data-rx=\"lisinopril-10\"] td:nth-last-child(1) button",
+              "tokenEstimate": 2613
+            },
+            "ride-share": {
+              "scenarioId": "ride-share",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-dest=\"SFO-T2\"]",
+              "rawResponse": "button[data-dest=\"SFO-T2\"]",
+              "tokenEstimate": 2602
+            },
+            "voting-poll": {
+              "scenarioId": "voting-poll",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "form[data-measure=\"12\"] input[value=\"yes\"], form[data-measure=\"12\"] button[type=\"submit\"]",
+              "rawResponse": "form[data-measure=\"12\"] input[value=\"yes\"], form[data-measure=\"12\"] button[type=\"submit\"]",
+              "tokenEstimate": 2638
+            },
+            "wiki-edit": {
+              "scenarioId": "wiki-edit",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+              "rawResponse": "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+              "tokenEstimate": 2709
+            },
+            "code-review": {
+              "scenarioId": "code-review",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-pr-action=\"approve\"]",
+              "rawResponse": "button[data-pr-action=\"approve\"]",
+              "tokenEstimate": 2620
+            },
+            "inventory-mgmt": {
+              "scenarioId": "inventory-mgmt",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "tr[data-sku=\"WH-9921\"] button[data-qty=\"500\"]",
+              "rawResponse": "tr[data-sku=\"WH-9921\"] button[data-qty=\"500\"]",
+              "tokenEstimate": 2629
+            },
+            "subscription-cancel": {
+              "scenarioId": "subscription-cancel",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-cancel=\"next-cycle\"]",
+              "rawResponse": "button[data-cancel=\"next-cycle\"]",
+              "tokenEstimate": 2548
+            },
+            "password-reset": {
+              "scenarioId": "password-reset",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-action=\"send-reset\"]",
+              "rawResponse": "button[data-action=\"send-reset\"]",
+              "tokenEstimate": 2596
+            },
+            "document-sign": {
+              "scenarioId": "document-sign",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-sign-page=\"12\"]",
+              "rawResponse": "button[data-sign-page=\"12\"]",
+              "tokenEstimate": 2935
+            },
+            "survey-form": {
+              "scenarioId": "survey-form",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button[data-score=\"9\"]",
+              "rawResponse": "button[data-score=\"9\"]",
+              "tokenEstimate": 2796
+            },
+            "charity-donate": {
+              "scenarioId": "charity-donate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-amt=\"25\"]",
+              "rawResponse": "button[data-amt=\"25\"]",
+              "tokenEstimate": 2599
+            },
+            "flight-checkin": {
+              "scenarioId": "flight-checkin",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-seat=\"14A\"][data-window=\"true\"]",
+              "rawResponse": "button[data-seat=\"14A\"][data-window=\"true\"]",
+              "tokenEstimate": 2686
+            },
+            "visa-application": {
+              "scenarioId": "visa-application",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-doc=\"passport-scan\"]",
+              "rawResponse": "button[data-doc=\"passport-scan\"]",
+              "tokenEstimate": 2614
+            },
+            "stock-trade": {
+              "scenarioId": "stock-trade",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+              "rawResponse": "button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+              "tokenEstimate": 2601
+            },
+            "podcast-subscribe": {
+              "scenarioId": "podcast-subscribe",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-subscribe=\"ai-daily\"]",
+              "rawResponse": "button[data-subscribe=\"ai-daily\"]",
+              "tokenEstimate": 2587
+            },
+            "photo-upload": {
+              "scenarioId": "photo-upload",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button[data-album=\"iceland-2026\"]",
+              "rawResponse": "button[data-album=\"iceland-2026\"]",
+              "tokenEstimate": 2628,
+              "validationError": "Selector matched 0 elements"
+            },
+            "forum-post": {
+              "scenarioId": "forum-post",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button[data-thread=\"wci-feedback\"]",
+              "rawResponse": "button[data-thread=\"wci-feedback\"]",
+              "tokenEstimate": 2570,
+              "validationError": "Selector matched 0 elements"
+            },
+            "dating-profile": {
+              "scenarioId": "dating-profile",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-send-intro=\"river_kayak\"]",
+              "rawResponse": "button[data-send-intro=\"river_kayak\"]",
+              "tokenEstimate": 2600
+            },
+            "rental-car": {
+              "scenarioId": "rental-car",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "[data-vehicle=\"compact-lax-friday\"] button",
+              "rawResponse": "[data-vehicle=\"compact-lax-friday\"] button",
+              "tokenEstimate": 2636
+            },
+            "concert-tickets": {
+              "scenarioId": "concert-tickets",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-tickets=\"ga-2\"]",
+              "rawResponse": "button[data-tickets=\"ga-2\"]",
+              "tokenEstimate": 2598
+            },
+            "grocery-list": {
+              "scenarioId": "grocery-list",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "li[data-item=\"organic-avocados\"] button.fcart-btn--primary",
+              "rawResponse": "li[data-item=\"organic-avocados\"] button.fcart-btn--primary",
+              "tokenEstimate": 2764
+            },
+            "pet-adoption": {
+              "scenarioId": "pet-adoption",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-adopt=\"max\"]",
+              "rawResponse": "button[data-adopt=\"max\"]",
+              "tokenEstimate": 2528
+            },
+            "scholarship-apply": {
+              "scenarioId": "scholarship-apply",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[type=\"submit\"][class*=\"eg-btn--primary\"]",
+              "rawResponse": "button[type=\"submit\"][class*=\"eg-btn--primary\"]",
+              "tokenEstimate": 2585
+            },
+            "wifi-setup": {
+              "scenarioId": "wifi-setup",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-connect-ssid=\"Guest_5G\"]",
+              "rawResponse": "button[data-connect-ssid=\"Guest_5G\"]",
+              "tokenEstimate": 2580
+            },
+            "invoice-pay": {
+              "scenarioId": "invoice-pay",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "tr[data-inv=\"INV-2026-044\"] button[data-pay-inv=\"INV-2026-044\"]",
+              "rawResponse": "tr[data-inv=\"INV-2026-044\"] button[data-pay-inv=\"INV-2026-044\"]",
+              "tokenEstimate": 2714
+            },
+            "newsletter-sub": {
+              "scenarioId": "newsletter-sub",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-newsletter=\"ai-digest\"]",
+              "rawResponse": "button[data-newsletter=\"ai-digest\"]",
+              "tokenEstimate": 2556
+            },
+            "api-keys": {
+              "scenarioId": "api-keys",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "tr[data-key=\"production\"] td:nth-child(2) button[data-rotate=\"production\"]",
+              "rawResponse": "tr[data-key=\"production\"] td:nth-child(2) button[data-rotate=\"production\"]",
+              "tokenEstimate": 2618
+            },
+            "privacy-settings": {
+              "scenarioId": "privacy-settings",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "input#tp-share:checked",
+              "rawResponse": "input#tp-share:checked",
+              "tokenEstimate": 2622
+            },
+            "bug-report": {
+              "scenarioId": "bug-report",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button[data-file-bug=\"checkout-timeout\"]",
+              "rawResponse": "button[data-file-bug=\"checkout-timeout\"]",
+              "tokenEstimate": 2530
+            }
+          }
+        },
+        "dom-outline": {
+          "approach": "dom-outline",
+          "runs": 50,
+          "correct": 7,
+          "decoyHits": 0,
+          "successRate": 14,
+          "avgTokens": 1541,
+          "byScenario": {
+            "flight-booking": {
+              "scenarioId": "flight-booking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "main.sw-main.sw-main--results div.sw-results.sw-container aside.sw-filters.sw-filters--desktop label.sw-filter-check[input:checked] + span.sw-filter-check__label",
+              "rawResponse": "main.sw-main.sw-main--results div.sw-results.sw-container aside.sw-filters.sw-filters--desktop label.sw-filter-check[input:checked] + span.sw-filter-check__label",
+              "tokenEstimate": 1657,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'matches' on 'Element': 'label.sw-filter-check[input:checked]' is not a valid selector.\n    at SelectorEvaluatorImpl._matchesCSS (<anonymous>:5328:20)\n    at <anonymous>:5200:31\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesSimple (<anonymous>:5197:17)\n    at <anonymous>:5257:39\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesParents (<anonymous>:5247:17)\n    at <anonymous>:5160:54\n    at Array.filter (<anonymous>)\n    at <anonymous>:5160:29"
+            },
+            "banking": {
+              "scenarioId": "banking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "main.np-main div.np-account-card.np-account-card--checking button.np-btn.np-btn--sm",
+              "rawResponse": "main.np-main div.np-account-card.np-account-card--checking button.np-btn.np-btn--sm",
+              "tokenEstimate": 1731,
+              "validationError": "locator.evaluate: SyntaxError: Failed to execute 'querySelector' on 'Document': 'button:has-text(\"Review Transfer\")' is not a valid selector.\n    at eval (eval at evaluate (:302:30), <anonymous>:1:43)\n    at UtilityScript.evaluate (<anonymous>:304:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+            },
+            "checkout": {
+              "scenarioId": "checkout",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "label[for=\"vc-shipping-opt-express\"]",
+              "rawResponse": "label[for=\"vc-shipping-opt-express\"]",
+              "tokenEstimate": 1561,
+              "validationError": "Selector matched 0 elements"
+            },
+            "social-feed": {
+              "scenarioId": "social-feed",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "article.cb-post(cb-post__author=\"Alice Chen\")",
+              "rawResponse": "article.cb-post(cb-post__author=\"Alice Chen\")",
+              "tokenEstimate": 1370,
+              "validationError": "locator.count: Unexpected token \"cb-post(\" while parsing css selector \"article.cb-post(cb-post__author=\"Alice Chen\")\". Did you mean to CSS.escape it?"
+            },
+            "admin-dashboard": {
+              "scenarioId": "admin-dashboard",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.deals-table tr td:nth-child(2):not(:first-child):not(:last-child)",
+              "rawResponse": "div.deals-table tr td:nth-child(2):not(:first-child):not(:last-child)",
+              "tokenEstimate": 1264,
+              "validationError": "Selector matched 0 elements"
+            },
+            "job-board": {
+              "scenarioId": "job-board",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "li.hf-card:has(h3:contains(\"Senior Engineer — Acme Corp\")) button.hf-btn.hf-btn--primary:contains(\"Confirm\")",
+              "rawResponse": "li.hf-card:has(h3:contains(\"Senior Engineer — Acme Corp\")) button.hf-btn.hf-btn--primary:contains(\"Confirm\")",
+              "tokenEstimate": 1599,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.hf-btn.hf-btn--primary:contains(\"Confirm\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "healthcare-portal": {
+              "scenarioId": "healthcare-portal",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.mg-slot> Tue 14:30 · VideoConfirm button.mg-btn.mg-btn--primary",
+              "rawResponse": "div.mg-slot> Tue 14:30 · VideoConfirm button.mg-btn.mg-btn--primary",
+              "tokenEstimate": 1675,
+              "validationError": "locator.count: Unexpected token \"14\" while parsing css selector \"div.mg-slot> Tue 14:30 · VideoConfirm button.mg-btn.mg-btn--primary\". Did you mean to CSS.escape it?"
+            },
+            "email-client": {
+              "scenarioId": "email-client",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.ip-frame tr.unread td:contains(\"billing@acme.com\") + td",
+              "rawResponse": "div.ip-frame tr.unread td:contains(\"billing@acme.com\") + td",
+              "tokenEstimate": 1442,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'matches' on 'Element': 'td:contains(\"billing@acme.com\")' is not a valid selector.\n    at SelectorEvaluatorImpl._matchesCSS (<anonymous>:5328:20)\n    at <anonymous>:5200:31\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesSimple (<anonymous>:5197:17)\n    at <anonymous>:5257:39\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesParents (<anonymous>:5247:17)\n    at <anonymous>:5160:54\n    at Array.filter (<anonymous>)\n    at <anonymous>:5160:29"
+            },
+            "calendar-app": {
+              "scenarioId": "calendar-app",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.cs-dup-row button.cs-btn.cs-btn--decoy",
+              "rawResponse": "div.cs-dup-row button.cs-btn.cs-btn--decoy",
+              "tokenEstimate": 1419
+            },
+            "food-delivery": {
+              "scenarioId": "food-delivery",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "article.qb-resto:nth-child(2) button.qb-btn.qb-btn--primary",
+              "rawResponse": "article.qb-resto:nth-child(2) button.qb-btn.qb-btn--primary",
+              "tokenEstimate": 1688
+            },
+            "insurance-quote": {
+              "scenarioId": "insurance-quote",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.ss-btn.ss-btn--decoy>[ZIP 94105]",
+              "rawResponse": "<button.ss-btn.ss-btn--decoy>[ZIP 94105]</button.ss-btn>",
+              "tokenEstimate": 1494,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': '[ZIP 94105]' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "real-estate": {
+              "scenarioId": "real-estate",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "article> 3BR",
+              "rawResponse": "<article> 3BR · 742 Evergreen Terrace Confirm</article>",
+              "tokenEstimate": 1698,
+              "validationError": "locator.count: Unexpected token \"3BR\" while parsing css selector \"article> 3BR\". Did you mean to CSS.escape it?"
+            },
+            "lms-course": {
+              "scenarioId": "lms-course",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.lp-btn.lp-btn--primary:nth-of-type(2)",
+              "rawResponse": "button.lp-btn.lp-btn--primary:nth-of-type(2)",
+              "tokenEstimate": 1498
+            },
+            "support-ticket": {
+              "scenarioId": "support-ticket",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "form button.hd-btn.hd-btn--primary",
+              "rawResponse": "form button.hd-btn.hd-btn--primary",
+              "tokenEstimate": 1489
+            },
+            "ecommerce-search": {
+              "scenarioId": "ecommerce-search",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "table tbody tr td:has(:contains(\"★★★★\")):has(:contains(\"$45\"))",
+              "rawResponse": "table tbody tr td:has(:contains(\"★★★★\")):has(:contains(\"$45\"))",
+              "tokenEstimate": 1504,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Element': ':contains(\"★★★★\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "streaming-service": {
+              "scenarioId": "streaming-service",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.sv-tile strong:contains(\"Ocean Deep\") + span",
+              "rawResponse": "div.sv-tile strong:contains(\"Ocean Deep\") + span",
+              "tokenEstimate": 1627,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'matches' on 'Element': 'strong:contains(\"Ocean Deep\")' is not a valid selector.\n    at SelectorEvaluatorImpl._matchesCSS (<anonymous>:5328:20)\n    at <anonymous>:5200:31\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesSimple (<anonymous>:5197:17)\n    at <anonymous>:5257:39\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._matchesParents (<anonymous>:5247:17)\n    at <anonymous>:5160:54\n    at Array.filter (<anonymous>)\n    at <anonymous>:5160:29"
+            },
+            "hotel-booking": {
+              "scenarioId": "hotel-booking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "li.Marriott-Downtown2-nights button.sf-btn.sf-btn--primary",
+              "rawResponse": "li.Marriott-Downtown2-nights button.sf-btn.sf-btn--primary",
+              "tokenEstimate": 1487,
+              "validationError": "Selector matched 0 elements"
+            },
+            "tax-filing": {
+              "scenarioId": "tax-filing",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "div.tx-wizard section.tx-panel button.tx-btn.tx-btn--primary",
+              "rawResponse": "div.tx-wizard section.tx-panel button.tx-btn.tx-btn--primary",
+              "tokenEstimate": 1524
+            },
+            "weather-app": {
+              "scenarioId": "weather-app",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.sk-dup-row button.sk-btn.sk-btn--decoy:contains(\"San Francisco\")",
+              "rawResponse": "div.sk-dup-row button.sk-btn.sk-btn--decoy:contains(\"San Francisco\")",
+              "tokenEstimate": 1494,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.sk-btn.sk-btn--decoy:contains(\"San Francisco\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "parking-reservation": {
+              "scenarioId": "parking-reservation",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button.pk-btn.pk-btn--primary:nth-child(4)",
+              "rawResponse": "button.pk-btn.pk-btn--primary:nth-child(4)",
+              "tokenEstimate": 1595
+            },
+            "gym-membership": {
+              "scenarioId": "gym-membership",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.fc-btn.fc-btn--primary.fc-dup-row> Upgrade to annual",
+              "rawResponse": "<button.fc-btn.fc-btn--primary.fc-dup-row> Upgrade to annual</button>",
+              "tokenEstimate": 1478,
+              "validationError": "Selector matched 0 elements"
+            },
+            "pharmacy-order": {
+              "scenarioId": "pharmacy-order",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "table tbody tr:nth-child(2) td:nth-child(3) button.rx-btn.rx-btn--primary",
+              "rawResponse": "table tbody tr:nth-child(2) td:nth-child(3) button.rx-btn.rx-btn--primary",
+              "tokenEstimate": 1492
+            },
+            "ride-share": {
+              "scenarioId": "ride-share",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.gr-btn.gr-btn--decoy>[Request ride SFO Terminal 2]",
+              "rawResponse": "<button.gr-btn.gr-btn--decoy>[Request ride SFO Terminal 2]</button>",
+              "tokenEstimate": 1517,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': '[Request ride SFO Terminal 2]' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "voting-poll": {
+              "scenarioId": "voting-poll",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "input[value=\"Yes\"]",
+              "rawResponse": "input[value=\"Yes\"]",
+              "tokenEstimate": 1613,
+              "validationError": "Selector matched 0 elements"
+            },
+            "wiki-edit": {
+              "scenarioId": "wiki-edit",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.ow-btn.ow-btn--decoy> Publish Web Context Interface changes [interactive]",
+              "rawResponse": "<button.ow-btn.ow-btn--decoy> Publish Web Context Interface changes [interactive]",
+              "tokenEstimate": 1671,
+              "validationError": "Selector matched 0 elements"
+            },
+            "code-review": {
+              "scenarioId": "code-review",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.ml-btn.ml-btn--decoy:contains(\"Approve PR 4182\")",
+              "rawResponse": "button.ml-btn.ml-btn--decoy:contains(\"Approve PR 4182\")",
+              "tokenEstimate": 1545,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.ml-btn.ml-btn--decoy:contains(\"Approve PR 4182\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "inventory-mgmt": {
+              "scenarioId": "inventory-mgmt",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.sp-btn.sp-btn--decoy:contains(\"Reorder 500 WH-9921\")",
+              "rawResponse": "button.sp-btn.sp-btn--decoy:contains(\"Reorder 500 WH-9921\")",
+              "tokenEstimate": 1511,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.sp-btn.sp-btn--decoy:contains(\"Reorder 500 WH-9921\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "subscription-cancel": {
+              "scenarioId": "subscription-cancel",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.sb-dup-row button.sb-btn.sb-btn--decoy",
+              "rawResponse": "div.sb-dup-row button.sb-btn.sb-btn--decoy",
+              "tokenEstimate": 1495
+            },
+            "password-reset": {
+              "scenarioId": "password-reset",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.ag-btn.ag-btn--decoy:contains(\"Send reset link user",
+              "rawResponse": "<button.ag-btn.ag-btn--decoy:contains(\"Send reset link user@corp.com\")>",
+              "tokenEstimate": 1492,
+              "validationError": "locator.count: Unexpected token \"\" while parsing css selector \"button.ag-btn.ag-btn--decoy:contains(\"Send reset link user\". Did you mean to CSS.escape it?"
+            },
+            "document-sign": {
+              "scenarioId": "document-sign",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.sn-dup-row button.sn-btn.sn-btn--decoy:nth-child(2)",
+              "rawResponse": "div.sn-dup-row button.sn-btn.sn-btn--decoy:nth-child(2)",
+              "tokenEstimate": 1508
+            },
+            "survey-form": {
+              "scenarioId": "survey-form",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "form button.fl-btn.fl-btn--primary",
+              "rawResponse": "form button.fl-btn.fl-btn--primary",
+              "tokenEstimate": 1539
+            },
+            "charity-donate": {
+              "scenarioId": "charity-donate",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.gh-dup-row button.gh-btn.gh-btn--decoy",
+              "rawResponse": "div.gh-dup-row button.gh-btn.gh-btn--decoy",
+              "tokenEstimate": 1643
+            },
+            "flight-checkin": {
+              "scenarioId": "flight-checkin",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "button.ac-btn.ac-btn--primary:nth-of-type(4)",
+              "rawResponse": "button.ac-btn.ac-btn--primary:nth-of-type(4)",
+              "tokenEstimate": 1595
+            },
+            "visa-application": {
+              "scenarioId": "visa-application",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.vp-dup-row button.vp-btn.vp-btn--decoy:nth-child(2)",
+              "rawResponse": "div.vp-dup-row button.vp-btn.vp-btn--decoy:nth-child(2)",
+              "tokenEstimate": 1637
+            },
+            "stock-trade": {
+              "scenarioId": "stock-trade",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.tp-btn.tp-btn--decoy> Buy 10 shares AAPL",
+              "rawResponse": "<button.tp-btn.tp-btn--decoy> Buy 10 shares AAPL</button>",
+              "tokenEstimate": 1496,
+              "validationError": "locator.count: Unexpected token \"10\" while parsing css selector \"button.tp-btn.tp-btn--decoy> Buy 10 shares AAPL\". Did you mean to CSS.escape it?"
+            },
+            "podcast-subscribe": {
+              "scenarioId": "podcast-subscribe",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.pw-dup-row button.pw-btn.pw-btn--decoy:contains(\"Subscribe show AI Daily\")",
+              "rawResponse": "div.pw-dup-row button.pw-btn.pw-btn--decoy:contains(\"Subscribe show AI Daily\")",
+              "tokenEstimate": 1633,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.pw-btn.pw-btn--decoy:contains(\"Subscribe show AI Daily\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "photo-upload": {
+              "scenarioId": "photo-upload",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.ca-dup-row button.ca-btn.ca-btn--decoy",
+              "rawResponse": "div.ca-dup-row button.ca-btn.ca-btn--decoy",
+              "tokenEstimate": 1504
+            },
+            "forum-post": {
+              "scenarioId": "forum-post",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.df-btn.df-btn--decoy:contains(\"Pin WCI specification feedback\")",
+              "rawResponse": "button.df-btn.df-btn--decoy:contains(\"Pin WCI specification feedback\")",
+              "tokenEstimate": 1492,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button.df-btn.df-btn--decoy:contains(\"Pin WCI specification feedback\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "dating-profile": {
+              "scenarioId": "dating-profile",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.mm-btn.mm-btn--decoy:contains(\"Send intro river_kayak\")]",
+              "rawResponse": "<button.mm-btn.mm-btn--decoy:contains(\"Send intro river_kayak\")]",
+              "tokenEstimate": 1520,
+              "validationError": "locator.count: Unexpected token \"]\" while parsing css selector \"button.mm-btn.mm-btn--decoy:contains(\"Send intro river_kayak\")]\". Did you mean to CSS.escape it?"
+            },
+            "rental-car": {
+              "scenarioId": "rental-car",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.da-dup-row button:contains(\"Reserve compact LAX\")",
+              "rawResponse": "div.da-dup-row button:contains(\"Reserve compact LAX\")",
+              "tokenEstimate": 1467,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button:contains(\"Reserve compact LAX\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "concert-tickets": {
+              "scenarioId": "concert-tickets",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.tr-btn.tr-btn--decoy> Buy 2 GA Neon Pulse",
+              "rawResponse": "<button.tr-btn.tr-btn--decoy> Buy 2 GA Neon Pulse</button>",
+              "tokenEstimate": 1502,
+              "validationError": "locator.count: Unexpected token \"2\" while parsing css selector \"button.tr-btn.tr-btn--decoy> Buy 2 GA Neon Pulse\". Did you mean to CSS.escape it?"
+            },
+            "grocery-list": {
+              "scenarioId": "grocery-list",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.fcart-dup-row button:contains(\"Add organic avocados list\")",
+              "rawResponse": "div.fcart-dup-row button:contains(\"Add organic avocados list\")",
+              "tokenEstimate": 1645,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button:contains(\"Add organic avocados list\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "pet-adoption": {
+              "scenarioId": "pet-adoption",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.pm-btn.pm-btn--primary>Confirm",
+              "rawResponse": "<button.pm-btn.pm-btn--primary>Confirm</button>",
+              "tokenEstimate": 1456,
+              "validationError": "Selector matched 0 elements"
+            },
+            "scholarship-apply": {
+              "scenarioId": "scholarship-apply",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button:contains(\"Submit STEM application\")",
+              "rawResponse": "button:contains(\"Submit STEM application\")",
+              "tokenEstimate": 1608,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button:contains(\"Submit STEM application\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "wifi-setup": {
+              "scenarioId": "wifi-setup",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.nc-btn.nc-btn--decoy> Connect Guest_5G",
+              "rawResponse": "<button.nc-btn.nc-btn--decoy> Connect Guest_5G</button>",
+              "tokenEstimate": 1499,
+              "validationError": "Selector matched 0 elements"
+            },
+            "invoice-pay": {
+              "scenarioId": "invoice-pay",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.bf-dup-row:contains(\"Pay INV-2026-044Pay invoice 044 today\") button:contains(\"Pay INV-2026-044\")",
+              "rawResponse": "div.bf-dup-row:contains(\"Pay INV-2026-044Pay invoice 044 today\") button:contains(\"Pay INV-2026-044\")",
+              "tokenEstimate": 1682,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button:contains(\"Pay INV-2026-044\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "newsletter-sub": {
+              "scenarioId": "newsletter-sub",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.pb-btn.pb-btn--decoy> Subscribe weekly AI digest",
+              "rawResponse": "<button.pb-btn.pb-btn--decoy> Subscribe weekly AI digest",
+              "tokenEstimate": 1480,
+              "validationError": "Selector matched 0 elements"
+            },
+            "api-keys": {
+              "scenarioId": "api-keys",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "div.dc-dup-row button:contains(\"Rotate production API key\")",
+              "rawResponse": "div.dc-dup-row button:contains(\"Rotate production API key\")",
+              "tokenEstimate": 1427,
+              "validationError": "locator.count: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'button:contains(\"Rotate production API key\")' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5211:19)\n    at <anonymous>:5159:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5152:19)\n    at Object.query (<anonymous>:5366:44)\n    at <anonymous>:5324:21"
+            },
+            "privacy-settings": {
+              "scenarioId": "privacy-settings",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "input#tp-share",
+              "rawResponse": "input#tp-share",
+              "tokenEstimate": 1606
+            },
+            "bug-report": {
+              "scenarioId": "bug-report",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "button.it-btn.it-btn--decoy> File checkout timeout bug [interactive]",
+              "rawResponse": "<button.it-btn.it-btn--decoy> File checkout timeout bug [interactive]",
+              "tokenEstimate": 1473,
+              "validationError": "Selector matched 0 elements"
+            }
+          }
+        },
+        "interactive-candidates": {
+          "approach": "interactive-candidates",
+          "runs": 50,
+          "correct": 4,
+          "decoyHits": 0,
+          "successRate": 8,
+          "avgTokens": 1070,
+          "byScenario": {
+            "flight-booking": {
+              "scenarioId": "flight-booking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[45]",
+              "rawResponse": "45",
+              "tokenEstimate": 1070
+            },
+            "banking": {
+              "scenarioId": "banking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[20]",
+              "rawResponse": "20",
+              "tokenEstimate": 786,
+              "validationError": "Invalid candidate index"
+            },
+            "checkout": {
+              "scenarioId": "checkout",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 687
+            },
+            "social-feed": {
+              "scenarioId": "social-feed",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[29]",
+              "rawResponse": "29",
+              "tokenEstimate": 861
+            },
+            "admin-dashboard": {
+              "scenarioId": "admin-dashboard",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[24]",
+              "rawResponse": "24",
+              "tokenEstimate": 789,
+              "validationError": "Invalid candidate index"
+            },
+            "job-board": {
+              "scenarioId": "job-board",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1126
+            },
+            "healthcare-portal": {
+              "scenarioId": "healthcare-portal",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[21]",
+              "rawResponse": "21",
+              "tokenEstimate": 1160
+            },
+            "email-client": {
+              "scenarioId": "email-client",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1082
+            },
+            "calendar-app": {
+              "scenarioId": "calendar-app",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1072
+            },
+            "food-delivery": {
+              "scenarioId": "food-delivery",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1166
+            },
+            "insurance-quote": {
+              "scenarioId": "insurance-quote",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1066
+            },
+            "real-estate": {
+              "scenarioId": "real-estate",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1168
+            },
+            "lms-course": {
+              "scenarioId": "lms-course",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1078
+            },
+            "support-ticket": {
+              "scenarioId": "support-ticket",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1045
+            },
+            "ecommerce-search": {
+              "scenarioId": "ecommerce-search",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1059
+            },
+            "streaming-service": {
+              "scenarioId": "streaming-service",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[21]",
+              "rawResponse": "21",
+              "tokenEstimate": 1156
+            },
+            "hotel-booking": {
+              "scenarioId": "hotel-booking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1075
+            },
+            "tax-filing": {
+              "scenarioId": "tax-filing",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[21]",
+              "rawResponse": "21",
+              "tokenEstimate": 1075
+            },
+            "weather-app": {
+              "scenarioId": "weather-app",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1075
+            },
+            "parking-reservation": {
+              "scenarioId": "parking-reservation",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "[27]",
+              "rawResponse": "27",
+              "tokenEstimate": 1086
+            },
+            "gym-membership": {
+              "scenarioId": "gym-membership",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1070
+            },
+            "pharmacy-order": {
+              "scenarioId": "pharmacy-order",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1090
+            },
+            "ride-share": {
+              "scenarioId": "ride-share",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 1077
+            },
+            "voting-poll": {
+              "scenarioId": "voting-poll",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 1140
+            },
+            "wiki-edit": {
+              "scenarioId": "wiki-edit",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1144
+            },
+            "code-review": {
+              "scenarioId": "code-review",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1093
+            },
+            "inventory-mgmt": {
+              "scenarioId": "inventory-mgmt",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1094
+            },
+            "subscription-cancel": {
+              "scenarioId": "subscription-cancel",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1075
+            },
+            "password-reset": {
+              "scenarioId": "password-reset",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1054
+            },
+            "document-sign": {
+              "scenarioId": "document-sign",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1077
+            },
+            "survey-form": {
+              "scenarioId": "survey-form",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1048
+            },
+            "charity-donate": {
+              "scenarioId": "charity-donate",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1140
+            },
+            "flight-checkin": {
+              "scenarioId": "flight-checkin",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "[27]",
+              "rawResponse": "27",
+              "tokenEstimate": 1093
+            },
+            "visa-application": {
+              "scenarioId": "visa-application",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1164
+            },
+            "stock-trade": {
+              "scenarioId": "stock-trade",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1055
+            },
+            "podcast-subscribe": {
+              "scenarioId": "podcast-subscribe",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1156
+            },
+            "photo-upload": {
+              "scenarioId": "photo-upload",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1085
+            },
+            "forum-post": {
+              "scenarioId": "forum-post",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 1074
+            },
+            "dating-profile": {
+              "scenarioId": "dating-profile",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1073
+            },
+            "rental-car": {
+              "scenarioId": "rental-car",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1037
+            },
+            "concert-tickets": {
+              "scenarioId": "concert-tickets",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 1067
+            },
+            "grocery-list": {
+              "scenarioId": "grocery-list",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[23]",
+              "rawResponse": "23",
+              "tokenEstimate": 1155
+            },
+            "pet-adoption": {
+              "scenarioId": "pet-adoption",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1069
+            },
+            "scholarship-apply": {
+              "scenarioId": "scholarship-apply",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "[25]",
+              "rawResponse": "25",
+              "tokenEstimate": 1134
+            },
+            "wifi-setup": {
+              "scenarioId": "wifi-setup",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1085
+            },
+            "invoice-pay": {
+              "scenarioId": "invoice-pay",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1170
+            },
+            "newsletter-sub": {
+              "scenarioId": "newsletter-sub",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1062
+            },
+            "api-keys": {
+              "scenarioId": "api-keys",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[22]",
+              "rawResponse": "22",
+              "tokenEstimate": 1064
+            },
+            "privacy-settings": {
+              "scenarioId": "privacy-settings",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[25]",
+              "rawResponse": "25",
+              "tokenEstimate": 1124
+            },
+            "bug-report": {
+              "scenarioId": "bug-report",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "[20]",
+              "rawResponse": "20",
+              "tokenEstimate": 1063
+            }
+          }
+        },
+        "wci-full": {
+          "approach": "wci-full",
+          "runs": 50,
+          "correct": 46,
+          "decoyHits": 1,
+          "successRate": 92,
+          "avgTokens": 569,
+          "byScenario": {
+            "flight-booking": {
+              "scenarioId": "flight-booking",
+              "correct": false,
+              "hitDecoy": true,
+              "parsed": "select-UA447-economy",
+              "rawResponse": "select-UA447-economy",
+              "tokenEstimate": 3014
+            },
+            "banking": {
+              "scenarioId": "banking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "transfer-from",
+              "rawResponse": "transfer-from",
+              "tokenEstimate": 2189
+            },
+            "checkout": {
+              "scenarioId": "checkout",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "shipping-option",
+              "rawResponse": "shipping-option",
+              "tokenEstimate": 1633
+            },
+            "social-feed": {
+              "scenarioId": "social-feed",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "like-p_81924",
+              "rawResponse": "like-p_81924",
+              "tokenEstimate": 1816
+            },
+            "admin-dashboard": {
+              "scenarioId": "admin-dashboard",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "d_004",
+              "rawResponse": "d_004",
+              "tokenEstimate": 1629
+            },
+            "job-board": {
+              "scenarioId": "job-board",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-senior-engineer",
+              "rawResponse": "apply-senior-engineer",
+              "tokenEstimate": 499
+            },
+            "healthcare-portal": {
+              "scenarioId": "healthcare-portal",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "schedule-video-visit",
+              "rawResponse": "schedule-video-visit",
+              "tokenEstimate": 436
+            },
+            "email-client": {
+              "scenarioId": "email-client",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "archive-billing-thread",
+              "rawResponse": "archive-billing-thread",
+              "tokenEstimate": 423
+            },
+            "calendar-app": {
+              "scenarioId": "calendar-app",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "create-standup-series",
+              "rawResponse": "create-standup-series",
+              "tokenEstimate": 424
+            },
+            "food-delivery": {
+              "scenarioId": "food-delivery",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-teriyaki-checkout",
+              "rawResponse": "add-teriyaki-checkout",
+              "tokenEstimate": 444
+            },
+            "insurance-quote": {
+              "scenarioId": "insurance-quote",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "get-auto-quote",
+              "rawResponse": "get-auto-quote",
+              "tokenEstimate": 423
+            },
+            "real-estate": {
+              "scenarioId": "real-estate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "save-listing-742",
+              "rawResponse": "save-listing-742",
+              "tokenEstimate": 484
+            },
+            "lms-course": {
+              "scenarioId": "lms-course",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "complete-module-4",
+              "rawResponse": "complete-module-4",
+              "tokenEstimate": 364
+            },
+            "support-ticket": {
+              "scenarioId": "support-ticket",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-priority-ticket",
+              "rawResponse": "submit-priority-ticket",
+              "tokenEstimate": 411
+            },
+            "ecommerce-search": {
+              "scenarioId": "ecommerce-search",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-rating-price-filter",
+              "rawResponse": "apply-rating-price-filter",
+              "tokenEstimate": 407
+            },
+            "streaming-service": {
+              "scenarioId": "streaming-service",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-ocean-deep-watchlist",
+              "rawResponse": "add-ocean-deep-watchlist",
+              "tokenEstimate": 378
+            },
+            "hotel-booking": {
+              "scenarioId": "hotel-booking",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "book-marriott-downtown",
+              "rawResponse": "book-marriott-downtown",
+              "tokenEstimate": 457
+            },
+            "tax-filing": {
+              "scenarioId": "tax-filing",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "import-w2-adp",
+              "rawResponse": "import-w2-adp",
+              "tokenEstimate": 466
+            },
+            "weather-app": {
+              "scenarioId": "weather-app",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "enable-sf-rain-alerts",
+              "rawResponse": "enable-sf-rain-alerts",
+              "tokenEstimate": 358
+            },
+            "parking-reservation": {
+              "scenarioId": "parking-reservation",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reserve-spot-b12",
+              "rawResponse": "reserve-spot-b12",
+              "tokenEstimate": 425
+            },
+            "gym-membership": {
+              "scenarioId": "gym-membership",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upgrade-annual-plan",
+              "rawResponse": "upgrade-annual-plan",
+              "tokenEstimate": 347
+            },
+            "pharmacy-order": {
+              "scenarioId": "pharmacy-order",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "refill-lisinopril",
+              "rawResponse": "refill-lisinopril",
+              "tokenEstimate": 424
+            },
+            "ride-share": {
+              "scenarioId": "ride-share",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "request-sfo-ride",
+              "rawResponse": "request-sfo-ride",
+              "tokenEstimate": 421
+            },
+            "voting-poll": {
+              "scenarioId": "voting-poll",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "vote-prop-12",
+              "rawResponse": "vote-prop-12",
+              "tokenEstimate": 354
+            },
+            "wiki-edit": {
+              "scenarioId": "wiki-edit",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "publish-wci-edit",
+              "rawResponse": "publish-wci-edit",
+              "tokenEstimate": 414
+            },
+            "code-review": {
+              "scenarioId": "code-review",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "approve-pr-4182",
+              "rawResponse": "approve-pr-4182",
+              "tokenEstimate": 429
+            },
+            "inventory-mgmt": {
+              "scenarioId": "inventory-mgmt",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reorder-sku-wh9921",
+              "rawResponse": "reorder-sku-wh9921",
+              "tokenEstimate": 378
+            },
+            "subscription-cancel": {
+              "scenarioId": "subscription-cancel",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "cancel-premium-sub",
+              "rawResponse": "cancel-premium-sub",
+              "tokenEstimate": 405
+            },
+            "password-reset": {
+              "scenarioId": "password-reset",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "send-reset-link",
+              "rawResponse": "send-reset-link",
+              "tokenEstimate": 404
+            },
+            "document-sign": {
+              "scenarioId": "document-sign",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "sign-agreement-p12",
+              "rawResponse": "sign-agreement-p12",
+              "tokenEstimate": 353
+            },
+            "survey-form": {
+              "scenarioId": "survey-form",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-nps-9",
+              "rawResponse": "submit-nps-9",
+              "tokenEstimate": 414
+            },
+            "charity-donate": {
+              "scenarioId": "charity-donate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "donate-water-fund",
+              "rawResponse": "donate-water-fund",
+              "tokenEstimate": 355
+            },
+            "flight-checkin": {
+              "scenarioId": "flight-checkin",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "select-seat-14a",
+              "rawResponse": "select-seat-14a",
+              "tokenEstimate": 425
+            },
+            "visa-application": {
+              "scenarioId": "visa-application",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upload-passport-scan",
+              "rawResponse": "upload-passport-scan",
+              "tokenEstimate": 417
+            },
+            "stock-trade": {
+              "scenarioId": "stock-trade",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "buy-aapl-market",
+              "rawResponse": "buy-aapl-market",
+              "tokenEstimate": 349
+            },
+            "podcast-subscribe": {
+              "scenarioId": "podcast-subscribe",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "subscribe-ai-daily",
+              "rawResponse": "subscribe-ai-daily",
+              "tokenEstimate": 410
+            },
+            "photo-upload": {
+              "scenarioId": "photo-upload",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upload-iceland-album",
+              "rawResponse": "upload-iceland-album",
+              "tokenEstimate": 364
+            },
+            "forum-post": {
+              "scenarioId": "forum-post",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "pin-wci-thread",
+              "rawResponse": "pin-wci-thread",
+              "tokenEstimate": 396
+            },
+            "dating-profile": {
+              "scenarioId": "dating-profile",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "message-river-kayak",
+              "rawResponse": "message-river-kayak",
+              "tokenEstimate": 415
+            },
+            "rental-car": {
+              "scenarioId": "rental-car",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reserve-lax-compact",
+              "rawResponse": "reserve-lax-compact",
+              "tokenEstimate": 360
+            },
+            "concert-tickets": {
+              "scenarioId": "concert-tickets",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "buy-neon-pulse-ga",
+              "rawResponse": "buy-neon-pulse-ga",
+              "tokenEstimate": 414
+            },
+            "grocery-list": {
+              "scenarioId": "grocery-list",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-avocados-list",
+              "rawResponse": "add-avocados-list",
+              "tokenEstimate": 407
+            },
+            "pet-adoption": {
+              "scenarioId": "pet-adoption",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-adopt-max",
+              "rawResponse": "apply-adopt-max",
+              "tokenEstimate": 345
+            },
+            "scholarship-apply": {
+              "scenarioId": "scholarship-apply",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-stem-scholarship",
+              "rawResponse": "submit-stem-scholarship",
+              "tokenEstimate": 412
+            },
+            "wifi-setup": {
+              "scenarioId": "wifi-setup",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "connect-guest-5g",
+              "rawResponse": "connect-guest-5g",
+              "tokenEstimate": 370
+            },
+            "invoice-pay": {
+              "scenarioId": "invoice-pay",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "pay-inv-2026-044",
+              "rawResponse": "pay-inv-2026-044",
+              "tokenEstimate": 434
+            },
+            "newsletter-sub": {
+              "scenarioId": "newsletter-sub",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "subscribe-ai-digest",
+              "rawResponse": "subscribe-ai-digest",
+              "tokenEstimate": 404
+            },
+            "api-keys": {
+              "scenarioId": "api-keys",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "rotate-prod-api-key",
+              "rawResponse": "rotate-prod-api-key",
+              "tokenEstimate": 352
+            },
+            "privacy-settings": {
+              "scenarioId": "privacy-settings",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "disable-third-party-share",
+              "rawResponse": "disable-third-party-share",
+              "tokenEstimate": 396
+            },
+            "bug-report": {
+              "scenarioId": "bug-report",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "file-checkout-timeout-bug",
+              "rawResponse": "file-checkout-timeout-bug",
+              "tokenEstimate": 415
+            }
+          }
+        },
+        "wci-grounding": {
+          "approach": "wci-grounding",
+          "runs": 50,
+          "correct": 45,
+          "decoyHits": 1,
+          "successRate": 90,
+          "avgTokens": 454,
+          "byScenario": {
+            "flight-booking": {
+              "scenarioId": "flight-booking",
+              "correct": false,
+              "hitDecoy": true,
+              "parsed": "select-UA447-economy",
+              "rawResponse": "select-UA447-economy",
+              "tokenEstimate": 2333
+            },
+            "banking": {
+              "scenarioId": "banking",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "transfer-from",
+              "rawResponse": "transfer-from",
+              "tokenEstimate": 1296
+            },
+            "checkout": {
+              "scenarioId": "checkout",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "shipping-option",
+              "rawResponse": "shipping-option",
+              "tokenEstimate": 935
+            },
+            "social-feed": {
+              "scenarioId": "social-feed",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "reply-p_81924",
+              "rawResponse": "reply-p_81924",
+              "tokenEstimate": 1400
+            },
+            "admin-dashboard": {
+              "scenarioId": "admin-dashboard",
+              "correct": false,
+              "hitDecoy": false,
+              "parsed": "deals-search",
+              "rawResponse": "deals-search",
+              "tokenEstimate": 643
+            },
+            "job-board": {
+              "scenarioId": "job-board",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-senior-engineer",
+              "rawResponse": "apply-senior-engineer",
+              "tokenEstimate": 449
+            },
+            "healthcare-portal": {
+              "scenarioId": "healthcare-portal",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "schedule-video-visit",
+              "rawResponse": "schedule-video-visit",
+              "tokenEstimate": 386
+            },
+            "email-client": {
+              "scenarioId": "email-client",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "archive-billing-thread",
+              "rawResponse": "archive-billing-thread",
+              "tokenEstimate": 376
+            },
+            "calendar-app": {
+              "scenarioId": "calendar-app",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "create-standup-series",
+              "rawResponse": "create-standup-series",
+              "tokenEstimate": 336
+            },
+            "food-delivery": {
+              "scenarioId": "food-delivery",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-teriyaki-checkout",
+              "rawResponse": "add-teriyaki-checkout",
+              "tokenEstimate": 398
+            },
+            "insurance-quote": {
+              "scenarioId": "insurance-quote",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "get-auto-quote",
+              "rawResponse": "get-auto-quote",
+              "tokenEstimate": 380
+            },
+            "real-estate": {
+              "scenarioId": "real-estate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "save-listing-742",
+              "rawResponse": "save-listing-742",
+              "tokenEstimate": 438
+            },
+            "lms-course": {
+              "scenarioId": "lms-course",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "complete-module-4",
+              "rawResponse": "complete-module-4",
+              "tokenEstimate": 319
+            },
+            "support-ticket": {
+              "scenarioId": "support-ticket",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-priority-ticket",
+              "rawResponse": "submit-priority-ticket",
+              "tokenEstimate": 368
+            },
+            "ecommerce-search": {
+              "scenarioId": "ecommerce-search",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-rating-price-filter",
+              "rawResponse": "apply-rating-price-filter",
+              "tokenEstimate": 363
+            },
+            "streaming-service": {
+              "scenarioId": "streaming-service",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-ocean-deep-watchlist",
+              "rawResponse": "add-ocean-deep-watchlist",
+              "tokenEstimate": 329
+            },
+            "hotel-booking": {
+              "scenarioId": "hotel-booking",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "book-marriott-downtown",
+              "rawResponse": "book-marriott-downtown",
+              "tokenEstimate": 414
+            },
+            "tax-filing": {
+              "scenarioId": "tax-filing",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "import-w2-adp",
+              "rawResponse": "import-w2-adp",
+              "tokenEstimate": 376
+            },
+            "weather-app": {
+              "scenarioId": "weather-app",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "enable-sf-rain-alerts",
+              "rawResponse": "enable-sf-rain-alerts",
+              "tokenEstimate": 315
+            },
+            "parking-reservation": {
+              "scenarioId": "parking-reservation",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reserve-spot-b12",
+              "rawResponse": "reserve-spot-b12",
+              "tokenEstimate": 381
+            },
+            "gym-membership": {
+              "scenarioId": "gym-membership",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upgrade-annual-plan",
+              "rawResponse": "upgrade-annual-plan",
+              "tokenEstimate": 304
+            },
+            "pharmacy-order": {
+              "scenarioId": "pharmacy-order",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "refill-lisinopril",
+              "rawResponse": "refill-lisinopril",
+              "tokenEstimate": 380
+            },
+            "ride-share": {
+              "scenarioId": "ride-share",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "request-sfo-ride",
+              "rawResponse": "request-sfo-ride",
+              "tokenEstimate": 377
+            },
+            "voting-poll": {
+              "scenarioId": "voting-poll",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "vote-prop-12",
+              "rawResponse": "vote-prop-12",
+              "tokenEstimate": 310
+            },
+            "wiki-edit": {
+              "scenarioId": "wiki-edit",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "publish-wci-edit",
+              "rawResponse": "publish-wci-edit",
+              "tokenEstimate": 366
+            },
+            "code-review": {
+              "scenarioId": "code-review",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "approve-pr-4182",
+              "rawResponse": "approve-pr-4182",
+              "tokenEstimate": 386
+            },
+            "inventory-mgmt": {
+              "scenarioId": "inventory-mgmt",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reorder-sku-wh9921",
+              "rawResponse": "reorder-sku-wh9921",
+              "tokenEstimate": 336
+            },
+            "subscription-cancel": {
+              "scenarioId": "subscription-cancel",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "cancel-premium-sub",
+              "rawResponse": "cancel-premium-sub",
+              "tokenEstimate": 363
+            },
+            "password-reset": {
+              "scenarioId": "password-reset",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "send-reset-link",
+              "rawResponse": "send-reset-link",
+              "tokenEstimate": 361
+            },
+            "document-sign": {
+              "scenarioId": "document-sign",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "sign-agreement-p12",
+              "rawResponse": "sign-agreement-p12",
+              "tokenEstimate": 310
+            },
+            "survey-form": {
+              "scenarioId": "survey-form",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-nps-9",
+              "rawResponse": "submit-nps-9",
+              "tokenEstimate": 370
+            },
+            "charity-donate": {
+              "scenarioId": "charity-donate",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "donate-water-fund",
+              "rawResponse": "donate-water-fund",
+              "tokenEstimate": 310
+            },
+            "flight-checkin": {
+              "scenarioId": "flight-checkin",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "select-seat-14a",
+              "rawResponse": "select-seat-14a",
+              "tokenEstimate": 381
+            },
+            "visa-application": {
+              "scenarioId": "visa-application",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upload-passport-scan",
+              "rawResponse": "upload-passport-scan",
+              "tokenEstimate": 373
+            },
+            "stock-trade": {
+              "scenarioId": "stock-trade",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "buy-aapl-market",
+              "rawResponse": "buy-aapl-market",
+              "tokenEstimate": 307
+            },
+            "podcast-subscribe": {
+              "scenarioId": "podcast-subscribe",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "subscribe-ai-daily",
+              "rawResponse": "subscribe-ai-daily",
+              "tokenEstimate": 366
+            },
+            "photo-upload": {
+              "scenarioId": "photo-upload",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "upload-iceland-album",
+              "rawResponse": "upload-iceland-album",
+              "tokenEstimate": 321
+            },
+            "forum-post": {
+              "scenarioId": "forum-post",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "pin-wci-thread",
+              "rawResponse": "pin-wci-thread",
+              "tokenEstimate": 354
+            },
+            "dating-profile": {
+              "scenarioId": "dating-profile",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "message-river-kayak",
+              "rawResponse": "message-river-kayak",
+              "tokenEstimate": 373
+            },
+            "rental-car": {
+              "scenarioId": "rental-car",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "reserve-lax-compact",
+              "rawResponse": "reserve-lax-compact",
+              "tokenEstimate": 316
+            },
+            "concert-tickets": {
+              "scenarioId": "concert-tickets",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "buy-neon-pulse-ga",
+              "rawResponse": "buy-neon-pulse-ga",
+              "tokenEstimate": 371
+            },
+            "grocery-list": {
+              "scenarioId": "grocery-list",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "add-avocados-list",
+              "rawResponse": "add-avocados-list",
+              "tokenEstimate": 362
+            },
+            "pet-adoption": {
+              "scenarioId": "pet-adoption",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "apply-adopt-max",
+              "rawResponse": "apply-adopt-max",
+              "tokenEstimate": 301
+            },
+            "scholarship-apply": {
+              "scenarioId": "scholarship-apply",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "submit-stem-scholarship",
+              "rawResponse": "submit-stem-scholarship",
+              "tokenEstimate": 365
+            },
+            "wifi-setup": {
+              "scenarioId": "wifi-setup",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "connect-guest-5g",
+              "rawResponse": "connect-guest-5g",
+              "tokenEstimate": 327
+            },
+            "invoice-pay": {
+              "scenarioId": "invoice-pay",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "pay-inv-2026-044",
+              "rawResponse": "pay-inv-2026-044",
+              "tokenEstimate": 391
+            },
+            "newsletter-sub": {
+              "scenarioId": "newsletter-sub",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "subscribe-ai-digest",
+              "rawResponse": "subscribe-ai-digest",
+              "tokenEstimate": 362
+            },
+            "api-keys": {
+              "scenarioId": "api-keys",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "rotate-prod-api-key",
+              "rawResponse": "rotate-prod-api-key",
+              "tokenEstimate": 309
+            },
+            "privacy-settings": {
+              "scenarioId": "privacy-settings",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "disable-third-party-share",
+              "rawResponse": "disable-third-party-share",
+              "tokenEstimate": 354
+            },
+            "bug-report": {
+              "scenarioId": "bug-report",
+              "correct": true,
+              "hitDecoy": false,
+              "parsed": "file-checkout-timeout-bug",
+              "rawResponse": "file-checkout-timeout-bug",
+              "tokenEstimate": 372
+            }
+          }
+        }
+      },
+      "totalPromptTokens": 322047,
+      "totalCompletionTokens": 2532
+    }
+  ],
+  "leaderboard": {
+    "qwen25_7b": {
+      "standard": {
+        "successRate": 31,
+        "avgTokens": 1823
+      },
+      "wci": {
+        "successRate": 90,
+        "avgTokens": 454
+      },
+      "wciFull": {
+        "successRate": 92,
+        "avgTokens": 569
+      },
+      "agentDom": {
+        "successRate": 90,
+        "avgTokens": 454
+      }
+    }
+  },
+  "groundTruthVerified": true
+}

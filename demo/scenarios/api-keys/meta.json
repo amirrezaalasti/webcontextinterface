@@ -3,12 +3,12 @@
   "title": "DevConsole",
   "icon": "🔑",
   "difficulty": "Very Hard",
-  "description": "Developer console sidebar + keys table.",
+  "description": "Keys table.",
   "challenges": [
-    "Reveal vs Rotate"
+    "Reveal"
   ],
   "task": {
-    "goal": "Rotate production API key",
+    "goal": "Rotate the production API key row (not staging reveal).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "rotate-prod-key",
+        "target": "tr[data-key=\"production\"] button[data-rotate=\"production\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "rotate-prod-api-key",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#rotate-prod-key"
+      "tr[data-key=\"production\"] button[data-rotate=\"production\"]"
     ]
   }
 }

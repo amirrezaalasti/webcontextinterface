@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T22:27:15.471Z",
+  "modelOrder": [
+    {
+      "id": "gptoss20B",
+      "name": "GPT-OSS 20B",
+      "openRouterModel": "openai/gpt-oss-20b"
+    }
+  ],
+  "gptoss20B": {
+    "standard": {
+      "successRate": 22,
+      "avgTokens": 1908
+    },
+    "wci": {
+      "successRate": 100,
+      "avgTokens": 535
+    },
+    "wciFull": {
+      "successRate": 98,
+      "avgTokens": 649
+    },
+    "agentDom": {
+      "successRate": 100,
+      "avgTokens": 535
+    }
+  }
+}

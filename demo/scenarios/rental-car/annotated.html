@@ -1,4 +1,52 @@
-<!DOCTYPE html><html><head><title>DriveAway</title><style>.da-search{display:flex;gap:12px;padding:16px;background:#f1f5f9}.da-cars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:16px}.da-car{border:1px solid #cbd5e1;padding:16px}</style></head><body>
-<div data-page="rental-car" data-agent-role="landmark" data-agent-id="rental_car-page" data-agent-desc="Car rental search + results" data-agent-priority="2"><form class="da-search"><input value="LAX"><input type="date"><select><option>Compact</option></select></form>
-<div class="da-cars" role="main"><div class="da-car"><h3>Economy</h3><button type="button">Select</button></div>
-<div class="da-car" data-vehicle="compact"><h3>Compact — Friday pickup</h3><button type="button" id="reserve-lax-compact" data-action="primary" data-agent-role="action" data-agent-id="reserve-lax-compact" data-agent-desc="Reserve compact car pickup LAX Friday" data-agent-action="click" data-agent-priority="1">Reserve</button></div></div><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>DriveAway</title><style>
+.da-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.da-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.da-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.da-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.da-btn--decoy{background:#fef9c3;border-color:#fde047}
+.da-btn--muted{background:#e2e8f0;color:#334155}
+.da-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.da-cookie p{flex:1;margin:0;font-size:13px}
+.da-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.da-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.da-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.da-nav a{margin-right:14px;color:#334155;font-size:13px}
+.da-hdr-promo button{margin-left:6px}
+.da-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.da-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.da-rail--ads{background:#fffbeb}
+.da-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.da-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.da-ab{display:none}
+.da-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="da-app" data-page="rental-car" data-agent-role="landmark" data-agent-id="rental_car-page" data-agent-desc="Car rental" data-agent-priority="2"><div class="da-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="da-btn da-btn--muted">Reject non-essential</button>
+  <button type="button" class="da-btn da-btn--primary">Accept all</button>
+  <button type="button" class="da-btn da-btn--ghost">Customize</button>
+</div><div class="da-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="da-btn da-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="da-btn">Continue as guest — express</button>
+</div><header class="da-hdr">
+  <nav class="da-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="da-hdr-promo"><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="da-btn da-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="da-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="da-btn da-btn--ghost">Submit</button>
+  <button type="button" class="da-btn da-btn--ghost">Continue</button>
+</nav><div class="da-dup-row" aria-label="Quick actions">
+  <button type="button" class="da-btn da-btn--ghost">Submit</button>
+  <button type="button" class="da-btn da-btn--ghost">Continue</button>
+  <button type="button" class="da-btn da-btn--ghost">Save changes</button>
+  <button type="button" class="da-btn da-btn--ghost">Confirm</button>
+</div><div class="da-dup-row"><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Reserve LAX compact Friday</button><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-nav">Reserve compact LAX</button></div><form style="display:flex;gap:12px;padding:16px;background:#f1f5f9"><input value="LAX"><input type="date"><select><option selected="">Compact</option></select></form>
+<div role="main" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px">
+<div style="border:1px solid #cbd5e1;padding:16px"><h3>Economy</h3><button type="button" class="da-btn da-btn--ghost">Select</button></div>
+<div style="border:1px solid #cbd5e1;padding:16px" data-vehicle="compact-lax-friday"><h3>Compact Friday</h3>
+<button type="button" class="da-btn da-btn--primary" data-agent-role="action" data-agent-id="reserve-lax-compact" data-agent-desc="Reserve compact vehicle pickup LAX on Friday (not economy select-only)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div><aside class="da-rail da-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br>
+  <button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="da-filler" aria-hidden="true"><div class="da-filler-inner"><a href="/misc/0" class="da-btn da-btn--ghost">Link 1</a><button type="button" class="da-btn da-btn--ghost">Action 2</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/4" class="da-btn da-btn--ghost">Link 5</a><button type="button" class="da-btn da-btn--ghost">Action 6</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/8" class="da-btn da-btn--ghost">Link 9</a><button type="button" class="da-btn da-btn--ghost">Action 10</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/12" class="da-btn da-btn--ghost">Link 13</a><button type="button" class="da-btn da-btn--ghost">Action 14</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/16" class="da-btn da-btn--ghost">Link 17</a><button type="button" class="da-btn da-btn--ghost">Action 18</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/20" class="da-btn da-btn--ghost">Link 21</a><button type="button" class="da-btn da-btn--ghost">Action 22</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/24" class="da-btn da-btn--ghost">Link 25</a><button type="button" class="da-btn da-btn--ghost">Action 26</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/28" class="da-btn da-btn--ghost">Link 29</a><button type="button" class="da-btn da-btn--ghost">Action 30</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/32" class="da-btn da-btn--ghost">Link 33</a><button type="button" class="da-btn da-btn--ghost">Action 34</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/36" class="da-btn da-btn--ghost">Link 37</a><button type="button" class="da-btn da-btn--ghost">Action 38</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/40" class="da-btn da-btn--ghost">Link 41</a><button type="button" class="da-btn da-btn--ghost">Action 42</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button></div></div><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="da-ftr"><small>© Demo DriveAway</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

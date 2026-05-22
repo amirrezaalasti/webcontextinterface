@@ -3,12 +3,12 @@
   "title": "VisaPath",
   "icon": "🛂",
   "difficulty": "Very Hard",
-  "description": "Visa OL wizard steps + dashed upload zone.",
+  "description": "Visa upload.",
   "challenges": [
-    "Expedite upsell"
+    "Expedite"
   ],
   "task": {
-    "goal": "Upload passport scan for B-1 application",
+    "goal": "Upload passport scan on B-1 documents step (not expedited paid option).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "upload-passport",
+        "target": "button[data-doc=\"passport-scan\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "upload-passport-scan",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#upload-passport"
+      "button[data-doc=\"passport-scan\"]"
     ]
   }
 }

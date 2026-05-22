@@ -3,12 +3,12 @@
   "title": "RxDirect",
   "icon": "💊",
   "difficulty": "Very Hard",
-  "description": "Prescription data table with per-row actions.",
+  "description": "Prescription table.",
   "challenges": [
-    "View vs Refill"
+    "View vs confirm"
   ],
   "task": {
-    "goal": "Refill prescription for Lisinopril 10mg",
+    "goal": "Refill the ten milligram Lisinopril prescription row (not Metformin view-only).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "refill-lisinopril",
+        "target": "tr[data-rx=\"lisinopril-10\"] .rx-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "refill-lisinopril",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#refill-lisinopril"
+      "tr[data-rx=\"lisinopril-10\"] .rx-btn--primary"
     ]
   }
 }

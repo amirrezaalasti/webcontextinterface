@@ -3,12 +3,12 @@
   "title": "ShopGrid",
   "icon": "🛍️",
   "difficulty": "Very Hard",
-  "description": "Top filter bar + product results table grid.",
+  "description": "Filter bar + grid.",
   "challenges": [
-    "Flash sale decoy"
+    "Flash sale"
   ],
   "task": {
-    "goal": "Filter results to 4-star and above under $50",
+    "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "apply-filters",
+        "target": "button[data-filter=\"rating-price\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "apply-rating-price-filter",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#apply-filters"
+      "button[data-filter=\"rating-price\"]"
     ]
   }
 }

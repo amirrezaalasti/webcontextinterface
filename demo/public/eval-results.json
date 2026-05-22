@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-05-22T21:17:10.023Z",
+  "generatedAt": "2026-05-22T23:09:02.947Z",
   "modelOrder": [
     {
-      "id": "heuristic",
-      "name": "Deterministic heuristic (no LLM)",
-      "openRouterModel": "(none)"
+      "id": "gpt5",
+      "name": "GPT-5",
+      "openRouterModel": "openai/gpt-5"
     }
   ],
-  "heuristic": {
+  "gpt5": {
     "standard": {
-      "successRate": 88,
-      "avgTokens": 337
+      "successRate": 51,
+      "avgTokens": 2081
     },
     "wci": {
       "successRate": 100,
-      "avgTokens": 248
+      "avgTokens": 505
     },
     "wciFull": {
-      "successRate": 98,
-      "avgTokens": 357
+      "successRate": 96,
+      "avgTokens": 632
     },
     "agentDom": {
       "successRate": 100,
-      "avgTokens": 248
+      "avgTokens": 505
     }
   }
 }

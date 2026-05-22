@@ -3,12 +3,12 @@
   "title": "MergeLab",
   "icon": "🔀",
   "difficulty": "Hard",
-  "description": "PR file sidebar + diff pane with approve.",
+  "description": "PR diff.",
   "challenges": [
-    "Request changes vs approve"
+    "Request changes"
   ],
   "task": {
-    "goal": "Approve pull request #4182",
+    "goal": "Approve pull request number 4182 fixing timeout (not request changes or pro upsell).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "approve-pr-4182",
+        "target": "[data-pr=\"4182\"] button[data-pr-action=\"approve\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "approve-pr-4182",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#approve-pr-4182"
+      "[data-pr=\"4182\"] button[data-pr-action=\"approve\"]"
     ]
   }
 }

@@ -197,6 +197,20 @@ WIA_framework/
 
 ---
 
+## Benchmark
+
+**50 scenarios** under [`demo/scenarios/`](./demo/scenarios/) (5 legacy + 45 generated layouts). The harness scores **single-shot element grounding** across five context formats (raw HTML, DOM outline, candidate list, WCI full, WCI grounding) via OpenRouter.
+
+- **Methodology, commands, and comparison tables:** [`evals/README.md`](./evals/README.md)
+- **Archived run artifacts:** [`demo/public/README.md`](./demo/public/README.md) (`eval-results-gpt5nano.json`, `eval-report-gemini3.5flash.json`, …)
+
+```bash
+npm run eval:verify
+npm run eval:benchmark -- --models=gpt5Nano --scenarios=flight-booking,banking
+```
+
+---
+
 ## Citation
 
 If you use WCI in research or publications, please cite:

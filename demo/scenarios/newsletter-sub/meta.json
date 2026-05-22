@@ -3,12 +3,12 @@
   "title": "PostBrief",
   "icon": "📰",
   "difficulty": "Very Hard",
-  "description": "Centered newsletter landing with email field.",
+  "description": "Landing.",
   "challenges": [
-    "Sample issue decoy"
+    "Sample"
   ],
   "task": {
-    "goal": "Subscribe to weekly AI digest",
+    "goal": "Subscribe to weekly AI digest newsletter (not sample issue).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "subscribe-digest",
+        "target": "button[data-newsletter=\"ai-digest\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "subscribe-ai-digest",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#subscribe-digest"
+      "button[data-newsletter=\"ai-digest\"]"
     ]
   }
 }

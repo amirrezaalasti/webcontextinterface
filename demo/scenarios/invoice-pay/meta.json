@@ -3,12 +3,12 @@
   "title": "BillFlow",
   "icon": "🧾",
   "difficulty": "Hard",
-  "description": "Invoice payment table with overdue row.",
+  "description": "Invoice table.",
   "challenges": [
-    "View vs Pay"
+    "View row"
   ],
   "task": {
-    "goal": "Pay invoice INV-2026-044 due today",
+    "goal": "Pay overdue invoice INV-2026-044 due today (not view-only rows).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "pay-inv-044",
+        "target": "button[data-pay-inv=\"INV-2026-044\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "pay-inv-2026-044",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-nav"
+      "decoy-nav",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#pay-inv-044"
+      "button[data-pay-inv=\"INV-2026-044\"]"
     ]
   }
 }

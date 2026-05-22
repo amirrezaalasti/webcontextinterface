@@ -1,26 +1,56 @@
-<!DOCTYPE html><html><head><title>HireFlow Jobs</title><style>
-.hf-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;font-family:system-ui,sans-serif}
-.hf-filters{background:#f4f6f8;padding:12px;border-right:1px solid #ddd}
-.hf-card{border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin:10px 0;background:#fff}
-.hf-apply{background:#2563eb;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer}
-.hf-ad-btn{background:#f59e0b;border:0;padding:6px 10px;margin-left:6px}
-</style></head><body>
-<div class="hf-layout" data-page="job-board">
-<header class="hf-hdr">
-  <nav class="hf-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
-  <div class="hf-hdr-promo"><button type="button" class="hf-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="hf-ad-btn hf-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
-</header>
-<aside class="hf-rail hf-rail--ads" aria-label="Sponsored"><div class="hf-widget"><span>Sponsored</span><a href="/ads">Partner Ad</a></div></aside>
-<aside class="hf-filters"><h2>Filters</h2><label><input type="checkbox" checked /> Remote</label>
-<label><input type="checkbox" /> Senior</label><select><option>Any location</option><option>SF Bay</option></select></aside>
-<main class="hf-main" role="main">
-<h1>Open roles</h1>
-<ul class="hf-list">
-<li class="hf-card" data-job="other-1"><h3>Junior QA — Beta LLC</h3><button type="button" class="hf-apply hf-apply--ghost">Quick Apply</button></li>
-<li class="hf-card" data-job="acme-senior"><h3>Senior Engineer — Acme Corp</h3><p>React, TypeScript, distributed systems</p>
-<button type="button" id="apply-acme-senior" class="hf-apply" data-action="primary">Apply to Senior Engineer</button></li>
-<li class="hf-card" data-job="other-2"><h3>PM — Gamma Inc</h3><button type="button">Save</button></li>
-</ul>
-<footer class="hf-ftr"><small>© Demo HireFlow Jobs</small><a href="/privacy">Privacy</a><span class="hf-ftr-ad">Sponsored links</span></footer>
-</main><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>HireFlow Jobs</title><style>
+.hf-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.hf-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.hf-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.hf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.hf-btn--decoy{background:#fef9c3;border-color:#fde047}
+.hf-btn--muted{background:#e2e8f0;color:#334155}
+.hf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.hf-cookie p{flex:1;margin:0;font-size:13px}
+.hf-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.hf-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.hf-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.hf-nav a{margin-right:14px;color:#334155;font-size:13px}
+.hf-hdr-promo button{margin-left:6px}
+.hf-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.hf-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.hf-rail--ads{background:#fffbeb}
+.hf-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.hf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.hf-ab{display:none}
+.hf-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.hf-layout{display:grid;grid-template-columns:220px 1fr;min-height:60vh}.hf-filters{background:#f4f6f8;padding:12px;border-right:1px solid #ddd}.hf-card{border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin:10px 0}.hf-card__actions{display:flex;gap:8px;margin-top:8px}</style></head><body>
+<div class="hf-app" data-page="job-board"><div class="hf-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="hf-btn hf-btn--muted">Reject non-essential</button>
+  <button type="button" class="hf-btn hf-btn--primary">Accept all</button>
+  <button type="button" class="hf-btn hf-btn--ghost">Customize</button>
+</div><div class="hf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="hf-btn hf-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="hf-btn">Continue as guest — express</button>
+</div><header class="hf-hdr">
+  <nav class="hf-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="hf-hdr-promo"><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="hf-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
+  <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+</nav><div class="hf-dup-row" aria-label="Quick actions">
+  <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
+  <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+  <button type="button" class="hf-btn hf-btn--ghost">Save changes</button>
+  <button type="button" class="hf-btn hf-btn--ghost">Confirm</button>
+</div><div class="hf-dup-row"><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Apply Senior Engineer Acme</button><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav">Apply to Acme Senior</button><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra">Quick Apply Senior</button></div><div class="hf-layout"><aside class="hf-filters"><h2>Filters</h2><label><input type="checkbox" /> Remote only</label>
+<label><input type="checkbox" checked /> In-office</label><select><option>Any location</option><option>SF Bay</option></select></aside>
+<main role="main"><h1>Open roles</h1><ul>
+<li class="hf-card" data-employer-ref="ACM-102" data-remote="true"><h3>Junior QA — Beta LLC</h3>
+<div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Quick Apply</button><button type="button" class="hf-btn hf-btn--ghost">Save</button></div></li>
+<li class="hf-card" data-employer-ref="ACM-447" data-tier="senior-inoffice"><h3>Senior Engineer — Acme Corp</h3><p>React, TypeScript · ref ACM-447</p>
+<div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Save</button><button type="button" class="hf-btn hf-btn--primary">Confirm</button></div></li>
+<li class="hf-card" data-employer-ref="ACM-220"><h3>PM — Gamma Inc</h3><div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Save</button></div></li>
+</ul></main></div><aside class="hf-rail hf-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="hf-filler" aria-hidden="true"><div class="hf-filler-inner"><a href="/misc/0" class="hf-btn hf-btn--ghost">Link 1</a><button type="button" class="hf-btn hf-btn--ghost">Action 2</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/4" class="hf-btn hf-btn--ghost">Link 5</a><button type="button" class="hf-btn hf-btn--ghost">Action 6</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/8" class="hf-btn hf-btn--ghost">Link 9</a><button type="button" class="hf-btn hf-btn--ghost">Action 10</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/12" class="hf-btn hf-btn--ghost">Link 13</a><button type="button" class="hf-btn hf-btn--ghost">Action 14</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/16" class="hf-btn hf-btn--ghost">Link 17</a><button type="button" class="hf-btn hf-btn--ghost">Action 18</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/20" class="hf-btn hf-btn--ghost">Link 21</a><button type="button" class="hf-btn hf-btn--ghost">Action 22</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/24" class="hf-btn hf-btn--ghost">Link 25</a><button type="button" class="hf-btn hf-btn--ghost">Action 26</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/28" class="hf-btn hf-btn--ghost">Link 29</a><button type="button" class="hf-btn hf-btn--ghost">Action 30</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/32" class="hf-btn hf-btn--ghost">Link 33</a><button type="button" class="hf-btn hf-btn--ghost">Action 34</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/36" class="hf-btn hf-btn--ghost">Link 37</a><button type="button" class="hf-btn hf-btn--ghost">Action 38</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/40" class="hf-btn hf-btn--ghost">Link 41</a><button type="button" class="hf-btn hf-btn--ghost">Action 42</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button></div></div><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="hf-ftr"><small>© Demo HireFlow Jobs</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

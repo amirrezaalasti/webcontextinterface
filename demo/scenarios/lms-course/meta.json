@@ -3,12 +3,12 @@
   "title": "LearnPath LMS",
   "icon": "🎓",
   "difficulty": "Very Hard",
-  "description": "Video player with module checklist sidebar.",
+  "description": "Video + module list.",
   "challenges": [
-    "Completed vs active module"
+    "Module 3 done"
   ],
   "task": {
-    "goal": "Mark Module 4 lesson as complete",
+    "goal": "Mark module four as completed while it is still in progress (not earlier modules).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "complete-module-4",
+        "target": "[data-module=\"4\"] .lp-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "complete-module-4",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#complete-module-4"
+      "[data-module=\"4\"] .lp-btn--primary"
     ]
   }
 }

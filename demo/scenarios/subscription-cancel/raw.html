@@ -1,3 +1,50 @@
-<!DOCTYPE html><html><head><title>SubStack Billing</title><style>.sb-billing{padding:32px}.sb-plan-card{border:1px solid #ddd;padding:20px;border-radius:8px}.sb-cancel{color:#b91c1c;background:transparent;border:1px solid #b91c1c;padding:10px}</style></head><body>
-<div class="sb-billing" data-page="subscription-cancel" role="main"><div class="sb-plan-card"><h2>Premium — $19/mo</h2><p>Renews Jun 1</p>
-<button type="button" class="sb-cancel" id="cancel-premium" data-action="primary">Cancel subscription</button><button type="button" data-decoy="decoy-promo">Upgrade to Team</button></div></div><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>SubStack Billing</title><style>
+.sb-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.sb-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.sb-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.sb-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.sb-btn--decoy{background:#fef9c3;border-color:#fde047}
+.sb-btn--muted{background:#e2e8f0;color:#334155}
+.sb-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.sb-cookie p{flex:1;margin:0;font-size:13px}
+.sb-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.sb-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.sb-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.sb-nav a{margin-right:14px;color:#334155;font-size:13px}
+.sb-hdr-promo button{margin-left:6px}
+.sb-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.sb-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.sb-rail--ads{background:#fffbeb}
+.sb-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.sb-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.sb-ab{display:none}
+.sb-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="sb-app" data-page="subscription-cancel"><div class="sb-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="sb-btn sb-btn--muted">Reject non-essential</button>
+  <button type="button" class="sb-btn sb-btn--primary">Accept all</button>
+  <button type="button" class="sb-btn sb-btn--ghost">Customize</button>
+</div><div class="sb-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="sb-btn sb-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="sb-btn">Continue as guest — express</button>
+</div><header class="sb-hdr">
+  <nav class="sb-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="sb-hdr-promo"><button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="sb-btn sb-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="sb-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="sb-btn sb-btn--ghost">Submit</button>
+  <button type="button" class="sb-btn sb-btn--ghost">Continue</button>
+</nav><div class="sb-dup-row" aria-label="Quick actions">
+  <button type="button" class="sb-btn sb-btn--ghost">Submit</button>
+  <button type="button" class="sb-btn sb-btn--ghost">Continue</button>
+  <button type="button" class="sb-btn sb-btn--ghost">Save changes</button>
+  <button type="button" class="sb-btn sb-btn--ghost">Confirm</button>
+</div><div class="sb-dup-row"><button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-promo">Cancel Premium subscription</button><button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-nav">Cancel subscription Premium</button></div><div role="main" style="padding:32px"><div style="border:1px solid #ddd;padding:20px" data-plan="premium">
+<h2>Premium</h2><p>Renews Jun 1</p><button type="button" class="sb-btn sb-btn--primary" data-cancel="next-cycle">Confirm</button>
+<button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-promo">Upgrade Team</button></div></div><aside class="sb-rail sb-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="sb-filler" aria-hidden="true"><div class="sb-filler-inner"><a href="/misc/0" class="sb-btn sb-btn--ghost">Link 1</a><button type="button" class="sb-btn sb-btn--ghost">Action 2</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/4" class="sb-btn sb-btn--ghost">Link 5</a><button type="button" class="sb-btn sb-btn--ghost">Action 6</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/8" class="sb-btn sb-btn--ghost">Link 9</a><button type="button" class="sb-btn sb-btn--ghost">Action 10</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/12" class="sb-btn sb-btn--ghost">Link 13</a><button type="button" class="sb-btn sb-btn--ghost">Action 14</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/16" class="sb-btn sb-btn--ghost">Link 17</a><button type="button" class="sb-btn sb-btn--ghost">Action 18</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/20" class="sb-btn sb-btn--ghost">Link 21</a><button type="button" class="sb-btn sb-btn--ghost">Action 22</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/24" class="sb-btn sb-btn--ghost">Link 25</a><button type="button" class="sb-btn sb-btn--ghost">Action 26</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/28" class="sb-btn sb-btn--ghost">Link 29</a><button type="button" class="sb-btn sb-btn--ghost">Action 30</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/32" class="sb-btn sb-btn--ghost">Link 33</a><button type="button" class="sb-btn sb-btn--ghost">Action 34</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/36" class="sb-btn sb-btn--ghost">Link 37</a><button type="button" class="sb-btn sb-btn--ghost">Action 38</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button><a href="/misc/40" class="sb-btn sb-btn--ghost">Link 41</a><button type="button" class="sb-btn sb-btn--ghost">Action 42</button><button type="button" class="sb-btn sb-btn--ghost">Submit</button><button type="button" class="sb-btn sb-btn--ghost">Continue</button></div></div><button type="button" class="sb-btn sb-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sb-ftr"><small>© Demo SubStack Billing</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

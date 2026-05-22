@@ -3,14 +3,14 @@
   "title": "QuickBite",
   "icon": "🍔",
   "difficulty": "Hard",
-  "description": "Food delivery restaurant card grid with fixed cart drawer.",
+  "description": "Restaurant grid with data-item attributes and cart drawer.",
   "challenges": [
-    "View menu vs Add buttons",
-    "Cart drawer distraction",
-    "Promo on other restaurant"
+    "Price/item attributes",
+    "Generic Confirm",
+    "Cart + cookie noise"
   ],
   "task": {
-    "goal": "Add Chicken Teriyaki Bowl to cart and checkout",
+    "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants).",
     "standardSteps": [
       {
         "action": "scan",
@@ -26,7 +26,7 @@
       },
       {
         "action": "click",
-        "target": "add-teriyaki-bowl",
+        "target": "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -50,11 +50,12 @@
     "wciNodeId": "add-teriyaki-checkout",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#add-teriyaki-bowl",
-      "button.qb-add[data-action=\"primary\"]"
+      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+      "[data-item=\"teriyaki-1299\"] button.qb-btn--primary"
     ]
   }
 }

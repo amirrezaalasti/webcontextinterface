@@ -3,12 +3,12 @@
   "title": "VoteHub",
   "icon": "🗳️",
   "difficulty": "Hard",
-  "description": "Ballot radio choices in bordered form.",
+  "description": "Ballot form.",
   "challenges": [
-    "Yes radio vs cast button"
+    "Yes radio vs confirm"
   ],
   "task": {
-    "goal": "Cast vote for Proposition 12",
+    "goal": "Cast an affirmative vote on local measure twelve then submit ballot.",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "cast-vote-prop12",
+        "target": "button[data-measure-submit=\"12\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "vote-prop-12",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#cast-vote-prop12"
+      "button[data-measure-submit=\"12\"]"
     ]
   }
 }

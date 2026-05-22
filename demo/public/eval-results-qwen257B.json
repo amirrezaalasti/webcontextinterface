@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T22:38:19.452Z",
+  "modelOrder": [
+    {
+      "id": "qwen25_7b",
+      "name": "Qwen 2.5 7B",
+      "openRouterModel": "qwen/qwen-2.5-7b-instruct"
+    }
+  ],
+  "qwen25_7b": {
+    "standard": {
+      "successRate": 31,
+      "avgTokens": 1823
+    },
+    "wci": {
+      "successRate": 90,
+      "avgTokens": 454
+    },
+    "wciFull": {
+      "successRate": 92,
+      "avgTokens": 569
+    },
+    "agentDom": {
+      "successRate": 90,
+      "avgTokens": 454
+    }
+  }
+}

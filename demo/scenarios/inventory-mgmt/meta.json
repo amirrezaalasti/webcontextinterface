@@ -3,12 +3,12 @@
   "title": "StockPilot",
   "icon": "📦",
   "difficulty": "Very Hard",
-  "description": "Warehouse inventory data table.",
+  "description": "SKU table.",
   "challenges": [
-    "Adjust vs Reorder"
+    "Adjust row"
   ],
   "task": {
-    "goal": "Reorder SKU WH-9921 quantity 500",
+    "goal": "Reorder five hundred units of SKU WH-9921 (not adjust other SKUs).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "reorder-wh9921",
+        "target": "tr[data-sku=\"WH-9921\"] .sp-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "reorder-sku-wh9921",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#reorder-wh9921"
+      "tr[data-sku=\"WH-9921\"] .sp-btn--primary"
     ]
   }
 }

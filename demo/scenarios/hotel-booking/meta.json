@@ -3,12 +3,12 @@
   "title": "StayFinder",
   "icon": "🏨",
   "difficulty": "Hard",
-  "description": "Vertical hotel result cards with book buttons.",
+  "description": "Hotel list.",
   "challenges": [
-    "Select vs Book"
+    "Select vs Confirm"
   ],
   "task": {
-    "goal": "Book the downtown Marriott for 2 nights",
+    "goal": "Book two nights at the downtown Marriott property (not airport inn).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "book-marriott",
+        "target": "[data-hotel=\"marriott-downtown\"] .sf-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "book-marriott-downtown",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#book-marriott"
+      "[data-hotel=\"marriott-downtown\"] .sf-btn--primary"
     ]
   }
 }

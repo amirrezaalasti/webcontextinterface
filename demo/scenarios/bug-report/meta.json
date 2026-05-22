@@ -3,12 +3,12 @@
   "title": "IssueTrack",
   "icon": "🐛",
   "difficulty": "Very Hard",
-  "description": "Modal dialog overlay for bug filing.",
+  "description": "Modal dialog.",
   "challenges": [
-    "Chat vs file"
+    "Chat"
   ],
   "task": {
-    "goal": "File bug reproducing checkout timeout",
+    "goal": "File bug report for checkout timeout on mobile category (not chat support).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "file-checkout-bug",
+        "target": "button[data-file-bug=\"checkout-timeout\"]",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -48,10 +48,11 @@
     "wciNodeId": "file-checkout-timeout-bug",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#file-checkout-bug"
+      "button[data-file-bug=\"checkout-timeout\"]"
     ]
   }
 }

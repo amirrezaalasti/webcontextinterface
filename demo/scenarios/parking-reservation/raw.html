@@ -1,4 +1,49 @@
-<!DOCTYPE html><html><head><title>ParkSpot</title><style>.pk-garage{display:grid;grid-template-columns:repeat(6,48px);gap:4px}.pk-spot{width:48px;height:48px;border:1px solid #999;font-size:10px}.pk-spot.taken{background:#fecaca}.pk-spot.open{background:#bbf7d0;cursor:pointer}</style></head><body>
-<div data-page="parking-reservation" role="main"><h1>Garage B — Saturday 2pm</h1><div class="pk-garage">
-<button type="button" class="pk-spot taken" >A1</button><button type="button" class="pk-spot taken" >A2</button><button type="button" class="pk-spot taken" >B11</button><button type="button" class="pk-spot open" id="reserve-spot-b12" data-action="primary">B12</button><button type="button" class="pk-spot taken" >B13</button>
-</div><button type="button" data-decoy="decoy-promo">Monthly pass</button><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>ParkSpot</title><style>
+.pk-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.pk-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.pk-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.pk-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.pk-btn--decoy{background:#fef9c3;border-color:#fde047}
+.pk-btn--muted{background:#e2e8f0;color:#334155}
+.pk-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.pk-cookie p{flex:1;margin:0;font-size:13px}
+.pk-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.pk-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.pk-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.pk-nav a{margin-right:14px;color:#334155;font-size:13px}
+.pk-hdr-promo button{margin-left:6px}
+.pk-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.pk-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.pk-rail--ads{background:#fffbeb}
+.pk-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.pk-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.pk-ab{display:none}
+.pk-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="pk-app" data-page="parking-reservation"><div class="pk-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="pk-btn pk-btn--muted">Reject non-essential</button>
+  <button type="button" class="pk-btn pk-btn--primary">Accept all</button>
+  <button type="button" class="pk-btn pk-btn--ghost">Customize</button>
+</div><div class="pk-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+  <button type="button" class="pk-btn pk-btn--primary">COMPLETE ORDER NOW</button>
+  <button type="button" class="pk-btn">Continue as guest — express</button>
+</div><header class="pk-hdr">
+  <nav class="pk-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="pk-hdr-promo"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="pk-btn pk-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="pk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="pk-btn pk-btn--ghost">Submit</button>
+  <button type="button" class="pk-btn pk-btn--ghost">Continue</button>
+</nav><div class="pk-dup-row" aria-label="Quick actions">
+  <button type="button" class="pk-btn pk-btn--ghost">Submit</button>
+  <button type="button" class="pk-btn pk-btn--ghost">Continue</button>
+  <button type="button" class="pk-btn pk-btn--ghost">Save changes</button>
+  <button type="button" class="pk-btn pk-btn--ghost">Confirm</button>
+</div><div class="pk-dup-row"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Reserve spot B12</button><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-nav">Reserve garage B12 Saturday</button></div><main role="main" style="padding:16px"><h1>Garage B · Saturday 14:00</h1><div style="display:grid;grid-template-columns:repeat(6,48px);gap:4px"><button type="button" class="pk-btn pk-btn--ghost taken" disabled>A1</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>A2</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>B11</button><button type="button" class="pk-btn pk-btn--primary open" data-spot="B12" data-open="true">B12</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>B13</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>B14</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>C01</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled>C02</button></div>
+<button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Monthly pass</button></main><aside class="pk-rail pk-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="pk-filler" aria-hidden="true"><div class="pk-filler-inner"><a href="/misc/0" class="pk-btn pk-btn--ghost">Link 1</a><button type="button" class="pk-btn pk-btn--ghost">Action 2</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/4" class="pk-btn pk-btn--ghost">Link 5</a><button type="button" class="pk-btn pk-btn--ghost">Action 6</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/8" class="pk-btn pk-btn--ghost">Link 9</a><button type="button" class="pk-btn pk-btn--ghost">Action 10</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/12" class="pk-btn pk-btn--ghost">Link 13</a><button type="button" class="pk-btn pk-btn--ghost">Action 14</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/16" class="pk-btn pk-btn--ghost">Link 17</a><button type="button" class="pk-btn pk-btn--ghost">Action 18</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/20" class="pk-btn pk-btn--ghost">Link 21</a><button type="button" class="pk-btn pk-btn--ghost">Action 22</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/24" class="pk-btn pk-btn--ghost">Link 25</a><button type="button" class="pk-btn pk-btn--ghost">Action 26</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/28" class="pk-btn pk-btn--ghost">Link 29</a><button type="button" class="pk-btn pk-btn--ghost">Action 30</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/32" class="pk-btn pk-btn--ghost">Link 33</a><button type="button" class="pk-btn pk-btn--ghost">Action 34</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/36" class="pk-btn pk-btn--ghost">Link 37</a><button type="button" class="pk-btn pk-btn--ghost">Action 38</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/40" class="pk-btn pk-btn--ghost">Link 41</a><button type="button" class="pk-btn pk-btn--ghost">Action 42</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button></div></div><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pk-ftr"><small>© Demo ParkSpot</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

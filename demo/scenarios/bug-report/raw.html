@@ -1,5 +1,49 @@
-<!DOCTYPE html><html><head><title>IssueTrack</title><style>.it-modal{position:fixed;inset:10% 20%;background:#fff;border:1px solid #333;box-shadow:0 8px 32px;padding:24px;z-index:10}.it-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4)}.it-file{background:#ef4444;color:#fff;border:0;padding:12px}</style></head><body>
-<div class="it-overlay"></div><dialog class="it-modal" open data-page="bug-report" role="main"><h1>Report bug</h1>
-<select><option>UI</option><option>Checkout</option></select><textarea>Checkout times out after 30s on mobile</textarea>
-<button type="button" class="it-file" id="file-checkout-bug" data-action="primary">File bug report</button>
-<button type="button" data-decoy="decoy-promo">Chat support instead</button></dialog><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>IssueTrack</title><style>
+.it-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
+.it-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
+.it-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.it-btn--ghost{background:transparent;border-color:transparent;color:#475569}
+.it-btn--decoy{background:#fef9c3;border-color:#fde047}
+.it-btn--muted{background:#e2e8f0;color:#334155}
+.it-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.it-cookie p{flex:1;margin:0;font-size:13px}
+.it-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
+.it-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
+.it-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.it-nav a{margin-right:14px;color:#334155;font-size:13px}
+.it-hdr-promo button{margin-left:6px}
+.it-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
+.it-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
+.it-rail--ads{background:#fffbeb}
+.it-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
+.it-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
+.it-ab{display:none}
+.it-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+</style></head><body>
+<div class="it-app" data-page="bug-report"><div class="it-cookie" role="dialog" aria-label="Cookie preferences">
+  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+  <button type="button" class="it-btn it-btn--muted">Reject non-essential</button>
+  <button type="button" class="it-btn it-btn--primary">Accept all</button>
+  <button type="button" class="it-btn it-btn--ghost">Customize</button>
+</div><header class="it-hdr">
+  <nav class="it-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="it-hdr-promo"><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="it-btn it-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="it-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <button type="button" class="it-btn it-btn--ghost">Submit</button>
+  <button type="button" class="it-btn it-btn--ghost">Continue</button>
+</nav><div class="it-dup-row" aria-label="Quick actions">
+  <button type="button" class="it-btn it-btn--ghost">Submit</button>
+  <button type="button" class="it-btn it-btn--ghost">Continue</button>
+  <button type="button" class="it-btn it-btn--ghost">Save changes</button>
+  <button type="button" class="it-btn it-btn--ghost">Confirm</button>
+</div><div class="it-dup-row"><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">File checkout timeout bug</button><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-nav">File bug checkout timeout</button></div><div style="position:fixed;inset:0;background:rgba(0,0,0,.4)"></div>
+<dialog open role="main" style="position:fixed;inset:15% 20%;padding:24px;z-index:50"><h1>Report</h1>
+<select data-category="checkout"><option>UI</option><option selected>Checkout</option></select>
+<textarea>Checkout times out mobile</textarea><button type="button" class="it-btn it-btn--primary" data-file-bug="checkout-timeout">Confirm</button>
+<button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">Chat support</button></dialog><aside class="it-rail it-rail--ads" aria-label="Sponsored">
+  <div><strong>Sponsored</strong></div>
+  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">View deal</button>
+</aside><div class="it-filler" aria-hidden="true"><div class="it-filler-inner"><a href="/misc/0" class="it-btn it-btn--ghost">Link 1</a><button type="button" class="it-btn it-btn--ghost">Action 2</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/4" class="it-btn it-btn--ghost">Link 5</a><button type="button" class="it-btn it-btn--ghost">Action 6</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/8" class="it-btn it-btn--ghost">Link 9</a><button type="button" class="it-btn it-btn--ghost">Action 10</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/12" class="it-btn it-btn--ghost">Link 13</a><button type="button" class="it-btn it-btn--ghost">Action 14</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/16" class="it-btn it-btn--ghost">Link 17</a><button type="button" class="it-btn it-btn--ghost">Action 18</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/20" class="it-btn it-btn--ghost">Link 21</a><button type="button" class="it-btn it-btn--ghost">Action 22</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/24" class="it-btn it-btn--ghost">Link 25</a><button type="button" class="it-btn it-btn--ghost">Action 26</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/28" class="it-btn it-btn--ghost">Link 29</a><button type="button" class="it-btn it-btn--ghost">Action 30</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/32" class="it-btn it-btn--ghost">Link 33</a><button type="button" class="it-btn it-btn--ghost">Action 34</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/36" class="it-btn it-btn--ghost">Link 37</a><button type="button" class="it-btn it-btn--ghost">Action 38</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/40" class="it-btn it-btn--ghost">Link 41</a><button type="button" class="it-btn it-btn--ghost">Action 42</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button></div></div><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="it-ftr"><small>© Demo IssueTrack</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

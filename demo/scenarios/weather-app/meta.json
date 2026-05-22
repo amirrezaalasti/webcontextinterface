@@ -3,12 +3,12 @@
   "title": "SkyCast",
   "icon": "⛅",
   "difficulty": "Hard",
-  "description": "Centered weather dashboard with alert toggle.",
+  "description": "Weather dashboard.",
   "challenges": [
-    "Checkbox + button combo"
+    "Alert traps"
   ],
   "task": {
-    "goal": "Enable rain alerts for San Francisco",
+    "goal": "Turn on precipitation alerts for San Francisco (not other cities).",
     "standardSteps": [
       {
         "action": "scan",
@@ -24,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "enable-rain-alerts",
+        "target": "[data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -47,9 +47,11 @@
   "groundTruth": {
     "wciNodeId": "enable-sf-rain-alerts",
     "acceptableNodeIds": [],
-    "decoyNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-extra"
+    ],
     "rawSelectors": [
-      "#enable-rain-alerts"
+      "[data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary"
     ]
   }
 }

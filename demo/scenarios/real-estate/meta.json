@@ -3,13 +3,12 @@
   "title": "HomeNest Listings",
   "icon": "🏠",
   "difficulty": "Hard",
-  "description": "Map + listing cards masonry layout.",
+  "description": "Map + listing cards.",
   "challenges": [
-    "Tour vs Save",
-    "Map placeholder"
+    "Tour vs Confirm"
   ],
   "task": {
-    "goal": "Save the 3BR listing at 742 Evergreen Terrace",
+    "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom).",
     "standardSteps": [
       {
         "action": "scan",
@@ -25,7 +24,7 @@
       },
       {
         "action": "click",
-        "target": "save-listing-742",
+        "target": "[data-listing=\"evergreen-742\"] .hn-btn--primary",
         "outcome": "success",
         "note": "Finds correct primary CTA in page-specific structure"
       }
@@ -49,10 +48,11 @@
     "wciNodeId": "save-listing-742",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-promo"
+      "decoy-promo",
+      "decoy-extra"
     ],
     "rawSelectors": [
-      "#save-listing-742"
+      "[data-listing=\"evergreen-742\"] .hn-btn--primary"
     ]
   }
 }
