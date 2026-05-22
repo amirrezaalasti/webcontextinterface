@@ -1,0 +1,60 @@
+{
+  "id": "healthcare-portal",
+  "title": "MediGate Portal",
+  "icon": "🏥",
+  "difficulty": "Hard",
+  "description": "Healthcare portal with patient header banner and appointment slot grid.",
+  "challenges": [
+    "Multiple slot action buttons",
+    "In-person vs video visit labels",
+    "Patient header noise"
+  ],
+  "task": {
+    "goal": "Schedule a video visit for next Tuesday",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "schedule-video-tue",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "healthcare_portal-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "schedule-video-visit",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "schedule-video-visit",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#schedule-video-tue",
+      "button.mg-book-primary"
+    ]
+  }
+}

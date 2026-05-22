@@ -1,26 +1,26 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM — Site Context Layer
-// Loads agents.txt, agents.json, and agent.md from a web root and exposes
+// WCI — Site Context Layer
+// Loads wci.txt, wci.json, and wci.md from a web root and exposes
 // a typed policy engine for enforcement.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { AgentPolicy, SiteManifest } from '@agentdom/spec';
+import { WciPolicy, SiteManifest } from '@wci/spec';
 
 export interface SiteContext {
-  /** Parsed agents.txt policy */
+  /** Parsed wci.txt policy */
   policy: PolicyEngine;
-  /** Parsed agents.json manifest (or null if unavailable) */
+  /** Parsed wci.json manifest (or null if unavailable) */
   manifest: SiteManifest | null;
-  /** Raw agent.md narrative text (for LLM system prompt injection) */
+  /** Raw wci.md narrative text (for LLM system prompt injection) */
   narrative: string | null;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Policy Engine (from agents.txt)
+// Policy Engine (from wci.txt)
 // ─────────────────────────────────────────────────────────────────────────────
 
 export class PolicyEngine {
-  constructor(public readonly policy: AgentPolicy) {}
+  constructor(public readonly policy: WciPolicy) {}
 
   /** Returns true if the scope is explicitly denied */
   isScopeDenied(scopeId: string): boolean {
@@ -52,17 +52,17 @@ export class PolicyEngine {
 
 export class ScopeDeniedError extends Error {
   constructor(public readonly scopeId: string) {
-    super(`Scope "${scopeId}" is denied by agents.txt. Do not retry; inform the user.`);
+    super(`Scope "${scopeId}" is denied by wci.txt. Do not retry; inform the user.`);
     this.name = 'ScopeDeniedError';
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// agents.txt Parser
+// wci.txt Parser
 // ─────────────────────────────────────────────────────────────────────────────
 
-function parseAgentsTxt(text: string): AgentPolicy {
-  const policy: AgentPolicy = {
+function parseWciTxt(text: string): WciPolicy {
+  const policy: WciPolicy = {
     allowedScopes: [],
     deniedScopes: [],
     rateLimitActions: 60,
@@ -85,7 +85,7 @@ function parseAgentsTxt(text: string): AgentPolicy {
       case 'Site-Name':                    policy.siteName = val; break;
       case 'Site-Purpose':                 policy.sitePurpose = val; break;
       case 'Contact':                      policy.contact = val; break;
-      case 'AgentDOM-Version':             policy.agentdomVersion = val; break;
+      case 'WCI-Version':             policy.wciVersion = val; break;
       case 'Manifest':                     policy.manifestUrl = val; break;
       case 'Context':                      policy.contextUrl = val; break;
       case 'Allow-Scope':                  policy.allowedScopes.push(...val.split(',').map(s => s.trim())); break;
@@ -104,11 +104,11 @@ function parseAgentsTxt(text: string): AgentPolicy {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SiteContextLoader
+// WciContextLoader
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Resolves a URL relative to a base origin (handles relative paths like /agents.txt).
+ * Resolves a URL relative to a base origin (handles relative paths like /wci.txt).
  */
 function resolveUrl(base: string, path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -129,13 +129,13 @@ async function tryFetch(url: string): Promise<string | null> {
   }
 }
 
-export class SiteContextLoader {
+export class WciContextLoader {
   /**
    * Load all three context files for a site.
    * Implements the three-tier discovery protocol:
-   *   1. HTTP response headers (X-AgentDOM-*)
-   *   2. Well-known URIs (/.well-known/agentdom/*)
-   *   3. Root-level fallbacks (/agents.txt, /agents.json, /agent.md)
+   *   1. HTTP response headers (X-WCI-*)
+   *   2. Well-known URIs (/.well-known/wci/*)
+   *   3. Root-level fallbacks (/wci.txt, /wci.json, /wci.md)
    *
    * @param baseUrl  Site origin, e.g. "https://example.com"
    * @param headers  Optional Response headers from the initial page load
@@ -145,31 +145,31 @@ export class SiteContextLoader {
     headers?: Headers
   ): Promise<SiteContext> {
     // ── 1. Determine file URLs via discovery priority ─────────────────────
-    let directivesUrl  = resolveUrl(baseUrl, '/agents.txt');
-    let manifestUrl    = resolveUrl(baseUrl, '/agents.json');
-    let contextUrl     = resolveUrl(baseUrl, '/agent.md');
+    let directivesUrl  = resolveUrl(baseUrl, '/wci.txt');
+    let manifestUrl    = resolveUrl(baseUrl, '/wci.json');
+    let contextUrl     = resolveUrl(baseUrl, '/wci.md');
 
     // Override from HTTP headers if provided
     if (headers) {
-      directivesUrl = headers.get('X-AgentDOM-Directives') ?? directivesUrl;
-      manifestUrl   = headers.get('X-AgentDOM-Manifest')   ?? manifestUrl;
-      contextUrl    = headers.get('X-AgentDOM-Context')    ?? contextUrl;
+      directivesUrl = headers.get('X-WCI-Directives') ?? directivesUrl;
+      manifestUrl   = headers.get('X-WCI-Manifest')   ?? manifestUrl;
+      contextUrl    = headers.get('X-WCI-Context')    ?? contextUrl;
     }
 
     // Override from <meta> tags (DOM fallback)
     if (typeof document !== 'undefined') {
-      const mDirectives = document.querySelector<HTMLMetaElement>('meta[name="agentdom:directives"]');
-      const mManifest   = document.querySelector<HTMLMetaElement>('meta[name="agentdom:manifest"]');
-      const mContext    = document.querySelector<HTMLMetaElement>('meta[name="agentdom:context"]');
+      const mDirectives = document.querySelector<HTMLMetaElement>('meta[name="wci:directives"]');
+      const mManifest   = document.querySelector<HTMLMetaElement>('meta[name="wci:manifest"]');
+      const mContext    = document.querySelector<HTMLMetaElement>('meta[name="wci:context"]');
       if (mDirectives?.content) directivesUrl = resolveUrl(baseUrl, mDirectives.content);
       if (mManifest?.content)   manifestUrl   = resolveUrl(baseUrl, mManifest.content);
       if (mContext?.content)    contextUrl    = resolveUrl(baseUrl, mContext.content);
     }
 
     // Try well-known URIs first (RFC 8615) for directives and manifest
-    const wellKnownDirectives = resolveUrl(baseUrl, '/.well-known/agentdom/directives.txt');
-    const wellKnownManifest   = resolveUrl(baseUrl, '/.well-known/agentdom/manifest.json');
-    const wellKnownContext    = resolveUrl(baseUrl, '/.well-known/agentdom/context.md');
+    const wellKnownDirectives = resolveUrl(baseUrl, '/.well-known/wci/directives.txt');
+    const wellKnownManifest   = resolveUrl(baseUrl, '/.well-known/wci/manifest.json');
+    const wellKnownContext    = resolveUrl(baseUrl, '/.well-known/wci/context.md');
 
     // ── 2. Fetch all three in parallel ────────────────────────────────────
     const [
@@ -193,7 +193,7 @@ export class SiteContextLoader {
     const rawManifest   = manifestJsonWK  ?? manifestJson;
     const rawNarrative  = agentMdWK       ?? agentMd;
 
-    const parsedPolicy = parseAgentsTxt(rawDirectives ?? '');
+    const parsedPolicy = parseWciTxt(rawDirectives ?? '');
 
     let parsedManifest: SiteManifest | null = null;
     if (rawManifest) {
@@ -208,4 +208,4 @@ export class SiteContextLoader {
   }
 }
 
-export type { AgentPolicy, SiteManifest } from '@agentdom/spec';
+export type { WciPolicy, SiteManifest } from '@wci/spec';

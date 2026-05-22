@@ -1,0 +1,104 @@
+{
+  "id": "checkout",
+  "title": "VelvetCart Checkout",
+  "icon": "🛒",
+  "difficulty": "Very Hard",
+  "description": "Multi-step checkout with hidden A/B test variants, address books, shipping options, promo codes, gift wrapping, upsell widgets, and trust badges.",
+  "challenges": [
+    "Hidden A/B test variant button with alternate checkout flow",
+    "Address book with saved addresses vs new address form",
+    "Multi-step progress indicator (Step 2 of 4)",
+    "Promo code section hidden behind toggle",
+    "Upsell widget looks like part of checkout",
+    "Trust badges and decorative SVGs add noise"
+  ],
+  "task": {
+    "goal": "Complete shipping step with Express shipping and continue to payment",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Finds hidden A/B test button, upsell add buttons, multiple forms"
+      },
+      {
+        "action": "click",
+        "target": "A/B test alternate checkout button",
+        "outcome": "fail",
+        "note": "Clicks hidden variant button — unexpected behavior"
+      },
+      {
+        "action": "backtrack",
+        "target": "checkout page",
+        "outcome": "backtrack",
+        "note": "Recovers from A/B test variant"
+      },
+      {
+        "action": "scan",
+        "target": "shipping section",
+        "outcome": "confused",
+        "note": "Finds new address form (hidden) and saved address — unclear state"
+      },
+      {
+        "action": "click",
+        "target": "express shipping radio",
+        "outcome": "success",
+        "note": "Selects express shipping"
+      },
+      {
+        "action": "click",
+        "target": "upsell Add button",
+        "outcome": "fail",
+        "note": "Accidentally clicks upsell widget Add button"
+      },
+      {
+        "action": "backtrack",
+        "target": "remove upsell item",
+        "outcome": "backtrack",
+        "note": "Must undo upsell addition"
+      },
+      {
+        "action": "click",
+        "target": "Continue to Payment button",
+        "outcome": "success",
+        "note": "Finally clicks correct button"
+      },
+      {
+        "action": "verify",
+        "target": "unknown",
+        "outcome": "confused",
+        "note": "Re-parses DOM to verify step change"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "checkout-flow scope",
+        "outcome": "success",
+        "note": "Step 2/4, contact pre-filled, address selected, shipping options listed"
+      },
+      {
+        "action": "select",
+        "target": "shipping-option",
+        "outcome": "success",
+        "note": "Selects \"Express (2–3 days, $12.99)\" from typed options"
+      },
+      {
+        "action": "click",
+        "target": "continue-payment-btn",
+        "outcome": "success",
+        "note": "Preconditions met — gets ActionResult with step 3 transition"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "continue-payment-btn",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#continue-to-payment",
+      "button#continue-to-payment",
+      "button:has-text(\"Continue to Payment\")"
+    ]
+  }
+}

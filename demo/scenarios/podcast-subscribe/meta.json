@@ -1,0 +1,57 @@
+{
+  "id": "podcast-subscribe",
+  "title": "PodWave",
+  "icon": "🎙️",
+  "difficulty": "Hard",
+  "description": "Podcast show art + subscribe row.",
+  "challenges": [
+    "Free trial decoy"
+  ],
+  "task": {
+    "goal": "Subscribe to show \"AI Daily\"",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "subscribe-ai-daily",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "podcast_subscribe-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "subscribe-ai-daily",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "subscribe-ai-daily",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#subscribe-ai-daily"
+    ]
+  }
+}

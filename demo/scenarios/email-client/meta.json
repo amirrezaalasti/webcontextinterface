@@ -1,0 +1,59 @@
+{
+  "id": "email-client",
+  "title": "InboxPro Mail",
+  "icon": "📧",
+  "difficulty": "Extreme",
+  "description": "Email client with folder sidebar, inbox table, and reading pane split layout.",
+  "challenges": [
+    "Inbox rows look clickable",
+    "Reply/Forward similar to Archive",
+    "Promo upgrade in toolbar"
+  ],
+  "task": {
+    "goal": "Archive the email thread from billing@acme.com",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "archive-billing-thread",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "email_client-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "archive-billing-thread",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "archive-billing-thread",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#archive-billing-thread"
+    ]
+  }
+}

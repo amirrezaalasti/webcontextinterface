@@ -1,0 +1,57 @@
+{
+  "id": "password-reset",
+  "title": "AuthGate",
+  "icon": "🔐",
+  "difficulty": "Very Hard",
+  "description": "Admin sidebar nav + reset form panel.",
+  "challenges": [
+    "Disable vs send"
+  ],
+  "task": {
+    "goal": "Send password reset link to user@corp.com",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "send-reset-link",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "password_reset-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "send-reset-link",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "send-reset-link",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#send-reset-link"
+    ]
+  }
+}

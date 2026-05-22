@@ -5,7 +5,7 @@
 
 ## What This Site Does
 
-ExampleShop is a demo e-commerce platform built to showcase the AgentDOM framework.
+ExampleShop is a demo e-commerce platform built to showcase the WCI framework.
 You can browse a registration form, interact with it, and observe live agent-friendly output.
 
 ## What You Are Allowed To Do
@@ -36,9 +36,9 @@ You can browse a registration form, interact with it, and observe live agent-fri
 
 ## Key Concepts
 
-- **Scope IDs** match `data-agent-id` on `<section data-agent-role="landmark">` elements.
+- **Scope IDs** match `data-wci-id` on `<section data-wci-role="landmark">` elements.
 - **ActionResults** carry exact before/after state diffs — do not re-parse the full DOM.
-- **`data-agent-state`** is always current. Trust it over any cached snapshot.
+- **`data-wci-state`** is always current. Trust it over any cached snapshot.
 - Check `precondition` on a node before dispatching any action.
 
 ## Rate Limits
@@ -59,4 +59,4 @@ You can browse a registration form, interact with it, and observe live agent-fri
 
 ## Contact
 
-agents@agentdom.dev
+agents@wci.dev

@@ -1,26 +1,25 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Bridge — Action Dispatcher
+// WCI Bridge — Action Dispatcher
 // Translates an ActionRequest into real DOM interactions and captures results.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { readNodeSpec } from '@agentdom/spec';
 import { ActionRequest, ActionResult, SideEffect } from './result';
 
-/** Snapshot the current data-agent-state of an element */
+/** Snapshot the current data-wci-state of an element */
 function captureState(el: HTMLElement): Record<string, unknown> {
   try {
-    return JSON.parse(el.dataset.agentState ?? '{}');
+    return JSON.parse(el.dataset.wciState ?? '{}');
   } catch {
     return {};
   }
 }
 
-/** Update the data-agent-state attribute on an element */
+/** Update the data-wci-state attribute on an element */
 function patchState(el: HTMLElement, patch: Record<string, unknown>): Record<string, unknown> {
   let current: Record<string, unknown> = {};
-  try { current = JSON.parse(el.dataset.agentState ?? '{}'); } catch { /* ignore */ }
+  try { current = JSON.parse(el.dataset.wciState ?? '{}'); } catch { /* ignore */ }
   const next = { ...current, ...patch };
-  el.dataset.agentState = JSON.stringify(next);
+  el.dataset.wciState = JSON.stringify(next);
   return next;
 }
 
@@ -30,9 +29,9 @@ function collectSideEffects(
   root: Element
 ): SideEffect[] {
   const effects: SideEffect[] = [];
-  const all = root.querySelectorAll<HTMLElement>('[data-agent-id]');
+  const all = root.querySelectorAll<HTMLElement>('[data-wci-id]');
   for (const el of Array.from(all)) {
-    const id = el.dataset.agentId!;
+    const id = el.dataset.wciId!;
     const prev = before.get(id);
     if (!prev) continue;
     const curr = captureState(el);
@@ -47,21 +46,21 @@ export async function dispatchAction(
   root: Element = document.body
 ): Promise<ActionResult> {
   const timestamp = new Date().toISOString();
-  const target = root.querySelector<HTMLElement>(`[data-agent-id="${req.nodeId}"]`);
+  const target = root.querySelector<HTMLElement>(`[data-wci-id="${req.nodeId}"]`);
 
   if (!target) {
     return {
       success: false, nodeId: req.nodeId, action: req.action, timestamp,
       error: {
         code: 'NODE_NOT_FOUND',
-        message: `No element with data-agent-id="${req.nodeId}" found in the DOM.`,
+        message: `No element with data-wci-id="${req.nodeId}" found in the DOM.`,
         hint: 'Verify the node ID from the distilled view. The page may have navigated.',
       },
     };
   }
 
   // Check precondition
-  const precondition = target.dataset.agentPrecondition;
+  const precondition = target.dataset.wciPrecondition;
   if (precondition && target.hasAttribute('disabled')) {
     return {
       success: false, nodeId: req.nodeId, action: req.action, timestamp,
@@ -74,9 +73,9 @@ export async function dispatchAction(
   }
 
   // Snapshot all current states for side-effect detection
-  const allNodes = root.querySelectorAll<HTMLElement>('[data-agent-id]');
+  const allNodes = root.querySelectorAll<HTMLElement>('[data-wci-id]');
   const before = new Map<string, Record<string, unknown>>();
-  for (const el of Array.from(allNodes)) before.set(el.dataset.agentId!, captureState(el));
+  for (const el of Array.from(allNodes)) before.set(el.dataset.wciId!, captureState(el));
 
   const stateBefore = captureState(target);
 
@@ -161,8 +160,8 @@ export async function dispatchAction(
       }
     }
 
-    // Emit custom agentdom event
-    const emitName = target.dataset.agentEmit;
+    // Emit custom wci event
+    const emitName = target.dataset.wciEmit;
     if (emitName) {
       target.dispatchEvent(new CustomEvent(emitName, {
         bubbles: true,
@@ -171,7 +170,7 @@ export async function dispatchAction(
     }
 
     // Also emit the generic state-change bus event
-    document.dispatchEvent(new CustomEvent('agentdom:state-change', {
+    document.dispatchEvent(new CustomEvent('wci:state-change', {
       detail: { nodeId: req.nodeId, action: req.action, stateAfter },
     }));
 

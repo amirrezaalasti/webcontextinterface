@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>InboxPro Mail</title><style>
+.ip-frame{display:grid;grid-template-columns:280px 1fr 340px;height:100vh;font-family:ui-monospace,monospace}
+.ip-folders{border-right:1px solid #ccc;padding:8px}
+.ip-inbox{width:100%;border-collapse:collapse}
+.ip-inbox tr{cursor:pointer}
+.ip-inbox tr.unread{font-weight:bold}
+.ip-pane{border-left:1px solid #ccc;padding:16px;background:#fafafa}
+.ip-toolbar button{margin-right:6px}
+</style></head><body>
+<table class="ip-frame" data-page="email-client" cellpadding="0" cellspacing="0"><tr>
+<td class="ip-folders"><header class="ip-hdr">
+  <nav class="ip-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="ip-hdr-promo"><button type="button" class="ip-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="ip-ad-btn ip-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
+</header><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul><aside class="ip-rail ip-rail--ads" aria-label="Sponsored"><div class="ip-widget"><span>Sponsored</span><a href="/ads">Partner Ad</a></div></aside></td>
+<td><table class="ip-inbox" role="main"><thead><tr><th>From</th><th>Subject</th></tr></thead>
+<tbody>
+<tr><td>news@digest.com</td><td>Weekly roundup</td></tr>
+<tr class="unread" data-thread="billing"><td>billing@acme.com</td><td>Invoice #992 — due</td></tr>
+<tr><td>noreply@social.io</td><td>You have 3 mentions</td></tr>
+</tbody></table>
+<div class="ip-toolbar"><button type="button">Reply</button><button type="button">Forward</button>
+<button type="button" id="archive-billing-thread" data-action="primary">Archive billing thread</button>
+<button type="button" data-decoy="decoy-promo">Upgrade storage</button></div></td>
+<td class="ip-pane"><h2>billing@acme.com</h2><p>Your March invoice is attached…</p></td>
+</tr></table><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></body></html>

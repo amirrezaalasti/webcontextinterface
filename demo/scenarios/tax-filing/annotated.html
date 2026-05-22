@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>TaxEase</title><style>
+.tx-wizard{max-width:720px;margin:24px auto;font-family:system-ui}
+.tx-steps{display:flex;gap:8px;margin-bottom:24px}
+.tx-step{flex:1;padding:8px;background:#e5e7eb;text-align:center;border-radius:4px}
+.tx-step.is-active{background:#3b82f6;color:#fff}
+.tx-panel{border:1px solid #d1d5db;padding:20px;border-radius:8px}
+.tx-import{background:#16a34a;color:#fff;border:0;padding:12px 20px;font-size:16px}
+</style></head><body>
+<div class="tx-wizard" data-page="tax-filing" role="main" data-agent-role="landmark" data-agent-id="tax_filing-page" data-agent-desc="Tax filing wizard — income step" data-agent-priority="2">
+<header class="tx-hdr">
+  <nav class="tx-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="tx-hdr-promo">
+    <button type="button" class="tx-ad-btn tx-ad-btn--alt" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Enter manually decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header>
+<nav class="tx-steps" aria-label="Progress" data-agent-role="landmark" data-agent-id="tax-progress-steps" data-agent-desc="Multi-step progress indicator" data-agent-priority="3"><div class="tx-step">Personal</div><div class="tx-step is-active">Income</div><div class="tx-step">Deductions</div><div class="tx-step">Review</div></nav>
+<section class="tx-panel"><h1>Income — W-2 wages</h1>
+<p>Import from payroll provider or enter manually.</p>
+<button type="button" data-decoy="decoy-nav">Enter manually</button>
+<button type="button" class="tx-import" id="import-w2-adp" data-action="primary" data-agent-role="action" data-agent-id="import-w2-adp" data-agent-desc="Import W-2 from employer ADP" data-agent-action="click" data-agent-priority="1">Import W-2 from ADP</button>
+<input type="file" class="hidden-upload" style="display:none">
+</section>
+<footer class="tx-ftr"><small>© Demo TaxEase</small><a href="/privacy">Privacy</a><span class="tx-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

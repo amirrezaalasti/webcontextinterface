@@ -1,9 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Bridge — ActionResult types
+// WCI Bridge — ActionResult types
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface ActionRequest {
-  /** Target node's data-agent-id */
+  /** Target node's data-wci-id */
   nodeId: string;
   /** Action to perform */
   action: 'click' | 'fill' | 'select' | 'check' | 'upload' | 'submit' | 'navigate' | 'focus' | 'clear';

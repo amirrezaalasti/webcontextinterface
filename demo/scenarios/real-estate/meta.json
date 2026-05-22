@@ -1,0 +1,58 @@
+{
+  "id": "real-estate",
+  "title": "HomeNest Listings",
+  "icon": "🏠",
+  "difficulty": "Hard",
+  "description": "Map + listing cards masonry layout.",
+  "challenges": [
+    "Tour vs Save",
+    "Map placeholder"
+  ],
+  "task": {
+    "goal": "Save the 3BR listing at 742 Evergreen Terrace",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "save-listing-742",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "real_estate-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "save-listing-742",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "save-listing-742",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#save-listing-742"
+    ]
+  }
+}

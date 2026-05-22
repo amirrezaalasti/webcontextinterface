@@ -1,10 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Specification — Attribute Types & Role Enum
+// WCI Specification — Attribute Types & Role Enum
 // packages/spec/src/index.ts
 // ─────────────────────────────────────────────────────────────────────────────
 
 /** Semantic role of a DOM node in agent context */
-export type AgentRole =
+export type WciRole =
   | 'action'    // clickable CTA (button, link with side-effect)
   | 'form'      // input, textarea, select, checkbox, radio
   | 'display'   // read-only data shown to the agent (price, status, label)
@@ -13,7 +13,7 @@ export type AgentRole =
   | 'landmark'; // scope root — wraps a bounded task zone
 
 /** Action verbs the agent can dispatch on a node */
-export type AgentAction =
+export type WciAction =
   | 'click'
   | 'fill'
   | 'select'
@@ -32,18 +32,18 @@ export type ScopeSensitivity =
   | 'critical'; // never auto-execute
 
 /**
- * Full typed interface for a single AgentDOM-annotated node.
- * Maps 1:1 to the `data-agent-*` HTML attributes.
+ * Full typed interface for a single WCI-annotated node.
+ * Maps 1:1 to the `data-wci-*` HTML attributes.
  */
-export interface AgentNodeSpec {
+export interface WciNodeSpec {
   /** Stable, unique identifier for this node across sessions */
   id: string;
   /** Semantic role */
-  role: AgentRole;
+  role: WciRole;
   /** Human-readable description optimised for LLM context */
   desc: string;
   /** Action verb the agent can call on this node */
-  action?: AgentAction;
+  action?: WciAction;
   /** Current observable state (JSON snapshot) */
   state: Record<string, unknown>;
   /** Natural language guard condition */
@@ -63,15 +63,15 @@ export interface AgentNodeSpec {
 }
 
 /** A distilled, flat representation of an entire page or scope */
-export interface AgentView {
-  agentdom_version: string;
+export interface WciView {
+  wci_version: string;
   page_title: string;
   scope?: string;
   scope_desc?: string;
   distilled_at: string;
   node_count: number;
   site_context?: SiteContextSummary;
-  nodes: AgentNodeSpec[];
+  nodes: WciNodeSpec[];
 }
 
 /** Abbreviated site-level context embedded in every distilled view */
@@ -84,12 +84,12 @@ export interface SiteContextSummary {
   current_step?: number;
 }
 
-/** Parsed agents.txt policy rules */
-export interface AgentPolicy {
+/** Parsed wci.txt policy rules */
+export interface WciPolicy {
   siteName?: string;
   sitePurpose?: string;
   contact?: string;
-  agentdomVersion?: string;
+  wciVersion?: string;
   manifestUrl?: string;
   contextUrl?: string;
   allowedScopes: string[];   // empty = all allowed unless explicitly denied
@@ -103,9 +103,9 @@ export interface AgentPolicy {
   lastUpdated?: string;
 }
 
-/** Full site manifest from agents.json */
+/** Full site manifest from wci.json */
 export interface SiteManifest {
-  agentdom_version: string;
+  wci_version: string;
   site: {
     name: string;
     base_url: string;
@@ -114,7 +114,7 @@ export interface SiteManifest {
     contact?: string;
   };
   capabilities: {
-    agentdom_supported: boolean;
+    wci_supported: boolean;
     distiller_endpoint?: string;
     server_side_distil?: boolean;
     action_protocol_version?: string;
@@ -156,37 +156,37 @@ export interface ScopeDescriptor {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DOM helper — read all data-agent-* attrs from an HTMLElement
+// DOM helper — read all data-wci-* attrs from an HTMLElement
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function readNodeSpec(el: HTMLElement): AgentNodeSpec | null {
-  const id   = el.dataset.agentId;
-  const role = el.dataset.agentRole as AgentRole | undefined;
+export function readWciNodeSpec(el: HTMLElement): WciNodeSpec | null {
+  const id   = el.dataset.wciId;
+  const role = el.dataset.wciRole as WciRole | undefined;
 
   // A node must have at least an id OR a role to be included
   if (!id && !role) return null;
 
   let state: Record<string, unknown> = {};
-  try { state = JSON.parse(el.dataset.agentState ?? '{}'); } catch { /* ignore */ }
+  try { state = JSON.parse(el.dataset.wciState ?? '{}'); } catch { /* ignore */ }
 
   let options: string[] | undefined;
   try {
-    const raw = el.dataset.agentOptions;
+    const raw = el.dataset.wciOptions;
     if (raw) options = JSON.parse(raw);
   } catch { /* ignore */ }
 
   return {
     id:           id ?? el.id ?? crypto.randomUUID(),
     role:         role ?? 'display',
-    desc:         el.dataset.agentDesc ?? el.textContent?.trim().slice(0, 120) ?? '',
-    action:       el.dataset.agentAction as AgentAction | undefined,
+    desc:         el.dataset.wciDesc ?? el.textContent?.trim().slice(0, 120) ?? '',
+    action:       el.dataset.wciAction as WciAction | undefined,
     state,
-    precondition: el.dataset.agentPrecondition,
-    required:     el.dataset.agentRequired === 'true',
+    precondition: el.dataset.wciPrecondition,
+    required:     el.dataset.wciRequired === 'true',
     options,
-    emits:        el.dataset.agentEmit,
-    scope:        el.dataset.agentScope,
-    hidden:       el.dataset.agentHidden === 'true',
-    priority:     parseInt(el.dataset.agentPriority ?? '3', 10),
+    emits:        el.dataset.wciEmit,
+    scope:        el.dataset.wciScope,
+    hidden:       el.dataset.wciHidden === 'true',
+    priority:     parseInt(el.dataset.wciPriority ?? '3', 10),
   };
 }

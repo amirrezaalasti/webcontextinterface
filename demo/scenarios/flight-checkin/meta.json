@@ -1,0 +1,57 @@
+{
+  "id": "flight-checkin",
+  "title": "AirCheck",
+  "icon": "🛫",
+  "difficulty": "Very Hard",
+  "description": "Airline seat map button grid.",
+  "challenges": [
+    "Taken 12A vs window 14A"
+  ],
+  "task": {
+    "goal": "Select window seat 14A for flight AA882",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "select-seat-14a",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "flight_checkin-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "select-seat-14a",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "select-seat-14a",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#select-seat-14a"
+    ]
+  }
+}

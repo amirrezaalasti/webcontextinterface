@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgentDOM — LLM-Native Web Framework</title>
-  <meta name="description" content="AgentDOM makes websites natively readable for LLM-based agents through structured markup, semantic compression, and structured interaction confirmations." />
+  <title>WCI — Web Context Interface</title>
+  <meta name="description" content="Web Context Interface (WCI) makes websites natively readable for LLM-based agents through data-wci-* markup, distillation, and typed actions." />
 
-  <!-- AgentDOM Site Context Discovery -->
-  <meta name="agentdom:manifest"   content="/agents.json" />
-  <meta name="agentdom:context"    content="/agent.md" />
-  <meta name="agentdom:directives" content="/agents.txt" />
+  <!-- WCI Site Context Discovery -->
+  <meta name="wci:manifest"   content="/wci.json" />
+  <meta name="wci:context"    content="/wci.md" />
+  <meta name="wci:directives" content="/wci.txt" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,13 +30,15 @@
   <div class="header-inner">
     <div class="logo">
       <span class="logo-icon">◈</span>
-      <span class="logo-text">Agent<strong>DOM</strong></span>
+      <span class="logo-text">WCI</span>
       <span class="version-badge">v1.0</span>
     </div>
     <nav class="header-nav">
       <a href="#demo">Live Demo</a>
+      <a href="#benchmark">Benchmark</a>
       <a href="#context">Site Context</a>
       <a href="#spec">Specification</a>
+      <a href="/" target="_blank" rel="noreferrer" id="docs-link">Docs ↗</a>
       <a href="https://github.com" target="_blank" rel="noreferrer">GitHub ↗</a>
     </nav>
   </div>
@@ -49,14 +51,14 @@
   <div class="hero-glow hero-glow-1"></div>
   <div class="hero-glow hero-glow-2"></div>
   <div class="hero-content">
-    <div class="hero-kicker">Open Standard · HTML5-Compatible</div>
+    <div class="hero-kicker">Web Context Interface · Open Standard</div>
     <h1 class="hero-title">
       The Web,<br />
-      <span class="gradient-text">Agent-Ready</span>
+      <span class="gradient-text">Context-Ready</span>
     </h1>
     <p class="hero-subtitle">
-      AgentDOM makes websites natively readable for LLM-based agents through
-      structured <code>data-agent-*</code> markup, a semantic Distiller Engine,
+      <strong>Web Context Interface (WCI)</strong> makes sites natively readable for LLM-based agents through
+      structured <code>data-wci-*</code> markup, a semantic Distiller Engine,
       and a typed Interactivity Protocol — all in &lt;8 KB.
     </p>
     <div class="hero-actions">
@@ -101,18 +103,18 @@
           <tr>
             <th>Feature</th>
             <th>🧑 Human-Friendly (Standard)</th>
-            <th>🤖 Agent-Friendly (AgentDOM)</th>
+            <th>🤖 Agent-Friendly (WCI)</th>
           </tr>
         </thead>
         <tbody>
           <tr><td>Structure</td>   <td>Deeply nested, CSS-dependent divs</td>   <td>Flat, schema-typed node list</td></tr>
-          <tr><td>Navigation</td>  <td>Visual cues — icons, colors, hover</td>  <td>Descriptive <code>data-agent-desc</code></td></tr>
+          <tr><td>Navigation</td>  <td>Visual cues — icons, colors, hover</td>  <td>Descriptive <code>data-wci-desc</code></td></tr>
           <tr><td>State</td>       <td>Implicit — URL changes, CSS classes</td> <td>Explicit <code>ActionResult</code> payloads</td></tr>
           <tr><td>Noise</td>       <td>High — ads, navbars, hero images</td>    <td>Low — only functional nodes</td></tr>
           <tr><td>Errors</td>      <td>Red border, toast notification</td>      <td>Typed <code>error.code</code> + <code>error.hint</code></td></tr>
           <tr><td>Context cost</td><td>50–500 KB raw HTML</td>                  <td>1–10 KB distilled JSON/MD</td></tr>
           <tr><td>Side effects</td><td>Re-parse full DOM</td>                   <td><code>sideEffects[]</code> in ActionResult</td></tr>
-          <tr><td>Auth</td>        <td>Implicit redirect flow</td>              <td><code>Auth-Required</code> in agents.txt</td></tr>
+          <tr><td>Auth</td>        <td>Implicit redirect flow</td>              <td><code>Auth-Required</code> in wci.txt</td></tr>
           <tr><td>Scoping</td>     <td>None — full DOM exposed</td>             <td>Landmark scopes bound reasoning</td></tr>
         </tbody>
       </table>
@@ -140,21 +142,21 @@
           <span class="panel-title">Registration Form</span>
         </div>
 
-        <!-- ❶ The annotated form — AgentDOM landmark scope -->
+        <!-- ❶ The annotated form — WCI landmark scope -->
         <section
           id="form-scope"
-          data-agent-role="landmark"
-          data-agent-id="registration-form"
-          data-agent-desc="New user registration — capture email, password, and accept terms">
+          data-wci-role="landmark"
+          data-wci-id="registration-form"
+          data-wci-desc="New user registration — capture email, password, and accept terms">
 
           <!-- Decorative hero (pruned by Distiller) -->
-          <div class="form-hero" data-agent-hidden="true">
+          <div class="form-hero" data-wci-hidden="true">
             <div class="form-hero-icon">◈</div>
             <div class="form-hero-text">Create your account</div>
           </div>
 
           <!-- Nav (pruned) -->
-          <nav class="form-nav" data-agent-hidden="true">
+          <nav class="form-nav" data-wci-hidden="true">
             <span>Home</span> &rsaquo; <span>Register</span>
           </nav>
 
@@ -171,25 +173,25 @@
                 type="email"
                 class="field-input"
                 placeholder="you@example.com"
-                data-agent-id="email-input"
-                data-agent-role="form"
-                data-agent-desc="User's email address — must be a valid, unique email"
-                data-agent-action="fill"
-                data-agent-required="true"
-                data-agent-state='{"value":"","valid":null}'
-                data-agent-emit="agentdom:email-validated"
-                data-agent-scope="registration-form"
-                data-agent-priority="1"
+                data-wci-id="email-input"
+                data-wci-role="form"
+                data-wci-desc="User's email address — must be a valid, unique email"
+                data-wci-action="fill"
+                data-wci-required="true"
+                data-wci-state='{"value":"","valid":null}'
+                data-wci-emit="wci:email-validated"
+                data-wci-scope="registration-form"
+                data-wci-priority="1"
               />
               <p
                 id="email-availability-status"
                 class="status-msg"
-                data-agent-id="email-availability-status"
-                data-agent-role="status"
-                data-agent-desc="Real-time check — is this email already registered?"
-                data-agent-state='{"status":"idle","message":""}'
-                data-agent-scope="registration-form"
-                data-agent-priority="3"
+                data-wci-id="email-availability-status"
+                data-wci-role="status"
+                data-wci-desc="Real-time check — is this email already registered?"
+                data-wci-state='{"status":"idle","message":""}'
+                data-wci-scope="registration-form"
+                data-wci-priority="3"
               ></p>
             </div>
 
@@ -204,16 +206,16 @@
                 type="password"
                 class="field-input"
                 placeholder="Min 8 chars, 1 uppercase, 1 symbol"
-                data-agent-id="password-input"
-                data-agent-role="form"
-                data-agent-desc="Account password — minimum 8 characters, one uppercase letter, one symbol"
-                data-agent-action="fill"
-                data-agent-required="true"
-                data-agent-state='{"value":"","strength":"none"}'
-                data-agent-scope="registration-form"
-                data-agent-priority="1"
+                data-wci-id="password-input"
+                data-wci-role="form"
+                data-wci-desc="Account password — minimum 8 characters, one uppercase letter, one symbol"
+                data-wci-action="fill"
+                data-wci-required="true"
+                data-wci-state='{"value":"","strength":"none"}'
+                data-wci-scope="registration-form"
+                data-wci-priority="1"
               />
-              <div class="strength-bar-wrap" data-agent-hidden="true">
+              <div class="strength-bar-wrap" data-wci-hidden="true">
                 <div class="strength-bar" id="strength-bar"></div>
               </div>
             </div>
@@ -224,15 +226,15 @@
                 id="terms-checkbox"
                 type="checkbox"
                 class="checkbox-input"
-                data-agent-id="terms-checkbox"
-                data-agent-role="form"
-                data-agent-desc="Accept Terms and Conditions — required to proceed"
-                data-agent-action="click"
-                data-agent-required="true"
-                data-agent-state='{"checked":false}'
-                data-agent-emit="agentdom:terms-toggled"
-                data-agent-scope="registration-form"
-                data-agent-priority="2"
+                data-wci-id="terms-checkbox"
+                data-wci-role="form"
+                data-wci-desc="Accept Terms and Conditions — required to proceed"
+                data-wci-action="click"
+                data-wci-required="true"
+                data-wci-state='{"checked":false}'
+                data-wci-emit="wci:terms-toggled"
+                data-wci-scope="registration-form"
+                data-wci-priority="2"
               />
               <span class="checkbox-custom"></span>
               <span class="checkbox-text">
@@ -246,15 +248,15 @@
               type="submit"
               class="btn btn-primary btn-full"
               disabled
-              data-agent-id="submit-btn"
-              data-agent-role="action"
-              data-agent-desc="Submit registration — creates the user account"
-              data-agent-action="click"
-              data-agent-precondition="email-input and password-input must be valid; terms-checkbox must be checked"
-              data-agent-state='{"disabled":true}'
-              data-agent-emit="agentdom:form-submitted"
-              data-agent-scope="registration-form"
-              data-agent-priority="1"
+              data-wci-id="submit-btn"
+              data-wci-role="action"
+              data-wci-desc="Submit registration — creates the user account"
+              data-wci-action="click"
+              data-wci-precondition="email-input and password-input must be valid; terms-checkbox must be checked"
+              data-wci-state='{"disabled":true}'
+              data-wci-emit="wci:form-submitted"
+              data-wci-scope="registration-form"
+              data-wci-priority="1"
             >
               Create Account
             </button>
@@ -268,7 +270,7 @@
             <span class="panel-badge agent-badge">🤖 Agent Actions</span>
             <span class="panel-title">Dispatch Commands</span>
           </div>
-          <p class="actions-hint">Click to dispatch typed actions via <code>AgentBridge</code>:</p>
+          <p class="actions-hint">Click to dispatch typed actions via <code>WciBridge</code>:</p>
           <div class="action-btns">
             <button id="agent-fill-email"  class="action-btn" title="fill email-input with user@example.com">
               <code>fill</code> email-input
@@ -331,8 +333,8 @@
   <div class="section-inner">
     <h2 class="section-title">Live Website to Agentic View</h2>
     <p class="section-subtitle">
-      Paste browser-interpreted DOM (for example from Amazon) and infer an AgentDOM-like view
-      even when there are no <code>data-agent-*</code> tags.
+      Paste browser-interpreted DOM (for example from Amazon) and infer an WCI-like view
+      even when there are no <code>data-wci-*</code> tags.
     </p>
 
     <p class="actions-hint">
@@ -372,6 +374,191 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- COMPLEXITY BENCHMARK                                                        -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<section class="benchmark-section" id="benchmark">
+  <div class="section-inner">
+    <div class="benchmark-header">
+      <div class="benchmark-kicker">Interactive Benchmark</div>
+      <h2 class="section-title">Complexity <span class="gradient-text">Stress Test</span></h2>
+      <p class="section-subtitle">
+        See how AgentDOM handles real-world complexity that breaks standard web agents.
+        Select a scenario and watch the difference unfold.
+      </p>
+    </div>
+
+    <!-- Scenario search + selector (50 scenarios) -->
+    <div class="scenario-toolbar">
+      <input
+        type="search"
+        id="scenario-search"
+        class="scenario-search"
+        placeholder="Search scenarios (e.g. banking, job-board)…"
+        autocomplete="off"
+        aria-label="Filter benchmark scenarios"
+      />
+      <span class="scenario-count" id="scenario-count"></span>
+    </div>
+    <div class="scenario-selector" id="scenario-selector">
+      <!-- Cards will be injected by JS -->
+    </div>
+
+    <!-- Animated Metrics Dashboard -->
+    <div class="benchmark-metrics" id="benchmark-metrics">
+      <div class="metric-card metric-card--tokens">
+        <div class="metric-card__icon">📊</div>
+        <div class="metric-card__data">
+          <span class="metric-card__label">Context Tokens</span>
+          <div class="metric-card__comparison">
+            <div class="metric-card__bar-group">
+              <div class="metric-card__bar-row">
+                <span class="metric-card__bar-label">Raw HTML</span>
+                <div class="metric-card__bar-track"><div class="metric-card__bar metric-card__bar--bad" id="metric-bar-raw" style="width:0%"></div></div>
+                <span class="metric-card__bar-value" id="metric-val-raw">—</span>
+              </div>
+              <div class="metric-card__bar-row">
+                <span class="metric-card__bar-label">AgentDOM</span>
+                <div class="metric-card__bar-track"><div class="metric-card__bar metric-card__bar--good" id="metric-bar-distilled" style="width:0%"></div></div>
+                <span class="metric-card__bar-value" id="metric-val-distilled">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="metric-card__badge" id="metric-badge-reduction">—</div>
+      </div>
+
+      <div class="metric-card metric-card--noise">
+        <div class="metric-card__icon">🔇</div>
+        <div class="metric-card__data">
+          <span class="metric-card__label">Noise Elements</span>
+          <div class="metric-card__big-number">
+            <span class="metric-card__number" id="metric-noise-raw">—</span>
+            <span class="metric-card__arrow">→</span>
+            <span class="metric-card__number metric-card__number--good" id="metric-noise-distilled">—</span>
+          </div>
+          <span class="metric-card__sublabel">elements removed by distiller</span>
+        </div>
+      </div>
+
+      <div class="metric-card metric-card--precision">
+        <div class="metric-card__icon">🎯</div>
+        <div class="metric-card__data">
+          <span class="metric-card__label">Action Precision</span>
+          <div class="metric-card__big-number">
+            <span class="metric-card__number" id="metric-interactive-raw">—</span>
+            <span class="metric-card__vs">vs</span>
+            <span class="metric-card__number metric-card__number--good" id="metric-interactive-distilled">—</span>
+          </div>
+          <span class="metric-card__sublabel"><span id="metric-false-positives">—</span> false positives in raw HTML</span>
+        </div>
+      </div>
+
+      <div class="metric-card metric-card--steps">
+        <div class="metric-card__icon">🏃</div>
+        <div class="metric-card__data">
+          <span class="metric-card__label">Agent Steps</span>
+          <div class="metric-card__big-number">
+            <span class="metric-card__number" id="metric-steps-raw">—</span>
+            <span class="metric-card__arrow">→</span>
+            <span class="metric-card__number metric-card__number--good" id="metric-steps-distilled">—</span>
+          </div>
+          <span class="metric-card__sublabel" id="metric-steps-sublabel">— fewer steps needed</span>
+        </div>
+        <div class="metric-card__badge metric-card__badge--green" id="metric-badge-steps">—</div>
+      </div>
+    </div>
+
+    <!-- Side-by-side comparison -->
+    <div class="benchmark-comparison" id="benchmark-comparison">
+      <div class="benchmark-col">
+        <div class="panel-header">
+          <span class="panel-badge human-badge">🧑 Standard Agent</span>
+          <span class="panel-title">What the LLM sees (raw DOM)</span>
+        </div>
+        <pre class="benchmark-pre"><code id="benchmark-raw-output" class="language-html">Select a scenario above to begin.</code></pre>
+      </div>
+      <div class="benchmark-col">
+        <div class="panel-header">
+          <span class="panel-badge agent-badge">🤖 AgentDOM</span>
+          <span class="panel-title">What the LLM sees (distilled JSON)</span>
+        </div>
+        <pre class="benchmark-pre"><code id="benchmark-distilled-output" class="language-json">Select a scenario above to begin.</code></pre>
+      </div>
+    </div>
+
+    <!-- Task Simulation -->
+    <div class="task-simulation" id="task-simulation">
+      <div class="task-simulation__header">
+        <h3 class="task-simulation__title">🧪 Task Simulation</h3>
+        <p class="task-simulation__goal" id="task-goal">Select a scenario to see the task simulation.</p>
+      </div>
+
+      <div class="task-simulation__columns">
+        <!-- Standard agent column -->
+        <div class="task-simulation__col">
+          <div class="task-simulation__col-header">
+            <span class="panel-badge human-badge">🧑 Standard Agent</span>
+            <span class="task-simulation__step-count" id="task-standard-count">— steps</span>
+          </div>
+          <div class="task-simulation__steps" id="task-standard-steps">
+            <!-- Steps injected by JS -->
+          </div>
+        </div>
+
+        <!-- AgentDOM column -->
+        <div class="task-simulation__col">
+          <div class="task-simulation__col-header">
+            <span class="panel-badge agent-badge">🤖 AgentDOM</span>
+            <span class="task-simulation__step-count task-simulation__step-count--good" id="task-agentdom-count">— steps</span>
+          </div>
+          <div class="task-simulation__steps" id="task-agentdom-steps">
+            <!-- Steps injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Play button -->
+      <div class="task-simulation__controls">
+        <button class="btn btn-primary" id="task-play-btn" disabled>
+          ▶ Play Simulation
+        </button>
+        <button class="btn btn-ghost" id="task-reset-btn" disabled>
+          ↺ Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Agent Performance Leaderboard -->
+    <div class="agent-leaderboard" id="agent-leaderboard">
+      <div class="agent-leaderboard__header">
+        <h3 class="agent-leaderboard__title">🏆 Agent Performance Comparison</h3>
+        <p class="agent-leaderboard__subtitle">Element grounding: raw HTML baselines vs WCI grounding (actionable nodes) and WCI full (ablation). OpenRouter LLMs. Run <code>npm run eval:benchmark</code> to refresh.</p>
+      </div>
+      
+      <div class="leaderboard-table-container">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>LLM (OpenRouter)</th>
+              <th class="text-center">Raw HTML Success Rate</th>
+              <th class="text-center">WCI Grounding Success Rate</th>
+              <th class="text-center">Avg. Tokens / Step</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <tr class="leaderboard-row leaderboard-row--placeholder">
+              <td colspan="4" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
+                Run <code>npm run eval:benchmark</code> to load results (see <code>evals/README.md</code>).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
 <!-- SITE CONTEXT LAYER                                                          -->
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <section class="context-section" id="context">
@@ -386,26 +573,26 @@
       <div class="context-file-card">
         <div class="context-file-header">
           <span class="file-icon">📄</span>
-          <code class="file-name">/agents.txt</code>
+          <code class="file-name">/wci.txt</code>
         </div>
         <p>Directive file — allow/deny scopes, rate limits, auth requirements, human-confirmation guards. Machine-parsed by the agent runtime.</p>
-        <a href="/agents.txt" target="_blank" class="file-link">View file ↗</a>
+        <a href="/wci.txt" target="_blank" class="file-link">View file ↗</a>
       </div>
       <div class="context-file-card">
         <div class="context-file-header">
           <span class="file-icon">📋</span>
-          <code class="file-name">/agents.json</code>
+          <code class="file-name">/wci.json</code>
         </div>
         <p>Structured site manifest — capabilities, authentication flows, multi-step task flows, scope descriptors. For tool-calling agents.</p>
-        <a href="/agents.json" target="_blank" class="file-link">View file ↗</a>
+        <a href="/wci.json" target="_blank" class="file-link">View file ↗</a>
       </div>
       <div class="context-file-card">
         <div class="context-file-header">
           <span class="file-icon">📖</span>
-          <code class="file-name">/agent.md</code>
+          <code class="file-name">/wci.md</code>
         </div>
         <p>Rich Markdown narrative injected into the LLM's system prompt. Explains purpose, allowed actions, task flows, and error recovery.</p>
-        <a href="/agent.md" target="_blank" class="file-link">View file ↗</a>
+        <a href="/wci.md" target="_blank" class="file-link">View file ↗</a>
       </div>
     </div>
 
@@ -424,7 +611,7 @@
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <section class="spec-section" id="spec-table">
   <div class="section-inner">
-    <h2 class="section-title"><code>data-agent-*</code> Attribute Reference</h2>
+    <h2 class="section-title"><code>data-wci-*</code> Attribute Reference</h2>
     <p class="section-subtitle">12 attributes. Zero breaking changes. HTML5-compatible.</p>
     <div class="spec-table-wrap">
       <table class="spec-table">
@@ -432,18 +619,18 @@
           <tr><th>Attribute</th><th>Type</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>data-agent-id</code></td>         <td>string</td>    <td>Stable unique identifier for this node</td></tr>
-          <tr><td><code>data-agent-role</code></td>       <td>enum</td>      <td><code>action</code> · <code>form</code> · <code>display</code> · <code>nav</code> · <code>status</code> · <code>landmark</code></td></tr>
-          <tr><td><code>data-agent-desc</code></td>       <td>string</td>    <td>LLM-optimised description of what this node does</td></tr>
-          <tr><td><code>data-agent-action</code></td>     <td>enum</td>      <td><code>click</code> · <code>fill</code> · <code>select</code> · <code>check</code> · <code>upload</code> · <code>submit</code> · <code>navigate</code></td></tr>
-          <tr><td><code>data-agent-state</code></td>      <td>JSON</td>      <td>Current observable state snapshot</td></tr>
-          <tr><td><code>data-agent-precondition</code></td><td>string</td>   <td>Natural language guard condition</td></tr>
-          <tr><td><code>data-agent-required</code></td>   <td>boolean</td>   <td>Whether this field must be satisfied before form submission</td></tr>
-          <tr><td><code>data-agent-options</code></td>    <td>JSON array</td><td>Enumerated choices for select/radio/checkbox groups</td></tr>
-          <tr><td><code>data-agent-emit</code></td>       <td>string</td>    <td>Custom DOM event fired after interaction</td></tr>
-          <tr><td><code>data-agent-scope</code></td>      <td>string</td>    <td>Parent landmark scope ID</td></tr>
-          <tr><td><code>data-agent-hidden</code></td>     <td>boolean</td>   <td>Flag decorative nodes for Distiller pruning</td></tr>
-          <tr><td><code>data-agent-priority</code></td>   <td>1–5</td>       <td>Importance ranking within scope (1 = primary CTA)</td></tr>
+          <tr><td><code>data-wci-id</code></td>         <td>string</td>    <td>Stable unique identifier for this node</td></tr>
+          <tr><td><code>data-wci-role</code></td>       <td>enum</td>      <td><code>action</code> · <code>form</code> · <code>display</code> · <code>nav</code> · <code>status</code> · <code>landmark</code></td></tr>
+          <tr><td><code>data-wci-desc</code></td>       <td>string</td>    <td>LLM-optimised description of what this node does</td></tr>
+          <tr><td><code>data-wci-action</code></td>     <td>enum</td>      <td><code>click</code> · <code>fill</code> · <code>select</code> · <code>check</code> · <code>upload</code> · <code>submit</code> · <code>navigate</code></td></tr>
+          <tr><td><code>data-wci-state</code></td>      <td>JSON</td>      <td>Current observable state snapshot</td></tr>
+          <tr><td><code>data-wci-precondition</code></td><td>string</td>   <td>Natural language guard condition</td></tr>
+          <tr><td><code>data-wci-required</code></td>   <td>boolean</td>   <td>Whether this field must be satisfied before form submission</td></tr>
+          <tr><td><code>data-wci-options</code></td>    <td>JSON array</td><td>Enumerated choices for select/radio/checkbox groups</td></tr>
+          <tr><td><code>data-wci-emit</code></td>       <td>string</td>    <td>Custom DOM event fired after interaction</td></tr>
+          <tr><td><code>data-wci-scope</code></td>      <td>string</td>    <td>Parent landmark scope ID</td></tr>
+          <tr><td><code>data-wci-hidden</code></td>     <td>boolean</td>   <td>Flag decorative nodes for Distiller pruning</td></tr>
+          <tr><td><code>data-wci-priority</code></td>   <td>1–5</td>       <td>Importance ranking within scope (1 = primary CTA)</td></tr>
         </tbody>
       </table>
     </div>
@@ -455,11 +642,19 @@
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="logo-text">◈ Agent<strong>DOM</strong> v1.0</span>
-    <span class="footer-copy">An open standard for LLM-native web experiences. MIT License.</span>
+    <span class="logo-text">◈ WCI v1.0</span>
+    <span class="footer-copy">Web Context Interface — open standard for LLM-native web. MIT License.</span>
   </div>
 </footer>
 
+<script>
+  (function () {
+    var el = document.getElementById('docs-link');
+    if (!el) return;
+    var path = location.pathname.replace(/\/?demo\/?.*$/, '/');
+    el.href = path || '/';
+  })();
+</script>
 <script type="module" src="./main.ts"></script>
 </body>
 </html>

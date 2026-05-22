@@ -1,0 +1,57 @@
+{
+  "id": "concert-tickets",
+  "title": "TicketRush",
+  "icon": "🎵",
+  "difficulty": "Extreme",
+  "description": "Venue seating visual + ticket purchase aside.",
+  "challenges": [
+    "VIP upsell"
+  ],
+  "task": {
+    "goal": "Buy 2 GA tickets for Neon Pulse tour",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "buy-neon-ga",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "concert_tickets-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "buy-neon-pulse-ga",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "buy-neon-pulse-ga",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#buy-neon-ga"
+    ]
+  }
+}

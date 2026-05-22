@@ -1,0 +1,55 @@
+{
+  "id": "stock-trade",
+  "title": "TradePulse",
+  "icon": "📈",
+  "difficulty": "Hard",
+  "description": "Chart pane + order sidebar terminal layout.",
+  "challenges": [
+    "Market order form"
+  ],
+  "task": {
+    "goal": "Buy 10 shares of AAPL at market",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "buy-aapl-market",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "stock_trade-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "buy-aapl-market",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "buy-aapl-market",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#buy-aapl-market"
+    ]
+  }
+}

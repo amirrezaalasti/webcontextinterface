@@ -1,0 +1,57 @@
+{
+  "id": "visa-application",
+  "title": "VisaPath",
+  "icon": "🛂",
+  "difficulty": "Very Hard",
+  "description": "Visa OL wizard steps + dashed upload zone.",
+  "challenges": [
+    "Expedite upsell"
+  ],
+  "task": {
+    "goal": "Upload passport scan for B-1 application",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "upload-passport",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "visa_application-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "upload-passport-scan",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "upload-passport-scan",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#upload-passport"
+    ]
+  }
+}

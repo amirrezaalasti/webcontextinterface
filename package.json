@@ -1,19 +1,38 @@
 {
-  "name": "agentdom",
+  "name": "wci",
   "version": "1.0.0",
   "private": true,
-  "description": "A web framework that makes websites natively readable for LLM-based agents.",
+  "description": "WCI (Web Context Interface) — LLM-native web pages via data-wci-* markup, distillation, and typed actions.",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces",
+    "build": "npm run build -w @wci/spec && npm run build -w @wci/distiller && npm run build -w @wci/bridge && npm run build -w @wci/context && npm run build -w @wci/core",
+    "build:packages": "npm run build",
     "dev": "vite demo --open",
     "demo": "vite demo --open",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "demo:build": "vite build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "website:build": "node scripts/build-website.mjs",
+    "website:preview": "vitepress preview docs",
+    "eval:benchmark": "tsx evals/run-benchmark.ts",
+    "eval:verify": "tsx evals/run-benchmark.ts --verify-ground-truth",
+    "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/jsdom": "^27.0.0",
+    "dotenv": "^17.4.2",
+    "jsdom": "^26.1.0",
+    "openai": "^6.39.0",
+    "playwright": "^1.60.0",
+    "tsup": "^8.0.2",
+    "tsx": "^4.22.3",
     "typescript": "^5.4.5",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vitepress": "^1.6.3"
   }
 }

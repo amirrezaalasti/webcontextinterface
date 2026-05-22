@@ -1,0 +1,55 @@
+{
+  "id": "voting-poll",
+  "title": "VoteHub",
+  "icon": "🗳️",
+  "difficulty": "Hard",
+  "description": "Ballot radio choices in bordered form.",
+  "challenges": [
+    "Yes radio vs cast button"
+  ],
+  "task": {
+    "goal": "Cast vote for Proposition 12",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "cast-vote-prop12",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "voting_poll-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "vote-prop-12",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "vote-prop-12",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#cast-vote-prop12"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "wiki-edit",
+  "title": "OpenWiki",
+  "icon": "📖",
+  "difficulty": "Extreme",
+  "description": "Wiki edit split view: toolbar, textarea editor, and diff preview column.",
+  "challenges": [
+    "Toolbar formatting vs publish",
+    "Diff pane noise",
+    "Show history decoy"
+  ],
+  "task": {
+    "goal": "Publish edit to Web Context Interface article",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "publish-wci-article",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "wiki_edit-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "publish-wci-edit",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "publish-wci-edit",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#publish-wci-article",
+      "button.ow-publish"
+    ]
+  }
+}

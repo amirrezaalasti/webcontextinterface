@@ -1,0 +1,55 @@
+{
+  "id": "rental-car",
+  "title": "DriveAway",
+  "icon": "🚙",
+  "difficulty": "Very Hard",
+  "description": "Search bar + car result cards grid.",
+  "challenges": [
+    "Select vs Reserve"
+  ],
+  "task": {
+    "goal": "Reserve compact car pickup LAX Friday",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "reserve-lax-compact",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "rental_car-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "reserve-lax-compact",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "reserve-lax-compact",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#reserve-lax-compact"
+    ]
+  }
+}

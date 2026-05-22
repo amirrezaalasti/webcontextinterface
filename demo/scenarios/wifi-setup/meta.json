@@ -1,0 +1,55 @@
+{
+  "id": "wifi-setup",
+  "title": "NetConfig",
+  "icon": "📶",
+  "difficulty": "Very Hard",
+  "description": "WiFi SSID list with connect buttons.",
+  "challenges": [
+    "Locked vs guest network"
+  ],
+  "task": {
+    "goal": "Connect device to guest network Guest_5G",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "connect-guest-5g",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "wifi_setup-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "connect-guest-5g",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "connect-guest-5g",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#connect-guest-5g"
+    ]
+  }
+}

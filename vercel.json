@@ -1,0 +1,6 @@
+{
+  "buildCommand": "node scripts/build-website.mjs",
+  "outputDirectory": "docs/.vitepress/dist",
+  "framework": null,
+  "installCommand": "npm ci"
+}

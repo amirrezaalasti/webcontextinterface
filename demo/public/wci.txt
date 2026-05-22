@@ -1,18 +1,18 @@
-# agents.txt - AgentDOM Site Directives
+# wci.txt - WCI Site Directives
 # ExampleShop Demo Site
-# https://example.com/agents.txt
+# https://example.com/wci.txt
 
-AgentDOM-Version: 1.0
+WCI-Version: 1.0
 
 # -- Identity ------------------------------------------------
 Site-Name: ExampleShop Demo
-Site-Purpose: Demo e-commerce site for the AgentDOM framework showcase
-Contact: agents@agentdom.dev
+Site-Purpose: Demo e-commerce site for the WCI framework showcase
+Contact: agents@wci.dev
 
 # -- Agent Capability Declarations ---------------------------
-AgentDOM-Supported: true
-Manifest: /agents.json
-Context: /agent.md
+WCI-Supported: true
+Manifest: /wci.json
+Context: /wci.md
 
 # -- Allow / Deny Rules -------------------------------------
 Allow-Scope: registration-form

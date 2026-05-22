@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-22T21:17:10.023Z",
+  "modelOrder": [
+    {
+      "id": "heuristic",
+      "name": "Deterministic heuristic (no LLM)",
+      "openRouterModel": "(none)"
+    }
+  ],
+  "heuristic": {
+    "standard": {
+      "successRate": 88,
+      "avgTokens": 337
+    },
+    "wci": {
+      "successRate": 100,
+      "avgTokens": 248
+    },
+    "wciFull": {
+      "successRate": 98,
+      "avgTokens": 357
+    },
+    "agentDom": {
+      "successRate": 100,
+      "avgTokens": 248
+    }
+  }
+}

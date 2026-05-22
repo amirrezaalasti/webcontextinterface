@@ -1,0 +1,57 @@
+{
+  "id": "invoice-pay",
+  "title": "BillFlow",
+  "icon": "🧾",
+  "difficulty": "Hard",
+  "description": "Invoice payment table with overdue row.",
+  "challenges": [
+    "View vs Pay"
+  ],
+  "task": {
+    "goal": "Pay invoice INV-2026-044 due today",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "pay-inv-044",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "invoice_pay-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "pay-inv-2026-044",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "pay-inv-2026-044",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#pay-inv-044"
+    ]
+  }
+}

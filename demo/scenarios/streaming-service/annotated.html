@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><title>StreamVault</title><style>
+.sv-hero{height:200px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:32px}
+.sv-row{display:flex;gap:12px;overflow-x:auto;padding:16px}
+.sv-tile{min-width:140px;background:#1f2937;color:#fff;border-radius:6px;padding:12px}
+.sv-watchlist-btn{background:#e11d48;border:0;color:#fff;padding:8px 12px;margin-top:8px;width:100%}
+</style></head><body>
+<div data-page="streaming-service" style="background:#0f0f0f;color:#eee" data-agent-role="landmark" data-agent-id="streaming_service-page" data-agent-desc="Streaming catalog with hero and title row" data-agent-priority="2">
+<header class="sv-hdr">
+  <nav class="sv-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="sv-hdr-promo">
+    <button type="button" class="sv-ad-btn sv-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
+</header>
+<div class="sv-hero"><h1>Featured tonight</h1><button type="button">Play trailer</button></div>
+<section class="sv-row" role="main"><h2 style="width:100%">Documentaries</h2>
+<div class="sv-tile"><span>Arctic Light</span><button type="button">Play</button></div>
+<div class="sv-tile" data-title-id="ocean-deep"><strong>Ocean Deep</strong><span> · 52m</span>
+<button type="button" class="sv-watchlist-btn" id="add-ocean-deep" data-action="primary" data-agent-role="action" data-agent-id="add-ocean-deep-watchlist" data-agent-desc="Add documentary &quot;Ocean Deep&quot; to watchlist" data-agent-action="click" data-agent-priority="1">+ Watchlist</button></div>
+<div class="sv-tile"><span>City Skies</span><button type="button">Play</button></div>
+</section><footer class="sv-ftr"><small>© Demo StreamVault</small><a href="/privacy">Privacy</a><span class="sv-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

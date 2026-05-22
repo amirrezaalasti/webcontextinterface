@@ -1,0 +1,125 @@
+{
+  "id": "banking",
+  "title": "NovaPay Banking",
+  "icon": "🏦",
+  "difficulty": "Extreme",
+  "description": "Banking dashboard with multi-account summaries, transfer form with validation, transaction tables, session warnings, chat widgets, and promotional banners.",
+  "challenges": [
+    "Session timeout overlay hidden in DOM",
+    "Transfer form with dynamic validation and disabled submit",
+    "Multiple similar \"Transfer\" buttons across different accounts",
+    "Transaction table with nested icon/description elements",
+    "Chat widget and notification toasts as interactive distractions",
+    "Promotional credit card ad disguised as dashboard content"
+  ],
+  "task": {
+    "goal": "Transfer $500 from Checking to Savings account",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Agent finds 150+ elements including hidden session dialog and chat widget"
+      },
+      {
+        "action": "click",
+        "target": "Transfer button on checking card",
+        "outcome": "confused",
+        "note": "Multiple \"Transfer\" buttons — unclear which one to use"
+      },
+      {
+        "action": "click",
+        "target": "sidebar Transfer nav link",
+        "outcome": "fail",
+        "note": "Navigates to separate transfer page instead of quick transfer"
+      },
+      {
+        "action": "backtrack",
+        "target": "dashboard",
+        "outcome": "backtrack",
+        "note": "Returns to dashboard"
+      },
+      {
+        "action": "fill",
+        "target": "xfer-from select",
+        "outcome": "confused",
+        "note": "Locates form but unsure which select is source vs destination"
+      },
+      {
+        "action": "fill",
+        "target": "xfer-amount input",
+        "outcome": "success",
+        "note": "Enters amount"
+      },
+      {
+        "action": "click",
+        "target": "Review Transfer button",
+        "outcome": "fail",
+        "note": "Button is disabled — agent doesn't know why"
+      },
+      {
+        "action": "fill",
+        "target": "correct fields",
+        "outcome": "success",
+        "note": "Eventually fills all fields correctly"
+      },
+      {
+        "action": "click",
+        "target": "Review Transfer button",
+        "outcome": "success",
+        "note": "Button now enabled, clicks it"
+      },
+      {
+        "action": "verify",
+        "target": "unknown",
+        "outcome": "confused",
+        "note": "Re-parses full DOM to check if transfer initiated"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "quick-transfer scope",
+        "outcome": "success",
+        "note": "Sees transfer form with typed fields and preconditions"
+      },
+      {
+        "action": "select",
+        "target": "transfer-from",
+        "outcome": "success",
+        "note": "Selects \"Checking\" — knows balance from state"
+      },
+      {
+        "action": "select",
+        "target": "transfer-to",
+        "outcome": "success",
+        "note": "Selects \"Savings\""
+      },
+      {
+        "action": "fill",
+        "target": "transfer-amount",
+        "outcome": "success",
+        "note": "Enters $500 — precondition tells it max is $12,847.63"
+      },
+      {
+        "action": "click",
+        "target": "review-transfer-btn",
+        "outcome": "success",
+        "note": "Clicks review — gets ActionResult with state change"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "review-transfer-btn",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "export-csv-btn",
+      "pay-credit-bill-btn"
+    ],
+    "rawSelectors": [
+      ".np-quick-transfer button.np-btn--primary",
+      ".np-quick-transfer__form button.np-btn--primary",
+      "button:has-text(\"Review Transfer\")"
+    ]
+  }
+}

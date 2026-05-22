@@ -1,0 +1,102 @@
+{
+  "id": "flight-booking",
+  "title": "SkyWing Airlines",
+  "icon": "✈️",
+  "difficulty": "Extreme",
+  "description": "Flight search results with nested fare cards, filter sidebar with decoy ads, promotional banners disguised as results, mega-menu navigation, cookie consent overlays.",
+  "challenges": [
+    "Sponsored results disguised as real flight cards",
+    "Mega-menu with dozens of nested navigation links",
+    "Filter sidebar with range sliders and hidden sections",
+    "Tracking pixels and analytics scripts in DOM",
+    "Cookie consent overlay blocking interactions",
+    "Fare comparison tables hidden behind toggle buttons"
+  ],
+  "task": {
+    "goal": "Select the cheapest nonstop Economy flight from JFK to LAX",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Agent parses 200+ elements, finds 40+ clickable targets"
+      },
+      {
+        "action": "click",
+        "target": "Spring Sale promo link",
+        "outcome": "fail",
+        "note": "Mistakenly clicks promotional ad link in mega-menu"
+      },
+      {
+        "action": "backtrack",
+        "target": "results page",
+        "outcome": "backtrack",
+        "note": "Returns to search results, re-parses DOM"
+      },
+      {
+        "action": "click",
+        "target": "SkyMiles promo card",
+        "outcome": "fail",
+        "note": "Clicks inline promotional banner thinking it's a flight"
+      },
+      {
+        "action": "backtrack",
+        "target": "results page",
+        "outcome": "backtrack",
+        "note": "Confused by promotional content mixed with results"
+      },
+      {
+        "action": "scan",
+        "target": "sort options",
+        "outcome": "confused",
+        "note": "Tries to sort by price but unsure which select element"
+      },
+      {
+        "action": "click",
+        "target": "SW1042 economy fare button",
+        "outcome": "success",
+        "note": "Finally identifies correct button after multiple attempts"
+      },
+      {
+        "action": "verify",
+        "target": "unknown",
+        "outcome": "confused",
+        "note": "No confirmation — must re-parse DOM to verify selection"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "flight-search-results scope",
+        "outcome": "success",
+        "note": "Gets 3 flight results with prices in structured JSON"
+      },
+      {
+        "action": "compare",
+        "target": "fare data in state",
+        "outcome": "success",
+        "note": "Identifies SW1042 Economy $329 as cheapest nonstop"
+      },
+      {
+        "action": "click",
+        "target": "select-SW1042-economy",
+        "outcome": "success",
+        "note": "Direct action on typed node with ActionResult confirmation"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "select-SW1042-economy",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "select-UA447-economy",
+      "select-DL892-economy",
+      "modify-search-btn",
+      "reset-filters-btn"
+    ],
+    "rawSelectors": [
+      "[data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+      "[data-flight-id=\"SW1042\"] .sw-fare-btn--economy"
+    ]
+  }
+}

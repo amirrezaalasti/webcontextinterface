@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Bridge — AgentBridge class
+// WCI Bridge — WciBridge class
 // ─────────────────────────────────────────────────────────────────────────────
 
 import type { ActionRequest, ActionResult } from './result';
@@ -11,7 +11,7 @@ export type StateChangeHandler = (payload: {
   stateAfter: Record<string, unknown>;
 }) => void;
 
-export class AgentBridge {
+export class WciBridge {
   private root: Element;
   private history: ActionResult[] = [];
   private stateChangeHandlers: StateChangeHandler[] = [];
@@ -19,8 +19,8 @@ export class AgentBridge {
   constructor(root: Element = document.body) {
     this.root = root;
 
-    // Subscribe to agentdom:state-change events from the DOM
-    document.addEventListener('agentdom:state-change', ((e: CustomEvent) => {
+    // Subscribe to wci:state-change events from the DOM
+    document.addEventListener('wci:state-change', ((e: CustomEvent) => {
       for (const handler of this.stateChangeHandlers) handler(e.detail);
     }) as EventListener);
   }

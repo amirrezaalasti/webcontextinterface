@@ -1,0 +1,55 @@
+{
+  "id": "charity-donate",
+  "title": "GiveHope",
+  "icon": "❤️",
+  "difficulty": "Very Hard",
+  "description": "Hero + preset amount buttons + donate CTA.",
+  "challenges": [
+    "Preset amounts vs final donate"
+  ],
+  "task": {
+    "goal": "Donate $25 monthly to clean water fund",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "donate-water-25",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "charity_donate-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "donate-water-fund",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "donate-water-fund",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#donate-water-25"
+    ]
+  }
+}

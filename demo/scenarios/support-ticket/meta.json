@@ -1,0 +1,57 @@
+{
+  "id": "support-ticket",
+  "title": "HelpDesk One",
+  "icon": "🎫",
+  "difficulty": "Very Hard",
+  "description": "Ticket form with priority radio group.",
+  "challenges": [
+    "Save draft vs submit"
+  ],
+  "task": {
+    "goal": "Submit priority ticket for login outage",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "submit-priority-ticket",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "support_ticket-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "submit-priority-ticket",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "submit-priority-ticket",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#submit-priority-ticket"
+    ]
+  }
+}

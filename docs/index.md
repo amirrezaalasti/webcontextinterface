@@ -1,0 +1,66 @@
+---
+layout: home
+
+hero:
+  name: WCI
+  text: Web Context Interface
+  tagline: An open standard and TypeScript SDK that makes web pages natively readable and actionable for LLM-based agents — in under 8 KB per layer.
+  image:
+    src: /hero.svg
+    alt: WCI
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /getting-started
+    - theme: alt
+      text: View Specification
+      link: /specification
+    - theme: alt
+      text: Live Demo
+      link: /demo/
+      target: _blank
+
+features:
+  - icon: 🏷️
+    title: Semantic HTML
+    details: Extend standard HTML with data-wci-* attributes — roles, descriptions, state snapshots, and guards. No framework lock-in.
+  - icon: ⚗️
+    title: Distiller
+    details: Compress annotated DOM into token-efficient JSON or Markdown views scoped to landmarks and priority-ranked nodes.
+  - icon: ⚡
+    title: Bridge
+    details: Dispatch typed actions (fill, click, select…) and receive structured ActionResult payloads with side-effect detection.
+  - icon: 🌐
+    title: Site context
+    details: Root-level wci.txt, wci.json, and wci.md files define policy, manifests, and LLM system-prompt narrative — like robots.txt for agents.
+---
+
+## How it works
+
+```text
+data-wci-* HTML  →  WciDistiller  →  LLM context (JSON / Markdown)
+                                          ↓
+                               WciBridge.dispatch(action)
+                                          ↓
+                               Typed ActionResult
+```
+
+## Install
+
+```bash
+npm install @wci/core
+```
+
+Or use individual packages: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@wci/context`.
+
+## Site root files
+
+| File | Purpose |
+|------|---------|
+| `/wci.txt` | Allow/deny scopes, rate limits, authentication |
+| `/wci.json` | Structured manifest and task flows |
+| `/wci.md` | Narrative context for the LLM system prompt |
+
+::: tip Local development
+Run `npm run demo` for the demo on port 5173, or `npm run website:build` then `npm run website:preview` for the combined static site (docs + demo at `/demo/`).
+:::

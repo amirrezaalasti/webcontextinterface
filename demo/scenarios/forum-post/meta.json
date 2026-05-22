@@ -1,0 +1,57 @@
+{
+  "id": "forum-post",
+  "title": "DevForum",
+  "icon": "💬",
+  "difficulty": "Very Hard",
+  "description": "Forum thread list items with pin action.",
+  "challenges": [
+    "New post decoy"
+  ],
+  "task": {
+    "goal": "Pin the thread \"WCI specification feedback\"",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "pin-wci-thread",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "forum_post-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "pin-wci-thread",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "pin-wci-thread",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#pin-wci-thread"
+    ]
+  }
+}

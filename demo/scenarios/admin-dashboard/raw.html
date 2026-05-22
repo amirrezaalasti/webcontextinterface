@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>QuantumCRM — Admin Dashboard</title></head><body>
+<div class="qc-app" id="qc-root" data-role="admin" data-tenant="acme-corp" data-session-ttl="3600">
+  <!-- Keyboard shortcut overlay (hidden) -->
+  <div class="qc-shortcuts-overlay" style="display:none" role="dialog"><div class="qc-shortcuts-overlay__backdrop"></div><div class="qc-shortcuts-overlay__panel"><h2>Keyboard Shortcuts</h2><table class="qc-shortcuts-table"><tr><td><kbd>G</kbd> then <kbd>D</kbd></td><td>Go to Dashboard</td></tr><tr><td><kbd>G</kbd> then <kbd>C</kbd></td><td>Go to Contacts</td></tr><tr><td><kbd>N</kbd></td><td>New Contact</td></tr><tr><td><kbd>/</kbd></td><td>Focus Search</td></tr><tr><td><kbd>?</kbd></td><td>Show Shortcuts</td></tr></table><button class="qc-btn qc-btn--ghost">Close</button></div></div>
+
+  <div class="qc-layout">
+    <!-- Sidebar with multi-level navigation -->
+    <nav class="qc-sidebar" role="navigation" aria-label="Admin navigation">
+      <div class="qc-sidebar__brand"><div class="qc-sidebar__logo">Q</div><span class="qc-sidebar__brand-name">QuantumCRM</span><span class="qc-sidebar__tenant-badge">Acme Corp</span></div>
+      <div class="qc-sidebar__search"><input type="search" class="qc-sidebar__search-input" placeholder="Search..." /><kbd class="qc-kbd">/</kbd></div>
+      <ul class="qc-sidebar__menu">
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Main</span>
+          <ul>
+            <li class="qc-sidebar__item qc-sidebar__item--active"><a href="/dashboard"><svg viewBox="0 0 20 20"><rect x="2" y="2" width="7" height="7"/><rect x="11" y="2" width="7" height="7"/><rect x="2" y="11" width="7" height="7"/><rect x="11" y="11" width="7" height="7"/></svg><span>Dashboard</span></a></li>
+            <li class="qc-sidebar__item"><a href="/contacts"><svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="4"/><path d="M3 18v-1a7 7 0 0 1 14 0v1"/></svg><span>Contacts</span><span class="qc-sidebar__count">2,847</span></a></li>
+            <li class="qc-sidebar__item"><a href="/deals"><svg viewBox="0 0 20 20"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>Deals</span><span class="qc-sidebar__count">156</span></a></li>
+            <li class="qc-sidebar__item qc-sidebar__item--has-sub"><a href="/pipeline"><svg viewBox="0 0 20 20"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Pipeline</span></a>
+              <ul class="qc-sidebar__submenu"><li><a href="/pipeline/board">Board View</a></li><li><a href="/pipeline/table">Table View</a></li><li><a href="/pipeline/forecast">Forecast</a></li></ul>
+            </li>
+          </ul>
+        </li>
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Automation</span>
+          <ul>
+            <li class="qc-sidebar__item"><a href="/workflows"><svg viewBox="0 0 20 20"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/></svg><span>Workflows</span></a></li>
+            <li class="qc-sidebar__item"><a href="/email-sequences"><svg viewBox="0 0 20 20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg><span>Email Sequences</span></a></li>
+            <li class="qc-sidebar__item"><a href="/reports"><svg viewBox="0 0 20 20"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Reports</span></a></li>
+          </ul>
+        </li>
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Settings</span>
+          <ul>
+            <li class="qc-sidebar__item"><a href="/settings/general"><svg viewBox="0 0 20 20"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span>General</span></a></li>
+            <li class="qc-sidebar__item"><a href="/settings/team"><svg viewBox="0 0 20 20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Team</span></a></li>
+            <li class="qc-sidebar__item"><a href="/settings/integrations"><svg viewBox="0 0 20 20"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Integrations</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="qc-main" role="main">
+      <!-- Top bar -->
+      <div class="qc-topbar">
+        <div class="qc-topbar__left"><h1 class="qc-topbar__title">Dashboard</h1><span class="qc-topbar__period">Last 30 days</span></div>
+        <div class="qc-topbar__right">
+          <select class="qc-select qc-select--sm" name="period"><option value="7d">Last 7 Days</option><option value="30d" selected>Last 30 Days</option><option value="90d">Last Quarter</option><option value="ytd">Year to Date</option></select>
+          <button class="qc-btn qc-btn--ghost qc-btn--sm"><svg viewBox="0 0 20 20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export</button>
+          <button class="qc-btn qc-btn--primary qc-btn--sm"><svg viewBox="0 0 20 20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>New Contact</button>
+        </div>
+      </div>
+
+      <!-- KPI cards row -->
+      <div class="qc-kpi-grid">
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--revenue"><svg viewBox="0 0 20 20"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Revenue</span><span class="qc-kpi-card__value">$128,450</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 12.5%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--deals"><svg viewBox="0 0 20 20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Closed Deals</span><span class="qc-kpi-card__value">34</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 8.3%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--contacts"><svg viewBox="0 0 20 20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">New Contacts</span><span class="qc-kpi-card__value">189</span><span class="qc-kpi-card__trend qc-kpi-card__trend--down">↓ 3.1%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--conversion"><svg viewBox="0 0 20 20"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Conversion Rate</span><span class="qc-kpi-card__value">4.2%</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 0.8%</span></div></div>
+      </div>
+
+      <!-- Data tables with bulk actions -->
+      <div class="qc-recent-deals">
+        <div class="qc-recent-deals__header">
+          <h2>Recent Deals</h2>
+          <div class="qc-recent-deals__actions">
+            <div class="qc-bulk-actions" style="display:none"><span class="qc-bulk-actions__count">0 selected</span><button class="qc-btn qc-btn--ghost qc-btn--sm">Assign</button><button class="qc-btn qc-btn--ghost qc-btn--sm">Stage →</button><button class="qc-btn qc-btn--danger qc-btn--sm">Delete</button></div>
+            <div class="qc-table-search"><input type="search" class="qc-input qc-input--sm" placeholder="Search deals..." /></div>
+          </div>
+        </div>
+        <table class="qc-table qc-table--deals">
+          <thead><tr><th class="qc-table__check"><input type="checkbox" aria-label="Select all" /></th><th>Deal Name</th><th>Contact</th><th>Value</th><th>Stage</th><th>Probability</th><th>Close Date</th><th>Owner</th><th></th></tr></thead>
+          <tbody>
+            <tr data-deal-id="d_001"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal" /></td><td><a href="/deals/d_001" class="qc-table__link">Enterprise License — Acme</a></td><td>John Smith</td><td>$45,000</td><td><span class="qc-stage-badge qc-stage-badge--negotiation">Negotiation</span></td><td>75%</td><td>Jun 15, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>JD</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_002"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal" /></td><td><a href="/deals/d_002" class="qc-table__link">API Integration — Beta Corp</a></td><td>Sarah Johnson</td><td>$28,500</td><td><span class="qc-stage-badge qc-stage-badge--proposal">Proposal</span></td><td>50%</td><td>Jul 1, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>MK</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_003"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal" /></td><td><a href="/deals/d_003" class="qc-table__link">Consulting Retainer — Gamma Inc</a></td><td>Mike Chen</td><td>$12,000/mo</td><td><span class="qc-stage-badge qc-stage-badge--qualified">Qualified</span></td><td>30%</td><td>Aug 1, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>JD</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_004"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal" /></td><td><a href="/deals/d_004" class="qc-table__link">SaaS Migration — Delta LLC</a></td><td>Lisa Park</td><td>$67,200</td><td><span class="qc-stage-badge qc-stage-badge--negotiation">Negotiation</span></td><td>80%</td><td>May 30, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>AB</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+        <div class="qc-table__footer"><span class="qc-table__showing">Showing 1–4 of 156</span><nav class="qc-pagination"><button class="qc-pagination__btn" disabled>←</button><button class="qc-pagination__btn qc-pagination__btn--active">1</button><button class="qc-pagination__btn">2</button><button class="qc-pagination__btn">3</button><span>…</span><button class="qc-pagination__btn">39</button><button class="qc-pagination__btn">→</button></nav></div>
+      </div>
+    </main>
+  </div>
+</div>
+</body></html>

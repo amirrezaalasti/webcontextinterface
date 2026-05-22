@@ -1,9 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Distiller — Pruner
-// Strips decorative / invisible nodes, leaving only semantic AgentDOM nodes.
+// WCI Distiller — Pruner
+// Strips decorative / invisible nodes, leaving only semantic WCI nodes.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { AgentNodeSpec, readNodeSpec } from '@agentdom/spec';
+import { WciNodeSpec, readWciNodeSpec } from '@wci/spec';
 
 export interface PrunerOptions {
   /** If set, only collect nodes belonging to this landmark scope */
@@ -14,10 +14,10 @@ export interface PrunerOptions {
 
 /**
  * Walk the DOM tree starting from `root`, collecting all nodes that carry
- * AgentDOM attributes, pruning hidden subtrees and layout-only wrappers.
+ * WCI attributes, pruning hidden subtrees and layout-only wrappers.
  */
-export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}): AgentNodeSpec[] {
-  const nodes: AgentNodeSpec[] = [];
+export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}): WciNodeSpec[] {
+  const nodes: WciNodeSpec[] = [];
 
   function walk(el: Element): void {
     const htmlEl = el as HTMLElement;
@@ -26,7 +26,7 @@ export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}
     if (htmlEl.dataset?.agentHidden === 'true') return;
 
     // Try to read a spec from this element
-    const spec = readNodeSpec(htmlEl);
+    const spec = readWciNodeSpec(htmlEl);
 
     if (spec) {
       // If a scope filter is active, only include nodes in that scope

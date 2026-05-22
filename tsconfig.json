@@ -9,7 +9,8 @@
     "outDir": "dist",
     "rootDir": ".",
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "resolveJsonModule": true
   },
-  "include": ["packages/*/src", "demo"]
+  "include": ["packages/*/src", "demo", "evals"]
 }

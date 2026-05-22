@@ -1,0 +1,55 @@
+{
+  "id": "api-keys",
+  "title": "DevConsole",
+  "icon": "🔑",
+  "difficulty": "Very Hard",
+  "description": "Developer console sidebar + keys table.",
+  "challenges": [
+    "Reveal vs Rotate"
+  ],
+  "task": {
+    "goal": "Rotate production API key",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "rotate-prod-key",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "api_keys-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "rotate-prod-api-key",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "rotate-prod-api-key",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#rotate-prod-key"
+    ]
+  }
+}

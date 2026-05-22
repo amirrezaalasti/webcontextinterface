@@ -1,0 +1,240 @@
+<!DOCTYPE html><html><head><title>SkyWing Airlines — Search Results</title></head><body>
+<div class="sw-root sw-theme-dark" data-reactroot="" data-v-app="" id="__next">
+  <div class="sw-layout__wrapper sw-layout__wrapper--full">
+    <!-- Tracking pixels, analytics, chat widgets -->
+    <div class="sw-tracking" style="position:absolute;width:1px;height:1px;overflow:hidden">
+      <img src="/pixel.gif?evt=pageview&amp;sid=x8291"><img src="/pixel.gif?evt=search&amp;q=JFK-LAX">
+      <script data-sw-analytics="true">window.__SW_TRACK={sid:"x8291",funnel:"search"};</script>
+      <iframe src="about:blank" title="sw-chat-frame" class="sw-chat-iframe" style="display:none"></iframe>
+    </div>
+
+    <!-- Header with mega-menu (dozens of nested divs) -->
+    <header class="sw-hdr sw-hdr--sticky sw-hdr--transparent" role="banner">
+      <div class="sw-hdr__inner sw-container sw-container--fluid">
+        <div class="sw-hdr__logo-wrap">
+          <a href="/" class="sw-hdr__logo" aria-label="SkyWing Home">
+            <div class="sw-hdr__logo-img-wrap"><div class="sw-hdr__logo-img"></div></div>
+            <span class="sw-hdr__logo-text">SkyWing<sup>®</sup></span>
+          </a>
+        </div>
+        <nav class="sw-hdr__nav sw-hdr__nav--main" aria-label="Main navigation">
+          <ul class="sw-hdr__nav-list">
+            <li class="sw-hdr__nav-item sw-hdr__nav-item--has-mega"><a href="/flights" class="sw-hdr__nav-link">Flights</a>
+              <div class="sw-mega sw-mega--flights" role="menu" aria-hidden="true">
+                <div class="sw-mega__inner sw-container">
+                  <div class="sw-mega__col"><h3 class="sw-mega__heading">Book</h3><a href="/flights/search">Search Flights</a><a href="/flights/deals">Flight Deals</a><a href="/flights/status">Flight Status</a></div>
+                  <div class="sw-mega__col"><h3 class="sw-mega__heading">Manage</h3><a href="/manage/booking">My Booking</a><a href="/manage/checkin">Check-in</a><a href="/manage/seats">Seat Selection</a></div>
+                  <div class="sw-mega__col sw-mega__col--promo"><div class="sw-mega__promo-card"><img src="/promo-spring.jpg" alt=""><span class="sw-mega__promo-text">Spring Sale: 30% OFF</span><a href="/deals/spring" class="sw-mega__promo-cta">Book Now</a></div></div>
+                </div>
+              </div>
+            </li>
+            <li class="sw-hdr__nav-item"><a href="/hotels" class="sw-hdr__nav-link">Hotels</a></li>
+            <li class="sw-hdr__nav-item"><a href="/cars" class="sw-hdr__nav-link">Car Rental</a></li>
+            <li class="sw-hdr__nav-item"><a href="/loyalty" class="sw-hdr__nav-link">SkyMiles™</a></li>
+          </ul>
+        </nav>
+        <div class="sw-hdr__right">
+          <div class="sw-hdr__currency-wrap"><button class="sw-hdr__currency-btn" aria-expanded="false"><span class="sw-hdr__currency-flag">🇺🇸</span><span>USD</span><svg class="sw-icon sw-icon--chevron" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"></path></svg></button></div>
+          <div class="sw-hdr__lang-wrap"><button class="sw-hdr__lang-btn" aria-expanded="false">EN</button></div>
+          <div class="sw-hdr__auth-wrap">
+            <button class="sw-hdr__login-btn sw-btn sw-btn--ghost sw-btn--sm">Log In</button>
+            <button class="sw-hdr__signup-btn sw-btn sw-btn--primary sw-btn--sm">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky search modification bar -->
+    <div class="sw-search-bar sw-search-bar--sticky sw-search-bar--collapsed" role="search">
+      <div class="sw-search-bar__inner sw-container">
+        <div class="sw-search-bar__summary" data-agent-role="display" data-agent-id="search-summary" data-agent-desc="Current search: JFK → LAX, Mar 15–22, 2 Adults" data-agent-state="{&quot;route&quot;:&quot;JFK→LAX&quot;,&quot;dates&quot;:&quot;Mar 15–22&quot;,&quot;passengers&quot;:2,&quot;resultsCount&quot;:40}" data-agent-priority="2">
+          <span class="sw-search-bar__route">JFK → LAX</span>
+          <span class="sw-search-bar__sep">·</span>
+          <span class="sw-search-bar__date">Mar 15 – Mar 22</span>
+          <span class="sw-search-bar__sep">·</span>
+          <span class="sw-search-bar__pax">2 Adults</span>
+        </div>
+        <button class="sw-search-bar__modify-btn sw-btn sw-btn--ghost" data-agent-role="action" data-agent-id="modify-search-btn" data-agent-desc="Modify the current flight search parameters" data-agent-action="click" data-agent-priority="3" data-agent-state="{&quot;disabled&quot;:false}">Modify Search</button>
+      </div>
+    </div>
+
+    <main class="sw-main sw-main--results" role="main">
+      <div class="sw-results sw-container" data-agent-role="landmark" data-agent-id="flight-search-results" data-agent-desc="Flight search results for JFK → LAX, Mar 15–22, 2 adults. 40 results shown.">
+        <!-- Breadcrumbs -->
+        <nav class="sw-breadcrumbs" aria-label="Breadcrumb"><ol class="sw-breadcrumbs__list"><li><a href="/">Home</a></li><li><a href="/flights">Flights</a></li><li aria-current="page">JFK → LAX</li></ol></nav>
+
+        <div class="sw-results__layout">
+          <!-- FILTER SIDEBAR (enormous, many decoy interactions) -->
+          <aside class="sw-filters sw-filters--desktop" role="complementary" data-agent-role="landmark" data-agent-id="flight-filters" data-agent-desc="Filter controls — narrow results by stops, price, airline, departure time" data-agent-priority="3">
+            <div class="sw-filters__header"><h2 class="sw-filters__title">Filters</h2><button class="sw-filters__reset-btn sw-btn sw-btn--link" data-agent-role="action" data-agent-id="reset-filters-btn" data-agent-desc="Reset all filters to defaults" data-agent-action="click" data-agent-scope="flight-filters" data-agent-priority="5">Reset All</button></div>
+
+            <div class="sw-filter-group sw-filter-group--stops" data-agent-role="form" data-agent-id="filter-stops" data-agent-desc="Filter by number of stops" data-agent-action="check" data-agent-options="[&quot;Nonstop (12)&quot;,&quot;1 Stop (23)&quot;,&quot;2+ Stops (5)&quot;]" data-agent-state="{&quot;selected&quot;:[&quot;Nonstop&quot;,&quot;1 Stop&quot;]}" data-agent-scope="flight-filters" data-agent-priority="3">
+              <button class="sw-filter-group__toggle" aria-expanded="true"><span>Stops</span><svg class="sw-icon" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"></path></svg></button>
+              <div class="sw-filter-group__body">
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="0" checked=""><span class="sw-filter-check__mark"></span><span class="sw-filter-check__label">Nonstop</span><span class="sw-filter-check__count">(12)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="1" checked=""><span class="sw-filter-check__mark"></span><span class="sw-filter-check__label">1 Stop</span><span class="sw-filter-check__count">(23)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="2"><span class="sw-filter-check__mark"></span><span class="sw-filter-check__label">2+ Stops</span><span class="sw-filter-check__count">(5)</span></label>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--price" data-agent-role="form" data-agent-id="filter-price" data-agent-desc="Filter by price range ($100–$2,000)" data-agent-action="fill" data-agent-state="{&quot;min&quot;:200,&quot;max&quot;:1400,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-filters" data-agent-priority="3">
+              <button class="sw-filter-group__toggle" aria-expanded="true"><span>Price Range</span><svg class="sw-icon" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"></path></svg></button>
+              <div class="sw-filter-group__body">
+                <div class="sw-range-slider"><div class="sw-range-slider__track"><div class="sw-range-slider__fill" style="left:10%;right:30%"></div></div><input type="range" min="100" max="2000" value="200" class="sw-range-slider__input sw-range-slider__input--min"><input type="range" min="100" max="2000" value="1400" class="sw-range-slider__input sw-range-slider__input--max"></div>
+                <div class="sw-range-slider__labels"><span>$200</span><span>$1,400</span></div>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--airlines" data-agent-role="form" data-agent-id="filter-airlines" data-agent-desc="Filter by airline" data-agent-action="check" data-agent-options="[&quot;SkyWing (8)&quot;,&quot;United (6)&quot;,&quot;Delta (5)&quot;,&quot;American (4)&quot;,&quot;JetBlue (3)&quot;,&quot;Spirit (2)&quot;]" data-agent-state="{&quot;selected&quot;:[&quot;SkyWing&quot;,&quot;United&quot;,&quot;Delta&quot;,&quot;American&quot;]}" data-agent-scope="flight-filters" data-agent-priority="4">
+              <button class="sw-filter-group__toggle" aria-expanded="false"><span>Airlines</span><svg class="sw-icon" viewBox="0 0 12 12"><path d="M2 8l4-4 4 4"></path></svg></button>
+              <div class="sw-filter-group__body" hidden="">
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="SW" checked=""><span class="sw-filter-check__mark"></span><span>SkyWing</span><span class="sw-filter-check__count">(8)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="UA" checked=""><span class="sw-filter-check__mark"></span><span>United</span><span class="sw-filter-check__count">(6)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="DL" checked=""><span class="sw-filter-check__mark"></span><span>Delta</span><span class="sw-filter-check__count">(5)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="AA" checked=""><span class="sw-filter-check__mark"></span><span>American</span><span class="sw-filter-check__count">(4)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="B6"><span class="sw-filter-check__mark"></span><span>JetBlue</span><span class="sw-filter-check__count">(3)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="NK"><span class="sw-filter-check__mark"></span><span>Spirit</span><span class="sw-filter-check__count">(2)</span></label>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--times">
+              <button class="sw-filter-group__toggle" aria-expanded="false"><span>Departure Time</span><svg class="sw-icon" viewBox="0 0 12 12"><path d="M2 8l4-4 4 4"></path></svg></button>
+              <div class="sw-filter-group__body" hidden="">
+                <div class="sw-time-grid"><button class="sw-time-btn sw-time-btn--active" data-time="morning">🌅 Morning<br><small>6am–12pm</small></button><button class="sw-time-btn" data-time="afternoon">☀️ Afternoon<br><small>12pm–6pm</small></button><button class="sw-time-btn" data-time="evening">🌆 Evening<br><small>6pm–12am</small></button></div>
+              </div>
+            </div>
+
+            <!-- Sponsored filter (looks like a real filter but is an ad) -->
+            <div class="sw-filter-group sw-filter-group--sponsored" data-ad-unit="sidebar-native">
+              <div class="sw-filter-group__body sw-sponsored-filter">
+                <span class="sw-sponsored-label">Sponsored</span>
+                <div class="sw-sponsored-card"><img src="/ad-lounge.jpg" alt=""><p>SkyWing Lounge Pass — $49</p><a href="/ads/lounge-pass" class="sw-btn sw-btn--sm sw-btn--primary" data-tracking="ad-lounge-sidebar">Add to Trip</a></div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- RESULTS LIST -->
+          <div class="sw-results__list-wrap">
+            <!-- Sort bar -->
+            <div class="sw-sort-bar">
+              <div class="sw-sort-bar__left"><span class="sw-sort-bar__count">40 flights found</span></div>
+              <div class="sw-sort-bar__right">
+                <label class="sw-sort-bar__label">Sort by:</label>
+                <select class="sw-sort-bar__select" name="sort" data-agent-role="form" data-agent-id="sort-select" data-agent-desc="Sort results by: Best, Price, Duration, Departure" data-agent-action="select" data-agent-options="[&quot;Best&quot;,&quot;Price (Low→High)&quot;,&quot;Price (High→Low)&quot;,&quot;Duration&quot;,&quot;Departure Time&quot;]" data-agent-state="{&quot;selected&quot;:&quot;Best&quot;}" data-agent-priority="3">
+                  <option value="best" selected="">Best</option>
+                  <option value="price_asc">Price (Low → High)</option>
+                  <option value="price_desc">Price (High → Low)</option>
+                  <option value="duration">Duration</option>
+                  <option value="departure">Departure Time</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Promotional banner (looks like a result but is an ad) -->
+            <div class="sw-result-card sw-result-card--promo" data-ad-unit="inline-promo" role="article">
+              <div class="sw-result-card__inner">
+                <div class="sw-promo-badge">✨ SkyMiles Exclusive</div>
+                <div class="sw-result-card__content">
+                  <p class="sw-promo-text">Earn <strong>3x SkyMiles</strong> on this route! <a href="/loyalty/earn" class="sw-link">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flight Result Card 1 (the real one the agent should select) -->
+            <div class="sw-result-card" data-flight-id="SW1042" role="article" data-agent-role="landmark" data-agent-id="flight-result-SW1042" data-agent-desc="SkyWing SW 1042 — JFK 08:00→LAX 11:30, Nonstop, 5h 30m" data-agent-state="{&quot;flightId&quot;:&quot;SW1042&quot;,&quot;airline&quot;:&quot;SkyWing&quot;,&quot;departure&quot;:&quot;08:00&quot;,&quot;arrival&quot;:&quot;11:30&quot;,&quot;duration&quot;:&quot;5h 30m&quot;,&quot;stops&quot;:0,&quot;aircraft&quot;:&quot;Boeing 787-9&quot;}">
+              <div class="sw-result-card__inner">
+                <div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--sw"></div><div class="sw-airline-info"><span class="sw-airline-name">SkyWing</span><span class="sw-flight-number">SW 1042</span></div></div>
+                <div class="sw-result-card__times">
+                  <div class="sw-time-block"><span class="sw-time-block__time">08:00</span><span class="sw-time-block__airport">JFK</span></div>
+                  <div class="sw-flight-path"><div class="sw-flight-path__line"></div><div class="sw-flight-path__dot sw-flight-path__dot--dep"></div><div class="sw-flight-path__dot sw-flight-path__dot--arr"></div><span class="sw-flight-path__duration">5h 30m</span><span class="sw-flight-path__stops">Nonstop</span></div>
+                  <div class="sw-time-block"><span class="sw-time-block__time">11:30</span><span class="sw-time-block__airport">LAX</span></div>
+                </div>
+                <div class="sw-result-card__fares">
+                  <button class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="329" data-agent-role="action" data-agent-id="select-SW1042-economy" data-agent-desc="Select Economy fare for SW 1042 — $329/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:329,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-SW1042" data-agent-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$329</span><span class="sw-fare-btn__basis">per person</span></button>
+                  <button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1249" data-agent-role="action" data-agent-id="select-SW1042-business" data-agent-desc="Select Business fare for SW 1042 — $1,249/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1249,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-SW1042" data-agent-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,249</span><span class="sw-fare-btn__basis">per person</span></button>
+                  <button class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2899" data-agent-role="action" data-agent-id="select-SW1042-first" data-agent-desc="Select First Class fare for SW 1042 — $2,899/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2899,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-SW1042" data-agent-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,899</span><span class="sw-fare-btn__basis">per person</span></button>
+                </div>
+                <button class="sw-result-card__details-toggle" aria-expanded="false"><span>Flight details</span><svg class="sw-icon" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"></path></svg></button>
+                <div class="sw-result-card__details" hidden="">
+                  <div class="sw-flight-details"><div class="sw-flight-details__row"><span>Aircraft:</span><span>Boeing 787-9 Dreamliner</span></div><div class="sw-flight-details__row"><span>Wi-Fi:</span><span>Available (paid)</span></div><div class="sw-flight-details__row"><span>Meal:</span><span>Complimentary snack box</span></div><div class="sw-flight-details__row"><span>Legroom:</span><span>31" (Economy)</span></div><div class="sw-flight-details__row"><span>Entertainment:</span><span>Personal screen</span></div><div class="sw-flight-details__row"><span>Power:</span><span>USB-A, USB-C, AC outlet</span></div></div>
+                  <div class="sw-fare-comparison"><table class="sw-fare-table"><thead><tr><th></th><th>Economy</th><th>Business</th><th>First</th></tr></thead><tbody><tr><td>Baggage</td><td>1 carry-on</td><td>2 checked</td><td>3 checked</td></tr><tr><td>Changes</td><td>$75 fee</td><td>Free</td><td>Free</td></tr><tr><td>Seat select</td><td>Paid</td><td>Free</td><td>Free</td></tr><tr><td>Lounge</td><td>No</td><td>Yes</td><td>Yes</td></tr></tbody></table></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flight Result Card 2 -->
+            <div class="sw-result-card" data-flight-id="UA447" role="article" data-agent-role="landmark" data-agent-id="flight-result-UA447" data-agent-desc="United UA 447 — JFK 10:15→LAX 15:20, 1 Stop (ORD), 8h 05m" data-agent-state="{&quot;flightId&quot;:&quot;UA447&quot;,&quot;airline&quot;:&quot;United&quot;,&quot;departure&quot;:&quot;10:15&quot;,&quot;arrival&quot;:&quot;15:20&quot;,&quot;duration&quot;:&quot;8h 05m&quot;,&quot;stops&quot;:1,&quot;stopCity&quot;:&quot;ORD&quot;}">
+              <div class="sw-result-card__inner">
+                <div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--ua"></div><div class="sw-airline-info"><span class="sw-airline-name">United</span><span class="sw-flight-number">UA 447</span></div></div>
+                <div class="sw-result-card__times">
+                  <div class="sw-time-block"><span class="sw-time-block__time">10:15</span><span class="sw-time-block__airport">JFK</span></div>
+                  <div class="sw-flight-path"><div class="sw-flight-path__line"></div><div class="sw-flight-path__dot"></div><div class="sw-flight-path__stop-marker">ORD</div><div class="sw-flight-path__dot"></div><span class="sw-flight-path__duration">8h 05m</span><span class="sw-flight-path__stops">1 Stop (ORD)</span></div>
+                  <div class="sw-time-block"><span class="sw-time-block__time">15:20</span><span class="sw-time-block__airport">LAX</span></div>
+                </div>
+                <div class="sw-result-card__fares">
+                  <button class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="287" data-agent-role="action" data-agent-id="select-UA447-economy" data-agent-desc="Select Economy fare for UA 447 — $287/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:287,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-UA447" data-agent-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$287</span><span class="sw-fare-btn__basis">per person</span></button>
+                  <button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="989" data-agent-role="action" data-agent-id="select-UA447-business" data-agent-desc="Select Business fare for UA 447 — $989/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:989,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-UA447" data-agent-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$989</span><span class="sw-fare-btn__basis">per person</span></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flight Result Card 3 -->
+            <div class="sw-result-card" data-flight-id="DL892" role="article" data-agent-role="landmark" data-agent-id="flight-result-DL892" data-agent-desc="Delta DL 892 — JFK 14:30→LAX 17:15, 1 Stop (ATL), 7h 10m" data-agent-state="{&quot;flightId&quot;:&quot;DL892&quot;,&quot;airline&quot;:&quot;Delta&quot;,&quot;departure&quot;:&quot;14:30&quot;,&quot;arrival&quot;:&quot;17:15&quot;,&quot;duration&quot;:&quot;7h 10m&quot;,&quot;stops&quot;:1,&quot;stopCity&quot;:&quot;ATL&quot;}">
+              <div class="sw-result-card__inner">
+                <div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--dl"></div><div class="sw-airline-info"><span class="sw-airline-name">Delta</span><span class="sw-flight-number">DL 892</span></div></div>
+                <div class="sw-result-card__times">
+                  <div class="sw-time-block"><span class="sw-time-block__time">14:30</span><span class="sw-time-block__airport">JFK</span></div>
+                  <div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">5h 45m</span><span class="sw-flight-path__stops">Nonstop</span></div>
+                  <div class="sw-time-block"><span class="sw-time-block__time">17:15</span><span class="sw-time-block__airport">LAX</span></div>
+                </div>
+                <div class="sw-result-card__fares">
+                  <button class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="312" data-agent-role="action" data-agent-id="select-DL892-economy" data-agent-desc="Select Economy fare for DL 892 — $312/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:312,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-DL892" data-agent-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$312</span><span class="sw-fare-btn__basis">per person</span></button>
+                  <button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1149" data-agent-role="action" data-agent-id="select-DL892-business" data-agent-desc="Select Business fare for DL 892 — $1,149/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1149,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-DL892" data-agent-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,149</span><span class="sw-fare-btn__basis">per person</span></button>
+                  <button class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2599" data-agent-role="action" data-agent-id="select-DL892-first" data-agent-desc="Select First Class fare for DL 892 — $2,599/person" data-agent-action="click" data-agent-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2599,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="flight-result-DL892" data-agent-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,599</span><span class="sw-fare-btn__basis">per person</span></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Another sponsored result disguised as a flight -->
+            <div class="sw-result-card sw-result-card--partner" data-ad-unit="partner-inline" role="article">
+              <div class="sw-result-card__inner">
+                <div class="sw-partner-badge">Partner Offer</div>
+                <div class="sw-result-card__content"><p>Save 15% on LAX airport parking with ParkFly. <a href="/partners/parkfly" data-tracking="partner-parkfly">Reserve Now →</a></p></div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="sw-pagination" aria-label="Search results pages">
+              <button class="sw-pagination__btn sw-pagination__btn--prev" disabled="">← Previous</button>
+              <button class="sw-pagination__btn sw-pagination__btn--num sw-pagination__btn--active">1</button>
+              <button class="sw-pagination__btn sw-pagination__btn--num">2</button>
+              <button class="sw-pagination__btn sw-pagination__btn--num">3</button>
+              <span class="sw-pagination__ellipsis">…</span>
+              <button class="sw-pagination__btn sw-pagination__btn--num">8</button>
+              <button class="sw-pagination__btn sw-pagination__btn--next">Next →</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cookie banner -->
+    <div class="sw-cookie-banner" role="dialog" aria-label="Cookie consent">
+      <div class="sw-cookie-banner__inner"><p>We use cookies to improve your experience. <a href="/privacy">Learn more</a></p><div class="sw-cookie-banner__actions"><button class="sw-btn sw-btn--ghost sw-btn--sm">Manage</button><button class="sw-btn sw-btn--primary sw-btn--sm">Accept All</button></div></div>
+    </div>
+
+    <!-- Footer (massive) -->
+    <footer class="sw-footer" role="contentinfo">
+      <div class="sw-footer__inner sw-container">
+        <div class="sw-footer__cols">
+          <div class="sw-footer__col"><h4>Company</h4><a href="/about">About Us</a><a href="/careers">Careers</a><a href="/press">Press</a><a href="/investors">Investors</a></div>
+          <div class="sw-footer__col"><h4>Help</h4><a href="/help">Help Center</a><a href="/contact">Contact Us</a><a href="/faq">FAQ</a><a href="/accessibility">Accessibility</a></div>
+          <div class="sw-footer__col"><h4>Legal</h4><a href="/terms">Terms of Service</a><a href="/privacy">Privacy Policy</a><a href="/cookies">Cookie Policy</a></div>
+          <div class="sw-footer__col"><h4>Social</h4><a href="https://twitter.com">Twitter</a><a href="https://facebook.com">Facebook</a><a href="https://instagram.com">Instagram</a></div>
+        </div>
+        <div class="sw-footer__bottom"><span>© 2026 SkyWing Airlines, Inc. All rights reserved.</span></div>
+      </div>
+    </footer>
+  </div>
+</div>
+</body></html>

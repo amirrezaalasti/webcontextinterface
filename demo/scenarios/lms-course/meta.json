@@ -1,0 +1,55 @@
+{
+  "id": "lms-course",
+  "title": "LearnPath LMS",
+  "icon": "🎓",
+  "difficulty": "Very Hard",
+  "description": "Video player with module checklist sidebar.",
+  "challenges": [
+    "Completed vs active module"
+  ],
+  "task": {
+    "goal": "Mark Module 4 lesson as complete",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "complete-module-4",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "lms_course-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "complete-module-4",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "complete-module-4",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#complete-module-4"
+    ]
+  }
+}

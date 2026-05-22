@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><title>QuickBite</title><style>
+.qb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}
+.qb-resto{border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.qb-cart{position:fixed;right:0;top:0;width:280px;height:100%;background:#fff;border-left:2px solid #f97316;padding:16px}
+.qb-add{background:#f97316;color:#fff;border:0;width:100%;padding:10px;margin-top:8px}
+</style></head><body>
+<div data-page="food-delivery">
+<header class="qb-hdr">
+  <nav class="qb-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="qb-hdr-promo"><button type="button" class="qb-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="qb-ad-btn qb-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
+</header>
+<main class="qb-grid" role="main">
+<article class="qb-resto"><h3>Sushi Zen</h3><button type="button">View menu</button></article>
+<article class="qb-resto" data-restaurant="tokyo-bowl"><h3>Tokyo Bowl</h3><p>Chicken Teriyaki Bowl · $12.99</p>
+<button type="button" class="qb-add" id="add-teriyaki-bowl" data-action="primary">Add Teriyaki Bowl &amp; checkout</button></article>
+<article class="qb-resto"><h3>Pizza Hub</h3><button type="button" data-decoy="decoy-promo">Free delivery promo</button></article>
+</main>
+<aside class="qb-cart"><h2>Cart (0)</h2><button type="button">Clear</button><p>Empty — add items</p></aside>
+<div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

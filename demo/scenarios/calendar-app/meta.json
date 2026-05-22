@@ -1,0 +1,58 @@
+{
+  "id": "calendar-app",
+  "title": "CalSync",
+  "icon": "📅",
+  "difficulty": "Extreme",
+  "description": "Calendar week grid with open event modal and series creation CTA.",
+  "challenges": [
+    "Grid +Add cells vs series button",
+    "Open modal overlay",
+    "Multiple day columns"
+  ],
+  "task": {
+    "goal": "Create a team standup event every weekday at 9am",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "create-standup-series",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "calendar_app-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "create-standup-series",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "create-standup-series",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#create-standup-series",
+      "button.cs-create"
+    ]
+  }
+}

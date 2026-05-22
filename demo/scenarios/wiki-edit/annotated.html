@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><title>OpenWiki</title><style>
+.ow-edit{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:80vh}
+.ow-toolbar{background:#f3f4f6;padding:8px;border-bottom:1px solid #ccc;grid-column:1/-1;display:flex;gap:8px}
+.ow-editor{padding:16px;font-family:serif}
+.ow-diff{background:#fff8e1;padding:16px;border-left:2px solid #fbbf24}
+.ow-publish{background:#22c55e;color:#fff;border:0;padding:10px 18px;font-weight:bold}
+</style></head><body>
+<div data-page="wiki-edit" data-agent-role="landmark" data-agent-id="wiki_edit-page" data-agent-desc="Wiki editor with toolbar and diff pane" data-agent-priority="2">
+<div class="ow-toolbar" role="toolbar">
+<button type="button">Bold</button><button type="button">Link</button><button type="button" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Show history decoy" data-agent-priority="5" data-agent-action="click">Show history</button>
+<button type="button" class="ow-publish" id="publish-wci-article" data-action="primary" data-agent-role="action" data-agent-id="publish-wci-edit" data-agent-desc="Publish edit to Web Context Interface article" data-agent-action="click" data-agent-priority="1">Publish changes</button>
+</div>
+<div class="ow-edit">
+<textarea class="ow-editor" role="main" rows="20">== Web Context Interface ==
+Agent-readable pages…</textarea>
+<div class="ow-diff"><h3>Diff preview</h3><ins>+ distillation layer</ins></div>
+</div><footer class="ow-ftr"><small>© Demo OpenWiki</small><a href="/privacy">Privacy</a><span class="ow-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

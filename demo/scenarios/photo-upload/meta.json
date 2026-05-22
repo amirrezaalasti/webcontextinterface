@@ -1,0 +1,55 @@
+{
+  "id": "photo-upload",
+  "title": "CloudAlbum",
+  "icon": "📷",
+  "difficulty": "Extreme",
+  "description": "Album thumbnails + dashed dropzone upload.",
+  "challenges": [
+    "Album thumbs noise"
+  ],
+  "task": {
+    "goal": "Upload vacation album \"Iceland 2026\"",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "upload-iceland-album",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "photo_upload-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "upload-iceland-album",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "upload-iceland-album",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#upload-iceland-album"
+    ]
+  }
+}

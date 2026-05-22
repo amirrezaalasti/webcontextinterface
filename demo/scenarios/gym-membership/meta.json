@@ -1,0 +1,55 @@
+{
+  "id": "gym-membership",
+  "title": "FitClub",
+  "icon": "💪",
+  "difficulty": "Very Hard",
+  "description": "Pricing plan comparison cards.",
+  "challenges": [
+    "Current plan button"
+  ],
+  "task": {
+    "goal": "Upgrade membership to annual plan",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "upgrade-annual",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "gym_membership-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "upgrade-annual-plan",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "upgrade-annual-plan",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#upgrade-annual"
+    ]
+  }
+}

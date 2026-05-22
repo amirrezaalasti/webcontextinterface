@@ -1,0 +1,58 @@
+{
+  "id": "streaming-service",
+  "title": "StreamVault",
+  "icon": "🎬",
+  "difficulty": "Hard",
+  "description": "Streaming hero banner plus horizontal documentary title tiles.",
+  "challenges": [
+    "Play vs Watchlist on tiles",
+    "Hero play trailer",
+    "Dark theme row scroll"
+  ],
+  "task": {
+    "goal": "Add documentary \"Ocean Deep\" to watchlist",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "add-ocean-deep",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "streaming_service-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "add-ocean-deep-watchlist",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "add-ocean-deep-watchlist",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#add-ocean-deep",
+      "button.sv-watchlist-btn[data-action=\"primary\"]"
+    ]
+  }
+}

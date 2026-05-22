@@ -1,0 +1,57 @@
+{
+  "id": "dating-profile",
+  "title": "MatchMingle",
+  "icon": "💕",
+  "difficulty": "Very Hard",
+  "description": "Profile photo column + message compose.",
+  "challenges": [
+    "Boost vs send"
+  ],
+  "task": {
+    "goal": "Send intro message to profile @river_kayak",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "send-intro-river",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "dating_profile-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "message-river-kayak",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "message-river-kayak",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#send-intro-river"
+    ]
+  }
+}

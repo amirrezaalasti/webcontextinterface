@@ -1,0 +1,57 @@
+{
+  "id": "hotel-booking",
+  "title": "StayFinder",
+  "icon": "🏨",
+  "difficulty": "Hard",
+  "description": "Vertical hotel result cards with book buttons.",
+  "challenges": [
+    "Select vs Book"
+  ],
+  "task": {
+    "goal": "Book the downtown Marriott for 2 nights",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "book-marriott",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "hotel_booking-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "book-marriott-downtown",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "book-marriott-downtown",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#book-marriott"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "survey-form",
+  "title": "FeedbackLoop",
+  "icon": "📋",
+  "difficulty": "Hard",
+  "description": "NPS 0–10 button scale + comment textarea.",
+  "challenges": [
+    "Score buttons vs submit"
+  ],
+  "task": {
+    "goal": "Submit NPS score 9 with comment",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "submit-nps",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "survey_form-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "submit-nps-9",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "submit-nps-9",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#submit-nps"
+    ]
+  }
+}

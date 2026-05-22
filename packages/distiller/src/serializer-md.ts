@@ -1,9 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Distiller — Markdown Serializer
+// WCI Distiller — Markdown Serializer
 // Produces a compact Markdown representation for chat/RAG agents.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { AgentNodeSpec, SiteContextSummary } from '@agentdom/spec';
+import { WciNodeSpec, SiteContextSummary } from '@wci/spec';
 
 function stateStr(state: Record<string, unknown>): string {
   return Object.entries(state)
@@ -12,7 +12,7 @@ function stateStr(state: Record<string, unknown>): string {
 }
 
 export function serializeMarkdown(
-  nodes: AgentNodeSpec[],
+  nodes: WciNodeSpec[],
   meta: {
     pageTitle: string;
     scope?: string;
@@ -87,7 +87,7 @@ export function serializeMarkdown(
 
   if (preconditioned.length) lines.push('');
 
-  lines.push(`*Distilled at ${new Date().toISOString()} · AgentDOM v1.0*`);
+  lines.push(`*Distilled at ${new Date().toISOString()} · WCI v1.0*`);
 
   return lines.join('\n');
 }

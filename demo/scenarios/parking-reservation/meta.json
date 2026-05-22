@@ -1,0 +1,58 @@
+{
+  "id": "parking-reservation",
+  "title": "ParkSpot",
+  "icon": "🅿️",
+  "difficulty": "Hard",
+  "description": "Parking spot button grid.",
+  "challenges": [
+    "Taken vs open spots"
+  ],
+  "task": {
+    "goal": "Reserve garage spot B12 for Saturday 2pm",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "reserve-spot-b12",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "parking_reservation-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "reserve-spot-b12",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "reserve-spot-b12",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#reserve-spot-b12",
+      "button.pk-spot.open"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "insurance-quote",
+  "title": "ShieldSure",
+  "icon": "🛡️",
+  "difficulty": "Extreme",
+  "description": "Two-column quote form with coverage radios and estimate sidebar.",
+  "challenges": [
+    "Call agent decoy",
+    "Coverage radio noise"
+  ],
+  "task": {
+    "goal": "Get auto insurance quote for ZIP 94105",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "get-auto-quote-94105",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "insurance_quote-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "get-auto-quote",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "get-auto-quote",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#get-auto-quote-94105"
+    ]
+  }
+}

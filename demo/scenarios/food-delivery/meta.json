@@ -1,0 +1,60 @@
+{
+  "id": "food-delivery",
+  "title": "QuickBite",
+  "icon": "🍔",
+  "difficulty": "Hard",
+  "description": "Food delivery restaurant card grid with fixed cart drawer.",
+  "challenges": [
+    "View menu vs Add buttons",
+    "Cart drawer distraction",
+    "Promo on other restaurant"
+  ],
+  "task": {
+    "goal": "Add Chicken Teriyaki Bowl to cart and checkout",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "add-teriyaki-bowl",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "food_delivery-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "add-teriyaki-checkout",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "add-teriyaki-checkout",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#add-teriyaki-bowl",
+      "button.qb-add[data-action=\"primary\"]"
+    ]
+  }
+}

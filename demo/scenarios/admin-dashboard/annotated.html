@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>QuantumCRM — Admin Dashboard</title></head><body>
+<div class="qc-app" id="qc-root" data-role="admin" data-tenant="acme-corp" data-session-ttl="3600" data-agent-role="landmark" data-agent-id="crm-dashboard" data-agent-desc="QuantumCRM admin dashboard — KPIs, deals pipeline, contacts management. Tenant: Acme Corp.">
+  <!-- Keyboard shortcut overlay (hidden) -->
+  <div class="qc-shortcuts-overlay" style="display:none" role="dialog"><div class="qc-shortcuts-overlay__backdrop"></div><div class="qc-shortcuts-overlay__panel"><h2>Keyboard Shortcuts</h2><table class="qc-shortcuts-table"><tbody><tr><td><kbd>G</kbd> then <kbd>D</kbd></td><td>Go to Dashboard</td></tr><tr><td><kbd>G</kbd> then <kbd>C</kbd></td><td>Go to Contacts</td></tr><tr><td><kbd>N</kbd></td><td>New Contact</td></tr><tr><td><kbd>/</kbd></td><td>Focus Search</td></tr><tr><td><kbd>?</kbd></td><td>Show Shortcuts</td></tr></tbody></table><button class="qc-btn qc-btn--ghost">Close</button></div></div>
+
+  <div class="qc-layout">
+    <!-- Sidebar with multi-level navigation -->
+    <nav class="qc-sidebar" role="navigation" aria-label="Admin navigation" data-agent-role="nav" data-agent-id="crm-nav" data-agent-desc="CRM navigation — Dashboard (active), Contacts (2,847), Deals (156), Pipeline, Workflows, Email Sequences, Reports, Settings" data-agent-action="navigate" data-agent-state="{&quot;active&quot;:&quot;Dashboard&quot;,&quot;contactCount&quot;:2847,&quot;dealCount&quot;:156}" data-agent-priority="2">
+      <div class="qc-sidebar__brand"><div class="qc-sidebar__logo">Q</div><span class="qc-sidebar__brand-name">QuantumCRM</span><span class="qc-sidebar__tenant-badge">Acme Corp</span></div>
+      <div class="qc-sidebar__search"><input type="search" class="qc-sidebar__search-input" placeholder="Search..."><kbd class="qc-kbd">/</kbd></div>
+      <ul class="qc-sidebar__menu">
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Main</span>
+          <ul>
+            <li class="qc-sidebar__item qc-sidebar__item--active"><a href="/dashboard"><svg viewBox="0 0 20 20"><rect x="2" y="2" width="7" height="7"></rect><rect x="11" y="2" width="7" height="7"></rect><rect x="2" y="11" width="7" height="7"></rect><rect x="11" y="11" width="7" height="7"></rect></svg><span>Dashboard</span></a></li>
+            <li class="qc-sidebar__item"><a href="/contacts"><svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="4"></circle><path d="M3 18v-1a7 7 0 0 1 14 0v1"></path></svg><span>Contacts</span><span class="qc-sidebar__count">2,847</span></a></li>
+            <li class="qc-sidebar__item"><a href="/deals"><svg viewBox="0 0 20 20"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg><span>Deals</span><span class="qc-sidebar__count">156</span></a></li>
+            <li class="qc-sidebar__item qc-sidebar__item--has-sub"><a href="/pipeline"><svg viewBox="0 0 20 20"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span>Pipeline</span></a>
+              <ul class="qc-sidebar__submenu"><li><a href="/pipeline/board">Board View</a></li><li><a href="/pipeline/table">Table View</a></li><li><a href="/pipeline/forecast">Forecast</a></li></ul>
+            </li>
+          </ul>
+        </li>
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Automation</span>
+          <ul>
+            <li class="qc-sidebar__item"><a href="/workflows"><svg viewBox="0 0 20 20"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line></svg><span>Workflows</span></a></li>
+            <li class="qc-sidebar__item"><a href="/email-sequences"><svg viewBox="0 0 20 20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg><span>Email Sequences</span></a></li>
+            <li class="qc-sidebar__item"><a href="/reports"><svg viewBox="0 0 20 20"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span>Reports</span></a></li>
+          </ul>
+        </li>
+        <li class="qc-sidebar__group"><span class="qc-sidebar__group-label">Settings</span>
+          <ul>
+            <li class="qc-sidebar__item"><a href="/settings/general"><svg viewBox="0 0 20 20"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span>General</span></a></li>
+            <li class="qc-sidebar__item"><a href="/settings/team"><svg viewBox="0 0 20 20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Team</span></a></li>
+            <li class="qc-sidebar__item"><a href="/settings/integrations"><svg viewBox="0 0 20 20"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><span>Integrations</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="qc-main" role="main">
+      <!-- Top bar -->
+      <div class="qc-topbar">
+        <div class="qc-topbar__left"><h1 class="qc-topbar__title">Dashboard</h1><span class="qc-topbar__period">Last 30 days</span></div>
+        <div class="qc-topbar__right">
+          <select class="qc-select qc-select--sm" name="period" data-agent-role="form" data-agent-id="period-selector" data-agent-desc="Change reporting period" data-agent-action="select" data-agent-options="[&quot;Last 7 Days&quot;,&quot;Last 30 Days&quot;,&quot;Last Quarter&quot;,&quot;Year to Date&quot;]" data-agent-state="{&quot;selected&quot;:&quot;Last 30 Days&quot;}" data-agent-scope="kpi-overview" data-agent-priority="2"><option value="7d">Last 7 Days</option><option value="30d" selected="">Last 30 Days</option><option value="90d">Last Quarter</option><option value="ytd">Year to Date</option></select>
+          <button class="qc-btn qc-btn--ghost qc-btn--sm" data-agent-role="action" data-agent-id="export-btn" data-agent-desc="Export dashboard data as report" data-agent-action="click" data-agent-scope="crm-dashboard" data-agent-priority="3"><svg viewBox="0 0 20 20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>Export</button>
+          <button class="qc-btn qc-btn--primary qc-btn--sm" data-agent-role="action" data-agent-id="new-contact-btn" data-agent-desc="Create a new contact" data-agent-action="click" data-agent-scope="crm-dashboard" data-agent-priority="1"><svg viewBox="0 0 20 20"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>New Contact</button>
+        </div>
+      </div>
+
+      <!-- KPI cards row -->
+      <div class="qc-kpi-grid" data-agent-role="landmark" data-agent-id="kpi-overview" data-agent-desc="Key performance indicators for last 30 days" data-agent-scope="crm-dashboard">
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--revenue" data-agent-role="display" data-agent-id="kpi-revenue" data-agent-desc="Revenue: $128,450 (↑12.5%)" data-agent-state="{&quot;value&quot;:128450,&quot;trend&quot;:&quot;+12.5%&quot;,&quot;period&quot;:&quot;30d&quot;}" data-agent-scope="kpi-overview" data-agent-priority="1"><svg viewBox="0 0 20 20"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Revenue</span><span class="qc-kpi-card__value">$128,450</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 12.5%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--deals" data-agent-role="display" data-agent-id="kpi-deals" data-agent-desc="Closed Deals: 34 (↑8.3%)" data-agent-state="{&quot;value&quot;:34,&quot;trend&quot;:&quot;+8.3%&quot;,&quot;period&quot;:&quot;30d&quot;}" data-agent-scope="kpi-overview" data-agent-priority="1"><svg viewBox="0 0 20 20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Closed Deals</span><span class="qc-kpi-card__value">34</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 8.3%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--contacts" data-agent-role="display" data-agent-id="kpi-contacts" data-agent-desc="New Contacts: 189 (↓3.1%)" data-agent-state="{&quot;value&quot;:189,&quot;trend&quot;:&quot;-3.1%&quot;,&quot;period&quot;:&quot;30d&quot;}" data-agent-scope="kpi-overview" data-agent-priority="2"><svg viewBox="0 0 20 20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">New Contacts</span><span class="qc-kpi-card__value">189</span><span class="qc-kpi-card__trend qc-kpi-card__trend--down">↓ 3.1%</span></div></div>
+        <div class="qc-kpi-card"><div class="qc-kpi-card__icon qc-kpi-card__icon--conversion" data-agent-role="display" data-agent-id="kpi-conversion" data-agent-desc="Conversion Rate: 4.2% (↑0.8%)" data-agent-state="{&quot;value&quot;:&quot;4.2%&quot;,&quot;trend&quot;:&quot;+0.8%&quot;,&quot;period&quot;:&quot;30d&quot;}" data-agent-scope="kpi-overview" data-agent-priority="2"><svg viewBox="0 0 20 20"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div><div class="qc-kpi-card__data"><span class="qc-kpi-card__label">Conversion Rate</span><span class="qc-kpi-card__value">4.2%</span><span class="qc-kpi-card__trend qc-kpi-card__trend--up">↑ 0.8%</span></div></div>
+      </div>
+
+      <!-- Data tables with bulk actions -->
+      <div class="qc-recent-deals" data-agent-role="landmark" data-agent-id="recent-deals" data-agent-desc="Recent deals table — 156 deals total, showing 4" data-agent-state="{&quot;totalDeals&quot;:156,&quot;showing&quot;:4,&quot;page&quot;:1,&quot;totalPages&quot;:39}" data-agent-scope="crm-dashboard">
+        <div class="qc-recent-deals__header">
+          <h2>Recent Deals</h2>
+          <div class="qc-recent-deals__actions">
+            <div class="qc-bulk-actions" style="display:none"><span class="qc-bulk-actions__count">0 selected</span><button class="qc-btn qc-btn--ghost qc-btn--sm">Assign</button><button class="qc-btn qc-btn--ghost qc-btn--sm">Stage →</button><button class="qc-btn qc-btn--danger qc-btn--sm">Delete</button></div>
+            <div class="qc-table-search"><input type="search" class="qc-input qc-input--sm" placeholder="Search deals..." data-agent-role="form" data-agent-id="deals-search" data-agent-desc="Search deals by name, contact, or value" data-agent-action="fill" data-agent-state="{&quot;value&quot;:&quot;&quot;}" data-agent-scope="recent-deals" data-agent-priority="2"></div>
+          </div>
+        </div>
+        <table class="qc-table qc-table--deals" data-agent-role="display" data-agent-id="deals-table" data-agent-desc="Deals data" data-agent-state="{&quot;deals&quot;:[{&quot;id&quot;:&quot;d_001&quot;,&quot;name&quot;:&quot;Enterprise License — Acme&quot;,&quot;contact&quot;:&quot;John Smith&quot;,&quot;value&quot;:45000,&quot;stage&quot;:&quot;Negotiation&quot;,&quot;probability&quot;:&quot;75%&quot;,&quot;closeDate&quot;:&quot;Jun 15&quot;},{&quot;id&quot;:&quot;d_002&quot;,&quot;name&quot;:&quot;API Integration — Beta Corp&quot;,&quot;contact&quot;:&quot;Sarah Johnson&quot;,&quot;value&quot;:28500,&quot;stage&quot;:&quot;Proposal&quot;,&quot;probability&quot;:&quot;50%&quot;,&quot;closeDate&quot;:&quot;Jul 1&quot;},{&quot;id&quot;:&quot;d_003&quot;,&quot;name&quot;:&quot;Consulting Retainer — Gamma Inc&quot;,&quot;contact&quot;:&quot;Mike Chen&quot;,&quot;value&quot;:&quot;$12,000/mo&quot;,&quot;stage&quot;:&quot;Qualified&quot;,&quot;probability&quot;:&quot;30%&quot;,&quot;closeDate&quot;:&quot;Aug 1&quot;},{&quot;id&quot;:&quot;d_004&quot;,&quot;name&quot;:&quot;SaaS Migration — Delta LLC&quot;,&quot;contact&quot;:&quot;Lisa Park&quot;,&quot;value&quot;:67200,&quot;stage&quot;:&quot;Negotiation&quot;,&quot;probability&quot;:&quot;80%&quot;,&quot;closeDate&quot;:&quot;May 30&quot;}]}" data-agent-scope="recent-deals" data-agent-priority="1">
+          <thead><tr><th class="qc-table__check"><input type="checkbox" aria-label="Select all"></th><th>Deal Name</th><th>Contact</th><th>Value</th><th>Stage</th><th>Probability</th><th>Close Date</th><th>Owner</th><th></th></tr></thead>
+          <tbody>
+            <tr data-deal-id="d_001"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal"></td><td><a href="/deals/d_001" class="qc-table__link">Enterprise License — Acme</a></td><td>John Smith</td><td>$45,000</td><td><span class="qc-stage-badge qc-stage-badge--negotiation">Negotiation</span></td><td>75%</td><td>Jun 15, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>JD</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_002"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal"></td><td><a href="/deals/d_002" class="qc-table__link">API Integration — Beta Corp</a></td><td>Sarah Johnson</td><td>$28,500</td><td><span class="qc-stage-badge qc-stage-badge--proposal">Proposal</span></td><td>50%</td><td>Jul 1, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>MK</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_003"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal"></td><td><a href="/deals/d_003" class="qc-table__link">Consulting Retainer — Gamma Inc</a></td><td>Mike Chen</td><td>$12,000/mo</td><td><span class="qc-stage-badge qc-stage-badge--qualified">Qualified</span></td><td>30%</td><td>Aug 1, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>JD</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+            <tr data-deal-id="d_004"><td class="qc-table__check"><input type="checkbox" aria-label="Select deal"></td><td><a href="/deals/d_004" class="qc-table__link">SaaS Migration — Delta LLC</a></td><td>Lisa Park</td><td>$67,200</td><td><span class="qc-stage-badge qc-stage-badge--negotiation">Negotiation</span></td><td>80%</td><td>May 30, 2026</td><td><div class="qc-avatar qc-avatar--xs"><span>AB</span></div></td><td><button class="qc-table__action-btn" aria-label="Deal actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+        <div class="qc-table__footer"><span class="qc-table__showing">Showing 1–4 of 156</span><nav class="qc-pagination"><button class="qc-pagination__btn" disabled="">←</button><button class="qc-pagination__btn qc-pagination__btn--active">1</button><button class="qc-pagination__btn">2</button><button class="qc-pagination__btn">3</button><span>…</span><button class="qc-pagination__btn">39</button><button class="qc-pagination__btn">→</button></nav></div>
+      </div>
+    </main>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><title>BillFlow</title><style>.bf-inv{width:100%;border-collapse:collapse}.bf-inv .overdue{color:#dc2626;font-weight:bold}.bf-pay{background:#15803d;color:#fff;border:0;padding:8px 16px}</style></head><body>
+<table class="bf-inv" data-page="invoice-pay" role="main" data-agent-role="landmark" data-agent-id="invoice_pay-page" data-agent-desc="Invoice table" data-agent-priority="2"><thead><tr><th>Invoice</th><th>Due</th><th>Amount</th><th></th></tr></thead><tbody>
+<tr><td>INV-2026-012</td><td>May 1</td><td>$200</td><td><button type="button">View</button></td></tr>
+<tr class="overdue" data-inv="INV-2026-044"><td>INV-2026-044</td><td>Today</td><td>$1,420</td>
+<td><button type="button" class="bf-pay" id="pay-inv-044" data-action="primary" data-agent-role="action" data-agent-id="pay-inv-2026-044" data-agent-desc="Pay invoice INV-2026-044 due today" data-agent-action="click" data-agent-priority="1">Pay now</button></td></tr>
+</tbody></table><button type="button" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Export CSV" data-agent-priority="5" data-agent-action="click">Export CSV</button><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></body></html>

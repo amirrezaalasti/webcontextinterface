@@ -1,0 +1,57 @@
+{
+  "id": "bug-report",
+  "title": "IssueTrack",
+  "icon": "🐛",
+  "difficulty": "Very Hard",
+  "description": "Modal dialog overlay for bug filing.",
+  "challenges": [
+    "Chat vs file"
+  ],
+  "task": {
+    "goal": "File bug reproducing checkout timeout",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "file-checkout-bug",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "bug_report-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "file-checkout-timeout-bug",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "file-checkout-timeout-bug",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#file-checkout-bug"
+    ]
+  }
+}

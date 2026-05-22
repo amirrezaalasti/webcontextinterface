@@ -1,0 +1,11 @@
+[build]
+  command = "node scripts/build-website.mjs"
+  publish = "docs/.vitepress/dist"
+
+[build.environment]
+  DOCS_BASE = "/"
+
+[[redirects]]
+  from = "/demo/*"
+  to = "/demo/:splat"
+  status = 200

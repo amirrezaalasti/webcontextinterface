@@ -1,0 +1,87 @@
+{
+  "id": "social-feed",
+  "title": "ChatterBox Social",
+  "icon": "💬",
+  "difficulty": "Hard",
+  "description": "Social media feed with sponsored posts disguised as content, notification overlays, stories bar, nested comment threads, trending sidebar, and follow suggestions.",
+  "challenges": [
+    "Notification permission overlay blocking the feed",
+    "Sponsored post identical in structure to real posts",
+    "Deeply nested reply threads with identical button patterns",
+    "Stories bar with numerous avatar buttons",
+    "Right sidebar with trending topics and follow buttons",
+    "Every post has 4–5 identical icon buttons (reply, repost, like, share, bookmark)"
+  ],
+  "task": {
+    "goal": "Like the post by @alice_dev about AgentDOM",
+    "standardSteps": [
+      {
+        "action": "dismiss",
+        "target": "notification overlay",
+        "outcome": "confused",
+        "note": "Agent must first dismiss the notification prompt overlay"
+      },
+      {
+        "action": "click",
+        "target": "Not Now button",
+        "outcome": "success",
+        "note": "Dismisses overlay"
+      },
+      {
+        "action": "scan",
+        "target": "full feed",
+        "outcome": "confused",
+        "note": "Finds 30+ identical icon buttons, can't distinguish like from reply"
+      },
+      {
+        "action": "click",
+        "target": "sponsored post like button",
+        "outcome": "fail",
+        "note": "Likes the sponsored TechGear post instead — same structure"
+      },
+      {
+        "action": "scan",
+        "target": "posts",
+        "outcome": "confused",
+        "note": "Re-scans to find Alice's post among nested replies and sponsored content"
+      },
+      {
+        "action": "click",
+        "target": "Alice reply-thread like",
+        "outcome": "fail",
+        "note": "Likes a reply in Alice's thread instead of the main post"
+      },
+      {
+        "action": "click",
+        "target": "correct heart icon",
+        "outcome": "success",
+        "note": "Finally finds and clicks the right like button"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "post-p_81924 scope",
+        "outcome": "success",
+        "note": "Finds post by @alice_dev with typed action buttons"
+      },
+      {
+        "action": "click",
+        "target": "like-p_81924",
+        "outcome": "success",
+        "note": "Clicks typed like button — gets ActionResult with count 568"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "like-p_81924",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "like-p_81925"
+    ],
+    "rawSelectors": [
+      "article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+      "article[data-post-id=\"p_81924\"] .cb-post__actions button:nth-child(3)"
+    ]
+  }
+}

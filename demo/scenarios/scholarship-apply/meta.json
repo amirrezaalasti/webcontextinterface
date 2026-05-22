@@ -1,0 +1,57 @@
+{
+  "id": "scholarship-apply",
+  "title": "EduGrant",
+  "icon": "🎓",
+  "difficulty": "Hard",
+  "description": "Multi-section scholarship application form.",
+  "challenges": [
+    "Fee waiver decoy"
+  ],
+  "task": {
+    "goal": "Submit STEM scholarship application",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "submit-stem-app",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "scholarship_apply-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "submit-stem-scholarship",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "submit-stem-scholarship",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-promo"
+    ],
+    "rawSelectors": [
+      "#submit-stem-app"
+    ]
+  }
+}

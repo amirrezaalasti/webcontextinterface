@@ -1,69 +1,117 @@
-# AgentDOM — LLM-Native Web Framework
+# WCI — Web Context Interface
 
 > Making websites natively readable for LLM-based agents.
 
-## What It Is
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-AgentDOM is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB**.
+**WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
 
 ```
-data-agent-* HTML attrs  →  Distiller Engine  →  LLM Context (JSON / Markdown)
-                                                         ↓
-                                          AgentBridge.dispatch(action)
-                                                         ↓
-                                          Typed ActionResult payload
+data-wci-* HTML attrs  →  Distiller Engine  →  LLM Context (JSON / Markdown)
+                                                        ↓
+                                         WciBridge.dispatch(action)
+                                                        ↓
+                                         Typed ActionResult payload
 ```
 
 Additionally, three **site root files** give agents site-wide grounding before they touch a single page — analogous to `robots.txt`:
 
 | File | Purpose |
-|---|---|
-| `/agents.txt` | Directive file — allow/deny scopes, rate limits, auth |
-| `/agents.json` | Structured manifest — task flows, scope descriptors |
-| `/agent.md` | Narrative context — injected into LLM system prompt |
+|------|---------|
+| `/wci.txt` | Directive file — allow/deny scopes, rate limits, auth |
+| `/wci.json` | Structured manifest — task flows, scope descriptors |
+| `/wci.md` | Narrative context — injected into LLM system prompt |
+
+---
+
+## Documentation website
+
+Static site (VitePress) with guides, API reference, and the interactive demo at `/demo/`.
+
+```bash
+npm run docs:dev          # docs only → http://localhost:5174
+npm run website:build     # docs + demo → docs/.vitepress/dist
+npm run website:preview   # preview the full site locally
+```
+
+**Publish to GitHub Pages:** enable Pages → *GitHub Actions* in repo settings, then push to `main`. See [docs/deploy.md](./docs/deploy.md).
+
+**Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
+
+Markdown sources live in [`docs/`](./docs/). Quick links:
+
+| Guide | Topic |
+|-------|--------|
+| [Getting started](./docs/getting-started.md) | Install, annotate, distil, dispatch |
+| [Architecture](./docs/architecture.md) | Layers and data flow |
+| [Specification](./docs/specification.md) | `data-wci-*` and site files |
+| [Distillation](./docs/distillation.md) | `WciDistiller` |
+| [Action protocol](./docs/action-protocol.md) | `WciBridge` / `ActionResult` |
+| [Site policy](./docs/site-policy.md) | `wci.txt` and policy engine |
+| [LLM integration](./docs/llm-integration.md) | Closed-loop agent patterns |
+
+---
+
+## Install
+
+**Monorepo (development):**
+
+```bash
+npm install
+npm run build
+```
+
+**npm packages** (after publish):
+
+```bash
+npm install @wci/core
+```
+
+Or install layers individually: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@wci/context`.
 
 ---
 
 ## Packages
 
 | Package | Description |
-|---|---|
-| `@agentdom/spec` | TypeScript types, role enum, DOM attribute reader |
-| `@agentdom/distiller` | Pruner, JSON/Markdown serializers, `AgentDistiller` |
-| `@agentdom/bridge` | `AgentBridge`, action dispatcher, `ActionResult` |
-| `@agentdom/context` | `SiteContextLoader`, `PolicyEngine`, `agents.txt` parser |
+|---------|-------------|
+| [`@wci/spec`](./packages/spec) | TypeScript types, role enum, `readWciNodeSpec()` |
+| [`@wci/distiller`](./packages/distiller) | Pruner, JSON/Markdown serializers, `WciDistiller` |
+| [`@wci/bridge`](./packages/bridge) | `WciBridge`, action dispatcher, `ActionResult` |
+| [`@wci/context`](./packages/context) | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
+| [`@wci/core`](./packages/core) | **All-in-one SDK** — re-exports every package |
 
 ---
 
-## Quick Start
+## Quick start
 
 ### 1. Annotate your HTML
 
 ```html
 <section
-  data-agent-role="landmark"
-  data-agent-id="registration-form"
-  data-agent-desc="New user registration — capture email, password, accept terms">
+  data-wci-role="landmark"
+  data-wci-id="registration-form"
+  data-wci-desc="New user registration — capture email, password, accept terms">
 
   <input
-    data-agent-id="email-input"
-    data-agent-role="form"
-    data-agent-desc="User's email address — must be unique"
-    data-agent-action="fill"
-    data-agent-required="true"
-    data-agent-state='{"value":"","valid":null}'
-    data-agent-scope="registration-form"
-    data-agent-priority="1"
+    data-wci-id="email-input"
+    data-wci-role="form"
+    data-wci-desc="User's email address — must be unique"
+    data-wci-action="fill"
+    data-wci-required="true"
+    data-wci-state='{"value":"","valid":null}'
+    data-wci-scope="registration-form"
+    data-wci-priority="1"
   />
 
   <button
-    data-agent-id="submit-btn"
-    data-agent-role="action"
-    data-agent-desc="Submit registration — creates the account"
-    data-agent-action="click"
-    data-agent-precondition="All required fields must be valid"
-    data-agent-scope="registration-form"
-    data-agent-priority="1"
+    data-wci-id="submit-btn"
+    data-wci-role="action"
+    data-wci-desc="Submit registration — creates the account"
+    data-wci-action="click"
+    data-wci-precondition="All required fields must be valid"
+    data-wci-scope="registration-form"
+    data-wci-priority="1"
   >Create Account</button>
 
 </section>
@@ -71,103 +119,104 @@ Additionally, three **site root files** give agents site-wide grounding before t
 
 ### 2. Distil
 
-```js
-import { AgentDistiller } from '@agentdom/distiller';
+```typescript
+import { WciDistiller } from '@wci/distiller';
 
-const distiller = new AgentDistiller({ format: 'json', scope: 'registration-form' });
+const distiller = new WciDistiller({ format: 'json', scope: 'registration-form' });
 const view = distiller.distilJSON(document);
-// → compact JSON ready for LLM context window
 ```
 
-### 3. Dispatch actions via AgentBridge
+### 3. Dispatch actions
 
-```js
-import { AgentBridge } from '@agentdom/bridge';
+```typescript
+import { WciBridge } from '@wci/bridge';
 
-const bridge = new AgentBridge();
-
+const bridge = new WciBridge();
 const result = await bridge.fill('email-input', 'user@example.com');
-// → { success: true, stateChange: { before: {...}, after: {...} }, sideEffects: [...] }
-
 await bridge.click('submit-btn');
 ```
 
-### 4. Add site context files
+### 4. Site context
 
-```
-your-site/
-├── agents.txt    ← directives (allow/deny/rate-limit)
-├── agents.json   ← structured manifest
-└── agent.md      ← narrative for LLM system prompt
-```
+```typescript
+import { WciContextLoader } from '@wci/context';
 
-```js
-import { SiteContextLoader } from '@agentdom/context';
-
-const ctx = await SiteContextLoader.load('https://your-site.com');
-ctx.policy.assertScopeAllowed('checkout');  // throws ScopeDeniedError if denied
-console.log(ctx.narrative);  // agent.md content for system prompt
+const ctx = await WciContextLoader.load('https://your-site.com');
+ctx.policy.assertScopeAllowed('checkout');
 ```
 
 ---
 
-## `data-agent-*` Attribute Reference
+## `data-wci-*` attribute reference
 
 | Attribute | Type | Description |
-|---|---|---|
-| `data-agent-id` | string | Stable unique ID |
-| `data-agent-role` | enum | `action` · `form` · `display` · `nav` · `status` · `landmark` |
-| `data-agent-desc` | string | LLM-optimised description |
-| `data-agent-action` | enum | `click` · `fill` · `select` · `check` · `upload` · `submit` · `navigate` |
-| `data-agent-state` | JSON | Current observable state snapshot |
-| `data-agent-precondition` | string | Natural language guard condition |
-| `data-agent-required` | boolean | Must be satisfied before form submission |
-| `data-agent-options` | JSON array | Choices for select/radio groups |
-| `data-agent-emit` | string | Custom DOM event fired after interaction |
-| `data-agent-scope` | string | Parent landmark scope ID |
-| `data-agent-hidden` | boolean | Prune this node from distilled output |
-| `data-agent-priority` | 1–5 | Importance ranking (1 = primary CTA) |
+|-----------|------|-------------|
+| `data-wci-id` | string | Stable unique ID |
+| `data-wci-role` | enum | `action` · `form` · `display` · `nav` · `status` · `landmark` |
+| `data-wci-desc` | string | LLM-optimised description |
+| `data-wci-action` | enum | `click` · `fill` · `select` · `check` · `upload` · `submit` · `navigate` |
+| `data-wci-state` | JSON | Current observable state snapshot |
+| `data-wci-precondition` | string | Natural language guard condition |
+| `data-wci-required` | boolean | Must be satisfied before form submission |
+| `data-wci-options` | JSON array | Choices for select/radio groups |
+| `data-wci-emit` | string | Custom DOM event fired after interaction |
+| `data-wci-scope` | string | Parent landmark scope ID |
+| `data-wci-hidden` | boolean | Prune this node from distilled output |
+| `data-wci-priority` | 1–5 | Importance ranking (1 = primary CTA) |
+
+See [Specification](./docs/specification.md) for details.
 
 ---
 
-## Running the Demo
+## Development
 
 ```bash
-npm install
-npm run demo
+npm install          # install workspaces
+npm run build        # build all packages (tsup → dist/)
+npm run lint         # TypeScript check
+npm run demo         # interactive demo at http://localhost:5173
+npm run docs:dev         # documentation at http://localhost:5174
+npm run website:build  # full site (docs + demo) for deployment
 ```
 
-Opens `http://localhost:5173` — a live interactive showcase with:
-- Annotated registration form (Human View)
-- Live distilled JSON and Markdown output (Agent View)
-- Typed action dispatch panel with `ActionResult` log
-- Site context file viewer (`agents.txt`, `agents.json`, `agent.md`)
-
----
-
-## File Structure
+### Repository layout
 
 ```
 WIA_framework/
+├── docs/                 # Full documentation
 ├── packages/
-│   ├── spec/         # Type definitions & DOM reader
-│   ├── distiller/    # Pruner, serializers, AgentDistiller
-│   ├── bridge/       # AgentBridge, dispatcher, ActionResult
-│   └── context/      # SiteContextLoader, PolicyEngine
+│   ├── spec/
+│   ├── distiller/
+│   ├── bridge/
+│   ├── context/
+│   └── core/             # Umbrella SDK
 ├── demo/
-│   ├── index.html    # Annotated demo page
-│   ├── main.ts       # Demo application
-│   ├── style.css     # Design system
-│   └── public/
-│       ├── agents.txt
-│       ├── agents.json
-│       └── agent.md
-├── vite.config.ts
-└── package.json
+├── examples/
+└── paper/                # Research paper (LaTeX)
 ```
+
+---
+
+## Citation
+
+If you use WCI in research or publications, please cite:
+
+**Amirreza Alasti** — [amirrezaalasti@gmail.com](mailto:amirrezaalasti@gmail.com)
+
+```bibtex
+@software{wci2026,
+  author       = {Amirreza Alasti},
+  title        = {WCI: Web Context Interface},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {Contact: amirrezaalasti@gmail.com}
+}
+```
+
+A machine-readable citation file is also provided in [`CITATION.cff`](./CITATION.cff).
 
 ---
 
 ## License
 
-MIT — Open Standard. No attribution required.
+MIT — Open Standard. See [LICENSE](./LICENSE).

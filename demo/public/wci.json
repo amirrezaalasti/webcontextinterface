@@ -1,14 +1,14 @@
 {
-  "agentdom_version": "1.0",
+  "wci_version": "1.0",
   "site": {
     "name": "ExampleShop Demo",
     "base_url": "http://localhost:5173",
-    "purpose": "Demo e-commerce site for the AgentDOM framework showcase",
+    "purpose": "Demo e-commerce site for the WCI framework showcase",
     "language": "en",
-    "contact": "agents@agentdom.dev"
+    "contact": "agents@wci.dev"
   },
   "capabilities": {
-    "agentdom_supported": true,
+    "wci_supported": true,
     "server_side_distil": false,
     "action_protocol_version": "1.0"
   },

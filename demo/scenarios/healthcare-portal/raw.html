@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>MediGate Portal</title><style>
+.mg-shell{font-family:Georgia,serif;background:#f0f7ff}
+.mg-patient{display:flex;gap:16px;padding:16px;background:#1e40af;color:#fff}
+.mg-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}
+.mg-slot{border:1px solid #93c5fd;padding:12px;text-align:center;background:#fff}
+.mg-slot button{width:100%;margin-top:8px}
+.mg-book-primary{background:#059669;color:#fff;border:0;padding:10px}
+</style></head><body>
+<div class="mg-shell" data-page="healthcare-portal">
+<header class="mg-hdr">
+  <nav class="mg-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="mg-hdr-promo">
+    <button type="button" class="mg-ad-btn mg-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
+</header>
+<div class="mg-patient"><div><strong>Patient:</strong> Jordan Lee · MRN 88291</div><div>Plan: PPO Gold</div></div>
+<section class="mg-slots" role="main">
+<h1>Appointment slots — next week</h1>
+<div class="mg-slot"><span>Tue 10:00</span><button type="button">In-person</button></div>
+<div class="mg-slot"><span>Tue 14:30</span><button type="button" class="mg-book-primary" id="schedule-video-tue" data-action="primary">Schedule video visit Tue</button></div>
+<div class="mg-slot"><span>Wed 09:00</span><button type="button">Call back</button></div>
+<div class="mg-slot"><span>Fri 11:00</span><button type="button" data-decoy="decoy-nav">Request callback</button></div>
+</section><footer class="mg-ftr"><small>© Demo MediGate Portal</small><a href="/privacy">Privacy</a><span class="mg-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

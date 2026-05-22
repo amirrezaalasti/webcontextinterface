@@ -1,0 +1,57 @@
+{
+  "id": "privacy-settings",
+  "title": "PrivacyDesk",
+  "icon": "🔒",
+  "difficulty": "Very Hard",
+  "description": "Privacy settings rows with toggles.",
+  "challenges": [
+    "Checkbox vs save button"
+  ],
+  "task": {
+    "goal": "Disable third-party data sharing",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "disable-third-party",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "privacy_settings-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "disable-third-party-share",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "disable-third-party-share",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#disable-third-party"
+    ]
+  }
+}

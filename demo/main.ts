@@ -1,11 +1,11 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Demo — Main Entry Point
+// WCI Demo — Main Entry Point
 // <script type="module"> is deferred — DOM is fully parsed when this runs.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { AgentDistiller } from '../packages/distiller/src/index';
-import { AgentBridge } from '../packages/bridge/src/index';
-import { SiteContextLoader } from '../packages/context/src/index';
+import { WciDistiller } from '@wci/distiller';
+import { WciBridge } from '@wci/bridge';
+import { WciContextLoader } from '@wci/context';
 
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
@@ -24,12 +24,12 @@ const externalDomOutput  = document.getElementById('external-dom-output') as HTM
 const externalAgentOutput = document.getElementById('external-agent-output') as HTMLElement | null;
 
 if (!formScope || !jsonPanel || !mdPanel || !actionPanel) {
-  console.error('[AgentDOM] Required DOM elements not found — aborting init.');
+  console.error('[WCI] Required DOM elements not found — aborting init.');
 }
 
 // ── Framework objects ─────────────────────────────────────────────────────────
-const distiller = new AgentDistiller({ format: 'json', maxNodes: 32 });
-const bridge    = new AgentBridge(formScope ?? document.body);
+const distiller = new WciDistiller({ format: 'json', maxNodes: 32 });
+const bridge    = new WciBridge(formScope ?? document.body);
 const actionLog: object[] = [];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -57,7 +57,7 @@ function snippet(text: string, max = 120): string {
   return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
 }
 
-function inferAgentRole(el: Element): 'action' | 'form' | 'display' | 'nav' | 'status' | 'landmark' {
+function inferWciRole(el: Element): 'action' | 'form' | 'display' | 'nav' | 'status' | 'landmark' {
   const tag = el.tagName.toLowerCase();
   const roleAttr = (el.getAttribute('role') || '').toLowerCase();
   if (tag === 'form' || ['main', 'nav', 'section', 'article'].includes(tag)) return 'landmark';
@@ -68,7 +68,7 @@ function inferAgentRole(el: Element): 'action' | 'form' | 'display' | 'nav' | 's
   return 'display';
 }
 
-function inferAgentAction(el: Element): string | undefined {
+function inferWciAction(el: Element): string | undefined {
   const tag = el.tagName.toLowerCase();
   if (tag === 'a') return 'navigate';
   if (tag === 'button') return 'click';
@@ -96,6 +96,14 @@ function inferNodeId(el: Element, index: number): string {
 }
 
 function inferNodeDesc(el: Element): string {
+  if (el instanceof HTMLAnchorElement) {
+    const href = el.getAttribute('href') ?? '';
+    const label = el.getAttribute('aria-label')
+      || el.getAttribute('title')
+      || snippet(el.textContent || '');
+    if (label) return href ? `${label} → ${href}` : label;
+    return href ? `Navigate to ${href}` : 'Link (missing href)';
+  }
   const label = el.getAttribute('aria-label')
     || el.getAttribute('title')
     || (el as HTMLInputElement).placeholder
@@ -103,9 +111,38 @@ function inferNodeDesc(el: Element): string {
   return label || `${el.tagName.toLowerCase()} element`;
 }
 
-function inferNodeState(el: Element): Record<string, unknown> {
+/** Base URL for resolving relative `href`s in pasted snapshots (skip non-URL placeholders). */
+function inferResolveBase(doc: Document, sourceUrl: string): string | undefined {
+  try {
+    const u = new URL(sourceUrl);
+    if (u.protocol === 'http:' || u.protocol === 'https:') return u.href;
+  } catch { /* ignore */ }
+  if (doc.baseURI && !doc.baseURI.startsWith('about:')) return doc.baseURI;
+  return undefined;
+}
+
+function inferNodeState(el: Element, resolveBase?: string): Record<string, unknown> {
   const state: Record<string, unknown> = {};
   if ('disabled' in el) state.disabled = Boolean((el as HTMLButtonElement).disabled);
+  if (el instanceof HTMLAnchorElement) {
+    const raw = el.getAttribute('href');
+    if (raw !== null) state.href = raw;
+    if (raw && resolveBase) {
+      try {
+        state.hrefResolved = new URL(raw, resolveBase).href;
+      } catch {
+        state.hrefResolved = raw;
+      }
+    } else if (el.href) {
+      try {
+        state.hrefResolved = el.href;
+      } catch { /* ignore */ }
+    }
+    if (el.target) state.target = el.target;
+    const rel = el.getAttribute('rel');
+    if (rel) state.rel = rel;
+    if (el.download) state.download = el.download;
+  }
   if (el instanceof HTMLInputElement) {
     if (['checkbox', 'radio'].includes(el.type)) {
       state.checked = el.checked;
@@ -148,7 +185,7 @@ interface InferredAgentNode {
   priority: number;
 }
 
-interface InferredAgentView {
+interface InferredWciView {
   metadata: {
     pageTitle: string;
     sourceUrl: string;
@@ -158,11 +195,12 @@ interface InferredAgentView {
   nodes: InferredAgentNode[];
 }
 
-function inferAgentViewFromDocument(doc: Document, sourceUrl: string): InferredAgentView {
+function inferWciViewFromDocument(doc: Document, sourceUrl: string): InferredWciView {
+  const resolveBase = inferResolveBase(doc, sourceUrl);
   const candidates = Array.from(doc.querySelectorAll('form, input, textarea, select, button, a, [role="button"]'));
   const nodes = candidates.map((el, i) => {
-    const role = inferAgentRole(el);
-    const action = inferAgentAction(el);
+    const role = inferWciRole(el);
+    const action = inferWciAction(el);
     const required = el.hasAttribute('required');
     return {
       id: inferNodeId(el, i + 1),
@@ -171,7 +209,7 @@ function inferAgentViewFromDocument(doc: Document, sourceUrl: string): InferredA
       action,
       required: required || undefined,
       precondition: el.getAttribute('aria-disabled') === 'true' ? 'Element currently marked as aria-disabled.' : undefined,
-      state: inferNodeState(el),
+      state: inferNodeState(el, resolveBase),
       priority: role === 'action' ? 1 : role === 'form' ? 2 : 3,
     };
   });
@@ -181,7 +219,7 @@ function inferAgentViewFromDocument(doc: Document, sourceUrl: string): InferredA
       pageTitle: doc.title || '(untitled)',
       sourceUrl,
       inferred: true,
-      note: 'Generated heuristically from standard HTML semantics (no data-agent-* annotations).',
+      note: 'Generated heuristically from standard HTML semantics (no data-wci-* annotations).',
     },
     nodes,
   };
@@ -215,7 +253,7 @@ function parseAndConvertSnapshot(): void {
     externalDomOutput.textContent = buildDomOutline(root);
     tryHighlight(externalDomOutput);
 
-    const inferred = inferAgentViewFromDocument(parsed, 'browser-dom-snapshot');
+    const inferred = inferWciViewFromDocument(parsed, 'browser-dom-snapshot');
     const inferredJson = JSON.stringify(inferred, null, 2);
     externalAgentOutput.textContent = inferredJson;
     tryHighlight(externalAgentOutput);
@@ -294,7 +332,7 @@ function refreshDistiller(): void {
       tokenSaved.textContent = `~${saved}% reduction vs raw HTML`;
     }
   } catch (err) {
-    console.error('[AgentDOM] refreshDistiller error:', err);
+    console.error('[WCI] refreshDistiller error:', err);
     jsonPanel.textContent = `Error: ${String(err)}`;
   }
 }
@@ -334,23 +372,23 @@ function validateForm(): void {
     strengthBar.style.background = { none: 'transparent', weak: 'hsl(0,75%,62%)', medium: 'hsl(40,90%,58%)', strong: 'hsl(150,70%,50%)' }[strength]!;
   }
 
-  // Sync data-agent-state attributes so Distiller reads live values
-  email.dataset.agentState    = JSON.stringify({ value: email.value, valid: email.value ? emailValid : null });
-  password.dataset.agentState = JSON.stringify({ value: pw ? '••••••••' : '', strength });
-  terms.dataset.agentState    = JSON.stringify({ checked: termsChecked });
+  // Sync data-wci-state attributes so Distiller reads live values
+  email.dataset.wciState    = JSON.stringify({ value: email.value, valid: email.value ? emailValid : null });
+  password.dataset.wciState = JSON.stringify({ value: pw ? '••••••••' : '', strength });
+  terms.dataset.wciState    = JSON.stringify({ checked: termsChecked });
 
   // Email availability indicator
   if (emailStatus) {
     if (emailValid) {
-      emailStatus.dataset.agentState = JSON.stringify({ status: 'available', message: 'Email is available' });
+      emailStatus.dataset.wciState = JSON.stringify({ status: 'available', message: 'Email is available' });
       emailStatus.textContent = '✅ Email is available';
       emailStatus.className = 'status-msg status-ok';
     } else if (email.value) {
-      emailStatus.dataset.agentState = JSON.stringify({ status: 'invalid', message: 'Email format invalid' });
+      emailStatus.dataset.wciState = JSON.stringify({ status: 'invalid', message: 'Email format invalid' });
       emailStatus.textContent = '⚠️ Invalid email format';
       emailStatus.className = 'status-msg status-warn';
     } else {
-      emailStatus.dataset.agentState = JSON.stringify({ status: 'idle', message: '' });
+      emailStatus.dataset.wciState = JSON.stringify({ status: 'idle', message: '' });
       emailStatus.textContent = '';
       emailStatus.className = 'status-msg';
     }
@@ -358,7 +396,7 @@ function validateForm(): void {
 
   const canSubmit = emailValid && passValid && termsChecked;
   submit.disabled = !canSubmit;
-  submit.dataset.agentState = JSON.stringify({ disabled: !canSubmit });
+  submit.dataset.wciState = JSON.stringify({ disabled: !canSubmit });
 
   refreshDistiller();
 }
@@ -369,7 +407,7 @@ getEl<HTMLInputElement>('password-input')?.addEventListener('input', validateFor
 getEl<HTMLInputElement>('terms-checkbox')?.addEventListener('change', validateForm);
 
 // ── Agent action dispatch ─────────────────────────────────────────────────────
-async function runAgentAction(action: string, nodeId: string, value?: string): Promise<void> {
+async function runWciAction(action: string, nodeId: string, value?: string): Promise<void> {
   try {
     const result = await bridge.dispatch({ nodeId, action: action as any, value });
     actionLog.push(result);
@@ -377,18 +415,18 @@ async function runAgentAction(action: string, nodeId: string, value?: string): P
     renderActionLog();
     refreshDistiller();
   } catch (err) {
-    console.error('[AgentDOM] runAgentAction error:', err);
+    console.error('[WCI] runWciAction error:', err);
   }
 }
 
-document.getElementById('agent-fill-email')?.addEventListener('click',  () => runAgentAction('fill',  'email-input',    'user@example.com'));
-document.getElementById('agent-fill-pass')?.addEventListener('click',   () => runAgentAction('fill',  'password-input', 'SecureP@ss1'));
-document.getElementById('agent-check-terms')?.addEventListener('click', () => runAgentAction('check', 'terms-checkbox', 'true'));
-document.getElementById('agent-submit')?.addEventListener('click',      () => runAgentAction('click', 'submit-btn'));
-document.getElementById('agent-bad-email')?.addEventListener('click',   () => runAgentAction('fill',  'email-input',    'not-an-email'));
+document.getElementById('agent-fill-email')?.addEventListener('click',  () => runWciAction('fill',  'email-input',    'user@example.com'));
+document.getElementById('agent-fill-pass')?.addEventListener('click',   () => runWciAction('fill',  'password-input', 'SecureP@ss1'));
+document.getElementById('agent-check-terms')?.addEventListener('click', () => runWciAction('check', 'terms-checkbox', 'true'));
+document.getElementById('agent-submit')?.addEventListener('click',      () => runWciAction('click', 'submit-btn'));
+document.getElementById('agent-bad-email')?.addEventListener('click',   () => runWciAction('fill',  'email-input',    'not-an-email'));
 document.getElementById('agent-reset')?.addEventListener('click', async () => {
-  await runAgentAction('clear', 'email-input');
-  await runAgentAction('clear', 'password-input');
+  await runWciAction('clear', 'email-input');
+  await runWciAction('clear', 'password-input');
   const terms = getEl<HTMLInputElement>('terms-checkbox');
   if (terms) { terms.checked = false; terms.dispatchEvent(new Event('change', { bubbles: true })); }
   bridge.clearHistory();
@@ -423,11 +461,11 @@ domSnapshotInput?.addEventListener('keydown', (e) => {
 (async () => {
   if (!contextPanel) return;
   try {
-    const ctx = await SiteContextLoader.load(window.location.origin);
+    const ctx = await WciContextLoader.load(window.location.origin);
     const parts: string[] = [];
-    if (ctx.narrative) parts.push('=== agent.md ===\n\n' + ctx.narrative);
-    if (ctx.manifest)  parts.push('=== agents.json ===\n\n' + JSON.stringify(ctx.manifest, null, 2));
-    if (ctx.policy)    parts.push('=== agents.txt (parsed) ===\n\n' + JSON.stringify(ctx.policy.policy, null, 2));
+    if (ctx.narrative) parts.push('=== wci.md ===\n\n' + ctx.narrative);
+    if (ctx.manifest)  parts.push('=== wci.json ===\n\n' + JSON.stringify(ctx.manifest, null, 2));
+    if (ctx.policy)    parts.push('=== wci.txt (parsed) ===\n\n' + JSON.stringify(ctx.policy.policy, null, 2));
     contextPanel.textContent = parts.length
       ? parts.join('\n\n─────────────────────────────────────\n\n')
       : 'No context files found at this origin.';
@@ -439,3 +477,461 @@ domSnapshotInput?.addEventListener('keydown', (e) => {
 // ── Initial render ────────────────────────────────────────────────────────────
 refreshDistiller();
 renderActionLog();
+
+// ══════════════════════════════════════════════════════════════════════════════
+// COMPLEXITY BENCHMARK
+// ══════════════════════════════════════════════════════════════════════════════
+
+import { BenchmarkEngine, SCENARIOS, type BenchmarkScenario, type BenchmarkMetrics, type TaskStep } from './benchmark';
+
+const benchmarkEngine = new BenchmarkEngine();
+
+// ── Grab benchmark DOM refs ───────────────────────────────────────────────────
+const scenarioSelector  = document.getElementById('scenario-selector');
+const scenarioSearch    = document.getElementById('scenario-search') as HTMLInputElement | null;
+const scenarioCountEl   = document.getElementById('scenario-count');
+const benchRawOutput    = document.getElementById('benchmark-raw-output');
+const benchDistOutput   = document.getElementById('benchmark-distilled-output');
+const taskGoalEl        = document.getElementById('task-goal');
+const taskStandardSteps = document.getElementById('task-standard-steps');
+const taskAgentdomSteps = document.getElementById('task-agentdom-steps');
+const taskStandardCount = document.getElementById('task-standard-count');
+const taskAgentdomCount = document.getElementById('task-agentdom-count');
+const taskPlayBtn       = document.getElementById('task-play-btn') as HTMLButtonElement | null;
+const taskResetBtn      = document.getElementById('task-reset-btn') as HTMLButtonElement | null;
+
+let activeScenarioId: string | null = null;
+let simulationTimer: ReturnType<typeof setTimeout> | null = null;
+
+let scenarioFilterQuery = '';
+
+// ── Render scenario selector cards ────────────────────────────────────────────
+function renderScenarioCards(): void {
+  if (!scenarioSelector) return;
+  scenarioSelector.innerHTML = '';
+
+  const q = scenarioFilterQuery.trim().toLowerCase();
+  const visible = q
+    ? SCENARIOS.filter(
+        (s) =>
+          s.id.includes(q) ||
+          s.title.toLowerCase().includes(q) ||
+          s.description.toLowerCase().includes(q)
+      )
+    : SCENARIOS;
+
+  if (scenarioCountEl) {
+    scenarioCountEl.textContent = `${visible.length} / ${SCENARIOS.length}`;
+  }
+
+  for (const scenario of visible) {
+    const card = document.createElement('div');
+    card.className = 'scenario-card';
+    card.dataset.scenarioId = scenario.id;
+
+    const diffClass = scenario.difficulty === 'Extreme' ? 'difficulty--extreme'
+      : scenario.difficulty === 'Very Hard' ? 'difficulty--very-hard'
+      : 'difficulty--hard';
+
+    card.innerHTML = `
+      <span class="scenario-card__icon">${scenario.icon}</span>
+      <span class="scenario-card__title">${scenario.title}</span>
+      <span class="scenario-card__desc">${scenario.description}</span>
+      <span class="scenario-card__difficulty ${diffClass}">${scenario.difficulty}</span>
+    `;
+
+    card.addEventListener('click', () => selectScenario(scenario.id));
+    scenarioSelector.appendChild(card);
+  }
+
+  if (activeScenarioId && !visible.some((s) => s.id === activeScenarioId) && visible[0]) {
+    selectScenario(visible[0].id);
+  }
+}
+
+if (scenarioSearch) {
+  scenarioSearch.addEventListener('input', () => {
+    scenarioFilterQuery = scenarioSearch.value;
+    renderScenarioCards();
+  });
+}
+
+// ── Select scenario ───────────────────────────────────────────────────────────
+function selectScenario(id: string): void {
+  const scenario = SCENARIOS.find(s => s.id === id);
+  if (!scenario) return;
+
+  activeScenarioId = id;
+
+  // Update card active states
+  document.querySelectorAll('.scenario-card').forEach(card => {
+    card.classList.toggle('scenario-card--active', (card as HTMLElement).dataset.scenarioId === id);
+  });
+
+  // Compute metrics
+  const metrics = benchmarkEngine.computeMetrics(scenario);
+
+  // Render comparison panels
+  renderComparisonPanels(scenario);
+
+  // Animate metrics
+  animateMetrics(metrics);
+
+  // Render task simulation (static initially)
+  renderTaskSimulation(scenario);
+
+  // Enable play button
+  if (taskPlayBtn) taskPlayBtn.disabled = false;
+  if (taskResetBtn) taskResetBtn.disabled = false;
+}
+
+// ── Render comparison panels ──────────────────────────────────────────────────
+function renderComparisonPanels(scenario: BenchmarkScenario): void {
+  if (benchRawOutput) {
+    benchRawOutput.textContent = benchmarkEngine.buildOutline(scenario.rawHtml, 80);
+    tryHighlight(benchRawOutput);
+  }
+  if (benchDistOutput) {
+    benchDistOutput.textContent = benchmarkEngine.buildDistilledView(scenario.annotatedHtml);
+    tryHighlight(benchDistOutput);
+  }
+}
+
+// ── Animate metrics ───────────────────────────────────────────────────────────
+function animateCountUp(el: HTMLElement, target: number, duration = 800, suffix = ''): void {
+  const start = performance.now();
+  const initial = 0;
+
+  function tick(now: number): void {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(initial + (target - initial) * eased);
+    el.textContent = current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function animateMetrics(metrics: BenchmarkMetrics): void {
+  // Token bars
+  const barRaw = document.getElementById('metric-bar-raw');
+  const barDist = document.getElementById('metric-bar-distilled');
+  const valRaw = document.getElementById('metric-val-raw');
+  const valDist = document.getElementById('metric-val-distilled');
+  const badgeReduction = document.getElementById('metric-badge-reduction');
+
+  if (barRaw && barDist && valRaw && valDist) {
+    // Reset bars
+    barRaw.style.width = '0%';
+    barDist.style.width = '0%';
+
+    requestAnimationFrame(() => {
+      barRaw.style.width = '100%';
+      barDist.style.width = `${Math.round((metrics.distilledTokens / metrics.rawTokens) * 100)}%`;
+    });
+
+    animateCountUp(valRaw, metrics.rawTokens);
+    animateCountUp(valDist, metrics.distilledTokens);
+  }
+
+  if (badgeReduction) {
+    badgeReduction.textContent = `↓${metrics.tokenReduction}%`;
+  }
+
+  // Noise elements
+  const noiseRaw = document.getElementById('metric-noise-raw');
+  const noiseDist = document.getElementById('metric-noise-distilled');
+  if (noiseRaw) animateCountUp(noiseRaw, metrics.rawElements);
+  if (noiseDist) animateCountUp(noiseDist, metrics.distilledNodes);
+
+  // Interactive/precision
+  const intRaw = document.getElementById('metric-interactive-raw');
+  const intDist = document.getElementById('metric-interactive-distilled');
+  const fpEl = document.getElementById('metric-false-positives');
+  if (intRaw) animateCountUp(intRaw, metrics.rawInteractive);
+  if (intDist) animateCountUp(intDist, metrics.distilledNodes);
+  if (fpEl) animateCountUp(fpEl, metrics.falsePositives);
+
+  // Steps
+  const stepsRaw = document.getElementById('metric-steps-raw');
+  const stepsDist = document.getElementById('metric-steps-distilled');
+  const badgeSteps = document.getElementById('metric-badge-steps');
+  const stepsSublabel = document.getElementById('metric-steps-sublabel');
+  if (stepsRaw) animateCountUp(stepsRaw, metrics.standardSteps);
+  if (stepsDist) animateCountUp(stepsDist, metrics.agentdomSteps);
+  if (badgeSteps) badgeSteps.textContent = `↓${metrics.stepReduction}%`;
+  if (stepsSublabel) stepsSublabel.textContent = `${metrics.stepReduction}% fewer steps needed`;
+
+  // Pulse animation on metric cards
+  document.querySelectorAll('.metric-card').forEach(card => {
+    card.classList.add('metric-card--active');
+    card.classList.add('metric-card--animating');
+    card.addEventListener('animationend', () => {
+      card.classList.remove('metric-card--animating');
+    }, { once: true });
+  });
+}
+
+// ── Render task simulation ────────────────────────────────────────────────────
+function renderStepHTML(step: TaskStep, index: number, isLast: boolean): string {
+  return `
+    <div class="task-step task-step--${step.outcome}" data-step-index="${index}">
+      <div class="task-step__indicator">
+        <div class="task-step__dot"></div>
+        ${!isLast ? '<div class="task-step__line"></div>' : ''}
+      </div>
+      <div class="task-step__content">
+        <div class="task-step__action">
+          <span class="task-step__action-verb">${step.action}</span>
+          <span class="task-step__target">${step.target}</span>
+          <span class="task-step__outcome">${step.outcome}</span>
+        </div>
+        <div class="task-step__note">${step.note}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTaskSimulation(scenario: BenchmarkScenario): void {
+  if (taskGoalEl) {
+    taskGoalEl.innerHTML = `<strong>Goal:</strong> ${scenario.task.goal}`;
+  }
+
+  if (taskStandardSteps) {
+    taskStandardSteps.innerHTML = scenario.task.standardSteps
+      .map((step, i) => renderStepHTML(step, i, i === scenario.task.standardSteps.length - 1))
+      .join('');
+  }
+
+  if (taskAgentdomSteps) {
+    taskAgentdomSteps.innerHTML = scenario.task.agentdomSteps
+      .map((step, i) => renderStepHTML(step, i, i === scenario.task.agentdomSteps.length - 1))
+      .join('');
+  }
+
+  if (taskStandardCount) {
+    taskStandardCount.textContent = `${scenario.task.standardSteps.length} steps`;
+  }
+
+  if (taskAgentdomCount) {
+    taskAgentdomCount.textContent = `${scenario.task.agentdomSteps.length} steps`;
+  }
+
+  // Reset visibility
+  document.querySelectorAll('.task-step').forEach(el => {
+    el.classList.remove('task-step--visible');
+  });
+}
+
+// ── Play task simulation ──────────────────────────────────────────────────────
+function playSimulation(): void {
+  if (!activeScenarioId) return;
+
+  // Reset
+  const allSteps = document.querySelectorAll<HTMLElement>('.task-step');
+  allSteps.forEach(el => el.classList.remove('task-step--visible'));
+
+  if (taskPlayBtn) taskPlayBtn.disabled = true;
+
+  let index = 0;
+  const totalSteps = allSteps.length;
+
+  function showNext(): void {
+    if (index >= totalSteps) {
+      if (taskPlayBtn) taskPlayBtn.disabled = false;
+      return;
+    }
+
+    allSteps[index].classList.add('task-step--visible');
+
+    // Scroll step into view if needed
+    allSteps[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    index++;
+    simulationTimer = setTimeout(showNext, 400);
+  }
+
+  showNext();
+}
+
+function resetSimulation(): void {
+  if (simulationTimer) {
+    clearTimeout(simulationTimer);
+    simulationTimer = null;
+  }
+
+  document.querySelectorAll('.task-step').forEach(el => {
+    el.classList.remove('task-step--visible');
+  });
+
+  if (taskPlayBtn) taskPlayBtn.disabled = false;
+}
+
+// ── Wire up benchmark events ──────────────────────────────────────────────────
+taskPlayBtn?.addEventListener('click', playSimulation);
+taskResetBtn?.addEventListener('click', resetSimulation);
+
+// ── Initialize benchmark ──────────────────────────────────────────────────────
+renderScenarioCards();
+
+// Auto-select first scenario when scrolled into view
+const benchmarkSection = document.getElementById('benchmark');
+if (benchmarkSection) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !activeScenarioId) {
+        selectScenario(SCENARIOS[0].id);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(benchmarkSection);
+}
+
+// Animate Agent Leaderboard bars when scrolled into view
+const agentLeaderboard = document.getElementById('agent-leaderboard');
+if (agentLeaderboard) {
+  const leaderboardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bars = agentLeaderboard.querySelectorAll('.performance-bar');
+        bars.forEach(bar => {
+          const targetWidth = (bar as HTMLElement).dataset.targetWidth;
+          if (targetWidth) {
+            // Slight delay to allow the section to become fully visible before animating
+            setTimeout(() => {
+              (bar as HTMLElement).style.width = targetWidth;
+            }, 200);
+          }
+        });
+        leaderboardObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  leaderboardObserver.observe(agentLeaderboard);
+}
+
+// ── Fetch and Render Real Eval Results ──────────────────────────────────────
+const LEADERBOARD_ICONS = ['⚡', '🔷', '🦙', '🐋', '🟢', '✨', '🧠', '💠', '🔶', '🌐'];
+
+interface LeaderboardEntry {
+  standard: { successRate: number; avgTokens: number };
+  wci?: { successRate: number; avgTokens: number };
+  wciFull?: { successRate: number; avgTokens: number };
+  agentDom?: { successRate: number; avgTokens: number };
+}
+
+interface EvalResultsFile {
+  generatedAt?: string;
+  modelOrder?: Array<{ id: string; name: string; openRouterModel: string }>;
+  [modelId: string]: unknown;
+}
+
+function barClass(rate: number, good: boolean): string {
+  if (good) return 'performance-bar--good';
+  if (rate >= 50) return 'performance-bar--warn';
+  return 'performance-bar--bad';
+}
+
+function buildLeaderboardRow(
+  meta: { id: string; name: string; openRouterModel: string },
+  stats: LeaderboardEntry,
+  icon: string,
+  index: number
+): HTMLTableRowElement {
+  const wci = stats.wci ?? stats.agentDom;
+  const wciFull = stats.wciFull;
+  const rawRate = stats.standard.successRate;
+  const wciRate = wci?.successRate ?? 0;
+  const slug = meta.openRouterModel.replace(/^[^/]+\//, '');
+  const fullNote =
+    wciFull != null ? ` · full graph ${wciFull.successRate}%` : '';
+
+  const tr = document.createElement('tr');
+  tr.className = 'leaderboard-row';
+  tr.dataset.modelId = meta.id;
+  tr.innerHTML = `
+    <td>
+      <div class="agent-name">
+        <div class="agent-icon">${icon}</div>
+        <div class="agent-info">
+          <span class="agent-title">${meta.name}</span>
+          <span class="agent-desc">${slug}${fullNote}</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="performance-bar-group">
+        <span class="performance-value">${rawRate}%</span>
+        <div class="performance-track">
+          <div class="performance-bar ${barClass(rawRate, false)}" style="width:0%" data-target-width="${rawRate}%"></div>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="performance-bar-group">
+        <span class="performance-value text-good">${wciRate}%</span>
+        <div class="performance-track">
+          <div class="performance-bar ${barClass(wciRate, true)}" style="width:0%" data-target-width="${wciRate}%"></div>
+        </div>
+      </div>
+    </td>
+    <td class="text-center">
+      <span class="token-badge token-badge--raw">${(stats.standard.avgTokens / 1000).toFixed(1)}k</span>
+      → <span class="token-badge token-badge--distilled">${wci ? (wci.avgTokens / 1000).toFixed(1) + 'k' : '—'}</span>
+    </td>
+  `;
+  return tr;
+}
+
+function animateLeaderboardBars() {
+  const board = document.getElementById('agent-leaderboard');
+  if (!board) return;
+  board.querySelectorAll('.performance-bar').forEach((bar) => {
+    const el = bar as HTMLElement;
+    const target = el.dataset.targetWidth;
+    if (target) setTimeout(() => { el.style.width = target; }, 150);
+  });
+}
+
+async function loadEvalResults() {
+  const tbody = document.getElementById('leaderboard-body');
+  if (!tbody) return;
+
+  try {
+    const res = await fetch('/eval-results.json');
+    if (!res.ok) return;
+    const data = (await res.json()) as EvalResultsFile;
+
+    const order =
+      data.modelOrder ??
+      Object.keys(data).filter(
+        (k) => !['generatedAt', 'modelOrder'].includes(k) && typeof data[k] === 'object'
+      ).map((id) => ({
+        id,
+        name: id,
+        openRouterModel: id,
+      }));
+
+    const rows: HTMLTableRowElement[] = [];
+    order.forEach((meta, i) => {
+      const stats = data[meta.id] as LeaderboardEntry | undefined;
+      if (!stats?.standard) return;
+      rows.push(
+        buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length], i)
+      );
+    });
+
+    if (rows.length === 0) return;
+
+    tbody.replaceChildren(...rows);
+    animateLeaderboardBars();
+  } catch {
+    console.log('No local eval results found; run npm run eval:benchmark');
+  }
+}
+
+loadEvalResults();

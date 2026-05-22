@@ -1,8 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// AgentDOM Distiller — Main AgentDistiller class
+// WCI Distiller — Main WciDistiller class
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { AgentView, SiteContextSummary } from '@agentdom/spec';
+import { WciView, SiteContextSummary } from '@wci/spec';
 import { pruneDOM, PrunerOptions } from './pruner';
 import { serializeJSON } from './serializer-json';
 import { serializeMarkdown } from './serializer-md';
@@ -18,7 +18,7 @@ export interface DistillerOptions extends PrunerOptions {
   includeState?: boolean;
 }
 
-export class AgentDistiller {
+export class WciDistiller {
   private opts: {
     format: DistillerFormat;
     scope: string | undefined;
@@ -38,9 +38,9 @@ export class AgentDistiller {
   }
 
   /**
-   * Distil the given document (or element) into an AgentView or Markdown string.
+   * Distil the given document (or element) into an WciView or Markdown string.
    */
-  distil(root: Document | Element = document): AgentView | string {
+  distil(root: Document | Element = document): WciView | string {
     const el = root instanceof Document ? root.body : root;
     const nodes = pruneDOM(el, { scope: this.opts.scope, maxNodes: this.opts.maxNodes });
 
@@ -51,7 +51,7 @@ export class AgentDistiller {
 
     // Find the active landmark descriptor for metadata
     const landmarkEl = this.opts.scope
-      ? (root instanceof Document ? root : el).querySelector(`[data-agent-id="${this.opts.scope}"]`) as HTMLElement | null
+      ? (root instanceof Document ? root : el).querySelector(`[data-wci-id="${this.opts.scope}"]`) as HTMLElement | null
       : null;
 
     const meta = {
@@ -70,7 +70,7 @@ export class AgentDistiller {
 
   /** Convenience: distil and return a pretty-printed JSON string */
   distilJSON(root: Document | Element = document): string {
-    const view = this.distil(root) as AgentView;
+    const view = this.distil(root) as WciView;
     return JSON.stringify(view, null, 2);
   }
 

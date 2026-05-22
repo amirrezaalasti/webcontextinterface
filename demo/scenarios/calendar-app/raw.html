@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><title>CalSync</title><style>
+.cs-week{display:grid;grid-template-columns:60px repeat(7,1fr);gap:1px;background:#e5e7eb}
+.cs-cell{min-height:64px;background:#fff;border:1px solid #eee;font-size:11px;padding:4px}
+.cs-modal{display:none}.cs-modal.is-open{display:block;position:fixed;inset:20% 30%;background:#fff;border:2px solid #333;padding:20px;z-index:5}
+.cs-create{background:#7c3aed;color:#fff;border:0;padding:10px 16px}
+</style></head><body>
+<div data-page="calendar-app">
+<header class="cs-hdr">
+  <nav class="cs-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="cs-hdr-promo"><button type="button" class="cs-ad-btn" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="cs-ad-btn cs-ad-btn--alt" data-decoy="decoy-nav">Learn More</button></div>
+</header>
+<main role="main" class="cs-cal"><h1>Week of May 19</h1>
+<div class="cs-week">
+<div></div><div class="cs-cell">Mon</div><div class="cs-cell">Tue</div><div class="cs-cell">Wed</div><div class="cs-cell">Thu</div><div class="cs-cell">Fri</div><div class="cs-cell">Sat</div><div class="cs-cell">Sun</div>
+<div>9am</div><div class="cs-cell"></div><div class="cs-cell"><button type="button" class="cs-evt" data-open-modal="new">+ Add</button></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div>
+</div>
+<button type="button" class="cs-create" id="create-standup-series" data-action="primary">Create weekday 9am standup series</button>
+</main>
+<div class="cs-modal is-open" id="event-modal" role="dialog"><h2>New event</h2><input type="text" placeholder="Title" /><button type="button">Cancel</button></div>
+<footer class="cs-ftr"><small>© Demo CalSync</small><a href="/privacy">Privacy</a><span class="cs-ftr-ad">Sponsored links</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

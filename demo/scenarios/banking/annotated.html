@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>NovaPay — Dashboard</title></head><body>
+<div id="app-root" class="np-app np-app--authenticated np-theme-dark" data-session="s_8f2k1" data-csrf="tok_abc123" data-agent-role="landmark" data-agent-id="banking-dashboard" data-agent-desc="NovaPay banking dashboard — view accounts, transfer funds, review transactions">
+  <!-- Session warning overlay (hidden but in DOM) -->
+  <div class="np-session-warn np-overlay" role="dialog" aria-hidden="true" style="display:none">
+    <div class="np-overlay__backdrop"></div>
+    <div class="np-overlay__panel"><h2>Session Expiring</h2><p>Your session will expire in <span class="np-countdown">4:59</span></p><button class="np-btn np-btn--primary" onclick="extendSession()">Stay Logged In</button><button class="np-btn np-btn--ghost" onclick="logout()">Log Out</button></div>
+  </div>
+
+  <!-- Notification toast stack -->
+  <div class="np-toast-stack" aria-live="polite">
+    <div class="np-toast np-toast--info np-toast--entering"><div class="np-toast__icon">ℹ️</div><div class="np-toast__content"><p class="np-toast__title">System Maintenance</p><p class="np-toast__msg">Scheduled maintenance on May 25, 2:00 AM–4:00 AM EST</p></div><button class="np-toast__close" aria-label="Dismiss">×</button></div>
+  </div>
+
+  <div class="np-layout">
+    <!-- Sidebar navigation -->
+    <nav class="np-sidebar" role="navigation" aria-label="Main menu" data-agent-role="nav" data-agent-id="sidebar-nav" data-agent-desc="Main navigation — Dashboard, Accounts, Transfer, Payments, Cards, Investments, Settings" data-agent-action="navigate" data-agent-state="{&quot;active&quot;:&quot;Dashboard&quot;}" data-agent-priority="2">
+      <div class="np-sidebar__logo"><div class="np-logo-mark"></div><span class="np-logo-text">NovaPay</span></div>
+      <ul class="np-sidebar__menu">
+        <li class="np-sidebar__item np-sidebar__item--active"><a href="/dashboard" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></a></li>
+        <li class="np-sidebar__item"><a href="/accounts" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg><span>Accounts</span></a></li>
+        <li class="np-sidebar__item"><a href="/transfer" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg><span>Transfer</span></a></li>
+        <li class="np-sidebar__item"><a href="/payments" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect></svg><span>Payments</span></a></li>
+        <li class="np-sidebar__item"><a href="/cards" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg><span>Cards</span></a></li>
+        <li class="np-sidebar__item"><a href="/investments" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg><span>Investments</span></a></li>
+        <li class="np-sidebar__item"><a href="/settings" class="np-sidebar__link"><svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle></svg><span>Settings</span></a></li>
+      </ul>
+      <div class="np-sidebar__footer">
+        <div class="np-sidebar__user"><div class="np-avatar np-avatar--sm"><span>JD</span></div><div class="np-sidebar__user-info"><span class="np-sidebar__user-name">John Doe</span><span class="np-sidebar__user-email">john@email.com</span></div></div>
+        <button class="np-sidebar__logout-btn" onclick="logout()"><svg class="np-icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg></button>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="np-main" role="main">
+      <!-- Top bar -->
+      <div class="np-topbar">
+        <div class="np-topbar__left"><h1 class="np-topbar__title">Dashboard</h1><span class="np-topbar__date">May 22, 2026</span></div>
+        <div class="np-topbar__right">
+          <div class="np-topbar__search-wrap"><input type="search" class="np-topbar__search" placeholder="Search transactions..."><svg class="np-icon np-topbar__search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+          <button class="np-topbar__notif-btn" aria-label="Notifications"><svg class="np-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="np-topbar__notif-badge">3</span></button>
+          <button class="np-topbar__help-btn" aria-label="Help">?</button>
+        </div>
+      </div>
+
+      <!-- Account summary cards -->
+      <div class="np-accounts-grid" data-agent-role="landmark" data-agent-id="account-summary" data-agent-desc="Account summary — checking, savings, and credit card balances">
+        <div class="np-account-card np-account-card--checking" data-agent-role="display" data-agent-id="checking-account" data-agent-desc="Checking account ••• 4821" data-agent-state="{&quot;type&quot;:&quot;checking&quot;,&quot;last4&quot;:&quot;4821&quot;,&quot;balance&quot;:12847.63,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="account-summary" data-agent-priority="1">
+          <div class="np-account-card__header"><span class="np-account-card__type">Checking</span><span class="np-account-card__number">••• 4821</span></div>
+          <div class="np-account-card__balance"><span class="np-account-card__balance-label">Available Balance</span><span class="np-account-card__balance-amount">$12,847.63</span></div>
+          <div class="np-account-card__actions"><button class="np-btn np-btn--sm np-btn--ghost">View</button><button class="np-btn np-btn--sm np-btn--primary">Transfer</button></div>
+        </div>
+        <div class="np-account-card np-account-card--savings" data-agent-role="display" data-agent-id="savings-account" data-agent-desc="Savings account ••• 7293" data-agent-state="{&quot;type&quot;:&quot;savings&quot;,&quot;last4&quot;:&quot;7293&quot;,&quot;balance&quot;:45219.08,&quot;currency&quot;:&quot;USD&quot;}" data-agent-scope="account-summary" data-agent-priority="1">
+          <div class="np-account-card__header"><span class="np-account-card__type">Savings</span><span class="np-account-card__number">••• 7293</span></div>
+          <div class="np-account-card__balance"><span class="np-account-card__balance-label">Available Balance</span><span class="np-account-card__balance-amount">$45,219.08</span></div>
+          <div class="np-account-card__actions"><button class="np-btn np-btn--sm np-btn--ghost">View</button><button class="np-btn np-btn--sm np-btn--primary">Transfer</button></div>
+        </div>
+        <div class="np-account-card np-account-card--credit" data-agent-role="display" data-agent-id="credit-card-account" data-agent-desc="Credit card ••• 9156 — balance $2,341.50, min payment $45.00 due Jun 1" data-agent-state="{&quot;type&quot;:&quot;credit&quot;,&quot;last4&quot;:&quot;9156&quot;,&quot;balance&quot;:2341.50,&quot;availableCredit&quot;:17658.50,&quot;minPayment&quot;:45.00,&quot;dueDate&quot;:&quot;Jun 1&quot;}" data-agent-scope="account-summary" data-agent-priority="1">
+          <div class="np-account-card__header"><span class="np-account-card__type">Credit Card</span><span class="np-account-card__number">••• 9156</span></div>
+          <div class="np-account-card__balance"><span class="np-account-card__balance-label">Current Balance</span><span class="np-account-card__balance-amount">$2,341.50</span></div>
+          <div class="np-account-card__meta"><span>Available Credit: $17,658.50</span><span>Min Payment Due: $45.00 by Jun 1</span></div>
+          <div class="np-account-card__actions"><button class="np-btn np-btn--sm np-btn--ghost">View</button><button class="np-btn np-btn--sm np-btn--danger" data-agent-role="action" data-agent-id="pay-credit-bill-btn" data-agent-desc="Pay credit card bill — $45.00 minimum due Jun 1" data-agent-action="click" data-agent-scope="account-summary" data-agent-priority="1" data-agent-precondition="Requires checking or savings account with sufficient balance">Pay Bill</button></div>
+        </div>
+      </div>
+
+      <!-- Quick transfer widget -->
+      <div class="np-quick-transfer" data-agent-role="landmark" data-agent-id="quick-transfer" data-agent-desc="Quick transfer form — move money between accounts" data-agent-state="{&quot;status&quot;:&quot;ready&quot;}">
+        <div class="np-quick-transfer__header"><h2>Quick Transfer</h2></div>
+        <form class="np-quick-transfer__form" onsubmit="return false;">
+          <div class="np-form-row"><label for="xfer-from">From</label><select id="xfer-from" class="np-select" data-agent-role="form" data-agent-id="transfer-from" data-agent-desc="Source account for transfer" data-agent-action="select" data-agent-options="[&quot;Checking (••• 4821) — $12,847.63&quot;,&quot;Savings (••• 7293) — $45,219.08&quot;]" data-agent-state="{&quot;selected&quot;:&quot;Checking (••• 4821)&quot;}" data-agent-required="true" data-agent-scope="quick-transfer" data-agent-priority="1"><option value="checking">Checking (••• 4821) — $12,847.63</option><option value="savings">Savings (••• 7293) — $45,219.08</option></select></div>
+          <div class="np-form-row"><label for="xfer-to">To</label><select id="xfer-to" class="np-select" data-agent-role="form" data-agent-id="transfer-to" data-agent-desc="Destination account for transfer" data-agent-action="select" data-agent-options="[&quot;Savings (••• 7293)&quot;,&quot;Checking (••• 4821)&quot;,&quot;External Account&quot;]" data-agent-state="{&quot;selected&quot;:&quot;Savings (••• 7293)&quot;}" data-agent-required="true" data-agent-scope="quick-transfer" data-agent-priority="1"><option value="savings">Savings (••• 7293)</option><option value="checking">Checking (••• 4821)</option><option value="external">External Account</option></select></div>
+          <div class="np-form-row"><label for="xfer-amount">Amount</label><input id="xfer-amount" type="text" class="np-input" placeholder="$0.00" data-agent-role="form" data-agent-id="transfer-amount" data-agent-desc="Transfer amount in USD" data-agent-action="fill" data-agent-state="{&quot;value&quot;:&quot;&quot;,&quot;valid&quot;:null}" data-agent-required="true" data-agent-scope="quick-transfer" data-agent-priority="1"></div>
+          <div class="np-form-row"><label for="xfer-memo">Memo (optional)</label><input id="xfer-memo" type="text" class="np-input" placeholder="e.g., Rent payment" data-agent-role="form" data-agent-id="transfer-memo" data-agent-desc="Optional memo for the transfer" data-agent-action="fill" data-agent-state="{&quot;value&quot;:&quot;&quot;}" data-agent-scope="quick-transfer" data-agent-priority="3"></div>
+          <div class="np-form-actions">
+            <button type="button" class="np-btn np-btn--ghost">Cancel</button>
+            <button type="submit" class="np-btn np-btn--primary" disabled="" data-agent-role="action" data-agent-id="review-transfer-btn" data-agent-desc="Review and confirm the transfer" data-agent-action="click" data-agent-state="{&quot;disabled&quot;:true}" data-agent-precondition="From account, to account, and amount must be filled. Amount must not exceed source balance." data-agent-scope="quick-transfer" data-agent-priority="1">Review Transfer</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Recent transactions table -->
+      <div class="np-transactions" data-agent-role="landmark" data-agent-id="recent-transactions" data-agent-desc="Recent transaction list with filtering" data-agent-state="{&quot;page&quot;:1,&quot;totalPages&quot;:12,&quot;timeRange&quot;:&quot;Last 30 Days&quot;,&quot;accountFilter&quot;:&quot;All&quot;}">
+        <div class="np-transactions__header"><h2>Recent Transactions</h2><div class="np-transactions__filters"><select class="np-select np-select--sm" data-agent-role="form" data-agent-id="txn-account-filter" data-agent-desc="Filter transactions by account" data-agent-action="select" data-agent-options="[&quot;All Accounts&quot;,&quot;Checking&quot;,&quot;Savings&quot;,&quot;Credit Card&quot;]" data-agent-scope="recent-transactions" data-agent-priority="3"><option>All Accounts</option><option>Checking</option><option>Savings</option><option>Credit Card</option></select><select class="np-select np-select--sm" data-agent-role="form" data-agent-id="txn-date-filter" data-agent-desc="Filter transactions by date range" data-agent-action="select" data-agent-options="[&quot;Last 30 Days&quot;,&quot;Last 7 Days&quot;,&quot;This Month&quot;,&quot;Last Month&quot;]" data-agent-scope="recent-transactions" data-agent-priority="3"><option>Last 30 Days</option><option>Last 7 Days</option><option>This Month</option><option>Last Month</option></select></div></div>
+        <table class="np-table" data-agent-role="display" data-agent-id="txn-list" data-agent-desc="Transaction list" data-agent-state="{&quot;transactions&quot;:[{&quot;date&quot;:&quot;May 21&quot;,&quot;desc&quot;:&quot;Pizza Hut&quot;,&quot;amount&quot;:-24.99,&quot;account&quot;:&quot;4821&quot;},{&quot;date&quot;:&quot;May 20&quot;,&quot;desc&quot;:&quot;Acme Corp Payroll&quot;,&quot;amount&quot;:4250.00,&quot;account&quot;:&quot;4821&quot;},{&quot;date&quot;:&quot;May 19&quot;,&quot;desc&quot;:&quot;Amazon.com&quot;,&quot;amount&quot;:-149.99,&quot;account&quot;:&quot;9156&quot;},{&quot;date&quot;:&quot;May 18&quot;,&quot;desc&quot;:&quot;Transfer to Savings&quot;,&quot;amount&quot;:-500.00,&quot;account&quot;:&quot;4821&quot;},{&quot;date&quot;:&quot;May 17&quot;,&quot;desc&quot;:&quot;Netflix&quot;,&quot;amount&quot;:-15.99,&quot;account&quot;:&quot;9156&quot;}]}" data-agent-scope="recent-transactions" data-agent-priority="2"><thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Account</th><th class="np-table__amount">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>May 21</td><td><div class="np-txn-desc"><div class="np-txn-icon np-txn-icon--food">🍕</div><div><span class="np-txn-name">Pizza Hut</span><span class="np-txn-cat">Food &amp; Dining</span></div></div></td><td>Food &amp; Dining</td><td>••• 4821</td><td class="np-table__amount np-table__amount--debit">-$24.99</td></tr>
+          <tr><td>May 20</td><td><div class="np-txn-desc"><div class="np-txn-icon np-txn-icon--income">💰</div><div><span class="np-txn-name">Acme Corp — Payroll</span><span class="np-txn-cat">Income</span></div></div></td><td>Income</td><td>••• 4821</td><td class="np-table__amount np-table__amount--credit">+$4,250.00</td></tr>
+          <tr><td>May 19</td><td><div class="np-txn-desc"><div class="np-txn-icon np-txn-icon--shopping">🛍️</div><div><span class="np-txn-name">Amazon.com</span><span class="np-txn-cat">Shopping</span></div></div></td><td>Shopping</td><td>••• 9156</td><td class="np-table__amount np-table__amount--debit">-$149.99</td></tr>
+          <tr><td>May 18</td><td><div class="np-txn-desc"><div class="np-txn-icon np-txn-icon--transfer">↔️</div><div><span class="np-txn-name">Transfer to Savings</span><span class="np-txn-cat">Transfer</span></div></div></td><td>Transfer</td><td>••• 4821</td><td class="np-table__amount np-table__amount--debit">-$500.00</td></tr>
+          <tr><td>May 17</td><td><div class="np-txn-desc"><div class="np-txn-icon np-txn-icon--subscription">📺</div><div><span class="np-txn-name">Netflix</span><span class="np-txn-cat">Entertainment</span></div></div></td><td>Entertainment</td><td>••• 9156</td><td class="np-table__amount np-table__amount--debit">-$15.99</td></tr>
+        </tbody></table>
+        <div class="np-transactions__footer"><button class="np-btn np-btn--ghost" data-agent-role="action" data-agent-id="export-csv-btn" data-agent-desc="Export transactions as CSV file" data-agent-action="click" data-agent-scope="recent-transactions" data-agent-priority="4">Export CSV</button><nav class="np-pagination"><button class="np-pagination__btn" disabled="">←</button><span class="np-pagination__info">Page 1 of 12</span><button class="np-pagination__btn">→</button></nav></div>
+      </div>
+
+      <!-- Promotional banner -->
+      <div class="np-promo-banner" data-ad-unit="dashboard-promo">
+        <div class="np-promo-banner__content"><img src="/promo-cc.png" alt=""><div><h3>NovaPay Platinum Card</h3><p>Earn 5x points on travel. Apply now!</p></div><a href="/cards/apply/platinum" class="np-btn np-btn--sm np-btn--primary" data-tracking="promo-platinum">Apply →</a></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Help chat widget (bottom-right) -->
+  <div class="np-chat-widget" data-widget="chat">
+    <button class="np-chat-widget__trigger" aria-label="Open help chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="np-footer"><div class="np-footer__inner"><span>© 2026 NovaPay, Inc.</span><span>FDIC Insured</span><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a></div></footer>
+</div>
+</body></html>

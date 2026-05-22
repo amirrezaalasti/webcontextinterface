@@ -1,0 +1,57 @@
+{
+  "id": "grocery-list",
+  "title": "FreshCart",
+  "icon": "🥬",
+  "difficulty": "Extreme",
+  "description": "Grocery list UL with per-item actions.",
+  "challenges": [
+    "Remove vs Add"
+  ],
+  "task": {
+    "goal": "Add organic avocados to shared family list",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "add-avocados",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "grocery_list-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "add-avocados-list",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "add-avocados-list",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#add-avocados"
+    ]
+  }
+}

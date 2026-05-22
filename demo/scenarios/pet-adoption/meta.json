@@ -1,0 +1,55 @@
+{
+  "id": "pet-adoption",
+  "title": "PawMatch",
+  "icon": "🐾",
+  "difficulty": "Extreme",
+  "description": "Pet profile hero image + apply CTA.",
+  "challenges": [
+    "Single pet focus"
+  ],
+  "task": {
+    "goal": "Submit adoption application for dog Max",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "apply-adopt-max",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "pet_adoption-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "apply-adopt-max",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "apply-adopt-max",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [],
+    "rawSelectors": [
+      "#apply-adopt-max"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>HireFlow Jobs</title><style>
+.hf-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;font-family:system-ui,sans-serif}
+.hf-filters{background:#f4f6f8;padding:12px;border-right:1px solid #ddd}
+.hf-card{border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin:10px 0;background:#fff}
+.hf-apply{background:#2563eb;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer}
+.hf-ad-btn{background:#f59e0b;border:0;padding:6px 10px;margin-left:6px}
+</style></head><body>
+<div class="hf-layout" data-page="job-board" data-agent-role="landmark" data-agent-id="job_board-page" data-agent-desc="HireFlow Jobs — job listings with filters" data-agent-priority="2">
+<header class="hf-hdr">
+  <nav class="hf-nav"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a></nav>
+  <div class="hf-hdr-promo"><button type="button" class="hf-ad-btn" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Claim Offer promotional CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
+    <button type="button" class="hf-ad-btn hf-ad-btn--alt" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Learn More nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
+</header>
+<aside class="hf-rail hf-rail--ads" aria-label="Sponsored"><div class="hf-widget"><span>Sponsored</span><a href="/ads">Partner Ad</a></div></aside>
+<aside class="hf-filters"><h2>Filters</h2><label><input type="checkbox" checked=""> Remote</label>
+<label><input type="checkbox"> Senior</label><select><option>Any location</option><option>SF Bay</option></select></aside>
+<main class="hf-main" role="main">
+<h1>Open roles</h1>
+<ul class="hf-list">
+<li class="hf-card" data-job="other-1"><h3>Junior QA — Beta LLC</h3><button type="button" class="hf-apply hf-apply--ghost">Quick Apply</button></li>
+<li class="hf-card" data-job="acme-senior"><h3>Senior Engineer — Acme Corp</h3><p>React, TypeScript, distributed systems</p>
+<button type="button" id="apply-acme-senior" class="hf-apply" data-action="primary" data-agent-role="action" data-agent-id="apply-senior-engineer" data-agent-desc="Apply to the Senior Engineer role at Acme Corp" data-agent-action="click" data-agent-priority="1">Apply to Senior Engineer</button></li>
+<li class="hf-card" data-job="other-2"><h3>PM — Gamma Inc</h3><button type="button">Save</button></li>
+</ul>
+<footer class="hf-ftr"><small>© Demo HireFlow Jobs</small><a href="/privacy">Privacy</a><span class="hf-ftr-ad">Sponsored links</span></footer>
+</main><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

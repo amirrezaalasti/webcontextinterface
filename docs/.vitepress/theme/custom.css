@@ -1,0 +1,31 @@
+:root {
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-3: #4f46e5;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #6366f1 20%, #a78bfa 70%);
+  --vp-home-hero-image-filter: drop-shadow(0 12px 32px rgba(99, 102, 241, 0.25));
+}
+
+.dark {
+  --vp-home-hero-image-filter: drop-shadow(0 12px 32px rgba(99, 102, 241, 0.35));
+}
+
+.VPHero .name {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.VPHero .text {
+  font-weight: 600;
+}
+
+.VPFeature .icon {
+  font-size: 1.75rem;
+}
+
+/* Code blocks on home */
+.vp-doc h2 + div[class*='language-'],
+.vp-doc h2 + pre {
+  margin-top: 0.75rem;
+}

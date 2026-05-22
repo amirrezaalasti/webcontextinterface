@@ -1,0 +1,60 @@
+{
+  "id": "tax-filing",
+  "title": "TaxEase",
+  "icon": "📑",
+  "difficulty": "Very Hard",
+  "description": "Multi-step tax wizard with progress steps and W-2 import panel.",
+  "challenges": [
+    "Manual entry vs import",
+    "Four-step progress bar",
+    "Hidden file input"
+  ],
+  "task": {
+    "goal": "Import W-2 from employer ADP",
+    "standardSteps": [
+      {
+        "action": "scan",
+        "target": "full DOM",
+        "outcome": "confused",
+        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+      },
+      {
+        "action": "click",
+        "target": "decoy element",
+        "outcome": "fail",
+        "note": "Clicks promotional or nav decoy"
+      },
+      {
+        "action": "click",
+        "target": "import-w2-adp",
+        "outcome": "success",
+        "note": "Finds correct primary CTA in page-specific structure"
+      }
+    ],
+    "agentdomSteps": [
+      {
+        "action": "read",
+        "target": "tax_filing-page",
+        "outcome": "success",
+        "note": "Structured page landmark with typed actions"
+      },
+      {
+        "action": "click",
+        "target": "import-w2-adp",
+        "outcome": "success",
+        "note": "Direct WCI node click on annotated overlay"
+      }
+    ]
+  },
+  "groundTruth": {
+    "wciNodeId": "import-w2-adp",
+    "acceptableNodeIds": [],
+    "decoyNodeIds": [
+      "decoy-nav"
+    ],
+    "rawSelectors": [
+      "#import-w2-adp",
+      "button.tx-import"
+    ]
+  }
+}
