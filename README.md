@@ -207,6 +207,8 @@ WIA_framework/
 ```bash
 npm run eval:verify
 npm run eval:benchmark -- --models=gpt5Nano --scenarios=flight-booking,banking
+npm run eval:merge-leaderboard   # update demo/public/eval-results-all.json
+npm run demo                     # live leaderboard on the website
 ```
 
 ---

@@ -36,6 +36,19 @@ const env = {
 
 console.log(`Building WCI website (docs base: ${docsBase}, demo: ${demoBase})`);
 
+const assetsDir = join(root, 'assets');
+for (const dest of [join(root, 'demo/public'), join(root, 'docs/public')]) {
+  for (const file of ['logo.png', 'logo-with-title.png', 'logo-web-theme.png']) {
+    cpSync(join(assetsDir, file), join(dest, file));
+  }
+}
+
+try {
+  execSync('npm run eval:merge-leaderboard', { cwd: root, stdio: 'inherit' });
+} catch {
+  console.warn('eval:merge-leaderboard skipped (no snapshots in demo/public?)');
+}
+
 execSync('npm run docs:build', { cwd: root, stdio: 'inherit', env });
 execSync('npm run demo:build', { cwd: root, stdio: 'inherit', env });
 

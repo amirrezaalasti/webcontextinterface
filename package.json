@@ -20,7 +20,8 @@
     "website:preview": "vitepress preview docs",
     "eval:benchmark": "tsx evals/run-benchmark.ts",
     "eval:verify": "tsx evals/run-benchmark.ts --verify-ground-truth",
-    "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only"
+    "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only",
+    "eval:merge-leaderboard": "node scripts/build-eval-leaderboard.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

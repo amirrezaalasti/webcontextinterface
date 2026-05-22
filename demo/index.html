@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
+  <link rel="icon" type="image/png" href="./logo.png" />
+
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -28,14 +30,14 @@
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <header class="site-header">
   <div class="header-inner">
-    <div class="logo">
-      <span class="logo-icon">◈</span>
-      <span class="logo-text">WCI</span>
+    <a href="#" class="logo" aria-label="WCI — Web Context Interface">
+      <img src="./logo.png" alt="" class="logo-img" width="36" height="36" decoding="async" />
+      <img src="./logo-web-theme.png" alt="WCI — Web Context Interface" class="logo-img logo-img--titled" decoding="async" />
       <span class="version-badge">v1.0</span>
-    </div>
+    </a>
     <nav class="header-nav">
       <a href="#demo">Live Demo</a>
-      <a href="#benchmark">Benchmark</a>
+      <a href="#eval-results">Results</a>
       <a href="#context">Site Context</a>
       <a href="#spec">Specification</a>
       <a href="/" target="_blank" rel="noreferrer" id="docs-link">Docs ↗</a>
@@ -51,7 +53,15 @@
   <div class="hero-glow hero-glow-1"></div>
   <div class="hero-glow hero-glow-2"></div>
   <div class="hero-content">
-    <div class="hero-kicker">Web Context Interface · Open Standard</div>
+    <img
+      src="./logo-web-theme.png"
+      alt="WCI — Web Context Interface"
+      class="hero-logo"
+      width="320"
+      height="auto"
+      decoding="async"
+    />
+    <div class="hero-kicker">Open Standard · TypeScript SDK</div>
     <h1 class="hero-title">
       The Web,<br />
       <span class="gradient-text">Context-Ready</span>
@@ -374,157 +384,42 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
-<!-- COMPLEXITY BENCHMARK                                                        -->
+<!-- EVALUATION RESULTS (OpenRouter benchmark)                                   -->
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
-<section class="benchmark-section" id="benchmark">
+<section class="eval-results-section" id="eval-results">
   <div class="section-inner">
-    <div class="benchmark-header">
-      <div class="benchmark-kicker">Interactive Benchmark</div>
-      <h2 class="section-title">Complexity <span class="gradient-text">Stress Test</span></h2>
-      <p class="section-subtitle">
-        See how AgentDOM handles real-world complexity that breaks standard web agents.
-        Select a scenario and watch the difference unfold.
-      </p>
-    </div>
+    <h2 class="section-title">Evaluation <span class="gradient-text">Results</span></h2>
+    <p class="section-subtitle">
+      Single-shot element grounding on <strong>50 scenarios</strong> (OpenRouter).
+      See <code>evals/README.md</code> for methodology and limitations.
+    </p>
 
-    <!-- Scenario search + selector (50 scenarios) -->
-    <div class="scenario-toolbar">
-      <input
-        type="search"
-        id="scenario-search"
-        class="scenario-search"
-        placeholder="Search scenarios (e.g. banking, job-board)…"
-        autocomplete="off"
-        aria-label="Filter benchmark scenarios"
-      />
-      <span class="scenario-count" id="scenario-count"></span>
-    </div>
-    <div class="scenario-selector" id="scenario-selector">
-      <!-- Cards will be injected by JS -->
-    </div>
-
-    <!-- Animated Metrics Dashboard -->
-    <div class="benchmark-metrics" id="benchmark-metrics">
-      <div class="metric-card metric-card--tokens">
-        <div class="metric-card__icon">📊</div>
-        <div class="metric-card__data">
-          <span class="metric-card__label">Context Tokens</span>
-          <div class="metric-card__comparison">
-            <div class="metric-card__bar-group">
-              <div class="metric-card__bar-row">
-                <span class="metric-card__bar-label">Raw HTML</span>
-                <div class="metric-card__bar-track"><div class="metric-card__bar metric-card__bar--bad" id="metric-bar-raw" style="width:0%"></div></div>
-                <span class="metric-card__bar-value" id="metric-val-raw">—</span>
-              </div>
-              <div class="metric-card__bar-row">
-                <span class="metric-card__bar-label">AgentDOM</span>
-                <div class="metric-card__bar-track"><div class="metric-card__bar metric-card__bar--good" id="metric-bar-distilled" style="width:0%"></div></div>
-                <span class="metric-card__bar-value" id="metric-val-distilled">—</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="metric-card__badge" id="metric-badge-reduction">—</div>
+    <!-- Charts (from eval-results-all.json) -->
+    <div class="eval-charts" id="eval-charts" hidden>
+      <div class="eval-charts__header">
+        <h3 class="eval-charts__title">📈 Benchmark Results</h3>
+        <p class="eval-charts__subtitle" id="eval-charts-meta">
+          Single-shot grounding on 50 scenarios — standard baselines vs WCI approaches.
+        </p>
       </div>
-
-      <div class="metric-card metric-card--noise">
-        <div class="metric-card__icon">🔇</div>
-        <div class="metric-card__data">
-          <span class="metric-card__label">Noise Elements</span>
-          <div class="metric-card__big-number">
-            <span class="metric-card__number" id="metric-noise-raw">—</span>
-            <span class="metric-card__arrow">→</span>
-            <span class="metric-card__number metric-card__number--good" id="metric-noise-distilled">—</span>
+      <div class="eval-charts__grid">
+        <figure class="eval-chart-panel">
+          <figcaption class="eval-chart-panel__title">Success rate (%)</figcaption>
+          <div class="eval-chart-legend eval-chart-legend--inline">
+            <span><i class="eval-swatch eval-swatch--std"></i> Standard</span>
+            <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
+            <span><i class="eval-swatch eval-swatch--full"></i> WCI full</span>
           </div>
-          <span class="metric-card__sublabel">elements removed by distiller</span>
-        </div>
-      </div>
-
-      <div class="metric-card metric-card--precision">
-        <div class="metric-card__icon">🎯</div>
-        <div class="metric-card__data">
-          <span class="metric-card__label">Action Precision</span>
-          <div class="metric-card__big-number">
-            <span class="metric-card__number" id="metric-interactive-raw">—</span>
-            <span class="metric-card__vs">vs</span>
-            <span class="metric-card__number metric-card__number--good" id="metric-interactive-distilled">—</span>
+          <div class="eval-chart" id="chart-success" role="img" aria-label="Success rate by model"></div>
+        </figure>
+        <figure class="eval-chart-panel">
+          <figcaption class="eval-chart-panel__title">Avg. tokens per LLM call</figcaption>
+          <div class="eval-chart-legend eval-chart-legend--inline">
+            <span><i class="eval-swatch eval-swatch--std"></i> Standard</span>
+            <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
           </div>
-          <span class="metric-card__sublabel"><span id="metric-false-positives">—</span> false positives in raw HTML</span>
-        </div>
-      </div>
-
-      <div class="metric-card metric-card--steps">
-        <div class="metric-card__icon">🏃</div>
-        <div class="metric-card__data">
-          <span class="metric-card__label">Agent Steps</span>
-          <div class="metric-card__big-number">
-            <span class="metric-card__number" id="metric-steps-raw">—</span>
-            <span class="metric-card__arrow">→</span>
-            <span class="metric-card__number metric-card__number--good" id="metric-steps-distilled">—</span>
-          </div>
-          <span class="metric-card__sublabel" id="metric-steps-sublabel">— fewer steps needed</span>
-        </div>
-        <div class="metric-card__badge metric-card__badge--green" id="metric-badge-steps">—</div>
-      </div>
-    </div>
-
-    <!-- Side-by-side comparison -->
-    <div class="benchmark-comparison" id="benchmark-comparison">
-      <div class="benchmark-col">
-        <div class="panel-header">
-          <span class="panel-badge human-badge">🧑 Standard Agent</span>
-          <span class="panel-title">What the LLM sees (raw DOM)</span>
-        </div>
-        <pre class="benchmark-pre"><code id="benchmark-raw-output" class="language-html">Select a scenario above to begin.</code></pre>
-      </div>
-      <div class="benchmark-col">
-        <div class="panel-header">
-          <span class="panel-badge agent-badge">🤖 AgentDOM</span>
-          <span class="panel-title">What the LLM sees (distilled JSON)</span>
-        </div>
-        <pre class="benchmark-pre"><code id="benchmark-distilled-output" class="language-json">Select a scenario above to begin.</code></pre>
-      </div>
-    </div>
-
-    <!-- Task Simulation -->
-    <div class="task-simulation" id="task-simulation">
-      <div class="task-simulation__header">
-        <h3 class="task-simulation__title">🧪 Task Simulation</h3>
-        <p class="task-simulation__goal" id="task-goal">Select a scenario to see the task simulation.</p>
-      </div>
-
-      <div class="task-simulation__columns">
-        <!-- Standard agent column -->
-        <div class="task-simulation__col">
-          <div class="task-simulation__col-header">
-            <span class="panel-badge human-badge">🧑 Standard Agent</span>
-            <span class="task-simulation__step-count" id="task-standard-count">— steps</span>
-          </div>
-          <div class="task-simulation__steps" id="task-standard-steps">
-            <!-- Steps injected by JS -->
-          </div>
-        </div>
-
-        <!-- AgentDOM column -->
-        <div class="task-simulation__col">
-          <div class="task-simulation__col-header">
-            <span class="panel-badge agent-badge">🤖 AgentDOM</span>
-            <span class="task-simulation__step-count task-simulation__step-count--good" id="task-agentdom-count">— steps</span>
-          </div>
-          <div class="task-simulation__steps" id="task-agentdom-steps">
-            <!-- Steps injected by JS -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Play button -->
-      <div class="task-simulation__controls">
-        <button class="btn btn-primary" id="task-play-btn" disabled>
-          ▶ Play Simulation
-        </button>
-        <button class="btn btn-ghost" id="task-reset-btn" disabled>
-          ↺ Reset
-        </button>
+          <div class="eval-chart" id="chart-tokens" role="img" aria-label="Token usage by model"></div>
+        </figure>
       </div>
     </div>
 
@@ -532,7 +427,12 @@
     <div class="agent-leaderboard" id="agent-leaderboard">
       <div class="agent-leaderboard__header">
         <h3 class="agent-leaderboard__title">🏆 Agent Performance Comparison</h3>
-        <p class="agent-leaderboard__subtitle">Element grounding: raw HTML baselines vs WCI grounding (actionable nodes) and WCI full (ablation). OpenRouter LLMs. Run <code>npm run eval:benchmark</code> to refresh.</p>
+        <p class="agent-leaderboard__subtitle">
+          Single-shot element grounding on <strong>50 scenarios</strong> (OpenRouter, May 2026).
+          <strong>WCI grounding</strong> uses actionable distilled nodes; <strong>standard</strong> averages raw HTML, DOM outline, and candidate-list baselines.
+          See <code>evals/README.md</code> for methodology, per-approach tokens, and limitations.
+        </p>
+        <p class="agent-leaderboard__meta" id="leaderboard-meta"></p>
       </div>
       
       <div class="leaderboard-table-container">
@@ -540,15 +440,16 @@
           <thead>
             <tr>
               <th>LLM (OpenRouter)</th>
-              <th class="text-center">Raw HTML Success Rate</th>
-              <th class="text-center">WCI Grounding Success Rate</th>
-              <th class="text-center">Avg. Tokens / Step</th>
+              <th class="text-center">Standard baselines</th>
+              <th class="text-center">WCI grounding</th>
+              <th class="text-center">WCI full</th>
+              <th class="text-center">Avg. tokens / call</th>
             </tr>
           </thead>
           <tbody id="leaderboard-body">
             <tr class="leaderboard-row leaderboard-row--placeholder">
-              <td colspan="4" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
-                Run <code>npm run eval:benchmark</code> to load results (see <code>evals/README.md</code>).
+              <td colspan="5" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
+                Run <code>npm run eval:merge-leaderboard</code> after benchmarks (see <code>evals/README.md</code>).
               </td>
             </tr>
           </tbody>
@@ -642,7 +543,10 @@
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="logo-text">◈ WCI v1.0</span>
+    <a href="#" class="footer-logo" aria-label="WCI">
+      <img src="./logo.png" alt="" width="24" height="24" decoding="async" />
+      <span>WCI v1.0</span>
+    </a>
     <span class="footer-copy">Web Context Interface — open standard for LLM-native web. MIT License.</span>
   </div>
 </footer>

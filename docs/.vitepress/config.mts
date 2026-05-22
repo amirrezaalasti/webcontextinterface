@@ -18,7 +18,7 @@ export default defineConfig({
   ignoreDeadLinks: [/^http:\/\/localhost/],
 
   head: [
-    ['link', { rel: 'icon', href: `${base}favicon.svg` }],
+    ['link', { rel: 'icon', type: 'image/png', href: `${base}logo.png` }],
     ['meta', { name: 'theme-color', content: '#4f46e5' }],
     ['meta', { property: 'og:title', content: 'WCI — Web Context Interface' }],
     [
@@ -32,7 +32,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: { text: '◈ WCI' },
+    logo: { src: '/logo.png', alt: 'WCI — Web Context Interface' },
     siteTitle: 'Web Context Interface',
 
     nav: [

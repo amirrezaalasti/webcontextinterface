@@ -20,6 +20,16 @@
   font-weight: 600;
 }
 
+.VPHero .image-src {
+  max-width: min(480px, 92vw);
+  width: auto;
+  height: auto;
+}
+
+.VPNavBarTitle .logo {
+  height: 28px;
+}
+
 .VPFeature .icon {
   font-size: 1.75rem;
 }

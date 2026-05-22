@@ -57,7 +57,7 @@ export class WciDistiller {
     const meta = {
       pageTitle:   root instanceof Document ? document.title : (el as HTMLElement).dataset?.agentDesc ?? '',
       scope:       this.opts.scope,
-      scopeDesc:   landmarkEl?.dataset?.agentDesc,
+      scopeDesc:   landmarkEl?.dataset?.wciDesc,
       siteContext: this.opts.siteContext,
     };
 

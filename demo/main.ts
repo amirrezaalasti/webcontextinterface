@@ -6,7 +6,6 @@
 import { WciDistiller } from '@wci/distiller';
 import { WciBridge } from '@wci/bridge';
 import { WciContextLoader } from '@wci/context';
-
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
 const jsonPanel    = document.getElementById('json-output')    as HTMLElement;
@@ -28,7 +27,7 @@ if (!formScope || !jsonPanel || !mdPanel || !actionPanel) {
 }
 
 // ── Framework objects ─────────────────────────────────────────────────────────
-const distiller = new WciDistiller({ format: 'json', maxNodes: 32 });
+const distiller = new WciDistiller({ format: 'json', maxNodes: 32, scope: 'registration-form' });
 const bridge    = new WciBridge(formScope ?? document.body);
 const actionLog: object[] = [];
 
@@ -478,319 +477,6 @@ domSnapshotInput?.addEventListener('keydown', (e) => {
 refreshDistiller();
 renderActionLog();
 
-// ══════════════════════════════════════════════════════════════════════════════
-// COMPLEXITY BENCHMARK
-// ══════════════════════════════════════════════════════════════════════════════
-
-import { BenchmarkEngine, SCENARIOS, type BenchmarkScenario, type BenchmarkMetrics, type TaskStep } from './benchmark';
-
-const benchmarkEngine = new BenchmarkEngine();
-
-// ── Grab benchmark DOM refs ───────────────────────────────────────────────────
-const scenarioSelector  = document.getElementById('scenario-selector');
-const scenarioSearch    = document.getElementById('scenario-search') as HTMLInputElement | null;
-const scenarioCountEl   = document.getElementById('scenario-count');
-const benchRawOutput    = document.getElementById('benchmark-raw-output');
-const benchDistOutput   = document.getElementById('benchmark-distilled-output');
-const taskGoalEl        = document.getElementById('task-goal');
-const taskStandardSteps = document.getElementById('task-standard-steps');
-const taskAgentdomSteps = document.getElementById('task-agentdom-steps');
-const taskStandardCount = document.getElementById('task-standard-count');
-const taskAgentdomCount = document.getElementById('task-agentdom-count');
-const taskPlayBtn       = document.getElementById('task-play-btn') as HTMLButtonElement | null;
-const taskResetBtn      = document.getElementById('task-reset-btn') as HTMLButtonElement | null;
-
-let activeScenarioId: string | null = null;
-let simulationTimer: ReturnType<typeof setTimeout> | null = null;
-
-let scenarioFilterQuery = '';
-
-// ── Render scenario selector cards ────────────────────────────────────────────
-function renderScenarioCards(): void {
-  if (!scenarioSelector) return;
-  scenarioSelector.innerHTML = '';
-
-  const q = scenarioFilterQuery.trim().toLowerCase();
-  const visible = q
-    ? SCENARIOS.filter(
-        (s) =>
-          s.id.includes(q) ||
-          s.title.toLowerCase().includes(q) ||
-          s.description.toLowerCase().includes(q)
-      )
-    : SCENARIOS;
-
-  if (scenarioCountEl) {
-    scenarioCountEl.textContent = `${visible.length} / ${SCENARIOS.length}`;
-  }
-
-  for (const scenario of visible) {
-    const card = document.createElement('div');
-    card.className = 'scenario-card';
-    card.dataset.scenarioId = scenario.id;
-
-    const diffClass = scenario.difficulty === 'Extreme' ? 'difficulty--extreme'
-      : scenario.difficulty === 'Very Hard' ? 'difficulty--very-hard'
-      : 'difficulty--hard';
-
-    card.innerHTML = `
-      <span class="scenario-card__icon">${scenario.icon}</span>
-      <span class="scenario-card__title">${scenario.title}</span>
-      <span class="scenario-card__desc">${scenario.description}</span>
-      <span class="scenario-card__difficulty ${diffClass}">${scenario.difficulty}</span>
-    `;
-
-    card.addEventListener('click', () => selectScenario(scenario.id));
-    scenarioSelector.appendChild(card);
-  }
-
-  if (activeScenarioId && !visible.some((s) => s.id === activeScenarioId) && visible[0]) {
-    selectScenario(visible[0].id);
-  }
-}
-
-if (scenarioSearch) {
-  scenarioSearch.addEventListener('input', () => {
-    scenarioFilterQuery = scenarioSearch.value;
-    renderScenarioCards();
-  });
-}
-
-// ── Select scenario ───────────────────────────────────────────────────────────
-function selectScenario(id: string): void {
-  const scenario = SCENARIOS.find(s => s.id === id);
-  if (!scenario) return;
-
-  activeScenarioId = id;
-
-  // Update card active states
-  document.querySelectorAll('.scenario-card').forEach(card => {
-    card.classList.toggle('scenario-card--active', (card as HTMLElement).dataset.scenarioId === id);
-  });
-
-  // Compute metrics
-  const metrics = benchmarkEngine.computeMetrics(scenario);
-
-  // Render comparison panels
-  renderComparisonPanels(scenario);
-
-  // Animate metrics
-  animateMetrics(metrics);
-
-  // Render task simulation (static initially)
-  renderTaskSimulation(scenario);
-
-  // Enable play button
-  if (taskPlayBtn) taskPlayBtn.disabled = false;
-  if (taskResetBtn) taskResetBtn.disabled = false;
-}
-
-// ── Render comparison panels ──────────────────────────────────────────────────
-function renderComparisonPanels(scenario: BenchmarkScenario): void {
-  if (benchRawOutput) {
-    benchRawOutput.textContent = benchmarkEngine.buildOutline(scenario.rawHtml, 80);
-    tryHighlight(benchRawOutput);
-  }
-  if (benchDistOutput) {
-    benchDistOutput.textContent = benchmarkEngine.buildDistilledView(scenario.annotatedHtml);
-    tryHighlight(benchDistOutput);
-  }
-}
-
-// ── Animate metrics ───────────────────────────────────────────────────────────
-function animateCountUp(el: HTMLElement, target: number, duration = 800, suffix = ''): void {
-  const start = performance.now();
-  const initial = 0;
-
-  function tick(now: number): void {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(initial + (target - initial) * eased);
-    el.textContent = current.toLocaleString() + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-
-  requestAnimationFrame(tick);
-}
-
-function animateMetrics(metrics: BenchmarkMetrics): void {
-  // Token bars
-  const barRaw = document.getElementById('metric-bar-raw');
-  const barDist = document.getElementById('metric-bar-distilled');
-  const valRaw = document.getElementById('metric-val-raw');
-  const valDist = document.getElementById('metric-val-distilled');
-  const badgeReduction = document.getElementById('metric-badge-reduction');
-
-  if (barRaw && barDist && valRaw && valDist) {
-    // Reset bars
-    barRaw.style.width = '0%';
-    barDist.style.width = '0%';
-
-    requestAnimationFrame(() => {
-      barRaw.style.width = '100%';
-      barDist.style.width = `${Math.round((metrics.distilledTokens / metrics.rawTokens) * 100)}%`;
-    });
-
-    animateCountUp(valRaw, metrics.rawTokens);
-    animateCountUp(valDist, metrics.distilledTokens);
-  }
-
-  if (badgeReduction) {
-    badgeReduction.textContent = `↓${metrics.tokenReduction}%`;
-  }
-
-  // Noise elements
-  const noiseRaw = document.getElementById('metric-noise-raw');
-  const noiseDist = document.getElementById('metric-noise-distilled');
-  if (noiseRaw) animateCountUp(noiseRaw, metrics.rawElements);
-  if (noiseDist) animateCountUp(noiseDist, metrics.distilledNodes);
-
-  // Interactive/precision
-  const intRaw = document.getElementById('metric-interactive-raw');
-  const intDist = document.getElementById('metric-interactive-distilled');
-  const fpEl = document.getElementById('metric-false-positives');
-  if (intRaw) animateCountUp(intRaw, metrics.rawInteractive);
-  if (intDist) animateCountUp(intDist, metrics.distilledNodes);
-  if (fpEl) animateCountUp(fpEl, metrics.falsePositives);
-
-  // Steps
-  const stepsRaw = document.getElementById('metric-steps-raw');
-  const stepsDist = document.getElementById('metric-steps-distilled');
-  const badgeSteps = document.getElementById('metric-badge-steps');
-  const stepsSublabel = document.getElementById('metric-steps-sublabel');
-  if (stepsRaw) animateCountUp(stepsRaw, metrics.standardSteps);
-  if (stepsDist) animateCountUp(stepsDist, metrics.agentdomSteps);
-  if (badgeSteps) badgeSteps.textContent = `↓${metrics.stepReduction}%`;
-  if (stepsSublabel) stepsSublabel.textContent = `${metrics.stepReduction}% fewer steps needed`;
-
-  // Pulse animation on metric cards
-  document.querySelectorAll('.metric-card').forEach(card => {
-    card.classList.add('metric-card--active');
-    card.classList.add('metric-card--animating');
-    card.addEventListener('animationend', () => {
-      card.classList.remove('metric-card--animating');
-    }, { once: true });
-  });
-}
-
-// ── Render task simulation ────────────────────────────────────────────────────
-function renderStepHTML(step: TaskStep, index: number, isLast: boolean): string {
-  return `
-    <div class="task-step task-step--${step.outcome}" data-step-index="${index}">
-      <div class="task-step__indicator">
-        <div class="task-step__dot"></div>
-        ${!isLast ? '<div class="task-step__line"></div>' : ''}
-      </div>
-      <div class="task-step__content">
-        <div class="task-step__action">
-          <span class="task-step__action-verb">${step.action}</span>
-          <span class="task-step__target">${step.target}</span>
-          <span class="task-step__outcome">${step.outcome}</span>
-        </div>
-        <div class="task-step__note">${step.note}</div>
-      </div>
-    </div>
-  `;
-}
-
-function renderTaskSimulation(scenario: BenchmarkScenario): void {
-  if (taskGoalEl) {
-    taskGoalEl.innerHTML = `<strong>Goal:</strong> ${scenario.task.goal}`;
-  }
-
-  if (taskStandardSteps) {
-    taskStandardSteps.innerHTML = scenario.task.standardSteps
-      .map((step, i) => renderStepHTML(step, i, i === scenario.task.standardSteps.length - 1))
-      .join('');
-  }
-
-  if (taskAgentdomSteps) {
-    taskAgentdomSteps.innerHTML = scenario.task.agentdomSteps
-      .map((step, i) => renderStepHTML(step, i, i === scenario.task.agentdomSteps.length - 1))
-      .join('');
-  }
-
-  if (taskStandardCount) {
-    taskStandardCount.textContent = `${scenario.task.standardSteps.length} steps`;
-  }
-
-  if (taskAgentdomCount) {
-    taskAgentdomCount.textContent = `${scenario.task.agentdomSteps.length} steps`;
-  }
-
-  // Reset visibility
-  document.querySelectorAll('.task-step').forEach(el => {
-    el.classList.remove('task-step--visible');
-  });
-}
-
-// ── Play task simulation ──────────────────────────────────────────────────────
-function playSimulation(): void {
-  if (!activeScenarioId) return;
-
-  // Reset
-  const allSteps = document.querySelectorAll<HTMLElement>('.task-step');
-  allSteps.forEach(el => el.classList.remove('task-step--visible'));
-
-  if (taskPlayBtn) taskPlayBtn.disabled = true;
-
-  let index = 0;
-  const totalSteps = allSteps.length;
-
-  function showNext(): void {
-    if (index >= totalSteps) {
-      if (taskPlayBtn) taskPlayBtn.disabled = false;
-      return;
-    }
-
-    allSteps[index].classList.add('task-step--visible');
-
-    // Scroll step into view if needed
-    allSteps[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-    index++;
-    simulationTimer = setTimeout(showNext, 400);
-  }
-
-  showNext();
-}
-
-function resetSimulation(): void {
-  if (simulationTimer) {
-    clearTimeout(simulationTimer);
-    simulationTimer = null;
-  }
-
-  document.querySelectorAll('.task-step').forEach(el => {
-    el.classList.remove('task-step--visible');
-  });
-
-  if (taskPlayBtn) taskPlayBtn.disabled = false;
-}
-
-// ── Wire up benchmark events ──────────────────────────────────────────────────
-taskPlayBtn?.addEventListener('click', playSimulation);
-taskResetBtn?.addEventListener('click', resetSimulation);
-
-// ── Initialize benchmark ──────────────────────────────────────────────────────
-renderScenarioCards();
-
-// Auto-select first scenario when scrolled into view
-const benchmarkSection = document.getElementById('benchmark');
-if (benchmarkSection) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !activeScenarioId) {
-        selectScenario(SCENARIOS[0].id);
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.2 });
-  observer.observe(benchmarkSection);
-}
-
 // Animate Agent Leaderboard bars when scrolled into view
 const agentLeaderboard = document.getElementById('agent-leaderboard');
 if (agentLeaderboard) {
@@ -826,9 +512,12 @@ interface LeaderboardEntry {
 
 interface EvalResultsFile {
   generatedAt?: string;
+  mergedFrom?: string[];
   modelOrder?: Array<{ id: string; name: string; openRouterModel: string }>;
   [modelId: string]: unknown;
 }
+
+const LEADERBOARD_SOURCES = ['/eval-results-all.json', '/eval-results.json'];
 
 function barClass(rate: number, good: boolean): string {
   if (good) return 'performance-bar--good';
@@ -844,11 +533,12 @@ function buildLeaderboardRow(
 ): HTMLTableRowElement {
   const wci = stats.wci ?? stats.agentDom;
   const wciFull = stats.wciFull;
-  const rawRate = stats.standard.successRate;
+  const stdRate = stats.standard.successRate;
   const wciRate = wci?.successRate ?? 0;
+  const fullRate = wciFull?.successRate ?? 0;
+  const lift = wciRate - stdRate;
   const slug = meta.openRouterModel.replace(/^[^/]+\//, '');
-  const fullNote =
-    wciFull != null ? ` · full graph ${wciFull.successRate}%` : '';
+  const liftLabel = lift >= 0 ? `+${lift} pp` : `${lift} pp`;
 
   const tr = document.createElement('tr');
   tr.className = 'leaderboard-row';
@@ -859,15 +549,15 @@ function buildLeaderboardRow(
         <div class="agent-icon">${icon}</div>
         <div class="agent-info">
           <span class="agent-title">${meta.name}</span>
-          <span class="agent-desc">${slug}${fullNote}</span>
+          <span class="agent-desc">${slug} · <span class="leaderboard-lift">${liftLabel}</span></span>
         </div>
       </div>
     </td>
     <td>
       <div class="performance-bar-group">
-        <span class="performance-value">${rawRate}%</span>
+        <span class="performance-value">${stdRate}%</span>
         <div class="performance-track">
-          <div class="performance-bar ${barClass(rawRate, false)}" style="width:0%" data-target-width="${rawRate}%"></div>
+          <div class="performance-bar ${barClass(stdRate, false)}" style="width:0%" data-target-width="${stdRate}%"></div>
         </div>
       </div>
     </td>
@@ -879,9 +569,18 @@ function buildLeaderboardRow(
         </div>
       </div>
     </td>
-    <td class="text-center">
-      <span class="token-badge token-badge--raw">${(stats.standard.avgTokens / 1000).toFixed(1)}k</span>
-      → <span class="token-badge token-badge--distilled">${wci ? (wci.avgTokens / 1000).toFixed(1) + 'k' : '—'}</span>
+    <td>
+      <div class="performance-bar-group">
+        <span class="performance-value">${fullRate}%</span>
+        <div class="performance-track">
+          <div class="performance-bar ${barClass(fullRate, fullRate >= 90)}" style="width:0%" data-target-width="${fullRate}%"></div>
+        </div>
+      </div>
+    </td>
+    <td class="text-center leaderboard-tokens">
+      <span class="token-badge token-badge--raw" title="Standard baselines avg">${(stats.standard.avgTokens / 1000).toFixed(1)}k</span>
+      <span class="token-arrow">→</span>
+      <span class="token-badge token-badge--distilled" title="WCI grounding">${wci ? (wci.avgTokens / 1000).toFixed(1) + 'k' : '—'}</span>
     </td>
   `;
   return tr;
@@ -897,28 +596,139 @@ function animateLeaderboardBars() {
   });
 }
 
+function updateLeaderboardMeta(data: EvalResultsFile, modelCount: number) {
+  const el = document.getElementById('leaderboard-meta');
+  if (!el) return;
+  const when = data.generatedAt ? new Date(data.generatedAt).toLocaleDateString() : '—';
+  el.textContent = `${modelCount} models · 50 scenarios · 5 approaches per task · snapshot ${when}. Methodology: evals/README.md`;
+}
+
+function chartBarLine(
+  tag: string,
+  value: number,
+  max: number,
+  variant: 'std' | 'wci' | 'full',
+  suffix: string
+): string {
+  const pct = max > 0 ? Math.max(2, Math.round((value / max) * 100)) : 0;
+  return `
+    <div class="eval-chart-bar-line">
+      <span class="eval-chart-bar-tag">${tag}</span>
+      <div class="eval-chart-bar-track">
+        <div class="eval-chart-bar eval-chart-bar--${variant}" style="width:0%" data-chart-width="${pct}%"></div>
+      </div>
+      <span class="eval-chart-bar-val">${value.toLocaleString()}${suffix}</span>
+    </div>`;
+}
+
+function animateEvalChartBars(container: HTMLElement): void {
+  requestAnimationFrame(() => {
+    container.querySelectorAll<HTMLElement>('[data-chart-width]').forEach((bar) => {
+      const w = bar.dataset.chartWidth;
+      if (w) bar.style.width = w;
+    });
+  });
+}
+
+function renderEvalCharts(data: EvalResultsFile): void {
+  const section = document.getElementById('eval-charts');
+  const chartSuccess = document.getElementById('chart-success');
+  const chartTokens = document.getElementById('chart-tokens');
+  const chartsMeta = document.getElementById('eval-charts-meta');
+  if (!section || !chartSuccess || !chartTokens) return;
+
+  const skip = new Set(['generatedAt', 'modelOrder', 'mergedFrom']);
+  const order =
+    data.modelOrder ??
+    Object.keys(data)
+      .filter((k) => !skip.has(k) && typeof data[k] === 'object')
+      .map((id) => ({ id, name: id, openRouterModel: id }));
+
+  if (order.length === 0) return;
+
+  section.hidden = false;
+  if (chartsMeta) {
+    const when = data.generatedAt ? new Date(data.generatedAt).toLocaleDateString() : '—';
+    chartsMeta.textContent = `${order.length} models · 50 scenarios · snapshot ${when}. Hover bars for exact values.`;
+  }
+
+  const maxTokens = Math.max(
+    ...order.map((m) => {
+      const s = data[m.id] as LeaderboardEntry | undefined;
+      if (!s?.standard) return 0;
+      const wci = s.wci ?? s.agentDom;
+      return Math.max(s.standard.avgTokens, wci?.avgTokens ?? 0, s.wciFull?.avgTokens ?? 0);
+    }),
+    1
+  );
+
+  chartSuccess.innerHTML = order
+    .map((m) => {
+      const s = data[m.id] as LeaderboardEntry | undefined;
+      if (!s?.standard) return '';
+      const wci = s.wci ?? s.agentDom;
+      const full = s.wciFull;
+      return `
+        <div class="eval-chart-row">
+          <span class="eval-chart-label">${m.name}</span>
+          <div class="eval-chart-bars">
+            ${chartBarLine('Std', s.standard.successRate, 100, 'std', '%')}
+            ${wci ? chartBarLine('WCI', wci.successRate, 100, 'wci', '%') : ''}
+            ${full ? chartBarLine('Full', full.successRate, 100, 'full', '%') : ''}
+          </div>
+        </div>`;
+    })
+    .join('');
+
+  chartTokens.innerHTML = order
+    .map((m) => {
+      const s = data[m.id] as LeaderboardEntry | undefined;
+      if (!s?.standard) return '';
+      const wci = s.wci ?? s.agentDom;
+      return `
+        <div class="eval-chart-row">
+          <span class="eval-chart-label">${m.name}</span>
+          <div class="eval-chart-bars">
+            ${chartBarLine('Std', s.standard.avgTokens, maxTokens, 'std', '')}
+            ${wci ? chartBarLine('WCI', wci.avgTokens, maxTokens, 'wci', '') : ''}
+          </div>
+        </div>`;
+    })
+    .join('');
+
+  animateEvalChartBars(chartSuccess);
+  animateEvalChartBars(chartTokens);
+}
+
 async function loadEvalResults() {
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
 
   try {
-    const res = await fetch('/eval-results.json');
-    if (!res.ok) return;
-    const data = (await res.json()) as EvalResultsFile;
+    let data: EvalResultsFile | null = null;
+    for (const url of LEADERBOARD_SOURCES) {
+      const res = await fetch(url);
+      if (res.ok) {
+        data = (await res.json()) as EvalResultsFile;
+        break;
+      }
+    }
+    if (!data) return;
 
+    const skip = new Set(['generatedAt', 'modelOrder', 'mergedFrom']);
     const order =
       data.modelOrder ??
-      Object.keys(data).filter(
-        (k) => !['generatedAt', 'modelOrder'].includes(k) && typeof data[k] === 'object'
-      ).map((id) => ({
-        id,
-        name: id,
-        openRouterModel: id,
-      }));
+      Object.keys(data)
+        .filter((k) => !skip.has(k) && typeof data[k] === 'object')
+        .map((id) => ({
+          id,
+          name: id,
+          openRouterModel: id,
+        }));
 
     const rows: HTMLTableRowElement[] = [];
     order.forEach((meta, i) => {
-      const stats = data[meta.id] as LeaderboardEntry | undefined;
+      const stats = data![meta.id] as LeaderboardEntry | undefined;
       if (!stats?.standard) return;
       rows.push(
         buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length], i)
@@ -928,9 +738,13 @@ async function loadEvalResults() {
     if (rows.length === 0) return;
 
     tbody.replaceChildren(...rows);
-    animateLeaderboardBars();
+    updateLeaderboardMeta(data, rows.length);
+    renderEvalCharts(data);
+    requestAnimationFrame(() => {
+      setTimeout(() => animateLeaderboardBars(), 200);
+    });
   } catch {
-    console.log('No local eval results found; run npm run eval:benchmark');
+    console.log('No local eval results found; run: npm run eval:merge-leaderboard');
   }
 }
 

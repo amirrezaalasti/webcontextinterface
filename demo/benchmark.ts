@@ -62,8 +62,9 @@ interface ScenarioMeta {
 
 const SCENARIOS_ROOT = join(dirname(fileURLToPath(import.meta.url)), 'scenarios');
 
+/** True in Node (eval CLI); false in the browser (Vite may still define `process`). */
 function isNodeRuntime(): boolean {
-  return typeof process !== 'undefined' && Boolean(process.versions?.node);
+  return typeof window === 'undefined';
 }
 
 /** Vite-only: eager ?raw bundles for browser demo */
@@ -156,18 +157,27 @@ function buildScenario(id: string): BenchmarkScenario {
 export const SCENARIO_IDS: readonly string[] = manifest.scenarios;
 
 /** Filter scenarios by id (empty = all). Used by eval CLI `--scenarios=`. */
+let scenariosCache: BenchmarkScenario[] | null = null;
+
+/** Build scenario payloads on first use (avoids blocking the demo form on 50× HTML parse). */
+export function loadScenarios(): BenchmarkScenario[] {
+  if (!scenariosCache) {
+    scenariosCache = manifest.scenarios.map(buildScenario);
+  }
+  return scenariosCache;
+}
+
 export function filterScenarios(ids?: string[]): BenchmarkScenario[] {
-  if (!ids?.length) return [...SCENARIOS];
+  const all = loadScenarios();
+  if (!ids?.length) return [...all];
   const set = new Set(ids);
-  const filtered = SCENARIOS.filter((s) => set.has(s.id));
-  const missing = ids.filter((id) => !SCENARIOS.some((s) => s.id === id));
+  const filtered = all.filter((s) => set.has(s.id));
+  const missing = ids.filter((id) => !all.some((s) => s.id === id));
   if (missing.length) {
     throw new Error(`Unknown scenario id(s): ${missing.join(', ')}`);
   }
   return filtered;
 }
-
-export const SCENARIOS: BenchmarkScenario[] = manifest.scenarios.map(buildScenario);
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -196,7 +206,8 @@ function countInteractive(html: string): number {
 export class BenchmarkEngine {
   computeMetrics(scenario: BenchmarkScenario): BenchmarkMetrics {
     const rawTokens = estimateTokens(scenario.rawHtml);
-    const distilledTokens = estimateTokens(scenario.annotatedHtml);
+    const distilledJson = this.buildDistilledView(scenario.annotatedHtml);
+    const distilledTokens = estimateTokens(distilledJson);
 
     const parser = new DOMParser();
     const annotatedDoc = parser.parseFromString(scenario.annotatedHtml, 'text/html');

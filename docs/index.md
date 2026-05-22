@@ -6,8 +6,8 @@ hero:
   text: Web Context Interface
   tagline: An open standard and TypeScript SDK that makes web pages natively readable and actionable for LLM-based agents — in under 8 KB per layer.
   image:
-    src: /hero.svg
-    alt: WCI
+    src: /logo.png
+    alt: WCI — Web Context Interface
   actions:
     - theme: brand
       text: Get Started

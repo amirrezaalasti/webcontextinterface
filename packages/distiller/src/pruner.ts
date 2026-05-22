@@ -23,7 +23,7 @@ export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}
     const htmlEl = el as HTMLElement;
 
     // Skip hidden subtrees
-    if (htmlEl.dataset?.agentHidden === 'true') return;
+    if (htmlEl.dataset?.wciHidden === 'true') return;
 
     // Try to read a spec from this element
     const spec = readWciNodeSpec(htmlEl);

@@ -259,4 +259,4 @@ evals/logs/2026-05-22_21-20-48/
     ...
 ```
 
-The demo leaderboard shows **WCI Grounding** in the main column and **WCI Full** in the model subtitle (`full graph X%`) when `eval-results.json` is updated.
+The demo leaderboard loads **`demo/public/eval-results-all.json`** (merge archived runs with `npm run eval:merge-leaderboard`). It shows all models: standard baselines, WCI grounding, WCI full, and token averages per call.

@@ -6,7 +6,8 @@ Published evaluation outputs from `npm run eval:benchmark`. The demo leaderboard
 
 | File | Contents |
 |------|----------|
-| `eval-results.json` | Leaderboard summary: `standard`, `wci` (grounding), `wciFull` per model — **demo loads this** |
+| `eval-results-all.json` | **Merged leaderboard** for all archived models — **demo loads this first** |
+| `eval-results.json` | Single-model snapshot (fallback if `eval-results-all.json` missing) |
 | `eval-report.json` | Full per-scenario, per-approach breakdown (same shape as `eval-report-<model>.json`) |
 | `eval-results-<model>.json` | Snapshot for one OpenRouter run (e.g. `eval-results-gpt5nano.json`) |
 | `eval-report-<model>.json` | Full report for that run (e.g. `eval-report-gemini3.5flash.json`) |
@@ -24,11 +25,17 @@ Published evaluation outputs from `npm run eval:benchmark`. The demo leaderboard
 
 After a new run, archive copies with a model suffix (e.g. `eval-results-gpt5.json`) so `eval-results.json` can point at the model you want on the demo leaderboard.
 
-To refresh the live demo after a run:
+After adding or updating `eval-results-*.json` snapshots:
+
+```bash
+npm run eval:merge-leaderboard   # writes eval-results-all.json (6 models)
+npm run demo                     # refresh leaderboard in the site
+```
+
+Optional single-model fallback:
 
 ```bash
 cp demo/public/eval-results-<your-model>.json demo/public/eval-results.json
-cp demo/public/eval-report-<your-model>.json demo/public/eval-report.json
 ```
 
 ## Report JSON shape
