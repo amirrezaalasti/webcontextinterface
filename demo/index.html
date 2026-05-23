@@ -395,7 +395,7 @@
     </p>
 
     <!-- Charts (from eval-results-all.json) -->
-    <div class="eval-charts" id="eval-charts" hidden>
+    <div class="eval-charts" id="eval-charts">
       <div class="eval-charts__header">
         <h3 class="eval-charts__title">📈 Benchmark Results</h3>
         <p class="eval-charts__subtitle" id="eval-charts-meta">
@@ -447,9 +447,9 @@
             </tr>
           </thead>
           <tbody id="leaderboard-body">
-            <tr class="leaderboard-row leaderboard-row--placeholder">
+            <tr class="leaderboard-row leaderboard-row--placeholder" id="leaderboard-placeholder">
               <td colspan="5" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
-                Run <code>npm run eval:merge-leaderboard</code> after benchmarks (see <code>evals/README.md</code>).
+                Loading benchmark results…
               </td>
             </tr>
           </tbody>

@@ -6,6 +6,7 @@
 import { WciDistiller } from '@wci/distiller';
 import { WciBridge } from '@wci/bridge';
 import { WciContextLoader } from '@wci/context';
+import bundledEvalResults from './public/eval-results-all.json';
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
 const jsonPanel    = document.getElementById('json-output')    as HTMLElement;
@@ -517,7 +518,16 @@ interface EvalResultsFile {
   [modelId: string]: unknown;
 }
 
-const LEADERBOARD_SOURCES = ['/eval-results-all.json', '/eval-results.json'];
+/** Resolve public JSON under the demo base (`/` locally, `/demo/` on Vercel). */
+function demoAssetUrl(file: string): string {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${file.replace(/^\//, '')}`;
+}
+
+const LEADERBOARD_SOURCES = [
+  demoAssetUrl('eval-results-all.json'),
+  demoAssetUrl('eval-results.json'),
+];
 
 function barClass(rate: number, good: boolean): string {
   if (good) return 'performance-bar--good';
@@ -700,52 +710,65 @@ function renderEvalCharts(data: EvalResultsFile): void {
   animateEvalChartBars(chartTokens);
 }
 
-async function loadEvalResults() {
+function applyEvalResults(data: EvalResultsFile): void {
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
 
-  try {
-    let data: EvalResultsFile | null = null;
-    for (const url of LEADERBOARD_SOURCES) {
+  const skip = new Set(['generatedAt', 'modelOrder', 'mergedFrom']);
+  const order =
+    data.modelOrder ??
+    Object.keys(data)
+      .filter((k) => !skip.has(k) && typeof data[k] === 'object')
+      .map((id) => ({
+        id,
+        name: id,
+        openRouterModel: id,
+      }));
+
+  const rows: HTMLTableRowElement[] = [];
+  order.forEach((meta, i) => {
+    const stats = data[meta.id] as LeaderboardEntry | undefined;
+    if (!stats?.standard) return;
+    rows.push(
+      buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length], i)
+    );
+  });
+
+  if (rows.length === 0) return;
+
+  tbody.replaceChildren(...rows);
+  updateLeaderboardMeta(data, rows.length);
+  renderEvalCharts(data);
+  requestAnimationFrame(() => {
+    setTimeout(() => animateLeaderboardBars(), 200);
+  });
+}
+
+async function loadEvalResults(): Promise<void> {
+  let data: EvalResultsFile | null = null;
+
+  for (const url of LEADERBOARD_SOURCES) {
+    try {
       const res = await fetch(url);
       if (res.ok) {
         data = (await res.json()) as EvalResultsFile;
         break;
       }
+    } catch {
+      /* try next source */
     }
-    if (!data) return;
-
-    const skip = new Set(['generatedAt', 'modelOrder', 'mergedFrom']);
-    const order =
-      data.modelOrder ??
-      Object.keys(data)
-        .filter((k) => !skip.has(k) && typeof data[k] === 'object')
-        .map((id) => ({
-          id,
-          name: id,
-          openRouterModel: id,
-        }));
-
-    const rows: HTMLTableRowElement[] = [];
-    order.forEach((meta, i) => {
-      const stats = data![meta.id] as LeaderboardEntry | undefined;
-      if (!stats?.standard) return;
-      rows.push(
-        buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length], i)
-      );
-    });
-
-    if (rows.length === 0) return;
-
-    tbody.replaceChildren(...rows);
-    updateLeaderboardMeta(data, rows.length);
-    renderEvalCharts(data);
-    requestAnimationFrame(() => {
-      setTimeout(() => animateLeaderboardBars(), 200);
-    });
-  } catch {
-    console.log('No local eval results found; run: npm run eval:merge-leaderboard');
   }
+
+  if (!data) {
+    data = bundledEvalResults as EvalResultsFile;
+  }
+
+  if (!data) {
+    console.warn('[WCI] No eval results; run: npm run eval:merge-leaderboard');
+    return;
+  }
+
+  applyEvalResults(data);
 }
 
-loadEvalResults();
+void loadEvalResults();
