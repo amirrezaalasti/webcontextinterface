@@ -41,17 +41,24 @@ DOCS_BASE=/WIA_framework/ npm run website:build
 
 The demo is published at `/WIA_framework/demo/`.
 
-## GitHub Pages
+## GitHub Pages (optional mirror)
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Push to `main` — the workflow `.github/workflows/deploy-website.yml` builds and deploys automatically.
+**Production hosting is on Vercel:** [webcontextinterface.vercel.app](https://webcontextinterface.vercel.app/)
 
-Your site URL will be:
+The workflow [`.github/workflows/deploy-website.yml`](../.github/workflows/deploy-website.yml) **builds on every push** to `main` (and on PRs) so CI stays green. It does **not** deploy to Pages automatically.
+
+To publish a GitHub Pages mirror:
+
+1. **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
+2. **Actions → Website build → Run workflow**, enable **Deploy to GitHub Pages**, run.
+
+Your Pages URL will be:
 
 ```text
 https://<username>.github.io/<repository-name>/
 ```
+
+For this repo: [https://amirrezaalasti.github.io/webcontextinterface/](https://amirrezaalasti.github.io/webcontextinterface/) (after the steps above).
 
 ## Netlify
 

@@ -1,20 +1,27 @@
-# Deploy WCI documentation website to GitHub Pages
-# Enable: Repo Settings → Pages → Source: GitHub Actions
+# Build docs + demo on every push. Deploy to GitHub Pages only when requested manually
+# (requires Settings → Pages → Source: GitHub Actions).
+#
+# Production site: https://webcontextinterface.vercel.app/
 
-name: Deploy documentation website
+name: Website build
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+    inputs:
+      deploy_github_pages:
+        description: Deploy to GitHub Pages (enable Pages → GitHub Actions in repo settings first)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: website-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -38,18 +45,36 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
 
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-dist
+          path: docs/.vitepress/dist
+          retention-days: 7
+
+  deploy-github-pages:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy_github_pages == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: website-dist
+          path: docs/.vitepress/dist
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
