@@ -2,8 +2,6 @@
   <img src="assets/logo-with-title.png" alt="WCI — Web Context Interface" width="420" />
 </p>
 
-> Making websites natively readable for LLM-based agents.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
