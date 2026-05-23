@@ -33,7 +33,7 @@ npm run website:build     # docs + demo → docs/.vitepress/dist
 npm run website:preview   # preview the full site locally
 ```
 
-Hosted on [Vercel](https://webcontextinterface.vercel.app/) and [GitHub Pages](https://amirrezaalasti.github.io/webcontextinterface/). See [docs/deploy.md](./docs/deploy.md) to enable Pages or redeploy.
+**Deploy:** push to `main` — Vercel rebuilds automatically ([`vercel.json`](./vercel.json)). For GitHub Pages, enable **Settings → Pages → Source: GitHub Actions**, then the [deploy workflow](.github/workflows/deploy-website.yml) runs on each push.
 
 **Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
 

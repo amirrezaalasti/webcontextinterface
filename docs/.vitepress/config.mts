@@ -43,7 +43,6 @@ export default defineConfig({
       { text: 'Specification', link: '/specification' },
       { text: 'API', link: '/api/spec' },
       { text: 'Demo', link: demoUrl, target: '_blank' },
-      { text: 'Deploy', link: '/deploy' },
     ],
 
     sidebar: [
@@ -53,7 +52,6 @@ export default defineConfig({
           { text: 'What is WCI?', link: '/' },
           { text: 'Getting started', link: '/getting-started' },
           { text: 'Architecture', link: '/architecture' },
-          { text: 'Deploy website', link: '/deploy' },
         ],
       },
       {

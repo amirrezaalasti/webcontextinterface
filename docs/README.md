@@ -12,4 +12,4 @@ This folder is the **Web Context Interface** documentation website, built with [
 
 ## Deploy
 
-See [deploy.md](./deploy.md) for GitHub Pages, Netlify, and Vercel.
+See the root [README — Documentation website](https://github.com/amirrezaalasti/webcontextinterface#documentation-website) for Vercel, GitHub Pages, and local build commands.
