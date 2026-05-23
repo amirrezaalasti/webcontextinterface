@@ -2,8 +2,6 @@
   <img src="assets/logo-with-title.png" alt="WCI — Web Context Interface" width="420" />
 </p>
 
-> Making websites natively readable for LLM-based agents.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1)](https://webcontextinterface.vercel.app/)
 
