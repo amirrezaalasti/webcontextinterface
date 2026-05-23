@@ -1,9 +1,13 @@
-# Build docs + demo on every push. Deploy to GitHub Pages only when requested manually
-# (requires Settings → Pages → Source: GitHub Actions).
+# Build and deploy docs + demo to GitHub Pages on every push to main.
 #
-# Production site: https://webcontextinterface.vercel.app/
+# ONE-TIME SETUP (required or deploy returns 404):
+#   Repo → Settings → Pages → Build and deployment → Source: GitHub Actions
+#
+# URLs:
+#   GitHub Pages: https://amirrezaalasti.github.io/webcontextinterface/
+#   Vercel:       https://webcontextinterface.vercel.app/
 
-name: Website build
+name: Deploy website (GitHub Pages)
 
 on:
   push:
@@ -11,17 +15,14 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      deploy_github_pages:
-        description: Deploy to GitHub Pages (enable Pages → GitHub Actions in repo settings first)
-        type: boolean
-        default: false
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: website-${{ github.workflow }}-${{ github.ref }}
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -40,41 +41,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build website (docs + demo)
+      - name: Build website for GitHub Pages (repo subpath)
         run: node scripts/build-website.mjs
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: website-dist
-          path: docs/.vitepress/dist
-          retention-days: 7
-
-  deploy-github-pages:
-    needs: build
-    if: github.event_name == 'workflow_dispatch' && inputs.deploy_github_pages == true
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: website-dist
-          path: docs/.vitepress/dist
-
       - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

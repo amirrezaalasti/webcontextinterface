@@ -21,7 +21,9 @@ Additionally, three **site root files** give agents site-wide grounding before t
 
 ## Documentation website
 
-**Live:** [webcontextinterface.vercel.app](https://webcontextinterface.vercel.app/) · [Interactive demo](https://webcontextinterface.vercel.app/demo/)
+**Live (Vercel):** [webcontextinterface.vercel.app](https://webcontextinterface.vercel.app/) · [Demo](https://webcontextinterface.vercel.app/demo/)
+
+**Live (GitHub Pages):** [amirrezaalasti.github.io/webcontextinterface](https://amirrezaalasti.github.io/webcontextinterface/) · [Demo](https://amirrezaalasti.github.io/webcontextinterface/demo/)
 
 Static site (VitePress) with guides, API reference, and the interactive demo.
 
@@ -31,7 +33,7 @@ npm run website:build     # docs + demo → docs/.vitepress/dist
 npm run website:preview   # preview the full site locally
 ```
 
-Production is hosted on Vercel ([`vercel.json`](./vercel.json)). To redeploy or self-host, see [docs/deploy.md](./docs/deploy.md).
+Hosted on [Vercel](https://webcontextinterface.vercel.app/) and [GitHub Pages](https://amirrezaalasti.github.io/webcontextinterface/). See [docs/deploy.md](./docs/deploy.md) to enable Pages or redeploy.
 
 **Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
 
