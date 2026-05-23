@@ -1,4 +1,6 @@
-# WCI — Web Context Interface
+<p align="center">
+  <img src="assets/logo-with-title.png" alt="WCI — Web Context Interface" width="420" />
+</p>
 
 > Making websites natively readable for LLM-based agents.
 
@@ -6,13 +8,7 @@
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
 
-```
-data-wci-* HTML attrs  →  Distiller Engine  →  LLM Context (JSON / Markdown)
-                                                        ↓
-                                         WciBridge.dispatch(action)
-                                                        ↓
-                                         Typed ActionResult payload
-```
+![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](assets/architecture.png)
 
 Additionally, three **site root files** give agents site-wide grounding before they touch a single page — analogous to `robots.txt`:
 
