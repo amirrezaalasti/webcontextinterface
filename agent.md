@@ -725,7 +725,7 @@ WIA_framework/
 
 ### Interactive demo (`npm run demo`)
 
-- **URL:** `http://localhost:5173`
+- **URL (production):** [https://webcontextinterface.vercel.app/demo/](https://webcontextinterface.vercel.app/demo/) · **local:** `http://localhost:5173`
 - Registration form with live **human vs agent** views
 - JSON/Markdown distillation panes
 - Action log with `ActionResult` traces

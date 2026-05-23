@@ -21,9 +21,12 @@ function normalizeBase(raw) {
   return base;
 }
 
+// Vercel / Netlify / explicit DOCS_BASE use root "/". GitHub Pages uses repo subpath unless overridden.
 const repo = process.env.GITHUB_REPOSITORY;
+const onVercel = process.env.VERCEL === '1';
 const docsBase = normalizeBase(
-  process.env.DOCS_BASE ?? (repo ? `/${repo.split('/')[1]}` : '/')
+  process.env.DOCS_BASE ??
+    (onVercel ? '/' : repo ? `/${repo.split('/')[1]}` : '/')
 );
 const demoBase = normalizeBase(`${docsBase}demo`);
 
@@ -38,8 +41,14 @@ console.log(`Building WCI website (docs base: ${docsBase}, demo: ${demoBase})`);
 
 const assetsDir = join(root, 'assets');
 for (const dest of [join(root, 'demo/public'), join(root, 'docs/public')]) {
-  for (const file of ['logo.png', 'logo-with-title.png', 'logo-web-theme.png']) {
-    cpSync(join(assetsDir, file), join(dest, file));
+  for (const file of [
+    'logo.png',
+    'logo-with-title.png',
+    'logo-web-theme.png',
+    'architecture.png',
+  ]) {
+    const src = join(assetsDir, file);
+    if (existsSync(src)) cpSync(src, join(dest, file));
   }
 }
 

@@ -9,6 +9,8 @@ authors:
 version: 1.0.0
 date-released: 2026-05-22
 license: MIT
+url: "https://webcontextinterface.vercel.app/"
+repository-code: "https://github.com/amirrezaalasti/webcontextinterface"
 keywords:
   - web agents
   - LLM

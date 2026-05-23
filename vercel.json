@@ -1,6 +1,23 @@
 {
-  "buildCommand": "node scripts/build-website.mjs",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run website:build",
   "outputDirectory": "docs/.vitepress/dist",
+  "installCommand": "npm ci",
   "framework": null,
-  "installCommand": "npm ci"
+  "env": {
+    "DOCS_BASE": "/"
+  },
+  "rewrites": [
+    { "source": "/demo", "destination": "/demo/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/demo/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
 }

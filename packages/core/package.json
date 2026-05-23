@@ -26,8 +26,12 @@
     "@wci/context": "*"
   },
   "keywords": ["wci", "llm", "agents", "dom", "accessibility", "sdk"],
+  "homepage": "https://webcontextinterface.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wci/wci"
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   }
 }

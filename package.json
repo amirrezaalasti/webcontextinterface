@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "WCI (Web Context Interface) — LLM-native web pages via data-wci-* markup, distillation, and typed actions.",
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -18,6 +26,7 @@
     "docs:preview": "vitepress preview docs",
     "website:build": "node scripts/build-website.mjs",
     "website:preview": "vitepress preview docs",
+    "vercel:deploy": "vercel deploy --prod",
     "eval:benchmark": "tsx evals/run-benchmark.ts",
     "eval:verify": "tsx evals/run-benchmark.ts --verify-ground-truth",
     "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only",

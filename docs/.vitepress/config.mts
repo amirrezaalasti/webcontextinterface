@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress';
 
-const repo = process.env.VITEPRESS_GITHUB_REPO ?? process.env.GITHUB_REPOSITORY;
+const repo =
+  process.env.VITEPRESS_GITHUB_REPO ??
+  process.env.GITHUB_REPOSITORY ??
+  'amirrezaalasti/webcontextinterface';
 const base = process.env.VITEPRESS_BASE ?? '/';
 const demoUrl =
   process.env.VITEPRESS_DEMO_URL ??
@@ -76,13 +79,11 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: repo
-      ? [{ icon: 'github', link: `https://github.com/${repo}` }]
-      : [],
+    socialLinks: [{ icon: 'github', link: `https://github.com/${repo}` }],
 
-    editLink: repo
-      ? { pattern: `https://github.com/${repo}/edit/main/docs/:path` }
-      : undefined,
+    editLink: {
+      pattern: `https://github.com/${repo}/edit/main/docs/:path`,
+    },
 
     footer: {
       message: 'MIT Licensed · Web Context Interface (WCI)',

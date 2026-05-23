@@ -18,7 +18,6 @@ hero:
     - theme: alt
       text: Live Demo
       link: /demo/
-      target: _blank
 
 features:
   - icon: 🏷️
@@ -37,13 +36,7 @@ features:
 
 ## How it works
 
-```text
-data-wci-* HTML  →  WciDistiller  →  LLM context (JSON / Markdown)
-                                          ↓
-                               WciBridge.dispatch(action)
-                                          ↓
-                               Typed ActionResult
-```
+![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](/architecture.png)
 
 ## Install
 

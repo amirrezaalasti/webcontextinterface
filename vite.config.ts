@@ -7,7 +7,8 @@ export default defineConfig({
   base: demoBase,
   root: 'demo',
   publicDir: 'public',
-  assetsInclude: ['**/*.html'],
+  // Scenario HTML is loaded via import.meta.glob in benchmark.ts — do not treat index.html as a static asset.
+  assetsInclude: ['**/scenarios/**/*.html'],
   resolve: {
     alias: {
       '@wci/core':      resolve(__dirname, 'packages/core/src/index.ts'),

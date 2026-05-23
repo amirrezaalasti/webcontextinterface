@@ -5,6 +5,7 @@
 > Making websites natively readable for LLM-based agents.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1)](https://webcontextinterface.vercel.app/)
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
 
@@ -22,7 +23,9 @@ Additionally, three **site root files** give agents site-wide grounding before t
 
 ## Documentation website
 
-Static site (VitePress) with guides, API reference, and the interactive demo at `/demo/`.
+**Live:** [webcontextinterface.vercel.app](https://webcontextinterface.vercel.app/) · [Interactive demo](https://webcontextinterface.vercel.app/demo/)
+
+Static site (VitePress) with guides, API reference, and the interactive demo.
 
 ```bash
 npm run docs:dev          # docs only → http://localhost:5174
@@ -30,7 +33,7 @@ npm run website:build     # docs + demo → docs/.vitepress/dist
 npm run website:preview   # preview the full site locally
 ```
 
-**Publish to GitHub Pages:** enable Pages → *GitHub Actions* in repo settings, then push to `main`. See [docs/deploy.md](./docs/deploy.md).
+Production is hosted on Vercel ([`vercel.json`](./vercel.json)). To redeploy or self-host, see [docs/deploy.md](./docs/deploy.md).
 
 **Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
 
