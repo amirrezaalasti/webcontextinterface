@@ -2,7 +2,7 @@
 // WCI Distiller — JSON Serializer
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciNodeSpec, WciView, SiteContextSummary } from '@wci/spec';
+import { WciNodeSpec, WciView, SiteContextSummary } from '@webcontextinterface/spec';
 
 export function serializeJSON(
   nodes: WciNodeSpec[],

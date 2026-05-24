@@ -5,7 +5,7 @@ The Bridge executes agent-chosen actions on live DOM and returns a typed **`Acti
 ## WciBridge
 
 ```typescript
-import { WciBridge } from '@wci/bridge';
+import { WciBridge } from '@webcontextinterface/bridge';
 
 const bridge = new WciBridge(rootElement);
 
@@ -88,7 +88,7 @@ The `action` should match the target node's `data-wci-action` when possible.
 Use when you do not need history or `onStateChange`:
 
 ```typescript
-import { dispatchAction } from '@wci/bridge';
+import { dispatchAction } from '@webcontextinterface/bridge';
 
 const result = await dispatchAction(
   { nodeId: 'submit-btn', action: 'click' },

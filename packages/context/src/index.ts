@@ -4,7 +4,7 @@
 // a typed policy engine for enforcement.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciPolicy, SiteManifest } from '@wci/spec';
+import { WciPolicy, SiteManifest } from '@webcontextinterface/spec';
 
 export interface SiteContext {
   /** Parsed wci.txt policy */
@@ -208,4 +208,4 @@ export class WciContextLoader {
   }
 }
 
-export type { WciPolicy, SiteManifest } from '@wci/spec';
+export type { WciPolicy, SiteManifest } from '@webcontextinterface/spec';

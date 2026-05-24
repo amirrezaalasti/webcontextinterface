@@ -1,11 +1,11 @@
-# `@wci/core` API
+# `@webcontextinterface/core` API
 
 All-in-one **Web Context Interface** SDK — re-exports every WCI package.
 
 ## Install
 
 ```bash
-npm install @wci/core
+npm install @webcontextinterface/core
 ```
 
 ## Usage
@@ -17,16 +17,16 @@ import {
   WciContextLoader,
   readWciNodeSpec,
   PolicyEngine,
-} from '@wci/core';
+} from '@webcontextinterface/core';
 ```
 
 ## Exports
 
 | From | Symbols |
 |------|---------|
-| `@wci/spec` | All types, `readWciNodeSpec` |
-| `@wci/distiller` | `WciDistiller`, `pruneDOM`, serializers |
-| `@wci/bridge` | `WciBridge`, `dispatchAction`, action types |
-| `@wci/context` | `WciContextLoader`, `PolicyEngine`, `ScopeDeniedError` |
+| `@webcontextinterface/spec` | All types, `readWciNodeSpec` |
+| `@webcontextinterface/distiller` | `WciDistiller`, `pruneDOM`, serializers |
+| `@webcontextinterface/bridge` | `WciBridge`, `dispatchAction`, action types |
+| `@webcontextinterface/context` | `WciContextLoader`, `PolicyEngine`, `ScopeDeniedError` |
 
 See individual package API pages for details.

@@ -228,7 +228,7 @@ Keep state **small and serializable**. The bridge **merges patches** into `data-
 ### DOM reader (`readWciNodeSpec`)
 
 ```typescript
-import { readWciNodeSpec } from '@wci/spec';
+import { readWciNodeSpec } from '@webcontextinterface/spec';
 
 const spec = readWciNodeSpec(element);
 // null if element has neither data-wci-id nor data-wci-role
@@ -287,7 +287,7 @@ Transform annotated DOM into a **token-efficient** representation for LLM contex
 ### `WciDistiller`
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({
   format: 'json',           // 'json' | 'markdown'
@@ -391,7 +391,7 @@ Reference implementation is **browser-first**. For SSR/crawlers:
 ### `WciBridge`
 
 ```typescript
-import { WciBridge } from '@wci/bridge';
+import { WciBridge } from '@webcontextinterface/bridge';
 
 const bridge = new WciBridge(document.getElementById('registration-form')!);
 
@@ -411,7 +411,7 @@ Root element limits `querySelector('[data-wci-id="..."]')` search space—use sc
 ### Low-level dispatcher
 
 ```typescript
-import { dispatchAction } from '@wci/bridge';
+import { dispatchAction } from '@webcontextinterface/bridge';
 
 const result = await dispatchAction(
   { nodeId: 'submit-btn', action: 'click' },
@@ -526,7 +526,7 @@ Structured site contract:
 ### `WciContextLoader`
 
 ```typescript
-import { WciContextLoader, ScopeDeniedError } from '@wci/context';
+import { WciContextLoader, ScopeDeniedError } from '@webcontextinterface/context';
 
 const ctx = await WciContextLoader.load('https://your-site.com', responseHeaders);
 
@@ -655,19 +655,19 @@ Parse `Rate-Limit-Actions` and `Rate-Limit-Distil` from `wci.txt`; throttle clie
 
 | Package | npm name | Responsibility | Key exports |
 |---------|----------|----------------|-------------|
-| Spec | `@wci/spec` | Types, `readWciNodeSpec` | `WciNodeSpec`, `WciView`, `SiteManifest`, `WciPolicy` |
-| Distiller | `@wci/distiller` | Prune + serialize | `WciDistiller`, `pruneDOM` |
-| Bridge | `@wci/bridge` | Actions + results | `WciBridge`, `dispatchAction`, `ActionResult` |
-| Context | `@wci/context` | Site files + policy | `WciContextLoader`, `PolicyEngine` |
-| Core | `@wci/core` | Umbrella re-export | All of the above |
+| Spec | `@webcontextinterface/spec` | Types, `readWciNodeSpec` | `WciNodeSpec`, `WciView`, `SiteManifest`, `WciPolicy` |
+| Distiller | `@webcontextinterface/distiller` | Prune + serialize | `WciDistiller`, `pruneDOM` |
+| Bridge | `@webcontextinterface/bridge` | Actions + results | `WciBridge`, `dispatchAction`, `ActionResult` |
+| Context | `@webcontextinterface/context` | Site files + policy | `WciContextLoader`, `PolicyEngine` |
+| Core | `@webcontextinterface/core` | Umbrella re-export | All of the above |
 
 **Build:** `tsup` → ESM + CJS + `.d.ts` in each `packages/*/dist/`.
 
 **Install:**
 
 ```bash
-npm install @wci/core
-# or: @wci/spec @wci/distiller @wci/bridge @wci/context
+npm install @webcontextinterface/core
+# or: @webcontextinterface/spec @webcontextinterface/distiller @webcontextinterface/bridge @webcontextinterface/context
 ```
 
 **Development:**
@@ -683,10 +683,10 @@ npm run docs:dev   # VitePress :5174
 
 | Use case | Packages |
 |----------|----------|
-| Read-only crawler / RAG | `@wci/spec` + `@wci/distiller` |
-| In-browser agent | + `@wci/bridge` |
-| Multi-page flows with policy | + `@wci/context` |
-| Application quick start | `@wci/core` |
+| Read-only crawler / RAG | `@webcontextinterface/spec` + `@webcontextinterface/distiller` |
+| In-browser agent | + `@webcontextinterface/bridge` |
+| Multi-page flows with policy | + `@webcontextinterface/context` |
+| Application quick start | `@webcontextinterface/core` |
 
 ---
 
@@ -837,7 +837,7 @@ Embedded in distilled views: `name`, `purpose`, `auth_required_for[]`, `denied_s
 
 ### `TaskFlow` / `ScopeDescriptor`
 
-Defined in `@wci/spec` — see `packages/spec/src/index.ts` for full `SiteManifest` schema.
+Defined in `@webcontextinterface/spec` — see `packages/spec/src/index.ts` for full `SiteManifest` schema.
 
 ---
 

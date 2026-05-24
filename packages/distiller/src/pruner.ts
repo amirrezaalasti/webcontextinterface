@@ -3,7 +3,7 @@
 // Strips decorative / invisible nodes, leaving only semantic WCI nodes.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciNodeSpec, readWciNodeSpec } from '@wci/spec';
+import { WciNodeSpec, readWciNodeSpec } from '@webcontextinterface/spec';
 
 export interface PrunerOptions {
   /** If set, only collect nodes belonging to this landmark scope */

@@ -3,9 +3,9 @@
 // <script type="module"> is deferred — DOM is fully parsed when this runs.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciDistiller } from '@wci/distiller';
-import { WciBridge } from '@wci/bridge';
-import { WciContextLoader } from '@wci/context';
+import { WciDistiller } from '@webcontextinterface/distiller';
+import { WciBridge } from '@webcontextinterface/bridge';
+import { WciContextLoader } from '@webcontextinterface/context';
 import bundledEvalResults from './public/eval-results-all.json';
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;

@@ -1,4 +1,4 @@
-# `@wci/context` API
+# `@webcontextinterface/context` API
 
 ## `WciContextLoader`
 
@@ -36,14 +36,14 @@ Throws `ScopeDeniedError`.
 
 ## Re-exported types
 
-`WciPolicy`, `SiteManifest` from `@wci/spec`.
+`WciPolicy`, `SiteManifest` from `@webcontextinterface/spec`.
 
 ## Install
 
 ```bash
-npm install @wci/context
+npm install @webcontextinterface/context
 ```
 
 ```typescript
-import { WciContextLoader, PolicyEngine, ScopeDeniedError } from '@wci/context';
+import { WciContextLoader, PolicyEngine, ScopeDeniedError } from '@webcontextinterface/context';
 ```

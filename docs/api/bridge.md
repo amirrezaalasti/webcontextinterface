@@ -1,4 +1,4 @@
-# `@wci/bridge` API
+# `@webcontextinterface/bridge` API
 
 ## `WciBridge`
 
@@ -39,11 +39,11 @@ Stateless dispatcher; no history.
 ## Install
 
 ```bash
-npm install @wci/bridge
+npm install @webcontextinterface/bridge
 ```
 
 ```typescript
-import { WciBridge, dispatchAction, type ActionResult } from '@wci/bridge';
+import { WciBridge, dispatchAction, type ActionResult } from '@webcontextinterface/bridge';
 ```
 
-Dependency: `@wci/spec` (types only at runtime for dispatcher).
+Dependency: `@webcontextinterface/spec` (types only at runtime for dispatcher).

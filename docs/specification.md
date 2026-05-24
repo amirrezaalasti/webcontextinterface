@@ -42,7 +42,7 @@ The Bridge merges patches into `data-wci-state` after each action.
 
 ## Distilled view (`WciView`)
 
-JSON output shape (from `@wci/distiller`):
+JSON output shape (from `@webcontextinterface/distiller`):
 
 ```json
 {
@@ -74,7 +74,7 @@ Robots.txt-style directives. Key fields:
 
 ### `wci.json`
 
-Structured manifest: `site`, `capabilities`, `authentication`, `task_flows`, `scopes`, `denied_scopes`, `rate_limits`. Types: `SiteManifest`, `TaskFlow`, `ScopeDescriptor` in `@wci/spec`.
+Structured manifest: `site`, `capabilities`, `authentication`, `task_flows`, `scopes`, `denied_scopes`, `rate_limits`. Types: `SiteManifest`, `TaskFlow`, `ScopeDescriptor` in `@webcontextinterface/spec`.
 
 ### `wci.md`
 

@@ -41,7 +41,7 @@ flowchart TB
   E -.->|scope checks| B
 ```
 
-## Layer 1 — Semantic HTML (`@wci/spec`)
+## Layer 1 — Semantic HTML (`@webcontextinterface/spec`)
 
 Standard DOM nodes carry machine-readable metadata:
 
@@ -53,7 +53,7 @@ Standard DOM nodes carry machine-readable metadata:
 
 `readWciNodeSpec(element)` maps attributes to the `WciNodeSpec` TypeScript interface.
 
-## Layer 2 — Distiller (`@wci/distiller`)
+## Layer 2 — Distiller (`@webcontextinterface/distiller`)
 
 The distiller walks the DOM, collects annotated nodes, sorts by priority, and emits a compact **WciView** (JSON) or Markdown string suitable for LLM context windows.
 
@@ -64,7 +64,7 @@ Design goals:
 - Cap node count (`maxNodes`) for token budgets
 - Optionally attach site summary metadata
 
-## Layer 3 — Bridge (`@wci/bridge`)
+## Layer 3 — Bridge (`@webcontextinterface/bridge`)
 
 The bridge translates agent decisions into real DOM interactions:
 
@@ -83,7 +83,7 @@ Every dispatch returns a typed **`ActionResult`**: success flag, before/after st
 
 State changes also emit `wci:state-change` on `document` for observers.
 
-## Site context (`@wci/context`)
+## Site context (`@webcontextinterface/context`)
 
 Before touching a page, agents can load site policy:
 
@@ -105,6 +105,6 @@ Before touching a page, agents can load site policy:
 
 Packages are tree-shakeable ESM/CJS builds. Use only the layers you need:
 
-- Read-only crawlers: `@wci/distiller` + `@wci/spec`
-- In-page agents: add `@wci/bridge`
-- Multi-page flows: add `@wci/context`
+- Read-only crawlers: `@webcontextinterface/distiller` + `@webcontextinterface/spec`
+- In-page agents: add `@webcontextinterface/bridge`
+- Multi-page flows: add `@webcontextinterface/context`

@@ -5,7 +5,7 @@ The distiller compresses annotated DOM into an **WciView** (JSON) or Markdown fo
 ## Basic usage
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({
   format: 'json',
@@ -34,7 +34,7 @@ const md = distiller.distilMarkdown(document);
 Lower-level API without serialization:
 
 ```typescript
-import { pruneDOM } from '@wci/distiller';
+import { pruneDOM } from '@webcontextinterface/distiller';
 
 const nodes = pruneDOM(document.getElementById('form-scope')!, {
   scope: 'registration-form',

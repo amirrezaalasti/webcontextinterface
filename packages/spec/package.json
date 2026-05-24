@@ -1,5 +1,5 @@
 {
-  "name": "@wci/spec",
+  "name": "@webcontextinterface/spec",
   "version": "1.0.0",
   "description": "WCI specification types and DOM attribute reader",
   "license": "MIT",
@@ -17,7 +17,20 @@
   },
   "files": ["dist", "README.md"],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": ["wci", "spec", "types", "llm", "agents"]
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/spec"
+  },
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
+  },
+  "keywords": ["wci", "spec", "types", "llm", "agents", "web-context-interface"]
 }

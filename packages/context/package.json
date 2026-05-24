@@ -1,5 +1,5 @@
 {
-  "name": "@wci/context",
+  "name": "@webcontextinterface/context",
   "version": "1.0.0",
   "description": "WCI site context — wci.txt, wci.json, wci.md loader and policy engine",
   "license": "MIT",
@@ -17,10 +17,23 @@
   },
   "files": ["dist", "README.md"],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/context"
+  },
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@wci/spec": "*"
+    "@webcontextinterface/spec": "^1.0.0"
   },
-  "keywords": ["wci", "wci.txt", "policy", "site-context"]
+  "keywords": ["wci", "wci.txt", "policy", "site-context", "web-context-interface"]
 }

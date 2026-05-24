@@ -8,9 +8,9 @@ export default defineConfig({
   sourcemap: true,
   treeshake: true,
   external: [
-    '@wci/spec',
-    '@wci/distiller',
-    '@wci/bridge',
-    '@wci/context',
+    '@webcontextinterface/spec',
+    '@webcontextinterface/distiller',
+    '@webcontextinterface/bridge',
+    '@webcontextinterface/context',
   ],
 });

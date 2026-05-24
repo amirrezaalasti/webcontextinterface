@@ -21,9 +21,9 @@ npm run build
 When published to npm:
 
 ```bash
-npm install @wci/core
+npm install @webcontextinterface/core
 # or install packages individually:
-# npm install @wci/spec @wci/distiller @wci/bridge @wci/context
+# npm install @webcontextinterface/spec @webcontextinterface/distiller @webcontextinterface/bridge @webcontextinterface/context
 ```
 
 ## 1. Annotate your HTML
@@ -48,7 +48,7 @@ See [Specification](./specification.md) for the full attribute list.
 ## 2. Distil the page for an LLM
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({
   format: 'json',
@@ -64,7 +64,7 @@ const json = distiller.distilJSON(document);
 ## 3. Dispatch actions from agent decisions
 
 ```typescript
-import { WciBridge } from '@wci/bridge';
+import { WciBridge } from '@webcontextinterface/bridge';
 
 const bridge = new WciBridge(document.getElementById('registration-form')!);
 
@@ -86,7 +86,7 @@ Place these at your site root (see [Site policy](./site-policy.md)):
 - `/wci.md` — narrative for the LLM system prompt
 
 ```typescript
-import { WciContextLoader } from '@wci/context';
+import { WciContextLoader } from '@webcontextinterface/context';
 
 const ctx = await WciContextLoader.load('https://your-site.com');
 ctx.policy.assertScopeAllowed('checkout');
@@ -101,7 +101,7 @@ import {
   WciBridge,
   WciContextLoader,
   readWciNodeSpec,
-} from '@wci/core';
+} from '@webcontextinterface/core';
 ```
 
 ## Run the demo

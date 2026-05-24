@@ -1,15 +1,15 @@
-# @wci/distiller
+# @webcontextinterface/distiller
 
 Prune annotated DOM and serialize **WciView** (JSON) or Markdown for LLM context.
 
 ```bash
-npm install @wci/distiller
+npm install @webcontextinterface/distiller
 ```
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const view = new WciDistiller({ scope: 'checkout' }).distilJSON(document);
 ```
 
-**Documentation:** [docs/api/distiller.md](../../docs/api/distiller.md) · [Distillation guide](../../docs/distillation.md)
+**Documentation:** [API reference](https://webcontextinterface.vercel.app/api/distiller) · [Distillation guide](https://webcontextinterface.vercel.app/distillation) · [WCI site](https://webcontextinterface.vercel.app/)

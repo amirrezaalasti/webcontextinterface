@@ -3,7 +3,7 @@
 // Produces a compact Markdown representation for chat/RAG agents.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciNodeSpec, SiteContextSummary } from '@wci/spec';
+import { WciNodeSpec, SiteContextSummary } from '@webcontextinterface/spec';
 
 function stateStr(state: Record<string, unknown>): string {
   return Object.entries(state)

@@ -1,4 +1,4 @@
-# `@wci/spec` API
+# `@webcontextinterface/spec` API
 
 Types and DOM helpers for the WCI 1.0 specification.
 
@@ -39,9 +39,9 @@ const spec = readWciNodeSpec(document.querySelector('[data-wci-id="email-input"]
 ## Install
 
 ```bash
-npm install @wci/spec
+npm install @webcontextinterface/spec
 ```
 
 ```typescript
-import { readWciNodeSpec, type WciNodeSpec, type WciView } from '@wci/spec';
+import { readWciNodeSpec, type WciNodeSpec, type WciView } from '@webcontextinterface/spec';
 ```

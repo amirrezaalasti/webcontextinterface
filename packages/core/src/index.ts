@@ -1,30 +1,30 @@
 /**
- * @wci/core — WCI SDK (spec, distiller, bridge, context)
+ * @webcontextinterface/core — WCI SDK (spec, distiller, bridge, context)
  * @packageDocumentation
  */
 
-export * from '@wci/spec';
+export * from '@webcontextinterface/spec';
 
 export {
   WciDistiller,
   pruneDOM,
   serializeJSON,
   serializeMarkdown,
-} from '@wci/distiller';
-export type { DistillerFormat, DistillerOptions } from '@wci/distiller';
+} from '@webcontextinterface/distiller';
+export type { DistillerFormat, DistillerOptions } from '@webcontextinterface/distiller';
 
-export { WciBridge, dispatchAction } from '@wci/bridge';
+export { WciBridge, dispatchAction } from '@webcontextinterface/bridge';
 export type {
   ActionRequest,
   ActionResult,
   SideEffect,
   ActionError,
   StateChangeHandler,
-} from '@wci/bridge';
+} from '@webcontextinterface/bridge';
 
 export {
   WciContextLoader,
   PolicyEngine,
   ScopeDeniedError,
-} from '@wci/context';
-export type { SiteContext } from '@wci/context';
+} from '@webcontextinterface/context';
+export type { SiteContext } from '@webcontextinterface/context';

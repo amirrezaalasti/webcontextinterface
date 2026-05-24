@@ -2,7 +2,7 @@
 // WCI Distiller — Main WciDistiller class
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciView, SiteContextSummary } from '@wci/spec';
+import { WciView, SiteContextSummary } from '@webcontextinterface/spec';
 import { pruneDOM, PrunerOptions } from './pruner';
 import { serializeJSON } from './serializer-json';
 import { serializeMarkdown } from './serializer-md';

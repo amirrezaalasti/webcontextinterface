@@ -41,10 +41,10 @@ features:
 ## Install
 
 ```bash
-npm install @wci/core
+npm install @webcontextinterface/core
 ```
 
-Or use individual packages: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@wci/context`.
+Or use individual packages: `@webcontextinterface/spec`, `@webcontextinterface/distiller`, `@webcontextinterface/bridge`, `@webcontextinterface/context`.
 
 ## Site root files
 

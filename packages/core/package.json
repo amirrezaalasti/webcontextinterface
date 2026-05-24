@@ -1,5 +1,5 @@
 {
-  "name": "@wci/core",
+  "name": "@webcontextinterface/core",
   "version": "1.0.0",
   "description": "Web Context Interface (WCI) — complete SDK: spec, distiller, bridge, and site context",
   "license": "MIT",
@@ -17,21 +17,26 @@
   },
   "files": ["dist", "README.md"],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "@wci/spec": "*",
-    "@wci/distiller": "*",
-    "@wci/bridge": "*",
-    "@wci/context": "*"
+  "publishConfig": {
+    "access": "public"
   },
-  "keywords": ["wci", "llm", "agents", "dom", "accessibility", "sdk"],
-  "homepage": "https://webcontextinterface.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git"
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/core"
   },
+  "homepage": "https://webcontextinterface.vercel.app/",
   "bugs": {
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
-  }
+  },
+  "dependencies": {
+    "@webcontextinterface/spec": "^1.0.0",
+    "@webcontextinterface/distiller": "^1.0.0",
+    "@webcontextinterface/bridge": "^1.0.0",
+    "@webcontextinterface/context": "^1.0.0"
+  },
+  "keywords": ["wci", "llm", "agents", "dom", "accessibility", "sdk", "web-context-interface"]
 }

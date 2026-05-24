@@ -1,4 +1,4 @@
-# `@wci/distiller` API
+# `@webcontextinterface/distiller` API
 
 ## `WciDistiller`
 
@@ -34,11 +34,11 @@ Extends `PrunerOptions` with `format?`, `siteContext?`, `includeState?`.
 ## Install
 
 ```bash
-npm install @wci/distiller
+npm install @webcontextinterface/distiller
 ```
 
 ```typescript
-import { WciDistiller, pruneDOM } from '@wci/distiller';
+import { WciDistiller, pruneDOM } from '@webcontextinterface/distiller';
 ```
 
-Dependency: `@wci/spec`.
+Dependency: `@webcontextinterface/spec`.

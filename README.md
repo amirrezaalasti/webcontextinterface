@@ -2,8 +2,16 @@
   <img src="assets/logo-with-title.png" alt="WCI — Web Context Interface" width="420" />
 </p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Website](https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1)](https://webcontextinterface.vercel.app/)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+  <a href="https://webcontextinterface.vercel.app/"><img src="https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1" alt="Documentation" /></a>
+  <br />
+  <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec?label=spec" alt="npm @webcontextinterface/spec" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller?label=distiller" alt="npm @webcontextinterface/distiller" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/v/@webcontextinterface/bridge?label=bridge" alt="npm @webcontextinterface/bridge" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/v/@webcontextinterface/context?label=context" alt="npm @webcontextinterface/context" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/v/@webcontextinterface/core?label=core" alt="npm @webcontextinterface/core" /></a>
+</p>
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
 
@@ -63,10 +71,10 @@ npm run build
 **npm packages** (after publish):
 
 ```bash
-npm install @wci/core
+npm install @webcontextinterface/core
 ```
 
-Or install layers individually: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@wci/context`.
+Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterface/distiller`, `@webcontextinterface/bridge`, `@webcontextinterface/context`.
 
 ---
 
@@ -74,11 +82,11 @@ Or install layers individually: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@
 
 | Package | Description |
 |---------|-------------|
-| [`@wci/spec`](./packages/spec) | TypeScript types, role enum, `readWciNodeSpec()` |
-| [`@wci/distiller`](./packages/distiller) | Pruner, JSON/Markdown serializers, `WciDistiller` |
-| [`@wci/bridge`](./packages/bridge) | `WciBridge`, action dispatcher, `ActionResult` |
-| [`@wci/context`](./packages/context) | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
-| [`@wci/core`](./packages/core) | **All-in-one SDK** — re-exports every package |
+| [`@webcontextinterface/spec`](./packages/spec) | TypeScript types, role enum, `readWciNodeSpec()` |
+| [`@webcontextinterface/distiller`](./packages/distiller) | Pruner, JSON/Markdown serializers, `WciDistiller` |
+| [`@webcontextinterface/bridge`](./packages/bridge) | `WciBridge`, action dispatcher, `ActionResult` |
+| [`@webcontextinterface/context`](./packages/context) | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
+| [`@webcontextinterface/core`](./packages/core) | **All-in-one SDK** — re-exports every package |
 
 ---
 
@@ -119,7 +127,7 @@ Or install layers individually: `@wci/spec`, `@wci/distiller`, `@wci/bridge`, `@
 ### 2. Distil
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({ format: 'json', scope: 'registration-form' });
 const view = distiller.distilJSON(document);
@@ -128,7 +136,7 @@ const view = distiller.distilJSON(document);
 ### 3. Dispatch actions
 
 ```typescript
-import { WciBridge } from '@wci/bridge';
+import { WciBridge } from '@webcontextinterface/bridge';
 
 const bridge = new WciBridge();
 const result = await bridge.fill('email-input', 'user@example.com');
@@ -138,7 +146,7 @@ await bridge.click('submit-btn');
 ### 4. Site context
 
 ```typescript
-import { WciContextLoader } from '@wci/context';
+import { WciContextLoader } from '@webcontextinterface/context';
 
 const ctx = await WciContextLoader.load('https://your-site.com');
 ctx.policy.assertScopeAllowed('checkout');
@@ -220,7 +228,7 @@ If you use WCI in research or publications, please cite:
 
 ```bibtex
 @software{wci2026,
-  author       = {Amirreza Alasti},
+  author       = {Amirreza Alasti, Oliver Karras, Niloufar Ghandeharioun},
   title        = {WCI: Web Context Interface},
   year         = {2026},
   publisher    = {GitHub},

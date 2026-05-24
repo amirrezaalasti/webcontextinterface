@@ -15,7 +15,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w @wci/spec && npm run build -w @wci/distiller && npm run build -w @wci/bridge && npm run build -w @wci/context && npm run build -w @wci/core",
+    "build": "npm run build -w @webcontextinterface/spec && npm run build -w @webcontextinterface/distiller && npm run build -w @webcontextinterface/bridge && npm run build -w @webcontextinterface/context && npm run build -w @webcontextinterface/core",
     "build:packages": "npm run build",
     "dev": "vite demo --open",
     "demo": "vite demo --open",
@@ -30,7 +30,8 @@
     "eval:benchmark": "tsx evals/run-benchmark.ts",
     "eval:verify": "tsx evals/run-benchmark.ts --verify-ground-truth",
     "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only",
-    "eval:merge-leaderboard": "node scripts/build-eval-leaderboard.mjs"
+    "eval:merge-leaderboard": "node scripts/build-eval-leaderboard.mjs",
+    "publish:packages": "node scripts/publish-packages.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
@@ -44,5 +45,8 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.0",
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "@webcontextinterface/core": "^1.0.0"
   }
 }

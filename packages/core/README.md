@@ -1,9 +1,9 @@
-# @wci/core
+# @webcontextinterface/core
 
-Complete WCI SDK — re-exports `@wci/spec`, `distiller`, `bridge`, and `context`.
+Complete WCI SDK — re-exports `@webcontextinterface/spec`, `distiller`, `bridge`, and `context`.
 
 ```bash
-npm install @wci/core
+npm install @webcontextinterface/core
 ```
 
 ```typescript
@@ -12,7 +12,7 @@ import {
   WciBridge,
   WciContextLoader,
   readWciNodeSpec,
-} from '@wci/core';
+} from '@webcontextinterface/core';
 ```
 
-**Documentation:** [docs/README.md](../../docs/README.md)
+**Documentation:** [Getting started](https://webcontextinterface.vercel.app/getting-started) · [API reference](https://webcontextinterface.vercel.app/api/core) · [WCI site](https://webcontextinterface.vercel.app/)

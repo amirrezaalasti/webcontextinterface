@@ -11,11 +11,11 @@ export default defineConfig({
   assetsInclude: ['**/scenarios/**/*.html'],
   resolve: {
     alias: {
-      '@wci/core':      resolve(__dirname, 'packages/core/src/index.ts'),
-      '@wci/spec':      resolve(__dirname, 'packages/spec/src/index.ts'),
-      '@wci/distiller': resolve(__dirname, 'packages/distiller/src/index.ts'),
-      '@wci/bridge':    resolve(__dirname, 'packages/bridge/src/index.ts'),
-      '@wci/context':   resolve(__dirname, 'packages/context/src/index.ts'),
+      '@webcontextinterface/core':      resolve(__dirname, 'packages/core/src/index.ts'),
+      '@webcontextinterface/spec':      resolve(__dirname, 'packages/spec/src/index.ts'),
+      '@webcontextinterface/distiller': resolve(__dirname, 'packages/distiller/src/index.ts'),
+      '@webcontextinterface/bridge':    resolve(__dirname, 'packages/bridge/src/index.ts'),
+      '@webcontextinterface/context':   resolve(__dirname, 'packages/context/src/index.ts'),
     },
   },
   server: {

@@ -25,7 +25,7 @@ Rate-Limit-Actions: 60/minute
 ## WciContextLoader
 
 ```typescript
-import { WciContextLoader } from '@wci/context';
+import { WciContextLoader } from '@webcontextinterface/context';
 
 const ctx = await WciContextLoader.load('https://example.com');
 
@@ -57,7 +57,7 @@ Pass optional `Headers` from the initial navigation response to honour `X-WCI-*`
 Pass a summary into the distiller so every page view carries site identity:
 
 ```typescript
-import { WciDistiller } from '@wci/distiller';
+import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({
   siteContext: {
