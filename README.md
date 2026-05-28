@@ -228,7 +228,7 @@ If you use WCI in research or publications, please cite:
 
 ```bibtex
 @software{wci2026,
-  author       = {Amirreza Alasti, Oliver Karras, Niloufar Ghandeharioun},
+  author       = {Amirreza Alasti, Niloufar Ghandeharioun, Oliver Karras},
   title        = {WCI: Web Context Interface},
   year         = {2026},
   publisher    = {GitHub},
