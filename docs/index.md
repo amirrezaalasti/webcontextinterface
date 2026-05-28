@@ -66,7 +66,7 @@ The official **50-scenario** grounding benchmark is published on Zenodo (CC BY 4
 - **DOI:** [10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088)
 - **Download:** [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1)
 
-Each scenario includes raw HTML, DOM outline, interactive candidates, WCI full, and WCI grounding representations. The in-repo copy lives under [`demo/scenarios/`](../demo/scenarios/); methodology and commands are in [`evals/README.md`](../evals/README.md).
+Each scenario includes raw HTML, DOM outline, interactive candidates, WCI full, and WCI grounding representations. The in-repo copy lives under [`demo/scenarios/`](https://github.com/amirrezaalasti/webcontextinterface/tree/main/demo/scenarios); methodology and commands are in [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md).
 
 ## NotebookLM
 
