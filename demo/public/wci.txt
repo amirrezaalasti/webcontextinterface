@@ -1,6 +1,6 @@
 # wci.txt - WCI Site Directives
 # ExampleShop Demo Site
-# https://example.com/wci.txt
+# https://example.com/demo/wci.txt
 
 WCI-Version: 1.0
 
@@ -11,8 +11,8 @@ Contact: agents@wci.dev
 
 # -- Agent Capability Declarations ---------------------------
 WCI-Supported: true
-Manifest: /wci.json
-Context: /wci.md
+Manifest: wci.json
+Context: wci.md
 
 # -- Allow / Deny Rules -------------------------------------
 Allow-Scope: registration-form

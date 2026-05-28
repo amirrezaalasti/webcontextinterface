@@ -2,7 +2,7 @@
   "wci_version": "1.0",
   "site": {
     "name": "ExampleShop Demo",
-    "base_url": "http://localhost:5173",
+    "base_url": ".",
     "purpose": "Demo e-commerce site for the WCI framework showcase",
     "language": "en",
     "contact": "agents@wci.dev"
@@ -16,26 +16,26 @@
     "required_for": ["checkout", "user-profile", "order-history"],
     "method": "session-cookie",
     "auth_flow_scope": "login-form",
-    "auth_flow_url": "/login"
+    "auth_flow_url": "login"
   },
   "task_flows": [
     {
       "id": "create-account",
       "description": "Register a new user account",
       "steps": [
-        { "scope": "registration-form", "url_pattern": "/register" }
+        { "scope": "registration-form", "url_pattern": "register" }
       ]
     },
     {
       "id": "purchase-item",
       "description": "Search for a product, add it to cart, and complete checkout",
       "steps": [
-        { "scope": "product-search", "url_pattern": "/search?q={query}" },
-        { "scope": "product-detail", "url_pattern": "/product/{id}" },
-        { "scope": "cart", "url_pattern": "/cart" },
+        { "scope": "product-search", "url_pattern": "search?q={query}" },
+        { "scope": "product-detail", "url_pattern": "product/{id}" },
+        { "scope": "cart", "url_pattern": "cart" },
         {
           "scope": "checkout",
-          "url_pattern": "/checkout",
+          "url_pattern": "checkout",
           "requires_auth": true,
           "requires_human_confirmation": true
         }
@@ -46,13 +46,13 @@
     {
       "id": "registration-form",
       "desc": "New user registration — capture email, password, and accept terms",
-      "url_pattern": "/register",
+      "url_pattern": "register",
       "key_actions": ["email-input", "password-input", "terms-checkbox", "submit-btn"]
     },
     {
       "id": "checkout",
       "desc": "Payment and shipping confirmation — irreversible",
-      "url_pattern": "/checkout",
+      "url_pattern": "checkout",
       "sensitivity": "high",
       "requires_human_confirmation": true,
       "key_actions": ["place-order-btn"]

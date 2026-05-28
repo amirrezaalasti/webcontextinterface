@@ -1,7 +1,7 @@
 # ExampleShop Demo — Agent Context
 
 > This document is intended for LLM-based agents operating on ExampleShop Demo.
-> Human users: see /about instead.
+> Human users: see `about` instead.
 
 ## What This Site Does
 
@@ -13,7 +13,7 @@ You can browse a registration form, interact with it, and observe live agent-fri
 - Fill and submit the registration form (scope: `registration-form`).
 - Read product information.
 - Add items to the cart (no auth required).
-- Create a new user account at `/register`.
+- Create a new user account at `register`.
 
 ## What You Are NOT Allowed To Do
 
@@ -24,7 +24,7 @@ You can browse a registration form, interact with it, and observe live agent-fri
 ## Authentication
 
 - Registration, browsing: no auth required.
-- Checkout requires session login via `login-form` at `/login`.
+- Checkout requires session login via `login-form` at `login`.
 
 ## Task Flow: Register an Account
 
@@ -53,7 +53,7 @@ You can browse a registration form, interact with it, and observe live agent-fri
 |---|---|---|
 | `VALIDATION_FAILED` | Field value invalid | Read `error.hint` and retry |
 | `PRECONDITION_UNMET` | Guard not satisfied | Resolve preconditions first |
-| `AUTH_REQUIRED` | Session missing/expired | Re-run auth flow at `/login` |
+| `AUTH_REQUIRED` | Session missing/expired | Re-run auth flow at `login` |
 | `SCOPE_DENIED` | Scope on deny list | Stop; inform the user |
 | `NODE_NOT_FOUND` | Node ID not in DOM | Verify ID against distilled view |
 
