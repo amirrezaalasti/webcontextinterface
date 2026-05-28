@@ -30,4 +30,5 @@ paper/*.synctex.gz
 shopping_final_0712
 shopping_final_0712.tar
 webarena/
-evals/webarena-adapter/tasks-catalog.json
+evals/webarena/data/tasks-catalog.json
+evals/webarena/reports/*.json
