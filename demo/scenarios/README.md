@@ -2,6 +2,8 @@
 
 Fifty synthetic “fake site” pages for the AgentDOM / WCI benchmark demo and evals.
 
+**Official release:** [Zenodo 10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) (CC BY 4.0).
+
 ## Layout
 
 Each scenario is a folder under `demo/scenarios/`:

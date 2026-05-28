@@ -38,6 +38,8 @@
     <nav class="header-nav">
       <a href="#demo">Live Demo</a>
       <a href="#eval-results">Results</a>
+      <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset ↗</a>
+      <a href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738" target="_blank" rel="noreferrer">NotebookLM ↗</a>
       <a href="#context">Site Context</a>
       <a href="#spec">Specification</a>
       <a href="/" target="_blank" rel="noreferrer" id="docs-link">Docs ↗</a>
@@ -74,6 +76,12 @@
     <div class="hero-actions">
       <a href="#demo" class="btn btn-primary">Try the Live Demo</a>
       <a href="#spec" class="btn btn-ghost">View Specification →</a>
+      <a
+        href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738"
+        class="btn btn-ghost"
+        target="_blank"
+        rel="noreferrer"
+      >NotebookLM overview ↗</a>
     </div>
 
     <div class="hero-stats">
@@ -394,6 +402,51 @@
       See <code>evals/README.md</code> for methodology and limitations.
     </p>
 
+    <div class="share-resources" id="share">
+      <article class="share-card" id="dataset">
+        <div class="share-card__body">
+          <h3 class="share-card__title">📦 Official evaluation dataset</h3>
+          <p class="share-card__text">
+            Reproduce or extend these benchmarks with the published Zenodo release:
+            <strong>50 scenarios</strong> × five context representations
+            (<code>scenarios.zip</code>, CC BY 4.0).
+          </p>
+        </div>
+        <div class="share-card__actions">
+          <a
+            href="https://doi.org/10.5281/zenodo.20434088"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noreferrer"
+          >View on Zenodo ↗</a>
+          <a
+            href="https://zenodo.org/records/20434088/files/scenarios.zip?download=1"
+            class="btn btn-ghost"
+            target="_blank"
+            rel="noreferrer"
+          >Download scenarios.zip</a>
+        </div>
+      </article>
+
+      <article class="share-card share-card--notebooklm" id="notebooklm">
+        <div class="share-card__body">
+          <h3 class="share-card__title">🎧 NotebookLM overview</h3>
+          <p class="share-card__text">
+            Share WCI with others via a public NotebookLM notebook — audio summaries,
+            briefings, and grounded Q&amp;A over the paper, spec, and benchmark docs.
+          </p>
+        </div>
+        <div class="share-card__actions">
+          <a
+            href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noreferrer"
+          >Open shared notebook ↗</a>
+        </div>
+      </article>
+    </div>
+
     <!-- Charts (from eval-results-all.json) -->
     <div class="eval-charts" id="eval-charts">
       <div class="eval-charts__header">
@@ -547,7 +600,13 @@
       <img src="./logo.png" alt="" width="24" height="24" decoding="async" />
       <span>WCI v1.0</span>
     </a>
-    <span class="footer-copy">Web Context Interface — open standard for LLM-native web. MIT License.</span>
+    <span class="footer-copy">
+      Web Context Interface — open standard for LLM-native web. MIT License.
+      ·
+      <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset (Zenodo)</a>
+      ·
+      <a href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738" target="_blank" rel="noreferrer">NotebookLM</a>
+    </span>
   </div>
 </footer>
 

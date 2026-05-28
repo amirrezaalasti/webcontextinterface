@@ -2,6 +2,8 @@
 
 Element-grounding benchmark: pick the correct control for a task using **OpenRouter** models (not proprietary agent SDKs).
 
+**WebArena + WCI:** live benchmark integration, Docker bootstrap, and run commands — [`webarena/RUN.md`](./webarena/RUN.md) (overview: [`webarena/README.md`](./webarena/README.md)).
+
 **Published runs:** [`demo/public/`](../demo/public/README.md) — per-model `eval-results-*.json` and `eval-report-*.json` with comparison tables below.
 
 ## Approaches (5 per scenario)
@@ -54,6 +56,19 @@ Configured in `evals/lib/llm.ts`:
 npm install
 npx playwright install chromium
 
+# bootstrap WebArena-facing benchmark scaffolding and WCI site drafts
+npm run benchmark:wci:init
+npm run benchmark:status
+npm run eval:webarena:compare
+npm run eval:webarena:compare -- --site=shopping
+npm run eval:webarena:compare -- --runtime=hook --site=shopping
+export SHOPPING=http://127.0.0.1:7770
+npm run eval:webarena:annotate -- --site=shopping --verify
+
+# Live WebArena: baseline vs WCI × OpenRouter models (requires SHOPPING + OPENROUTER_API_KEY)
+npm run eval:webarena:benchmark -- --site=shopping
+npm run eval:webarena:benchmark -- --models=gpt5Nano,gemini35Flash --approaches=raw-html,wci-grounding
+
 npm run eval:verify
 npm run eval:heuristic          # no API key
 
@@ -70,6 +85,14 @@ npm run eval:benchmark -- --approaches=wci-full,wci-grounding --models=gpt5Nano
 npm run eval:benchmark -- --scenarios=flight-booking,banking,checkout
 npm run eval:heuristic -- --scenarios=job-board,healthcare-portal
 ```
+
+WebArena-specific bootstrap and phased WCI integration plan: [`webarena/docs/benchmark-suite.md`](./webarena/docs/benchmark-suite.md).
+
+Minimal WebArena adapter compare runner:
+
+- default mock dry-run: `npm run eval:webarena:compare`
+- sample subset: `npm run eval:webarena:compare -- --tasks=shopping.search-wireless-headphones`
+- integration-stub mode: `npm run eval:webarena:compare -- --runtime=hook`
 
 Full run ≈ **10 models × 50 scenarios × 5 approaches = 2,500** API calls. Use `--models=`, `--approaches=`, and `--scenarios=` to limit spend. Five **legacy** scenarios have the largest hand-authored DOM; the other **45** use distinct layouts with noise/decoys and constraint-based goals (see `demo/scenarios/README.md`).
 

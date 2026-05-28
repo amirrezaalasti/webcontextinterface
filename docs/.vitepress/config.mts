@@ -42,6 +42,12 @@ export default defineConfig({
       { text: 'Guide', link: '/getting-started', activeMatch: '/getting-started' },
       { text: 'Specification', link: '/specification' },
       { text: 'API', link: '/api/spec' },
+      { text: 'Dataset', link: 'https://doi.org/10.5281/zenodo.20434088', target: '_blank' },
+      {
+        text: 'NotebookLM',
+        link: 'https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738',
+        target: '_blank',
+      },
       { text: 'Demo', link: demoUrl, target: '_blank' },
     ],
 
@@ -84,7 +90,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'MIT Licensed · Web Context Interface (WCI)',
+      message:
+        'MIT Licensed · Web Context Interface (WCI) · <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset (Zenodo)</a> · <a href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738" target="_blank" rel="noreferrer">NotebookLM</a>',
       copyright: 'Copyright © 2026 WCI Contributors',
     },
 

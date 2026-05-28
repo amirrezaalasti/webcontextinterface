@@ -5,6 +5,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="https://webcontextinterface.vercel.app/"><img src="https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1" alt="Documentation" /></a>
+  <a href="https://doi.org/10.5281/zenodo.20434088"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20434088.svg" alt="Evaluation dataset (Zenodo)" /></a>
   <br />
   <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec?label=spec" alt="npm @webcontextinterface/spec" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller?label=distiller" alt="npm @webcontextinterface/distiller" /></a>
@@ -44,6 +45,8 @@ npm run website:preview   # preview the full site locally
 **Deploy:** push to `main` — Vercel rebuilds automatically ([`vercel.json`](./vercel.json)). For GitHub Pages, enable **Settings → Pages → Source: GitHub Actions**, then the [deploy workflow](.github/workflows/deploy-website.yml) runs on each push.
 
 **Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
+
+**NotebookLM (shareable overview):** [WCI notebook](https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738) — audio summaries, Q&A, and briefings grounded in the paper, specification, and benchmark materials (Google sign-in required).
 
 Markdown sources live in [`docs/`](./docs/). Quick links:
 
@@ -206,12 +209,21 @@ WIA_framework/
 
 ## Benchmark
 
-**50 scenarios** under [`demo/scenarios/`](./demo/scenarios/) (5 legacy + 45 generated layouts). The harness scores **single-shot element grounding** across five context formats (raw HTML, DOM outline, candidate list, WCI full, WCI grounding) via OpenRouter.
+**Official evaluation dataset (Zenodo):** [10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — [Evaluation Dataset for WCI](https://zenodo.org/records/20434088) (CC BY 4.0). Download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) for all **50 single-shot grounding scenarios** with five representations each (raw HTML, DOM outline, interactive candidates, WCI full, WCI grounding).
+
+The same scenario tree ships in-repo under [`demo/scenarios/`](./demo/scenarios/) (5 legacy + 45 generated layouts). The harness scores **single-shot element grounding** across those five context formats via OpenRouter.
 
 - **Methodology, commands, and comparison tables:** [`evals/README.md`](./evals/README.md)
+- **WebArena suite bootstrap + WCI roadmap:** [`evals/WEBARENA_BENCHMARK_SUITE.md`](./evals/WEBARENA_BENCHMARK_SUITE.md)
+- **How WCI applies to WebArena + testing layers:** [`evals/WEBARENA_WCI_APPLICATION.md`](./evals/WEBARENA_WCI_APPLICATION.md)
+- **Live WebArena baseline vs WCI (OpenRouter models):** `npm run benchmark:import-tasks` then `npm run eval:webarena:benchmark` — see [`evals/webarena/RUN.md`](./evals/webarena/RUN.md)
+- **Multi-step WebArena agent:** `npm run eval:webarena:agent`
+- **Local WebArena + Docker helper:** [`evals/webarena/scripts/local.sh`](./evals/webarena/scripts/local.sh) (`npm run benchmark:local -- help`)
 - **Archived run artifacts:** [`demo/public/README.md`](./demo/public/README.md) (`eval-results-gpt5nano.json`, `eval-report-gemini3.5flash.json`, …)
 
 ```bash
+npm run benchmark:wci:init
+npm run benchmark:status
 npm run eval:verify
 npm run eval:benchmark -- --models=gpt5Nano --scenarios=flight-booking,banking
 npm run eval:merge-leaderboard   # update demo/public/eval-results-all.json
@@ -233,6 +245,19 @@ If you use WCI in research or publications, please cite:
   year         = {2026},
   publisher    = {GitHub},
   note         = {Contact: amirrezaalasti@gmail.com}
+}
+```
+
+**Benchmark dataset:**
+
+```bibtex
+@dataset{wci_eval_dataset_2026,
+  author       = {Alasti, Amirreza},
+  title        = {Evaluation Dataset for WCI: The Web Context Interface for Agentic Web Automation},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20434088},
+  url          = {https://doi.org/10.5281/zenodo.20434088}
 }
 ```
 

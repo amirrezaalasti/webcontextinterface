@@ -1448,6 +1448,52 @@ a:hover { text-decoration: underline; }
   justify-content: center;
 }
 
+/* ── Share resources (Zenodo + NotebookLM) ─────────────────────────────────── */
+.share-resources {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.share-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(99, 102, 241, 0.06));
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--r-xl);
+}
+
+.share-card--notebooklm {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.1), rgba(251, 146, 60, 0.05));
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+.share-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.share-card__text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--clr-text-2);
+}
+
+.share-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+@media (max-width: 900px) {
+  .share-resources { grid-template-columns: 1fr; }
+}
+
 /* ── Eval benchmark charts ─────────────────────────────────────────────────── */
 .eval-charts {
   margin-top: 3rem;
@@ -1825,6 +1871,11 @@ a:hover { text-decoration: underline; }
 .footer-logo img { display: block; object-fit: contain; }
 
 .footer-copy { font-size: 0.82rem; color: var(--clr-text-3); }
+.footer-copy a {
+  color: var(--clr-accent);
+  text-decoration: none;
+}
+.footer-copy a:hover { text-decoration: underline; }
 
 /* ══════════════════════════════════════════════════════════════════════════════
    ANIMATIONS
