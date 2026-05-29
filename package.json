@@ -37,6 +37,7 @@
     "eval:webarena:benchmark": "tsx evals/webarena/runners/grounding.ts",
     "eval:webarena:agent": "tsx evals/webarena/runners/agent.ts",
     "benchmark:import-tasks": "tsx evals/webarena/adapter/import-webarena-tasks.ts",
+    "benchmark:annotate-batch": "tsx evals/webarena/adapter/batch-ground-truth.ts",
     "benchmark:status": "node evals/webarena/scripts/status.mjs status",
     "benchmark:wci:init": "node evals/webarena/scripts/status.mjs init-wci-sites",
     "benchmark:local": "bash evals/webarena/scripts/local.sh",

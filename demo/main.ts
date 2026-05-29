@@ -478,37 +478,28 @@ domSnapshotInput?.addEventListener('keydown', (e) => {
 refreshDistiller();
 renderActionLog();
 
-// Animate Agent Leaderboard bars when scrolled into view
-const agentLeaderboard = document.getElementById('agent-leaderboard');
-if (agentLeaderboard) {
-  const leaderboardObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bars = agentLeaderboard.querySelectorAll('.performance-bar');
-        bars.forEach(bar => {
-          const targetWidth = (bar as HTMLElement).dataset.targetWidth;
-          if (targetWidth) {
-            // Slight delay to allow the section to become fully visible before animating
-            setTimeout(() => {
-              (bar as HTMLElement).style.width = targetWidth;
-            }, 200);
-          }
-        });
-        leaderboardObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-  leaderboardObserver.observe(agentLeaderboard);
-}
-
 // ── Fetch and Render Real Eval Results ──────────────────────────────────────
 const LEADERBOARD_ICONS = ['⚡', '🔷', '🦙', '🐋', '🟢', '✨', '🧠', '💠', '🔶', '🌐'];
 
+interface ApproachBlock {
+  successRate: number;
+  avgTokens: number;
+}
+
+interface LeaderboardApproaches {
+  rawHtml: ApproachBlock;
+  domOutline: ApproachBlock;
+  candidates: ApproachBlock;
+  wciFull: ApproachBlock;
+  wciGrounding: ApproachBlock;
+}
+
 interface LeaderboardEntry {
-  standard: { successRate: number; avgTokens: number };
-  wci?: { successRate: number; avgTokens: number };
-  wciFull?: { successRate: number; avgTokens: number };
-  agentDom?: { successRate: number; avgTokens: number };
+  standard: ApproachBlock;
+  wci?: ApproachBlock;
+  wciFull?: ApproachBlock;
+  agentDom?: ApproachBlock;
+  approaches?: LeaderboardApproaches;
 }
 
 interface EvalResultsFile {
@@ -529,81 +520,100 @@ const LEADERBOARD_SOURCES = [
   demoAssetUrl('eval-results.json'),
 ];
 
-function barClass(rate: number, good: boolean): string {
-  if (good) return 'performance-bar--good';
-  if (rate >= 50) return 'performance-bar--warn';
-  return 'performance-bar--bad';
+function pctCell(rate: number, highlight = false): string {
+  const cls = highlight ? 'leaderboard-metric leaderboard-metric--highlight' : 'leaderboard-metric';
+  return `<td class="text-center ${cls}">${rate}%</td>`;
+}
+
+function tokenCell(tokens: number, highlight = false): string {
+  const cls = highlight ? 'leaderboard-metric leaderboard-metric--highlight' : 'leaderboard-metric';
+  return `<td class="text-center ${cls}">${tokens.toLocaleString()}</td>`;
 }
 
 function buildLeaderboardRow(
   meta: { id: string; name: string; openRouterModel: string },
   stats: LeaderboardEntry,
-  icon: string,
-  index: number
+  icon: string
 ): HTMLTableRowElement {
+  const approaches = stats.approaches;
   const wci = stats.wci ?? stats.agentDom;
   const wciFull = stats.wciFull;
-  const stdRate = stats.standard.successRate;
-  const wciRate = wci?.successRate ?? 0;
-  const fullRate = wciFull?.successRate ?? 0;
-  const lift = wciRate - stdRate;
   const slug = meta.openRouterModel.replace(/^[^/]+\//, '');
-  const liftLabel = lift >= 0 ? `+${lift} pp` : `${lift} pp`;
+  const rawRate = approaches?.rawHtml.successRate ?? stats.standard.successRate;
+  const wciRate = approaches?.wciGrounding.successRate ?? wci?.successRate ?? 0;
+  const lift = wciRate - rawRate;
+  const liftLabel = lift >= 0 ? `+${lift} pp vs raw HTML` : `${lift} pp vs raw HTML`;
 
   const tr = document.createElement('tr');
   tr.className = 'leaderboard-row';
   tr.dataset.modelId = meta.id;
+
+  if (approaches) {
+    tr.innerHTML = `
+      <td>
+        <div class="agent-name">
+          <div class="agent-icon">${icon}</div>
+          <div class="agent-info">
+            <span class="agent-title">${meta.name}</span>
+            <span class="agent-desc">${slug} · <span class="leaderboard-lift">${liftLabel}</span></span>
+          </div>
+        </div>
+      </td>
+      ${pctCell(approaches.rawHtml.successRate)}
+      ${pctCell(approaches.domOutline.successRate)}
+      ${pctCell(approaches.candidates.successRate)}
+      ${pctCell(approaches.wciFull.successRate)}
+      ${pctCell(approaches.wciGrounding.successRate, true)}
+      ${tokenCell(approaches.rawHtml.avgTokens)}
+      ${tokenCell(approaches.wciFull.avgTokens)}
+      ${tokenCell(approaches.wciGrounding.avgTokens, true)}
+    `;
+    return tr;
+  }
+
   tr.innerHTML = `
     <td>
       <div class="agent-name">
         <div class="agent-icon">${icon}</div>
         <div class="agent-info">
           <span class="agent-title">${meta.name}</span>
-          <span class="agent-desc">${slug} · <span class="leaderboard-lift">${liftLabel}</span></span>
+          <span class="agent-desc">${slug}</span>
         </div>
       </div>
     </td>
-    <td>
-      <div class="performance-bar-group">
-        <span class="performance-value">${stdRate}%</span>
-        <div class="performance-track">
-          <div class="performance-bar ${barClass(stdRate, false)}" style="width:0%" data-target-width="${stdRate}%"></div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="performance-bar-group">
-        <span class="performance-value text-good">${wciRate}%</span>
-        <div class="performance-track">
-          <div class="performance-bar ${barClass(wciRate, true)}" style="width:0%" data-target-width="${wciRate}%"></div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="performance-bar-group">
-        <span class="performance-value">${fullRate}%</span>
-        <div class="performance-track">
-          <div class="performance-bar ${barClass(fullRate, fullRate >= 90)}" style="width:0%" data-target-width="${fullRate}%"></div>
-        </div>
-      </div>
-    </td>
-    <td class="text-center leaderboard-tokens">
-      <span class="token-badge token-badge--raw" title="Standard baselines avg">${(stats.standard.avgTokens / 1000).toFixed(1)}k</span>
-      <span class="token-arrow">→</span>
-      <span class="token-badge token-badge--distilled" title="WCI grounding">${wci ? (wci.avgTokens / 1000).toFixed(1) + 'k' : '—'}</span>
-    </td>
+    ${pctCell(stats.standard.successRate)}
+    <td class="text-center leaderboard-metric">—</td>
+    <td class="text-center leaderboard-metric">—</td>
+    ${pctCell(wciFull?.successRate ?? 0)}
+    ${pctCell(wciRate, true)}
+    ${tokenCell(stats.standard.avgTokens)}
+    ${tokenCell(wciFull?.avgTokens ?? 0)}
+    ${tokenCell(wci?.avgTokens ?? 0, true)}
   `;
   return tr;
 }
 
-function animateLeaderboardBars() {
-  const board = document.getElementById('agent-leaderboard');
-  if (!board) return;
-  board.querySelectorAll('.performance-bar').forEach((bar) => {
-    const el = bar as HTMLElement;
-    const target = el.dataset.targetWidth;
-    if (target) setTimeout(() => { el.style.width = target; }, 150);
-  });
+function chartMetrics(stats: LeaderboardEntry): {
+  raw: ApproachBlock;
+  wci: ApproachBlock;
+  full?: ApproachBlock;
+} | null {
+  if (!stats.standard) return null;
+  const approaches = stats.approaches;
+  const wci = stats.wci ?? stats.agentDom;
+  if (approaches) {
+    return {
+      raw: approaches.rawHtml,
+      wci: approaches.wciGrounding,
+      full: approaches.wciFull,
+    };
+  }
+  if (!wci) return null;
+  return {
+    raw: { successRate: stats.standard.successRate, avgTokens: stats.standard.avgTokens },
+    wci,
+    full: stats.wciFull,
+  };
 }
 
 function updateLeaderboardMeta(data: EvalResultsFile, modelCount: number) {
@@ -664,27 +674,28 @@ function renderEvalCharts(data: EvalResultsFile): void {
 
   const maxTokens = Math.max(
     ...order.map((m) => {
-      const s = data[m.id] as LeaderboardEntry | undefined;
-      if (!s?.standard) return 0;
-      const wci = s.wci ?? s.agentDom;
-      return Math.max(s.standard.avgTokens, wci?.avgTokens ?? 0, s.wciFull?.avgTokens ?? 0);
+      const metrics = chartMetrics(data[m.id] as LeaderboardEntry | undefined);
+      if (!metrics) return 0;
+      return Math.max(
+        metrics.raw.avgTokens,
+        metrics.wci.avgTokens,
+        metrics.full?.avgTokens ?? 0
+      );
     }),
     1
   );
 
   chartSuccess.innerHTML = order
     .map((m) => {
-      const s = data[m.id] as LeaderboardEntry | undefined;
-      if (!s?.standard) return '';
-      const wci = s.wci ?? s.agentDom;
-      const full = s.wciFull;
+      const metrics = chartMetrics(data[m.id] as LeaderboardEntry | undefined);
+      if (!metrics) return '';
       return `
         <div class="eval-chart-row">
           <span class="eval-chart-label">${m.name}</span>
           <div class="eval-chart-bars">
-            ${chartBarLine('Std', s.standard.successRate, 100, 'std', '%')}
-            ${wci ? chartBarLine('WCI', wci.successRate, 100, 'wci', '%') : ''}
-            ${full ? chartBarLine('Full', full.successRate, 100, 'full', '%') : ''}
+            ${chartBarLine('Raw', metrics.raw.successRate, 100, 'std', '%')}
+            ${chartBarLine('WCI', metrics.wci.successRate, 100, 'wci', '%')}
+            ${metrics.full ? chartBarLine('Full', metrics.full.successRate, 100, 'full', '%') : ''}
           </div>
         </div>`;
     })
@@ -692,15 +703,15 @@ function renderEvalCharts(data: EvalResultsFile): void {
 
   chartTokens.innerHTML = order
     .map((m) => {
-      const s = data[m.id] as LeaderboardEntry | undefined;
-      if (!s?.standard) return '';
-      const wci = s.wci ?? s.agentDom;
+      const metrics = chartMetrics(data[m.id] as LeaderboardEntry | undefined);
+      if (!metrics) return '';
       return `
         <div class="eval-chart-row">
           <span class="eval-chart-label">${m.name}</span>
           <div class="eval-chart-bars">
-            ${chartBarLine('Std', s.standard.avgTokens, maxTokens, 'std', '')}
-            ${wci ? chartBarLine('WCI', wci.avgTokens, maxTokens, 'wci', '') : ''}
+            ${chartBarLine('Raw', metrics.raw.avgTokens, maxTokens, 'std', '')}
+            ${chartBarLine('WCI', metrics.wci.avgTokens, maxTokens, 'wci', '')}
+            ${metrics.full ? chartBarLine('Full', metrics.full.avgTokens, maxTokens, 'full', '') : ''}
           </div>
         </div>`;
     })
@@ -730,7 +741,7 @@ function applyEvalResults(data: EvalResultsFile): void {
     const stats = data[meta.id] as LeaderboardEntry | undefined;
     if (!stats?.standard) return;
     rows.push(
-      buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length], i)
+      buildLeaderboardRow(meta, stats, LEADERBOARD_ICONS[i % LEADERBOARD_ICONS.length])
     );
   });
 
@@ -739,9 +750,6 @@ function applyEvalResults(data: EvalResultsFile): void {
   tbody.replaceChildren(...rows);
   updateLeaderboardMeta(data, rows.length);
   renderEvalCharts(data);
-  requestAnimationFrame(() => {
-    setTimeout(() => animateLeaderboardBars(), 200);
-  });
 }
 
 async function loadEvalResults(): Promise<void> {

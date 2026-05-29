@@ -452,23 +452,23 @@
       <div class="eval-charts__header">
         <h3 class="eval-charts__title">📈 Benchmark Results</h3>
         <p class="eval-charts__subtitle" id="eval-charts-meta">
-          Single-shot grounding on 50 scenarios — standard baselines vs WCI approaches.
+          Single-shot grounding on 50 scenarios — raw HTML vs WCI approaches.
         </p>
       </div>
       <div class="eval-charts__grid">
         <figure class="eval-chart-panel">
           <figcaption class="eval-chart-panel__title">Success rate (%)</figcaption>
           <div class="eval-chart-legend eval-chart-legend--inline">
-            <span><i class="eval-swatch eval-swatch--std"></i> Standard</span>
+            <span><i class="eval-swatch eval-swatch--std"></i> Raw HTML</span>
             <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
             <span><i class="eval-swatch eval-swatch--full"></i> WCI full</span>
           </div>
           <div class="eval-chart" id="chart-success" role="img" aria-label="Success rate by model"></div>
         </figure>
         <figure class="eval-chart-panel">
-          <figcaption class="eval-chart-panel__title">Avg. tokens per LLM call</figcaption>
+          <figcaption class="eval-chart-panel__title">Tokens per step (est.)</figcaption>
           <div class="eval-chart-legend eval-chart-legend--inline">
-            <span><i class="eval-swatch eval-swatch--std"></i> Standard</span>
+            <span><i class="eval-swatch eval-swatch--std"></i> Raw HTML</span>
             <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
           </div>
           <div class="eval-chart" id="chart-tokens" role="img" aria-label="Token usage by model"></div>
@@ -481,27 +481,34 @@
       <div class="agent-leaderboard__header">
         <h3 class="agent-leaderboard__title">🏆 Agent Performance Comparison</h3>
         <p class="agent-leaderboard__subtitle">
-          Single-shot element grounding on <strong>50 scenarios</strong> (OpenRouter, May 2026).
-          <strong>WCI grounding</strong> uses actionable distilled nodes; <strong>standard</strong> averages raw HTML, DOM outline, and candidate-list baselines.
-          See <code>evals/README.md</code> for methodology, per-approach tokens, and limitations.
+          Performance comparison across <strong>50 single-step grounding scenarios</strong> evaluated over six LLMs (OpenRouter, May 2026).
+          See <code>evals/README.md</code> for methodology and limitations.
         </p>
         <p class="agent-leaderboard__meta" id="leaderboard-meta"></p>
       </div>
       
       <div class="leaderboard-table-container">
-        <table class="leaderboard-table">
+        <table class="leaderboard-table leaderboard-table--full" id="leaderboard-table">
           <thead>
+            <tr class="leaderboard-table__group-row">
+              <th rowspan="2">Model</th>
+              <th colspan="5" class="text-center">Success rate (%)</th>
+              <th colspan="3" class="text-center">Tokens per step (est.)</th>
+            </tr>
             <tr>
-              <th>LLM (OpenRouter)</th>
-              <th class="text-center">Standard baselines</th>
-              <th class="text-center">WCI grounding</th>
+              <th class="text-center">Raw HTML</th>
+              <th class="text-center">DOM outline</th>
+              <th class="text-center">Candidates</th>
               <th class="text-center">WCI full</th>
-              <th class="text-center">Avg. tokens / call</th>
+              <th class="text-center leaderboard-th--highlight">WCI grounding</th>
+              <th class="text-center">Raw HTML</th>
+              <th class="text-center">WCI full</th>
+              <th class="text-center leaderboard-th--highlight">WCI grounding</th>
             </tr>
           </thead>
           <tbody id="leaderboard-body">
             <tr class="leaderboard-row leaderboard-row--placeholder" id="leaderboard-placeholder">
-              <td colspan="5" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
+              <td colspan="9" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
                 Loading benchmark results…
               </td>
             </tr>

@@ -4,6 +4,15 @@ export interface WciLeaderboardBlock {
   avgTokens: number;
 }
 
+/** Per-approach snapshot for the published benchmark table */
+export interface LeaderboardApproaches {
+  rawHtml: WciLeaderboardBlock;
+  domOutline: WciLeaderboardBlock;
+  candidates: WciLeaderboardBlock;
+  wciFull: WciLeaderboardBlock;
+  wciGrounding: WciLeaderboardBlock;
+}
+
 export interface LeaderboardAgentResult {
   /** Raw HTML + DOM outline + candidate-list approaches */
   standard: WciLeaderboardBlock;
@@ -13,6 +22,8 @@ export interface LeaderboardAgentResult {
   wciFull: WciLeaderboardBlock;
   /** @deprecated use wci */
   agentDom?: WciLeaderboardBlock;
+  /** Full per-approach breakdown (demo table) */
+  approaches?: LeaderboardApproaches;
 }
 
 export interface ScenarioRunResult {
@@ -54,6 +65,31 @@ export interface EvalReport {
   groundTruthVerified: boolean;
 }
 
+export function buildApproachesFromModel(
+  m: ModelAggregate
+): LeaderboardApproaches | undefined {
+  const raw = m.approaches['raw-html'];
+  const outline = m.approaches['dom-outline'];
+  const candidates = m.approaches['interactive-candidates'];
+  const wciFull = m.approaches['wci-full'];
+  const wciGrounding =
+    m.approaches['wci-grounding'] ?? m.approaches['wci-distilled'];
+  if (!raw || !outline || !candidates || !wciFull || !wciGrounding) return undefined;
+
+  const block = (a: ApproachAggregate): WciLeaderboardBlock => ({
+    successRate: a.successRate,
+    avgTokens: a.avgTokens,
+  });
+
+  return {
+    rawHtml: block(raw),
+    domOutline: block(outline),
+    candidates: block(candidates),
+    wciFull: block(wciFull),
+    wciGrounding: block(wciGrounding),
+  };
+}
+
 export function buildLeaderboard(models: ModelAggregate[]): Record<string, LeaderboardAgentResult> {
   const out: Record<string, LeaderboardAgentResult> = {};
 
@@ -85,6 +121,7 @@ export function buildLeaderboard(models: ModelAggregate[]): Record<string, Leade
       wci: wciBlock,
       wciFull: wciFullBlock,
       agentDom: wciBlock,
+      approaches: buildApproachesFromModel(m),
     };
   }
 

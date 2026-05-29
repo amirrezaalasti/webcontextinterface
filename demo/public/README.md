@@ -40,7 +40,7 @@ cp demo/public/eval-results-<your-model>.json demo/public/eval-results.json
 
 ## Report JSON shape
 
-**`eval-results-*.json`** (leaderboard):
+**`eval-results-*.json`** (leaderboard; `approaches` block matches the paper table when merged from `eval-report-*.json`):
 
 ```json
 {

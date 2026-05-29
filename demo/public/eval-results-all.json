@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-28T19:17:25.617Z",
+  "generatedAt": "2026-05-29T19:22:40.585Z",
   "mergedFrom": [
     "gpt5",
     "gpt5Nano",
     "gptoss20B",
     "gemini35Flash",
-    "llama31_8b",
-    "qwen25_7b"
+    "qwen25_7b",
+    "llama31_8b"
   ],
   "modelOrder": [
     {
@@ -30,14 +30,14 @@
       "openRouterModel": "google/gemini-3.5-flash"
     },
     {
-      "id": "llama31_8b",
-      "name": "Llama 3.1 8B",
-      "openRouterModel": "meta-llama/llama-3.1-8b-instruct"
-    },
-    {
       "id": "qwen25_7b",
       "name": "Qwen 2.5 7B",
       "openRouterModel": "qwen/qwen-2.5-7b-instruct"
+    },
+    {
+      "id": "llama31_8b",
+      "name": "Llama 3.1 8B",
+      "openRouterModel": "meta-llama/llama-3.1-8b-instruct"
     }
   ],
   "gpt5": {
@@ -56,6 +56,28 @@
     "agentDom": {
       "successRate": 100,
       "avgTokens": 505
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 90,
+        "avgTokens": 2993
+      },
+      "domOutline": {
+        "successRate": 54,
+        "avgTokens": 2019
+      },
+      "candidates": {
+        "successRate": 8,
+        "avgTokens": 1230
+      },
+      "wciFull": {
+        "successRate": 96,
+        "avgTokens": 632
+      },
+      "wciGrounding": {
+        "successRate": 100,
+        "avgTokens": 505
+      }
     }
   },
   "gpt5Nano": {
@@ -74,6 +96,28 @@
     "agentDom": {
       "successRate": 100,
       "avgTokens": 528
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 58,
+        "avgTokens": 3047
+      },
+      "domOutline": {
+        "successRate": 12,
+        "avgTokens": 1914
+      },
+      "candidates": {
+        "successRate": 4,
+        "avgTokens": 1185
+      },
+      "wciFull": {
+        "successRate": 98,
+        "avgTokens": 655
+      },
+      "wciGrounding": {
+        "successRate": 100,
+        "avgTokens": 528
+      }
     }
   },
   "gptoss20B": {
@@ -92,6 +136,28 @@
     "agentDom": {
       "successRate": 100,
       "avgTokens": 535
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 62,
+        "avgTokens": 2869
+      },
+      "domOutline": {
+        "successRate": 4,
+        "avgTokens": 1738
+      },
+      "candidates": {
+        "successRate": 0,
+        "avgTokens": 1116
+      },
+      "wciFull": {
+        "successRate": 98,
+        "avgTokens": 649
+      },
+      "wciGrounding": {
+        "successRate": 100,
+        "avgTokens": 535
+      }
     }
   },
   "gemini35Flash": {
@@ -110,24 +176,28 @@
     "agentDom": {
       "successRate": 98,
       "avgTokens": 541
-    }
-  },
-  "llama31_8b": {
-    "standard": {
-      "successRate": 13,
-      "avgTokens": 1767
     },
-    "wci": {
-      "successRate": 92,
-      "avgTokens": 450
-    },
-    "wciFull": {
-      "successRate": 92,
-      "avgTokens": 561
-    },
-    "agentDom": {
-      "successRate": 92,
-      "avgTokens": 450
+    "approaches": {
+      "rawHtml": {
+        "successRate": 88,
+        "avgTokens": 3315
+      },
+      "domOutline": {
+        "successRate": 28,
+        "avgTokens": 2116
+      },
+      "candidates": {
+        "successRate": 8,
+        "avgTokens": 1271
+      },
+      "wciFull": {
+        "successRate": 96,
+        "avgTokens": 680
+      },
+      "wciGrounding": {
+        "successRate": 98,
+        "avgTokens": 541
+      }
     }
   },
   "qwen25_7b": {
@@ -146,6 +216,68 @@
     "agentDom": {
       "successRate": 90,
       "avgTokens": 454
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 70,
+        "avgTokens": 2857
+      },
+      "domOutline": {
+        "successRate": 14,
+        "avgTokens": 1541
+      },
+      "candidates": {
+        "successRate": 8,
+        "avgTokens": 1070
+      },
+      "wciFull": {
+        "successRate": 92,
+        "avgTokens": 569
+      },
+      "wciGrounding": {
+        "successRate": 90,
+        "avgTokens": 454
+      }
+    }
+  },
+  "llama31_8b": {
+    "standard": {
+      "successRate": 13,
+      "avgTokens": 1767
+    },
+    "wci": {
+      "successRate": 92,
+      "avgTokens": 450
+    },
+    "wciFull": {
+      "successRate": 92,
+      "avgTokens": 561
+    },
+    "agentDom": {
+      "successRate": 92,
+      "avgTokens": 450
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 20,
+        "avgTokens": 2762
+      },
+      "domOutline": {
+        "successRate": 16,
+        "avgTokens": 1518
+      },
+      "candidates": {
+        "successRate": 4,
+        "avgTokens": 1021
+      },
+      "wciFull": {
+        "successRate": 92,
+        "avgTokens": 561
+      },
+      "wciGrounding": {
+        "successRate": 92,
+        "avgTokens": 450
+      }
     }
   }
 }
