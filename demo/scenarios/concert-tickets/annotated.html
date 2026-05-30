@@ -1,24 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>TicketRush</title><style>
-.tr-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.tr-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.tr-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TicketRush</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.tr-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.tr-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.tr-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.tr-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.tr-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.tr-nav a:hover{background:#f1f5f9;color:#0f172a}
+.tr-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tr-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.tr-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.tr-subnav a:hover{background:#f8fafc;color:#334155}
+.tr-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.tr-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.tr-page-wrap{grid-template-columns:1fr}}
+.tr-page-main{padding:20px 24px 32px;min-height:42vh}
+.tr-page-main>h1,.tr-page-main [role=main]>h1,.tr-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.tr-page-main h2,.tr-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.tr-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.tr-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.tr-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tr-page-main select,.tr-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.tr-page-main input:focus,.tr-page-main select:focus,.tr-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
+.tr-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.tr-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.tr-page-main table{width:100%;margin:12px 0;font-size:13px}
+.tr-page-main th,.tr-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.tr-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.tr-page-main tr:hover td{background:#fafafa}
+.tr-page-main article,.tr-page-main .tr-card,.tr-page-main .tr-resto,.tr-page-main .tr-slot,.tr-page-main .tr-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.tr-page-main ul:not([class]){list-style:none;padding:0}
+.tr-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.tr-page-main ul:not([class]) li:hover{background:#f8fafc}
+.tr-page-main dialog,.tr-page-main .tr-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.tr-page-main .tr-modal.is-open,.tr-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.tr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.tr-btn:hover{background:#f8fafc}
+.tr-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
+.tr-btn--primary:hover{filter:brightness(1.05)}
 .tr-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.tr-btn--decoy{background:#fef9c3;border-color:#fde047}
-.tr-btn--muted{background:#e2e8f0;color:#334155}
-.tr-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.tr-cookie p{flex:1;margin:0;font-size:13px}
-.tr-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.tr-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.tr-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.tr-nav a{margin-right:14px;color:#334155;font-size:13px}
-.tr-hdr-promo button{margin-left:6px}
-.tr-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.tr-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.tr-rail--ads{background:#fffbeb}
-.tr-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.tr-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.tr-ab{display:none}
-.tr-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.tr-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.tr-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.tr-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.tr-btn:disabled{opacity:.5;cursor:not-allowed}
+.tr-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.tr-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.tr-rail{padding:16px;margin:16px;background:hsl(291 60% 96%);border:1px solid hsl(291 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.tr-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.tr-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.tr-rail a{color:#b45309;font-weight:500}
+.tr-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.tr-ftr a{color:#475569;margin-right:8px}
+.tr-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.tr-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.tr-ab{display:none!important}
+.tr-layout{display:grid;gap:16px;align-items:start}
+.tr-filters,.tr-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.tr-filters h2,.tr-frame aside h2{font-size:14px;margin:0 0 10px}
+.tr-card__actions,.tr-slot__actions,.tr-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.tr-wizard{max-width:760px}
+.tr-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.tr-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.tr-step.is-active{background:hsl(291 72% 46%);color:#fff}
+.tr-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.tr-hero{border-radius:12px;margin-bottom:8px}
+.tr-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.tr-grid{display:grid;gap:14px}
+.tr-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.tr-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.tr-patient{border-radius:10px}
+.tr-slots{display:grid;gap:10px}
+.tr-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.tr-cell{background:#fff;padding:8px;min-height:44px}
+.tr-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.tr-diff{border-radius:8px}
+.tr-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
 </style></head><body>
 <div class="tr-app" data-page="concert-tickets" data-agent-role="landmark" data-agent-id="concert_tickets-page" data-agent-desc="Concert" data-agent-priority="2"><div class="tr-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
@@ -40,12 +105,12 @@
   <button type="button" class="tr-btn tr-btn--ghost">Continue</button>
   <button type="button" class="tr-btn tr-btn--ghost">Save changes</button>
   <button type="button" class="tr-btn tr-btn--ghost">Confirm</button>
-</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav">Buy 2 GA Neon Pulse</button></div><div role="main" style="display:flex;gap:24px;padding:16px" data-event="neon-pulse"><section style="flex:1;background:#1e1b4b;color:#fff;padding:24px"><h1>Neon Pulse</h1><p>GA Floor</p></section>
+</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav">Buy 2 GA Neon Pulse</button></div><div class="tr-page-wrap"><div class="tr-page-main"><div role="main" style="display:flex;gap:24px;padding:16px" data-event="neon-pulse"><section style="flex:1;background:#1e1b4b;color:#fff;padding:24px"><h1>Neon Pulse</h1><p>GA Floor</p></section>
 <aside style="width:280px"><select><option>2</option></select>
 <button type="button" class="tr-btn tr-btn--primary" data-tickets="ga-2" data-agent-role="action" data-agent-id="buy-neon-pulse-ga" data-agent-desc="Purchase two general admission tickets for Neon Pulse tour (not VIP)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">VIP upgrade</button></aside></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored">
+<button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">VIP upgrade</button></aside></div></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost">Action 2</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost">Action 6</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost">Action 10</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost">Action 14</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost">Action 18</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost">Action 22</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost">Action 26</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost">Action 30</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost">Action 34</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost">Action 38</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost">Action 42</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tr-ftr"><small>© Demo TicketRush</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost">Action 2</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost">Action 6</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost">Action 10</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost">Action 14</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost">Action 18</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost">Action 22</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost">Action 26</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost">Action 30</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost">Action 34</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost">Action 38</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost">Action 42</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tr-ftr"><small>© Demo TicketRush</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

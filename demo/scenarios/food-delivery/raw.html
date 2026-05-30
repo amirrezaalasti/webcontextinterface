@@ -1,25 +1,90 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>QuickBite</title><style>
-.qb-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.qb-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.qb-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>QuickBite</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.qb-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.qb-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.qb-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.qb-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.qb-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.qb-nav a:hover{background:#f1f5f9;color:#0f172a}
+.qb-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qb-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.qb-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.qb-subnav a:hover{background:#f8fafc;color:#334155}
+.qb-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.qb-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.qb-page-wrap{grid-template-columns:1fr}}
+.qb-page-main{padding:20px 24px 32px;min-height:42vh}
+.qb-page-main>h1,.qb-page-main [role=main]>h1,.qb-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.qb-page-main h2,.qb-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.qb-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.qb-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.qb-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.qb-page-main select,.qb-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.qb-page-main input:focus,.qb-page-main select:focus,.qb-page-main textarea:focus{outline:2px solid hsl(24 72% 46%);outline-offset:1px;border-color:hsl(24 72% 46%)}
+.qb-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.qb-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.qb-page-main table{width:100%;margin:12px 0;font-size:13px}
+.qb-page-main th,.qb-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.qb-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.qb-page-main tr:hover td{background:#fafafa}
+.qb-page-main article,.qb-page-main .qb-card,.qb-page-main .qb-resto,.qb-page-main .qb-slot,.qb-page-main .qb-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.qb-page-main ul:not([class]){list-style:none;padding:0}
+.qb-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.qb-page-main ul:not([class]) li:hover{background:#f8fafc}
+.qb-page-main dialog,.qb-page-main .qb-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.qb-page-main .qb-modal.is-open,.qb-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.qb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.qb-btn:hover{background:#f8fafc}
+.qb-btn--primary{background:hsl(24 72% 46%);color:#fff;border-color:hsl(24 72% 38%)}
+.qb-btn--primary:hover{filter:brightness(1.05)}
 .qb-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.qb-btn--decoy{background:#fef9c3;border-color:#fde047}
-.qb-btn--muted{background:#e2e8f0;color:#334155}
-.qb-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.qb-cookie p{flex:1;margin:0;font-size:13px}
-.qb-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.qb-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.qb-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.qb-nav a{margin-right:14px;color:#334155;font-size:13px}
-.qb-hdr-promo button{margin-left:6px}
-.qb-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.qb-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.qb-rail--ads{background:#fffbeb}
-.qb-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.qb-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.qb-ab{display:none}
-.qb-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
-.qb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}.qb-resto{border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.qb-cart{position:fixed;right:0;top:80px;width:260px;border-left:2px solid #f97316;padding:16px;background:#fff}</style></head><body>
+.qb-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.qb-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.qb-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.qb-btn:disabled{opacity:.5;cursor:not-allowed}
+.qb-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.qb-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.qb-rail{padding:16px;margin:16px;background:hsl(24 60% 96%);border:1px solid hsl(24 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.qb-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.qb-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.qb-rail a{color:#b45309;font-weight:500}
+.qb-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.qb-ftr a{color:#475569;margin-right:8px}
+.qb-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.qb-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.qb-ab{display:none!important}
+.qb-layout{display:grid;gap:16px;align-items:start}
+.qb-filters,.qb-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.qb-filters h2,.qb-frame aside h2{font-size:14px;margin:0 0 10px}
+.qb-card__actions,.qb-slot__actions,.qb-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.qb-wizard{max-width:760px}
+.qb-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.qb-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.qb-step.is-active{background:hsl(24 72% 46%);color:#fff}
+.qb-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.qb-hero{border-radius:12px;margin-bottom:8px}
+.qb-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.qb-grid{display:grid;gap:14px}
+.qb-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.qb-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.qb-patient{border-radius:10px}
+.qb-slots{display:grid;gap:10px}
+.qb-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.qb-cell{background:#fff;padding:8px;min-height:44px}
+.qb-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.qb-diff{border-radius:8px}
+.qb-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.qb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}.qb-cart{position:sticky;top:16px;margin-top:0!important;border-left:3px solid #f97316}</style></head><body>
 <div class="qb-app" data-page="food-delivery"><div class="qb-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
   <button type="button" class="qb-btn qb-btn--muted">Reject non-essential</button>
@@ -40,14 +105,14 @@
   <button type="button" class="qb-btn qb-btn--ghost">Continue</button>
   <button type="button" class="qb-btn qb-btn--ghost">Save changes</button>
   <button type="button" class="qb-btn qb-btn--ghost">Confirm</button>
-</div><div class="qb-dup-row"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Add Teriyaki Bowl checkout</button><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-nav">Chicken Teriyaki Bowl cart</button></div><main class="qb-grid" role="main">
+</div><div class="qb-dup-row"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Add Teriyaki Bowl checkout</button><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-nav">Chicken Teriyaki Bowl cart</button></div><div class="qb-page-wrap"><div class="qb-page-main"><main class="qb-grid" role="main">
 <article class="qb-resto"><h3>Sushi Zen</h3><button type="button" class="qb-btn qb-btn--ghost">View menu</button></article>
 <article class="qb-resto" data-restaurant="tokyo-bowl" data-item="teriyaki-1299" data-price="12.99"><h3>Tokyo Bowl</h3><p>Teriyaki bowl · $12.99</p>
 <button type="button" class="qb-btn qb-btn--primary">Confirm</button></article>
 <article class="qb-resto"><h3>Pizza Hub</h3><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Free delivery</button></article>
-</main><aside class="qb-cart"><h2>Cart (0)</h2><button type="button" class="qb-btn qb-btn--ghost">Clear</button></aside><aside class="qb-rail qb-rail--ads" aria-label="Sponsored">
+</main><aside class="qb-cart"><h2>Cart (0)</h2><button type="button" class="qb-btn qb-btn--ghost">Clear</button></aside></div><aside class="qb-rail qb-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="qb-filler" aria-hidden="true"><div class="qb-filler-inner"><a href="/misc/0" class="qb-btn qb-btn--ghost">Link 1</a><button type="button" class="qb-btn qb-btn--ghost">Action 2</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/4" class="qb-btn qb-btn--ghost">Link 5</a><button type="button" class="qb-btn qb-btn--ghost">Action 6</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/8" class="qb-btn qb-btn--ghost">Link 9</a><button type="button" class="qb-btn qb-btn--ghost">Action 10</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/12" class="qb-btn qb-btn--ghost">Link 13</a><button type="button" class="qb-btn qb-btn--ghost">Action 14</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/16" class="qb-btn qb-btn--ghost">Link 17</a><button type="button" class="qb-btn qb-btn--ghost">Action 18</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/20" class="qb-btn qb-btn--ghost">Link 21</a><button type="button" class="qb-btn qb-btn--ghost">Action 22</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/24" class="qb-btn qb-btn--ghost">Link 25</a><button type="button" class="qb-btn qb-btn--ghost">Action 26</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/28" class="qb-btn qb-btn--ghost">Link 29</a><button type="button" class="qb-btn qb-btn--ghost">Action 30</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/32" class="qb-btn qb-btn--ghost">Link 33</a><button type="button" class="qb-btn qb-btn--ghost">Action 34</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/36" class="qb-btn qb-btn--ghost">Link 37</a><button type="button" class="qb-btn qb-btn--ghost">Action 38</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/40" class="qb-btn qb-btn--ghost">Link 41</a><button type="button" class="qb-btn qb-btn--ghost">Action 42</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button></div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="qb-ftr"><small>© Demo QuickBite</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="qb-filler" aria-hidden="true"><div class="qb-filler-inner"><a href="/misc/0" class="qb-btn qb-btn--ghost">Link 1</a><button type="button" class="qb-btn qb-btn--ghost">Action 2</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/4" class="qb-btn qb-btn--ghost">Link 5</a><button type="button" class="qb-btn qb-btn--ghost">Action 6</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/8" class="qb-btn qb-btn--ghost">Link 9</a><button type="button" class="qb-btn qb-btn--ghost">Action 10</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/12" class="qb-btn qb-btn--ghost">Link 13</a><button type="button" class="qb-btn qb-btn--ghost">Action 14</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/16" class="qb-btn qb-btn--ghost">Link 17</a><button type="button" class="qb-btn qb-btn--ghost">Action 18</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/20" class="qb-btn qb-btn--ghost">Link 21</a><button type="button" class="qb-btn qb-btn--ghost">Action 22</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/24" class="qb-btn qb-btn--ghost">Link 25</a><button type="button" class="qb-btn qb-btn--ghost">Action 26</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/28" class="qb-btn qb-btn--ghost">Link 29</a><button type="button" class="qb-btn qb-btn--ghost">Action 30</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/32" class="qb-btn qb-btn--ghost">Link 33</a><button type="button" class="qb-btn qb-btn--ghost">Action 34</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/36" class="qb-btn qb-btn--ghost">Link 37</a><button type="button" class="qb-btn qb-btn--ghost">Action 38</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/40" class="qb-btn qb-btn--ghost">Link 41</a><button type="button" class="qb-btn qb-btn--ghost">Action 42</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button></div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="qb-ftr"><small>© Demo QuickBite</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

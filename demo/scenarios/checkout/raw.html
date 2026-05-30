@@ -1,4 +1,52 @@
-<!DOCTYPE html><html><head><title>VelvetCart — Checkout</title></head><body>
+<!DOCTYPE html><html><head><style data-wci-legacy-styles="1">
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+
+.vc-app{background:#f1f5f9;color:#0f172a;min-height:100vh}
+.vc-header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:16px 0}
+.vc-header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.vc-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.vc-header__steps{display:flex;gap:8px;flex-wrap:wrap}
+.vc-step{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.15);font-size:12px}
+.vc-step--active,.vc-step--done{background:rgba(255,255,255,.28);font-weight:600}
+.vc-checkout-main{padding:28px 0 48px}
+.vc-checkout-layout{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+@media(max-width:900px){.vc-checkout-layout{grid-template-columns:1fr}}
+.vc-checkout-section{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+.vc-checkout-section__title{font-size:16px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.vc-checkout-section__num{width:24px;height:24px;border-radius:50%;background:#eef2ff;color:#4f46e5;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.vc-form-row{margin-bottom:12px}
+.vc-label{display:block;font-size:12px;font-weight:500;color:#64748b;margin-bottom:6px}
+.vc-input,.vc-select{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.vc-form-row--half,.vc-form-row--third{display:grid;gap:12px}
+.vc-form-row--half{grid-template-columns:1fr 1fr}
+.vc-form-row--third{grid-template-columns:2fr 1fr 1fr}
+.vc-address-card{display:flex;gap:12px;width:100%;text-align:left;padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;margin-bottom:8px;cursor:pointer}
+.vc-address-card--selected{border-color:#4f46e5;background:#eef2ff}
+.vc-shipping-opt{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:8px;cursor:pointer;background:#fff}
+.vc-shipping-opt__price{margin-left:auto;font-weight:600}
+.vc-order-summary{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;position:sticky;top:16px}
+.vc-order-summary__title{font-size:16px;font-weight:600;margin-bottom:14px}
+.vc-order-line{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;color:#475569}
+.vc-order-line--total{font-weight:700;font-size:16px;color:#0f172a;border-top:1px solid #e2e8f0;margin-top:8px;padding-top:12px}
+
+.vc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.vc-btn--primary{background:#4f46e5;border-color:#4f46e5;color:#fff}
+.vc-btn--ghost,.vc-btn--link{background:transparent;border-color:transparent;color:inherit}
+.vc-btn--outline{background:transparent;border-color:currentColor}
+.vc-btn--sm{padding:6px 10px;font-size:12px}
+.vc-btn--full{width:100%}
+.vc-btn:disabled{opacity:.45;cursor:not-allowed}
+
+.vc-btn--jumbo{padding:14px 24px;font-size:15px}
+</style><title>VelvetCart — Checkout</title></head><body>
 <div class="vc-app" id="root" data-store="vc" data-locale="en-US" data-currency="USD">
   <!-- A/B test variants (hidden, confusing) -->
   <div class="vc-ab-test" data-experiment="checkout-v3" data-variant="B" style="display:none">

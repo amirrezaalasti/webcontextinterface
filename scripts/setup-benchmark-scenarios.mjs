@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import { buildAnnotatedFromRaw } from './lib/annotate-html.mjs';
 import { HARD_GOALS } from './lib/scenario-goals.mjs';
 import { buildGeneratedLayout } from './lib/scenario-layouts.mjs';
+import { injectLegacyStyles, LEGACY_STYLE_IDS } from './lib/legacy-scenario-styles.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -180,7 +181,13 @@ function main() {
     }
     const meta = LEGACY_META[id];
     if (!meta) throw new Error(`Missing LEGACY_META for ${id}`);
-    writeScenario(id, fs.readFileSync(rawPath, 'utf8'), fs.readFileSync(annPath, 'utf8'), meta);
+    let rawHtml = fs.readFileSync(rawPath, 'utf8');
+    let annotatedHtml = fs.readFileSync(annPath, 'utf8');
+    if (LEGACY_STYLE_IDS.includes(id)) {
+      rawHtml = injectLegacyStyles(rawHtml, id);
+      annotatedHtml = injectLegacyStyles(annotatedHtml, id);
+    }
+    writeScenario(id, rawHtml, annotatedHtml, meta);
     manifestEntries.push({ id, legacy: true });
     console.log(`Preserved legacy: ${id}`);
   }

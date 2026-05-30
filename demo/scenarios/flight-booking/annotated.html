@@ -1,4 +1,58 @@
-<!DOCTYPE html><html><head><title>SkyWing Airlines — Search Results</title></head><body>
+<!DOCTYPE html><html><head><style data-wci-legacy-styles="1">
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+
+.sw-root,.sw-theme-dark{--bg:#0c1222;--panel:#151d2e;--text:#e8edf5;--muted:#94a3b8;--line:#2a3548;--accent:#38bdf8;background:var(--bg);color:var(--text);min-height:100vh}
+.sw-container{max-width:1200px;margin:0 auto;padding:0 20px}
+.sw-hdr{background:linear-gradient(180deg,#0f172a,#0c1222);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.sw-hdr__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;flex-wrap:wrap}
+.sw-hdr__logo{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700}
+.sw-hdr__logo-img{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#38bdf8,#6366f1)}
+.sw-hdr__nav-list{display:flex;gap:8px;flex-wrap:wrap}
+.sw-hdr__nav-link{color:var(--muted);padding:8px 12px;border-radius:6px;font-size:13px}
+.sw-hdr__nav-link:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.sw-hdr__right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sw-search-bar{background:var(--panel);border-bottom:1px solid var(--line)}
+.sw-search-bar__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;flex-wrap:wrap}
+.sw-search-bar__route{font-weight:600;font-size:15px}
+.sw-search-bar__sep,.sw-breadcrumbs{color:var(--muted);margin:0 6px}
+.sw-main{padding:20px 0 48px}
+.sw-results__layout{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+@media(max-width:900px){.sw-results__layout{grid-template-columns:1fr}}
+.sw-filters{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.sw-filters__title{font-size:15px;font-weight:600;margin-bottom:12px}
+.sw-filter-group{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.sw-filter-check{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px;color:var(--muted)}
+.sw-filter-check__count{margin-left:auto;color:var(--muted);font-size:12px}
+.sw-result-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.sw-result-card--promo{border-color:#f59e0b;background:linear-gradient(135deg,#1c1917,#151d2e)}
+.sw-result-card__inner{padding:16px;display:grid;gap:14px}
+.sw-result-card__inner{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.sw-airline-logo{width:40px;height:40px;border-radius:8px;background:#334155}
+.sw-result-card__fares{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.sw-fare-btn{display:flex;flex-direction:column;align-items:flex-start;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:#0f172a;color:var(--text);min-width:100px}
+.sw-fare-btn--economy{border-color:var(--accent)}
+.sw-fare-btn__price{font-size:18px;font-weight:700}
+.sw-fare-btn__basis{font-size:11px;color:var(--muted)}
+.sw-sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.sw-promo-banner{background:linear-gradient(90deg,#1e3a5f,#312e81);border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.sw-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.sw-btn--primary{background:#0ea5e9;border-color:#0ea5e9;color:#fff}
+.sw-btn--ghost,.sw-btn--link{background:transparent;border-color:transparent;color:inherit}
+.sw-btn--outline{background:transparent;border-color:currentColor}
+.sw-btn--sm{padding:6px 10px;font-size:12px}
+.sw-btn--full{width:100%}
+.sw-btn:disabled{opacity:.45;cursor:not-allowed}
+
+</style><title>SkyWing Airlines — Search Results</title></head><body>
 <div class="sw-root sw-theme-dark" data-reactroot="" data-v-app="" id="__next">
   <div class="sw-layout__wrapper sw-layout__wrapper--full">
     <!-- Tracking pixels, analytics, chat widgets -->

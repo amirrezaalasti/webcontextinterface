@@ -1,25 +1,90 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>InboxPro Mail</title><style>
-.ip-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.ip-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.ip-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>InboxPro Mail</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.ip-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.ip-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ip-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.ip-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.ip-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.ip-nav a:hover{background:#f1f5f9;color:#0f172a}
+.ip-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ip-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.ip-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.ip-subnav a:hover{background:#f8fafc;color:#334155}
+.ip-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.ip-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.ip-page-wrap{grid-template-columns:1fr}}
+.ip-page-main{padding:20px 24px 32px;min-height:42vh}
+.ip-page-main>h1,.ip-page-main [role=main]>h1,.ip-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.ip-page-main h2,.ip-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.ip-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.ip-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.ip-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ip-page-main select,.ip-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ip-page-main input:focus,.ip-page-main select:focus,.ip-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
+.ip-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.ip-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.ip-page-main table{width:100%;margin:12px 0;font-size:13px}
+.ip-page-main th,.ip-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.ip-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.ip-page-main tr:hover td{background:#fafafa}
+.ip-page-main article,.ip-page-main .ip-card,.ip-page-main .ip-resto,.ip-page-main .ip-slot,.ip-page-main .ip-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ip-page-main ul:not([class]){list-style:none;padding:0}
+.ip-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.ip-page-main ul:not([class]) li:hover{background:#f8fafc}
+.ip-page-main dialog,.ip-page-main .ip-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.ip-page-main .ip-modal.is-open,.ip-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.ip-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ip-btn:hover{background:#f8fafc}
+.ip-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
+.ip-btn--primary:hover{filter:brightness(1.05)}
 .ip-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.ip-btn--decoy{background:#fef9c3;border-color:#fde047}
-.ip-btn--muted{background:#e2e8f0;color:#334155}
-.ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.ip-cookie p{flex:1;margin:0;font-size:13px}
-.ip-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.ip-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.ip-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.ip-nav a{margin-right:14px;color:#334155;font-size:13px}
-.ip-hdr-promo button{margin-left:6px}
-.ip-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.ip-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.ip-rail--ads{background:#fffbeb}
-.ip-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.ip-ab{display:none}
-.ip-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
-.ip-frame{display:grid;grid-template-columns:260px 1fr 320px;min-height:70vh}.ip-inbox{width:100%;border-collapse:collapse}.ip-inbox tr.unread{font-weight:bold}.ip-toolbar{display:flex;gap:6px;padding:8px;flex-wrap:wrap}.ip-pane{border-left:1px solid #ccc;padding:16px}</style></head><body>
+.ip-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.ip-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.ip-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.ip-btn:disabled{opacity:.5;cursor:not-allowed}
+.ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.ip-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.ip-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.ip-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.ip-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.ip-rail a{color:#b45309;font-weight:500}
+.ip-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.ip-ftr a{color:#475569;margin-right:8px}
+.ip-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.ip-ab{display:none!important}
+.ip-layout{display:grid;gap:16px;align-items:start}
+.ip-filters,.ip-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.ip-filters h2,.ip-frame aside h2{font-size:14px;margin:0 0 10px}
+.ip-card__actions,.ip-slot__actions,.ip-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.ip-wizard{max-width:760px}
+.ip-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.ip-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.ip-step.is-active{background:hsl(262 72% 46%);color:#fff}
+.ip-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.ip-hero{border-radius:12px;margin-bottom:8px}
+.ip-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.ip-grid{display:grid;gap:14px}
+.ip-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.ip-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.ip-patient{border-radius:10px}
+.ip-slots{display:grid;gap:10px}
+.ip-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.ip-cell{background:#fff;padding:8px;min-height:44px}
+.ip-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.ip-diff{border-radius:8px}
+.ip-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ip-frame{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(220px,280px);min-height:55vh;gap:0}.ip-frame>aside:first-child{padding:14px;border-right:1px solid #e2e8f0;background:#f8fafc}.ip-pane{border-left:1px solid #e2e8f0;padding:16px;background:#fafafa}</style></head><body>
 <div class="ip-app" data-page="email-client"><div class="ip-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
   <button type="button" class="ip-btn ip-btn--muted">Reject non-essential</button>
@@ -40,7 +105,7 @@
   <button type="button" class="ip-btn ip-btn--ghost">Continue</button>
   <button type="button" class="ip-btn ip-btn--ghost">Save changes</button>
   <button type="button" class="ip-btn ip-btn--ghost">Confirm</button>
-</div><div class="ip-dup-row"><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo">Archive billing thread</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav">Archive billing@acme.com</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra">Archive acme billing</button></div><div class="ip-frame"><aside><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul></aside>
+</div><div class="ip-dup-row"><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo">Archive billing thread</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav">Archive billing@acme.com</button><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra">Archive acme billing</button></div><div class="ip-page-wrap"><div class="ip-page-main"><div class="ip-frame"><aside><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul></aside>
 <div><table class="ip-inbox" role="main"><thead><tr><th>From</th><th>Subject</th></tr></thead><tbody>
 <tr data-thread="digest"><td>news@digest.com</td><td>Weekly roundup</td></tr>
 <tr class="unread" data-thread="billing-acme" data-domain="acme.com"><td>billing@acme.com</td><td>Invoice #992</td></tr>
@@ -49,5 +114,5 @@
 <div class="ip-toolbar" data-action-bar="thread-tools"><button type="button" class="ip-btn ip-btn--ghost">Reply</button>
 <button type="button" class="ip-btn ip-btn--ghost">Forward</button><button type="button" class="ip-btn ip-btn--primary">Confirm</button>
 <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-promo">Upgrade storage</button></div></div>
-<aside class="ip-pane"><h2>Message</h2><p>Invoice attached…</p></aside></div><div class="ip-filler" aria-hidden="true"><div class="ip-filler-inner"><a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Action 2</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/12" class="ip-btn ip-btn--ghost">Link 13</a><button type="button" class="ip-btn ip-btn--ghost">Action 14</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/16" class="ip-btn ip-btn--ghost">Link 17</a><button type="button" class="ip-btn ip-btn--ghost">Action 18</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/20" class="ip-btn ip-btn--ghost">Link 21</a><button type="button" class="ip-btn ip-btn--ghost">Action 22</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/24" class="ip-btn ip-btn--ghost">Link 25</a><button type="button" class="ip-btn ip-btn--ghost">Action 26</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/28" class="ip-btn ip-btn--ghost">Link 29</a><button type="button" class="ip-btn ip-btn--ghost">Action 30</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/32" class="ip-btn ip-btn--ghost">Link 33</a><button type="button" class="ip-btn ip-btn--ghost">Action 34</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/36" class="ip-btn ip-btn--ghost">Link 37</a><button type="button" class="ip-btn ip-btn--ghost">Action 38</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/40" class="ip-btn ip-btn--ghost">Link 41</a><button type="button" class="ip-btn ip-btn--ghost">Action 42</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button></div></div><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ip-ftr"><small>© Demo InboxPro Mail</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+<aside class="ip-pane"><h2>Message</h2><p>Invoice attached…</p></aside></div></div></div><div class="ip-filler" aria-hidden="true"><div class="ip-filler-inner"><a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Action 2</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/12" class="ip-btn ip-btn--ghost">Link 13</a><button type="button" class="ip-btn ip-btn--ghost">Action 14</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/16" class="ip-btn ip-btn--ghost">Link 17</a><button type="button" class="ip-btn ip-btn--ghost">Action 18</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/20" class="ip-btn ip-btn--ghost">Link 21</a><button type="button" class="ip-btn ip-btn--ghost">Action 22</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/24" class="ip-btn ip-btn--ghost">Link 25</a><button type="button" class="ip-btn ip-btn--ghost">Action 26</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/28" class="ip-btn ip-btn--ghost">Link 29</a><button type="button" class="ip-btn ip-btn--ghost">Action 30</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/32" class="ip-btn ip-btn--ghost">Link 33</a><button type="button" class="ip-btn ip-btn--ghost">Action 34</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/36" class="ip-btn ip-btn--ghost">Link 37</a><button type="button" class="ip-btn ip-btn--ghost">Action 38</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/40" class="ip-btn ip-btn--ghost">Link 41</a><button type="button" class="ip-btn ip-btn--ghost">Action 42</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button></div></div><button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ip-ftr"><small>© Demo InboxPro Mail</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

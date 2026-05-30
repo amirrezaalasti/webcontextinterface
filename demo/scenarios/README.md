@@ -62,7 +62,7 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 - `rawSelectors` are Playwright-verified structural selectors (see `npm run eval:verify`).
 - `decoyNodeIds` include `decoy-promo`, `decoy-nav`, and `decoy-extra` where injected.
 
-**Legacy (5)** — unchanged hand-authored DOM; already hard (flight, banking, checkout, social, admin). Do not simplify.
+**Legacy (5)** — unchanged hand-authored DOM; already hard (flight, banking, checkout, social, admin). Do not simplify. Embedded layout CSS is injected via `npm run scenarios:legacy-styles` (also runs when preserving legacy files in `setup-benchmark-scenarios.mjs`).
 
 ## Annotation overlay model
 
@@ -75,6 +75,12 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 Primary `wciNodeId` in `meta.json` / `ground-truth.generated.json` must match the injected id on the primary target. `rawSelectors` must resolve in `raw.html` (verified by `npm run eval:verify`).
 
 Legacy scenarios keep their existing abstract annotated views from the original benchmark (semantic graph only). Generated scenarios use the overlay model above.
+
+**Styling:** All 50 scenarios ship embedded CSS for readable demo previews. Generated pages use shared chrome in `scripts/lib/scenario-dom-noise.mjs`; legacy pages use `scripts/lib/legacy-scenario-styles.mjs`. Refresh everything with:
+
+```bash
+npm run scenarios:restyle
+```
 
 ## Regenerating files
 

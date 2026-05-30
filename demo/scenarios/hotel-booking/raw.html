@@ -1,24 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>StayFinder</title><style>
-.sf-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.sf-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.sf-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>StayFinder</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.sf-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.sf-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sf-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.sf-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.sf-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.sf-nav a:hover{background:#f1f5f9;color:#0f172a}
+.sf-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sf-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.sf-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.sf-subnav a:hover{background:#f8fafc;color:#334155}
+.sf-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.sf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.sf-page-wrap{grid-template-columns:1fr}}
+.sf-page-main{padding:20px 24px 32px;min-height:42vh}
+.sf-page-main>h1,.sf-page-main [role=main]>h1,.sf-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.sf-page-main h2,.sf-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.sf-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.sf-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.sf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sf-page-main select,.sf-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.sf-page-main input:focus,.sf-page-main select:focus,.sf-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
+.sf-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.sf-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.sf-page-main table{width:100%;margin:12px 0;font-size:13px}
+.sf-page-main th,.sf-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.sf-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.sf-page-main tr:hover td{background:#fafafa}
+.sf-page-main article,.sf-page-main .sf-card,.sf-page-main .sf-resto,.sf-page-main .sf-slot,.sf-page-main .sf-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sf-page-main ul:not([class]){list-style:none;padding:0}
+.sf-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.sf-page-main ul:not([class]) li:hover{background:#f8fafc}
+.sf-page-main dialog,.sf-page-main .sf-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.sf-page-main .sf-modal.is-open,.sf-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sf-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.sf-btn:hover{background:#f8fafc}
+.sf-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
+.sf-btn--primary:hover{filter:brightness(1.05)}
 .sf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.sf-btn--decoy{background:#fef9c3;border-color:#fde047}
-.sf-btn--muted{background:#e2e8f0;color:#334155}
-.sf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.sf-cookie p{flex:1;margin:0;font-size:13px}
-.sf-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.sf-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.sf-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.sf-nav a{margin-right:14px;color:#334155;font-size:13px}
-.sf-hdr-promo button{margin-left:6px}
-.sf-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.sf-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.sf-rail--ads{background:#fffbeb}
-.sf-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.sf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.sf-ab{display:none}
-.sf-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.sf-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.sf-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.sf-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.sf-btn:disabled{opacity:.5;cursor:not-allowed}
+.sf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.sf-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.sf-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.sf-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.sf-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.sf-rail a{color:#b45309;font-weight:500}
+.sf-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.sf-ftr a{color:#475569;margin-right:8px}
+.sf-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.sf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.sf-ab{display:none!important}
+.sf-layout{display:grid;gap:16px;align-items:start}
+.sf-filters,.sf-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.sf-filters h2,.sf-frame aside h2{font-size:14px;margin:0 0 10px}
+.sf-card__actions,.sf-slot__actions,.sf-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.sf-wizard{max-width:760px}
+.sf-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.sf-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.sf-step.is-active{background:hsl(262 72% 46%);color:#fff}
+.sf-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.sf-hero{border-radius:12px;margin-bottom:8px}
+.sf-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.sf-grid{display:grid;gap:14px}
+.sf-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.sf-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.sf-patient{border-radius:10px}
+.sf-slots{display:grid;gap:10px}
+.sf-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.sf-cell{background:#fff;padding:8px;min-height:44px}
+.sf-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.sf-diff{border-radius:8px}
+.sf-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
 </style></head><body>
 <div class="sf-app" data-page="hotel-booking"><div class="sf-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
@@ -40,12 +105,12 @@
   <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
   <button type="button" class="sf-btn sf-btn--ghost">Save changes</button>
   <button type="button" class="sf-btn sf-btn--ghost">Confirm</button>
-</div><div class="sf-dup-row"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Book Marriott downtown</button><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-nav">Book 2 nights Marriott</button></div><ul role="main" style="list-style:none;padding:16px">
+</div><div class="sf-dup-row"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Book Marriott downtown</button><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-nav">Book 2 nights Marriott</button></div><div class="sf-page-wrap"><div class="sf-page-main"><ul role="main" style="list-style:none;padding:16px">
 <li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="airport-inn"><div style="flex:1"><h2>Airport Inn</h2></div><button type="button" class="sf-btn sf-btn--ghost">Select</button></li>
 <li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="marriott-downtown" data-nights="2"><div style="flex:1"><h2>Marriott Downtown</h2><p>2 nights</p></div>
-<button type="button" class="sf-btn sf-btn--primary">Confirm</button></li></ul><aside class="sf-rail sf-rail--ads" aria-label="Sponsored">
+<button type="button" class="sf-btn sf-btn--primary">Confirm</button></li></ul></div><aside class="sf-rail sf-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="sf-filler" aria-hidden="true"><div class="sf-filler-inner"><a href="/misc/0" class="sf-btn sf-btn--ghost">Link 1</a><button type="button" class="sf-btn sf-btn--ghost">Action 2</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/4" class="sf-btn sf-btn--ghost">Link 5</a><button type="button" class="sf-btn sf-btn--ghost">Action 6</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/8" class="sf-btn sf-btn--ghost">Link 9</a><button type="button" class="sf-btn sf-btn--ghost">Action 10</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/12" class="sf-btn sf-btn--ghost">Link 13</a><button type="button" class="sf-btn sf-btn--ghost">Action 14</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/16" class="sf-btn sf-btn--ghost">Link 17</a><button type="button" class="sf-btn sf-btn--ghost">Action 18</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/20" class="sf-btn sf-btn--ghost">Link 21</a><button type="button" class="sf-btn sf-btn--ghost">Action 22</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/24" class="sf-btn sf-btn--ghost">Link 25</a><button type="button" class="sf-btn sf-btn--ghost">Action 26</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/28" class="sf-btn sf-btn--ghost">Link 29</a><button type="button" class="sf-btn sf-btn--ghost">Action 30</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/32" class="sf-btn sf-btn--ghost">Link 33</a><button type="button" class="sf-btn sf-btn--ghost">Action 34</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/36" class="sf-btn sf-btn--ghost">Link 37</a><button type="button" class="sf-btn sf-btn--ghost">Action 38</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/40" class="sf-btn sf-btn--ghost">Link 41</a><button type="button" class="sf-btn sf-btn--ghost">Action 42</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button></div></div><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sf-ftr"><small>© Demo StayFinder</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="sf-filler" aria-hidden="true"><div class="sf-filler-inner"><a href="/misc/0" class="sf-btn sf-btn--ghost">Link 1</a><button type="button" class="sf-btn sf-btn--ghost">Action 2</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/4" class="sf-btn sf-btn--ghost">Link 5</a><button type="button" class="sf-btn sf-btn--ghost">Action 6</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/8" class="sf-btn sf-btn--ghost">Link 9</a><button type="button" class="sf-btn sf-btn--ghost">Action 10</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/12" class="sf-btn sf-btn--ghost">Link 13</a><button type="button" class="sf-btn sf-btn--ghost">Action 14</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/16" class="sf-btn sf-btn--ghost">Link 17</a><button type="button" class="sf-btn sf-btn--ghost">Action 18</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/20" class="sf-btn sf-btn--ghost">Link 21</a><button type="button" class="sf-btn sf-btn--ghost">Action 22</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/24" class="sf-btn sf-btn--ghost">Link 25</a><button type="button" class="sf-btn sf-btn--ghost">Action 26</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/28" class="sf-btn sf-btn--ghost">Link 29</a><button type="button" class="sf-btn sf-btn--ghost">Action 30</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/32" class="sf-btn sf-btn--ghost">Link 33</a><button type="button" class="sf-btn sf-btn--ghost">Action 34</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/36" class="sf-btn sf-btn--ghost">Link 37</a><button type="button" class="sf-btn sf-btn--ghost">Action 38</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/40" class="sf-btn sf-btn--ghost">Link 41</a><button type="button" class="sf-btn sf-btn--ghost">Action 42</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button></div></div><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sf-ftr"><small>© Demo StayFinder</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>

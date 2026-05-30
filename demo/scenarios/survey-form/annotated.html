@@ -1,24 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>FeedbackLoop</title><style>
-.fl-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.fl-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.fl-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FeedbackLoop</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.fl-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.fl-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.fl-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.fl-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.fl-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.fl-nav a:hover{background:#f1f5f9;color:#0f172a}
+.fl-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fl-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.fl-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.fl-subnav a:hover{background:#f8fafc;color:#334155}
+.fl-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.fl-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.fl-page-wrap{grid-template-columns:1fr}}
+.fl-page-main{padding:20px 24px 32px;min-height:42vh}
+.fl-page-main>h1,.fl-page-main [role=main]>h1,.fl-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.fl-page-main h2,.fl-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.fl-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.fl-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.fl-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fl-page-main select,.fl-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.fl-page-main input:focus,.fl-page-main select:focus,.fl-page-main textarea:focus{outline:2px solid hsl(199 72% 46%);outline-offset:1px;border-color:hsl(199 72% 46%)}
+.fl-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.fl-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.fl-page-main table{width:100%;margin:12px 0;font-size:13px}
+.fl-page-main th,.fl-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.fl-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.fl-page-main tr:hover td{background:#fafafa}
+.fl-page-main article,.fl-page-main .fl-card,.fl-page-main .fl-resto,.fl-page-main .fl-slot,.fl-page-main .fl-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.fl-page-main ul:not([class]){list-style:none;padding:0}
+.fl-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.fl-page-main ul:not([class]) li:hover{background:#f8fafc}
+.fl-page-main dialog,.fl-page-main .fl-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.fl-page-main .fl-modal.is-open,.fl-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.fl-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.fl-btn:hover{background:#f8fafc}
+.fl-btn--primary{background:hsl(199 72% 46%);color:#fff;border-color:hsl(199 72% 38%)}
+.fl-btn--primary:hover{filter:brightness(1.05)}
 .fl-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.fl-btn--decoy{background:#fef9c3;border-color:#fde047}
-.fl-btn--muted{background:#e2e8f0;color:#334155}
-.fl-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.fl-cookie p{flex:1;margin:0;font-size:13px}
-.fl-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.fl-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.fl-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.fl-nav a{margin-right:14px;color:#334155;font-size:13px}
-.fl-hdr-promo button{margin-left:6px}
-.fl-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.fl-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.fl-rail--ads{background:#fffbeb}
-.fl-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.fl-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.fl-ab{display:none}
-.fl-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.fl-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.fl-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.fl-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.fl-btn:disabled{opacity:.5;cursor:not-allowed}
+.fl-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.fl-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.fl-rail{padding:16px;margin:16px;background:hsl(199 60% 96%);border:1px solid hsl(199 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.fl-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.fl-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.fl-rail a{color:#b45309;font-weight:500}
+.fl-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.fl-ftr a{color:#475569;margin-right:8px}
+.fl-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.fl-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.fl-ab{display:none!important}
+.fl-layout{display:grid;gap:16px;align-items:start}
+.fl-filters,.fl-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.fl-filters h2,.fl-frame aside h2{font-size:14px;margin:0 0 10px}
+.fl-card__actions,.fl-slot__actions,.fl-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.fl-wizard{max-width:760px}
+.fl-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.fl-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.fl-step.is-active{background:hsl(199 72% 46%);color:#fff}
+.fl-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.fl-hero{border-radius:12px;margin-bottom:8px}
+.fl-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.fl-grid{display:grid;gap:14px}
+.fl-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.fl-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.fl-patient{border-radius:10px}
+.fl-slots{display:grid;gap:10px}
+.fl-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.fl-cell{background:#fff;padding:8px;min-height:44px}
+.fl-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.fl-diff{border-radius:8px}
+.fl-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
 </style></head><body>
 <div class="fl-app" data-page="survey-form" data-agent-role="landmark" data-agent-id="survey_form-page" data-agent-desc="NPS form" data-agent-priority="2"><div class="fl-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
@@ -40,11 +105,11 @@
   <button type="button" class="fl-btn fl-btn--ghost">Continue</button>
   <button type="button" class="fl-btn fl-btn--ghost">Save changes</button>
   <button type="button" class="fl-btn fl-btn--ghost">Confirm</button>
-</div><div class="fl-dup-row"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Submit NPS 9</button><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-nav">Submit NPS score 9</button></div><form role="main" style="padding:32px"><h1>NPS</h1><div style="display:flex;gap:4px"><button type="button" class="fl-btn fl-btn--ghost" data-score="0">0</button><button type="button" class="fl-btn fl-btn--ghost" data-score="1">1</button><button type="button" class="fl-btn fl-btn--ghost" data-score="2">2</button><button type="button" class="fl-btn fl-btn--ghost" data-score="3">3</button><button type="button" class="fl-btn fl-btn--ghost" data-score="4">4</button><button type="button" class="fl-btn fl-btn--ghost" data-score="5">5</button><button type="button" class="fl-btn fl-btn--ghost" data-score="6">6</button><button type="button" class="fl-btn fl-btn--ghost" data-score="7">7</button><button type="button" class="fl-btn fl-btn--ghost" data-score="8">8</button><button type="button" class="fl-btn fl-btn--ghost" data-score="9">9</button><button type="button" class="fl-btn fl-btn--ghost" data-score="10">10</button></div>
+</div><div class="fl-dup-row"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Submit NPS 9</button><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-nav">Submit NPS score 9</button></div><div class="fl-page-wrap"><div class="fl-page-main"><form role="main" style="padding:32px"><h1>NPS</h1><div style="display:flex;gap:4px"><button type="button" class="fl-btn fl-btn--ghost" data-score="0">0</button><button type="button" class="fl-btn fl-btn--ghost" data-score="1">1</button><button type="button" class="fl-btn fl-btn--ghost" data-score="2">2</button><button type="button" class="fl-btn fl-btn--ghost" data-score="3">3</button><button type="button" class="fl-btn fl-btn--ghost" data-score="4">4</button><button type="button" class="fl-btn fl-btn--ghost" data-score="5">5</button><button type="button" class="fl-btn fl-btn--ghost" data-score="6">6</button><button type="button" class="fl-btn fl-btn--ghost" data-score="7">7</button><button type="button" class="fl-btn fl-btn--ghost" data-score="8">8</button><button type="button" class="fl-btn fl-btn--ghost" data-score="9">9</button><button type="button" class="fl-btn fl-btn--ghost" data-score="10">10</button></div>
 <textarea>Great product</textarea><button type="submit" class="fl-btn fl-btn--primary" data-nps-submit="9" data-agent-role="action" data-agent-id="submit-nps-9" data-agent-desc="Submit NPS score nine with the provided positive comment (not skip prize)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Skip prize</button></form><aside class="fl-rail fl-rail--ads" aria-label="Sponsored">
+<button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Skip prize</button></form></div><aside class="fl-rail fl-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="fl-filler" aria-hidden="true"><div class="fl-filler-inner"><a href="/misc/0" class="fl-btn fl-btn--ghost">Link 1</a><button type="button" class="fl-btn fl-btn--ghost">Action 2</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/4" class="fl-btn fl-btn--ghost">Link 5</a><button type="button" class="fl-btn fl-btn--ghost">Action 6</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/8" class="fl-btn fl-btn--ghost">Link 9</a><button type="button" class="fl-btn fl-btn--ghost">Action 10</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/12" class="fl-btn fl-btn--ghost">Link 13</a><button type="button" class="fl-btn fl-btn--ghost">Action 14</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/16" class="fl-btn fl-btn--ghost">Link 17</a><button type="button" class="fl-btn fl-btn--ghost">Action 18</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/20" class="fl-btn fl-btn--ghost">Link 21</a><button type="button" class="fl-btn fl-btn--ghost">Action 22</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/24" class="fl-btn fl-btn--ghost">Link 25</a><button type="button" class="fl-btn fl-btn--ghost">Action 26</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/28" class="fl-btn fl-btn--ghost">Link 29</a><button type="button" class="fl-btn fl-btn--ghost">Action 30</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/32" class="fl-btn fl-btn--ghost">Link 33</a><button type="button" class="fl-btn fl-btn--ghost">Action 34</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/36" class="fl-btn fl-btn--ghost">Link 37</a><button type="button" class="fl-btn fl-btn--ghost">Action 38</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/40" class="fl-btn fl-btn--ghost">Link 41</a><button type="button" class="fl-btn fl-btn--ghost">Action 42</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button></div></div><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="fl-ftr"><small>© Demo FeedbackLoop</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="fl-filler" aria-hidden="true"><div class="fl-filler-inner"><a href="/misc/0" class="fl-btn fl-btn--ghost">Link 1</a><button type="button" class="fl-btn fl-btn--ghost">Action 2</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/4" class="fl-btn fl-btn--ghost">Link 5</a><button type="button" class="fl-btn fl-btn--ghost">Action 6</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/8" class="fl-btn fl-btn--ghost">Link 9</a><button type="button" class="fl-btn fl-btn--ghost">Action 10</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/12" class="fl-btn fl-btn--ghost">Link 13</a><button type="button" class="fl-btn fl-btn--ghost">Action 14</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/16" class="fl-btn fl-btn--ghost">Link 17</a><button type="button" class="fl-btn fl-btn--ghost">Action 18</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/20" class="fl-btn fl-btn--ghost">Link 21</a><button type="button" class="fl-btn fl-btn--ghost">Action 22</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/24" class="fl-btn fl-btn--ghost">Link 25</a><button type="button" class="fl-btn fl-btn--ghost">Action 26</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/28" class="fl-btn fl-btn--ghost">Link 29</a><button type="button" class="fl-btn fl-btn--ghost">Action 30</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/32" class="fl-btn fl-btn--ghost">Link 33</a><button type="button" class="fl-btn fl-btn--ghost">Action 34</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/36" class="fl-btn fl-btn--ghost">Link 37</a><button type="button" class="fl-btn fl-btn--ghost">Action 38</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/40" class="fl-btn fl-btn--ghost">Link 41</a><button type="button" class="fl-btn fl-btn--ghost">Action 42</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button></div></div><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="fl-ftr"><small>© Demo FeedbackLoop</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

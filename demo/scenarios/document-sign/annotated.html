@@ -1,24 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SignNow</title><style>
-.sn-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.sn-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.sn-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SignNow</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.sn-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.sn-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sn-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.sn-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.sn-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.sn-nav a:hover{background:#f1f5f9;color:#0f172a}
+.sn-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sn-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.sn-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.sn-subnav a:hover{background:#f8fafc;color:#334155}
+.sn-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.sn-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.sn-page-wrap{grid-template-columns:1fr}}
+.sn-page-main{padding:20px 24px 32px;min-height:42vh}
+.sn-page-main>h1,.sn-page-main [role=main]>h1,.sn-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.sn-page-main h2,.sn-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.sn-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.sn-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.sn-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sn-page-main select,.sn-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.sn-page-main input:focus,.sn-page-main select:focus,.sn-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
+.sn-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.sn-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.sn-page-main table{width:100%;margin:12px 0;font-size:13px}
+.sn-page-main th,.sn-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.sn-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.sn-page-main tr:hover td{background:#fafafa}
+.sn-page-main article,.sn-page-main .sn-card,.sn-page-main .sn-resto,.sn-page-main .sn-slot,.sn-page-main .sn-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sn-page-main ul:not([class]){list-style:none;padding:0}
+.sn-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.sn-page-main ul:not([class]) li:hover{background:#f8fafc}
+.sn-page-main dialog,.sn-page-main .sn-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.sn-page-main .sn-modal.is-open,.sn-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sn-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.sn-btn:hover{background:#f8fafc}
+.sn-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
+.sn-btn--primary:hover{filter:brightness(1.05)}
 .sn-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.sn-btn--decoy{background:#fef9c3;border-color:#fde047}
-.sn-btn--muted{background:#e2e8f0;color:#334155}
-.sn-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.sn-cookie p{flex:1;margin:0;font-size:13px}
-.sn-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.sn-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.sn-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.sn-nav a{margin-right:14px;color:#334155;font-size:13px}
-.sn-hdr-promo button{margin-left:6px}
-.sn-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.sn-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.sn-rail--ads{background:#fffbeb}
-.sn-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.sn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.sn-ab{display:none}
-.sn-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.sn-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.sn-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.sn-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.sn-btn:disabled{opacity:.5;cursor:not-allowed}
+.sn-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.sn-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.sn-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.sn-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.sn-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.sn-rail a{color:#b45309;font-weight:500}
+.sn-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.sn-ftr a{color:#475569;margin-right:8px}
+.sn-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.sn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.sn-ab{display:none!important}
+.sn-layout{display:grid;gap:16px;align-items:start}
+.sn-filters,.sn-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.sn-filters h2,.sn-frame aside h2{font-size:14px;margin:0 0 10px}
+.sn-card__actions,.sn-slot__actions,.sn-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.sn-wizard{max-width:760px}
+.sn-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.sn-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.sn-step.is-active{background:hsl(262 72% 46%);color:#fff}
+.sn-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.sn-hero{border-radius:12px;margin-bottom:8px}
+.sn-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.sn-grid{display:grid;gap:14px}
+.sn-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.sn-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.sn-patient{border-radius:10px}
+.sn-slots{display:grid;gap:10px}
+.sn-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.sn-cell{background:#fff;padding:8px;min-height:44px}
+.sn-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.sn-diff{border-radius:8px}
+.sn-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
 </style></head><body>
 <div class="sn-app" data-page="document-sign" data-agent-role="landmark" data-agent-id="document_sign-page" data-agent-desc="Doc viewer" data-agent-priority="2"><div class="sn-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
@@ -40,11 +105,11 @@
   <button type="button" class="sn-btn sn-btn--ghost">Continue</button>
   <button type="button" class="sn-btn sn-btn--ghost">Save changes</button>
   <button type="button" class="sn-btn sn-btn--ghost">Confirm</button>
-</div><div class="sn-dup-row"><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Sign page 12</button><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-nav">Sign employment agreement page 12</button></div><div style="display:flex"><div role="main" style="flex:1;overflow:auto"><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="1">Pg 1</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="2">Pg 2</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="3">Pg 3</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="4">Pg 4</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="5">Pg 5</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="6">Pg 6</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="7">Pg 7</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="8">Pg 8</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="9">Pg 9</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="10">Pg 10</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="11">Pg 11</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="12">Pg 12</div></div>
+</div><div class="sn-dup-row"><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Sign page 12</button><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-nav">Sign employment agreement page 12</button></div><div class="sn-page-wrap"><div class="sn-page-main"><div style="display:flex"><div role="main" style="flex:1;overflow:auto"><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="1">Pg 1</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="2">Pg 2</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="3">Pg 3</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="4">Pg 4</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="5">Pg 5</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="6">Pg 6</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="7">Pg 7</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="8">Pg 8</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="9">Pg 9</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="10">Pg 10</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="11">Pg 11</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="12">Pg 12</div></div>
 <aside style="width:200px;padding:12px;border-left:1px solid #ddd"><button type="button" class="sn-btn sn-btn--ghost">Initial</button>
-<button type="button" class="sn-btn sn-btn--primary" data-sign-page="12" data-agent-role="action" data-agent-id="sign-agreement-p12" data-agent-desc="Sign employment agreement on page twelve of the document viewer." data-agent-action="click" data-agent-priority="1">Confirm</button></aside></div><aside class="sn-rail sn-rail--ads" aria-label="Sponsored">
+<button type="button" class="sn-btn sn-btn--primary" data-sign-page="12" data-agent-role="action" data-agent-id="sign-agreement-p12" data-agent-desc="Sign employment agreement on page twelve of the document viewer." data-agent-action="click" data-agent-priority="1">Confirm</button></aside></div></div><aside class="sn-rail sn-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="sn-filler" aria-hidden="true"><div class="sn-filler-inner"><a href="/misc/0" class="sn-btn sn-btn--ghost">Link 1</a><button type="button" class="sn-btn sn-btn--ghost">Action 2</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/4" class="sn-btn sn-btn--ghost">Link 5</a><button type="button" class="sn-btn sn-btn--ghost">Action 6</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/8" class="sn-btn sn-btn--ghost">Link 9</a><button type="button" class="sn-btn sn-btn--ghost">Action 10</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/12" class="sn-btn sn-btn--ghost">Link 13</a><button type="button" class="sn-btn sn-btn--ghost">Action 14</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/16" class="sn-btn sn-btn--ghost">Link 17</a><button type="button" class="sn-btn sn-btn--ghost">Action 18</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/20" class="sn-btn sn-btn--ghost">Link 21</a><button type="button" class="sn-btn sn-btn--ghost">Action 22</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/24" class="sn-btn sn-btn--ghost">Link 25</a><button type="button" class="sn-btn sn-btn--ghost">Action 26</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/28" class="sn-btn sn-btn--ghost">Link 29</a><button type="button" class="sn-btn sn-btn--ghost">Action 30</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/32" class="sn-btn sn-btn--ghost">Link 33</a><button type="button" class="sn-btn sn-btn--ghost">Action 34</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/36" class="sn-btn sn-btn--ghost">Link 37</a><button type="button" class="sn-btn sn-btn--ghost">Action 38</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/40" class="sn-btn sn-btn--ghost">Link 41</a><button type="button" class="sn-btn sn-btn--ghost">Action 42</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button></div></div><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sn-ftr"><small>© Demo SignNow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="sn-filler" aria-hidden="true"><div class="sn-filler-inner"><a href="/misc/0" class="sn-btn sn-btn--ghost">Link 1</a><button type="button" class="sn-btn sn-btn--ghost">Action 2</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/4" class="sn-btn sn-btn--ghost">Link 5</a><button type="button" class="sn-btn sn-btn--ghost">Action 6</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/8" class="sn-btn sn-btn--ghost">Link 9</a><button type="button" class="sn-btn sn-btn--ghost">Action 10</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/12" class="sn-btn sn-btn--ghost">Link 13</a><button type="button" class="sn-btn sn-btn--ghost">Action 14</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/16" class="sn-btn sn-btn--ghost">Link 17</a><button type="button" class="sn-btn sn-btn--ghost">Action 18</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/20" class="sn-btn sn-btn--ghost">Link 21</a><button type="button" class="sn-btn sn-btn--ghost">Action 22</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/24" class="sn-btn sn-btn--ghost">Link 25</a><button type="button" class="sn-btn sn-btn--ghost">Action 26</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/28" class="sn-btn sn-btn--ghost">Link 29</a><button type="button" class="sn-btn sn-btn--ghost">Action 30</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/32" class="sn-btn sn-btn--ghost">Link 33</a><button type="button" class="sn-btn sn-btn--ghost">Action 34</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/36" class="sn-btn sn-btn--ghost">Link 37</a><button type="button" class="sn-btn sn-btn--ghost">Action 38</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/40" class="sn-btn sn-btn--ghost">Link 41</a><button type="button" class="sn-btn sn-btn--ghost">Action 42</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button></div></div><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sn-ftr"><small>© Demo SignNow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>

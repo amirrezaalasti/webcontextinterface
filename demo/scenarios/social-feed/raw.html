@@ -1,4 +1,62 @@
-<!DOCTYPE html><html><head><title>ChatterBox — Feed</title></head><body>
+<!DOCTYPE html><html><head><style data-wci-legacy-styles="1">
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+
+.cb-app{background:#000;color:#e7e9ea;min-height:100vh}
+.cb-layout{display:grid;grid-template-columns:72px minmax(0,600px) minmax(260px,1fr);max-width:1280px;margin:0 auto;min-height:100vh}
+@media(max-width:1000px){.cb-layout{grid-template-columns:72px 1fr}}
+.cb-sidebar--left{border-right:1px solid #2f3336;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.cb-sidebar--right{border-left:1px solid #2f3336;padding:16px;display:none}
+@media(min-width:1000px){.cb-sidebar--right{display:block}}
+.cb-sidebar__nav-item a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:999px;color:#e7e9ea;font-size:15px}
+.cb-sidebar__nav-item--active a{font-weight:700;background:rgba(231,233,234,.1)}
+.cb-sidebar__nav svg{width:26px;height:26px;stroke:currentColor;fill:none}
+.cb-logo-icon{width:40px;height:40px;border-radius:12px;background:#1d9bf0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.cb-main{border-right:1px solid #2f3336;min-height:100vh}
+.cb-stories{border-bottom:1px solid #2f3336;padding:12px 16px;overflow-x:auto}
+.cb-stories__scroll{display:flex;gap:14px}
+.cb-story{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:#e7e9ea;font-size:11px;cursor:pointer}
+.cb-story__avatar{width:56px;height:56px;border-radius:50%;border:2px solid #1d9bf0;background:#16181c;display:flex;align-items:center;justify-content:center}
+.cb-compose{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #2f3336}
+.cb-compose__input{width:100%;min-height:56px;border:none;background:transparent;color:#e7e9ea;resize:none;font-size:18px}
+.cb-compose__input:focus{outline:none}
+.cb-compose__actions{display:flex;align-items:center;gap:8px;margin-top:8px}
+.cb-post{padding:14px 16px;border-bottom:1px solid #2f3336}
+.cb-post--sponsored{background:rgba(29,155,240,.06)}
+.cb-post__header{display:flex;gap:10px;margin-bottom:8px}
+.cb-post__avatar{width:40px;height:40px;border-radius:50%;background:#333}
+.cb-post__author{font-weight:700;color:#e7e9ea}
+.cb-post__handle,.cb-post__time,.cb-post__sep{color:#71767b;font-size:14px}
+.cb-post__body p{margin-bottom:8px;font-size:15px}
+.cb-post__actions{display:flex;justify-content:space-between;max-width:360px;margin-top:8px}
+.cb-post__action-btn{display:flex;align-items:center;gap:6px;background:none;border:none;color:#71767b;font-size:13px;padding:6px;cursor:pointer}
+.cb-post__action-btn:hover{color:#1d9bf0}
+.cb-replies{margin-left:24px;border-left:2px solid #2f3336;padding-left:12px;margin-top:8px}
+.cb-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
+.cb-overlay__backdrop{position:absolute;inset:0;background:rgba(91,112,131,.4)}
+.cb-overlay__panel{position:relative;background:#000;border-radius:16px;padding:28px 32px;max-width:400px;text-align:center;border:1px solid #2f3336}
+.cb-overlay__actions{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap}
+.cb-search-input{width:100%;padding:10px 14px;border-radius:999px;border:none;background:#202327;color:#e7e9ea}
+.cb-trending,.cb-suggestions{background:#16181c;border-radius:16px;padding:14px;margin-bottom:16px}
+.cb-sidebar__section-title{font-size:18px;font-weight:800;margin-bottom:12px}
+
+.cb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.cb-btn--primary{background:#1d9bf0;border-color:#1d9bf0;color:#fff}
+.cb-btn--ghost,.cb-btn--link{background:transparent;border-color:transparent;color:inherit}
+.cb-btn--outline{background:transparent;border-color:currentColor}
+.cb-btn--sm{padding:6px 10px;font-size:12px}
+.cb-btn--full{width:100%}
+.cb-btn:disabled{opacity:.45;cursor:not-allowed}
+
+.cb-btn--ghost{color:#e7e9ea}
+</style><title>ChatterBox — Feed</title></head><body>
 <div class="cb-app" id="cb-root" data-uid="u_12345" data-theme="dark" data-feed-type="algorithmic">
   <!-- Notification permission prompt overlay -->
   <div class="cb-overlay cb-overlay--notif" role="dialog" aria-modal="true">

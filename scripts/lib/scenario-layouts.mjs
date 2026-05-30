@@ -17,7 +17,7 @@ function pack(spec, rawHtml, plan, rawSelectors, description, challenges) {
 export const LAYOUT_BUILDERS = {
   'job-board'(spec) {
     const p = 'hf';
-    const layoutExtra = `.${p}-layout{display:grid;grid-template-columns:220px 1fr;min-height:60vh}.${p}-filters{background:#f4f6f8;padding:12px;border-right:1px solid #ddd}.${p}-card{border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin:10px 0}.${p}-card__actions{display:flex;gap:8px;margin-top:8px}`;
+    const layoutExtra = `.${p}-layout{display:grid;grid-template-columns:minmax(200px,240px) minmax(0,1fr);gap:0;min-height:50vh}.${p}-filters{padding:16px;border-right:1px solid #e2e8f0;background:#f8fafc}.${p}-layout main{padding:16px 20px}`;
     const main = `<div class="${p}-layout"><aside class="${p}-filters"><h2>Filters</h2><label><input type="checkbox" /> Remote only</label>
 <label><input type="checkbox" checked /> In-office</label><select><option>Any location</option><option>SF Bay</option></select></aside>
 <main role="main"><h1>Open roles</h1><ul>
@@ -48,7 +48,7 @@ export const LAYOUT_BUILDERS = {
 
   'healthcare-portal'(spec) {
     const p = 'mg';
-    const layoutExtra = `.${p}-patient{display:flex;gap:16px;padding:16px;background:#1e40af;color:#fff}.${p}-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}.${p}-slot{border:1px solid #93c5fd;padding:12px;background:#fff}.${p}-slot__actions{margin-top:8px;display:flex;flex-direction:column;gap:4px}`;
+    const layoutExtra = `.${p}-patient{display:flex;gap:16px;padding:16px 20px;background:linear-gradient(90deg,#1e40af,#1d4ed8);color:#fff;border-radius:10px;margin-bottom:16px}.${p}-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}`;
     const main = `<div class="${p}-patient"><strong>Patient:</strong> Jordan Lee · MRN 88291 · Plan PPO Gold</div>
 <section class="${p}-slots" role="main"><h1>Next week</h1>
 <div class="${p}-slot" data-slot="tue-10-inperson"><span>Tue 10:00</span><div class="${p}-slot__actions"><button type="button" class="${p}-btn ${p}-btn--ghost">In-person</button></div></div>
@@ -77,7 +77,7 @@ export const LAYOUT_BUILDERS = {
 
   'email-client'(spec) {
     const p = 'ip';
-    const layoutExtra = `.${p}-frame{display:grid;grid-template-columns:260px 1fr 320px;min-height:70vh}.${p}-inbox{width:100%;border-collapse:collapse}.${p}-inbox tr.unread{font-weight:bold}.${p}-toolbar{display:flex;gap:6px;padding:8px;flex-wrap:wrap}.${p}-pane{border-left:1px solid #ccc;padding:16px}`;
+    const layoutExtra = `.${p}-frame{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(220px,280px);min-height:55vh;gap:0}.${p}-frame>aside:first-child{padding:14px;border-right:1px solid #e2e8f0;background:#f8fafc}.${p}-pane{border-left:1px solid #e2e8f0;padding:16px;background:#fafafa}`;
     const main = `<div class="${p}-frame"><aside><ul><li>Inbox</li><li>Sent</li><li>Spam</li></ul></aside>
 <div><table class="${p}-inbox" role="main"><thead><tr><th>From</th><th>Subject</th></tr></thead><tbody>
 <tr data-thread="digest"><td>news@digest.com</td><td>Weekly roundup</td></tr>
@@ -133,7 +133,7 @@ export const LAYOUT_BUILDERS = {
 
   'food-delivery'(spec) {
     const p = 'qb';
-    const layoutExtra = `.${p}-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}.${p}-resto{border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.${p}-cart{position:fixed;right:0;top:80px;width:260px;border-left:2px solid #f97316;padding:16px;background:#fff}`;
+    const layoutExtra = `.${p}-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}.${p}-cart{position:sticky;top:16px;margin-top:0!important;border-left:3px solid #f97316}`;
     const main = `<main class="${p}-grid" role="main">
 <article class="${p}-resto"><h3>Sushi Zen</h3><button type="button" class="${p}-btn ${p}-btn--ghost">View menu</button></article>
 <article class="${p}-resto" data-restaurant="tokyo-bowl" data-item="teriyaki-1299" data-price="12.99"><h3>Tokyo Bowl</h3><p>Teriyaki bowl · $12.99</p>
@@ -189,9 +189,9 @@ export const LAYOUT_BUILDERS = {
 
   'streaming-service'(spec) {
     const p = 'sv';
-    const layoutExtra = `.${p}-hero{height:160px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:24px}.${p}-row{display:flex;gap:12px;overflow-x:auto;padding:16px}.${p}-tile{min-width:140px;background:#1f2937;color:#fff;border-radius:6px;padding:12px}`;
-    const main = `<div style="background:#0f0f0f;color:#eee"><div class="${p}-hero"><h1>Featured</h1><button type="button" class="${p}-btn ${p}-btn--ghost">Play trailer</button></div>
-<section class="${p}-row" role="main"><h2 style="width:100%">Documentaries</h2>
+    const layoutExtra = `.${p}-stream{background:#0f0f0f;color:#e5e5e5;border-radius:12px;overflow:hidden}.${p}-hero{min-height:140px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:24px 28px}.${p}-tile{min-width:150px;background:#1f2937;color:#fff;border-color:#374151}`;
+    const main = `<div class="${p}-stream"><div class="${p}-hero"><h1>Featured</h1><button type="button" class="${p}-btn ${p}-btn--ghost">Play trailer</button></div>
+<section class="${p}-row" role="main"><h2 style="width:100%;color:#fff;margin:0 0 8px">Documentaries</h2>
 <div class="${p}-tile"><span>Arctic Light</span><button type="button" class="${p}-btn ${p}-btn--ghost">Play</button></div>
 <div class="${p}-tile" data-title-id="ocean-deep" data-runtime="52"><strong>Ocean Deep</strong><span> · 52m</span>
 <button type="button" class="${p}-btn ${p}-btn--primary">Confirm</button></div>

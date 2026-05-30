@@ -1,4 +1,58 @@
-<!DOCTYPE html><html><head><title>QuantumCRM — Admin Dashboard</title></head><body>
+<!DOCTYPE html><html><head><style data-wci-legacy-styles="1">
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+
+.qc-app{background:#f4f6f9;color:#1e293b;min-height:100vh}
+.qc-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+@media(max-width:900px){.qc-layout{grid-template-columns:1fr}}
+.qc-sidebar{background:#fff;border-right:1px solid #e2e8f0;padding:16px 12px}
+.qc-sidebar__brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-weight:700}
+.qc-sidebar__logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.qc-sidebar__tenant-badge{font-size:11px;background:#eef2ff;color:#4f46e5;padding:2px 8px;border-radius:999px;margin-left:auto}
+.qc-sidebar__search-input{width:100%;padding:8px 10px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:12px}
+.qc-sidebar__group-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;padding:8px 10px}
+.qc-sidebar__item a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;color:#475569;font-size:13px}
+.qc-sidebar__item--active a{background:#eef2ff;color:#4f46e5;font-weight:600}
+.qc-sidebar__item svg{width:18px;height:18px;stroke:currentColor;fill:none}
+.qc-main{padding:20px 24px 40px;overflow-x:auto}
+.qc-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.qc-topbar__title{font-size:22px;font-weight:700}
+.qc-topbar__period{color:#64748b;font-size:13px}
+.qc-topbar__right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.qc-kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.qc-kpi-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.qc-kpi-card__value{font-size:22px;font-weight:700;display:block}
+.qc-kpi-card__label{font-size:12px;color:#64748b}
+.qc-kpi-card__trend{font-size:12px;font-weight:600}
+.qc-kpi-card__trend--up{color:#16a34a}
+.qc-kpi-card__trend--down{color:#dc2626}
+.qc-recent-deals{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;overflow-x:auto}
+.qc-recent-deals__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.qc-table{width:100%;border-collapse:collapse;font-size:13px}
+.qc-table th,.qc-table td{padding:10px 12px;text-align:left;border-bottom:1px solid #f1f5f9}
+.qc-table th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;background:#f8fafc}
+.qc-table tbody tr:hover{background:#f8fafc}
+.qc-select{padding:6px 10px;border:1px solid #e2e8f0;border-radius:6px;background:#fff}
+.qc-shortcuts-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center}
+.qc-shortcuts-overlay__backdrop{position:absolute;inset:0;background:rgba(15,23,42,.4)}
+.qc-shortcuts-overlay__panel{position:relative;background:#fff;border-radius:12px;padding:24px;border:1px solid #e2e8f0}
+
+.qc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.qc-btn--primary{background:#6366f1;border-color:#6366f1;color:#fff}
+.qc-btn--ghost,.qc-btn--link{background:transparent;border-color:transparent;color:inherit}
+.qc-btn--outline{background:transparent;border-color:currentColor}
+.qc-btn--sm{padding:6px 10px;font-size:12px}
+.qc-btn--full{width:100%}
+.qc-btn:disabled{opacity:.45;cursor:not-allowed}
+
+</style><title>QuantumCRM — Admin Dashboard</title></head><body>
 <div class="qc-app" id="qc-root" data-role="admin" data-tenant="acme-corp" data-session-ttl="3600" data-agent-role="landmark" data-agent-id="crm-dashboard" data-agent-desc="QuantumCRM admin dashboard — KPIs, deals pipeline, contacts management. Tenant: Acme Corp.">
   <!-- Keyboard shortcut overlay (hidden) -->
   <div class="qc-shortcuts-overlay" style="display:none" role="dialog"><div class="qc-shortcuts-overlay__backdrop"></div><div class="qc-shortcuts-overlay__panel"><h2>Keyboard Shortcuts</h2><table class="qc-shortcuts-table"><tbody><tr><td><kbd>G</kbd> then <kbd>D</kbd></td><td>Go to Dashboard</td></tr><tr><td><kbd>G</kbd> then <kbd>C</kbd></td><td>Go to Contacts</td></tr><tr><td><kbd>N</kbd></td><td>New Contact</td></tr><tr><td><kbd>/</kbd></td><td>Focus Search</td></tr><tr><td><kbd>?</kbd></td><td>Show Shortcuts</td></tr></tbody></table><button class="qc-btn qc-btn--ghost">Close</button></div></div>

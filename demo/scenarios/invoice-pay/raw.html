@@ -1,24 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>BillFlow</title><style>
-.bf-app{font-family:system-ui,sans-serif;font-size:14px;color:#111}
-.bf-btn{display:inline-block;padding:8px 14px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;margin:4px;font-size:13px;border-radius:6px}
-.bf-btn--primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>BillFlow</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%;vertical-align:middle}
+button{cursor:pointer}
+a{color:inherit}
+ul,ol{margin:0;padding:0}
+table{border-collapse:collapse}
+
+.bf-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.bf-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.bf-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.bf-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.bf-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.bf-nav a:hover{background:#f1f5f9;color:#0f172a}
+.bf-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bf-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.bf-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.bf-subnav a:hover{background:#f8fafc;color:#334155}
+.bf-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
+.bf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:900px){.bf-page-wrap{grid-template-columns:1fr}}
+.bf-page-main{padding:20px 24px 32px;min-height:42vh}
+.bf-page-main>h1,.bf-page-main [role=main]>h1,.bf-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.bf-page-main h2,.bf-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
+.bf-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.bf-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
+.bf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.bf-page-main select,.bf-page-main textarea{
+  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.bf-page-main input:focus,.bf-page-main select:focus,.bf-page-main textarea:focus{outline:2px solid hsl(221 72% 46%);outline-offset:1px;border-color:hsl(221 72% 46%)}
+.bf-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.bf-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
+.bf-page-main table{width:100%;margin:12px 0;font-size:13px}
+.bf-page-main th,.bf-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.bf-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
+.bf-page-main tr:hover td{background:#fafafa}
+.bf-page-main article,.bf-page-main .bf-card,.bf-page-main .bf-resto,.bf-page-main .bf-slot,.bf-page-main .bf-tile{
+  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.bf-page-main ul:not([class]){list-style:none;padding:0}
+.bf-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
+.bf-page-main ul:not([class]) li:hover{background:#f8fafc}
+.bf-page-main dialog,.bf-page-main .bf-modal{
+  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.bf-page-main .bf-modal.is-open,.bf-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.bf-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.bf-btn:hover{background:#f8fafc}
+.bf-btn--primary{background:hsl(221 72% 46%);color:#fff;border-color:hsl(221 72% 38%)}
+.bf-btn--primary:hover{filter:brightness(1.05)}
 .bf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.bf-btn--decoy{background:#fef9c3;border-color:#fde047}
-.bf-btn--muted{background:#e2e8f0;color:#334155}
-.bf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.bf-cookie p{flex:1;margin:0;font-size:13px}
-.bf-subnav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#f1f5f9;border-bottom:1px solid #e2e8f0}
-.bf-subnav a{color:#475569;text-decoration:none;padding:6px 10px;font-size:12px}
-.bf-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e7eb}
-.bf-nav a{margin-right:14px;color:#334155;font-size:13px}
-.bf-hdr-promo button{margin-left:6px}
-.bf-ftr{padding:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#64748b}
-.bf-rail{padding:12px;background:#fafafa;border-left:1px solid #e5e7eb;font-size:12px}
-.bf-rail--ads{background:#fffbeb}
-.bf-filler{padding:12px 16px;border-top:1px dashed #e2e8f0}
-.bf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow:hidden}
-.bf-ab{display:none}
-.bf-dup-row{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0}
+.bf-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.bf-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.bf-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.bf-btn:disabled{opacity:.5;cursor:not-allowed}
+.bf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.bf-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.bf-rail{padding:16px;margin:16px;background:hsl(221 60% 96%);border:1px solid hsl(221 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+@media(min-width:901px){.bf-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.bf-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+.bf-rail a{color:#b45309;font-weight:500}
+.bf-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.bf-ftr a{color:#475569;margin-right:8px}
+.bf-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.bf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
+.bf-ab{display:none!important}
+.bf-layout{display:grid;gap:16px;align-items:start}
+.bf-filters,.bf-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.bf-filters h2,.bf-frame aside h2{font-size:14px;margin:0 0 10px}
+.bf-card__actions,.bf-slot__actions,.bf-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.bf-wizard{max-width:760px}
+.bf-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.bf-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.bf-step.is-active{background:hsl(221 72% 46%);color:#fff}
+.bf-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
+.bf-hero{border-radius:12px;margin-bottom:8px}
+.bf-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
+.bf-grid{display:grid;gap:14px}
+.bf-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
+.bf-inbox tr.unread td{font-weight:600;background:#eff6ff}
+.bf-patient{border-radius:10px}
+.bf-slots{display:grid;gap:10px}
+.bf-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
+.bf-cell{background:#fff;padding:8px;min-height:44px}
+.bf-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
+.bf-diff{border-radius:8px}
+.bf-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
 </style></head><body>
 <div class="bf-app" data-page="invoice-pay"><div class="bf-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
@@ -40,13 +105,13 @@
   <button type="button" class="bf-btn bf-btn--ghost">Continue</button>
   <button type="button" class="bf-btn bf-btn--ghost">Save changes</button>
   <button type="button" class="bf-btn bf-btn--ghost">Confirm</button>
-</div><div class="bf-dup-row"><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">Pay INV-2026-044</button><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-nav">Pay invoice 044 today</button></div><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>Invoice</th><th>Due</th><th></th></tr></thead><tbody>
+</div><div class="bf-dup-row"><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">Pay INV-2026-044</button><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-nav">Pay invoice 044 today</button></div><div class="bf-page-wrap"><div class="bf-page-main"><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>Invoice</th><th>Due</th><th></th></tr></thead><tbody>
 <tr><td>INV-2026-012</td><td>May 1</td><td><button type="button" class="bf-btn bf-btn--ghost">View</button></td></tr>
 <tr data-inv="INV-2026-044" style="color:#dc2626;font-weight:bold"><td>INV-2026-044</td><td>Today</td>
 <td><button type="button" class="bf-btn bf-btn--primary" data-pay-inv="INV-2026-044">Confirm</button></td></tr>
-</tbody></table><button type="button" class="bf-btn bf-btn--ghost" data-decoy="decoy-nav">Export CSV</button><aside class="bf-rail bf-rail--ads" aria-label="Sponsored">
+</tbody></table><button type="button" class="bf-btn bf-btn--ghost" data-decoy="decoy-nav">Export CSV</button></div><aside class="bf-rail bf-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside><div class="bf-filler" aria-hidden="true"><div class="bf-filler-inner"><a href="/misc/0" class="bf-btn bf-btn--ghost">Link 1</a><button type="button" class="bf-btn bf-btn--ghost">Action 2</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/4" class="bf-btn bf-btn--ghost">Link 5</a><button type="button" class="bf-btn bf-btn--ghost">Action 6</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/8" class="bf-btn bf-btn--ghost">Link 9</a><button type="button" class="bf-btn bf-btn--ghost">Action 10</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/12" class="bf-btn bf-btn--ghost">Link 13</a><button type="button" class="bf-btn bf-btn--ghost">Action 14</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/16" class="bf-btn bf-btn--ghost">Link 17</a><button type="button" class="bf-btn bf-btn--ghost">Action 18</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/20" class="bf-btn bf-btn--ghost">Link 21</a><button type="button" class="bf-btn bf-btn--ghost">Action 22</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/24" class="bf-btn bf-btn--ghost">Link 25</a><button type="button" class="bf-btn bf-btn--ghost">Action 26</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/28" class="bf-btn bf-btn--ghost">Link 29</a><button type="button" class="bf-btn bf-btn--ghost">Action 30</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/32" class="bf-btn bf-btn--ghost">Link 33</a><button type="button" class="bf-btn bf-btn--ghost">Action 34</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/36" class="bf-btn bf-btn--ghost">Link 37</a><button type="button" class="bf-btn bf-btn--ghost">Action 38</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/40" class="bf-btn bf-btn--ghost">Link 41</a><button type="button" class="bf-btn bf-btn--ghost">Action 42</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button></div></div><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="bf-ftr"><small>© Demo BillFlow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="bf-filler" aria-hidden="true"><div class="bf-filler-inner"><a href="/misc/0" class="bf-btn bf-btn--ghost">Link 1</a><button type="button" class="bf-btn bf-btn--ghost">Action 2</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/4" class="bf-btn bf-btn--ghost">Link 5</a><button type="button" class="bf-btn bf-btn--ghost">Action 6</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/8" class="bf-btn bf-btn--ghost">Link 9</a><button type="button" class="bf-btn bf-btn--ghost">Action 10</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/12" class="bf-btn bf-btn--ghost">Link 13</a><button type="button" class="bf-btn bf-btn--ghost">Action 14</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/16" class="bf-btn bf-btn--ghost">Link 17</a><button type="button" class="bf-btn bf-btn--ghost">Action 18</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/20" class="bf-btn bf-btn--ghost">Link 21</a><button type="button" class="bf-btn bf-btn--ghost">Action 22</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/24" class="bf-btn bf-btn--ghost">Link 25</a><button type="button" class="bf-btn bf-btn--ghost">Action 26</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/28" class="bf-btn bf-btn--ghost">Link 29</a><button type="button" class="bf-btn bf-btn--ghost">Action 30</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/32" class="bf-btn bf-btn--ghost">Link 33</a><button type="button" class="bf-btn bf-btn--ghost">Action 34</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/36" class="bf-btn bf-btn--ghost">Link 37</a><button type="button" class="bf-btn bf-btn--ghost">Action 38</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button><a href="/misc/40" class="bf-btn bf-btn--ghost">Link 41</a><button type="button" class="bf-btn bf-btn--ghost">Action 42</button><button type="button" class="bf-btn bf-btn--ghost">Submit</button><button type="button" class="bf-btn bf-btn--ghost">Continue</button></div></div><button type="button" class="bf-btn bf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="bf-ftr"><small>© Demo BillFlow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
