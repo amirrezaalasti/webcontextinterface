@@ -57,5 +57,122 @@
       "[data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
       "[data-slot=\"tue-1430-video\"] button.mg-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options).",
+      "groundTruthSelector": "[data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+      "groundTruthNodeId": "schedule-video-visit"
+    },
+    "multiStep": [
+      {
+        "id": "healthcare-portal.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+          "Primary WCI action id: schedule-video-visit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id schedule-video-visit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "healthcare-portal.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). First validate key constraints (generic confirm on correct slot) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+          "Primary WCI action id: schedule-video-visit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click schedule-video-visit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

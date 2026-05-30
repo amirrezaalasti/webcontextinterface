@@ -10,24 +10,28 @@ table{border-collapse:collapse}
 
 .mg-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .mg-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.mg-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.mg-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:20}
+.mg-brand{display:flex;align-items:center;gap:12px}
+.mg-brand__logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#1e40af,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700}
+.mg-brand__meta strong{display:block;font-size:15px}
+.mg-brand__meta span{font-size:12px;color:#64748b}
 .mg-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .mg-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .mg-nav a:hover{background:#f1f5f9;color:#0f172a}
 .mg-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mg-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
 .mg-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
 .mg-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .mg-subnav a:hover{background:#f8fafc;color:#334155}
 .mg-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.mg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.mg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.mg-page-wrap{grid-template-columns:1fr}}
 .mg-page-main{padding:20px 24px 32px;min-height:42vh}
 .mg-page-main>h1,.mg-page-main [role=main]>h1,.mg-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .mg-page-main h2,.mg-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.mg-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.mg-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .mg-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.mg-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.mg-page-main select,.mg-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.mg-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.mg-page-main select,.mg-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .mg-page-main input:focus,.mg-page-main select:focus,.mg-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .mg-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .mg-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +39,12 @@ table{border-collapse:collapse}
 .mg-page-main th,.mg-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .mg-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .mg-page-main tr:hover td{background:#fafafa}
-.mg-page-main article,.mg-page-main .mg-card,.mg-page-main .mg-resto,.mg-page-main .mg-slot,.mg-page-main .mg-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.mg-page-main article,.mg-page-main .mg-card,.mg-page-main .mg-resto,.mg-page-main .mg-slot,.mg-page-main .mg-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .mg-page-main ul:not([class]){list-style:none;padding:0}
 .mg-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .mg-page-main ul:not([class]) li:hover{background:#f8fafc}
-.mg-page-main dialog,.mg-page-main .mg-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.mg-page-main .mg-modal.is-open,.mg-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.mg-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.mg-page-main dialog,.mg-page-main .mg-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.mg-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .mg-btn:hover{background:#f8fafc}
 .mg-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
 .mg-btn--primary:hover{filter:brightness(1.05)}
@@ -54,7 +55,7 @@ table{border-collapse:collapse}
 .mg-btn:disabled{opacity:.5;cursor:not-allowed}
 .mg-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .mg-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.mg-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+.mg-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:92px}
 @media(min-width:901px){.mg-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .mg-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .mg-rail a{color:#b45309;font-weight:500}
@@ -67,53 +68,409 @@ table{border-collapse:collapse}
 .mg-filters,.mg-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .mg-filters h2,.mg-frame aside h2{font-size:14px;margin:0 0 10px}
 .mg-card__actions,.mg-slot__actions,.mg-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.mg-wizard{max-width:760px}
+.mg-wizard{max-width:900px}
 .mg-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .mg-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .mg-step.is-active{background:hsl(330 72% 46%);color:#fff}
+.mg-step.is-done{background:#dcfce7;color:#166534}
 .mg-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.mg-hero{border-radius:12px;margin-bottom:8px}
 .mg-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .mg-grid{display:grid;gap:14px}
-.mg-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.mg-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.mg-patient{border-radius:10px}
-.mg-slots{display:grid;gap:10px}
-.mg-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.mg-cell{background:#fff;padding:8px;min-height:44px}
-.mg-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.mg-diff{border-radius:8px}
-.mg-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.mg-patient{display:flex;gap:16px;padding:16px 20px;background:linear-gradient(90deg,#1e40af,#1d4ed8);color:#fff;border-radius:10px;margin-bottom:16px}.mg-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}</style></head><body>
-<div class="mg-app" data-page="healthcare-portal" data-agent-role="landmark" data-agent-id="healthcare_portal-page" data-agent-desc="MediGate patient portal — appointment scheduling" data-agent-priority="2"><div class="mg-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="mg-btn mg-btn--muted">Reject non-essential</button>
-  <button type="button" class="mg-btn mg-btn--primary">Accept all</button>
-  <button type="button" class="mg-btn mg-btn--ghost">Customize</button>
-</div><div class="mg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="mg-btn mg-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="mg-btn">Continue as guest — express</button>
-</div><header class="mg-hdr">
-  <nav class="mg-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="mg-hdr-promo">
-    <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Request callback" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="mg-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
-  <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
-</nav><div class="mg-dup-row" aria-label="Quick actions">
-  <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
-  <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
-  <button type="button" class="mg-btn mg-btn--ghost">Save changes</button>
-  <button type="button" class="mg-btn mg-btn--ghost">Confirm</button>
-</div><div class="mg-dup-row"><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">Schedule video visit Tuesday</button><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav">Schedule video visit Tue</button><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Video visit keyword trap" data-agent-priority="5" data-agent-action="click">Book Tuesday video</button></div><div class="mg-page-wrap"><div class="mg-page-main"><div class="mg-patient"><strong>Patient:</strong> Jordan Lee · MRN 88291 · Plan PPO Gold</div>
-<section class="mg-slots" role="main"><h1>Next week</h1>
-<div class="mg-slot" data-slot="tue-10-inperson"><span>Tue 10:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost">In-person</button></div></div>
-<div class="mg-slot" data-slot="tue-1430-video" data-mode="video"><span>Tue 14:30 · Video</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" data-agent-role="action" data-agent-id="schedule-video-visit" data-agent-desc="Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div>
-<div class="mg-slot" data-slot="wed-09"><span>Wed 09:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost">Call back</button></div></div>
-<div class="mg-slot"><span>Fri 11:00</span><div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav">Request callback</button></div></div>
-</section></div><aside class="mg-rail mg-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="mg-filler" aria-hidden="true"><div class="mg-filler-inner"><a href="/misc/0" class="mg-btn mg-btn--ghost">Link 1</a><button type="button" class="mg-btn mg-btn--ghost">Action 2</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/4" class="mg-btn mg-btn--ghost">Link 5</a><button type="button" class="mg-btn mg-btn--ghost">Action 6</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/8" class="mg-btn mg-btn--ghost">Link 9</a><button type="button" class="mg-btn mg-btn--ghost">Action 10</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/12" class="mg-btn mg-btn--ghost">Link 13</a><button type="button" class="mg-btn mg-btn--ghost">Action 14</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/16" class="mg-btn mg-btn--ghost">Link 17</a><button type="button" class="mg-btn mg-btn--ghost">Action 18</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/20" class="mg-btn mg-btn--ghost">Link 21</a><button type="button" class="mg-btn mg-btn--ghost">Action 22</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/24" class="mg-btn mg-btn--ghost">Link 25</a><button type="button" class="mg-btn mg-btn--ghost">Action 26</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/28" class="mg-btn mg-btn--ghost">Link 29</a><button type="button" class="mg-btn mg-btn--ghost">Action 30</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/32" class="mg-btn mg-btn--ghost">Link 33</a><button type="button" class="mg-btn mg-btn--ghost">Action 34</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/36" class="mg-btn mg-btn--ghost">Link 37</a><button type="button" class="mg-btn mg-btn--ghost">Action 38</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/40" class="mg-btn mg-btn--ghost">Link 41</a><button type="button" class="mg-btn mg-btn--ghost">Action 42</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button></div></div><button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="mg-ftr"><small>© Demo MediGate Portal</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+.mg-patient{display:flex;gap:16px;padding:16px 20px;background:linear-gradient(90deg,#1e40af,#1d4ed8);color:#fff;border-radius:10px;margin-bottom:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mg-patient__details strong{display:block;font-size:18px;margin-bottom:4px}
+.mg-patient__meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;opacity:.95}
+.mg-patient__badge{padding:6px 10px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;font-weight:600}
+.mg-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.mg-slot{position:relative}
+.mg-slot.is-selected{border-color:#db2777;box-shadow:0 0 0 3px rgba(219,39,119,.12)}
+.mg-slot__meta{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:6px}
+.mg-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid #cbd5e1;background:#f8fafc;color:#334155;text-transform:uppercase;letter-spacing:.03em}
+.mg-badge--video{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+.mg-badge--callback{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
+.mg-badge--inperson{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
+.mg-badge--ok{background:#dcfce7;border-color:#86efac;color:#166534}
+.mg-badge--warn{background:#fef3c7;border-color:#fde68a;color:#92400e}
+.mg-inline-status{font-size:12px;color:#475569}
+.mg-checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.mg-note{font-size:12px;color:#64748b}
+.mg-error{color:#b91c1c;font-size:12px;min-height:18px}
+ .mg-ok{color:#166534;font-size:12px;min-height:18px}
+.mg-review{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+@media(max-width:760px){.mg-review{grid-template-columns:1fr}}
+.mg-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.mg-status-board{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 14px}
+.mg-status-pill{padding:6px 10px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:12px;font-weight:700;border:1px solid #c7d2fe}
+.mg-counter{font-weight:700;color:#0f172a}
+.mg-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
+.mg-modal-backdrop.is-open{display:block}
+.mg-modal{display:none;position:fixed;inset:10% 50% auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px)}
+.mg-modal.is-open{display:block}
+.mg-modal__actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
+.mg-smoke{padding:10px 12px;border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;font-size:13px;color:#334155}
+.mg-hidden{display:none!important}
+</style></head><body>
+<div class="mg-app" data-page="healthcare-portal" id="healthcare_portal-page" data-agent-id="healthcare_portal-page" data-agent-role="landmark" data-agent-desc="Healthcare portal application root" data-agent-priority="1" data-agent-action="navigate" data-agent-state="{&quot;ready&quot;:true}">
+  <div class="mg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, secure sign-in telemetry, and experience optimization. You can manage preferences or accept to continue using the portal.</p>
+    <button type="button" class="mg-btn mg-btn--muted" data-cookie="reject">Reject non-essential</button>
+    <button type="button" class="mg-btn mg-btn--primary" data-cookie="accept">Accept all</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-cookie="customize">Customize</button>
+  </div>
+
+  <div class="mg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="mg-btn mg-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="mg-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="mg-hdr">
+    <div class="mg-brand">
+      <div class="mg-brand__logo" aria-hidden="true">M</div>
+      <div class="mg-brand__meta"><strong>MediGate Portal</strong><span>Secure patient access · session protected</span></div>
+    </div>
+    <nav class="mg-nav" aria-label="Global">
+      <a href="#">Home</a><a href="#">Visits</a><a href="#">Messages</a><a href="#">Results</a><a href="#">Billing</a><a href="#">Help</a>
+    </nav>
+    <div class="mg-hdr-promo">
+      <span class="mg-chip">Authenticated patient</span>
+      <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" id="decoy-nav" data-agent-id="decoy-nav" data-agent-role="nav" data-agent-action="click" data-agent-desc="Decoy navigation/promo action" data-agent-priority="2" data-agent-scope="healthcare_portal-page" data-agent-state="{&quot;ready&quot;:true}">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="mg-subnav" aria-label="Secondary">
+    <a href="#">Overview</a><a href="#">Appointments</a><a href="#">Clinical notes</a><a href="#">Questionnaires</a><a href="#">Insurance</a><a href="#">Support</a>
+    <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
+    <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="mg-dup-row" aria-label="Quick actions">
+    <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
+    <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
+    <button type="button" class="mg-btn mg-btn--ghost">Save changes</button>
+    <button type="button" class="mg-btn mg-btn--ghost">Confirm</button>
+  </div>
+
+  <div class="mg-dup-row">
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">Schedule video visit Tuesday</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav">Schedule video visit Tue</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" data-agent-id="decoy-extra" data-agent-role="action" data-agent-action="click" data-agent-desc="Decoy extra booking action" data-agent-priority="2" data-agent-scope="healthcare_portal-page" data-agent-state="{&quot;ready&quot;:true}">Book Tuesday video</button>
+  </div>
+
+  <div class="mg-page-wrap">
+    <div class="mg-page-main">
+      <div class="mg-patient" aria-label="Patient banner">
+        <div class="mg-patient__details">
+          <strong>Jordan Lee</strong>
+          <div class="mg-patient__meta">
+            <span>MRN 88291</span>
+            <span>DOB 06/11/1987</span>
+            <span>Plan PPO Gold</span>
+            <span>PCP Dr. Anita Patel</span>
+          </div>
+        </div>
+        <div class="mg-patient__badge">Identity verified · 2-factor passed</div>
+      </div>
+
+      <section class="mg-panel mg-wizard" aria-labelledby="booking-title">
+        <div class="mg-toolbar"><span><strong>Today's care</strong> · Authentication verified</span><span class="mg-inline-status">Last visit: 3 weeks ago · Copay estimate: $0</span></div>
+        <h1 id="booking-title">Schedule follow-up care</h1>
+        <p>Choose an available slot for your follow-up video visit. In-person and callback options are shown for convenience, but this appointment must be booked as a <strong>video visit</strong> for the authenticated patient.</p>
+
+        <div class="mg-status-board">
+          <span class="mg-status-pill">Review step requires video consent + contact confirmation</span>
+          <span class="mg-note">Selections made: <span class="mg-counter" id="selection-count">0</span></span>
+          <span class="mg-note">Current choice: <span id="current-choice">None selected</span></span>
+        </div>
+
+        <div class="mg-steps" aria-label="Booking progress">
+          <div class="mg-step is-active" id="step-select">Select slot</div>
+          <div class="mg-step" id="step-review">Review</div>
+          <div class="mg-step" id="step-confirm">Confirm</div>
+        </div>
+
+        <div class="mg-smoke" id="healthcare-portal-smoke-status" data-smoke-status="">Smoke status: ready</div>
+
+        <div class="mg-slots" role="main" aria-label="Next week availability">
+          <div class="mg-slot" data-slot="mon-0915-callback" data-mode="callback">
+            <div class="mg-slot__meta"><strong>Mon 09:15</strong><span class="mg-badge mg-badge--callback">Callback</span></div>
+            <div>Provider returns your call within 30 minutes.</div>
+            <div class="mg-note">Not eligible for telehealth documentation workflow.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="mon-0915-callback">Request callback</button></div>
+          </div>
+
+          <div class="mg-slot" data-slot="tue-1000-inperson" data-mode="inperson">
+            <div class="mg-slot__meta"><strong>Tue 10:00</strong><span class="mg-badge mg-badge--inperson">In-person</span></div>
+            <div>Main clinic, Suite 210. Check-in at front desk.</div>
+            <div class="mg-note">Photo ID and mask screening required on arrival.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1000-inperson">View directions</button></div>
+          </div>
+
+          <div class="mg-slot" data-slot="tue-1430-video" data-mode="video">
+            <div class="mg-slot__meta"><strong>Tue 14:30</strong><span class="mg-badge mg-badge--video">Video visit</span></div>
+            <div>Telehealth appointment with Dr. Patel. Join link sent by SMS and email.</div>
+            <div class="mg-note">Best match for patient preference and provider continuity.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" id="schedule-video-visit" data-agent-id="schedule-video-visit" data-agent-role="action" data-agent-action="click" data-agent-desc="Confirm the Tuesday 14:30 video visit slot" data-agent-priority="1" data-agent-state="{&quot;ready&quot;:true}" data-agent-scope="healthcare_portal-page">Confirm</button></div>
+          </div>
+
+          <div class="mg-slot" data-slot="tue-1530-callback" data-mode="callback">
+            <div class="mg-slot__meta"><strong>Tue 15:30</strong><span class="mg-badge mg-badge--callback">Callback</span></div>
+            <div>If you're unavailable, a nurse can call back later.</div>
+            <div class="mg-note">Does not generate a join link or video intake checklist.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1530-callback">Request callback</button></div>
+          </div>
+
+          <div class="mg-slot" data-slot="wed-0900-video" data-mode="video">
+            <div class="mg-slot__meta"><strong>Wed 09:00</strong><span class="mg-badge mg-badge--video">Video visit</span></div>
+            <div>Alternative telehealth slot, subject to provider approval.</div>
+            <div class="mg-note">Backup availability if Tuesday becomes unavailable.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="wed-0900-video">Hold slot</button></div>
+          </div>
+
+          <div class="mg-slot" data-slot="thu-1115-inperson" data-mode="inperson">
+            <div class="mg-slot__meta"><strong>Thu 11:15</strong><span class="mg-badge mg-badge--inperson">In-person</span></div>
+            <div>Short office re-check with rooming by clinical staff.</div>
+            <div class="mg-note">Travel time estimate: 34 minutes from home address.</div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="thu-1115-inperson">Select visit</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mg-card">
+        <h2>Pre-visit checklist</h2>
+        <div class="mg-checklist">
+          <label><input type="checkbox" id="consent-checkbox"> I agree to receive care via secure video.</label>
+          <label><input type="checkbox" id="sms-checkbox" checked=""> Send join link by SMS to ending in 44.</label>
+          <label><input type="checkbox" id="email-checkbox" checked=""> Send reminder to jordan.lee@example.com.</label>
+          <label><input type="checkbox" id="camera-checkbox"> I confirm camera and microphone are available.</label>
+        </div>
+        <div class="mg-error" id="checklist-error" aria-live="polite"></div>
+        <div class="mg-ok" id="checklist-ok" aria-live="polite"></div>
+      </section>
+
+      <section class="mg-card">
+        <h2>Appointment review</h2>
+        <div class="mg-review">
+          <div>
+            <label for="reason">Reason for visit</label>
+            <textarea id="reason" rows="4" placeholder="Briefly describe the reason for the follow-up visit.">Follow-up on rash treatment and medication side effects.</textarea>
+            <div class="mg-error" id="reason-error" aria-live="polite"></div>
+
+            <label for="contact-method">Preferred reminder method</label>
+            <select id="contact-method">
+              <option value="sms">SMS</option>
+              <option value="email">Email</option>
+              <option value="both">SMS and email</option>
+            </select>
+          </div>
+          <div class="mg-summary" aria-label="Selection summary">
+            <h3>Live summary</h3>
+            <p><strong>Patient:</strong> Jordan Lee</p>
+            <p><strong>Requested mode:</strong> <span id="summary-mode">None</span></p>
+            <p><strong>Requested slot:</strong> <span id="summary-slot">No slot selected</span></p>
+            <p><strong>Reminder:</strong> <span id="summary-reminder">SMS</span></p>
+            <p><strong>Status:</strong> <span id="summary-status" class="mg-badge">Awaiting selection</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mg-card">
+        <h2>Upcoming care notes</h2>
+        <p>Medication reconciliation is complete. Please keep your camera, current medication list, and insurance card available for the Tuesday video appointment workflow.</p>
+        <table>
+          <thead><tr><th>Item</th><th>Status</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>Referral</td><td><span class="mg-badge mg-badge--ok">Approved</span></td><td>Dermatology consult on file.</td></tr>
+            <tr><td>Balance</td><td><span class="mg-badge mg-badge--ok">$0 due</span></td><td>No copay due for telehealth follow-up.</td></tr>
+            <tr><td>Language</td><td><span class="mg-badge">English</span></td><td>Interpreter not required.</td></tr>
+            <tr><td>Questionnaire</td><td><span class="mg-badge mg-badge--warn">Pending</span></td><td>2 intake questions can be completed after scheduling.</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <aside class="mg-rail mg-rail--ads" aria-label="Sponsored and support rail">
+      <div><strong>Sponsored</strong></div>
+      <p>Explore optional wellness services and partner benefits available with your plan.</p>
+      <a href="#">Partner offer — limited time telehealth accessory discount</a><br>
+      <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <hr style="border:none;border-top:1px solid #f1f5f9;margin:16px 0">
+      <h2>Visit readiness</h2>
+      <ul>
+        <li>Connection test recommended before 2:15 PM.</li>
+        <li>Average wait time for telehealth: 4–7 minutes.</li>
+        <li>Support line: (800) 555-0142.</li>
+      </ul>
+      <button type="button" class="mg-btn mg-btn--ghost" id="open-help">Open telehealth tips</button>
+    </aside>
+  </div>
+
+  <div class="mg-filler" aria-hidden="true"><div class="mg-filler-inner"><a href="/misc/0" class="mg-btn mg-btn--ghost">Link 1</a><button type="button" class="mg-btn mg-btn--ghost">Action 2</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/4" class="mg-btn mg-btn--ghost">Link 5</a><button type="button" class="mg-btn mg-btn--ghost">Action 6</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/8" class="mg-btn mg-btn--ghost">Link 9</a><button type="button" class="mg-btn mg-btn--ghost">Action 10</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/12" class="mg-btn mg-btn--ghost">Link 13</a><button type="button" class="mg-btn mg-btn--ghost">Action 14</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/16" class="mg-btn mg-btn--ghost">Link 17</a><button type="button" class="mg-btn mg-btn--ghost">Action 18</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/20" class="mg-btn mg-btn--ghost">Link 21</a><button type="button" class="mg-btn mg-btn--ghost">Action 22</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/24" class="mg-btn mg-btn--ghost">Link 25</a><button type="button" class="mg-btn mg-btn--ghost">Action 26</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/28" class="mg-btn mg-btn--ghost">Link 29</a><button type="button" class="mg-btn mg-btn--ghost">Action 30</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/32" class="mg-btn mg-btn--ghost">Link 33</a><button type="button" class="mg-btn mg-btn--ghost">Action 34</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/36" class="mg-btn mg-btn--ghost">Link 37</a><button type="button" class="mg-btn mg-btn--ghost">Action 38</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/40" class="mg-btn mg-btn--ghost">Link 41</a><button type="button" class="mg-btn mg-btn--ghost">Action 42</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+
+  <footer class="mg-ftr"><small>© Demo MediGate Portal</small> · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+  <div class="mg-modal-backdrop" id="modal-backdrop"></div>
+  <div class="mg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <h2 id="help-title">Telehealth visit tips</h2>
+    <p>Use a private, well-lit room. Keep your medication list nearby, test audio in advance, and join 10 minutes before the start time.</p>
+    <div class="mg-modal__actions">
+      <button type="button" class="mg-btn" id="close-help">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var selectedSlot = null;
+  var selectedMode = null;
+  var selectionCount = 0;
+  var smoke = document.getElementById('healthcare-portal-smoke-status');
+  var summaryMode = document.getElementById('summary-mode');
+  var summarySlot = document.getElementById('summary-slot');
+  var summaryStatus = document.getElementById('summary-status');
+  var summaryReminder = document.getElementById('summary-reminder');
+  var currentChoice = document.getElementById('current-choice');
+  var selectionCountEl = document.getElementById('selection-count');
+  var reason = document.getElementById('reason');
+  var reasonError = document.getElementById('reason-error');
+  var contactMethod = document.getElementById('contact-method');
+  var consentCheckbox = document.getElementById('consent-checkbox');
+  var cameraCheckbox = document.getElementById('camera-checkbox');
+  var checklistError = document.getElementById('checklist-error');
+  var checklistOk = document.getElementById('checklist-ok');
+  var stepSelect = document.getElementById('step-select');
+  var stepReview = document.getElementById('step-review');
+  var stepConfirm = document.getElementById('step-confirm');
+  var primaryButton = document.querySelector('[data-slot="tue-1430-video"][data-mode="video"] .mg-btn--primary');
+
+  function setSmoke(text, action){
+    smoke.textContent = text;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
+  function clearSelectedStyles(){
+    document.querySelectorAll('.mg-slot').forEach(function(slot){ slot.classList.remove('is-selected'); });
+  }
+
+  function humanizeSlot(slotId, mode){
+    var map = {
+      'mon-0915-callback':'Mon 09:15',
+      'tue-1000-inperson':'Tue 10:00',
+      'tue-1430-video':'Tue 14:30',
+      'tue-1530-callback':'Tue 15:30',
+      'wed-0900-video':'Wed 09:00',
+      'thu-1115-inperson':'Thu 11:15'
+    };
+    return (map[slotId] || slotId) + ' · ' + mode;
+  }
+
+  function updateSummary(){
+    summaryMode.textContent = selectedMode ? selectedMode : 'None';
+    summarySlot.textContent = selectedSlot ? humanizeSlot(selectedSlot, selectedMode) : 'No slot selected';
+    summaryReminder.textContent = contactMethod.value === 'both' ? 'SMS and email' : contactMethod.value.toUpperCase();
+    currentChoice.textContent = selectedSlot ? humanizeSlot(selectedSlot, selectedMode) : 'None selected';
+    selectionCountEl.textContent = String(selectionCount);
+
+    if(selectedMode === 'video'){
+      summaryStatus.textContent = 'Video selected';
+      summaryStatus.className = 'mg-badge mg-badge--video';
+      stepReview.classList.add('is-active');
+    } else if(selectedMode){
+      summaryStatus.textContent = 'Non-video selected';
+      summaryStatus.className = 'mg-badge mg-badge--warn';
+      stepReview.classList.remove('is-active');
+    } else {
+      summaryStatus.textContent = 'Awaiting selection';
+      summaryStatus.className = 'mg-badge';
+      stepReview.classList.remove('is-active');
+    }
+  }
+
+  function validateReview(){
+    var valid = true;
+    reasonError.textContent = '';
+    checklistError.textContent = '';
+    checklistOk.textContent = '';
+
+    if(reason.value.trim().length < 12){
+      reasonError.textContent = 'Please enter at least 12 characters describing the reason for visit.';
+      valid = false;
+    }
+
+    if(selectedSlot === 'tue-1430-video'){
+      if(!consentCheckbox.checked || !cameraCheckbox.checked){
+        checklistError.textContent = 'To confirm the Tuesday 14:30 video visit, telehealth consent and device readiness must be checked.';
+        valid = false;
+      } else {
+        checklistOk.textContent = 'Video consent and camera readiness confirmed.';
+      }
+    }
+
+    return valid;
+  }
+
+  document.querySelectorAll('[data-select-slot]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.mg-slot');
+      selectedSlot = card.getAttribute('data-slot');
+      selectedMode = card.getAttribute('data-mode');
+      selectionCount += 1;
+      clearSelectedStyles();
+      card.classList.add('is-selected');
+      updateSummary();
+      setSmoke('Smoke status: selected ' + humanizeSlot(selectedSlot, selectedMode), 'selected-' + selectedSlot);
+    });
+  });
+
+  contactMethod.addEventListener('change', updateSummary);
+  reason.addEventListener('input', function(){
+    if(reason.value.trim().length >= 12){ reasonError.textContent = ''; }
+  });
+  [consentCheckbox, cameraCheckbox].forEach(function(el){ el.addEventListener('change', validateReview); });
+
+  primaryButton.addEventListener('click', function(){
+    selectedSlot = 'tue-1430-video';
+    selectedMode = 'video';
+    selectionCount += 1;
+    clearSelectedStyles();
+    var targetCard = document.querySelector('[data-slot="tue-1430-video"]');
+    if(targetCard){ targetCard.classList.add('is-selected'); }
+    updateSummary();
+
+    var valid = validateReview();
+    stepSelect.classList.remove('is-active');
+    stepSelect.classList.add('is-done');
+    stepReview.classList.add('is-done');
+    stepConfirm.classList.add('is-active');
+
+    if(valid){
+      summaryStatus.textContent = 'Booked';
+      summaryStatus.className = 'mg-badge mg-badge--ok';
+      setSmoke('Smoke status: booked Tue 14:30 video visit for Jordan Lee', 'booked-tue-1430-video');
+    } else {
+      setSmoke('Smoke status: attempted Tue 14:30 video visit confirmation', 'attempted-tue-1430-video');
+    }
+  });
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'none';
+    });
+  });
+
+  var openHelp = document.getElementById('open-help');
+  var closeHelp = document.getElementById('close-help');
+  var helpModal = document.getElementById('help-modal');
+  var backdrop = document.getElementById('modal-backdrop');
+  function closeModal(){ helpModal.classList.remove('is-open'); backdrop.classList.remove('is-open'); }
+  function openModal(){ helpModal.classList.add('is-open'); backdrop.classList.add('is-open'); }
+  openHelp.addEventListener('click', openModal);
+  closeHelp.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  updateSummary();
+  setSmoke('Smoke status: ready', 'page-ready');
+})();
+</script>
+</body></html>

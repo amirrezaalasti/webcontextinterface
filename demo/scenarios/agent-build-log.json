@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-05-30T09:28:30.464Z",
+  "opts": {
+    "limit": 2,
+    "attempts": 3,
+    "model": "openai/gpt-5.4-mini",
+    "minGrowth": 0.15,
+    "dryRun": true,
+    "skipLegacy": false,
+    "noSmoke": false
+  },
+  "results": [
+    {
+      "id": "flight-booking",
+      "status": "dry-run",
+      "model": "openai/gpt-5.4-mini",
+      "baseNodes": 403,
+      "legacy": true
+    },
+    {
+      "id": "banking",
+      "status": "dry-run",
+      "model": "openai/gpt-5.4-mini",
+      "baseNodes": 284,
+      "legacy": true
+    }
+  ]
+}

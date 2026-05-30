@@ -54,5 +54,122 @@
     "rawSelectors": [
       "[data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Add organic avocados line item to shared family list.",
+      "groundTruthSelector": "[data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+      "groundTruthNodeId": "add-avocados-list"
+    },
+    "multiStep": [
+      {
+        "id": "grocery-list.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+          "Primary WCI action id: add-avocados-list",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-avocados-list",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "grocery-list.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+          "Primary WCI action id: add-avocados-list",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-avocados-list",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

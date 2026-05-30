@@ -53,5 +53,122 @@
     "rawSelectors": [
       "[data-pet=\"max\"] button[data-adopt=\"max\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Submit adoption application for dog Max profile.",
+      "groundTruthSelector": "[data-pet=\"max\"] button[data-adopt=\"max\"]",
+      "groundTruthNodeId": "apply-adopt-max"
+    },
+    "multiStep": [
+      {
+        "id": "pet-adoption.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit adoption application for dog Max profile. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pet=\"max\"] button[data-adopt=\"max\"]",
+          "Primary WCI action id: apply-adopt-max",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-pet=\"max\"] button[data-adopt=\"max\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id apply-adopt-max",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "pet-adoption.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit adoption application for dog Max profile. First validate key constraints (trap labels) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pet=\"max\"] button[data-adopt=\"max\"]",
+          "Primary WCI action id: apply-adopt-max",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-pet=\"max\"] button[data-adopt=\"max\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click apply-adopt-max",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -1,0 +1,5591 @@
+{
+  "generatedAt": "2026-05-30T08:57:44.422Z",
+  "count": 50,
+  "scenarios": {
+    "flight-booking": [
+      {
+        "id": "flight-booking.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+          "Primary WCI action id: select-SW1042-economy",
+          "No decoy ids triggered: select-UA447-economy, select-DL892-economy, modify-search-btn, reset-filters-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent parses 200+ elements, finds 40+ clickable targets"
+          },
+          {
+            "step": "click: Spring Sale promo link",
+            "type": "error",
+            "note": "Mistakenly clicks promotional ad link in mega-menu"
+          },
+          {
+            "step": "backtrack: results page",
+            "type": "recovery",
+            "note": "Returns to search results, re-parses DOM"
+          },
+          {
+            "step": "click: SkyMiles promo card",
+            "type": "error",
+            "note": "Clicks inline promotional banner thinking it's a flight"
+          },
+          {
+            "step": "backtrack: results page",
+            "type": "recovery",
+            "note": "Confused by promotional content mixed with results"
+          },
+          {
+            "step": "scan: sort options",
+            "type": "act",
+            "note": "Tries to sort by price but unsure which select element"
+          },
+          {
+            "step": "click: SW1042 economy fare button",
+            "type": "act",
+            "note": "Finally identifies correct button after multiple attempts"
+          },
+          {
+            "step": "verify: unknown",
+            "type": "act",
+            "note": "No confirmation — must re-parse DOM to verify selection"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: flight-search-results scope",
+            "type": "act",
+            "note": "Gets 3 flight results with prices in structured JSON"
+          },
+          {
+            "step": "compare: fare data in state",
+            "type": "act",
+            "note": "Identifies SW1042 Economy $329 as cheapest nonstop"
+          },
+          {
+            "step": "click: select-SW1042-economy",
+            "type": "act",
+            "note": "Direct action on typed node with ActionResult confirmation"
+          }
+        ]
+      },
+      {
+        "id": "flight-booking.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+          "Primary WCI action id: select-SW1042-economy",
+          "No decoy ids triggered: select-UA447-economy, select-DL892-economy, modify-search-btn, reset-filters-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute select-SW1042-economy directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "banking": [
+      {
+        "id": "banking.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .np-quick-transfer button.np-btn--primary",
+          "Primary WCI action id: review-transfer-btn",
+          "No decoy ids triggered: export-csv-btn, pay-credit-bill-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent finds 150+ elements including hidden session dialog and chat widget"
+          },
+          {
+            "step": "click: Transfer button on checking card",
+            "type": "act",
+            "note": "Multiple \"Transfer\" buttons — unclear which one to use"
+          },
+          {
+            "step": "click: sidebar Transfer nav link",
+            "type": "error",
+            "note": "Navigates to separate transfer page instead of quick transfer"
+          },
+          {
+            "step": "backtrack: dashboard",
+            "type": "recovery",
+            "note": "Returns to dashboard"
+          },
+          {
+            "step": "fill: xfer-from select",
+            "type": "act",
+            "note": "Locates form but unsure which select is source vs destination"
+          },
+          {
+            "step": "fill: xfer-amount input",
+            "type": "act",
+            "note": "Enters amount"
+          },
+          {
+            "step": "click: Review Transfer button",
+            "type": "error",
+            "note": "Button is disabled — agent doesn't know why"
+          },
+          {
+            "step": "fill: correct fields",
+            "type": "act",
+            "note": "Eventually fills all fields correctly"
+          },
+          {
+            "step": "click: Review Transfer button",
+            "type": "act",
+            "note": "Button now enabled, clicks it"
+          },
+          {
+            "step": "verify: unknown",
+            "type": "act",
+            "note": "Re-parses full DOM to check if transfer initiated"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: quick-transfer scope",
+            "type": "act",
+            "note": "Sees transfer form with typed fields and preconditions"
+          },
+          {
+            "step": "select: transfer-from",
+            "type": "act",
+            "note": "Selects \"Checking\" — knows balance from state"
+          },
+          {
+            "step": "select: transfer-to",
+            "type": "act",
+            "note": "Selects \"Savings\""
+          },
+          {
+            "step": "fill: transfer-amount",
+            "type": "act",
+            "note": "Enters $500 — precondition tells it max is $12,847.63"
+          },
+          {
+            "step": "click: review-transfer-btn",
+            "type": "act",
+            "note": "Clicks review — gets ActionResult with state change"
+          }
+        ]
+      },
+      {
+        "id": "banking.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .np-quick-transfer button.np-btn--primary",
+          "Primary WCI action id: review-transfer-btn",
+          "No decoy ids triggered: export-csv-btn, pay-credit-bill-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action .np-quick-transfer button.np-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute review-transfer-btn directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "checkout": [
+      {
+        "id": "checkout.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Complete shipping step with Express shipping and continue to payment Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: #continue-to-payment",
+          "Primary WCI action id: continue-payment-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Finds hidden A/B test button, upsell add buttons, multiple forms"
+          },
+          {
+            "step": "click: A/B test alternate checkout button",
+            "type": "error",
+            "note": "Clicks hidden variant button — unexpected behavior"
+          },
+          {
+            "step": "backtrack: checkout page",
+            "type": "recovery",
+            "note": "Recovers from A/B test variant"
+          },
+          {
+            "step": "scan: shipping section",
+            "type": "act",
+            "note": "Finds new address form (hidden) and saved address — unclear state"
+          },
+          {
+            "step": "click: express shipping radio",
+            "type": "act",
+            "note": "Selects express shipping"
+          },
+          {
+            "step": "click: upsell Add button",
+            "type": "error",
+            "note": "Accidentally clicks upsell widget Add button"
+          },
+          {
+            "step": "backtrack: remove upsell item",
+            "type": "recovery",
+            "note": "Must undo upsell addition"
+          },
+          {
+            "step": "click: Continue to Payment button",
+            "type": "act",
+            "note": "Finally clicks correct button"
+          },
+          {
+            "step": "verify: unknown",
+            "type": "act",
+            "note": "Re-parses DOM to verify step change"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: checkout-flow scope",
+            "type": "act",
+            "note": "Step 2/4, contact pre-filled, address selected, shipping options listed"
+          },
+          {
+            "step": "select: shipping-option",
+            "type": "act",
+            "note": "Selects \"Express (2–3 days, $12.99)\" from typed options"
+          },
+          {
+            "step": "click: continue-payment-btn",
+            "type": "act",
+            "note": "Preconditions met — gets ActionResult with step 3 transition"
+          }
+        ]
+      },
+      {
+        "id": "checkout.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Complete shipping step with Express shipping and continue to payment Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: #continue-to-payment",
+          "Primary WCI action id: continue-payment-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action #continue-to-payment",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute continue-payment-btn directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "social-feed": [
+      {
+        "id": "social-feed.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Like the post by @alice_dev about AgentDOM Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+          "Primary WCI action id: like-p_81924",
+          "No decoy ids triggered: like-p_81925"
+        ],
+        "standardFlow": [
+          {
+            "step": "dismiss: notification overlay",
+            "type": "act",
+            "note": "Agent must first dismiss the notification prompt overlay"
+          },
+          {
+            "step": "click: Not Now button",
+            "type": "act",
+            "note": "Dismisses overlay"
+          },
+          {
+            "step": "scan: full feed",
+            "type": "act",
+            "note": "Finds 30+ identical icon buttons, can't distinguish like from reply"
+          },
+          {
+            "step": "click: sponsored post like button",
+            "type": "error",
+            "note": "Likes the sponsored TechGear post instead — same structure"
+          },
+          {
+            "step": "scan: posts",
+            "type": "act",
+            "note": "Re-scans to find Alice's post among nested replies and sponsored content"
+          },
+          {
+            "step": "click: Alice reply-thread like",
+            "type": "error",
+            "note": "Likes a reply in Alice's thread instead of the main post"
+          },
+          {
+            "step": "click: correct heart icon",
+            "type": "act",
+            "note": "Finally finds and clicks the right like button"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: post-p_81924 scope",
+            "type": "act",
+            "note": "Finds post by @alice_dev with typed action buttons"
+          },
+          {
+            "step": "click: like-p_81924",
+            "type": "act",
+            "note": "Clicks typed like button — gets ActionResult with count 568"
+          }
+        ]
+      },
+      {
+        "id": "social-feed.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Like the post by @alice_dev about AgentDOM Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+          "Primary WCI action id: like-p_81924",
+          "No decoy ids triggered: like-p_81925"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute like-p_81924 directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "admin-dashboard": [
+      {
+        "id": "admin-dashboard.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Primary WCI action id: export-btn",
+          "No decoy ids triggered: export-csv-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent finds 180+ elements including hidden shortcuts overlay, SVG paths"
+          },
+          {
+            "step": "scan: table",
+            "type": "act",
+            "note": "Table has checkboxes, action buttons, stage badges — hard to extract data"
+          },
+          {
+            "step": "click: deal row checkbox",
+            "type": "error",
+            "note": "Accidentally selects deal checkbox instead of reading data"
+          },
+          {
+            "step": "scan: probability column",
+            "type": "act",
+            "note": "Tries to parse table cells — no clear structure for probability values"
+          },
+          {
+            "step": "identify: SaaS Migration 80%",
+            "type": "act",
+            "note": "Eventually finds highest probability deal"
+          },
+          {
+            "step": "click: Export button",
+            "type": "act",
+            "note": "Multiple buttons with similar text — sidebar has pipeline export too"
+          },
+          {
+            "step": "click: correct Export button",
+            "type": "act",
+            "note": "Finds the dashboard export button"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: deals-table display node",
+            "type": "act",
+            "note": "Gets structured deal data with probability field"
+          },
+          {
+            "step": "compare: probability values in state",
+            "type": "act",
+            "note": "SaaS Migration — Delta LLC has 80% probability"
+          },
+          {
+            "step": "click: export-btn",
+            "type": "act",
+            "note": "Clicks typed export button — gets ActionResult"
+          }
+        ]
+      },
+      {
+        "id": "admin-dashboard.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Primary WCI action id: export-btn",
+          "No decoy ids triggered: export-csv-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action .qc-topbar__right button:has-text(\"Export\")",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute export-btn directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "job-board": [
+      {
+        "id": "job-board.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+          "Primary WCI action id: apply-senior-engineer",
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id apply-senior-engineer",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "job-board.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). First validate key constraints (multiple confirm/apply buttons) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+          "Primary WCI action id: apply-senior-engineer",
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click apply-senior-engineer",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "healthcare-portal": [
+      {
+        "id": "healthcare-portal.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+          "Primary WCI action id: schedule-video-visit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id schedule-video-visit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "healthcare-portal.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). First validate key constraints (generic confirm on correct slot) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+          "Primary WCI action id: schedule-video-visit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-slot=\"tue-1430-video\"][data-mode=\"video\"] .mg-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click schedule-video-visit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "email-client": [
+      {
+        "id": "email-client.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+          "Primary WCI action id: archive-billing-thread",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id archive-billing-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "email-client.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). First validate key constraints (billing-acme row vs toolbar) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+          "Primary WCI action id: archive-billing-thread",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click archive-billing-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "calendar-app": [
+      {
+        "id": "calendar-app.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-series=\"weekday-standup-09\"]",
+          "Primary WCI action id: create-standup-series",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-series=\"weekday-standup-09\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id create-standup-series",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "calendar-app.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). First validate key constraints (+ add cells vs series confirm) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-series=\"weekday-standup-09\"]",
+          "Primary WCI action id: create-standup-series",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-series=\"weekday-standup-09\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click create-standup-series",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "food-delivery": [
+      {
+        "id": "food-delivery.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Primary WCI action id: add-teriyaki-checkout",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-teriyaki-checkout",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "food-delivery.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants). First validate key constraints (price/item attributes) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Primary WCI action id: add-teriyaki-checkout",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-teriyaki-checkout",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "insurance-quote": [
+      {
+        "id": "insurance-quote.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+          "Primary WCI action id: get-auto-quote",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id get-auto-quote",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "insurance-quote.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). First validate key constraints (liability vs full) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+          "Primary WCI action id: get-auto-quote",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click get-auto-quote",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "real-estate": [
+      {
+        "id": "real-estate.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
+          "Primary WCI action id: save-listing-742",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id save-listing-742",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "real-estate.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate key constraints (tour vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
+          "Primary WCI action id: save-listing-742",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click save-listing-742",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "lms-course": [
+      {
+        "id": "lms-course.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-module=\"4\"] .lp-btn--primary",
+          "Primary WCI action id: complete-module-4",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-module=\"4\"] .lp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id complete-module-4",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "lms-course.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). First validate key constraints (module 3 done) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-module=\"4\"] .lp-btn--primary",
+          "Primary WCI action id: complete-module-4",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-module=\"4\"] .lp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click complete-module-4",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "support-ticket": [
+      {
+        "id": "support-ticket.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+          "Primary WCI action id: submit-priority-ticket",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id submit-priority-ticket",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "support-ticket.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). First validate key constraints (draft vs confirm) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+          "Primary WCI action id: submit-priority-ticket",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-prio=\"high\"][data-topic=\"login-outage\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click submit-priority-ticket",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "ecommerce-search": [
+      {
+        "id": "ecommerce-search.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-filter=\"rating-price\"]",
+          "Primary WCI action id: apply-rating-price-filter",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-filter=\"rating-price\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id apply-rating-price-filter",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "ecommerce-search.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. First validate key constraints (flash sale) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-filter=\"rating-price\"]",
+          "Primary WCI action id: apply-rating-price-filter",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-filter=\"rating-price\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click apply-rating-price-filter",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "streaming-service": [
+      {
+        "id": "streaming-service.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+          "Primary WCI action id: add-ocean-deep-watchlist",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-ocean-deep-watchlist",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "streaming-service.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+          "Primary WCI action id: add-ocean-deep-watchlist",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-ocean-deep-watchlist",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "hotel-booking": [
+      {
+        "id": "hotel-booking.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+          "Primary WCI action id: book-marriott-downtown",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id book-marriott-downtown",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "hotel-booking.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). First validate key constraints (select vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+          "Primary WCI action id: book-marriott-downtown",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click book-marriott-downtown",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "tax-filing": [
+      {
+        "id": "tax-filing.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-provider=\"ADP\"][data-form=\"W2\"]",
+          "Primary WCI action id: import-w2-adp",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-provider=\"ADP\"][data-form=\"W2\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id import-w2-adp",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "tax-filing.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). First validate key constraints (manual vs import) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-provider=\"ADP\"][data-form=\"W2\"]",
+          "Primary WCI action id: import-w2-adp",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-provider=\"ADP\"][data-form=\"W2\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click import-w2-adp",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "weather-app": [
+      {
+        "id": "weather-app.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Turn on precipitation alerts for San Francisco (not other cities). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary",
+          "Primary WCI action id: enable-sf-rain-alerts",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id enable-sf-rain-alerts",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "weather-app.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Turn on precipitation alerts for San Francisco (not other cities). First validate key constraints (alert traps) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary",
+          "Primary WCI action id: enable-sf-rain-alerts",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-city=\"SF\"][data-alert=\"rain\"] .sk-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click enable-sf-rain-alerts",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "parking-reservation": [
+      {
+        "id": "parking-reservation.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-spot=\"B12\"][data-open=\"true\"]",
+          "Primary WCI action id: reserve-spot-b12",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-spot=\"B12\"][data-open=\"true\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id reserve-spot-b12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "parking-reservation.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). First validate key constraints (taken spots) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-spot=\"B12\"][data-open=\"true\"]",
+          "Primary WCI action id: reserve-spot-b12",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-spot=\"B12\"][data-open=\"true\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click reserve-spot-b12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "gym-membership": [
+      {
+        "id": "gym-membership.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Switch from monthly to the featured annual membership plan. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-plan=\"annual\"] .fc-btn--primary",
+          "Primary WCI action id: upgrade-annual-plan",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-plan=\"annual\"] .fc-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id upgrade-annual-plan",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "gym-membership.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Switch from monthly to the featured annual membership plan. First validate key constraints (current plan) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-plan=\"annual\"] .fc-btn--primary",
+          "Primary WCI action id: upgrade-annual-plan",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-plan=\"annual\"] .fc-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click upgrade-annual-plan",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "pharmacy-order": [
+      {
+        "id": "pharmacy-order.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Refill the ten milligram Lisinopril prescription row (not Metformin view-only). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-rx=\"lisinopril-10\"] .rx-btn--primary",
+          "Primary WCI action id: refill-lisinopril",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at tr[data-rx=\"lisinopril-10\"] .rx-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id refill-lisinopril",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "pharmacy-order.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Refill the ten milligram Lisinopril prescription row (not Metformin view-only). First validate key constraints (view vs confirm) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-rx=\"lisinopril-10\"] .rx-btn--primary",
+          "Primary WCI action id: refill-lisinopril",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector tr[data-rx=\"lisinopril-10\"] .rx-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click refill-lisinopril",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "ride-share": [
+      {
+        "id": "ride-share.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-dest=\"SFO-T2\"].gr-btn--primary",
+          "Primary WCI action id: request-sfo-ride",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-dest=\"SFO-T2\"].gr-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id request-sfo-ride",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "ride-share.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). First validate key constraints (promo ride) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-dest=\"SFO-T2\"].gr-btn--primary",
+          "Primary WCI action id: request-sfo-ride",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-dest=\"SFO-T2\"].gr-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click request-sfo-ride",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "voting-poll": [
+      {
+        "id": "voting-poll.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-measure-submit=\"12\"]",
+          "Primary WCI action id: vote-prop-12",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-measure-submit=\"12\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id vote-prop-12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "voting-poll.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. First validate key constraints (yes radio vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-measure-submit=\"12\"]",
+          "Primary WCI action id: vote-prop-12",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-measure-submit=\"12\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click vote-prop-12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "wiki-edit": [
+      {
+        "id": "wiki-edit.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+          "Primary WCI action id: publish-wci-edit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id publish-wci-edit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "wiki-edit.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). First validate key constraints (toolbar noise) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+          "Primary WCI action id: publish-wci-edit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click publish-wci-edit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "code-review": [
+      {
+        "id": "code-review.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Approve pull request number 4182 fixing timeout (not request changes or pro upsell). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pr=\"4182\"] button[data-pr-action=\"approve\"]",
+          "Primary WCI action id: approve-pr-4182",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-pr=\"4182\"] button[data-pr-action=\"approve\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id approve-pr-4182",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "code-review.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Approve pull request number 4182 fixing timeout (not request changes or pro upsell). First validate key constraints (request changes) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pr=\"4182\"] button[data-pr-action=\"approve\"]",
+          "Primary WCI action id: approve-pr-4182",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-pr=\"4182\"] button[data-pr-action=\"approve\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click approve-pr-4182",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "inventory-mgmt": [
+      {
+        "id": "inventory-mgmt.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Reorder five hundred units of SKU WH-9921 (not adjust other SKUs). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-sku=\"WH-9921\"] .sp-btn--primary",
+          "Primary WCI action id: reorder-sku-wh9921",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at tr[data-sku=\"WH-9921\"] .sp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id reorder-sku-wh9921",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "inventory-mgmt.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Reorder five hundred units of SKU WH-9921 (not adjust other SKUs). First validate key constraints (adjust row) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-sku=\"WH-9921\"] .sp-btn--primary",
+          "Primary WCI action id: reorder-sku-wh9921",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector tr[data-sku=\"WH-9921\"] .sp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click reorder-sku-wh9921",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "subscription-cancel": [
+      {
+        "id": "subscription-cancel.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+          "Primary WCI action id: cancel-premium-sub",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id cancel-premium-sub",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "subscription-cancel.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). First validate key constraints (upgrade) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+          "Primary WCI action id: cancel-premium-sub",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click cancel-premium-sub",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "password-reset": [
+      {
+        "id": "password-reset.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Send password reset link to user@corp.com (not disable account). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-action=\"send-reset\"]",
+          "Primary WCI action id: send-reset-link",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-action=\"send-reset\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id send-reset-link",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "password-reset.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Send password reset link to user@corp.com (not disable account). First validate key constraints (disable) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-action=\"send-reset\"]",
+          "Primary WCI action id: send-reset-link",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-action=\"send-reset\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click send-reset-link",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "document-sign": [
+      {
+        "id": "document-sign.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Sign employment agreement on page twelve of the document viewer. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-sign-page=\"12\"]",
+          "Primary WCI action id: sign-agreement-p12",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-sign-page=\"12\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id sign-agreement-p12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "document-sign.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Sign employment agreement on page twelve of the document viewer. First validate key constraints (initial) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-sign-page=\"12\"]",
+          "Primary WCI action id: sign-agreement-p12",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-sign-page=\"12\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click sign-agreement-p12",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "survey-form": [
+      {
+        "id": "survey-form.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-nps-submit=\"9\"]",
+          "Primary WCI action id: submit-nps-9",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-nps-submit=\"9\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id submit-nps-9",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "survey-form.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). First validate key constraints (skip) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-nps-submit=\"9\"]",
+          "Primary WCI action id: submit-nps-9",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-nps-submit=\"9\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click submit-nps-9",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "charity-donate": [
+      {
+        "id": "charity-donate.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Donate twenty-five dollars monthly to the clean water fund campaign. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-fund=\"water\"][data-amt=\"25\"]",
+          "Primary WCI action id: donate-water-fund",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-fund=\"water\"][data-amt=\"25\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id donate-water-fund",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "charity-donate.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Donate twenty-five dollars monthly to the clean water fund campaign. First validate key constraints (preset amounts) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-fund=\"water\"][data-amt=\"25\"]",
+          "Primary WCI action id: donate-water-fund",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-fund=\"water\"][data-amt=\"25\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click donate-water-fund",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "flight-checkin": [
+      {
+        "id": "flight-checkin.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Select window seat 14A on flight AA882 (12A is already taken). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-seat=\"14A\"][data-window=\"true\"]",
+          "Primary WCI action id: select-seat-14a",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-seat=\"14A\"][data-window=\"true\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id select-seat-14a",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "flight-checkin.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Select window seat 14A on flight AA882 (12A is already taken). First validate key constraints (12a taken) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-seat=\"14A\"][data-window=\"true\"]",
+          "Primary WCI action id: select-seat-14a",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-seat=\"14A\"][data-window=\"true\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click select-seat-14a",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "visa-application": [
+      {
+        "id": "visa-application.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-doc=\"passport-scan\"]",
+          "Primary WCI action id: upload-passport-scan",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-doc=\"passport-scan\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id upload-passport-scan",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "visa-application.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). First validate key constraints (expedite) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-doc=\"passport-scan\"]",
+          "Primary WCI action id: upload-passport-scan",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-doc=\"passport-scan\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click upload-passport-scan",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "stock-trade": [
+      {
+        "id": "stock-trade.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Buy ten shares of AAPL at market order type. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+          "Primary WCI action id: buy-aapl-market",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id buy-aapl-market",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "stock-trade.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Buy ten shares of AAPL at market order type. First validate key constraints (limit option) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+          "Primary WCI action id: buy-aapl-market",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click buy-aapl-market",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "podcast-subscribe": [
+      {
+        "id": "podcast-subscribe.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+          "Primary WCI action id: subscribe-ai-daily",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id subscribe-ai-daily",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "podcast-subscribe.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). First validate key constraints (trial) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+          "Primary WCI action id: subscribe-ai-daily",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click subscribe-ai-daily",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "photo-upload": [
+      {
+        "id": "photo-upload.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Upload new photos into album Iceland 2026 (not other albums). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-album=\"iceland-2026\"] .ca-btn--primary",
+          "Primary WCI action id: upload-iceland-album",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-album=\"iceland-2026\"] .ca-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id upload-iceland-album",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "photo-upload.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Upload new photos into album Iceland 2026 (not other albums). First validate key constraints (thumbs) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-album=\"iceland-2026\"] .ca-btn--primary",
+          "Primary WCI action id: upload-iceland-album",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-album=\"iceland-2026\"] .ca-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click upload-iceland-album",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "forum-post": [
+      {
+        "id": "forum-post.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Pin the community thread about WCI specification feedback. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+          "Primary WCI action id: pin-wci-thread",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id pin-wci-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "forum-post.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Pin the community thread about WCI specification feedback. First validate key constraints (new post) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+          "Primary WCI action id: pin-wci-thread",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click pin-wci-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "dating-profile": [
+      {
+        "id": "dating-profile.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Send intro message to profile handle river_kayak (not profile boost). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]",
+          "Primary WCI action id: message-river-kayak",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id message-river-kayak",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "dating-profile.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Send intro message to profile handle river_kayak (not profile boost). First validate key constraints (boost) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]",
+          "Primary WCI action id: message-river-kayak",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-profile=\"river_kayak\"] button[data-send-intro=\"river_kayak\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click message-river-kayak",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "rental-car": [
+      {
+        "id": "rental-car.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-vehicle=\"compact-lax-friday\"] .da-btn--primary",
+          "Primary WCI action id: reserve-lax-compact",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-vehicle=\"compact-lax-friday\"] .da-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id reserve-lax-compact",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "rental-car.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). First validate key constraints (select) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-vehicle=\"compact-lax-friday\"] .da-btn--primary",
+          "Primary WCI action id: reserve-lax-compact",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-vehicle=\"compact-lax-friday\"] .da-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click reserve-lax-compact",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "concert-tickets": [
+      {
+        "id": "concert-tickets.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]",
+          "Primary WCI action id: buy-neon-pulse-ga",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id buy-neon-pulse-ga",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "concert-tickets.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). First validate key constraints (vip) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]",
+          "Primary WCI action id: buy-neon-pulse-ga",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-event=\"neon-pulse\"] button[data-tickets=\"ga-2\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click buy-neon-pulse-ga",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "grocery-list": [
+      {
+        "id": "grocery-list.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+          "Primary WCI action id: add-avocados-list",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-avocados-list",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "grocery-list.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+          "Primary WCI action id: add-avocados-list",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-avocados-list",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "pet-adoption": [
+      {
+        "id": "pet-adoption.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit adoption application for dog Max profile. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pet=\"max\"] button[data-adopt=\"max\"]",
+          "Primary WCI action id: apply-adopt-max",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-pet=\"max\"] button[data-adopt=\"max\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id apply-adopt-max",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "pet-adoption.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit adoption application for dog Max profile. First validate key constraints (trap labels) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-pet=\"max\"] button[data-adopt=\"max\"]",
+          "Primary WCI action id: apply-adopt-max",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-pet=\"max\"] button[data-adopt=\"max\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click apply-adopt-max",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "scholarship-apply": [
+      {
+        "id": "scholarship-apply.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Submit STEM scholarship application form (not fee waiver). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-app=\"stem\"]",
+          "Primary WCI action id: submit-stem-scholarship",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-app=\"stem\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id submit-stem-scholarship",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "scholarship-apply.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Submit STEM scholarship application form (not fee waiver). First validate key constraints (waiver) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-app=\"stem\"]",
+          "Primary WCI action id: submit-stem-scholarship",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-app=\"stem\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click submit-stem-scholarship",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "wifi-setup": [
+      {
+        "id": "wifi-setup.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-connect-ssid=\"Guest_5G\"]",
+          "Primary WCI action id: connect-guest-5g",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-connect-ssid=\"Guest_5G\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id connect-guest-5g",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "wifi-setup.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). First validate key constraints (home locked) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-connect-ssid=\"Guest_5G\"]",
+          "Primary WCI action id: connect-guest-5g",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-connect-ssid=\"Guest_5G\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click connect-guest-5g",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "invoice-pay": [
+      {
+        "id": "invoice-pay.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Pay overdue invoice INV-2026-044 due today (not view-only rows). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-pay-inv=\"INV-2026-044\"]",
+          "Primary WCI action id: pay-inv-2026-044",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-pay-inv=\"INV-2026-044\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id pay-inv-2026-044",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "invoice-pay.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Pay overdue invoice INV-2026-044 due today (not view-only rows). First validate key constraints (view row) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-pay-inv=\"INV-2026-044\"]",
+          "Primary WCI action id: pay-inv-2026-044",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-pay-inv=\"INV-2026-044\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click pay-inv-2026-044",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "newsletter-sub": [
+      {
+        "id": "newsletter-sub.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-newsletter=\"ai-digest\"]",
+          "Primary WCI action id: subscribe-ai-digest",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-newsletter=\"ai-digest\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id subscribe-ai-digest",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "newsletter-sub.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). First validate key constraints (sample) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-newsletter=\"ai-digest\"]",
+          "Primary WCI action id: subscribe-ai-digest",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-newsletter=\"ai-digest\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click subscribe-ai-digest",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "api-keys": [
+      {
+        "id": "api-keys.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Rotate the production API key row (not staging reveal). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+          "Primary WCI action id: rotate-prod-api-key",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id rotate-prod-api-key",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "api-keys.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Rotate the production API key row (not staging reveal). First validate key constraints (reveal) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+          "Primary WCI action id: rotate-prod-api-key",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click rotate-prod-api-key",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "privacy-settings": [
+      {
+        "id": "privacy-settings.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Save settings to disable third-party data sharing toggle. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-save=\"disable-third-party\"]",
+          "Primary WCI action id: disable-third-party-share",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-save=\"disable-third-party\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id disable-third-party-share",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "privacy-settings.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Save settings to disable third-party data sharing toggle. First validate key constraints (download) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-save=\"disable-third-party\"]",
+          "Primary WCI action id: disable-third-party-share",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-save=\"disable-third-party\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click disable-third-party-share",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ],
+    "bug-report": [
+      {
+        "id": "bug-report.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-file-bug=\"checkout-timeout\"]",
+          "Primary WCI action id: file-checkout-timeout-bug",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-file-bug=\"checkout-timeout\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id file-checkout-timeout-bug",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "bug-report.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-file-bug=\"checkout-timeout\"]",
+          "Primary WCI action id: file-checkout-timeout-bug",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-file-bug=\"checkout-timeout\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click file-checkout-timeout-bug",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
+  }
+}

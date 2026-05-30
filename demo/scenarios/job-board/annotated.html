@@ -11,6 +11,9 @@ table{border-collapse:collapse}
 .hf-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .hf-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .hf-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.hf-brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.hf-brand-badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,hsl(291 72% 46%),#6d28d9);display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:0 6px 18px rgba(168,85,247,.25)}
+.hf-brand small{display:block;font-weight:500;color:#64748b}
 .hf-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .hf-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .hf-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +22,14 @@ table{border-collapse:collapse}
 .hf-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .hf-subnav a:hover{background:#f8fafc;color:#334155}
 .hf-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.hf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.hf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.hf-page-wrap{grid-template-columns:1fr}}
 .hf-page-main{padding:20px 24px 32px;min-height:42vh}
 .hf-page-main>h1,.hf-page-main [role=main]>h1,.hf-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .hf-page-main h2,.hf-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.hf-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.hf-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .hf-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.hf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.hf-page-main select,.hf-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.hf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.hf-page-main select,.hf-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .hf-page-main input:focus,.hf-page-main select:focus,.hf-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .hf-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .hf-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,16 +37,14 @@ table{border-collapse:collapse}
 .hf-page-main th,.hf-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .hf-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .hf-page-main tr:hover td{background:#fafafa}
-.hf-page-main article,.hf-page-main .hf-card,.hf-page-main .hf-resto,.hf-page-main .hf-slot,.hf-page-main .hf-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.hf-page-main article,.hf-page-main .hf-card,.hf-page-main .hf-resto,.hf-page-main .hf-slot,.hf-page-main .hf-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .hf-page-main ul:not([class]){list-style:none;padding:0}
-.hf-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.hf-page-main ul:not([class]) li:hover{background:#f8fafc}
-.hf-page-main dialog,.hf-page-main .hf-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.hf-page-main .hf-modal.is-open,.hf-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.hf-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.hf-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0;background:#f8fafc}
+.hf-page-main ul:not([class]) li:hover{background:#f1f5f9}
+.hf-page-main dialog,.hf-page-main .hf-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.hf-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .06s}
 .hf-btn:hover{background:#f8fafc}
+.hf-btn:active{transform:translateY(1px)}
 .hf-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
 .hf-btn--primary:hover{filter:brightness(1.05)}
 .hf-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -62,60 +62,572 @@ table{border-collapse:collapse}
 .hf-ftr a{color:#475569;margin-right:8px}
 .hf-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .hf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
-.hf-ab{display:none!important}
-.hf-layout{display:grid;gap:16px;align-items:start}
+.hf-layout{display:grid;grid-template-columns:minmax(240px,280px) minmax(0,1fr);gap:0;min-height:50vh}
+@media(max-width:860px){.hf-layout{grid-template-columns:1fr}}
 .hf-filters,.hf-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.hf-filters{padding:16px;border-right:1px solid #e2e8f0;background:#f8fafc}
 .hf-filters h2,.hf-frame aside h2{font-size:14px;margin:0 0 10px}
 .hf-card__actions,.hf-slot__actions,.hf-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.hf-wizard{max-width:760px}
-.hf-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.hf-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.hf-step.is-active{background:hsl(291 72% 46%);color:#fff}
-.hf-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.hf-hero{border-radius:12px;margin-bottom:8px}
-.hf-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.hf-grid{display:grid;gap:14px}
-.hf-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.hf-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.hf-patient{border-radius:10px}
-.hf-slots{display:grid;gap:10px}
-.hf-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.hf-cell{background:#fff;padding:8px;min-height:44px}
-.hf-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.hf-diff{border-radius:8px}
-.hf-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.hf-layout{display:grid;grid-template-columns:minmax(200px,240px) minmax(0,1fr);gap:0;min-height:50vh}.hf-filters{padding:16px;border-right:1px solid #e2e8f0;background:#f8fafc}.hf-layout main{padding:16px 20px}</style></head><body>
-<div class="hf-app" data-page="job-board" data-agent-role="landmark" data-agent-id="job_board-page" data-agent-desc="HireFlow Jobs — job listings with filters" data-agent-priority="2"><div class="hf-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="hf-btn hf-btn--muted">Reject non-essential</button>
-  <button type="button" class="hf-btn hf-btn--primary">Accept all</button>
-  <button type="button" class="hf-btn hf-btn--ghost">Customize</button>
-</div><div class="hf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="hf-btn hf-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="hf-btn">Continue as guest — express</button>
-</div><header class="hf-hdr">
-  <nav class="hf-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="hf-hdr-promo"><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promotional CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="hf-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
-  <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
-</nav><div class="hf-dup-row" aria-label="Quick actions">
-  <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
-  <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
-  <button type="button" class="hf-btn hf-btn--ghost">Save changes</button>
-  <button type="button" class="hf-btn hf-btn--ghost">Confirm</button>
-</div><div class="hf-dup-row"><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Apply Senior Engineer Acme</button><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav">Apply to Acme Senior</button><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Keyword-rich apply decoy" data-agent-priority="5" data-agent-action="click">Quick Apply Senior</button></div><div class="hf-page-wrap"><div class="hf-page-main"><div class="hf-layout"><aside class="hf-filters"><h2>Filters</h2><label><input type="checkbox"> Remote only</label>
-<label><input type="checkbox" checked=""> In-office</label><select><option>Any location</option><option>SF Bay</option></select></aside>
-<main role="main"><h1>Open roles</h1><ul>
-<li class="hf-card" data-employer-ref="ACM-102" data-remote="true"><h3>Junior QA — Beta LLC</h3>
-<div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Quick Apply</button><button type="button" class="hf-btn hf-btn--ghost">Save</button></div></li>
-<li class="hf-card" data-employer-ref="ACM-447" data-tier="senior-inoffice"><h3>Senior Engineer — Acme Corp</h3><p>React, TypeScript · ref ACM-447</p>
-<div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Save</button><button type="button" class="hf-btn hf-btn--primary" data-agent-role="action" data-agent-id="apply-senior-engineer" data-agent-desc="Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></li>
-<li class="hf-card" data-employer-ref="ACM-220"><h3>PM — Gamma Inc</h3><div class="hf-card__actions"><button type="button" class="hf-btn hf-btn--ghost">Save</button></div></li>
-</ul></main></div></div><aside class="hf-rail hf-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="hf-filler" aria-hidden="true"><div class="hf-filler-inner"><a href="/misc/0" class="hf-btn hf-btn--ghost">Link 1</a><button type="button" class="hf-btn hf-btn--ghost">Action 2</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/4" class="hf-btn hf-btn--ghost">Link 5</a><button type="button" class="hf-btn hf-btn--ghost">Action 6</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/8" class="hf-btn hf-btn--ghost">Link 9</a><button type="button" class="hf-btn hf-btn--ghost">Action 10</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/12" class="hf-btn hf-btn--ghost">Link 13</a><button type="button" class="hf-btn hf-btn--ghost">Action 14</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/16" class="hf-btn hf-btn--ghost">Link 17</a><button type="button" class="hf-btn hf-btn--ghost">Action 18</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/20" class="hf-btn hf-btn--ghost">Link 21</a><button type="button" class="hf-btn hf-btn--ghost">Action 22</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/24" class="hf-btn hf-btn--ghost">Link 25</a><button type="button" class="hf-btn hf-btn--ghost">Action 26</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/28" class="hf-btn hf-btn--ghost">Link 29</a><button type="button" class="hf-btn hf-btn--ghost">Action 30</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/32" class="hf-btn hf-btn--ghost">Link 33</a><button type="button" class="hf-btn hf-btn--ghost">Action 34</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/36" class="hf-btn hf-btn--ghost">Link 37</a><button type="button" class="hf-btn hf-btn--ghost">Action 38</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/40" class="hf-btn hf-btn--ghost">Link 41</a><button type="button" class="hf-btn hf-btn--ghost">Action 42</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button></div></div><button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="hf-ftr"><small>© Demo HireFlow Jobs</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+.hf-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.hf-search{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-bottom:14px}
+@media(max-width:640px){.hf-search{grid-template-columns:1fr}}
+.hf-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#64748b;margin-top:8px}
+.hf-pill{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#4338ca;font-weight:600}
+.hf-note{font-size:12px;color:#64748b}
+.hf-listing-title{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.hf-score{font-size:12px;color:#0f766e;background:#ecfeff;border:1px solid #a5f3fc;border-radius:999px;padding:3px 8px;white-space:nowrap}
+.hf-sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.hf-banner{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;padding:16px 18px;background:linear-gradient(135deg,#faf5ff,#fff);border:1px solid #e9d5ff;border-radius:14px;margin-bottom:16px}
+@media(max-width:860px){.hf-banner{grid-template-columns:1fr}}
+.hf-kpi-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+@media(max-width:760px){.hf-kpi-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hf-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px}
+.hf-kpi strong{display:block;font-size:18px;color:#0f172a}
+.hf-inline-status{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px}
+.hf-job-list{display:grid;gap:14px}
+.hf-card.is-highlight{border-color:#c4b5fd;box-shadow:0 0 0 3px rgba(196,181,253,.25)}
+.hf-card.is-dim{opacity:.58}
+.hf-card.is-hidden{display:none}
+.hf-badge-red{background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:600}
+.hf-badge-green{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:600}
+.hf-badge-gray{background:#f8fafc;border:1px solid #cbd5e1;color:#475569;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:600}
+#job-board-smoke-status{margin-top:10px;font-size:13px;color:#334155;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;padding:10px 12px}
+.hf-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:720px){.hf-form-grid{grid-template-columns:1fr}}
+.hf-error{color:#b91c1c;font-size:12px;min-height:16px;margin-top:4px}
+.hf-ok{color:#047857}
+.hf-drawer{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:16px;margin-top:16px}
+.hf-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;z-index:90}
+.hf-modal-backdrop.is-open{display:block}
+.hf-modal{display:none;position:fixed;inset:8% 50% auto auto;transform:translateX(50%);width:min(720px,92vw);z-index:100;max-height:84vh;overflow:auto}
+.hf-modal.is-open{display:block}
+.hf-modal-header{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:12px}
+.hf-summary{background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:12px;margin:12px 0}
+.hf-small-list{list-style:none;padding:0;margin:0}
+.hf-small-list li{padding:6px 0;border-bottom:1px solid #e2e8f0}
+.hf-small-list li:last-child{border-bottom:none}
+</style></head><body>
+<div class="hf-app" data-page="job-board" id="job_board-page" data-agent-id="job_board-page" data-agent-role="landmark" data-agent-desc="Job board page root landmark" data-agent-priority="1" data-agent-action="navigate" data-agent-state="{&quot;ready&quot;:true}">
+  <div class="hf-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+    <button type="button" class="hf-btn hf-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+    <button type="button" class="hf-btn hf-btn--primary" data-cookie-action="accept">Accept all</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-cookie-action="customize">Customize</button>
+  </div>
+
+  <header class="hf-hdr">
+    <div class="hf-brand" aria-label="HireFlow Jobs">
+      <div class="hf-brand-badge">HF</div>
+      <div>
+        HireFlow Jobs
+        <small>Search smarter. Apply faster.</small>
+      </div>
+    </div>
+    <nav class="hf-nav" aria-label="Global">
+      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/saved">Saved jobs</a><a href="/employers">Employers</a>
+    </nav>
+    <div class="hf-hdr-promo">
+      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-agent-id="decoy-promo" data-agent-role="action" data-agent-action="click" data-agent-desc="Promotional decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Claim Offer</button>
+      <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-agent-id="decoy-nav" data-agent-role="nav" data-agent-action="click" data-agent-desc="Navigation decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="hf-subnav" aria-label="Secondary">
+    <a href="#overview">Overview</a><a href="#roles">Roles</a><a href="#employers">Employers</a><a href="#apply-panel">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
+    <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
+    <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="hf-dup-row" aria-label="Quick actions">
+    <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
+    <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+    <button type="button" class="hf-btn hf-btn--ghost">Save changes</button>
+    <button type="button" class="hf-btn hf-btn--ghost">Confirm</button>
+    <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
+  </div>
+
+  <div class="hf-dup-row">
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Apply Senior Engineer Acme</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav">Apply to Acme Senior</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-agent-id="decoy-extra" data-agent-role="action" data-agent-action="click" data-agent-desc="Extra decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Quick Apply Senior</button>
+  </div>
+
+  <div class="hf-page-wrap">
+    <div class="hf-page-main">
+      <section id="overview" class="hf-panel">
+        <div class="hf-banner">
+          <div>
+            <h1>Open roles</h1>
+            <p>Browse employer reference cards, compare work style requirements, and confirm an application only when the listing matches the requested employer reference and role constraints.</p>
+            <div class="hf-inline-status"><strong>Live queue:</strong> <span id="visibleCount">0 matching roles shown</span></div>
+            <div id="job-board-smoke-status" data-smoke-status="">Smoke status: idle</div>
+          </div>
+          <div>
+            <div class="hf-kpi-row">
+              <div class="hf-kpi"><span class="hf-note">Open listings</span><strong id="totalJobsKpi">6</strong></div>
+              <div class="hf-kpi"><span class="hf-note">Employer refs</span><strong>3</strong></div>
+              <div class="hf-kpi"><span class="hf-note">Eligible now</span><strong id="eligibleJobsKpi">0</strong></div>
+              <div class="hf-kpi"><span class="hf-note">Saved</span><strong id="savedCount">0</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="hf-search">
+          <div>
+            <label for="q">Search jobs</label>
+            <input id="q" type="search" value="Senior Engineer ACM-447" placeholder="Search by title, keyword, or employer">
+          </div>
+          <button type="button" class="hf-btn hf-btn--muted" id="clearSearchBtn">Clear</button>
+        </div>
+        <div class="hf-meta">
+          <span class="hf-pill">Search feed</span>
+          <span class="hf-score" id="filterSummary">Filters applied: In-office, Senior+</span>
+          <span class="hf-note">Tip: verify location and tier before applying.</span>
+        </div>
+      </section>
+
+      <div class="hf-layout">
+        <aside class="hf-filters" aria-label="Filters">
+          <h2>Filters</h2>
+          <fieldset>
+            <legend>Work style</legend>
+            <label><input type="checkbox" id="filterRemote"> Remote only</label>
+            <label><input type="checkbox" id="filterOffice" checked=""> In-office</label>
+            <label><input type="checkbox" id="filterHybrid" checked=""> Hybrid</label>
+          </fieldset>
+          <label for="location">Location</label>
+          <select id="location">
+            <option>Any location</option>
+            <option>SF Bay</option>
+            <option selected="">Seattle</option>
+            <option>NYC</option>
+          </select>
+          <label for="level">Level</label>
+          <select id="level">
+            <option>Any level</option>
+            <option>Junior</option>
+            <option selected="">Senior</option>
+            <option>Staff</option>
+          </select>
+          <label for="refFilter">Employer reference</label>
+          <input id="refFilter" type="text" value="ACM-447" placeholder="e.g. ACM-447">
+          <div class="hf-toolbar">
+            <button type="button" class="hf-btn hf-btn--primary" id="applyFiltersBtn">Apply filters</button>
+            <button type="button" class="hf-btn" id="resetFiltersBtn">Reset</button>
+          </div>
+          <p class="hf-note" id="filterFeedback">Filter state ready.</p>
+        </aside>
+
+        <main role="main">
+          <section id="roles">
+            <div class="hf-job-list" id="jobList">
+              <article class="hf-card" data-employer-ref="ACM-102" data-remote="true" data-work-style="remote" data-level="junior" data-location="Any location" data-keywords="beta qa remote junior testing" aria-label="Job card ACM-102">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>Junior QA — Beta LLC</h3>
+                    <p>Remote-only · Ref ACM-102 · Posted 2d ago</p>
+                  </div>
+                  <span class="hf-badge-red">Junior · Remote-only</span>
+                </div>
+                <p>Automation, test plans, and support queues. Not an in-office senior role.</p>
+                <div class="hf-card__actions">
+                  <button type="button" class="hf-btn hf-btn--ghost">Quick Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                </div>
+              </article>
+
+              <article class="hf-card" data-employer-ref="ACM-447X" data-work-style="remote" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 remote senior frontend" aria-label="Decoy reference card ACM-447X">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>Senior Engineer — Acme Cloud</h3>
+                    <p>Remote-only · Ref ACM-447X · Posted today</p>
+                  </div>
+                  <span class="hf-badge-red">Keyword trap</span>
+                </div>
+                <p>Similar employer naming and senior title, but remote-only and different employer reference.</p>
+                <div class="hf-card__actions">
+                  <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                </div>
+              </article>
+
+              <article class="hf-card is-highlight" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 senior in-office react typescript target" aria-label="Target job card ACM-447">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>Senior Engineer — Acme Corp</h3>
+                    <p>React, TypeScript · ref ACM-447 · In-office · Seattle · Posted today</p>
+                  </div>
+                  <span class="hf-badge-green" id="targetEligibilityBadge">Target match</span>
+                </div>
+                <p>Build customer-facing workflows, mentor peers, and own production quality for a high-traffic platform.</p>
+                <ul>
+                  <li>Base on-site collaboration in the downtown office</li>
+                  <li>5+ years experience preferred</li>
+                  <li>Application review begins immediately</li>
+                </ul>
+                <div class="hf-card__actions">
+                  <button id="apply-senior-engineer" type="button" class="hf-btn hf-btn--primary" data-agent-id="apply-senior-engineer" data-agent-role="action" data-agent-action="click" data-agent-desc="Primary confirm action for the ACM-447 senior in-office role" data-agent-priority="1" data-agent-state="{&quot;ready&quot;:true}" data-agent-scope="job_board-page">Confirm</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost">View team</button>
+                </div>
+              </article>
+
+              <article class="hf-card" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="NYC" data-keywords="acme acm-447 backend alternate in-office senior" aria-label="Alternate card ACM-447">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>Senior Engineer — Acme Corp</h3>
+                    <p>Backend platform · ref ACM-447 · In-office · NYC · Alternate posting</p>
+                  </div>
+                  <span class="hf-badge-gray">Reference match</span>
+                </div>
+                <p>Duplicate reference card with similar wording to test careful selection. Confirm buttons are available on employer cards.</p>
+                <div class="hf-card__actions">
+                  <button type="button" class="hf-btn hf-btn--primary">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                </div>
+              </article>
+
+              <article class="hf-card" data-employer-ref="ACM-447" data-work-style="remote" data-level="senior" data-location="Any location" data-keywords="acme acm-447 remote senior api" aria-label="Remote decoy ACM-447">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>Senior API Engineer — Acme Corp</h3>
+                    <p>Remote-only · ref ACM-447 · Posted 1d ago</p>
+                  </div>
+                  <span class="hf-badge-red">Remote-only</span>
+                </div>
+                <p>Correct employer reference but wrong work mode for the target action.</p>
+                <div class="hf-card__actions">
+                  <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                </div>
+              </article>
+
+              <article class="hf-card" data-employer-ref="ACM-220" data-work-style="hybrid" data-level="mid" data-location="SF Bay" data-keywords="pm gamma hybrid delivery" aria-label="Job card ACM-220">
+                <div class="hf-listing-title">
+                  <div>
+                    <h3>PM — Gamma Inc</h3>
+                    <p>Hybrid · ref ACM-220 · Mid-level</p>
+                  </div>
+                  <span class="hf-badge-gray">Other employer</span>
+                </div>
+                <p>Program planning, reporting, and stakeholder coordination.</p>
+                <div class="hf-card__actions">
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="employers">
+            <h2>Employer reference cards</h2>
+            <table aria-label="Employer reference summary">
+              <thead><tr><th>Employer ref</th><th>Listing</th><th>Work mode</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>ACM-102</td><td>Junior QA</td><td>Remote-only</td><td>Do not apply</td></tr>
+                <tr><td>ACM-447</td><td>Senior Engineer</td><td>In-office</td><td id="employerStatusCell">Eligible</td></tr>
+                <tr><td>ACM-220</td><td>PM</td><td>Hybrid</td><td>Not target</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="apply-panel" class="hf-drawer">
+            <h2>Application readiness</h2>
+            <p>Complete the form preview below. The targeted confirm action opens a review modal, validates required fields, and updates live status indicators.</p>
+            <div class="hf-form-grid">
+              <div>
+                <label for="appName">Full name</label>
+                <input id="appName" type="text" value="Jordan Lee" placeholder="Your full name">
+                <div class="hf-error" id="nameError"></div>
+              </div>
+              <div>
+                <label for="appEmail">Email</label>
+                <input id="appEmail" type="email" value="jordan.lee@example.com" placeholder="name@example.com">
+                <div class="hf-error" id="emailError"></div>
+              </div>
+              <div>
+                <label for="appResume">Resume URL</label>
+                <input id="appResume" type="url" value="https://portfolio.example.com/resume.pdf" placeholder="https://...">
+                <div class="hf-error" id="resumeError"></div>
+              </div>
+              <div>
+                <label for="appNote">Why this role</label>
+                <textarea id="appNote" rows="4" placeholder="Summarize your fit for this role">Interested in the in-office senior opening at Acme Corp and comfortable with on-site collaboration.</textarea>
+                <div class="hf-error" id="noteError"></div>
+              </div>
+            </div>
+            <label><input type="checkbox" id="attestOffice" checked=""> I confirm this application is for an in-office role.</label>
+            <label><input type="checkbox" id="attestLevel" checked=""> I confirm this is not a junior-tier listing.</label>
+            <p class="hf-note" id="formPreview">Preview: Jordan Lee applying to employer ref ACM-447 for a senior in-office role.</p>
+          </section>
+
+          <section id="faq" class="hf-panel">
+            <h2>Application notes</h2>
+            <p>Use the reference code, confirm the on-site requirement, and avoid remote-only or junior tier postings. Similar employer names and duplicated reference cards may appear in the feed.</p>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <aside class="hf-rail hf-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <p>Discover premium career tools, resume templates, and interview prep resources.</p>
+      <a href="/ads/1">Partner offer — limited time</a><br>
+      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <div id="support" class="hf-note" style="margin-top:10px">Need help? Contact support or browse filler links below.</div>
+      <div class="hf-summary" style="margin-top:14px">
+        <strong>Review cues</strong>
+        <ul class="hf-small-list">
+          <li>Employer ref must be <strong>ACM-447</strong></li>
+          <li>Work mode must be <strong>In-office</strong></li>
+          <li>Exclude <strong>remote-only</strong> and <strong>junior</strong> listings</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="hf-filler" aria-hidden="true">
+    <div class="hf-filler-inner">
+      <a href="/misc/0" class="hf-btn hf-btn--ghost">Link 1</a><button type="button" class="hf-btn hf-btn--ghost">Action 2</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/4" class="hf-btn hf-btn--ghost">Link 5</a><button type="button" class="hf-btn hf-btn--ghost">Action 6</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/8" class="hf-btn hf-btn--ghost">Link 9</a><button type="button" class="hf-btn hf-btn--ghost">Action 10</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/12" class="hf-btn hf-btn--ghost">Link 13</a><button type="button" class="hf-btn hf-btn--ghost">Action 14</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/16" class="hf-btn hf-btn--ghost">Link 17</a><button type="button" class="hf-btn hf-btn--ghost">Action 18</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/20" class="hf-btn hf-btn--ghost">Link 21</a><button type="button" class="hf-btn hf-btn--ghost">Action 22</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/24" class="hf-btn hf-btn--ghost">Link 25</a><button type="button" class="hf-btn hf-btn--ghost">Action 26</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/28" class="hf-btn hf-btn--ghost">Link 29</a><button type="button" class="hf-btn hf-btn--ghost">Action 30</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/32" class="hf-btn hf-btn--ghost">Link 33</a><button type="button" class="hf-btn hf-btn--ghost">Action 34</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/36" class="hf-btn hf-btn--ghost">Link 37</a><button type="button" class="hf-btn hf-btn--ghost">Action 38</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/40" class="hf-btn hf-btn--ghost">Link 41</a><button type="button" class="hf-btn hf-btn--ghost">Action 42</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+    </div>
+  </div>
+
+  <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+
+  <footer class="hf-ftr">
+    <small>© Demo HireFlow Jobs</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+    <span> · Sponsored content may appear in feeds.</span>
+  </footer>
+
+  <div class="hf-modal-backdrop" id="modalBackdrop"></div>
+  <div class="hf-modal" id="applyModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="hf-modal-header">
+      <div>
+        <h2 id="modalTitle" style="margin:0">Review application</h2>
+        <p class="hf-note" id="modalSubtext">Confirming target employer ref ACM-447.</p>
+      </div>
+      <button type="button" class="hf-btn hf-btn--ghost" id="closeModalBtn">Close</button>
+    </div>
+    <div class="hf-summary">
+      <div id="modalPreview">No application preview yet.</div>
+    </div>
+    <div class="hf-card__actions">
+      <button type="button" class="hf-btn hf-btn--primary" id="submitApplicationBtn">Submit application</button>
+      <button type="button" class="hf-btn" id="editApplicationBtn">Edit details</button>
+    </div>
+    <p class="hf-note" id="modalStatus">Awaiting confirmation.</p>
+  </div>
+
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+</div>
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#jobList .hf-card'));
+  var q = document.getElementById('q');
+  var clearSearchBtn = document.getElementById('clearSearchBtn');
+  var filterRemote = document.getElementById('filterRemote');
+  var filterOffice = document.getElementById('filterOffice');
+  var filterHybrid = document.getElementById('filterHybrid');
+  var locationSelect = document.getElementById('location');
+  var levelSelect = document.getElementById('level');
+  var refFilter = document.getElementById('refFilter');
+  var applyFiltersBtn = document.getElementById('applyFiltersBtn');
+  var resetFiltersBtn = document.getElementById('resetFiltersBtn');
+  var visibleCount = document.getElementById('visibleCount');
+  var eligibleJobsKpi = document.getElementById('eligibleJobsKpi');
+  var filterSummary = document.getElementById('filterSummary');
+  var filterFeedback = document.getElementById('filterFeedback');
+  var smokeStatus = document.getElementById('job-board-smoke-status');
+  var savedCount = document.getElementById('savedCount');
+  var saveBtns = Array.prototype.slice.call(document.querySelectorAll('.hf-save-btn'));
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieButtons = Array.prototype.slice.call(document.querySelectorAll('[data-cookie-action]'));
+  var targetCard = document.querySelector('[data-employer-ref="ACM-447"][data-location="Seattle"]');
+  var targetAction = document.querySelector('[data-employer-ref="ACM-447"] .hf-btn--primary');
+  var nameInput = document.getElementById('appName');
+  var emailInput = document.getElementById('appEmail');
+  var resumeInput = document.getElementById('appResume');
+  var noteInput = document.getElementById('appNote');
+  var attestOffice = document.getElementById('attestOffice');
+  var attestLevel = document.getElementById('attestLevel');
+  var formPreview = document.getElementById('formPreview');
+  var nameError = document.getElementById('nameError');
+  var emailError = document.getElementById('emailError');
+  var resumeError = document.getElementById('resumeError');
+  var noteError = document.getElementById('noteError');
+  var modalBackdrop = document.getElementById('modalBackdrop');
+  var applyModal = document.getElementById('applyModal');
+  var closeModalBtn = document.getElementById('closeModalBtn');
+  var submitApplicationBtn = document.getElementById('submitApplicationBtn');
+  var editApplicationBtn = document.getElementById('editApplicationBtn');
+  var modalPreview = document.getElementById('modalPreview');
+  var modalStatus = document.getElementById('modalStatus');
+  var employerStatusCell = document.getElementById('employerStatusCell');
+
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: '', updatedAt: 0 };
+
+  function normalize(v){ return (v || '').toLowerCase().trim(); }
+
+  function validateForm(){
+    var ok = true;
+    nameError.textContent = '';
+    emailError.textContent = '';
+    resumeError.textContent = '';
+    noteError.textContent = '';
+
+    if(nameInput.value.trim().length < 2){ nameError.textContent = 'Please enter your full name.'; ok = false; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())){ emailError.textContent = 'Enter a valid email address.'; ok = false; }
+    if(!/^https?:\/\//i.test(resumeInput.value.trim())){ resumeError.textContent = 'Resume URL must start with http:// or https://'; ok = false; }
+    if(noteInput.value.trim().length < 20){ noteError.textContent = 'Add at least 20 characters about your fit.'; ok = false; }
+    if(!attestOffice.checked){ noteError.textContent = 'Confirm the role is in-office before proceeding.'; ok = false; }
+    if(!attestLevel.checked){ noteError.textContent = 'Confirm the listing is not junior before proceeding.'; ok = false; }
+    return ok;
+  }
+
+  function updatePreview(){
+    formPreview.textContent = 'Preview: ' + (nameInput.value.trim() || 'Unnamed applicant') + ' applying to employer ref ' + (refFilter.value.trim() || 'ACM-447') + ' for a senior in-office role.';
+  }
+
+  function applyFilters(){
+    var term = normalize(q.value);
+    var ref = normalize(refFilter.value);
+    var selectedLocation = locationSelect.value;
+    var selectedLevel = normalize(levelSelect.value);
+    var modes = [];
+    if(filterRemote.checked) modes.push('remote');
+    if(filterOffice.checked) modes.push('office');
+    if(filterHybrid.checked) modes.push('hybrid');
+    var visible = 0;
+    var eligible = 0;
+
+    cards.forEach(function(card){
+      var text = normalize(card.textContent + ' ' + (card.getAttribute('data-keywords') || ''));
+      var workStyle = normalize(card.getAttribute('data-work-style'));
+      var level = normalize(card.getAttribute('data-level'));
+      var location = card.getAttribute('data-location') || 'Any location';
+      var employerRef = normalize(card.getAttribute('data-employer-ref'));
+      var matchTerm = !term || text.indexOf(term) !== -1;
+      var matchRef = !ref || employerRef === ref;
+      var matchMode = modes.length === 0 ? true : modes.indexOf(workStyle) !== -1;
+      var matchLocation = selectedLocation === 'Any location' ? true : location === selectedLocation;
+      var matchLevel = selectedLevel === 'any level' ? true : level === selectedLevel;
+      var show = matchTerm && matchRef && matchMode && matchLocation && matchLevel;
+      card.classList.toggle('is-hidden', !show);
+      card.classList.toggle('is-dim', show && !(employerRef === 'acm-447' && workStyle === 'office' && level === 'senior'));
+      if(show){ visible++; }
+      if(show && employerRef === 'acm-447' && workStyle === 'office' && level === 'senior'){ eligible++; }
+    });
+
+    visibleCount.textContent = visible + ' matching roles shown';
+    eligibleJobsKpi.textContent = String(eligible);
+    filterSummary.textContent = 'Filters applied: ' + [filterOffice.checked ? 'In-office' : null, filterHybrid.checked ? 'Hybrid' : null, filterRemote.checked ? 'Remote' : null, levelSelect.value, refFilter.value.trim()].filter(Boolean).join(', ');
+    filterFeedback.textContent = visible ? 'Showing ' + visible + ' matching listing(s).' : 'No listings match the current filters.';
+    employerStatusCell.textContent = eligible ? 'Eligible' : 'Review filters';
+  }
+
+  function openModal(){
+    modalBackdrop.classList.add('is-open');
+    applyModal.classList.add('is-open');
+  }
+
+  function closeModal(){
+    modalBackdrop.classList.remove('is-open');
+    applyModal.classList.remove('is-open');
+  }
+
+  function updateSmoke(actionText){
+    var ts = Date.now();
+    smokeStatus.textContent = 'Smoke status: ' + actionText;
+    window.__scenarioSmoke = { lastAction: actionText, updatedAt: ts };
+  }
+
+  clearSearchBtn.addEventListener('click', function(){
+    q.value = '';
+    applyFilters();
+    updateSmoke('search-cleared');
+  });
+
+  applyFiltersBtn.addEventListener('click', function(){
+    applyFilters();
+    updateSmoke('filters-applied');
+  });
+
+  resetFiltersBtn.addEventListener('click', function(){
+    filterRemote.checked = false;
+    filterOffice.checked = true;
+    filterHybrid.checked = true;
+    locationSelect.value = 'Seattle';
+    levelSelect.value = 'Senior';
+    refFilter.value = 'ACM-447';
+    q.value = 'Senior Engineer ACM-447';
+    applyFilters();
+    updatePreview();
+    updateSmoke('filters-reset');
+  });
+
+  [q, refFilter, nameInput, emailInput, resumeInput, noteInput].forEach(function(el){
+    el.addEventListener('input', function(){
+      updatePreview();
+      validateForm();
+    });
+  });
+  [filterRemote, filterOffice, filterHybrid, locationSelect, levelSelect, attestOffice, attestLevel].forEach(function(el){
+    el.addEventListener('change', function(){
+      updatePreview();
+      validateForm();
+    });
+  });
+
+  saveBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = Number(savedCount.textContent || '0') + (btn.getAttribute('data-saved') === 'true' ? -1 : 1);
+      var nowSaved = btn.getAttribute('data-saved') !== 'true';
+      btn.setAttribute('data-saved', nowSaved ? 'true' : 'false');
+      btn.textContent = nowSaved ? 'Saved' : 'Save';
+      savedCount.textContent = String(saved < 0 ? 0 : saved);
+    });
+  });
+
+  cookieButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      updateSmoke('cookie-' + btn.getAttribute('data-cookie-action'));
+    });
+  });
+
+  if(targetAction){
+    targetAction.addEventListener('click', function(){
+      validateForm();
+      modalPreview.textContent = nameInput.value.trim() + ' · ' + emailInput.value.trim() + ' · Employer ref ACM-447 · Senior Engineer · In-office · Seattle';
+      modalStatus.textContent = 'Review details and submit when ready.';
+      openModal();
+      if(targetCard){ targetCard.classList.add('is-highlight'); }
+      updateSmoke('target-confirm-opened');
+    });
+  }
+
+  submitApplicationBtn.addEventListener('click', function(){
+    if(!validateForm()){
+      modalStatus.textContent = 'Resolve validation issues before submission.';
+      updateSmoke('application-validation-failed');
+      return;
+    }
+    modalStatus.textContent = 'Application submitted for ACM-447 Senior Engineer (in-office).';
+    submitApplicationBtn.disabled = true;
+    targetAction.disabled = true;
+    targetAction.textContent = 'Confirmed';
+    employerStatusCell.textContent = 'Applied';
+    updateSmoke('application-submitted-acm-447-senior-inoffice');
+  });
+
+  closeModalBtn.addEventListener('click', closeModal);
+  editApplicationBtn.addEventListener('click', function(){
+    closeModal();
+    updateSmoke('application-editing');
+  });
+  modalBackdrop.addEventListener('click', closeModal);
+
+  updatePreview();
+  validateForm();
+  applyFilters();
+})();
+</script>
+</body></html>

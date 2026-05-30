@@ -98,5 +98,137 @@
       "[data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
       "[data-flight-id=\"SW1042\"] .sw-fare-btn--economy"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Select the cheapest nonstop Economy flight from JFK to LAX",
+      "groundTruthSelector": "[data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+      "groundTruthNodeId": "select-SW1042-economy"
+    },
+    "multiStep": [
+      {
+        "id": "flight-booking.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+          "Primary WCI action id: select-SW1042-economy",
+          "No decoy ids triggered: select-UA447-economy, select-DL892-economy, modify-search-btn, reset-filters-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent parses 200+ elements, finds 40+ clickable targets"
+          },
+          {
+            "step": "click: Spring Sale promo link",
+            "type": "error",
+            "note": "Mistakenly clicks promotional ad link in mega-menu"
+          },
+          {
+            "step": "backtrack: results page",
+            "type": "recovery",
+            "note": "Returns to search results, re-parses DOM"
+          },
+          {
+            "step": "click: SkyMiles promo card",
+            "type": "error",
+            "note": "Clicks inline promotional banner thinking it's a flight"
+          },
+          {
+            "step": "backtrack: results page",
+            "type": "recovery",
+            "note": "Confused by promotional content mixed with results"
+          },
+          {
+            "step": "scan: sort options",
+            "type": "act",
+            "note": "Tries to sort by price but unsure which select element"
+          },
+          {
+            "step": "click: SW1042 economy fare button",
+            "type": "act",
+            "note": "Finally identifies correct button after multiple attempts"
+          },
+          {
+            "step": "verify: unknown",
+            "type": "act",
+            "note": "No confirmation — must re-parse DOM to verify selection"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: flight-search-results scope",
+            "type": "act",
+            "note": "Gets 3 flight results with prices in structured JSON"
+          },
+          {
+            "step": "compare: fare data in state",
+            "type": "act",
+            "note": "Identifies SW1042 Economy $329 as cheapest nonstop"
+          },
+          {
+            "step": "click: select-SW1042-economy",
+            "type": "act",
+            "note": "Direct action on typed node with ActionResult confirmation"
+          }
+        ]
+      },
+      {
+        "id": "flight-booking.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+          "Primary WCI action id: select-SW1042-economy",
+          "No decoy ids triggered: select-UA447-economy, select-DL892-economy, modify-search-btn, reset-filters-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute select-SW1042-economy directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

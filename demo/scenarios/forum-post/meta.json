@@ -54,5 +54,122 @@
     "rawSelectors": [
       "[data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Pin the community thread about WCI specification feedback.",
+      "groundTruthSelector": "[data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+      "groundTruthNodeId": "pin-wci-thread"
+    },
+    "multiStep": [
+      {
+        "id": "forum-post.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Pin the community thread about WCI specification feedback. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+          "Primary WCI action id: pin-wci-thread",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id pin-wci-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "forum-post.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Pin the community thread about WCI specification feedback. First validate key constraints (new post) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+          "Primary WCI action id: pin-wci-thread",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click pin-wci-thread",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -53,5 +53,122 @@
     "rawSelectors": [
       "[data-module=\"4\"] .lp-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Mark module four as completed while it is still in progress (not earlier modules).",
+      "groundTruthSelector": "[data-module=\"4\"] .lp-btn--primary",
+      "groundTruthNodeId": "complete-module-4"
+    },
+    "multiStep": [
+      {
+        "id": "lms-course.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-module=\"4\"] .lp-btn--primary",
+          "Primary WCI action id: complete-module-4",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-module=\"4\"] .lp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id complete-module-4",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "lms-course.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). First validate key constraints (module 3 done) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-module=\"4\"] .lp-btn--primary",
+          "Primary WCI action id: complete-module-4",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-module=\"4\"] .lp-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click complete-module-4",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

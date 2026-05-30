@@ -56,5 +56,122 @@
       "[data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
       "[data-title-id=\"ocean-deep\"] button.sv-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer).",
+      "groundTruthSelector": "[data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+      "groundTruthNodeId": "add-ocean-deep-watchlist"
+    },
+    "multiStep": [
+      {
+        "id": "streaming-service.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+          "Primary WCI action id: add-ocean-deep-watchlist",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-ocean-deep-watchlist",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "streaming-service.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+          "Primary WCI action id: add-ocean-deep-watchlist",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-ocean-deep-watchlist",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

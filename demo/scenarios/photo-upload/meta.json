@@ -53,5 +53,122 @@
     "rawSelectors": [
       "[data-album=\"iceland-2026\"] .ca-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Upload new photos into album Iceland 2026 (not other albums).",
+      "groundTruthSelector": "[data-album=\"iceland-2026\"] .ca-btn--primary",
+      "groundTruthNodeId": "upload-iceland-album"
+    },
+    "multiStep": [
+      {
+        "id": "photo-upload.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Upload new photos into album Iceland 2026 (not other albums). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-album=\"iceland-2026\"] .ca-btn--primary",
+          "Primary WCI action id: upload-iceland-album",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-album=\"iceland-2026\"] .ca-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id upload-iceland-album",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "photo-upload.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Upload new photos into album Iceland 2026 (not other albums). First validate key constraints (thumbs) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-album=\"iceland-2026\"] .ca-btn--primary",
+          "Primary WCI action id: upload-iceland-album",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-album=\"iceland-2026\"] .ca-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click upload-iceland-album",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

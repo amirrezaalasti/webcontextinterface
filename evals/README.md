@@ -10,6 +10,8 @@ Element-grounding benchmark: pick the correct control for a task using **OpenRou
 
 Each run is **single-shot element grounding**: given a natural-language **goal**, the model must name the one control that completes the task. There is no multi-step agent loop in this harness — we score whether the first pick would hit the right element. Playwright then checks that answer against verified ground truth in `demo/scenarios/` (see `evals/lib/ground-truth.ts`).
 
+Multi-step task definitions are still shipped for every scenario in `demo/scenarios/*/meta.json` (`tasks.multiStep`) and the aggregated catalog `demo/scenarios/multi-step.generated.json`; those are for richer agent workflows, dataset export, and future multi-step runners.
+
 | ID | What the model sees | What it must return | How we score |
 |----|---------------------|---------------------|--------------|
 | **`raw-html`** | Full `raw.html` (truncated at ~28k chars if huge) — unannotated page, ads, decoys, generic button labels | One **CSS selector** | Selector must match the same element as ground-truth selectors in headless Chromium |
@@ -74,12 +76,17 @@ npm run eval:heuristic          # no API key
 
 export OPENROUTER_API_KEY=sk-or-...
 npm run eval:benchmark
+npm run eval:multistep -- --heuristic-only
 
 # Subset of models
 npm run eval:benchmark -- --models=gpt5Nano,gpt5Mini,gemini3Flash
 
 # WCI ablation only (10 calls per model)
 npm run eval:benchmark -- --approaches=wci-full,wci-grounding --models=gpt5Nano
+
+# Multi-step task benchmark (reads meta.tasks.multiStep)
+npm run eval:multistep -- --models=gpt5Nano --mode=both --min-coverage=0.6
+npm run eval:multistep -- --scenarios=job-board,banking --mode=wci
 
 # Subset of scenarios (50 available — see demo/scenarios/README.md)
 npm run eval:benchmark -- --scenarios=flight-booking,banking,checkout
@@ -135,7 +142,11 @@ flowchart LR
 5. **Write** — `demo/public/eval-report.json` (full) and `eval-results.json` (summary). Copy to `eval-report-<model>.json` to archive (see [demo/public/README.md](../demo/public/README.md)).
 6. **Logs** (optional) — `evals/logs/<run-id>/<modelId>/<scenario>__<approach>.json` with prompts and responses.
 
-**Not measured here:** multi-step agent trajectories, tool use, or live browsing — only **single-shot** “which element satisfies this goal?”
+**Single-shot report (`eval:benchmark`) does not measure full trajectories.**
+For multi-step task scoring over `meta.tasks.multiStep`, run `eval:multistep` which requires:
+
+- correct final action (ground-truth selector/id), and
+- minimum flow-type coverage (`--min-coverage`, default `0.6`) against expected step types.
 
 ---
 

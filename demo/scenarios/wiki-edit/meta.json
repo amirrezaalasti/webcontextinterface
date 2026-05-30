@@ -57,5 +57,122 @@
       "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
       "button.ow-btn--primary[data-action=\"publish\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools).",
+      "groundTruthSelector": "button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+      "groundTruthNodeId": "publish-wci-edit"
+    },
+    "multiStep": [
+      {
+        "id": "wiki-edit.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+          "Primary WCI action id: publish-wci-edit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id publish-wci-edit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "wiki-edit.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). First validate key constraints (toolbar noise) then execute and verify.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+          "Primary WCI action id: publish-wci-edit",
+          "No decoy ids triggered: decoy-nav, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-article=\"web-context-interface\"][data-action=\"publish\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click publish-wci-edit",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -57,5 +57,122 @@
       "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
       "[data-item=\"teriyaki-1299\"] button.qb-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants).",
+      "groundTruthSelector": "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+      "groundTruthNodeId": "add-teriyaki-checkout"
+    },
+    "multiStep": [
+      {
+        "id": "food-delivery.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Primary WCI action id: add-teriyaki-checkout",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id add-teriyaki-checkout",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "food-delivery.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants). First validate key constraints (price/item attributes) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Primary WCI action id: add-teriyaki-checkout",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click add-teriyaki-checkout",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

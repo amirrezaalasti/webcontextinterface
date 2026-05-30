@@ -54,5 +54,122 @@
     "rawSelectors": [
       "button[data-file-bug=\"checkout-timeout\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "File bug report for checkout timeout on mobile category (not chat support).",
+      "groundTruthSelector": "button[data-file-bug=\"checkout-timeout\"]",
+      "groundTruthNodeId": "file-checkout-timeout-bug"
+    },
+    "multiStep": [
+      {
+        "id": "bug-report.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-file-bug=\"checkout-timeout\"]",
+          "Primary WCI action id: file-checkout-timeout-bug",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-file-bug=\"checkout-timeout\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id file-checkout-timeout-bug",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "bug-report.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-file-bug=\"checkout-timeout\"]",
+          "Primary WCI action id: file-checkout-timeout-bug",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-file-bug=\"checkout-timeout\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click file-checkout-timeout-bug",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

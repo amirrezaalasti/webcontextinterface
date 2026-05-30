@@ -54,5 +54,122 @@
     "rawSelectors": [
       "[data-listing=\"evergreen-742\"] .hn-btn--primary"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom).",
+      "groundTruthSelector": "[data-listing=\"evergreen-742\"] .hn-btn--primary",
+      "groundTruthNodeId": "save-listing-742"
+    },
+    "multiStep": [
+      {
+        "id": "real-estate.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
+          "Primary WCI action id: save-listing-742",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id save-listing-742",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "real-estate.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate key constraints (tour vs confirm) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
+          "Primary WCI action id: save-listing-742",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click save-listing-742",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

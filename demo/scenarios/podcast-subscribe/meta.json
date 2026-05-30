@@ -54,5 +54,122 @@
     "rawSelectors": [
       "[data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Subscribe to the AI Daily show feed (not free trial promo).",
+      "groundTruthSelector": "[data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+      "groundTruthNodeId": "subscribe-ai-daily"
+    },
+    "multiStep": [
+      {
+        "id": "podcast-subscribe.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+          "Primary WCI action id: subscribe-ai-daily",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id subscribe-ai-daily",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "podcast-subscribe.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). First validate key constraints (trial) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+          "Primary WCI action id: subscribe-ai-daily",
+          "No decoy ids triggered: decoy-promo, decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click subscribe-ai-daily",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

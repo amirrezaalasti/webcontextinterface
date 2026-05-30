@@ -53,5 +53,122 @@
     "rawSelectors": [
       "button[data-symbol=\"AAPL\"][data-order=\"market\"]"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Buy ten shares of AAPL at market order type.",
+      "groundTruthSelector": "button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+      "groundTruthNodeId": "buy-aapl-market"
+    },
+    "multiStep": [
+      {
+        "id": "stock-trade.multi-step.primary",
+        "title": "Constraint-driven Completion",
+        "goal": "Buy ten shares of AAPL at market order type. Complete with explicit verification and no decoy interactions.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+          "Primary WCI action id: buy-aapl-market",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Observe page state and locate task-relevant section",
+            "type": "observe"
+          },
+          {
+            "step": "Narrow candidate controls using constraints in goal text",
+            "type": "reason"
+          },
+          {
+            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "type": "guardrail"
+          },
+          {
+            "step": "Execute final action at button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+            "type": "act"
+          },
+          {
+            "step": "Confirm expected transition or state change",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read page landmark node and scope context",
+            "type": "read"
+          },
+          {
+            "step": "Filter actionable nodes by preconditions/state",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke primary node id buy-aapl-market",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult confirms state transition",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "stock-trade.multi-step.validation",
+        "title": "Validation + Final Action",
+        "goal": "Buy ten shares of AAPL at market order type. First validate key constraints (limit option) then execute and verify.",
+        "difficulty": "Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+          "Primary WCI action id: buy-aapl-market",
+          "No decoy ids triggered: decoy-extra"
+        ],
+        "standardFlow": [
+          {
+            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "type": "observe"
+          },
+          {
+            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "type": "reason"
+          },
+          {
+            "step": "Execute primary selector button[data-symbol=\"AAPL\"][data-order=\"market\"]",
+            "type": "act"
+          },
+          {
+            "step": "Check post-action confirmation state",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Read scoped context and typed state from WCI nodes",
+            "type": "read"
+          },
+          {
+            "step": "Validate node preconditions",
+            "type": "reason"
+          },
+          {
+            "step": "Click buy-aapl-market",
+            "type": "act"
+          },
+          {
+            "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

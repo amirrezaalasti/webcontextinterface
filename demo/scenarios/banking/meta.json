@@ -121,5 +121,159 @@
       ".np-quick-transfer__form button.np-btn--primary",
       "button:has-text(\"Review Transfer\")"
     ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Transfer $500 from Checking to Savings account",
+      "groundTruthSelector": ".np-quick-transfer button.np-btn--primary",
+      "groundTruthNodeId": "review-transfer-btn"
+    },
+    "multiStep": [
+      {
+        "id": "banking.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .np-quick-transfer button.np-btn--primary",
+          "Primary WCI action id: review-transfer-btn",
+          "No decoy ids triggered: export-csv-btn, pay-credit-bill-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent finds 150+ elements including hidden session dialog and chat widget"
+          },
+          {
+            "step": "click: Transfer button on checking card",
+            "type": "act",
+            "note": "Multiple \"Transfer\" buttons — unclear which one to use"
+          },
+          {
+            "step": "click: sidebar Transfer nav link",
+            "type": "error",
+            "note": "Navigates to separate transfer page instead of quick transfer"
+          },
+          {
+            "step": "backtrack: dashboard",
+            "type": "recovery",
+            "note": "Returns to dashboard"
+          },
+          {
+            "step": "fill: xfer-from select",
+            "type": "act",
+            "note": "Locates form but unsure which select is source vs destination"
+          },
+          {
+            "step": "fill: xfer-amount input",
+            "type": "act",
+            "note": "Enters amount"
+          },
+          {
+            "step": "click: Review Transfer button",
+            "type": "error",
+            "note": "Button is disabled — agent doesn't know why"
+          },
+          {
+            "step": "fill: correct fields",
+            "type": "act",
+            "note": "Eventually fills all fields correctly"
+          },
+          {
+            "step": "click: Review Transfer button",
+            "type": "act",
+            "note": "Button now enabled, clicks it"
+          },
+          {
+            "step": "verify: unknown",
+            "type": "act",
+            "note": "Re-parses full DOM to check if transfer initiated"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: quick-transfer scope",
+            "type": "act",
+            "note": "Sees transfer form with typed fields and preconditions"
+          },
+          {
+            "step": "select: transfer-from",
+            "type": "act",
+            "note": "Selects \"Checking\" — knows balance from state"
+          },
+          {
+            "step": "select: transfer-to",
+            "type": "act",
+            "note": "Selects \"Savings\""
+          },
+          {
+            "step": "fill: transfer-amount",
+            "type": "act",
+            "note": "Enters $500 — precondition tells it max is $12,847.63"
+          },
+          {
+            "step": "click: review-transfer-btn",
+            "type": "act",
+            "note": "Clicks review — gets ActionResult with state change"
+          }
+        ]
+      },
+      {
+        "id": "banking.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)",
+          "Satisfy form preconditions before final submit"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .np-quick-transfer button.np-btn--primary",
+          "Primary WCI action id: review-transfer-btn",
+          "No decoy ids triggered: export-csv-btn, pay-credit-bill-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action .np-quick-transfer button.np-btn--primary",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute review-transfer-btn directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
+    ]
   }
 }

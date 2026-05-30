@@ -12,6 +12,7 @@ import { buildAnnotatedFromRaw } from './lib/annotate-html.mjs';
 import { HARD_GOALS } from './lib/scenario-goals.mjs';
 import { buildGeneratedLayout } from './lib/scenario-layouts.mjs';
 import { injectLegacyStyles, LEGACY_STYLE_IDS } from './lib/legacy-scenario-styles.mjs';
+import { addMultiStepTasks } from './lib/scenario-multistep.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -187,7 +188,7 @@ function main() {
       rawHtml = injectLegacyStyles(rawHtml, id);
       annotatedHtml = injectLegacyStyles(annotatedHtml, id);
     }
-    writeScenario(id, rawHtml, annotatedHtml, meta);
+    writeScenario(id, rawHtml, annotatedHtml, addMultiStepTasks(meta, { legacy: true }));
     manifestEntries.push({ id, legacy: true });
     console.log(`Preserved legacy: ${id}`);
   }
@@ -196,7 +197,7 @@ function main() {
     const difficulty = spec.id.length % 3 === 0 ? 'Extreme' : spec.id.length % 2 === 0 ? 'Very Hard' : 'Hard';
     const full = { ...spec, difficulty };
     const { rawHtml, annotatedHtml, meta } = buildGeneratedScenario(full);
-    writeScenario(spec.id, rawHtml, annotatedHtml, meta);
+    writeScenario(spec.id, rawHtml, annotatedHtml, addMultiStepTasks(meta, { legacy: false }));
     manifestEntries.push({ id: spec.id, legacy: false });
     console.log(`Generated: ${spec.id}`);
   }
@@ -218,6 +219,25 @@ function main() {
   fs.writeFileSync(
     path.join(SCENARIOS_DIR, 'ground-truth.generated.json'),
     JSON.stringify(gt, null, 2) + '\n',
+    'utf8'
+  );
+
+  const multiStepCatalog = {};
+  for (const id of manifest.scenarios) {
+    const meta = JSON.parse(fs.readFileSync(path.join(SCENARIOS_DIR, id, 'meta.json'), 'utf8'));
+    multiStepCatalog[id] = meta.tasks?.multiStep ?? [];
+  }
+  fs.writeFileSync(
+    path.join(SCENARIOS_DIR, 'multi-step.generated.json'),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        count: manifest.scenarios.length,
+        scenarios: multiStepCatalog,
+      },
+      null,
+      2
+    ) + '\n',
     'utf8'
   );
 

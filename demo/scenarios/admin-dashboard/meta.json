@@ -3,14 +3,16 @@
   "title": "QuantumCRM Admin",
   "icon": "📊",
   "difficulty": "Very Hard",
-  "description": "CRM dashboard with KPI cards, sortable data tables, bulk actions, multi-level sidebar navigation, keyboard shortcut overlays, and deeply nested SVG icons.",
+  "description": "Full-width CRM command center: six KPI cards, revenue chart and pipeline funnel, eight-row deals table with filters and bulk actions, activity sidebar, export modal, keyboard shortcuts, and a decoy pipeline CSV export.",
   "challenges": [
-    "Hidden keyboard shortcuts overlay in DOM",
-    "Multi-level sidebar navigation with submenus",
-    "Data table with checkboxes, inline actions, and hidden bulk action bar",
-    "Pagination with ellipsis buttons",
-    "KPI cards with SVG trend icons — decorative but parsed as interactive",
-    "Deeply nested SVG paths produce enormous DOM output"
+    "Three-column layout with hidden right panel on smaller viewports",
+    "Multiple ghost buttons in top bar (notifications, refresh, export)",
+    "Decoy Export CSV under Pipeline submenu vs dashboard Export",
+    "Closed-won deals in table can mislead probability comparison",
+    "Stage and owner filters plus search narrow visible rows",
+    "Keyboard shortcuts overlay and export modal both block interaction",
+    "Bulk action bar appears only when rows are selected",
+    "Sortable column headers and six KPI cards with SVG icons"
   ],
   "task": {
     "goal": "Find the deal with the highest probability and export the dashboard",
@@ -86,8 +88,135 @@
       "export-csv-btn"
     ],
     "rawSelectors": [
-      ".qc-topbar__right button:has-text(\"Export\")",
-      ".qc-topbar button.qc-btn--ghost:has-text(\"Export\")"
+      "#export-btn",
+      ".qc-topbar__right button:has-text(\"Export\")"
+    ]
+  },
+  "tasks": {
+    "singleShot": {
+      "goal": "Find the deal with the highest probability and export the dashboard",
+      "groundTruthSelector": ".qc-topbar__right button:has-text(\"Export\")",
+      "groundTruthNodeId": "export-btn"
+    },
+    "multiStep": [
+      {
+        "id": "admin-dashboard.multi-step.primary",
+        "title": "Primary Multi-step Completion",
+        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page.",
+        "difficulty": "Very Hard",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Primary WCI action id: export-btn",
+          "No decoy ids triggered: export-csv-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "scan: full DOM",
+            "type": "act",
+            "note": "Agent finds 180+ elements including hidden shortcuts overlay, SVG paths"
+          },
+          {
+            "step": "scan: table",
+            "type": "act",
+            "note": "Table has checkboxes, action buttons, stage badges — hard to extract data"
+          },
+          {
+            "step": "click: deal row checkbox",
+            "type": "error",
+            "note": "Accidentally selects deal checkbox instead of reading data"
+          },
+          {
+            "step": "scan: probability column",
+            "type": "act",
+            "note": "Tries to parse table cells — no clear structure for probability values"
+          },
+          {
+            "step": "identify: SaaS Migration 80%",
+            "type": "act",
+            "note": "Eventually finds highest probability deal"
+          },
+          {
+            "step": "click: Export button",
+            "type": "act",
+            "note": "Multiple buttons with similar text — sidebar has pipeline export too"
+          },
+          {
+            "step": "click: correct Export button",
+            "type": "act",
+            "note": "Finds the dashboard export button"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "read: deals-table display node",
+            "type": "act",
+            "note": "Gets structured deal data with probability field"
+          },
+          {
+            "step": "compare: probability values in state",
+            "type": "act",
+            "note": "SaaS Migration — Delta LLC has 80% probability"
+          },
+          {
+            "step": "click: export-btn",
+            "type": "act",
+            "note": "Clicks typed export button — gets ActionResult"
+          }
+        ]
+      },
+      {
+        "id": "admin-dashboard.multi-step.recovery",
+        "title": "Recovery Under Distraction",
+        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss overlays if present",
+          "Stay on current app flow (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/extra)"
+        ],
+        "completionCriteria": [
+          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Primary WCI action id: export-btn",
+          "No decoy ids triggered: export-csv-btn"
+        ],
+        "standardFlow": [
+          {
+            "step": "Trigger one likely decoy or wrong branch",
+            "type": "error"
+          },
+          {
+            "step": "Backtrack to correct context",
+            "type": "recovery"
+          },
+          {
+            "step": "Execute correct action .qc-topbar__right button:has-text(\"Export\")",
+            "type": "act"
+          },
+          {
+            "step": "Verify goal is complete",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Use WCI scope to identify decoy ids up-front",
+            "type": "read"
+          },
+          {
+            "step": "Execute export-btn directly",
+            "type": "act"
+          },
+          {
+            "step": "Confirm action result and terminal state",
+            "type": "verify"
+          }
+        ]
+      }
     ]
   }
 }
