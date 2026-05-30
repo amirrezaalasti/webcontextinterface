@@ -19,7 +19,7 @@ table{border-collapse:collapse}
 .sg-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .sg-subnav a:hover{background:#f8fafc;color:#334155}
 .sg-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,310px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.sg-page-wrap{grid-template-columns:1fr}}
 .sg-page-main{padding:20px 24px 32px;min-height:42vh}
 .sg-page-main>h1,.sg-page-main [role=main]>h1,.sg-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
@@ -84,20 +84,54 @@ table{border-collapse:collapse}
 .sg-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .sg-diff{border-radius:8px}
 .sg-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.sg-searchbar{display:grid;grid-template-columns:minmax(220px,1.5fr) auto auto;gap:10px;align-items:end}
+.sg-searchbar input{max-width:none}
+@media(max-width:780px){.sg-searchbar{grid-template-columns:1fr}}
+.sg-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:#64748b;font-size:13px}
+.sg-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:12px;font-weight:600}
+.sg-pill.is-live{background:#fee2e2;color:#991b1b}
+.sg-banner{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 16px;border:1px solid #fecaca;background:linear-gradient(90deg,#fff1f2,#fff7ed);border-radius:12px;margin-bottom:16px}
+.sg-banner strong{display:block}
+.sg-filter-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px}
+@media(max-width:960px){.sg-filter-layout{grid-template-columns:1fr}}
+.sg-results-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:10px}
+.sg-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:1100px){.sg-results-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.sg-results-grid{grid-template-columns:1fr}}
+.sg-product{position:relative;overflow:hidden}
+.sg-product__img{height:150px;border-radius:10px;background:linear-gradient(135deg,#e0f2fe,#f8fafc);border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0369a1;margin-bottom:12px}
+.sg-product__price{font-size:18px;font-weight:700;color:#0f172a}
+.sg-product__meta{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:8px 0;color:#475569}
+.sg-rating{color:#f59e0b;font-weight:700}
+.sg-tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#155e75;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.sg-tag.sale{background:#fee2e2;color:#991b1b}
+.sg-status{padding:10px 12px;border-radius:10px;background:#ecfeff;border:1px solid #a5f3fc;color:#155e75;font-size:13px}
+.sg-status.error{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+.sg-muted{color:#64748b}
+.sg-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 16px}
+@media(max-width:640px){.sg-stats{grid-template-columns:1fr}}
+.sg-stat{padding:12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+.sg-stat strong{display:block;font-size:18px}
+.sg-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.sg-modal-backdrop.is-open{display:block}
+.sg-modal{display:none}
+.sg-modal.is-open{display:block}
+.sg-note{font-size:12px;color:#64748b}
+.sg-hidden{display:none!important}
 </style></head><body>
-<div class="sg-app" data-page="ecommerce-search" data-agent-role="landmark" data-agent-id="ecommerce_search-page" data-agent-desc="Search filters" data-agent-priority="2"><div class="sg-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="sg-app" data-page="ecommerce-search" id="ecommerce_search-page" data-wci-id="ecommerce_search-page" data-wci-role="landmark" data-wci-desc="ShopGrid ecommerce search page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sg-btn sg-btn--muted">Reject non-essential</button>
-  <button type="button" class="sg-btn sg-btn--primary">Accept all</button>
-  <button type="button" class="sg-btn sg-btn--ghost">Customize</button>
+  <button type="button" class="sg-btn sg-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="sg-btn sg-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="sg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="sg-btn sg-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="sg-btn">Continue as guest — express</button>
 </div><header class="sg-hdr">
-  <nav class="sg-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sg-hdr-promo"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="sg-btn sg-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="sg-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <nav class="sg-nav" aria-label="Global"><a href="/">Home</a><a href="/deals">Deals</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="sg-hdr-promo"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional buttons unrelated to the required filter action" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+    <button type="button" class="sg-btn sg-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="sg-subnav" aria-label="Secondary"><a href="#">Trending</a><a href="#">Electronics</a><a href="#">Home Office</a><a href="#">Clearance</a><a href="#">Support</a>
   <button type="button" class="sg-btn sg-btn--ghost">Submit</button>
   <button type="button" class="sg-btn sg-btn--ghost">Continue</button>
 </nav><div class="sg-dup-row" aria-label="Quick actions">
@@ -105,13 +139,282 @@ table{border-collapse:collapse}
   <button type="button" class="sg-btn sg-btn--ghost">Continue</button>
   <button type="button" class="sg-btn sg-btn--ghost">Save changes</button>
   <button type="button" class="sg-btn sg-btn--ghost">Confirm</button>
-</div><div class="sg-dup-row"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Apply filters 4 star</button><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-nav">Apply rating price filter</button></div><div class="sg-page-wrap"><div class="sg-page-main"><div role="search" style="display:flex;gap:16px;padding:12px;background:#fafafa"><label>Stars <select id="rating-filter"><option>Any</option><option value="4">4+</option></select></label>
-<label>Max <input type="number" id="max-price" value="50"></label>
-<button type="button" class="sg-btn sg-btn--primary" data-filter="rating-price" data-agent-role="action" data-agent-id="apply-rating-price-filter" data-agent-desc="Apply filters for four-star minimum rating and maximum price fifty dollars." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Flash sale</button></div>
-<table role="main" style="width:100%;border-collapse:collapse"><tbody><tr><td>Widget $12</td><td>Gadget $45 ★★★★</td></tr></tbody></table></div><aside class="sg-rail sg-rail--ads" aria-label="Sponsored">
+</div><div class="sg-dup-row"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Apply filters 4 star</button><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-nav">Apply rating price filter</button></div><div class="sg-page-wrap"><div class="sg-page-main"><main role="main">
+  <section class="sg-banner" aria-label="Flash sale banner">
+    <div>
+      <strong>Flash Sale ends in <span id="flash-timer">11:59</span></strong>
+      <div class="sg-muted">Prices refresh automatically as inventory changes. Filters apply to current sale pricing.</div>
+    </div>
+    <div class="sg-pill is-live" id="sale-badge">Live pricing</div>
+  </section>
+
+  <div class="sg-results-head">
+    <div>
+      <h1>Search results for “smart home accessories”</h1>
+      <div class="sg-meta">
+        <span>2,184 items found</span>
+        <span class="sg-pill">Free shipping on orders $35+</span>
+        <span class="sg-pill">Pickup today</span>
+      </div>
+    </div>
+    <form class="sg-searchbar" aria-label="Search products" onsubmit="return false;">
+      <label>Search catalog
+        <input type="text" id="search-query" value="smart home accessories" aria-label="Search catalog">
+      </label>
+      <label>Sort by
+        <select id="sort-select" aria-label="Sort by"><option value="featured">Featured</option><option value="price-asc">Price: Low to high</option><option value="rating-desc">Top rated</option></select>
+      </label>
+      <button type="button" class="sg-btn">Update</button>
+    </form>
+  </div>
+
+  <div class="sg-stats" aria-label="Shopping stats">
+    <div class="sg-stat"><span class="sg-muted">Visible products</span><strong id="visible-count">8</strong></div>
+    <div class="sg-stat"><span class="sg-muted">Matching active filters</span><strong id="matching-count">8</strong></div>
+    <div class="sg-stat"><span class="sg-muted">Current filter state</span><strong id="filter-summary">None</strong></div>
+  </div>
+
+  <div id="ecommerce-search-smoke-status" class="sg-status" data-smoke-status="">Waiting for rating and price filter action.</div>
+
+  <div class="sg-filter-layout">
+    <aside class="sg-filters" aria-label="Search filters">
+      <h2>Filters</h2>
+      <p class="sg-note">Use filters to narrow products during the flash sale. Some prices update every minute.</p>
+      <fieldset>
+        <legend>Customer rating</legend>
+        <label for="rating-filter">Minimum rating</label>
+        <select id="rating-filter" aria-describedby="rating-help">
+          <option value="0">Any rating</option>
+          <option value="3">3 stars &amp; up</option>
+          <option value="4">4 stars &amp; up</option>
+          <option value="4.5">4.5 stars &amp; up</option>
+        </select>
+        <div id="rating-help" class="sg-note">Target products with strong review performance.</div>
+      </fieldset>
+      <fieldset>
+        <legend>Price</legend>
+        <label for="max-price">Maximum price</label>
+        <input type="number" id="max-price" value="50" min="1" step="1" aria-describedby="price-help filter-error">
+        <div id="price-help" class="sg-note">Enter the highest price you want to pay today.</div>
+      </fieldset>
+      <fieldset>
+        <legend>Availability</legend>
+        <label><input type="checkbox" checked=""> In stock</label>
+        <label><input type="checkbox"> Same-day pickup</label>
+        <label><input type="checkbox"> New arrivals</label>
+      </fieldset>
+      <div id="filter-error" class="sg-status error sg-hidden" aria-live="polite">Please enter a maximum price of at least $1.</div>
+      <div class="sg-toolbar">
+        <button type="button" class="sg-btn sg-btn--primary" data-filter="rating-price" id="apply-rating-price-filter" data-wci-id="apply-rating-price-filter" data-wci-role="action" data-wci-action="click" data-wci-desc="Apply rating and price filters to show four-star-and-up items under fifty dollars" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="ecommerce_search-page">Apply 4★ &amp; under $50</button>
+        <button type="button" class="sg-btn" id="clear-filters">Clear filters</button>
+        <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Flash sale</button>
+      </div>
+      <p class="sg-note">Primary goal: four-star minimum rating and maximum price fifty dollars.</p>
+    </aside>
+
+    <section aria-label="Product results">
+      <div class="sg-panel" style="margin-bottom:14px;">
+        <div class="sg-meta" style="justify-content:space-between;align-items:center;">
+          <div><strong>Active filters preview</strong><div class="sg-note">Shown before you apply changes</div></div>
+          <div class="sg-pill" id="draft-preview">Draft: 4★+ / $50 max</div>
+        </div>
+      </div>
+
+      <div class="sg-results-grid" id="results-grid">
+        <article class="sg-product" data-price="29" data-rating="4.6" data-name="Mini Smart Plug">
+          <div class="sg-product__img">Mini Plug</div>
+          <div class="sg-tag sale">Flash sale</div>
+          <h3>Mini Smart Plug</h3>
+          <p>Compact Wi‑Fi plug with app scheduling and voice assistant support.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$29</span><span class="sg-rating">★★★★☆ 4.6</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="45" data-rating="4.2" data-name="LED Light Strip">
+          <div class="sg-product__img">LED Strip</div>
+          <div class="sg-tag">Top seller</div>
+          <h3>LED Light Strip</h3>
+          <p>16-ft color-changing strip with scenes, timer presets, and music sync.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$45</span><span class="sg-rating">★★★★☆ 4.2</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="64" data-rating="4.8" data-name="Indoor Security Cam">
+          <div class="sg-product__img">Security Cam</div>
+          <div class="sg-tag">HD video</div>
+          <h3>Indoor Security Cam</h3>
+          <p>1080p indoor camera with motion alerts, night vision, and two-way audio.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$64</span><span class="sg-rating">★★★★★ 4.8</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="18" data-rating="3.9" data-name="Outlet Timer">
+          <div class="sg-product__img">Timer</div>
+          <div class="sg-tag">Value</div>
+          <h3>Outlet Timer</h3>
+          <p>Simple programmable timer for lamps, fans, and holiday lighting.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$18</span><span class="sg-rating">★★★☆☆ 3.9</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="49" data-rating="4.1" data-name="Video Door Sensor Kit">
+          <div class="sg-product__img">Sensor Kit</div>
+          <div class="sg-tag sale">Today only</div>
+          <h3>Video Door Sensor Kit</h3>
+          <p>Starter security sensor pack with hub pairing and app-based notifications.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$49</span><span class="sg-rating">★★★★☆ 4.1</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="52" data-rating="4.0" data-name="Voice Assistant Speaker">
+          <div class="sg-product__img">Speaker</div>
+          <div class="sg-tag">Bundle</div>
+          <h3>Voice Assistant Speaker</h3>
+          <p>Compact smart speaker with room-aware sound and multi-device pairing.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$52</span><span class="sg-rating">★★★★☆ 4.0</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="37" data-rating="4.7" data-name="Smart Bulb 4-Pack">
+          <div class="sg-product__img">Bulb Pack</div>
+          <div class="sg-tag">Energy saver</div>
+          <h3>Smart Bulb 4-Pack</h3>
+          <p>Dimmable color bulbs with grouping, scenes, and automation support.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$37</span><span class="sg-rating">★★★★★ 4.7</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+        <article class="sg-product" data-price="24" data-rating="4.0" data-name="Window Contact Sensor">
+          <div class="sg-product__img">Contact Sensor</div>
+          <div class="sg-tag">Easy install</div>
+          <h3>Window Contact Sensor</h3>
+          <p>Peel-and-stick contact sensor with long battery life and instant alerts.</p>
+          <div class="sg-product__meta"><span class="sg-product__price">$24</span><span class="sg-rating">★★★★☆ 4.0</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main></div><aside class="sg-rail sg-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Bundle protection plans, extended support, and next-day replacement.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sg-filler" aria-hidden="true"><div class="sg-filler-inner"><a href="/misc/0" class="sg-btn sg-btn--ghost">Link 1</a><button type="button" class="sg-btn sg-btn--ghost">Action 2</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/4" class="sg-btn sg-btn--ghost">Link 5</a><button type="button" class="sg-btn sg-btn--ghost">Action 6</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/8" class="sg-btn sg-btn--ghost">Link 9</a><button type="button" class="sg-btn sg-btn--ghost">Action 10</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/12" class="sg-btn sg-btn--ghost">Link 13</a><button type="button" class="sg-btn sg-btn--ghost">Action 14</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/16" class="sg-btn sg-btn--ghost">Link 17</a><button type="button" class="sg-btn sg-btn--ghost">Action 18</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/20" class="sg-btn sg-btn--ghost">Link 21</a><button type="button" class="sg-btn sg-btn--ghost">Action 22</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/24" class="sg-btn sg-btn--ghost">Link 25</a><button type="button" class="sg-btn sg-btn--ghost">Action 26</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/28" class="sg-btn sg-btn--ghost">Link 29</a><button type="button" class="sg-btn sg-btn--ghost">Action 30</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/32" class="sg-btn sg-btn--ghost">Link 33</a><button type="button" class="sg-btn sg-btn--ghost">Action 34</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/36" class="sg-btn sg-btn--ghost">Link 37</a><button type="button" class="sg-btn sg-btn--ghost">Action 38</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/40" class="sg-btn sg-btn--ghost">Link 41</a><button type="button" class="sg-btn sg-btn--ghost">Action 42</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button></div></div><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sg-ftr"><small>© Demo ShopGrid</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0;">
+  <strong>Need help choosing?</strong>
+  <p>Compare feature sets, battery life, and app compatibility before checkout.</p>
+  <button type="button" class="sg-btn" id="open-help">Buying guide</button>
+</aside></div><div class="sg-filler" aria-hidden="true"><div class="sg-filler-inner"><a href="/misc/0" class="sg-btn sg-btn--ghost">Link 1</a><button type="button" class="sg-btn sg-btn--ghost">Action 2</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/4" class="sg-btn sg-btn--ghost">Link 5</a><button type="button" class="sg-btn sg-btn--ghost">Action 6</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/8" class="sg-btn sg-btn--ghost">Link 9</a><button type="button" class="sg-btn sg-btn--ghost">Action 10</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/12" class="sg-btn sg-btn--ghost">Link 13</a><button type="button" class="sg-btn sg-btn--ghost">Action 14</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/16" class="sg-btn sg-btn--ghost">Link 17</a><button type="button" class="sg-btn sg-btn--ghost">Action 18</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/20" class="sg-btn sg-btn--ghost">Link 21</a><button type="button" class="sg-btn sg-btn--ghost">Action 22</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/24" class="sg-btn sg-btn--ghost">Link 25</a><button type="button" class="sg-btn sg-btn--ghost">Action 26</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/28" class="sg-btn sg-btn--ghost">Link 29</a><button type="button" class="sg-btn sg-btn--ghost">Action 30</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/32" class="sg-btn sg-btn--ghost">Link 33</a><button type="button" class="sg-btn sg-btn--ghost">Action 34</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/36" class="sg-btn sg-btn--ghost">Link 37</a><button type="button" class="sg-btn sg-btn--ghost">Action 38</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/40" class="sg-btn sg-btn--ghost">Link 41</a><button type="button" class="sg-btn sg-btn--ghost">Action 42</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button></div></div><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sg-ftr"><small>© Demo ShopGrid</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="sg-modal-backdrop" id="modal-backdrop"></div>
+<div class="sg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" aria-hidden="true">
+  <h2 id="help-title">Buying guide</h2>
+  <p>For quick value picks during the flash sale, start with products rated at least 4 stars and a budget ceiling near $50.</p>
+  <div class="sg-card__actions">
+    <button type="button" class="sg-btn sg-btn--primary" id="close-help">Got it</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ratingSelect=document.getElementById('rating-filter');
+  var maxPriceInput=document.getElementById('max-price');
+  var applyBtn=document.querySelector('button[data-filter="rating-price"]');
+  var clearBtn=document.getElementById('clear-filters');
+  var smoke=document.getElementById('ecommerce-search-smoke-status');
+  var errorBox=document.getElementById('filter-error');
+  var results=[].slice.call(document.querySelectorAll('.sg-product'));
+  var visibleCount=document.getElementById('visible-count');
+  var matchingCount=document.getElementById('matching-count');
+  var filterSummary=document.getElementById('filter-summary');
+  var draftPreview=document.getElementById('draft-preview');
+  var timer=document.getElementById('flash-timer');
+  var cookieBanner=document.getElementById('cookie-banner');
+  var helpModal=document.getElementById('help-modal');
+  var backdrop=document.getElementById('modal-backdrop');
+  var openHelp=document.getElementById('open-help');
+  var closeHelp=document.getElementById('close-help');
+
+  function formatDraft(){
+    draftPreview.textContent='Draft: '+ratingSelect.value+'★+ / $'+(maxPriceInput.value||'0')+' max';
+  }
+
+  function validate(){
+    var price=parseFloat(maxPriceInput.value);
+    var ok=!isNaN(price)&&price>=1;
+    applyBtn.disabled=!ok;
+    errorBox.classList.toggle('sg-hidden',ok);
+    smoke.classList.toggle('error',!ok);
+    if(!ok){
+      smoke.textContent='Cannot apply filters until a valid maximum price is entered.';
+    }
+    return ok;
+  }
+
+  function renderCounts(){
+    var visible=results.filter(function(card){ return card.style.display!=='none'; }).length;
+    visibleCount.textContent=String(visible);
+    matchingCount.textContent=String(visible);
+  }
+
+  function applyFilters(){
+    if(!validate()) return;
+    var minRating=parseFloat(ratingSelect.value||'0');
+    var maxPrice=parseFloat(maxPriceInput.value||'0');
+    var matched=0;
+    results.forEach(function(card){
+      var rating=parseFloat(card.getAttribute('data-rating'));
+      var price=parseFloat(card.getAttribute('data-price'));
+      var show=rating>=minRating && price<=maxPrice;
+      card.style.display=show?'':'none';
+      if(show) matched++;
+    });
+    renderCounts();
+    filterSummary.textContent=minRating+'★+ and ≤ $'+maxPrice;
+    smoke.textContent='Applied filters: minimum '+minRating+' stars and maximum price $'+maxPrice+'. Showing '+matched+' matching products.';
+    window.__scenarioSmoke={ lastAction:'apply rating-price filter', updatedAt:Date.now() };
+  }
+
+  function resetFilters(){
+    ratingSelect.value='0';
+    maxPriceInput.value='50';
+    formatDraft();
+    validate();
+    results.forEach(function(card){ card.style.display=''; });
+    renderCounts();
+    filterSummary.textContent='None';
+    smoke.classList.remove('error');
+    smoke.textContent='Filters cleared. Waiting for rating and price filter action.';
+  }
+
+  function openModal(){
+    helpModal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    helpModal.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(){
+    helpModal.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    helpModal.setAttribute('aria-hidden','true');
+  }
+
+  ratingSelect.addEventListener('change',function(){ formatDraft(); validate(); });
+  maxPriceInput.addEventListener('input',function(){ formatDraft(); validate(); });
+  applyBtn.addEventListener('click',applyFilters);
+  clearBtn.addEventListener('click',resetFilters);
+  openHelp.addEventListener('click',openModal);
+  closeHelp.addEventListener('click',closeModal);
+  backdrop.addEventListener('click',closeModal);
+
+  [].slice.call(document.querySelectorAll('[data-cookie]')).forEach(function(btn){
+    btn.addEventListener('click',function(){ cookieBanner.style.display='none'; });
+  });
+
+  var remaining=719;
+  setInterval(function(){
+    remaining=Math.max(0,remaining-1);
+    var m=String(Math.floor(remaining/60)).padStart(2,'0');
+    var s=String(remaining%60).padStart(2,'0');
+    timer.textContent=m+':'+s;
+  },1000);
+
+  formatDraft();
+  validate();
+  renderCounts();
+})();
+</script></div></body></html>

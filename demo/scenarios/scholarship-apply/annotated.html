@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EduGrant</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EduGrant — STEM Scholarship Application</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .eg-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .eg-subnav a:hover{background:#f8fafc;color:#334155}
 .eg-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.eg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.eg-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.eg-page-wrap{grid-template-columns:1fr}}
 .eg-page-main{padding:20px 24px 32px;min-height:42vh}
 .eg-page-main>h1,.eg-page-main [role=main]>h1,.eg-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .eg-page-main h2,.eg-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.eg-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.eg-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .eg-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.eg-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.eg-page-main select,.eg-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.eg-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.eg-page-main select,.eg-page-main textarea{display:block;width:100%;max-width:100%;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .eg-page-main input:focus,.eg-page-main select:focus,.eg-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .eg-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .eg-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .eg-page-main th,.eg-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .eg-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .eg-page-main tr:hover td{background:#fafafa}
-.eg-page-main article,.eg-page-main .eg-card,.eg-page-main .eg-resto,.eg-page-main .eg-slot,.eg-page-main .eg-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.eg-page-main article,.eg-page-main .eg-card,.eg-page-main .eg-resto,.eg-page-main .eg-slot,.eg-page-main .eg-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .eg-page-main ul:not([class]){list-style:none;padding:0}
 .eg-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .eg-page-main ul:not([class]) li:hover{background:#f8fafc}
-.eg-page-main dialog,.eg-page-main .eg-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.eg-page-main .eg-modal.is-open,.eg-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.eg-page-main dialog,.eg-page-main .eg-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.eg-page-main .eg-modal.is-open,.eg-page-main [role=dialog]{position:fixed;inset:10% 18%;z-index:60;max-width:620px;margin:auto}
 .eg-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .eg-btn:hover{background:#f8fafc}
 .eg-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
@@ -54,8 +51,8 @@ table{border-collapse:collapse}
 .eg-btn:disabled{opacity:.5;cursor:not-allowed}
 .eg-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .eg-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.eg-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.eg-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.eg-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
+@media(min-width:901px){.eg-rail{border-left:1px solid #e2e8f0;border-radius:12px;margin:16px 16px 16px 0;background:#fffbeb}}
 .eg-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .eg-rail a{color:#b45309;font-weight:500}
 .eg-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -67,14 +64,17 @@ table{border-collapse:collapse}
 .eg-filters,.eg-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .eg-filters h2,.eg-frame aside h2{font-size:14px;margin:0 0 10px}
 .eg-card__actions,.eg-slot__actions,.eg-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.eg-wizard{max-width:760px}
+.eg-wizard{max-width:860px}
 .eg-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.eg-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.eg-step{flex:1;min-width:110px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .eg-step.is-active{background:hsl(330 72% 46%);color:#fff}
+.eg-step.is-complete{background:#dcfce7;color:#166534}
 .eg-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
 .eg-hero{border-radius:12px;margin-bottom:8px}
 .eg-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .eg-grid{display:grid;gap:14px}
+.eg-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:760px){.eg-grid-2{grid-template-columns:1fr}}
 .eg-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
 .eg-inbox tr.unread td{font-weight:600;background:#eff6ff}
 .eg-patient{border-radius:10px}
@@ -84,32 +84,473 @@ table{border-collapse:collapse}
 .eg-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .eg-diff{border-radius:8px}
 .eg-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.eg-muted{color:#64748b}
+.eg-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:12px;font-weight:600}
+.eg-badge--ok{background:#dcfce7;color:#166534}
+.eg-badge--warn{background:#fef3c7;color:#92400e}
+.eg-badge--info{background:#dbeafe;color:#1d4ed8}
+.eg-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.eg-note{font-size:12px;color:#64748b;margin-top:4px}
+.eg-error{font-size:12px;color:#b91c1c;margin-top:5px;min-height:16px}
+.eg-success{font-size:12px;color:#166534}
+.eg-progress{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.eg-progress>span{display:block;height:100%;background:hsl(330 72% 46%);width:8%;transition:width .2s ease}
+.eg-kv{display:grid;grid-template-columns:170px 1fr;gap:8px 12px;font-size:13px}
+.eg-kv div{padding:2px 0}
+@media(max-width:680px){.eg-kv{grid-template-columns:1fr}}
+.eg-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.eg-overlay.is-open{display:block}
+.eg-modal{display:none}
+.eg-modal.is-open{display:block}
+.eg-summary-list li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e2e8f0;padding:8px 0}
+.eg-summary-list li:last-child{border-bottom:none}
+.eg-checkbox-row,.eg-radio-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.eg-checkbox-row input,.eg-radio-row input{margin-top:2px}
+.eg-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.eg-callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 14px;color:#1e3a8a}
 </style></head><body>
-<div class="eg-app" data-page="scholarship-apply" data-agent-role="landmark" data-agent-id="scholarship_apply-page" data-agent-desc="Scholarship form" data-agent-priority="2"><div class="eg-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="eg-app" data-page="scholarship-apply" id="scholarship_apply-page" data-wci-id="scholarship_apply-page" data-wci-role="landmark" data-wci-desc="Scholarship application page root for EduGrant STEM application" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="eg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="eg-btn eg-btn--muted">Reject non-essential</button>
-  <button type="button" class="eg-btn eg-btn--primary">Accept all</button>
-  <button type="button" class="eg-btn eg-btn--ghost">Customize</button>
+  <button type="button" class="eg-btn eg-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="eg-btn eg-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="eg-btn eg-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="eg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="eg-btn eg-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="eg-btn">Continue as guest — express</button>
 </div><header class="eg-hdr">
-  <nav class="eg-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="eg-hdr-promo"><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="eg-btn eg-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="eg-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <nav class="eg-nav" aria-label="Global"><a href="/">Home</a><a href="/scholarships">Scholarships</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="eg-hdr-promo"><span class="eg-badge eg-badge--info">Application cycle: Fall 2026</span><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional buttons unrelated to final scholarship submission" data-wci-priority="2" data-wci-scope="scholarship_apply-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+    <button type="button" class="eg-btn eg-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="eg-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#eligibility">Eligibility</a><a href="#application-form">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
   <button type="button" class="eg-btn eg-btn--ghost">Submit</button>
   <button type="button" class="eg-btn eg-btn--ghost">Continue</button>
 </nav><div class="eg-dup-row" aria-label="Quick actions">
   <button type="button" class="eg-btn eg-btn--ghost">Submit</button>
   <button type="button" class="eg-btn eg-btn--ghost">Continue</button>
   <button type="button" class="eg-btn eg-btn--ghost">Save changes</button>
-  <button type="button" class="eg-btn eg-btn--ghost">Confirm</button>
-</div><div class="eg-dup-row"><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Submit STEM scholarship</button><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-nav">Submit STEM application</button></div><div class="eg-page-wrap"><div class="eg-page-main"><form role="main" style="max-width:640px;margin:32px auto"><div style="border-left:4px solid #4f46e5;padding-left:16px;margin-bottom:16px"><h2>STEM</h2><textarea rows="4"></textarea></div>
-<button type="submit" class="eg-btn eg-btn--primary" data-app="stem" data-agent-role="action" data-agent-id="submit-stem-scholarship" data-agent-desc="Submit STEM scholarship application form (not fee waiver)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Fee waiver</button></form></div><aside class="eg-rail eg-rail--ads" aria-label="Sponsored">
+  <button type="button" class="eg-btn eg-btn--ghost" id="open-review">Review answers</button>
+</div><div class="eg-dup-row"><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Submit STEM scholarship</button><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-nav">Submit STEM application</button></div><div class="eg-page-wrap"><div class="eg-page-main"><main role="main" class="eg-wizard" id="application-form" style="max-width:860px;margin:20px auto">
+  <section id="overview" class="eg-card eg-hero">
+    <div class="eg-topline">
+      <div>
+        <h1>STEM Scholars Award Application</h1>
+        <p>Apply for the EduGrant STEM scholarship for undergraduate students pursuing computer science, engineering, mathematics, data science, physics, or related technical majors.</p>
+      </div>
+      <div class="eg-inline">
+        <span class="eg-badge eg-badge--warn" id="eligibility-badge">Eligibility not confirmed</span>
+        <span class="eg-badge" id="save-badge">Not saved</span>
+      </div>
+    </div>
+    <div class="eg-callout">Important: this application is for the <strong>STEM scholarship</strong>. Fee waiver requests are handled separately and do not complete a scholarship submission.</div>
+    <div class="eg-grid-2" style="margin-top:14px">
+      <div>
+        <h3>Program snapshot</h3>
+        <table aria-label="Program details">
+          <tbody><tr><th>Award</th><td>Up to $8,000</td></tr>
+          <tr><th>Deadline</th><td>March 15, 2027 at 11:59 PM local time</td></tr>
+          <tr><th>Audience</th><td>Incoming or continuing undergraduate STEM students</td></tr>
+          <tr><th>Review</th><td>Need, academic preparation, leadership, and statement quality</td></tr>
+        </tbody></table>
+      </div>
+      <div>
+        <h3>Completion progress</h3>
+        <div class="eg-progress" aria-label="Application completion progress"><span id="progress-bar" style="width:10%"></span></div>
+        <p class="eg-note"><span id="completion-count">0</span> of 8 required fields completed</p>
+        <p id="scholarship-apply-smoke-status" class="eg-success">Smoke status: idle</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="eg-steps" aria-label="Application steps">
+    <div class="eg-step is-active" id="step-1">1. Eligibility</div>
+    <div class="eg-step" id="step-2">2. Student profile</div>
+    <div class="eg-step" id="step-3">3. Academics</div>
+    <div class="eg-step" id="step-4">4. Review &amp; submit</div>
+  </div>
+
+  <form id="stem-application-form" novalidate="">
+    <section class="eg-panel" id="eligibility">
+      <h2>Eligibility check</h2>
+      <p>Confirm that you meet baseline scholarship criteria before submitting the application.</p>
+      <fieldset>
+        <legend>Application type</legend>
+        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-scholarship" value="stem-scholarship" checked=""><label for="type-scholarship">STEM scholarship application</label></div>
+        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-waiver" value="fee-waiver"><label for="type-waiver">Fee waiver request only</label></div>
+        <p class="eg-error" id="applicationType-error"></p>
+      </fieldset>
+      <div class="eg-grid-2">
+        <div>
+          <label for="citizenship">Residency status <span aria-hidden="true">*</span></label>
+          <select id="citizenship" name="citizenship" required="">
+            <option value="">Select status</option>
+            <option>U.S. citizen</option>
+            <option>Permanent resident</option>
+            <option>DACA / Dreamer</option>
+            <option>International student</option>
+          </select>
+          <p class="eg-error" id="citizenship-error"></p>
+        </div>
+        <div>
+          <label for="enrollment">Planned enrollment term <span aria-hidden="true">*</span></label>
+          <select id="enrollment" name="enrollment" required="">
+            <option value="">Select term</option>
+            <option>Fall 2026</option>
+            <option>Spring 2027</option>
+            <option>Summer 2027</option>
+          </select>
+          <p class="eg-error" id="enrollment-error"></p>
+        </div>
+      </div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="eligibility-confirm" name="eligibilityConfirm" required=""><label for="eligibility-confirm">I confirm that I am applying for the STEM scholarship and not submitting only a fee waiver request. <span aria-hidden="true">*</span></label></div>
+      <p class="eg-error" id="eligibilityConfirm-error"></p>
+    </section>
+
+    <section class="eg-panel">
+      <h2>Student profile</h2>
+      <div class="eg-grid-2">
+        <div>
+          <label for="full-name">Full legal name <span aria-hidden="true">*</span></label>
+          <input id="full-name" name="fullName" type="text" placeholder="e.g., Maya Patel" maxlength="80" required="">
+          <p class="eg-error" id="fullName-error"></p>
+        </div>
+        <div>
+          <label for="email">Email address <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" placeholder="name@example.edu" required="">
+          <p class="eg-error" id="email-error"></p>
+        </div>
+        <div>
+          <label for="birth-date">Date of birth</label>
+          <input id="birth-date" name="birthDate" type="date">
+          <p class="eg-error" id="birthDate-error"></p>
+        </div>
+        <div>
+          <label for="phone">Mobile phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="(555) 555-0199">
+          <p class="eg-error" id="phone-error"></p>
+        </div>
+      </div>
+      <label for="address">Mailing address</label>
+      <input id="address" name="address" type="text" placeholder="Street, city, state">
+      <p class="eg-error" id="address-error"></p>
+    </section>
+
+    <section class="eg-panel">
+      <h2>Academic information</h2>
+      <div class="eg-grid-2">
+        <div>
+          <label for="institution">Current or most recent school <span aria-hidden="true">*</span></label>
+          <input id="institution" name="institution" type="text" placeholder="Lincoln High School or State University" required="">
+          <p class="eg-error" id="institution-error"></p>
+        </div>
+        <div>
+          <label for="major">Intended STEM major <span aria-hidden="true">*</span></label>
+          <select id="major" name="major" required="">
+            <option value="">Select major</option>
+            <option>Computer Science</option>
+            <option>Electrical Engineering</option>
+            <option>Mechanical Engineering</option>
+            <option>Mathematics</option>
+            <option>Physics</option>
+            <option>Data Science</option>
+            <option>Biotechnology</option>
+            <option>Other STEM field</option>
+          </select>
+          <p class="eg-error" id="major-error"></p>
+        </div>
+        <div>
+          <label for="gpa">Cumulative GPA <span aria-hidden="true">*</span></label>
+          <input id="gpa" name="gpa" type="number" min="0" max="4" step="0.01" placeholder="3.65" required="">
+          <p class="eg-error" id="gpa-error"></p>
+        </div>
+        <div>
+          <label for="grad-year">Expected graduation year</label>
+          <input id="grad-year" name="gradYear" type="number" min="2026" max="2035" placeholder="2029">
+          <p class="eg-error" id="gradYear-error"></p>
+        </div>
+      </div>
+      <fieldset>
+        <legend>Areas of involvement</legend>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-research" name="involvement" value="research"><label for="inv-research">Research or lab work</label></div>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-robotics" name="involvement" value="robotics"><label for="inv-robotics">Coding, robotics, or engineering clubs</label></div>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-mentor" name="involvement" value="mentor"><label for="inv-mentor">Tutoring, mentoring, or STEM outreach</label></div>
+      </fieldset>
+    </section>
+
+    <section class="eg-panel">
+      <h2>Financial context</h2>
+      <div class="eg-grid-2">
+        <div>
+          <label for="income-band">Household income range</label>
+          <select id="income-band" name="incomeBand">
+            <option value="">Prefer not to say</option>
+            <option>Under $35,000</option>
+            <option>$35,000 - $60,000</option>
+            <option>$60,001 - $90,000</option>
+            <option>Above $90,000</option>
+          </select>
+          <p class="eg-error" id="incomeBand-error"></p>
+        </div>
+        <div>
+          <label for="need-level">Estimated unmet need</label>
+          <select id="need-level" name="needLevel">
+            <option value="">Select estimate</option>
+            <option>Less than $2,000</option>
+            <option>$2,000 - $5,000</option>
+            <option>$5,001 - $10,000</option>
+            <option>More than $10,000</option>
+          </select>
+          <p class="eg-error" id="needLevel-error"></p>
+        </div>
+      </div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="waiver-optin" name="waiverOptIn"><label for="waiver-optin">I would also like information about separate fee waiver programs.</label></div>
+      <p class="eg-note">Selecting this does not change your scholarship application type.</p>
+    </section>
+
+    <section class="eg-panel">
+      <h2>Personal statement</h2>
+      <label for="essay">In 150–500 words, describe your interest in STEM, a challenge you overcame, and how this scholarship would support your goals. <span aria-hidden="true">*</span></label>
+      <textarea id="essay" name="essay" rows="9" placeholder="Share your academic interests, projects, leadership, and goals..." required=""></textarea>
+      <div class="eg-inline"><span class="eg-badge" id="essay-count-badge">0 words</span><span class="eg-note">Minimum 150 words required for submission.</span></div>
+      <p class="eg-error" id="essay-error"></p>
+    </section>
+
+    <section class="eg-panel">
+      <h2>Review certifications</h2>
+      <div class="eg-checkbox-row"><input type="checkbox" id="certify-true" name="certifyTrue" required=""><label for="certify-true">I certify that the information in this scholarship application is accurate to the best of my knowledge. <span aria-hidden="true">*</span></label></div>
+      <p class="eg-error" id="certifyTrue-error"></p>
+      <div class="eg-checkbox-row"><input type="checkbox" id="certify-release" name="certifyRelease" required=""><label for="certify-release">I authorize EduGrant to review this application for scholarship consideration. <span aria-hidden="true">*</span></label></div>
+      <p class="eg-error" id="certifyRelease-error"></p>
+      <div class="eg-card eg-cart">
+        <h3 style="margin-top:0">Application preview</h3>
+        <div class="eg-kv">
+          <div><strong>Name</strong></div><div id="preview-name">—</div>
+          <div><strong>Email</strong></div><div id="preview-email">—</div>
+          <div><strong>Major</strong></div><div id="preview-major">—</div>
+          <div><strong>GPA</strong></div><div id="preview-gpa">—</div>
+          <div><strong>Essay status</strong></div><div id="preview-essay">Not started</div>
+        </div>
+      </div>
+      <div class="eg-card__actions">
+        <button type="button" class="eg-btn eg-btn--muted" id="save-draft">Save draft</button>
+        <button type="button" class="eg-btn eg-btn--ghost" id="open-checklist">View submission checklist</button>
+        <button type="submit" class="eg-btn eg-btn--primary" data-app="stem" id="submit-stem-scholarship" data-wci-id="submit-stem-scholarship" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to submit the STEM scholarship application form" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="scholarship_apply-page">Submit STEM scholarship application</button>
+        <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Fee waiver</button>
+      </div>
+      <p class="eg-note">Primary submission sends the scholarship application. The fee waiver button is informational only.</p>
+    </section>
+  </form>
+
+  <section class="eg-card" id="faq">
+    <h2>Frequently asked questions</h2>
+    <ul>
+      <li><strong>Do I need to upload transcripts now?</strong> No. Finalists may be asked for supporting documents after review.</li>
+      <li><strong>Can international students apply?</strong> Eligibility may vary by funding source; select your residency status above.</li>
+      <li><strong>Is the fee waiver the same as the scholarship?</strong> No. Fee waivers are separate from scholarship awards.</li>
+    </ul>
+  </section>
+</main></div><aside class="eg-rail eg-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Explore partner prep programs, laptop discounts, and student success tools while you complete your application.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="eg-filler" aria-hidden="true"><div class="eg-filler-inner"><a href="/misc/0" class="eg-btn eg-btn--ghost">Link 1</a><button type="button" class="eg-btn eg-btn--ghost">Action 2</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/4" class="eg-btn eg-btn--ghost">Link 5</a><button type="button" class="eg-btn eg-btn--ghost">Action 6</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/8" class="eg-btn eg-btn--ghost">Link 9</a><button type="button" class="eg-btn eg-btn--ghost">Action 10</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/12" class="eg-btn eg-btn--ghost">Link 13</a><button type="button" class="eg-btn eg-btn--ghost">Action 14</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/16" class="eg-btn eg-btn--ghost">Link 17</a><button type="button" class="eg-btn eg-btn--ghost">Action 18</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/20" class="eg-btn eg-btn--ghost">Link 21</a><button type="button" class="eg-btn eg-btn--ghost">Action 22</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/24" class="eg-btn eg-btn--ghost">Link 25</a><button type="button" class="eg-btn eg-btn--ghost">Action 26</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/28" class="eg-btn eg-btn--ghost">Link 29</a><button type="button" class="eg-btn eg-btn--ghost">Action 30</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/32" class="eg-btn eg-btn--ghost">Link 33</a><button type="button" class="eg-btn eg-btn--ghost">Action 34</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/36" class="eg-btn eg-btn--ghost">Link 37</a><button type="button" class="eg-btn eg-btn--ghost">Action 38</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/40" class="eg-btn eg-btn--ghost">Link 41</a><button type="button" class="eg-btn eg-btn--ghost">Action 42</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button></div></div><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="eg-ftr"><small>© Demo EduGrant</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
+  <h2 style="margin-top:0">Checklist</h2>
+  <ul class="eg-summary-list">
+    <li><span>Eligibility confirmed</span><strong id="side-eligibility">No</strong></li>
+    <li><span>Profile complete</span><strong id="side-profile">No</strong></li>
+    <li><span>Essay minimum met</span><strong id="side-essay">No</strong></li>
+    <li><span>Ready to submit</span><strong id="side-ready">No</strong></li>
+  </ul>
+  <div id="support" class="eg-card" style="margin-top:16px">
+    <h3 style="margin-top:0">Need help?</h3>
+    <p>For application support, email scholarships@edugrant.example or call 1-800-555-0148.</p>
+  </div>
+</aside></div><div class="eg-filler" aria-hidden="true"><div class="eg-filler-inner"><a href="/misc/0" class="eg-btn eg-btn--ghost">Link 1</a><button type="button" class="eg-btn eg-btn--ghost">Action 2</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/4" class="eg-btn eg-btn--ghost">Link 5</a><button type="button" class="eg-btn eg-btn--ghost">Action 6</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/8" class="eg-btn eg-btn--ghost">Link 9</a><button type="button" class="eg-btn eg-btn--ghost">Action 10</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/12" class="eg-btn eg-btn--ghost">Link 13</a><button type="button" class="eg-btn eg-btn--ghost">Action 14</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/16" class="eg-btn eg-btn--ghost">Link 17</a><button type="button" class="eg-btn eg-btn--ghost">Action 18</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/20" class="eg-btn eg-btn--ghost">Link 21</a><button type="button" class="eg-btn eg-btn--ghost">Action 22</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button></div></div><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promotional control" data-wci-priority="2" data-wci-scope="scholarship_apply-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="eg-ftr"><small>© Demo EduGrant</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="eg-overlay" id="modal-overlay"></div>
+<div class="eg-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-title">
+  <h2 id="review-title" style="margin-top:0">Application review</h2>
+  <p>Use this quick review before final submission.</p>
+  <ul class="eg-summary-list" id="review-list">
+    <li><span>Applicant</span><strong id="review-name">—</strong></li>
+    <li><span>Email</span><strong id="review-email">—</strong></li>
+    <li><span>Major</span><strong id="review-major">—</strong></li>
+    <li><span>Essay words</span><strong id="review-words">0</strong></li>
+    <li><span>Application type</span><strong id="review-type">STEM scholarship</strong></li>
+  </ul>
+  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-review">Close</button></div>
+</div>
+<div class="eg-modal" id="checklist-modal" role="dialog" aria-modal="true" aria-labelledby="checklist-title">
+  <h2 id="checklist-title" style="margin-top:0">Submission checklist</h2>
+  <ul>
+    <li>Choose <strong>STEM scholarship application</strong></li>
+    <li>Complete required profile and academic fields</li>
+    <li>Write at least 150 words in the personal statement</li>
+    <li>Accept certifications before submitting</li>
+  </ul>
+  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-checklist">Close</button></div>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('stem-application-form');
+  const smoke = document.getElementById('scholarship-apply-smoke-status');
+  const submitBtn = document.querySelector('button[data-app="stem"]');
+  const saveBtn = document.getElementById('save-draft');
+  const reviewBtn = document.getElementById('open-review');
+  const checklistBtn = document.getElementById('open-checklist');
+  const overlay = document.getElementById('modal-overlay');
+  const reviewModal = document.getElementById('review-modal');
+  const checklistModal = document.getElementById('checklist-modal');
+  const fields = {
+    applicationType: () => document.querySelector('input[name="applicationType"]:checked')?.value || '',
+    citizenship: document.getElementById('citizenship'),
+    enrollment: document.getElementById('enrollment'),
+    eligibilityConfirm: document.getElementById('eligibility-confirm'),
+    fullName: document.getElementById('full-name'),
+    email: document.getElementById('email'),
+    institution: document.getElementById('institution'),
+    major: document.getElementById('major'),
+    gpa: document.getElementById('gpa'),
+    essay: document.getElementById('essay'),
+    certifyTrue: document.getElementById('certify-true'),
+    certifyRelease: document.getElementById('certify-release')
+  };
+
+  function wordCount(text){
+    return (text || '').trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function setError(key, message){
+    const node = document.getElementById(key + '-error');
+    if(node) node.textContent = message || '';
+  }
+
+  function validate(showErrors){
+    let valid = true;
+    const appType = fields.applicationType();
+    if(appType !== 'stem-scholarship'){
+      valid = false;
+      if(showErrors) setError('applicationType', 'Select STEM scholarship application to continue.');
+    } else if(showErrors) setError('applicationType', '');
+
+    if(!fields.citizenship.value){ valid = false; if(showErrors) setError('citizenship','Select your residency status.'); } else if(showErrors) setError('citizenship','');
+    if(!fields.enrollment.value){ valid = false; if(showErrors) setError('enrollment','Select your planned enrollment term.'); } else if(showErrors) setError('enrollment','');
+    if(!fields.eligibilityConfirm.checked){ valid = false; if(showErrors) setError('eligibilityConfirm','You must confirm you are applying for the scholarship.'); } else if(showErrors) setError('eligibilityConfirm','');
+    if(!fields.fullName.value.trim()){ valid = false; if(showErrors) setError('fullName','Enter your full legal name.'); } else if(showErrors) setError('fullName','');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value.trim())){ valid = false; if(showErrors) setError('email','Enter a valid email address.'); } else if(showErrors) setError('email','');
+    if(!fields.institution.value.trim()){ valid = false; if(showErrors) setError('institution','Enter your school name.'); } else if(showErrors) setError('institution','');
+    if(!fields.major.value){ valid = false; if(showErrors) setError('major','Select an intended STEM major.'); } else if(showErrors) setError('major','');
+    const gpa = parseFloat(fields.gpa.value);
+    if(isNaN(gpa) || gpa < 0 || gpa > 4){ valid = false; if(showErrors) setError('gpa','Enter a GPA between 0.00 and 4.00.'); } else if(showErrors) setError('gpa','');
+    const words = wordCount(fields.essay.value);
+    if(words < 150){ valid = false; if(showErrors) setError('essay','Personal statement must be at least 150 words.'); } else if(words > 500){ valid = false; if(showErrors) setError('essay','Personal statement must be 500 words or fewer.'); } else if(showErrors) setError('essay','');
+    if(!fields.certifyTrue.checked){ valid = false; if(showErrors) setError('certifyTrue','Certification is required.'); } else if(showErrors) setError('certifyTrue','');
+    if(!fields.certifyRelease.checked){ valid = false; if(showErrors) setError('certifyRelease','Release authorization is required.'); } else if(showErrors) setError('certifyRelease','');
+    return valid;
+  }
+
+  function updateProgress(){
+    const requiredChecks = [
+      fields.applicationType() === 'stem-scholarship',
+      !!fields.citizenship.value,
+      !!fields.enrollment.value,
+      fields.eligibilityConfirm.checked,
+      !!fields.fullName.value.trim(),
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value.trim()),
+      !!fields.institution.value.trim(),
+      !!fields.major.value,
+      !isNaN(parseFloat(fields.gpa.value)) && parseFloat(fields.gpa.value) >= 0 && parseFloat(fields.gpa.value) <= 4,
+      wordCount(fields.essay.value) >= 150,
+      fields.certifyTrue.checked,
+      fields.certifyRelease.checked
+    ];
+    const completed = requiredChecks.filter(Boolean).length;
+    const visibleCount = Math.min(completed, 8);
+    document.getElementById('completion-count').textContent = String(visibleCount);
+    document.getElementById('progress-bar').style.width = Math.max(10, Math.round((completed / requiredChecks.length) * 100)) + '%';
+
+    const eligible = fields.applicationType() === 'stem-scholarship' && fields.eligibilityConfirm.checked && fields.citizenship.value && fields.enrollment.value;
+    document.getElementById('eligibility-badge').textContent = eligible ? 'Eligibility confirmed' : 'Eligibility not confirmed';
+    document.getElementById('eligibility-badge').className = 'eg-badge ' + (eligible ? 'eg-badge--ok' : 'eg-badge--warn');
+    document.getElementById('side-eligibility').textContent = eligible ? 'Yes' : 'No';
+    const profileDone = !!fields.fullName.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value.trim()) && !!fields.institution.value.trim() && !!fields.major.value;
+    document.getElementById('side-profile').textContent = profileDone ? 'Yes' : 'No';
+    const essayOk = wordCount(fields.essay.value) >= 150 && wordCount(fields.essay.value) <= 500;
+    document.getElementById('side-essay').textContent = essayOk ? 'Yes' : 'No';
+    const ready = validate(false);
+    document.getElementById('side-ready').textContent = ready ? 'Yes' : 'No';
+
+    document.getElementById('step-1').className = 'eg-step ' + (eligible ? 'is-complete' : 'is-active');
+    document.getElementById('step-2').className = 'eg-step ' + (profileDone ? 'is-complete' : (eligible ? 'is-active' : ''));
+    document.getElementById('step-3').className = 'eg-step ' + ((!isNaN(parseFloat(fields.gpa.value)) && fields.major.value) ? 'is-complete' : '');
+    document.getElementById('step-4').className = 'eg-step ' + (ready ? 'is-complete' : '');
+    submitBtn.disabled = false;
+  }
+
+  function updateEssay(){
+    const words = wordCount(fields.essay.value);
+    document.getElementById('essay-count-badge').textContent = words + ' words';
+    document.getElementById('preview-essay').textContent = words === 0 ? 'Not started' : (words < 150 ? 'Draft in progress' : 'Meets minimum length');
+  }
+
+  function updatePreview(){
+    document.getElementById('preview-name').textContent = fields.fullName.value.trim() || '—';
+    document.getElementById('preview-email').textContent = fields.email.value.trim() || '—';
+    document.getElementById('preview-major').textContent = fields.major.value || '—';
+    document.getElementById('preview-gpa').textContent = fields.gpa.value || '—';
+    document.getElementById('review-name').textContent = fields.fullName.value.trim() || '—';
+    document.getElementById('review-email').textContent = fields.email.value.trim() || '—';
+    document.getElementById('review-major').textContent = fields.major.value || '—';
+    document.getElementById('review-words').textContent = String(wordCount(fields.essay.value));
+    document.getElementById('review-type').textContent = fields.applicationType() === 'fee-waiver' ? 'Fee waiver only' : 'STEM scholarship';
+  }
+
+  function openModal(modal){ overlay.classList.add('is-open'); modal.classList.add('is-open'); }
+  function closeModals(){ overlay.classList.remove('is-open'); reviewModal.classList.remove('is-open'); checklistModal.classList.remove('is-open'); }
+
+  form.addEventListener('input', function(){ updateEssay(); updatePreview(); updateProgress(); });
+  form.addEventListener('change', function(){ validate(false); updatePreview(); updateProgress(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const ok = validate(true);
+    updatePreview();
+    updateProgress();
+    const ts = Date.now();
+    if(ok){
+      smoke.textContent = 'Smoke status: STEM scholarship submitted successfully';
+      window.__scenarioSmoke = { lastAction: 'submitted stem scholarship application', updatedAt: ts };
+      document.getElementById('save-badge').textContent = 'Submitted just now';
+      document.getElementById('save-badge').className = 'eg-badge eg-badge--ok';
+      openModal(reviewModal);
+    } else {
+      smoke.textContent = 'Smoke status: submission blocked — complete required scholarship fields';
+      window.__scenarioSmoke = { lastAction: 'attempted stem scholarship submission with validation errors', updatedAt: ts };
+    }
+  });
+
+  saveBtn.addEventListener('click', function(){
+    document.getElementById('save-badge').textContent = 'Draft saved';
+    document.getElementById('save-badge').className = 'eg-badge eg-badge--info';
+    smoke.textContent = 'Smoke status: draft saved';
+  });
+
+  reviewBtn.addEventListener('click', function(){ updatePreview(); openModal(reviewModal); });
+  checklistBtn.addEventListener('click', function(){ openModal(checklistModal); });
+  document.getElementById('close-review').addEventListener('click', closeModals);
+  document.getElementById('close-checklist').addEventListener('click', closeModals);
+  overlay.addEventListener('click', closeModals);
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){ document.getElementById('cookie-banner').style.display = 'none'; });
+  });
+
+  updateEssay();
+  updatePreview();
+  updateProgress();
+  window.__scenarioSmoke = { lastAction: 'page loaded', updatedAt: Date.now() };
+})();
+</script>
+</div></body></html>

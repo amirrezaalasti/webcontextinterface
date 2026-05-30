@@ -11,23 +11,24 @@ table{border-collapse:collapse}
 .pd-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .pd-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .pd-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.pd-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#0f172a}
+.pd-brand-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,hsl(330 72% 46%),hsl(283 63% 49%));display:inline-block}
 .pd-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .pd-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .pd-nav a:hover{background:#f1f5f9;color:#0f172a}
 .pd-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .pd-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
 .pd-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
-.pd-subnav a:hover{background:#f8fafc;color:#334155}
+.pd-subnav a:hover,.pd-subnav a[aria-current=page]{background:#f8fafc;color:#334155}
 .pd-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.pd-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.pd-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.pd-page-wrap{grid-template-columns:1fr}}
 .pd-page-main{padding:20px 24px 32px;min-height:42vh}
 .pd-page-main>h1,.pd-page-main [role=main]>h1,.pd-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .pd-page-main h2,.pd-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .pd-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .pd-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.pd-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pd-page-main select,.pd-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.pd-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pd-page-main select,.pd-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .pd-page-main input:focus,.pd-page-main select:focus,.pd-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .pd-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .pd-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +36,11 @@ table{border-collapse:collapse}
 .pd-page-main th,.pd-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .pd-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .pd-page-main tr:hover td{background:#fafafa}
-.pd-page-main article,.pd-page-main .pd-card,.pd-page-main .pd-resto,.pd-page-main .pd-slot,.pd-page-main .pd-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.pd-page-main article,.pd-page-main .pd-card,.pd-page-main .pd-resto,.pd-page-main .pd-slot,.pd-page-main .pd-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .pd-page-main ul:not([class]){list-style:none;padding:0}
 .pd-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .pd-page-main ul:not([class]) li:hover{background:#f8fafc}
-.pd-page-main dialog,.pd-page-main .pd-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.pd-page-main .pd-modal.is-open,.pd-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.pd-page-main .pd-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .pd-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .pd-btn:hover{background:#f8fafc}
 .pd-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
@@ -64,54 +62,341 @@ table{border-collapse:collapse}
 .pd-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .pd-ab{display:none!important}
 .pd-layout{display:grid;gap:16px;align-items:start}
-.pd-filters,.pd-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.pd-filters h2,.pd-frame aside h2{font-size:14px;margin:0 0 10px}
 .pd-card__actions,.pd-slot__actions,.pd-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.pd-wizard{max-width:760px}
-.pd-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.pd-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.pd-step.is-active{background:hsl(330 72% 46%);color:#fff}
 .pd-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.pd-hero{border-radius:12px;margin-bottom:8px}
-.pd-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.pd-grid{display:grid;gap:14px}
-.pd-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.pd-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.pd-patient{border-radius:10px}
-.pd-slots{display:grid;gap:10px}
-.pd-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.pd-cell{background:#fff;padding:8px;min-height:44px}
-.pd-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.pd-diff{border-radius:8px}
-.pd-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.pd-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.pd-headerbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.pd-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:12px;font-weight:600;border:1px solid #a5f3fc}
+.pd-badge--warn{background:#fff7ed;color:#9a3412;border-color:#fed7aa}
+.pd-badge--ok{background:#ecfdf5;color:#166534;border-color:#bbf7d0}
+.pd-stack{display:grid;gap:14px}
+.pd-setting-list{border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff}
+.pd-setting-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 18px;border-bottom:1px solid #e2e8f0;align-items:center}
+.pd-setting-row:last-child{border-bottom:none}
+.pd-setting-title{font-weight:600;color:#0f172a;margin-bottom:4px}
+.pd-setting-help{font-size:13px;color:#64748b;max-width:62ch}
+.pd-setting-meta{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.pd-switch{position:relative;display:inline-flex;align-items:center;gap:10px}
+.pd-switch input{position:absolute;opacity:0;pointer-events:none}
+.pd-switch-track{width:48px;height:28px;border-radius:999px;background:#cbd5e1;position:relative;transition:background .18s ease;box-shadow:inset 0 0 0 1px rgba(15,23,42,.08)}
+.pd-switch-track::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:left .18s ease}
+.pd-switch input:checked + .pd-switch-track{background:hsl(330 72% 46%)}
+.pd-switch input:checked + .pd-switch-track::after{left:23px}
+.pd-switch-label{font-size:12px;color:#475569;min-width:38px}
+.pd-callout{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;padding:14px 16px;border:1px solid #e2e8f0;background:#f8fafc;border-radius:12px}
+.pd-smoke{font-size:13px;color:#334155;padding:10px 12px;border-radius:8px;background:#f8fafc;border:1px dashed #cbd5e1}
+.pd-note{font-size:12px;color:#64748b}
+.pd-danger{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;padding:10px 12px;border-radius:8px;font-size:13px;display:none}
+.pd-danger.is-visible{display:block}
+.pd-inline-count{font-size:12px;color:#64748b}
+.pd-mini-list{display:grid;gap:10px}
+.pd-mini-item{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff}
+.pd-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:80}
+.pd-modal-backdrop.is-open{display:block}
+.pd-modal-shell{position:fixed;inset:0;display:none;z-index:90;align-items:center;justify-content:center;padding:20px}
+.pd-modal-shell.is-open{display:flex}
+.pd-modal{max-width:560px;width:100%}
+.pd-modal h3{margin-top:0}
 </style></head><body>
-<div class="pd-app" data-page="privacy-settings"><div class="pd-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pd-btn pd-btn--muted">Reject non-essential</button>
-  <button type="button" class="pd-btn pd-btn--primary">Accept all</button>
-  <button type="button" class="pd-btn pd-btn--ghost">Customize</button>
-</div><div class="pd-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="pd-btn pd-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="pd-btn">Continue as guest — express</button>
-</div><header class="pd-hdr">
-  <nav class="pd-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="pd-hdr-promo"><button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="pd-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
-  <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
-</nav><div class="pd-dup-row" aria-label="Quick actions">
-  <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
-  <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
-  <button type="button" class="pd-btn pd-btn--ghost">Save changes</button>
-  <button type="button" class="pd-btn pd-btn--ghost">Confirm</button>
-</div><div class="pd-dup-row"><button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Disable third-party sharing</button><button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-nav">Save disable third party</button></div><div class="pd-page-wrap"><div class="pd-page-main"><div role="main" style="max-width:520px;margin:40px auto">
-<div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #e5e7eb"><span>Analytics</span><input type="checkbox" checked /></div>
-<div style="display:flex;justify-content:space-between;padding:16px 0" data-setting="third-party"><span>Third-party sharing</span>
-<input type="checkbox" checked id="tp-share" /><button type="button" class="pd-btn pd-btn--primary" data-save="disable-third-party">Confirm</button></div></div>
-<button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav">Download data</button></div><aside class="pd-rail pd-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
-  <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pd-filler" aria-hidden="true"><div class="pd-filler-inner"><a href="/misc/0" class="pd-btn pd-btn--ghost">Link 1</a><button type="button" class="pd-btn pd-btn--ghost">Action 2</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/4" class="pd-btn pd-btn--ghost">Link 5</a><button type="button" class="pd-btn pd-btn--ghost">Action 6</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/8" class="pd-btn pd-btn--ghost">Link 9</a><button type="button" class="pd-btn pd-btn--ghost">Action 10</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/12" class="pd-btn pd-btn--ghost">Link 13</a><button type="button" class="pd-btn pd-btn--ghost">Action 14</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/16" class="pd-btn pd-btn--ghost">Link 17</a><button type="button" class="pd-btn pd-btn--ghost">Action 18</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/20" class="pd-btn pd-btn--ghost">Link 21</a><button type="button" class="pd-btn pd-btn--ghost">Action 22</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/24" class="pd-btn pd-btn--ghost">Link 25</a><button type="button" class="pd-btn pd-btn--ghost">Action 26</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/28" class="pd-btn pd-btn--ghost">Link 29</a><button type="button" class="pd-btn pd-btn--ghost">Action 30</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/32" class="pd-btn pd-btn--ghost">Link 33</a><button type="button" class="pd-btn pd-btn--ghost">Action 34</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/36" class="pd-btn pd-btn--ghost">Link 37</a><button type="button" class="pd-btn pd-btn--ghost">Action 38</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/40" class="pd-btn pd-btn--ghost">Link 41</a><button type="button" class="pd-btn pd-btn--ghost">Action 42</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button></div></div><button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pd-ftr"><small>© Demo PrivacyDesk</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<div class="pd-app" data-page="privacy-settings" id="privacy_settings-page">
+  <div class="pd-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+    <button type="button" class="pd-btn pd-btn--muted" id="cookie-reject">Reject non-essential</button>
+    <button type="button" class="pd-btn pd-btn--primary" id="cookie-accept">Accept all</button>
+    <button type="button" class="pd-btn pd-btn--ghost" id="cookie-customize">Customize</button>
+  </div>
+
+  <div class="pd-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="pd-btn pd-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="pd-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="pd-hdr">
+    <div class="pd-brand" aria-label="PrivacyDesk home"><span class="pd-brand-mark" aria-hidden="true"></span><span>PrivacyDesk</span></div>
+    <nav class="pd-nav" aria-label="Global">
+      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/trust">Trust Center</a>
+    </nav>
+    <div class="pd-hdr-promo">
+      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+      <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="pd-subnav" aria-label="Secondary">
+    <a href="#">Overview</a><a href="#">Reports</a><a href="#" aria-current="page">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+    <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
+    <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="pd-dup-row" aria-label="Quick actions">
+    <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
+    <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
+    <button type="button" class="pd-btn pd-btn--ghost">Save changes</button>
+    <button type="button" class="pd-btn pd-btn--ghost" id="open-export">Download</button>
+  </div>
+
+  <div class="pd-dup-row">
+    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Disable third-party sharing</button>
+    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-nav">Save disable third party</button>
+  </div>
+
+  <div class="pd-page-wrap">
+    <div class="pd-page-main">
+      <main role="main" class="pd-layout" aria-label="Privacy settings main content">
+        <div class="pd-headerbar">
+          <div>
+            <h1>Privacy controls</h1>
+            <p>Control how your workspace uses analytics, diagnostics, partner enrichment, and advertising signals. Changes below apply to this account immediately after save.</p>
+          </div>
+          <div>
+            <div class="pd-badge pd-badge--warn" id="review-badge">Review required</div>
+            <div class="pd-inline-count" id="enabled-counter">3 sharing features active</div>
+          </div>
+        </div>
+
+        <section class="pd-panel pd-stack" aria-labelledby="sharing-title">
+          <div class="pd-toolbar">
+            <strong id="sharing-title">Data sharing preferences</strong>
+            <span class="pd-note">Last synced with policy engine: <span id="sync-time">just now</span></span>
+          </div>
+
+          <div class="pd-callout">
+            <div>
+              <strong>Workspace policy snapshot</strong>
+              <p>Your organization allows optional sharing settings to be updated by admins and account owners.</p>
+            </div>
+            <span class="pd-badge" id="status-pill">Sharing enabled</span>
+          </div>
+
+          <div class="pd-setting-list" aria-label="Toggle rows">
+            <div class="pd-setting-row" data-setting="analytics">
+              <div>
+                <div class="pd-setting-title">Product analytics</div>
+                <div class="pd-setting-help">Help us improve navigation, onboarding, and reliability with aggregated feature usage data.</div>
+              </div>
+              <div class="pd-setting-meta">
+                <span class="pd-switch-label" id="label-analytics">On</span>
+                <label class="pd-switch">
+                  <input type="checkbox" id="analytics-toggle" checked/>
+                  <span class="pd-switch-track" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pd-setting-row" data-setting="diagnostics">
+              <div>
+                <div class="pd-setting-title">Advanced diagnostics</div>
+                <div class="pd-setting-help">Share crash traces and performance details to support incident response and product stability.</div>
+              </div>
+              <div class="pd-setting-meta">
+                <span class="pd-switch-label" id="label-diagnostics">On</span>
+                <label class="pd-switch">
+                  <input type="checkbox" id="diagnostics-toggle" checked/>
+                  <span class="pd-switch-track" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pd-setting-row" data-setting="third-party">
+              <div>
+                <div class="pd-setting-title">Third-party data sharing</div>
+                <div class="pd-setting-help">Allow trusted partners to receive limited profile and usage data for measurement, attribution, and joint service improvement.</div>
+              </div>
+              <div class="pd-setting-meta">
+                <span class="pd-switch-label" id="label-third-party">Enabled</span>
+                <label class="pd-switch">
+                  <input type="checkbox" checked id="tp-share" aria-describedby="third-party-warning"/>
+                  <span class="pd-switch-track" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div id="third-party-warning" class="pd-danger">To save this policy update, switch third-party data sharing off before confirming.</div>
+
+          <fieldset>
+            <legend>Change summary</legend>
+            <label for="change-reason">Admin note</label>
+            <textarea id="change-reason" rows="4" placeholder="Optional note for audit trail. Example: Disabled partner sharing to meet updated privacy requirements."></textarea>
+            <div class="pd-note">Audit entries are visible to workspace administrators and compliance reviewers.</div>
+          </fieldset>
+
+          <div class="pd-callout">
+            <div>
+              <strong>Save and apply</strong>
+              <p>To disable partner sharing, turn the toggle off and then confirm the update.</p>
+              <div id="privacy-settings-smoke-status" class="pd-smoke">Waiting for update. Third-party sharing is currently enabled.</div>
+            </div>
+            <div>
+              <button type="button" class="pd-btn pd-btn--ghost" id="preview-policy">Preview effect</button>
+              <button type="button" class="pd-btn pd-btn--primary" data-save="disable-third-party" id="disable-third-party-share">Confirm</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="pd-card">
+          <h2>Recent privacy events</h2>
+          <div class="pd-mini-list">
+            <div class="pd-mini-item"><span>Cookie banner customized</span><span class="pd-note">Today</span></div>
+            <div class="pd-mini-item"><span>Retention schedule reviewed</span><span class="pd-note">2 days ago</span></div>
+            <div class="pd-mini-item"><span>Partner list exported</span><span class="pd-note">7 days ago</span></div>
+          </div>
+          <div class="pd-card__actions">
+            <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav">Download data</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <aside class="pd-rail pd-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <p>Compare compliance automation vendors and benchmark your opt-out rate against similar businesses.</p>
+      <a href="/ads/1">Partner offer — limited time</a><br/>
+      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <hr style="border:none;border-top:1px solid #f3e8ff;margin:14px 0"/>
+      <h3 style="margin:0 0 8px;font-size:14px">Checklist</h3>
+      <ul>
+        <li>Review partner processors</li>
+        <li>Confirm retention durations</li>
+        <li>Export audit log if needed</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="pd-filler" aria-hidden="true"><div class="pd-filler-inner"><a href="/misc/0" class="pd-btn pd-btn--ghost">Link 1</a><button type="button" class="pd-btn pd-btn--ghost">Action 2</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/4" class="pd-btn pd-btn--ghost">Link 5</a><button type="button" class="pd-btn pd-btn--ghost">Action 6</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/8" class="pd-btn pd-btn--ghost">Link 9</a><button type="button" class="pd-btn pd-btn--ghost">Action 10</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/12" class="pd-btn pd-btn--ghost">Link 13</a><button type="button" class="pd-btn pd-btn--ghost">Action 14</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/16" class="pd-btn pd-btn--ghost">Link 17</a><button type="button" class="pd-btn pd-btn--ghost">Action 18</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/20" class="pd-btn pd-btn--ghost">Link 21</a><button type="button" class="pd-btn pd-btn--ghost">Action 22</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/24" class="pd-btn pd-btn--ghost">Link 25</a><button type="button" class="pd-btn pd-btn--ghost">Action 26</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/28" class="pd-btn pd-btn--ghost">Link 29</a><button type="button" class="pd-btn pd-btn--ghost">Action 30</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/32" class="pd-btn pd-btn--ghost">Link 33</a><button type="button" class="pd-btn pd-btn--ghost">Action 34</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/36" class="pd-btn pd-btn--ghost">Link 37</a><button type="button" class="pd-btn pd-btn--ghost">Action 38</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/40" class="pd-btn pd-btn--ghost">Link 41</a><button type="button" class="pd-btn pd-btn--ghost">Action 42</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+
+  <footer class="pd-ftr"><small>© Demo PrivacyDesk</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+</div>
+
+<div class="pd-modal-backdrop" id="modal-backdrop"></div>
+<div class="pd-modal-shell" id="preview-modal-shell" aria-hidden="true">
+  <div class="pd-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <h3 id="preview-title">Policy preview</h3>
+    <p id="preview-copy">Third-party data sharing remains enabled. Turn the toggle off to preview the stricter policy.</p>
+    <div class="pd-card__actions">
+      <button type="button" class="pd-btn pd-btn--ghost" id="close-preview">Close</button>
+      <button type="button" class="pd-btn pd-btn--muted" id="modal-export">Download summary</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tp = document.getElementById('tp-share');
+  var analytics = document.getElementById('analytics-toggle');
+  var diagnostics = document.getElementById('diagnostics-toggle');
+  var saveBtn = document.querySelector('button[data-save="disable-third-party"]');
+  var smoke = document.getElementById('privacy-settings-smoke-status');
+  var warning = document.getElementById('third-party-warning');
+  var pill = document.getElementById('status-pill');
+  var badge = document.getElementById('review-badge');
+  var enabledCounter = document.getElementById('enabled-counter');
+  var syncTime = document.getElementById('sync-time');
+  var previewBtn = document.getElementById('preview-policy');
+  var previewCopy = document.getElementById('preview-copy');
+  var modalShell = document.getElementById('preview-modal-shell');
+  var modalBackdrop = document.getElementById('modal-backdrop');
+  var closePreview = document.getElementById('close-preview');
+  var cookieBanner = document.getElementById('cookie-banner');
+  var cookieReject = document.getElementById('cookie-reject');
+  var cookieAccept = document.getElementById('cookie-accept');
+  var cookieCustomize = document.getElementById('cookie-customize');
+  var openExport = document.getElementById('open-export');
+  var labels = {
+    analytics: document.getElementById('label-analytics'),
+    diagnostics: document.getElementById('label-diagnostics'),
+    thirdParty: document.getElementById('label-third-party')
+  };
+
+  function countEnabled(){
+    var count = 0;
+    if(analytics.checked) count++;
+    if(diagnostics.checked) count++;
+    if(tp.checked) count++;
+    enabledCounter.textContent = count + ' sharing feature' + (count === 1 ? '' : 's') + ' active';
+  }
+
+  function updateToggleLabels(){
+    labels.analytics.textContent = analytics.checked ? 'On' : 'Off';
+    labels.diagnostics.textContent = diagnostics.checked ? 'On' : 'Off';
+    labels.thirdParty.textContent = tp.checked ? 'Enabled' : 'Disabled';
+    countEnabled();
+    if(tp.checked){
+      pill.textContent = 'Sharing enabled';
+      pill.className = 'pd-badge';
+      badge.textContent = 'Review required';
+      badge.className = 'pd-badge pd-badge--warn';
+      saveBtn.textContent = 'Confirm';
+      smoke.textContent = 'Waiting for update. Third-party sharing is currently enabled.';
+    } else {
+      pill.textContent = 'Pending disable';
+      pill.className = 'pd-badge pd-badge--warn';
+      badge.textContent = 'Ready to save';
+      badge.className = 'pd-badge pd-badge--ok';
+      saveBtn.textContent = 'Disable sharing';
+      smoke.textContent = 'Ready to save. Third-party sharing is switched off locally but not yet applied.';
+    }
+  }
+
+  function openModal(){
+    previewCopy.textContent = tp.checked ? 'Third-party data sharing remains enabled. Turn the toggle off to preview the stricter policy.' : 'Preview: partners will stop receiving optional workspace profile and usage data after you save this change.';
+    modalShell.classList.add('is-open');
+    modalBackdrop.classList.add('is-open');
+    modalShell.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(){
+    modalShell.classList.remove('is-open');
+    modalBackdrop.classList.remove('is-open');
+    modalShell.setAttribute('aria-hidden','true');
+  }
+
+  [tp,analytics,diagnostics].forEach(function(el){
+    el.addEventListener('change', function(){
+      updateToggleLabels();
+      warning.classList.remove('is-visible');
+    });
+  });
+
+  saveBtn.addEventListener('click', function(){
+    var now = Date.now();
+    if(tp.checked){
+      warning.classList.add('is-visible');
+      smoke.textContent = 'Save blocked. Switch off third-party sharing before confirming.';
+      window.__scenarioSmoke = { lastAction: 'attempted-save-with-toggle-on', updatedAt: now };
+      return;
+    }
+    warning.classList.remove('is-visible');
+    smoke.textContent = 'Saved. Third-party data sharing has been disabled for this workspace.';
+    pill.textContent = 'Sharing disabled';
+    pill.className = 'pd-badge pd-badge--ok';
+    badge.textContent = 'Saved';
+    badge.className = 'pd-badge pd-badge--ok';
+    syncTime.textContent = new Date(now).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+    window.__scenarioSmoke = { lastAction: 'disabled-third-party-sharing', updatedAt: now };
+  });
+
+  previewBtn.addEventListener('click', openModal);
+  closePreview.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  document.getElementById('modal-export').addEventListener('click', function(){
+    previewCopy.textContent = 'Summary prepared. This demo does not create a file, but the preview reflects the current toggle state.';
+  });
+  openExport.addEventListener('click', function(){
+    smoke.textContent = 'Download started for privacy activity summary.';
+  });
+
+  [cookieReject,cookieAccept,cookieCustomize].forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  updateToggleLabels();
+  window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

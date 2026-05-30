@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .pk-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .pk-subnav a:hover{background:#f8fafc;color:#334155}
 .pk-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.pk-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.pk-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.pk-page-wrap{grid-template-columns:1fr}}
 .pk-page-main{padding:20px 24px 32px;min-height:42vh}
 .pk-page-main>h1,.pk-page-main [role=main]>h1,.pk-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .pk-page-main h2,.pk-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .pk-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .pk-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.pk-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pk-page-main select,.pk-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.pk-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pk-page-main select,.pk-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .pk-page-main input:focus,.pk-page-main select:focus,.pk-page-main textarea:focus{outline:2px solid hsl(24 72% 46%);outline-offset:1px;border-color:hsl(24 72% 46%)}
 .pk-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .pk-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +34,13 @@ table{border-collapse:collapse}
 .pk-page-main th,.pk-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .pk-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .pk-page-main tr:hover td{background:#fafafa}
-.pk-page-main article,.pk-page-main .pk-card,.pk-page-main .pk-resto,.pk-page-main .pk-slot,.pk-page-main .pk-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.pk-page-main article,.pk-page-main .pk-card,.pk-page-main .pk-resto,.pk-page-main .pk-slot,.pk-page-main .pk-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .pk-page-main ul:not([class]){list-style:none;padding:0}
 .pk-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .pk-page-main ul:not([class]) li:hover{background:#f8fafc}
-.pk-page-main dialog,.pk-page-main .pk-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.pk-page-main .pk-modal.is-open,.pk-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.pk-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.pk-page-main dialog,.pk-page-main .pk-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.pk-page-main .pk-modal.is-open,.pk-page-main [role=dialog]{position:fixed;inset:12% 24%;z-index:60;max-width:520px;margin:auto}
+.pk-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .pk-btn:hover{background:#f8fafc}
 .pk-btn--primary{background:hsl(24 72% 46%);color:#fff;border-color:hsl(24 72% 38%)}
 .pk-btn--primary:hover{filter:brightness(1.05)}
@@ -67,7 +64,7 @@ table{border-collapse:collapse}
 .pk-filters,.pk-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .pk-filters h2,.pk-frame aside h2{font-size:14px;margin:0 0 10px}
 .pk-card__actions,.pk-slot__actions,.pk-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.pk-wizard{max-width:760px}
+.pk-wizard{max-width:980px}
 .pk-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .pk-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .pk-step.is-active{background:hsl(24 72% 46%);color:#fff}
@@ -84,20 +81,50 @@ table{border-collapse:collapse}
 .pk-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .pk-diff{border-radius:8px}
 .pk-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.pk-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.pk-badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#f1f5f9;color:#334155;font-size:12px;font-weight:600;border:1px solid #e2e8f0}
+.pk-badge--ok{background:#ecfdf5;color:#166534;border-color:#bbf7d0}
+.pk-badge--warn{background:#fff7ed;color:#9a3412;border-color:#fdba74}
+.pk-badge--danger{background:#fef2f2;color:#b91c1c;border-color:#fecaca}
+.pk-res-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+@media(max-width:860px){.pk-res-layout{grid-template-columns:1fr}}
+.pk-garage-grid{display:grid;grid-template-columns:repeat(6,minmax(52px,1fr));gap:8px;max-width:420px}
+.pk-spot{min-height:50px;font-weight:700;border-radius:10px}
+.pk-spot.taken{background:#e2e8f0;color:#64748b;border-color:#cbd5e1}
+.pk-spot.monthly{background:#ede9fe;color:#6d28d9;border-color:#c4b5fd}
+.pk-spot.open{box-shadow:0 0 0 2px rgba(194,65,12,.08)}
+.pk-spot.selected{transform:translateY(-1px);box-shadow:0 0 0 3px rgba(194,65,12,.18)}
+.pk-legend{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 14px}
+.pk-legend span{display:inline-flex;align-items:center;gap:8px;color:#475569;font-size:12px}
+.pk-dot{width:12px;height:12px;border-radius:4px;display:inline-block;border:1px solid #cbd5e1}
+.pk-dot--open{background:hsl(24 72% 46%);border-color:hsl(24 72% 38%)}
+.pk-dot--taken{background:#cbd5e1}
+.pk-dot--monthly{background:#ddd6fe;border-color:#c4b5fd}
+.pk-dot--selected{background:#fb923c;border-color:#ea580c}
+.pk-summary{position:sticky;top:16px}
+.pk-status-line{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.pk-help{font-size:12px;color:#64748b}
+.pk-inline-error{color:#b91c1c;font-size:12px;min-height:18px;margin-top:6px}
+.pk-inline-success{color:#166534;font-size:12px;min-height:18px;margin-top:6px}
+.pk-confirm{display:none}
+.pk-confirm.is-open{display:block}
+.pk-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:55}
+.pk-modal-backdrop.is-open{display:block}
+#parking-reservation-smoke-status{font-weight:600}
 </style></head><body>
-<div class="pk-app" data-page="parking-reservation" data-agent-role="landmark" data-agent-id="parking_reservation-page" data-agent-desc="Parking grid" data-agent-priority="2"><div class="pk-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="pk-app" data-page="parking-reservation" id="parking_reservation-page" data-wci-id="parking_reservation-page" data-wci-role="landmark" data-wci-desc="Parking reservation app root for ParkSpot" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="pk-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pk-btn pk-btn--muted">Reject non-essential</button>
-  <button type="button" class="pk-btn pk-btn--primary">Accept all</button>
-  <button type="button" class="pk-btn pk-btn--ghost">Customize</button>
+  <button type="button" class="pk-btn pk-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="pk-btn pk-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="pk-btn pk-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="pk-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="pk-btn pk-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="pk-btn">Continue as guest — express</button>
 </div><header class="pk-hdr">
-  <nav class="pk-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="pk-hdr-promo"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="pk-btn pk-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="pk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <nav class="pk-nav" aria-label="Global"><a href="/">Home</a><a href="/locations">Locations</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="pk-hdr-promo"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action unrelated to the required parking reservation" data-wci-priority="2" data-wci-scope="parking_reservation-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+    <button type="button" class="pk-btn pk-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="pk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Availability</a><a href="#">Amenities</a><a href="#">Billing</a><a href="#">Support</a>
   <button type="button" class="pk-btn pk-btn--ghost">Submit</button>
   <button type="button" class="pk-btn pk-btn--ghost">Continue</button>
 </nav><div class="pk-dup-row" aria-label="Quick actions">
@@ -105,10 +132,121 @@ table{border-collapse:collapse}
   <button type="button" class="pk-btn pk-btn--ghost">Continue</button>
   <button type="button" class="pk-btn pk-btn--ghost">Save changes</button>
   <button type="button" class="pk-btn pk-btn--ghost">Confirm</button>
-</div><div class="pk-dup-row"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Reserve spot B12</button><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-nav">Reserve garage B12 Saturday</button></div><div class="pk-page-wrap"><div class="pk-page-main"><main role="main" style="padding:16px"><h1>Garage B · Saturday 14:00</h1><div style="display:grid;grid-template-columns:repeat(6,48px);gap:4px"><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">A1</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">A2</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">B11</button><button type="button" class="pk-btn pk-btn--primary open" data-spot="B12" data-open="true" data-agent-role="action" data-agent-id="reserve-spot-b12" data-agent-desc="Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass)." data-agent-action="click" data-agent-priority="1">B12</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">B13</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">B14</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">C01</button><button type="button" class="pk-btn pk-btn--ghost taken" disabled="">C02</button></div>
-<button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Monthly pass</button></main></div><aside class="pk-rail pk-rail--ads" aria-label="Sponsored">
+</div><div class="pk-dup-row"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Reserve spot B12</button><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-nav">Reserve garage B12 Saturday</button></div><div class="pk-page-wrap"><div class="pk-page-main"><main role="main" class="pk-wizard"><div class="pk-badges"><span class="pk-badge pk-badge--ok">Garage B open now</span><span class="pk-badge pk-badge--warn">Peak event traffic expected</span><span class="pk-badge" id="selection-badge">No spot selected</span></div><h1>Garage B · Saturday 2:00 PM</h1><p>Select a standard open spot for a one-time reservation. Taken spaces and monthly-pass-only spaces cannot be reserved online for this time window.</p><div class="pk-steps" aria-label="Reservation steps"><div class="pk-step is-active">1. Choose spot</div><div class="pk-step">2. Review details</div><div class="pk-step">3. Confirm reservation</div></div><section class="pk-panel pk-hero"><div class="pk-status-line"><div><strong>Session overview</strong><div class="pk-help">Garage B, level 1 · Saturday 2:00 PM to 5:00 PM</div></div><div class="pk-badge" id="parking-reservation-smoke-status">Ready to reserve</div></div><div class="pk-res-layout" style="margin-top:16px"><div><div class="pk-legend"><span><i class="pk-dot pk-dot--open"></i> Open</span><span><i class="pk-dot pk-dot--taken"></i> Taken</span><span><i class="pk-dot pk-dot--monthly"></i> Monthly pass</span><span><i class="pk-dot pk-dot--selected"></i> Selected</span></div><article class="pk-card"><h2 style="margin-top:0">Spot map</h2><p style="margin-bottom:14px">Entrance is closest to row A. Click an available spot to preview your reservation details.</p><div class="pk-garage-grid" aria-label="Garage spot grid">
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot A1 taken">A1</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot A2 taken">A2</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot monthly" disabled="" aria-label="Spot A3 monthly pass only">A3</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot A4 taken">A4</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot A5 taken">A5</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot monthly" disabled="" aria-label="Spot A6 monthly pass only">A6</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot B10 taken">B10</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot B11 taken">B11</button>
+<button type="button" class="pk-btn pk-btn--primary open pk-spot" data-spot="B12" data-open="true" id="reserve-spot-b12" aria-label="Spot B12 open" data-wci-id="reserve-spot-b12" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary open parking spot B12 to reserve for Saturday 2pm" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="parking_reservation-page">B12</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot B13 taken">B13</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot B14 taken">B14</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot monthly" disabled="" aria-label="Spot B15 monthly pass only">B15</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot C01 taken">C01</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot C02 taken">C02</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot monthly" disabled="" aria-label="Spot C03 monthly pass only">C03</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot C04 taken">C04</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot taken" disabled="" aria-label="Spot C05 taken">C05</button>
+<button type="button" class="pk-btn pk-btn--ghost pk-spot monthly" disabled="" aria-label="Spot C06 monthly pass only">C06</button>
+</div><div class="pk-card__actions"><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">Monthly pass</button><button type="button" class="pk-btn pk-btn--ghost" id="refresh-grid">Refresh availability</button></div><div class="pk-inline-success" id="spot-feedback">Open spot B12 is available for reservation.</div></article><article class="pk-card"><h2 style="margin-top:0">Parking notes</h2><ul><li>Event pricing applies beginning at 1:30 PM.</li><li>License plate entry is optional for hold-only reservations.</li><li>Height clearance on level 1 is 7'0".</li></ul></article></div><aside class="pk-panel pk-summary"><h2 style="margin-top:0">Reservation summary</h2><div class="pk-grid"><div><div class="pk-help">Selected spot</div><div id="selected-spot-display"><strong>None selected</strong></div></div><div><div class="pk-help">Date</div><div id="selected-date-display">Saturday</div></div><div><div class="pk-help">Arrival time</div><div id="selected-time-display">2:00 PM</div></div><div><div class="pk-help">Duration</div><div>3 hours</div></div><div><div class="pk-help">Estimated total</div><div id="selected-price-display">$18.00</div></div></div><form id="reservation-form" style="margin-top:12px"><label for="vehicle-plate">Vehicle plate (optional)</label><input id="vehicle-plate" name="vehiclePlate" type="text" maxlength="10" placeholder="e.g. 8KXZ214"><label for="contact-email">Email for receipt</label><input id="contact-email" name="email" type="email" placeholder="name@example.com" required=""><label for="reservation-notes">Notes to attendant</label><textarea id="reservation-notes" name="notes" rows="3" placeholder="Optional access notes"></textarea><div class="pk-inline-error" id="form-error">Select a spot and enter a valid email to continue.</div><div class="pk-card__actions"><button type="submit" class="pk-btn pk-btn--primary" id="review-button" disabled="">Review reservation</button><button type="button" class="pk-btn pk-btn--ghost" id="clear-selection">Clear selection</button></div></form></aside></div></section><section class="pk-card"><h2 style="margin-top:0">Availability snapshot</h2><table><thead><tr><th>Type</th><th>Count</th><th>Status</th></tr></thead><tbody><tr><td>Open one-time spots</td><td id="open-count">1</td><td>Reservable online</td></tr><tr><td>Taken spots</td><td>12</td><td>Unavailable</td></tr><tr><td>Monthly pass only</td><td>5</td><td>Not eligible</td></tr></tbody></table></section></main></div><aside class="pk-rail pk-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Book valet for downtown events and get priority lane access.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pk-filler" aria-hidden="true"><div class="pk-filler-inner"><a href="/misc/0" class="pk-btn pk-btn--ghost">Link 1</a><button type="button" class="pk-btn pk-btn--ghost">Action 2</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/4" class="pk-btn pk-btn--ghost">Link 5</a><button type="button" class="pk-btn pk-btn--ghost">Action 6</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/8" class="pk-btn pk-btn--ghost">Link 9</a><button type="button" class="pk-btn pk-btn--ghost">Action 10</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/12" class="pk-btn pk-btn--ghost">Link 13</a><button type="button" class="pk-btn pk-btn--ghost">Action 14</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/16" class="pk-btn pk-btn--ghost">Link 17</a><button type="button" class="pk-btn pk-btn--ghost">Action 18</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/20" class="pk-btn pk-btn--ghost">Link 21</a><button type="button" class="pk-btn pk-btn--ghost">Action 22</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/24" class="pk-btn pk-btn--ghost">Link 25</a><button type="button" class="pk-btn pk-btn--ghost">Action 26</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/28" class="pk-btn pk-btn--ghost">Link 29</a><button type="button" class="pk-btn pk-btn--ghost">Action 30</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/32" class="pk-btn pk-btn--ghost">Link 33</a><button type="button" class="pk-btn pk-btn--ghost">Action 34</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/36" class="pk-btn pk-btn--ghost">Link 37</a><button type="button" class="pk-btn pk-btn--ghost">Action 38</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/40" class="pk-btn pk-btn--ghost">Link 41</a><button type="button" class="pk-btn pk-btn--ghost">Action 42</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button></div></div><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pk-ftr"><small>© Demo ParkSpot</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fcd34d;margin:14px 0">
+  <div class="pk-help">Tip: Monthly pass inventory refreshes on the first business day of each month.</div>
+</aside></div><div class="pk-filler" aria-hidden="true"><div class="pk-filler-inner"><a href="/misc/0" class="pk-btn pk-btn--ghost">Link 1</a><button type="button" class="pk-btn pk-btn--ghost">Action 2</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/4" class="pk-btn pk-btn--ghost">Link 5</a><button type="button" class="pk-btn pk-btn--ghost">Action 6</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/8" class="pk-btn pk-btn--ghost">Link 9</a><button type="button" class="pk-btn pk-btn--ghost">Action 10</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/12" class="pk-btn pk-btn--ghost">Link 13</a><button type="button" class="pk-btn pk-btn--ghost">Action 14</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/16" class="pk-btn pk-btn--ghost">Link 17</a><button type="button" class="pk-btn pk-btn--ghost">Action 18</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/20" class="pk-btn pk-btn--ghost">Link 21</a><button type="button" class="pk-btn pk-btn--ghost">Action 22</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/24" class="pk-btn pk-btn--ghost">Link 25</a><button type="button" class="pk-btn pk-btn--ghost">Action 26</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/28" class="pk-btn pk-btn--ghost">Link 29</a><button type="button" class="pk-btn pk-btn--ghost">Action 30</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/32" class="pk-btn pk-btn--ghost">Link 33</a><button type="button" class="pk-btn pk-btn--ghost">Action 34</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/36" class="pk-btn pk-btn--ghost">Link 37</a><button type="button" class="pk-btn pk-btn--ghost">Action 38</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button><a href="/misc/40" class="pk-btn pk-btn--ghost">Link 41</a><button type="button" class="pk-btn pk-btn--ghost">Action 42</button><button type="button" class="pk-btn pk-btn--ghost">Submit</button><button type="button" class="pk-btn pk-btn--ghost">Continue</button></div></div><button type="button" class="pk-btn pk-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional node" data-wci-priority="2" data-wci-scope="parking_reservation-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="pk-ftr"><small>© Demo ParkSpot</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="pk-modal-backdrop" id="modal-backdrop"></div><div class="pk-page-main"><div class="pk-modal pk-confirm" id="reservation-modal" role="dialog" aria-modal="true" aria-labelledby="reservation-modal-title"><h2 id="reservation-modal-title" style="margin-top:0">Reservation confirmed</h2><p id="modal-copy">Spot B12 has been held for Saturday at 2:00 PM.</p><div class="pk-card pk-cart" style="margin:12px 0 16px"><div class="pk-help">Confirmation preview</div><div id="modal-summary"><strong>B12</strong> · Saturday · 2:00 PM · $18.00</div></div><div class="pk-card__actions"><button type="button" class="pk-btn pk-btn--primary" id="modal-done">Done</button><button type="button" class="pk-btn pk-btn--ghost" id="modal-close">Close</button></div></div></div><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div><script>
+(function(){
+  var state={selectedSpot:null,reserved:false};
+  var app=document.querySelector('[data-page="parking-reservation"]');
+  var b12=document.querySelector('button[data-spot="B12"][data-open="true"]');
+  var smoke=document.getElementById('parking-reservation-smoke-status');
+  var selectionBadge=document.getElementById('selection-badge');
+  var selectedSpotDisplay=document.getElementById('selected-spot-display');
+  var form=document.getElementById('reservation-form');
+  var email=document.getElementById('contact-email');
+  var plate=document.getElementById('vehicle-plate');
+  var reviewButton=document.getElementById('review-button');
+  var formError=document.getElementById('form-error');
+  var feedback=document.getElementById('spot-feedback');
+  var modal=document.getElementById('reservation-modal');
+  var backdrop=document.getElementById('modal-backdrop');
+  var modalCopy=document.getElementById('modal-copy');
+  var modalSummary=document.getElementById('modal-summary');
+  var cookieBanner=document.getElementById('cookie-banner');
+
+  function isValidEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v||'');}
+  function updateFormState(){
+    var valid=!!state.selectedSpot && isValidEmail(email.value);
+    reviewButton.disabled=!valid;
+    if(state.selectedSpot && !isValidEmail(email.value) && email.value.length>0){
+      formError.textContent='Enter a valid email address to review this reservation.';
+    }else if(!state.selectedSpot){
+      formError.textContent='Select a spot and enter a valid email to continue.';
+    }else if(valid){
+      formError.textContent='Looks good. Review reservation when ready.';
+    }else{
+      formError.textContent='Enter a valid email to continue.';
+    }
+  }
+  function renderSelection(){
+    if(state.selectedSpot){
+      selectedSpotDisplay.innerHTML='<strong>'+state.selectedSpot+'</strong> · standard one-time reservation';
+      selectionBadge.textContent='Selected: '+state.selectedSpot;
+      b12.classList.add('selected');
+      feedback.textContent='Spot '+state.selectedSpot+' selected. Complete your details to reserve it.';
+      smoke.textContent='Spot '+state.selectedSpot+' selected';
+    }else{
+      selectedSpotDisplay.innerHTML='<strong>None selected</strong>';
+      selectionBadge.textContent='No spot selected';
+      b12.classList.remove('selected');
+      feedback.textContent='Open spot B12 is available for reservation.';
+      smoke.textContent='Ready to reserve';
+    }
+    updateFormState();
+  }
+  function openModal(){modal.classList.add('is-open');backdrop.classList.add('is-open');}
+  function closeModal(){modal.classList.remove('is-open');backdrop.classList.remove('is-open');}
+
+  b12.addEventListener('click',function(){
+    state.selectedSpot='B12';
+    renderSelection();
+    smoke.textContent='Reservation action started for B12';
+    window.__scenarioSmoke={lastAction:'reserve-open-spot-B12-clicked',updatedAt:Date.now()};
+  });
+
+  email.addEventListener('input',updateFormState);
+  plate.addEventListener('input',function(){this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,10);});
+  document.getElementById('clear-selection').addEventListener('click',function(){state.selectedSpot=null;renderSelection();});
+  document.getElementById('refresh-grid').addEventListener('click',function(){feedback.textContent='Availability refreshed just now. B12 remains open.';smoke.textContent='Availability refreshed';});
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    updateFormState();
+    if(reviewButton.disabled){return;}
+    state.reserved=true;
+    modalCopy.textContent='Spot '+state.selectedSpot+' has been held for Saturday at 2:00 PM.';
+    modalSummary.innerHTML='<strong>'+state.selectedSpot+'</strong> · Saturday · 2:00 PM · $18.00';
+    smoke.textContent='Reserved spot '+state.selectedSpot+' for Saturday 2:00 PM';
+    window.__scenarioSmoke={lastAction:'reservation-confirmed-'+state.selectedSpot,updatedAt:Date.now()};
+    openModal();
+  });
+
+  document.getElementById('modal-close').addEventListener('click',closeModal);
+  document.getElementById('modal-done').addEventListener('click',closeModal);
+  backdrop.addEventListener('click',closeModal);
+
+  cookieBanner.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-cookie-action]');
+    if(!btn)return;
+    cookieBanner.style.display='none';
+    smoke.textContent='Cookie preference saved';
+  });
+
+  renderSelection();
+})();
+</script></body></html>

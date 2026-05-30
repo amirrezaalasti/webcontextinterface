@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .sp-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .sp-subnav a:hover{background:#f8fafc;color:#334155}
 .sp-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.sp-page-wrap{grid-template-columns:1fr}}
 .sp-page-main{padding:20px 24px 32px;min-height:42vh}
 .sp-page-main>h1,.sp-page-main [role=main]>h1,.sp-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .sp-page-main h2,.sp-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .sp-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .sp-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.sp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sp-page-main select,.sp-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.sp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sp-page-main select,.sp-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .sp-page-main input:focus,.sp-page-main select:focus,.sp-page-main textarea:focus{outline:2px solid hsl(24 72% 46%);outline-offset:1px;border-color:hsl(24 72% 46%)}
 .sp-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .sp-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .sp-page-main th,.sp-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .sp-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .sp-page-main tr:hover td{background:#fafafa}
-.sp-page-main article,.sp-page-main .sp-card,.sp-page-main .sp-resto,.sp-page-main .sp-slot,.sp-page-main .sp-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sp-page-main article,.sp-page-main .sp-card,.sp-page-main .sp-resto,.sp-page-main .sp-slot,.sp-page-main .sp-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .sp-page-main ul:not([class]){list-style:none;padding:0}
 .sp-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .sp-page-main ul:not([class]) li:hover{background:#f8fafc}
-.sp-page-main dialog,.sp-page-main .sp-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.sp-page-main .sp-modal.is-open,.sp-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sp-page-main dialog,.sp-page-main .sp-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.sp-page-main .sp-modal.is-open,.sp-page-main [role=dialog]{position:fixed;inset:12% 24%;z-index:60;max-width:540px;margin:auto}
 .sp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .sp-btn:hover{background:#f8fafc}
 .sp-btn--primary{background:hsl(24 72% 46%);color:#fff;border-color:hsl(24 72% 38%)}
@@ -54,8 +51,8 @@ table{border-collapse:collapse}
 .sp-btn:disabled{opacity:.5;cursor:not-allowed}
 .sp-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .sp-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.sp-rail{padding:16px;margin:16px;background:hsl(24 60% 96%);border:1px solid hsl(24 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.sp-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.sp-rail{padding:16px;margin:16px;background:hsl(24 60% 96%);border:1px solid hsl(24 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
+@media(min-width:901px){.sp-rail{border-left:1px solid #e2e8f0;border-radius:12px;background:#fffbeb}}
 .sp-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .sp-rail a{color:#b45309;font-weight:500}
 .sp-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -64,6 +61,8 @@ table{border-collapse:collapse}
 .sp-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .sp-ab{display:none!important}
 .sp-layout{display:grid;gap:16px;align-items:start}
+.sp-layout--inventory{grid-template-columns:minmax(220px,260px) minmax(0,1fr);gap:16px}
+@media(max-width:860px){.sp-layout--inventory{grid-template-columns:1fr}}
 .sp-filters,.sp-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .sp-filters h2,.sp-frame aside h2{font-size:14px;margin:0 0 10px}
 .sp-card__actions,.sp-slot__actions,.sp-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
@@ -84,20 +83,47 @@ table{border-collapse:collapse}
 .sp-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .sp-diff{border-radius:8px}
 .sp-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.sp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:8px 0 18px}
+@media(max-width:860px){.sp-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ .sp-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sp-kpi strong{display:block;font-size:20px;color:#0f172a}
+.sp-kpi span{display:block;font-size:12px;color:#64748b}
+.sp-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:600}
+.sp-badge--warn{background:#fff7ed;color:#9a3412}
+.sp-badge--good{background:#ecfdf5;color:#166534}
+.sp-badge--muted{background:#f1f5f9;color:#475569}
+.sp-input-inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sp-input-inline input{max-width:130px}
+.sp-help{font-size:12px;color:#64748b}
+.sp-error{font-size:12px;color:#b91c1c;min-height:18px}
+.sp-ok{color:#166534}
+.sp-table-tools{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 10px}
+.sp-table-tools .sp-input-inline{margin:0}
+.sp-table-wrap{overflow:auto;border:1px solid #e2e8f0;border-radius:12px}
+ .sp-highlight td{background:#fff7ed}
+.sp-muted{color:#64748b}
+.sp-count{font-weight:700;color:#0f172a}
+.sp-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
+.sp-modal-backdrop.is-open{display:block}
+.sp-modal{display:none}
+.sp-modal.is-open{display:block}
+.sp-summary-list{display:grid;grid-template-columns:140px 1fr;gap:8px 12px;font-size:13px;margin:10px 0 16px}
+.sp-summary-list dt{color:#64748b}
+.sp-summary-list dd{margin:0;font-weight:600;color:#0f172a}
 </style></head><body>
-<div class="sp-app" data-page="inventory-mgmt"><div class="sp-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="sp-app" data-page="inventory-mgmt" id="inventory_mgmt-page"><div class="sp-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sp-btn sp-btn--muted">Reject non-essential</button>
-  <button type="button" class="sp-btn sp-btn--primary">Accept all</button>
-  <button type="button" class="sp-btn sp-btn--ghost">Customize</button>
+  <button type="button" class="sp-btn sp-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="sp-btn sp-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="sp-btn sp-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="sp-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="sp-btn sp-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="sp-btn">Continue as guest — express</button>
 </div><header class="sp-hdr">
-  <nav class="sp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sp-hdr-promo"><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="sp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="#inventoryTable">Inventory</a></nav>
+  <div class="sp-hdr-promo"><span class="sp-badge sp-badge--good">Sync healthy</span><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="sp-btn sp-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="sp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Suppliers</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
   <button type="button" class="sp-btn sp-btn--ghost">Submit</button>
   <button type="button" class="sp-btn sp-btn--ghost">Continue</button>
 </nav><div class="sp-dup-row" aria-label="Quick actions">
@@ -105,12 +131,250 @@ table{border-collapse:collapse}
   <button type="button" class="sp-btn sp-btn--ghost">Continue</button>
   <button type="button" class="sp-btn sp-btn--ghost">Save changes</button>
   <button type="button" class="sp-btn sp-btn--ghost">Confirm</button>
-</div><div class="sp-dup-row"><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-promo">Reorder WH-9921</button><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-nav">Reorder 500 WH-9921</button></div><div class="sp-page-wrap"><div class="sp-page-main"><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>SKU</th><th>Qty</th><th></th></tr></thead><tbody>
-<tr><td>WH-4400</td><td>120</td><td><button type="button" class="sp-btn sp-btn--ghost">Adjust</button></td></tr>
-<tr data-sku="WH-9921"><td>WH-9921</td><td>12</td><td><button type="button" class="sp-btn sp-btn--primary" data-qty="500">Confirm</button></td></tr>
-</tbody></table></div><aside class="sp-rail sp-rail--ads" aria-label="Sponsored">
+  <span class="sp-help">Warehouse: West Hub · Auto reorder paused for flagged SKUs</span>
+</div><div class="sp-dup-row"><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-promo">Reorder WH-9921</button><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-nav">Reorder 500 WH-9921</button><span id="inventory-mgmt-smoke-status" class="sp-badge sp-badge--muted">Smoke status: idle</span></div><div class="sp-page-wrap"><div class="sp-page-main"><main role="main" aria-labelledby="pageTitle"><h1 id="pageTitle">Inventory control center</h1>
+<p>Review stock levels, reorder points, inbound activity, and supplier lead times. Use row-level actions to place replenishment requests for specific SKUs without changing unrelated items.</p>
+<div class="sp-kpis" aria-label="Summary metrics">
+  <section class="sp-kpi"><span>Active SKUs</span><strong id="skuCount">248</strong></section>
+  <section class="sp-kpi"><span>Low stock alerts</span><strong>7</strong></section>
+  <section class="sp-kpi"><span>Pending POs</span><strong id="pendingPoCount">14</strong></section>
+  <section class="sp-kpi"><span>Units on inbound trucks</span><strong>3,280</strong></section>
+</div>
+<div class="sp-layout sp-layout--inventory">
+  <aside class="sp-filters" aria-label="Inventory filters">
+    <h2>Filters</h2>
+    <label for="searchSku">Search SKU or product</label>
+    <input id="searchSku" type="text" placeholder="Try WH-9921 or Widget"/>
+    <label for="stockFilter">Stock status</label>
+    <select id="stockFilter"><option value="all">All statuses</option><option value="low">Low stock only</option><option value="healthy">Healthy only</option></select>
+    <label for="vendorFilter">Preferred vendor</label>
+    <select id="vendorFilter"><option value="all">All vendors</option><option value="northstar">Northstar Industrial</option><option value="acme">ACME Supply</option><option value="peak">Peak Components</option></select>
+    <div class="sp-card__actions"><button type="button" class="sp-btn sp-btn--primary" id="applyFiltersBtn">Apply filters</button><button type="button" class="sp-btn" id="resetFiltersBtn">Reset</button></div>
+    <p class="sp-help" id="filterSummary">Showing all 5 visible SKUs.</p>
+    <fieldset>
+      <legend>Auto-replenishment</legend>
+      <label><input type="checkbox" checked/> Suggest reorder quantities based on 30-day velocity</label>
+      <label><input type="checkbox"/> Include promotional uplift forecast</label>
+    </fieldset>
+  </aside>
+  <section>
+    <article class="sp-card sp-hero">
+      <h2>Warehouse snapshot</h2>
+      <p>West Hub fulfillment is operating normally. One item requires immediate replenishment due to expedited demand from retail channels.</p>
+      <div class="sp-toolbar" aria-label="Table tools">
+        <div class="sp-input-inline"><label for="globalReorderUnits" style="margin:0">Planned reorder units</label><input id="globalReorderUnits" type="number" min="1" step="1" value="500"/><span class="sp-help">Preview only; row actions remain SKU-specific.</span></div>
+        <span class="sp-badge sp-badge--warn" id="attentionBadge">1 critical SKU needs action</span>
+      </div>
+    </article>
+    <div class="sp-table-tools"><div><strong>SKU table</strong> <span class="sp-muted">· Last sync 3 minutes ago</span></div><div class="sp-input-inline"><label for="rowsPerPage" style="margin:0">Rows</label><select id="rowsPerPage"><option>25</option><option selected>50</option><option>100</option></select><span class="sp-help">Visible rows: <span class="sp-count" id="visibleRowsCount">5</span></span></div></div>
+    <div class="sp-table-wrap">
+      <table id="inventoryTable" aria-describedby="tableAssist">
+        <thead><tr><th>SKU</th><th>Product</th><th>On hand</th><th>Reorder point</th><th>Vendor</th><th>Status</th><th>Plan</th><th>Action</th></tr></thead><tbody>
+<tr data-sku="WH-4400" data-status="healthy" data-vendor="acme"><td>WH-4400</td><td>Widget Handle Kit</td><td>120</td><td>60</td><td>ACME Supply</td><td><span class="sp-badge sp-badge--good">Healthy</span></td><td>—</td><td><button type="button" class="sp-btn sp-btn--ghost">Adjust</button></td></tr>
+<tr data-sku="WH-9921" data-status="low" data-vendor="northstar" class="sp-highlight"><td><strong>WH-9921</strong><div class="sp-help">Primary aisle B-14</div></td><td>Warehouse Fastener Pack</td><td><span id="wh9921CurrentQty">12</span></td><td>80</td><td>Northstar Industrial</td><td><span class="sp-badge sp-badge--warn" id="wh9921StatusBadge">Critical</span></td><td><div class="sp-input-inline"><input id="wh9921QtyInput" type="number" min="1" step="1" value="500" aria-label="Reorder quantity for WH-9921"/><span class="sp-help">Target reorder</span></div><div id="wh9921Validation" class="sp-error" aria-live="polite">Enter a quantity from 1 to 5000.</div></td><td><button type="button" class="sp-btn sp-btn--primary" id="reorder-sku-wh9921" data-qty="500">Confirm</button></td></tr>
+<tr data-sku="WH-2101" data-status="healthy" data-vendor="peak"><td>WH-2101</td><td>Wheel Core Assembly</td><td>332</td><td>100</td><td>Peak Components</td><td><span class="sp-badge sp-badge--good">Healthy</span></td><td>—</td><td><button type="button" class="sp-btn sp-btn--ghost">Adjust</button></td></tr>
+<tr data-sku="WH-6730" data-status="low" data-vendor="acme"><td>WH-6730</td><td>Wrap Hose Connector</td><td>44</td><td>50</td><td>ACME Supply</td><td><span class="sp-badge sp-badge--warn">Low</span></td><td>120 suggested</td><td><button type="button" class="sp-btn sp-btn--ghost">Review</button></td></tr>
+<tr data-sku="WH-8018" data-status="healthy" data-vendor="northstar"><td>WH-8018</td><td>Weatherproof Housing</td><td>208</td><td>70</td><td>Northstar Industrial</td><td><span class="sp-badge sp-badge--good">Healthy</span></td><td>—</td><td><button type="button" class="sp-btn sp-btn--ghost">Adjust</button></td></tr>
+</tbody></table>
+    </div>
+    <p id="tableAssist" class="sp-help">Tip: the highlighted row is low on stock. Use the row action to submit a reorder request for that SKU only.</p>
+    <section class="sp-panel">
+      <h2>Recent inventory activity</h2>
+      <ul>
+        <li>PO-1842 received for WH-2101 · 300 units · Posted 09:14</li>
+        <li>Cycle count discrepancy resolved for WH-4400 · +4 units · Posted 08:27</li>
+        <li>Lead time warning from Northstar Industrial increased from 3 to 5 days</li>
+      </ul>
+    </section>
+  </section>
+</div></main></div><aside class="sp-rail sp-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Need overflow capacity? Compare third-party cold and dry storage providers by region.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <hr style="border:none;border-top:1px solid #fcd34d;margin:14px 0"/>
+  <section>
+    <h3 style="margin-top:0">Action summary</h3>
+    <p class="sp-help">No purchase order submitted yet.</p>
+    <dl class="sp-summary-list">
+      <dt>Selected SKU</dt><dd id="summarySku">WH-9921</dd>
+      <dt>Requested qty</dt><dd id="summaryQty">500 units</dd>
+      <dt>Vendor</dt><dd>Northstar Industrial</dd>
+      <dt>Status</dt><dd id="summaryState">Awaiting confirmation</dd>
+    </dl>
+    <button type="button" class="sp-btn sp-btn--ghost" id="openNotesBtn">Add internal note</button>
+  </section>
 </aside></div><div class="sp-filler" aria-hidden="true"><div class="sp-filler-inner"><a href="/misc/0" class="sp-btn sp-btn--ghost">Link 1</a><button type="button" class="sp-btn sp-btn--ghost">Action 2</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/4" class="sp-btn sp-btn--ghost">Link 5</a><button type="button" class="sp-btn sp-btn--ghost">Action 6</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/8" class="sp-btn sp-btn--ghost">Link 9</a><button type="button" class="sp-btn sp-btn--ghost">Action 10</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/12" class="sp-btn sp-btn--ghost">Link 13</a><button type="button" class="sp-btn sp-btn--ghost">Action 14</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/16" class="sp-btn sp-btn--ghost">Link 17</a><button type="button" class="sp-btn sp-btn--ghost">Action 18</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/20" class="sp-btn sp-btn--ghost">Link 21</a><button type="button" class="sp-btn sp-btn--ghost">Action 22</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/24" class="sp-btn sp-btn--ghost">Link 25</a><button type="button" class="sp-btn sp-btn--ghost">Action 26</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/28" class="sp-btn sp-btn--ghost">Link 29</a><button type="button" class="sp-btn sp-btn--ghost">Action 30</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/32" class="sp-btn sp-btn--ghost">Link 33</a><button type="button" class="sp-btn sp-btn--ghost">Action 34</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/36" class="sp-btn sp-btn--ghost">Link 37</a><button type="button" class="sp-btn sp-btn--ghost">Action 38</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button><a href="/misc/40" class="sp-btn sp-btn--ghost">Link 41</a><button type="button" class="sp-btn sp-btn--ghost">Action 42</button><button type="button" class="sp-btn sp-btn--ghost">Submit</button><button type="button" class="sp-btn sp-btn--ghost">Continue</button></div></div><button type="button" class="sp-btn sp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="sp-ftr"><small>© Demo StockPilot</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="sp-modal-backdrop" id="modalBackdrop"></div>
+<div class="sp-page-main">
+  <div class="sp-modal" id="reorderModal" role="dialog" aria-modal="true" aria-labelledby="reorderModalTitle" aria-hidden="true">
+    <h2 id="reorderModalTitle">Reorder request queued</h2>
+    <p>Your purchase request has been prepared for review. This demo updates the inventory dashboard immediately.</p>
+    <dl class="sp-summary-list">
+      <dt>SKU</dt><dd id="modalSku">WH-9921</dd>
+      <dt>Quantity</dt><dd id="modalQty">500 units</dd>
+      <dt>Supplier</dt><dd>Northstar Industrial</dd>
+      <dt>Reference</dt><dd id="modalRef">PO-DRAFT-0001</dd>
+    </dl>
+    <div class="sp-card__actions"><button type="button" class="sp-btn sp-btn--primary" id="closeModalBtn">Done</button><button type="button" class="sp-btn" id="queueAnotherBtn">Queue another</button></div>
+  </div>
+  <div class="sp-modal" id="notesModal" role="dialog" aria-modal="true" aria-labelledby="notesModalTitle" aria-hidden="true">
+    <h2 id="notesModalTitle">Internal replenishment note</h2>
+    <label for="noteText">Notes for buyers</label>
+    <textarea id="noteText" placeholder="Add vendor context, shipping urgency, or review notes"></textarea>
+    <div id="notePreview" class="sp-card"><strong>Preview</strong><p class="sp-help" style="margin-top:8px">No note entered.</p></div>
+    <div class="sp-card__actions"><button type="button" class="sp-btn sp-btn--primary" id="saveNoteBtn">Save note</button><button type="button" class="sp-btn" id="closeNotesBtn">Close</button></div>
+  </div>
+</div>
+<script>
+(function(){
+  var smoke = document.getElementById('inventory-mgmt-smoke-status');
+  var qtyInput = document.getElementById('wh9921QtyInput');
+  var confirmBtn = document.getElementById('reorder-sku-wh9921');
+  var validation = document.getElementById('wh9921Validation');
+  var summaryQty = document.getElementById('summaryQty');
+  var summaryState = document.getElementById('summaryState');
+  var pendingPoCount = document.getElementById('pendingPoCount');
+  var statusBadge = document.getElementById('wh9921StatusBadge');
+  var globalUnits = document.getElementById('globalReorderUnits');
+  var searchInput = document.getElementById('searchSku');
+  var stockFilter = document.getElementById('stockFilter');
+  var vendorFilter = document.getElementById('vendorFilter');
+  var filterSummary = document.getElementById('filterSummary');
+  var visibleRowsCount = document.getElementById('visibleRowsCount');
+  var tableRows = Array.prototype.slice.call(document.querySelectorAll('#inventoryTable tbody tr'));
+  var cookieBanner = document.getElementById('cookieBanner');
+  var modalBackdrop = document.getElementById('modalBackdrop');
+  var reorderModal = document.getElementById('reorderModal');
+  var notesModal = document.getElementById('notesModal');
+  var modalQty = document.getElementById('modalQty');
+  var modalRef = document.getElementById('modalRef');
+  var openNotesBtn = document.getElementById('openNotesBtn');
+  var closeModalBtn = document.getElementById('closeModalBtn');
+  var queueAnotherBtn = document.getElementById('queueAnotherBtn');
+  var closeNotesBtn = document.getElementById('closeNotesBtn');
+  var saveNoteBtn = document.getElementById('saveNoteBtn');
+  var noteText = document.getElementById('noteText');
+  var notePreview = document.getElementById('notePreview');
+
+  function setSmoke(text){
+    smoke.textContent = text;
+  }
+
+  function validateQty(){
+    var qty = parseInt(qtyInput.value,10);
+    var valid = Number.isFinite(qty) && qty >= 1 && qty <= 5000;
+    confirmBtn.disabled = !valid;
+    confirmBtn.setAttribute('data-qty', valid ? String(qty) : '');
+    if(!valid){
+      validation.textContent = 'Quantity must be a whole number between 1 and 5000.';
+      validation.classList.remove('sp-ok');
+      summaryQty.textContent = 'Invalid quantity';
+    } else {
+      validation.textContent = qty === 500 ? 'Ready to reorder exactly 500 units for WH-9921.' : 'Ready to reorder ' + qty + ' units for WH-9921.';
+      validation.classList.add('sp-ok');
+      summaryQty.textContent = qty + ' units';
+    }
+    return valid ? qty : null;
+  }
+
+  function applyFilters(){
+    var query = searchInput.value.trim().toLowerCase();
+    var stock = stockFilter.value;
+    var vendor = vendorFilter.value;
+    var visible = 0;
+    tableRows.forEach(function(row){
+      var sku = row.getAttribute('data-sku').toLowerCase();
+      var text = row.textContent.toLowerCase();
+      var rowStatus = row.getAttribute('data-status');
+      var rowVendor = row.getAttribute('data-vendor');
+      var matchesQuery = !query || sku.indexOf(query) !== -1 || text.indexOf(query) !== -1;
+      var matchesStock = stock === 'all' || rowStatus === stock;
+      var matchesVendor = vendor === 'all' || rowVendor === vendor;
+      var show = matchesQuery && matchesStock && matchesVendor;
+      row.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    visibleRowsCount.textContent = String(visible);
+    filterSummary.textContent = 'Showing ' + visible + ' visible SKU' + (visible === 1 ? '' : 's') + '.';
+  }
+
+  function openModal(modal){
+    modalBackdrop.classList.add('is-open');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(modal){
+    modalBackdrop.classList.remove('is-open');
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  qtyInput.addEventListener('input', validateQty);
+  globalUnits.addEventListener('input', function(){
+    var v = parseInt(globalUnits.value,10);
+    if(Number.isFinite(v) && v > 0){
+      qtyInput.value = v;
+      validateQty();
+    }
+  });
+
+  document.getElementById('applyFiltersBtn').addEventListener('click', applyFilters);
+  document.getElementById('resetFiltersBtn').addEventListener('click', function(){
+    searchInput.value = '';
+    stockFilter.value = 'all';
+    vendorFilter.value = 'all';
+    applyFilters();
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+  stockFilter.addEventListener('change', applyFilters);
+  vendorFilter.addEventListener('change', applyFilters);
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cookie-action]'), function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      setSmoke('Smoke status: cookies ' + btn.getAttribute('data-cookie-action'));
+    });
+  });
+
+  confirmBtn.addEventListener('click', function(){
+    var qty = validateQty();
+    if(!qty) return;
+    var timestamp = Date.now();
+    summaryState.textContent = 'Queued for buyer approval';
+    pendingPoCount.textContent = String(parseInt(pendingPoCount.textContent,10) + 1);
+    statusBadge.textContent = 'Reorder placed';
+    statusBadge.className = 'sp-badge sp-badge--good';
+    modalQty.textContent = qty + ' units';
+    modalRef.textContent = 'PO-DRAFT-' + String(timestamp).slice(-6);
+    setSmoke('Smoke status: reordered ' + qty + ' units of WH-9921');
+    window.__scenarioSmoke = { lastAction: 'reordered ' + qty + ' units of WH-9921', updatedAt: timestamp };
+    openModal(reorderModal);
+  });
+
+  openNotesBtn.addEventListener('click', function(){ openModal(notesModal); });
+  closeModalBtn.addEventListener('click', function(){ closeModal(reorderModal); });
+  queueAnotherBtn.addEventListener('click', function(){ closeModal(reorderModal); qtyInput.focus(); });
+  closeNotesBtn.addEventListener('click', function(){ closeModal(notesModal); });
+  modalBackdrop.addEventListener('click', function(){ closeModal(reorderModal); closeModal(notesModal); });
+
+  noteText.addEventListener('input', function(){
+    var text = noteText.value.trim();
+    notePreview.innerHTML = '<strong>Preview</strong><p style="margin-top:8px" class="sp-help">' + (text ? text.replace(/[<>]/g,'') : 'No note entered.') + '</p>';
+  });
+
+  saveNoteBtn.addEventListener('click', function(){
+    summaryState.textContent = 'Internal note saved';
+    setSmoke('Smoke status: note saved for WH-9921');
+    closeModal(notesModal);
+  });
+
+  validateQty();
+  applyFilters();
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

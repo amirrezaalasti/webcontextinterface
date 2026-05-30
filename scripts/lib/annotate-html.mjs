@@ -1,9 +1,9 @@
 /**
- * Overlay data-agent-* attributes on raw HTML (same DOM tree).
+ * Overlay data-wci-* attributes on raw HTML (same DOM tree).
  */
 import { JSDOM } from 'jsdom';
 
-const AGENT_ATTR_PREFIX = 'data-agent-';
+const WCI_ATTR_PREFIX = 'data-wci-';
 
 /**
  * @typedef {Object} AnnotTarget
@@ -25,27 +25,30 @@ const AGENT_ATTR_PREFIX = 'data-agent-';
  * @property {AnnotTarget[]} [landmarks]
  */
 
-/** Collect data-agent-* attributes from an element */
-export function collectAgentAttrs(el) {
+/** Collect data-wci-* attributes from an element */
+export function collectWciAttrs(el) {
   const attrs = {};
   for (const attr of el.attributes) {
-    if (attr.name.startsWith(AGENT_ATTR_PREFIX)) {
+    if (attr.name.startsWith(WCI_ATTR_PREFIX)) {
       attrs[attr.name] = attr.value;
     }
   }
   return attrs;
 }
 
+/** @deprecated use collectWciAttrs */
+export const collectAgentAttrs = collectWciAttrs;
+
 /**
- * Parse a stub annotated.html (ghost nodes) into { nodeId, attrs } specs.
+ * Parse annotated.html into { nodeId, attrs } specs.
  */
 export function extractAnnotationSpecs(stubHtml) {
   const doc = new JSDOM(stubHtml).window.document;
   const specs = [];
-  doc.querySelectorAll('[data-agent-id]').forEach((el) => {
-    const nodeId = el.getAttribute('data-agent-id');
+  doc.querySelectorAll('[data-wci-id]').forEach((el) => {
+    const nodeId = el.getAttribute('data-wci-id');
     if (!nodeId) return;
-    specs.push({ nodeId, attrs: collectAgentAttrs(el) });
+    specs.push({ nodeId, attrs: collectWciAttrs(el) });
   });
   return specs;
 }
@@ -124,27 +127,27 @@ export function buildAnnotatedFromRaw(rawHtml, plan) {
       throw new Error(`Annotation target not found: ${target.selector} (${target.wciId})`);
     }
     const role = target.role ?? defaults.role;
-    el.setAttribute('data-agent-role', role);
-    el.setAttribute('data-agent-id', target.wciId);
-    el.setAttribute('data-agent-desc', target.desc);
-    if (target.action) el.setAttribute('data-agent-action', target.action);
-    if (target.state) el.setAttribute('data-agent-state', JSON.stringify(target.state));
-    if (target.scope) el.setAttribute('data-agent-scope', target.scope);
-    el.setAttribute('data-agent-priority', String(target.priority ?? defaults.priority));
+    el.setAttribute('data-wci-role', role);
+    el.setAttribute('data-wci-id', target.wciId);
+    el.setAttribute('data-wci-desc', target.desc);
+    if (target.action) el.setAttribute('data-wci-action', target.action);
+    if (target.state) el.setAttribute('data-wci-state', JSON.stringify(target.state));
+    if (target.scope) el.setAttribute('data-wci-scope', target.scope);
+    el.setAttribute('data-wci-priority', String(target.priority ?? defaults.priority));
   };
 
   apply(plan.pageLandmark, { role: 'landmark', priority: 2 });
   apply(plan.primary, { role: 'action', priority: 1 });
   if (!plan.primary.action) {
     const el = doc.querySelector(plan.primary.selector);
-    el?.setAttribute('data-agent-action', 'click');
-    el?.setAttribute('data-agent-state', JSON.stringify(plan.primary.state ?? { ready: true }));
+    el?.setAttribute('data-wci-action', 'click');
+    el?.setAttribute('data-wci-state', JSON.stringify(plan.primary.state ?? { ready: true }));
   }
 
   for (const d of plan.decoys ?? []) {
     apply(d, { role: 'action', priority: 5 });
     const el = doc.querySelector(d.selector);
-    el?.setAttribute('data-agent-action', d.action ?? 'click');
+    el?.setAttribute('data-wci-action', d.action ?? 'click');
   }
 
   for (const lm of plan.landmarks ?? []) {

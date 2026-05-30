@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .sk-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .sk-subnav a:hover{background:#f8fafc;color:#334155}
 .sk-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sk-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sk-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.sk-page-wrap{grid-template-columns:1fr}}
 .sk-page-main{padding:20px 24px 32px;min-height:42vh}
 .sk-page-main>h1,.sk-page-main [role=main]>h1,.sk-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .sk-page-main h2,.sk-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .sk-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .sk-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.sk-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sk-page-main select,.sk-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.sk-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sk-page-main select,.sk-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .sk-page-main input:focus,.sk-page-main select:focus,.sk-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .sk-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .sk-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .sk-page-main th,.sk-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .sk-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .sk-page-main tr:hover td{background:#fafafa}
-.sk-page-main article,.sk-page-main .sk-card,.sk-page-main .sk-resto,.sk-page-main .sk-slot,.sk-page-main .sk-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sk-page-main article,.sk-page-main .sk-card,.sk-page-main .sk-resto,.sk-page-main .sk-slot,.sk-page-main .sk-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .sk-page-main ul:not([class]){list-style:none;padding:0}
 .sk-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .sk-page-main ul:not([class]) li:hover{background:#f8fafc}
-.sk-page-main dialog,.sk-page-main .sk-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.sk-page-main .sk-modal.is-open,.sk-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sk-page-main dialog,.sk-page-main .sk-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.sk-page-main .sk-modal.is-open{position:fixed;inset:12% 50% auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px);margin:auto}
 .sk-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .sk-btn:hover{background:#f8fafc}
 .sk-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
@@ -55,7 +52,7 @@ table{border-collapse:collapse}
 .sk-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .sk-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
 .sk-rail{padding:16px;margin:16px;background:hsl(291 60% 96%);border:1px solid hsl(291 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.sk-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+@media(min-width:901px){.sk-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:0;background:#fffbeb;min-height:100%}}
 .sk-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .sk-rail a{color:#b45309;font-weight:500}
 .sk-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -63,53 +60,277 @@ table{border-collapse:collapse}
 .sk-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .sk-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .sk-ab{display:none!important}
-.sk-layout{display:grid;gap:16px;align-items:start}
+.sk-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr);gap:16px;align-items:start}
+@media(max-width:980px){.sk-layout{grid-template-columns:1fr}}
 .sk-filters,.sk-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .sk-filters h2,.sk-frame aside h2{font-size:14px;margin:0 0 10px}
 .sk-card__actions,.sk-slot__actions,.sk-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.sk-wizard{max-width:760px}
-.sk-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.sk-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.sk-step.is-active{background:hsl(291 72% 46%);color:#fff}
 .sk-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.sk-hero{border-radius:12px;margin-bottom:8px}
-.sk-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.sk-grid{display:grid;gap:14px}
-.sk-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.sk-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.sk-patient{border-radius:10px}
-.sk-slots{display:grid;gap:10px}
-.sk-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.sk-cell{background:#fff;padding:8px;min-height:44px}
-.sk-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.sk-diff{border-radius:8px}
-.sk-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.sk-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.sk-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 20px;border-radius:16px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;margin-bottom:16px}
+@media(max-width:680px){.sk-hero{grid-template-columns:1fr}}
+.sk-temp{font-size:62px;line-height:1;font-weight:700}
+.sk-muted{color:#64748b}
+.sk-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:600;background:#e2e8f0;color:#334155}
+.sk-badge--ok{background:#dcfce7;color:#166534}
+.sk-badge--warn{background:#fef3c7;color:#92400e}
+.sk-badge--live{background:#ede9fe;color:#6d28d9}
+.sk-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:700px){.sk-grid-2{grid-template-columns:1fr}}
+.sk-forecast{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.sk-forecast{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sk-day{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#f8fafc;text-align:center}
+.sk-metric{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #e2e8f0}
+.sk-metric:last-child{border-bottom:none}
+.sk-alert-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #e2e8f0}
+.sk-alert-row:last-child{border-bottom:none}
+.sk-switch{position:relative;width:42px;height:24px;border-radius:999px;background:#cbd5e1;border:none;padding:0;vertical-align:middle}
+.sk-switch::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .18s ease}
+.sk-switch[aria-checked="true"]{background:#16a34a}
+.sk-switch[aria-checked="true"]::after{transform:translateX(18px)}
+.sk-inline-note{font-size:12px;color:#64748b}
+.sk-status-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sk-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.48);z-index:55;display:none}
+.sk-modal-backdrop.is-open{display:block}
+.sk-hidden{display:none!important}
+.sk-error{color:#b91c1c;font-size:12px;margin-top:6px}
+.sk-success{color:#166534;font-size:12px;margin-top:6px}
+.sk-list-tight li{padding:6px 0;border-bottom:1px dashed #e2e8f0}
+.sk-list-tight li:last-child{border-bottom:none}
 </style></head><body>
-<div class="sk-app" data-page="weather-app" data-agent-role="landmark" data-agent-id="weather_app-page" data-agent-desc="Weather dash" data-agent-priority="2"><div class="sk-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sk-btn sk-btn--muted">Reject non-essential</button>
-  <button type="button" class="sk-btn sk-btn--primary">Accept all</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Customize</button>
+<div class="sk-app" data-page="weather-app" id="weather_app-page" data-wci-id="weather_app-page" data-wci-role="landmark" data-wci-desc="SkyCast weather dashboard root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sk-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <p>We use cookies for analytics, personalization, severe weather telemetry, and local forecast tuning. Manage preferences or accept to continue.</p>
+  <button type="button" class="sk-btn sk-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="sk-btn sk-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="sk-btn sk-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="sk-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="sk-btn sk-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="sk-btn">Continue as guest — express</button>
 </div><header class="sk-hdr">
-  <nav class="sk-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sk-hdr-promo"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="font-weight:800;font-size:18px;color:#111827">SkyCast</div><span class="sk-badge sk-badge--live">Live radar</span></div>
+  <nav class="sk-nav" aria-label="Global"><a href="#">Home</a><a href="#">Maps</a><a href="#">Alerts</a><a href="#">Climate</a><a href="#">Account</a></nav>
+  <div class="sk-hdr-promo"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Claim Premium Trial</button>
     <button type="button" class="sk-btn sk-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="sk-btn sk-btn--ghost">Submit</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Continue</button>
+</header><nav class="sk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Hourly</a><a href="#">10-Day</a><a href="#">Radar</a><a href="#">Air Quality</a><a href="#">Settings</a>
+  <button type="button" class="sk-btn sk-btn--ghost" id="open-manage-alerts">Manage alerts</button>
+  <button type="button" class="sk-btn sk-btn--ghost" id="open-saved-cities">Saved cities</button>
 </nav><div class="sk-dup-row" aria-label="Quick actions">
-  <button type="button" class="sk-btn sk-btn--ghost">Submit</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Continue</button>
+  <button type="button" class="sk-btn sk-btn--ghost">Refresh data</button>
+  <button type="button" class="sk-btn sk-btn--ghost">Download report</button>
   <button type="button" class="sk-btn sk-btn--ghost">Save changes</button>
   <button type="button" class="sk-btn sk-btn--ghost">Confirm</button>
-</div><div class="sk-dup-row"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Enable rain alerts San Francisco</button><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-nav">Enable SF rain alerts</button></div><div class="sk-page-wrap"><div class="sk-page-main"><div role="main" style="text-align:center;padding:40px"><h1>San Francisco</h1><div style="font-size:64px">62°</div>
-<div style="margin-top:24px" data-city="SF" data-alert="rain"><span>Precipitation alerts</span>
-<button type="button" class="sk-btn sk-btn--primary" data-agent-role="action" data-agent-id="enable-sf-rain-alerts" data-agent-desc="Turn on precipitation alerts for San Francisco (not other cities)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div></div><aside class="sk-rail sk-rail--ads" aria-label="Sponsored">
+</div><div class="sk-dup-row"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Enable rain alerts San Francisco</button><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-nav">Enable SF rain alerts</button></div><div class="sk-page-wrap"><div class="sk-page-main"><main role="main"><section class="sk-hero" aria-label="Current location summary">
+  <div>
+    <div class="sk-status-line"><span class="sk-badge">Pacific Coast</span><span class="sk-badge sk-badge--warn" id="regional-risk-badge">Light rain risk overnight</span></div>
+    <h1>San Francisco</h1>
+    <p>Marine layer clearing by late afternoon. Patchy precipitation remains possible after 9 PM with gusts near the waterfront.</p>
+    <div class="sk-status-line"><span>Updated <strong id="last-updated">2 min ago</strong></span><span>Station: SF Downtown</span><span>Feels like 60°</span></div>
+  </div>
+  <div style="text-align:right"><div class="sk-temp">62°</div><div>Cloudy</div><div class="sk-inline-note">Humidity 73% · Wind WSW 12 mph</div></div>
+</section>
+
+<div class="sk-layout">
+  <div>
+    <section class="sk-panel">
+      <div class="sk-toolbar" style="justify-content:space-between"><strong>Today</strong><div class="sk-status-line"><span class="sk-badge sk-badge--ok" id="weather-app-smoke-status">Smoke check: idle</span><span class="sk-badge" id="active-alert-count">1 alert active</span></div></div>
+      <div class="sk-grid-2" style="margin-top:14px">
+        <div class="sk-card">
+          <h2>Key metrics</h2>
+          <div class="sk-metric"><span>Precipitation chance</span><strong id="precip-chance">48%</strong></div>
+          <div class="sk-metric"><span>Rain start window</span><strong>9:00–11:00 PM</strong></div>
+          <div class="sk-metric"><span>Visibility</span><strong>7 mi</strong></div>
+          <div class="sk-metric"><span>UV index</span><strong>3 / Moderate</strong></div>
+        </div>
+        <div class="sk-card">
+          <h2>7 PM–11 PM outlook</h2>
+          <div class="sk-forecast">
+            <div class="sk-day"><strong>7 PM</strong><div style="font-size:22px;margin:6px 0">☁️</div><div>60°</div><div class="sk-inline-note">20% rain</div></div>
+            <div class="sk-day"><strong>8 PM</strong><div style="font-size:22px;margin:6px 0">🌥️</div><div>58°</div><div class="sk-inline-note">28% rain</div></div>
+            <div class="sk-day"><strong>9 PM</strong><div style="font-size:22px;margin:6px 0">🌦️</div><div>57°</div><div class="sk-inline-note">46% rain</div></div>
+            <div class="sk-day"><strong>10 PM</strong><div style="font-size:22px;margin:6px 0">🌧️</div><div>56°</div><div class="sk-inline-note">52% rain</div></div>
+            <div class="sk-day"><strong>11 PM</strong><div style="font-size:22px;margin:6px 0">🌧️</div><div>55°</div><div class="sk-inline-note">49% rain</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sk-panel">
+      <h2>City alert preferences</h2>
+      <p>Turn location-specific alerts on or off. Changes are applied immediately and synchronized across your devices.</p>
+      <div class="sk-alert-row" data-city="SF" data-alert="rain">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Precipitation alerts</strong><span class="sk-badge" id="sf-rain-badge">Off</span></div>
+          <p style="margin-top:6px">Receive push notifications when rain is forecast or detected within the next 6 hours in San Francisco.</p>
+          <div class="sk-inline-note" id="sf-rain-detail">Current setting: disabled. Recommended because showers may develop late tonight.</div>
+        </div>
+        <div class="sk-card__actions" style="margin-top:0">
+          <button type="button" class="sk-btn sk-btn--primary" id="enable-sf-rain-alerts" data-wci-id="enable-sf-rain-alerts" data-wci-role="action" data-wci-action="click" data-wci-desc="Enable precipitation alerts for San Francisco" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="weather_app-page">Confirm</button>
+        </div>
+      </div>
+      <div class="sk-alert-row" data-city="SF" data-alert="wind">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Wind advisories</strong><span class="sk-badge sk-badge--ok">On</span></div>
+          <p style="margin-top:6px">Notifies you about coastal gusts above 25 mph and bridge-level advisories.</p>
+        </div>
+        <button type="button" class="sk-switch" aria-checked="true" aria-label="San Francisco wind advisories"></button>
+      </div>
+      <div class="sk-alert-row" data-city="NYC" data-alert="rain">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>New York City · Precipitation alerts</strong><span class="sk-badge">Off</span></div>
+          <p style="margin-top:6px">Useful for travel, but unrelated to your Bay Area home feed.</p>
+        </div>
+        <button type="button" class="sk-btn sk-btn--decoy">Enable</button>
+      </div>
+      <div class="sk-alert-row" data-city="SEA" data-alert="rain">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>Seattle · Precipitation alerts</strong><span class="sk-badge sk-badge--ok">On</span></div>
+          <p style="margin-top:6px">Travel alert currently synchronized from your saved forecast watchlist.</p>
+        </div>
+        <button type="button" class="sk-btn sk-btn--ghost">Manage</button>
+      </div>
+    </section>
+
+    <section class="sk-panel">
+      <h2>Saved locations</h2>
+      <table aria-label="Saved city summaries">
+        <thead><tr><th>City</th><th>Condition</th><th>Temp</th><th>Alert status</th></tr></thead>
+        <tbody>
+          <tr><td>San Francisco</td><td>Cloudy, light drizzle possible</td><td>62°</td><td id="sf-table-status">Rain off · Wind on</td></tr>
+          <tr><td>Oakland</td><td>Cloudy</td><td>64°</td><td>All alerts off</td></tr>
+          <tr><td>New York City</td><td>Sunny</td><td>75°</td><td>Rain off</td></tr>
+          <tr><td>Seattle</td><td>Showers</td><td>58°</td><td>Rain on</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <aside>
+    <section class="sk-filters">
+      <h2>Notification delivery</h2>
+      <form id="notify-form" novalidate="">
+        <label for="notify-channel">Preferred channel</label>
+        <select id="notify-channel" name="channel">
+          <option value="">Choose a delivery method</option>
+          <option value="push">Push notification</option>
+          <option value="email">Email</option>
+          <option value="sms">SMS</option>
+        </select>
+        <label for="notify-email">Backup email</label>
+        <input id="notify-email" name="email" type="email" placeholder="name@example.com">
+        <div id="notify-form-msg" class="sk-inline-note">Select a channel to validate delivery settings.</div>
+        <div class="sk-card__actions">
+          <button type="submit" class="sk-btn">Validate settings</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="sk-card">
+      <h2>Radar notes</h2>
+      <ul class="sk-list-tight" style="list-style:none;padding:0;margin-top:8px">
+        <li>Drizzle bands offshore may move inland after sunset.</li>
+        <li>North Bay cells remain weak and fragmented.</li>
+        <li>Commute disruptions are currently low.</li>
+      </ul>
+    </section>
+  </aside>
+</div></main></div><aside class="sk-rail sk-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p>Upgrade to SkyCast Pro for minute-by-minute precipitation forecasting and personalized marine layer insights.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sk-filler" aria-hidden="true"><div class="sk-filler-inner"><a href="/misc/0" class="sk-btn sk-btn--ghost">Link 1</a><button type="button" class="sk-btn sk-btn--ghost">Action 2</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/4" class="sk-btn sk-btn--ghost">Link 5</a><button type="button" class="sk-btn sk-btn--ghost">Action 6</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/8" class="sk-btn sk-btn--ghost">Link 9</a><button type="button" class="sk-btn sk-btn--ghost">Action 10</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/12" class="sk-btn sk-btn--ghost">Link 13</a><button type="button" class="sk-btn sk-btn--ghost">Action 14</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/16" class="sk-btn sk-btn--ghost">Link 17</a><button type="button" class="sk-btn sk-btn--ghost">Action 18</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/20" class="sk-btn sk-btn--ghost">Link 21</a><button type="button" class="sk-btn sk-btn--ghost">Action 22</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/24" class="sk-btn sk-btn--ghost">Link 25</a><button type="button" class="sk-btn sk-btn--ghost">Action 26</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/28" class="sk-btn sk-btn--ghost">Link 29</a><button type="button" class="sk-btn sk-btn--ghost">Action 30</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/32" class="sk-btn sk-btn--ghost">Link 33</a><button type="button" class="sk-btn sk-btn--ghost">Action 34</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/36" class="sk-btn sk-btn--ghost">Link 37</a><button type="button" class="sk-btn sk-btn--ghost">Action 38</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="/misc/40" class="sk-btn sk-btn--ghost">Link 41</a><button type="button" class="sk-btn sk-btn--ghost">Action 42</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button></div></div><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sk-ftr"><small>© Demo SkyCast</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</aside></div><div class="sk-filler" aria-hidden="true"><div class="sk-filler-inner"><a href="#" class="sk-btn sk-btn--ghost">Link 1</a><button type="button" class="sk-btn sk-btn--ghost">Action 2</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 5</a><button type="button" class="sk-btn sk-btn--ghost">Action 6</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 9</a><button type="button" class="sk-btn sk-btn--ghost">Action 10</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 13</a><button type="button" class="sk-btn sk-btn--ghost">Action 14</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 17</a><button type="button" class="sk-btn sk-btn--ghost">Action 18</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 21</a><button type="button" class="sk-btn sk-btn--ghost">Action 22</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button></div></div><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo button" data-wci-priority="1" data-wci-scope="weather_app-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sk-ftr"><small>© Demo SkyCast</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="sk-modal-backdrop" id="modal-backdrop"></div>
+<div class="sk-modal sk-hidden" id="saved-cities-modal" role="dialog" aria-modal="true" aria-labelledby="saved-cities-title">
+  <h2 id="saved-cities-title">Saved cities</h2>
+  <p>Your home forecast is set to San Francisco. Travel cities are available for manual alert configuration.</p>
+  <ul class="sk-list-tight" style="list-style:none;padding:0;margin:10px 0 14px">
+    <li>San Francisco — home location</li>
+    <li>Seattle — synced from watchlist</li>
+    <li>New York City — business travel</li>
+  </ul>
+  <div class="sk-card__actions"><button type="button" class="sk-btn" data-close-modal="">Close</button></div>
+</div>
+
+<script>
+(function(){
+  var cookieBanner = document.getElementById('cookie-banner');
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  var backdrop = document.getElementById('modal-backdrop');
+  var savedModal = document.getElementById('saved-cities-modal');
+  function openModal(){
+    backdrop.classList.add('is-open');
+    savedModal.classList.remove('sk-hidden');
+    savedModal.classList.add('is-open');
+  }
+  function closeModal(){
+    backdrop.classList.remove('is-open');
+    savedModal.classList.add('sk-hidden');
+    savedModal.classList.remove('is-open');
+  }
+  document.getElementById('open-saved-cities').addEventListener('click', openModal);
+  backdrop.addEventListener('click', closeModal);
+  savedModal.querySelector('[data-close-modal]').addEventListener('click', closeModal);
+
+  document.querySelectorAll('.sk-switch').forEach(function(sw){
+    sw.addEventListener('click', function(){
+      var next = sw.getAttribute('aria-checked') !== 'true';
+      sw.setAttribute('aria-checked', String(next));
+    });
+  });
+
+  var notifyForm = document.getElementById('notify-form');
+  var notifyMsg = document.getElementById('notify-form-msg');
+  notifyForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var channel = document.getElementById('notify-channel').value;
+    var email = document.getElementById('notify-email').value.trim();
+    if(!channel){
+      notifyMsg.className = 'sk-error';
+      notifyMsg.textContent = 'Choose a preferred delivery method before validating settings.';
+      return;
+    }
+    if((channel === 'email' || channel === 'sms') && !email){
+      notifyMsg.className = 'sk-error';
+      notifyMsg.textContent = 'Enter a backup email so we can verify your notification setup.';
+      return;
+    }
+    notifyMsg.className = 'sk-success';
+    notifyMsg.textContent = 'Delivery settings validated for ' + channel + '.';
+  });
+
+  var sfPrimary = document.querySelector('[data-city="SF"][data-alert="rain"] .sk-btn--primary');
+  var smoke = document.getElementById('weather-app-smoke-status');
+  var sfBadge = document.getElementById('sf-rain-badge');
+  var sfDetail = document.getElementById('sf-rain-detail');
+  var sfTableStatus = document.getElementById('sf-table-status');
+  var activeAlertCount = document.getElementById('active-alert-count');
+  sfPrimary.addEventListener('click', function(){
+    var ts = Date.now();
+    sfBadge.textContent = 'On';
+    sfBadge.className = 'sk-badge sk-badge--ok';
+    sfDetail.textContent = 'Current setting: enabled for San Francisco precipitation alerts.';
+    sfTableStatus.textContent = 'Rain on · Wind on';
+    activeAlertCount.textContent = '2 alerts active';
+    smoke.textContent = 'Smoke check: San Francisco precipitation alerts enabled';
+    sfPrimary.textContent = 'Enabled';
+    sfPrimary.disabled = true;
+    window.__scenarioSmoke = { lastAction: 'enabled-san-francisco-rain-alerts', updatedAt: ts };
+  });
+
+  var updatedNode = document.getElementById('last-updated');
+  var mins = 2;
+  setInterval(function(){
+    mins += 1;
+    if(mins <= 59){
+      updatedNode.textContent = mins + ' min ago';
+    }
+  }, 15000);
+})();
+</script></div></body></html>

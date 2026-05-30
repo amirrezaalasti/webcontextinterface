@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>PostBrief</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>PostBrief — AI Weekly Digest</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .pb-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .pb-subnav a:hover{background:#f8fafc;color:#334155}
 .pb-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.pb-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.pb-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.pb-page-wrap{grid-template-columns:1fr}}
 .pb-page-main{padding:20px 24px 32px;min-height:42vh}
 .pb-page-main>h1,.pb-page-main [role=main]>h1,.pb-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .pb-page-main h2,.pb-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .pb-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .pb-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.pb-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pb-page-main select,.pb-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.pb-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pb-page-main select,.pb-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .pb-page-main input:focus,.pb-page-main select:focus,.pb-page-main textarea:focus{outline:2px solid hsl(199 72% 46%);outline-offset:1px;border-color:hsl(199 72% 46%)}
 .pb-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .pb-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .pb-page-main th,.pb-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .pb-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .pb-page-main tr:hover td{background:#fafafa}
-.pb-page-main article,.pb-page-main .pb-card,.pb-page-main .pb-resto,.pb-page-main .pb-slot,.pb-page-main .pb-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.pb-page-main article,.pb-page-main .pb-card,.pb-page-main .pb-resto,.pb-page-main .pb-slot,.pb-page-main .pb-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .pb-page-main ul:not([class]){list-style:none;padding:0}
 .pb-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .pb-page-main ul:not([class]) li:hover{background:#f8fafc}
-.pb-page-main dialog,.pb-page-main .pb-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.pb-page-main .pb-modal.is-open,.pb-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.pb-page-main dialog,.pb-page-main .pb-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.pb-page-main .pb-modal.is-open,.pb-page-main [role=dialog]{position:fixed;inset:12% 20%;z-index:60;max-width:560px;margin:auto}
 .pb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .pb-btn:hover{background:#f8fafc}
 .pb-btn--primary{background:hsl(199 72% 46%);color:#fff;border-color:hsl(199 72% 38%)}
@@ -72,7 +69,7 @@ table{border-collapse:collapse}
 .pb-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .pb-step.is-active{background:hsl(199 72% 46%);color:#fff}
 .pb-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.pb-hero{border-radius:12px;margin-bottom:8px}
+.pb-hero{border-radius:12px;margin-bottom:8px;background:linear-gradient(145deg,#0f172a,#1e3a5f);color:#fff;padding:24px}
 .pb-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .pb-grid{display:grid;gap:14px}
 .pb-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
@@ -84,20 +81,45 @@ table{border-collapse:collapse}
 .pb-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .pb-diff{border-radius:8px}
 .pb-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.pb-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+@media(max-width:700px){.pb-kpis{grid-template-columns:1fr}}
+.pb-kpi{padding:14px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.pb-kpi strong{display:block;font-size:18px;color:#fff}
+.pb-kpi span{font-size:12px;color:#cbd5e1}
+.pb-form-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:18px;align-items:start}
+@media(max-width:850px){.pb-form-grid{grid-template-columns:1fr}}
+.pb-note{font-size:12px;color:#64748b}
+.pb-status{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;background:#e2e8f0;color:#334155}
+.pb-status.is-ready{background:#dbeafe;color:#1d4ed8}
+.pb-status.is-valid{background:#dcfce7;color:#166534}
+.pb-status.is-error{background:#fee2e2;color:#b91c1c}
+.pb-inline-error{min-height:18px;font-size:12px;color:#b91c1c;margin-top:6px}
+.pb-inline-success{min-height:18px;font-size:12px;color:#166534;margin-top:6px}
+.pb-preview{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px}
+.pb-preview-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-top:10px}
+.pb-list-tight li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #eef2f7}
+.pb-list-tight li:last-child{border-bottom:none}
+.pb-chip{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:11px;font-weight:600}
+.pb-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:55;display:none}
+.pb-overlay.is-open{display:block}
+.pb-modal[hidden]{display:none}
+.pb-modal .pb-card__actions{justify-content:flex-end}
+.pb-muted-box{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:12px}
+.pb-counter{font-variant-numeric:tabular-nums}
 </style></head><body>
-<div class="pb-app" data-page="newsletter-sub"><div class="pb-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="pb-app" data-page="newsletter-sub" id="newsletter_sub-page"><div class="pb-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pb-btn pb-btn--muted">Reject non-essential</button>
-  <button type="button" class="pb-btn pb-btn--primary">Accept all</button>
-  <button type="button" class="pb-btn pb-btn--ghost">Customize</button>
+  <button type="button" class="pb-btn pb-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="pb-btn pb-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="pb-btn pb-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="pb-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="pb-btn pb-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="pb-btn">Continue as guest — express</button>
 </div><header class="pb-hdr">
-  <nav class="pb-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <nav class="pb-nav" aria-label="Global"><a href="#top">Home</a><a href="#faq">Help</a><a href="#archive">Blog</a><a href="#preferences">Account</a></nav>
   <div class="pb-hdr-promo"><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="pb-btn pb-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="pb-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="pb-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#issues">Recent issues</a><a href="#faq">FAQ</a><a href="#preferences">Preferences</a><a href="#archive">Archive</a>
   <button type="button" class="pb-btn pb-btn--ghost">Submit</button>
   <button type="button" class="pb-btn pb-btn--ghost">Continue</button>
 </nav><div class="pb-dup-row" aria-label="Quick actions">
@@ -105,12 +127,259 @@ table{border-collapse:collapse}
   <button type="button" class="pb-btn pb-btn--ghost">Continue</button>
   <button type="button" class="pb-btn pb-btn--ghost">Save changes</button>
   <button type="button" class="pb-btn pb-btn--ghost">Confirm</button>
-</div><div class="pb-dup-row"><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-promo">Subscribe AI digest</button><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-nav">Subscribe weekly AI digest</button></div><div class="pb-page-wrap"><div class="pb-page-main"><div role="main" style="min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#18181b;color:#fff">
-<h1>AI Weekly Digest</h1><input type="email" placeholder="email" />
-<button type="button" class="pb-btn pb-btn--primary" data-newsletter="ai-digest">Confirm</button>
-<button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-promo">Read sample</button></div></div><aside class="pb-rail pb-rail--ads" aria-label="Sponsored">
+</div><div class="pb-dup-row"><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-promo">Subscribe AI digest</button><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-nav">Subscribe weekly AI digest</button></div><div class="pb-page-wrap"><div class="pb-page-main"><main role="main">
+  <section class="pb-hero" id="overview">
+    <div class="pb-chip">Weekly editorial newsletter</div>
+    <h1>AI Weekly Digest</h1>
+    <p>Get one concise briefing every Friday with the most important AI launches, research notes, policy moves, and practical workflows curated by the PostBrief team.</p>
+    <div class="pb-kpis" aria-label="Newsletter metrics">
+      <div class="pb-kpi"><strong class="pb-counter" id="subscriberCount">42,318</strong><span>active readers</span></div>
+      <div class="pb-kpi"><strong>5 min</strong><span>average read time</span></div>
+      <div class="pb-kpi"><strong>Every Fri</strong><span>delivered at 8:00 AM ET</span></div>
+    </div>
+  </section>
+
+  <div class="pb-steps" aria-label="Subscription progress">
+    <div class="pb-step is-active">1. Enter email</div>
+    <div class="pb-step">2. Choose topics</div>
+    <div class="pb-step">3. Confirm</div>
+  </div>
+
+  <section class="pb-panel pb-wizard">
+    <div class="pb-form-grid">
+      <form id="newsletterForm" novalidate>
+        <h2>Subscribe to the weekly AI digest</h2>
+        <p>We’ll send the weekly digest only. No sample issue signup, no daily promo blasts, and you can update your topic preferences anytime.</p>
+
+        <label for="emailInput">Work or personal email</label>
+        <input id="emailInput" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="emailHelp emailError"/>
+        <div id="emailHelp" class="pb-note">Use a valid email address to receive the next Friday issue.</div>
+        <div id="emailError" class="pb-inline-error" aria-live="polite"></div>
+
+        <fieldset id="preferences">
+          <legend>Reader preferences</legend>
+          <label><input type="checkbox" name="topics" value="research" checked/> Research breakthroughs</label>
+          <label><input type="checkbox" name="topics" value="tools" checked/> Tooling and product launches</label>
+          <label><input type="checkbox" name="topics" value="policy"/> Policy and regulation</label>
+          <label><input type="checkbox" name="topics" value="workflows" checked/> Practical workflows</label>
+        </fieldset>
+
+        <label for="roleSelect">Primary role</label>
+        <select id="roleSelect" name="role" aria-describedby="roleHelp">
+          <option value="">Select one</option>
+          <option>Operator / founder</option>
+          <option>Engineer</option>
+          <option>Product manager</option>
+          <option>Researcher</option>
+          <option>Student</option>
+          <option>Other</option>
+        </select>
+        <div id="roleHelp" class="pb-note">Optional, used to tailor examples in future issues.</div>
+
+        <label><input id="consentInput" type="checkbox"/> I agree to receive the PostBrief AI Weekly Digest and understand I can unsubscribe any time.</label>
+        <div id="consentError" class="pb-inline-error" aria-live="polite"></div>
+
+        <div class="pb-card__actions">
+          <button type="button" class="pb-btn pb-btn--ghost" id="previewToggle">Preview upcoming issue topics</button>
+          <button type="button" class="pb-btn pb-btn--primary" data-newsletter="ai-digest" id="subscribe-ai-digest" disabled>Subscribe to AI Weekly Digest</button>
+        </div>
+        <div id="successMessage" class="pb-inline-success" aria-live="polite"></div>
+        <p class="pb-note">You are subscribing to the newsletter itself, not requesting a sample issue.</p>
+      </form>
+
+      <aside class="pb-preview" aria-label="Live subscription preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <h3 style="margin:0">Subscription status</h3>
+          <span class="pb-status is-ready" id="formBadge">Awaiting valid details</span>
+        </div>
+        <p id="newsletter-sub-smoke-status">Smoke status: idle</p>
+        <div class="pb-preview-card">
+          <strong>Delivery preview</strong>
+          <ul class="pb-list-tight" style="list-style:none;margin-top:10px;padding:0">
+            <li><span>Email</span><strong id="previewEmail">—</strong></li>
+            <li><span>Role</span><strong id="previewRole">Not selected</strong></li>
+            <li><span>Topics selected</span><strong id="topicCount">3</strong></li>
+            <li><span>Next send</span><strong>Friday, 8:00 AM ET</strong></li>
+          </ul>
+        </div>
+        <div class="pb-muted-box" id="previewPanel" hidden>
+          <strong>Upcoming digest sections</strong>
+          <ul style="margin-top:8px">
+            <li>Model releases worth tracking</li>
+            <li>One workflow the team actually used</li>
+            <li>Policy movement in the US and EU</li>
+            <li>Three links to save for later</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="pb-grid" id="issues" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px">
+    <article>
+      <h3>What readers get</h3>
+      <p>A weekly roundup that filters hype from signal, with concise takeaways and practical context for busy teams.</p>
+      <ul>
+        <li>Top stories summarized in plain English</li>
+        <li>Why each update matters</li>
+        <li>Links to original sources</li>
+      </ul>
+    </article>
+    <article id="archive">
+      <h3>Recent topics covered</h3>
+      <table>
+        <thead><tr><th>Week</th><th>Coverage</th></tr></thead>
+        <tbody>
+          <tr><td>May 17</td><td>Multimodal assistants, enterprise rollouts, and eval best practices</td></tr>
+          <tr><td>May 10</td><td>Open-weight releases, inference pricing, and AI browser agents</td></tr>
+          <tr><td>May 03</td><td>Research benchmarks, safety updates, and prompt workflow design</td></tr>
+        </tbody>
+      </table>
+    </article>
+    <article id="faq">
+      <h3>FAQ</h3>
+      <p><strong>How often do you send?</strong><br/>Once a week.</p>
+      <p><strong>Is this the sample issue?</strong><br/>No. This form subscribes you to the recurring newsletter.</p>
+      <p><strong>Can I unsubscribe?</strong><br/>Yes, from any email footer.</p>
+    </article>
+  </section>
+</main></div><aside class="pb-rail pb-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Compare AI note-taking tools used by product and research teams.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pb-filler" aria-hidden="true"><div class="pb-filler-inner"><a href="/misc/0" class="pb-btn pb-btn--ghost">Link 1</a><button type="button" class="pb-btn pb-btn--ghost">Action 2</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/4" class="pb-btn pb-btn--ghost">Link 5</a><button type="button" class="pb-btn pb-btn--ghost">Action 6</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/8" class="pb-btn pb-btn--ghost">Link 9</a><button type="button" class="pb-btn pb-btn--ghost">Action 10</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/12" class="pb-btn pb-btn--ghost">Link 13</a><button type="button" class="pb-btn pb-btn--ghost">Action 14</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/16" class="pb-btn pb-btn--ghost">Link 17</a><button type="button" class="pb-btn pb-btn--ghost">Action 18</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/20" class="pb-btn pb-btn--ghost">Link 21</a><button type="button" class="pb-btn pb-btn--ghost">Action 22</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/24" class="pb-btn pb-btn--ghost">Link 25</a><button type="button" class="pb-btn pb-btn--ghost">Action 26</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/28" class="pb-btn pb-btn--ghost">Link 29</a><button type="button" class="pb-btn pb-btn--ghost">Action 30</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/32" class="pb-btn pb-btn--ghost">Link 33</a><button type="button" class="pb-btn pb-btn--ghost">Action 34</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/36" class="pb-btn pb-btn--ghost">Link 37</a><button type="button" class="pb-btn pb-btn--ghost">Action 38</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/40" class="pb-btn pb-btn--ghost">Link 41</a><button type="button" class="pb-btn pb-btn--ghost">Action 42</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button></div></div><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pb-ftr"><small>© Demo PostBrief</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <div class="pb-card" style="margin-top:14px">
+    <h3 style="margin-top:0">Reader notes</h3>
+    <p>Join thousands of operators, engineers, and researchers reading PostBrief every week.</p>
+    <button type="button" class="pb-btn pb-btn--ghost" id="openWhyModal">Why subscribe?</button>
+  </div>
+</aside></div><div class="pb-filler" aria-hidden="true"><div class="pb-filler-inner"><a href="/misc/0" class="pb-btn pb-btn--ghost">Link 1</a><button type="button" class="pb-btn pb-btn--ghost">Action 2</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/4" class="pb-btn pb-btn--ghost">Link 5</a><button type="button" class="pb-btn pb-btn--ghost">Action 6</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/8" class="pb-btn pb-btn--ghost">Link 9</a><button type="button" class="pb-btn pb-btn--ghost">Action 10</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/12" class="pb-btn pb-btn--ghost">Link 13</a><button type="button" class="pb-btn pb-btn--ghost">Action 14</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/16" class="pb-btn pb-btn--ghost">Link 17</a><button type="button" class="pb-btn pb-btn--ghost">Action 18</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/20" class="pb-btn pb-btn--ghost">Link 21</a><button type="button" class="pb-btn pb-btn--ghost">Action 22</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/24" class="pb-btn pb-btn--ghost">Link 25</a><button type="button" class="pb-btn pb-btn--ghost">Action 26</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/28" class="pb-btn pb-btn--ghost">Link 29</a><button type="button" class="pb-btn pb-btn--ghost">Action 30</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/32" class="pb-btn pb-btn--ghost">Link 33</a><button type="button" class="pb-btn pb-btn--ghost">Action 34</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/36" class="pb-btn pb-btn--ghost">Link 37</a><button type="button" class="pb-btn pb-btn--ghost">Action 38</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button><a href="/misc/40" class="pb-btn pb-btn--ghost">Link 41</a><button type="button" class="pb-btn pb-btn--ghost">Action 42</button><button type="button" class="pb-btn pb-btn--ghost">Submit</button><button type="button" class="pb-btn pb-btn--ghost">Continue</button></div></div><button type="button" class="pb-btn pb-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pb-ftr"><small>© Demo PostBrief</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+
+<div class="pb-overlay" id="modalOverlay"></div>
+<div class="pb-modal" id="whyModal" role="dialog" aria-modal="true" aria-labelledby="whyModalTitle" hidden>
+  <h2 id="whyModalTitle" style="margin-top:0">Why readers stay subscribed</h2>
+  <p>PostBrief focuses on curation over volume. Every issue is edited for clarity, with direct links and short explanations that make AI news easier to act on.</p>
+  <div class="pb-card__actions">
+    <button type="button" class="pb-btn pb-btn--ghost" id="closeWhyModal">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var emailInput = document.getElementById('emailInput');
+  var roleSelect = document.getElementById('roleSelect');
+  var consentInput = document.getElementById('consentInput');
+  var subscribeBtn = document.querySelector('button[data-newsletter="ai-digest"]');
+  var emailError = document.getElementById('emailError');
+  var consentError = document.getElementById('consentError');
+  var successMessage = document.getElementById('successMessage');
+  var previewEmail = document.getElementById('previewEmail');
+  var previewRole = document.getElementById('previewRole');
+  var topicCount = document.getElementById('topicCount');
+  var formBadge = document.getElementById('formBadge');
+  var smokeStatus = document.getElementById('newsletter-sub-smoke-status');
+  var previewToggle = document.getElementById('previewToggle');
+  var previewPanel = document.getElementById('previewPanel');
+  var subscriberCount = document.getElementById('subscriberCount');
+  var checkboxes = Array.prototype.slice.call(document.querySelectorAll('input[name="topics"]'));
+  var cookieBanner = document.getElementById('cookieBanner');
+  var whyModal = document.getElementById('whyModal');
+  var overlay = document.getElementById('modalOverlay');
+  var openWhyModal = document.getElementById('openWhyModal');
+  var closeWhyModal = document.getElementById('closeWhyModal');
+
+  function validEmail(value){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  }
+
+  function updateTopicCount(){
+    var count = checkboxes.filter(function(box){ return box.checked; }).length;
+    topicCount.textContent = String(count);
+    return count;
+  }
+
+  function updatePreview(){
+    previewEmail.textContent = emailInput.value.trim() || '—';
+    previewRole.textContent = roleSelect.value || 'Not selected';
+    updateTopicCount();
+  }
+
+  function validateForm(){
+    var emailOk = validEmail(emailInput.value);
+    var consentOk = consentInput.checked;
+    emailError.textContent = emailOk || !emailInput.value ? '' : 'Enter a valid email address.';
+    consentError.textContent = consentOk ? '' : 'You must agree before subscribing.';
+
+    if(emailOk && consentOk){
+      subscribeBtn.disabled = false;
+      formBadge.textContent = 'Ready to subscribe';
+      formBadge.className = 'pb-status is-valid';
+    } else if(emailInput.value || consentInput.checked){
+      subscribeBtn.disabled = true;
+      formBadge.textContent = 'Needs attention';
+      formBadge.className = 'pb-status is-error';
+    } else {
+      subscribeBtn.disabled = true;
+      formBadge.textContent = 'Awaiting valid details';
+      formBadge.className = 'pb-status is-ready';
+    }
+    return emailOk && consentOk;
+  }
+
+  function openModal(){
+    whyModal.hidden = false;
+    overlay.classList.add('is-open');
+  }
+
+  function closeModal(){
+    whyModal.hidden = true;
+    overlay.classList.remove('is-open');
+  }
+
+  emailInput.addEventListener('input', function(){ updatePreview(); validateForm(); successMessage.textContent=''; });
+  roleSelect.addEventListener('change', function(){ updatePreview(); });
+  consentInput.addEventListener('change', function(){ validateForm(); successMessage.textContent=''; });
+  checkboxes.forEach(function(box){ box.addEventListener('change', updatePreview); });
+
+  previewToggle.addEventListener('click', function(){
+    previewPanel.hidden = !previewPanel.hidden;
+    previewToggle.textContent = previewPanel.hidden ? 'Preview upcoming issue topics' : 'Hide upcoming issue topics';
+  });
+
+  subscribeBtn.addEventListener('click', function(){
+    var ok = validateForm();
+    var ts = Date.now();
+    if(!ok){
+      smokeStatus.textContent = 'Smoke status: validation blocked subscribe attempt';
+      window.__scenarioSmoke = { lastAction: 'blocked-invalid-subscribe', updatedAt: ts };
+      return;
+    }
+    var current = parseInt(String(subscriberCount.textContent).replace(/,/g,''),10) || 42318;
+    subscriberCount.textContent = (current + 1).toLocaleString();
+    successMessage.textContent = 'You are subscribed to the PostBrief AI Weekly Digest.';
+    smokeStatus.textContent = 'Smoke status: subscribed to AI Weekly Digest for ' + emailInput.value.trim();
+    window.__scenarioSmoke = { lastAction: 'subscribed-ai-digest', updatedAt: ts };
+    formBadge.textContent = 'Subscribed';
+    formBadge.className = 'pb-status is-valid';
+    subscribeBtn.disabled = true;
+    subscribeBtn.textContent = 'Subscribed';
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-cookie]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  openWhyModal.addEventListener('click', openModal);
+  closeWhyModal.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  updatePreview();
+  validateForm();
+  window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script>
+</div></body></html>

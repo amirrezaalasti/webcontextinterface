@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DevConsole</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DevConsole — API Keys</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -7,27 +7,28 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
-
+body{background:#f1f5f9}
 .dc-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .dc-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .dc-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.dc-brand{display:flex;align-items:center;gap:12px}
+.dc-logo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#22c55e,#0f172a);display:grid;place-items:center;color:#fff;font-weight:700}
 .dc-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .dc-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
-.dc-nav a:hover{background:#f1f5f9;color:#0f172a}
+.dc-nav a:hover,.dc-nav a[aria-current="page"]{background:#f1f5f9;color:#0f172a}
 .dc-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .dc-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
 .dc-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .dc-subnav a:hover{background:#f8fafc;color:#334155}
 .dc-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.dc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
-@media(max-width:900px){.dc-page-wrap{grid-template-columns:1fr}}
+.dc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:980px){.dc-page-wrap{grid-template-columns:1fr}}
 .dc-page-main{padding:20px 24px 32px;min-height:42vh}
 .dc-page-main>h1,.dc-page-main [role=main]>h1,.dc-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .dc-page-main h2,.dc-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.dc-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.dc-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .dc-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.dc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.dc-page-main select,.dc-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.dc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.dc-page-main select,.dc-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .dc-page-main input:focus,.dc-page-main select:focus,.dc-page-main textarea:focus{outline:2px solid hsl(142 72% 46%);outline-offset:1px;border-color:hsl(142 72% 46%)}
 .dc-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .dc-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,18 +36,18 @@ table{border-collapse:collapse}
 .dc-page-main th,.dc-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .dc-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .dc-page-main tr:hover td{background:#fafafa}
-.dc-page-main article,.dc-page-main .dc-card,.dc-page-main .dc-resto,.dc-page-main .dc-slot,.dc-page-main .dc-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.dc-page-main article,.dc-page-main .dc-card,.dc-page-main .dc-resto,.dc-page-main .dc-slot,.dc-page-main .dc-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .dc-page-main ul:not([class]){list-style:none;padding:0}
 .dc-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .dc-page-main ul:not([class]) li:hover{background:#f8fafc}
-.dc-page-main dialog,.dc-page-main .dc-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.dc-page-main .dc-modal.is-open,.dc-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.dc-page-main dialog,.dc-page-main .dc-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.dc-page-main .dc-modal.is-open,.dc-page-main [role=dialog]{position:fixed;inset:12% 25%;z-index:60;max-width:560px;margin:auto}
+.dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .08s}
 .dc-btn:hover{background:#f8fafc}
+.dc-btn:active{transform:translateY(1px)}
 .dc-btn--primary{background:hsl(142 72% 46%);color:#fff;border-color:hsl(142 72% 38%)}
 .dc-btn--primary:hover{filter:brightness(1.05)}
+.dc-btn--danger{background:#dc2626;border-color:#b91c1c;color:#fff}
 .dc-btn--ghost{background:transparent;border-color:transparent;color:#475569}
 .dc-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
 .dc-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
@@ -55,7 +56,7 @@ table{border-collapse:collapse}
 .dc-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .dc-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
 .dc-rail{padding:16px;margin:16px;background:hsl(142 60% 96%);border:1px solid hsl(142 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.dc-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+@media(min-width:981px){.dc-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .dc-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .dc-rail a{color:#b45309;font-weight:500}
 .dc-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -63,38 +64,51 @@ table{border-collapse:collapse}
 .dc-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .dc-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .dc-ab{display:none!important}
-.dc-layout{display:grid;gap:16px;align-items:start}
+.dc-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:900px){.dc-layout{grid-template-columns:1fr}}
 .dc-filters,.dc-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .dc-filters h2,.dc-frame aside h2{font-size:14px;margin:0 0 10px}
 .dc-card__actions,.dc-slot__actions,.dc-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.dc-wizard{max-width:760px}
-.dc-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.dc-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.dc-step.is-active{background:hsl(142 72% 46%);color:#fff}
-.dc-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.dc-hero{border-radius:12px;margin-bottom:8px}
-.dc-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.dc-grid{display:grid;gap:14px}
-.dc-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.dc-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.dc-patient{border-radius:10px}
-.dc-slots{display:grid;gap:10px}
-.dc-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.dc-cell{background:#fff;padding:8px;min-height:44px}
-.dc-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.dc-diff{border-radius:8px}
-.dc-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.dc-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.dc-sidebar{background:#0f172a;color:#cbd5e1;padding:16px;border-radius:12px;min-height:100%}
+.dc-sidebar a{display:block;color:#cbd5e1;text-decoration:none;padding:8px 10px;border-radius:8px;margin-bottom:6px}
+.dc-sidebar a:hover,.dc-sidebar a[aria-current="page"]{background:#1e293b;color:#fff}
+.dc-breadcrumbs{display:flex;gap:8px;flex-wrap:wrap;color:#64748b;font-size:12px;margin-bottom:10px}
+.dc-breadcrumbs span::after{content:"/";margin-left:8px;color:#94a3b8}
+.dc-breadcrumbs span:last-child::after{content:"";margin:0}
+.dc-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px;background:linear-gradient(135deg,#ecfdf5,#f8fafc);border:1px solid #d1fae5;border-radius:12px;margin-bottom:14px}
+.dc-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 16px}
+@media(max-width:700px){.dc-kpis{grid-template-columns:1fr}}
+.dc-kpi{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#fff}
+.dc-kpi .v{font-size:20px;font-weight:700;color:#0f172a}
+.dc-kpi .l{font-size:12px;color:#64748b}
+.dc-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.dc-badge--ok{background:#dcfce7;color:#166534}
+.dc-badge--warn{background:#fef3c7;color:#92400e}
+.dc-badge--danger{background:#fee2e2;color:#991b1b}
+.dc-statusline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
+.dc-help{font-size:12px;color:#64748b}
+.dc-note{font-size:12px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px}
+.dc-muted{color:#64748b}
+.dc-secret{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0f172a;color:#e2e8f0;padding:4px 6px;border-radius:6px;display:inline-block}
+.dc-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dc-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
+.dc-overlay.is-open{display:block}
+.dc-modal h3{margin-top:0}
+.dc-modal__actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
+.dc-callout{border-left:4px solid #22c55e;padding:12px 14px;background:#f0fdf4;border-radius:8px;margin:12px 0}
 </style></head><body>
-<div class="dc-app" data-page="api-keys"><div class="dc-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="dc-app" data-page="api-keys" id="api_keys-page"><div class="dc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="dc-btn dc-btn--muted">Reject non-essential</button>
-  <button type="button" class="dc-btn dc-btn--primary">Accept all</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Customize</button>
+  <button type="button" class="dc-btn dc-btn--muted" id="cookie-reject">Reject non-essential</button>
+  <button type="button" class="dc-btn dc-btn--primary" id="cookie-accept">Accept all</button>
+  <button type="button" class="dc-btn dc-btn--ghost" id="cookie-customize">Customize</button>
 </div><div class="dc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="dc-btn dc-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="dc-btn">Continue as guest — express</button>
 </div><header class="dc-hdr">
-  <nav class="dc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="dc-brand"><div class="dc-logo" aria-hidden="true">D</div><div><strong>DevConsole</strong><div class="dc-help">Workspace: Acme Platform</div></div></div>
+  <nav class="dc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="#" aria-current="page">Developer</a></nav>
   <div class="dc-hdr-promo"><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="dc-btn dc-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
 </header><nav class="dc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
@@ -105,13 +119,259 @@ table{border-collapse:collapse}
   <button type="button" class="dc-btn dc-btn--ghost">Continue</button>
   <button type="button" class="dc-btn dc-btn--ghost">Save changes</button>
   <button type="button" class="dc-btn dc-btn--ghost">Confirm</button>
-</div><div class="dc-dup-row"><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate production API key</button><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate prod key</button></div><div class="dc-page-wrap"><div class="dc-page-main"><div style="display:grid;grid-template-columns:180px 1fr;min-height:50vh"><nav style="background:#0f172a;color:#94a3b8;padding:12px"><a href="/keys">Keys</a></nav>
-<main role="main"><table style="width:100%"><tr><th>Name</th><th></th></tr>
-<tr><td>Staging</td><td><button type="button" class="dc-btn dc-btn--ghost">Reveal</button></td></tr>
-<tr data-key="production"><td>Production</td><td><button type="button" class="dc-btn dc-btn--primary" data-rotate="production">Confirm</button></td></tr>
-</table></main></div></div><aside class="dc-rail dc-rail--ads" aria-label="Sponsored">
+</div><div class="dc-dup-row"><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate production API key</button><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate prod key</button></div><div class="dc-page-wrap"><div class="dc-page-main">
+  <div class="dc-breadcrumbs" aria-label="Breadcrumbs"><span>Developer</span><span>Security</span><span>API keys</span></div>
+  <div class="dc-hero">
+    <div>
+      <h1>API keys</h1>
+      <p>Manage environment-specific keys, review recent rotations, and control reveal access for operators. Rotating the production key will invalidate the current secret immediately after a brief propagation period.</p>
+      <div class="dc-statusline">
+        <span class="dc-badge dc-badge--ok">Live sync healthy</span>
+        <span class="dc-badge dc-badge--warn">1 pending review</span>
+        <span class="dc-badge dc-badge--ok">MFA enforced</span>
+      </div>
+    </div>
+    <div class="dc-note" style="max-width:260px">
+      <strong>Rotation policy</strong><br/>Production keys must be rotated every 90 days. Last production rotation was 61 days ago.
+    </div>
+  </div>
+
+  <div class="dc-kpis" aria-label="Key metrics">
+    <div class="dc-kpi"><div class="v" id="active-key-count">3</div><div class="l">Active keys</div></div>
+    <div class="dc-kpi"><div class="v" id="rotation-count">12</div><div class="l">Rotations this quarter</div></div>
+    <div class="dc-kpi"><div class="v" id="reveal-count">0</div><div class="l">Secrets revealed this session</div></div>
+  </div>
+
+  <div class="dc-layout">
+    <aside class="dc-sidebar" aria-label="Section navigation">
+      <a href="#" aria-current="page">Keys</a>
+      <a href="#">Webhooks</a>
+      <a href="#">Audit log</a>
+      <a href="#">Service accounts</a>
+      <a href="#">Policies</a>
+    </aside>
+    <main role="main">
+      <section class="dc-card" aria-labelledby="keys-table-heading">
+        <div class="dc-inline" style="justify-content:space-between">
+          <div>
+            <h2 id="keys-table-heading">Environment keys</h2>
+            <p class="dc-muted">Use reveal for non-production inspection. Production rotation requires a reason and acknowledgment.</p>
+          </div>
+          <div>
+            <span id="api-keys-smoke-status" class="dc-badge dc-badge--warn">Smoke status: waiting for action</span>
+          </div>
+        </div>
+        <table aria-label="API keys table" id="keys-table">
+          <thead><tr><th>Environment</th><th>Public ID</th><th>Status</th><th>Last used</th><th>Secret preview</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr data-key="staging">
+              <td><strong>Staging</strong><div class="dc-help">Sandbox traffic only</div></td>
+              <td>key_stg_83D91</td>
+              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td>4 minutes ago</td>
+              <td><span class="dc-secret" id="staging-secret-preview">••••••••••••</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost" id="staging-reveal-btn">Reveal</button>
+                <button type="button" class="dc-btn">Copy ID</button>
+              </td>
+            </tr>
+            <tr data-key="production">
+              <td><strong>Production</strong><div class="dc-help">Customer-facing workloads</div></td>
+              <td id="prod-public-id">key_prod_A72KF</td>
+              <td><span class="dc-badge dc-badge--danger" id="prod-badge">Due in 29 days</span></td>
+              <td id="prod-last-used">18 seconds ago</td>
+              <td><span class="dc-secret" id="prod-secret-preview">Not revealable</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--primary" data-rotate="production" id="rotate-prod-api-key">Rotate key</button>
+                <button type="button" class="dc-btn">View audit</button>
+              </td>
+            </tr>
+            <tr data-key="development">
+              <td><strong>Development</strong><div class="dc-help">Internal local apps</div></td>
+              <td>key_dev_17PQ2</td>
+              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td>1 hour ago</td>
+              <td><span class="dc-secret">dev_••••_preview</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost">Rotate</button>
+                <button type="button" class="dc-btn">Disable</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="dc-callout">Tip: staging secrets can be revealed for debugging, but production secrets cannot be revealed from the dashboard.</div>
+      </section>
+
+      <section class="dc-card">
+        <h2>Confirm production rotation</h2>
+        <p>Provide a brief reason before production rotation is enabled. This mirrors the operational policy enforced by the CLI workflow.</p>
+        <form id="rotation-form" novalidate>
+          <label for="rotation-reason">Rotation reason</label>
+          <textarea id="rotation-reason" placeholder="Example: rotating due to quarterly policy and contractor offboarding"></textarea>
+          <div id="rotation-reason-msg" class="dc-help" aria-live="polite">Enter at least 12 characters.</div>
+          <fieldset>
+            <legend>Required acknowledgments</legend>
+            <label><input type="checkbox" id="ack-invalidate"/> I understand the current production secret will stop working after propagation.</label>
+            <label><input type="checkbox" id="ack-deploy"/> I have updated the deployment checklist and incident contacts.</label>
+          </fieldset>
+          <div class="dc-toolbar">
+            <button type="button" class="dc-btn dc-btn--muted" id="validate-rotation">Validate readiness</button>
+            <span id="rotation-form-status" class="dc-help">Form incomplete.</span>
+          </div>
+        </form>
+      </section>
+
+      <section class="dc-card">
+        <h2>Recent activity</h2>
+        <ul>
+          <li>08:12 UTC — staging key revealed by dana.s</li>
+          <li>Yesterday — development key rotated by automation</li>
+          <li>3 days ago — production access reviewed by security-admin</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</div><aside class="dc-rail dc-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Secure your runtime edge with partner secrets scanning for build pipelines.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost">Action 2</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost">Action 6</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost">Action 10</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost">Action 14</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost">Action 18</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost">Action 22</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost">Action 26</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost">Action 30</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost">Action 34</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost">Action 38</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost">Action 42</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button></div></div><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="dc-ftr"><small>© Demo DevConsole</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+</aside></div>
+<div class="dc-overlay" id="modal-overlay"></div>
+<div class="dc-modal" id="rotation-modal" aria-hidden="true" style="display:none">
+  <h3>Rotate production API key</h3>
+  <p>This will create a new production secret and mark the current key for retirement. Continue only if downstream services are ready.</p>
+  <div class="dc-note"><strong>Reason:</strong> <span id="modal-reason-preview">—</span></div>
+  <div class="dc-modal__actions">
+    <button type="button" class="dc-btn dc-btn--ghost" id="cancel-rotation">Cancel</button>
+    <button type="button" class="dc-btn dc-btn--danger" id="confirm-rotation">Confirm rotation</button>
+  </div>
+</div>
+<div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost">Action 2</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost">Action 6</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost">Action 10</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost">Action 14</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost">Action 18</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost">Action 22</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost">Action 26</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost">Action 30</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost">Action 34</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost">Action 38</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost">Action 42</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button></div></div><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="dc-ftr"><small>© Demo DevConsole</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<script>
+(function(){
+  var smoke = document.getElementById('api-keys-smoke-status');
+  var reason = document.getElementById('rotation-reason');
+  var reasonMsg = document.getElementById('rotation-reason-msg');
+  var ackInvalidate = document.getElementById('ack-invalidate');
+  var ackDeploy = document.getElementById('ack-deploy');
+  var validateBtn = document.getElementById('validate-rotation');
+  var rotateBtn = document.querySelector('tr[data-key="production"] button[data-rotate="production"]');
+  var formStatus = document.getElementById('rotation-form-status');
+  var modal = document.getElementById('rotation-modal');
+  var overlay = document.getElementById('modal-overlay');
+  var confirmBtn = document.getElementById('confirm-rotation');
+  var cancelBtn = document.getElementById('cancel-rotation');
+  var modalReasonPreview = document.getElementById('modal-reason-preview');
+  var stagingRevealBtn = document.getElementById('staging-reveal-btn');
+  var stagingPreview = document.getElementById('staging-secret-preview');
+  var revealCount = document.getElementById('reveal-count');
+  var rotationCount = document.getElementById('rotation-count');
+  var prodPublicId = document.getElementById('prod-public-id');
+  var prodBadge = document.getElementById('prod-badge');
+  var prodLastUsed = document.getElementById('prod-last-used');
+  var cookieBanner = document.getElementById('cookie-banner');
+  var cookieBtns = ['cookie-reject','cookie-accept','cookie-customize'].map(function(id){ return document.getElementById(id); });
+
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: '', updatedAt: 0 };
+
+  function isReady(){
+    return reason.value.trim().length >= 12 && ackInvalidate.checked && ackDeploy.checked;
+  }
+
+  function updateFormState(){
+    var len = reason.value.trim().length;
+    if(len === 0){
+      reasonMsg.textContent = 'Enter at least 12 characters.';
+    } else if(len < 12){
+      reasonMsg.textContent = 'Reason is too short (' + len + '/12).';
+    } else {
+      reasonMsg.textContent = 'Reason length looks good.';
+    }
+    if(isReady()){
+      formStatus.textContent = 'Form validated. Production rotation is enabled.';
+      rotateBtn.disabled = false;
+    } else {
+      formStatus.textContent = 'Form incomplete.';
+      rotateBtn.disabled = true;
+    }
+  }
+
+  function openModal(){
+    modalReasonPreview.textContent = reason.value.trim() || '—';
+    modal.style.display = 'block';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    overlay.classList.add('is-open');
+  }
+
+  function closeModal(){
+    modal.style.display = 'none';
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    overlay.classList.remove('is-open');
+  }
+
+  reason.addEventListener('input', updateFormState);
+  ackInvalidate.addEventListener('change', updateFormState);
+  ackDeploy.addEventListener('change', updateFormState);
+  validateBtn.addEventListener('click', updateFormState);
+
+  stagingRevealBtn.addEventListener('click', function(){
+    var currentlyHidden = stagingPreview.textContent.indexOf('••••') !== -1;
+    if(currentlyHidden){
+      stagingPreview.textContent = 'stg_9f3d_7c1b_4a88';
+      stagingRevealBtn.textContent = 'Hide';
+      revealCount.textContent = String(Number(revealCount.textContent || '0') + 1);
+      smoke.textContent = 'Smoke status: staging secret revealed';
+    } else {
+      stagingPreview.textContent = '••••••••••••';
+      stagingRevealBtn.textContent = 'Reveal';
+      smoke.textContent = 'Smoke status: staging secret hidden';
+    }
+  });
+
+  rotateBtn.addEventListener('click', function(){
+    if(!isReady()){
+      smoke.textContent = 'Smoke status: complete the production rotation form first';
+      formStatus.textContent = 'Add a valid reason and both acknowledgments.';
+      updateFormState();
+      return;
+    }
+    openModal();
+    smoke.textContent = 'Smoke status: production rotation confirmation opened';
+  });
+
+  confirmBtn.addEventListener('click', function(){
+    var ts = Date.now();
+    var nextQuarterCount = Number(rotationCount.textContent || '12') + 1;
+    prodPublicId.textContent = 'key_prod_' + Math.random().toString(36).slice(2,7).toUpperCase();
+    prodBadge.textContent = 'Rotated just now';
+    prodBadge.className = 'dc-badge dc-badge--ok';
+    prodLastUsed.textContent = 'moments ago';
+    rotationCount.textContent = String(nextQuarterCount);
+    smoke.textContent = 'Smoke status: production API key rotated successfully';
+    window.__scenarioSmoke = { lastAction: 'production_api_key_rotated', updatedAt: ts };
+    rotateBtn.textContent = 'Rotated';
+    closeModal();
+  });
+
+  cancelBtn.addEventListener('click', function(){
+    closeModal();
+    smoke.textContent = 'Smoke status: production rotation canceled';
+  });
+
+  overlay.addEventListener('click', closeModal);
+
+  cookieBtns.forEach(function(btn){
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  updateFormState();
+})();
+</script>
+</body></html>

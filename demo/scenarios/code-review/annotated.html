@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .ml-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .ml-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ml-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.ml-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#111827}
+.ml-brand-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
 .ml-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .ml-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .ml-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .ml-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ml-subnav a:hover{background:#f8fafc;color:#334155}
 .ml-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ml-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.ml-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.ml-page-wrap{grid-template-columns:1fr}}
 .ml-page-main{padding:20px 24px 32px;min-height:42vh}
 .ml-page-main>h1,.ml-page-main [role=main]>h1,.ml-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ml-page-main h2,.ml-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .ml-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .ml-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ml-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ml-page-main select,.ml-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ml-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ml-page-main select,.ml-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ml-page-main input:focus,.ml-page-main select:focus,.ml-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
 .ml-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .ml-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,27 +36,25 @@ table{border-collapse:collapse}
 .ml-page-main th,.ml-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .ml-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ml-page-main tr:hover td{background:#fafafa}
-.ml-page-main article,.ml-page-main .ml-card,.ml-page-main .ml-resto,.ml-page-main .ml-slot,.ml-page-main .ml-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ml-page-main article,.ml-page-main .ml-card,.ml-page-main .ml-resto,.ml-page-main .ml-slot,.ml-page-main .ml-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ml-page-main ul:not([class]){list-style:none;padding:0}
 .ml-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .ml-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ml-page-main dialog,.ml-page-main .ml-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ml-page-main .ml-modal.is-open,.ml-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.ml-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ml-page-main .ml-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.ml-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .ml-btn:hover{background:#f8fafc}
 .ml-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
 .ml-btn--primary:hover{filter:brightness(1.05)}
 .ml-btn--ghost{background:transparent;border-color:transparent;color:#475569}
 .ml-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
+.ml-btn--danger{background:#fff1f2;border-color:#fecdd3;color:#be123c}
 .ml-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
 .ml-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
 .ml-btn:disabled{opacity:.5;cursor:not-allowed}
 .ml-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .ml-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.ml-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.ml-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.ml-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
+@media(min-width:901px){.ml-rail{border-left:1px solid #e2e8f0;border-radius:12px;margin:16px 16px 16px 0;background:#fffbeb}}
 .ml-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .ml-rail a{color:#b45309;font-weight:500}
 .ml-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -63,41 +62,61 @@ table{border-collapse:collapse}
 .ml-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .ml-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .ml-ab{display:none!important}
-.ml-layout{display:grid;gap:16px;align-items:start}
-.ml-filters,.ml-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.ml-filters h2,.ml-frame aside h2{font-size:14px;margin:0 0 10px}
-.ml-card__actions,.ml-slot__actions,.ml-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ml-wizard{max-width:760px}
-.ml-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.ml-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.ml-step.is-active{background:hsl(262 72% 46%);color:#fff}
-.ml-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.ml-hero{border-radius:12px;margin-bottom:8px}
-.ml-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.ml-grid{display:grid;gap:14px}
-.ml-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.ml-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ml-patient{border-radius:10px}
-.ml-slots{display:grid;gap:10px}
-.ml-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ml-cell{background:#fff;padding:8px;min-height:44px}
-.ml-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ml-diff{border-radius:8px}
-.ml-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ml-kpi{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.ml-pill,.ml-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.ml-badge--open{background:#dbeafe;color:#1d4ed8}
+.ml-badge--green{background:#dcfce7;color:#166534}
+.ml-badge--amber{background:#fef3c7;color:#92400e}
+.ml-badge--red{background:#fee2e2;color:#b91c1c}
+.ml-layout-review{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px}
+@media(max-width:860px){.ml-layout-review{grid-template-columns:1fr}}
+.ml-sidebar{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;position:sticky;top:16px}
+.ml-sidebar h3{margin:6px 0 10px;font-size:13px}
+.ml-file-item{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:#334155}
+.ml-file-item.is-active{background:#ede9fe;color:#5b21b6;font-weight:600}
+.ml-split{display:grid;gap:14px}
+.ml-pr-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.ml-meta{color:#64748b;font-size:13px}
+.ml-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center;background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ml-diff{border:1px solid #e2e8f0;border-radius:0 0 10px 10px;overflow:hidden;background:#fff}
+ .ml-diff-head{display:grid;grid-template-columns:120px 1fr 120px;padding:8px 12px;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:12px;color:#64748b;font-weight:600}
+.ml-diff-row{display:grid;grid-template-columns:120px 1fr 120px;border-bottom:1px solid #f1f5f9}
+.ml-diff-row:last-child{border-bottom:none}
+.ml-diff-code{padding:8px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;white-space:pre-wrap}
+.ml-diff-line--add{background:#ecfdf5}
+.ml-diff-line--del{background:#fff1f2}
+.ml-diff-line--ctx{background:#fff}
+.ml-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ml-status-box{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;margin:14px 0}
+.ml-note{font-size:12px;color:#64748b}
+.ml-error{font-size:12px;color:#b91c1c;min-height:18px;margin-top:6px}
+.ml-success{font-size:12px;color:#166534}
+.ml-reviews li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #eef2f7;padding:10px 0}
+.ml-reviews li:last-child{border-bottom:none}
+.ml-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:80}
+.ml-overlay.is-open{display:flex}
+.ml-modal-card{width:min(100%,560px);background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 24px 70px rgba(15,23,42,.25);overflow:hidden}
+.ml-modal-head,.ml-modal-foot{padding:14px 16px;border-bottom:1px solid #e2e8f0}
+.ml-modal-foot{border-bottom:none;border-top:1px solid #e2e8f0;display:flex;justify-content:flex-end;gap:8px}
+.ml-modal-body{padding:16px}
+.ml-inline{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.ml-counter{font-size:12px;color:#64748b}
+.ml-hidden{display:none!important}
 </style></head><body>
-<div class="ml-app" data-page="code-review" data-agent-role="landmark" data-agent-id="code_review-page" data-agent-desc="PR review" data-agent-priority="2"><div class="ml-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="ml-app" data-page="code-review" id="code_review-page" data-wci-id="code_review-page" data-wci-role="landmark" data-wci-desc="Code review application root for MergeLab pull request review page" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="ml-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ml-btn ml-btn--muted">Reject non-essential</button>
-  <button type="button" class="ml-btn ml-btn--primary">Accept all</button>
-  <button type="button" class="ml-btn ml-btn--ghost">Customize</button>
+  <button type="button" class="ml-btn ml-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="ml-btn ml-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="ml-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="ml-btn ml-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="ml-btn">Continue as guest — express</button>
 </div><header class="ml-hdr">
-  <nav class="ml-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="ml-hdr-promo"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="ml-btn ml-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="ml-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <div class="ml-brand"><span class="ml-brand-badge">ML</span><span>MergeLab</span></div>
+  <nav class="ml-nav" aria-label="Global"><a href="#">Pull requests</a><a href="#">Repositories</a><a href="#">Actions</a><a href="#">Security</a><a href="#">Account</a></nav>
+  <div class="ml-hdr-promo"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy button unrelated to approving the pull request" data-wci-priority="2" data-wci-scope="code_review-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+    <button type="button" class="ml-btn ml-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="ml-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Commits</a><a href="#">Checks</a><a href="#">Files changed</a><a href="#">Reviewers</a>
   <button type="button" class="ml-btn ml-btn--ghost">Submit</button>
   <button type="button" class="ml-btn ml-btn--ghost">Continue</button>
 </nav><div class="ml-dup-row" aria-label="Quick actions">
@@ -105,13 +124,231 @@ table{border-collapse:collapse}
   <button type="button" class="ml-btn ml-btn--ghost">Continue</button>
   <button type="button" class="ml-btn ml-btn--ghost">Save changes</button>
   <button type="button" class="ml-btn ml-btn--ghost">Confirm</button>
-</div><div class="ml-dup-row"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Approve PR 4182</button><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-nav">Approve pull request 4182</button></div><div class="ml-page-wrap"><div class="ml-page-main"><div style="display:grid;grid-template-columns:240px 1fr"><aside style="background:#f6f8fa;padding:8px"><ul><li>api.ts</li></ul></aside>
-<main role="main" style="padding:16px" data-pr="4182"><h1>PR 4182</h1><pre>+ waitFor()</pre>
-<button type="button" class="ml-btn ml-btn--primary" data-pr-action="approve" data-agent-role="action" data-agent-id="approve-pr-4182" data-agent-desc="Approve pull request number 4182 fixing timeout (not request changes or pro upsell)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="ml-btn ml-btn--ghost">Request changes</button>
-<button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Try Pro</button></main></div></div><aside class="ml-rail ml-rail--ads" aria-label="Sponsored">
+</div><div class="ml-dup-row"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Approve PR 4182</button><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-nav">Approve pull request 4182</button></div><div class="ml-page-wrap"><div class="ml-page-main">
+  <div class="ml-kpi">
+    <span class="ml-badge ml-badge--open">Open review</span>
+    <span class="ml-badge ml-badge--amber" id="review-state-badge">Awaiting review decision</span>
+    <span class="ml-pill" style="background:#e2e8f0;color:#334155">Repository: core/api-gateway</span>
+    <span class="ml-pill" style="background:#e0f2fe;color:#075985">Branch: fix/request-timeout</span>
+  </div>
+  <div class="ml-layout-review">
+    <aside class="ml-sidebar" aria-label="Changed files">
+      <h3>Changed files <span class="ml-counter" id="file-count">3 files</span></h3>
+      <div class="ml-file-item is-active"><span>src/http/client.ts</span><span>+14 −3</span></div>
+      <div class="ml-file-item"><span>src/http/retry.ts</span><span>+4 −0</span></div>
+      <div class="ml-file-item"><span>tests/timeout.spec.ts</span><span>+18 −1</span></div>
+      <article class="ml-card">
+        <h3 style="margin-top:0">Review checklist</h3>
+        <label><input type="checkbox" id="check-tests" checked=""> Tests added</label>
+        <label><input type="checkbox" id="check-risk" checked=""> Risk understood</label>
+        <label><input type="checkbox" id="check-backward" checked=""> Backward compatible</label>
+        <div class="ml-note">All items are informational and do not block approval.</div>
+      </article>
+    </aside>
+    <main role="main" data-pr="4182">
+      <div class="ml-pr-head">
+        <div>
+          <h1>PR #4182 Fix timeout handling in upstream request path</h1>
+          <div class="ml-meta">Opened by <strong>npatel</strong> · 2 hours ago · targets <code>main</code> · linked incident <a href="#">INC-2031</a></div>
+        </div>
+        <div class="ml-actions">
+          <span class="ml-badge ml-badge--green">2 checks passed</span>
+          <span class="ml-badge ml-badge--green">1 approval required</span>
+        </div>
+      </div>
+
+      <article class="ml-card">
+        <h2 style="margin-top:0">Summary</h2>
+        <p>This change ensures client requests respect the configured timeout budget and stop hanging when the upstream service never resolves. The patch adds a guarded <code>waitFor()</code> path, propagates timeout abort signals into retries, and updates the test suite to cover the regression reported after the 2.14 deploy.</p>
+        <div class="ml-inline">
+          <span class="ml-pill" style="background:#f1f5f9;color:#334155">+36 additions</span>
+          <span class="ml-pill" style="background:#f1f5f9;color:#334155">-4 deletions</span>
+          <span class="ml-pill" style="background:#f1f5f9;color:#334155">Review comments: <span id="comment-count">2</span></span>
+          <span class="ml-pill" style="background:#f1f5f9;color:#334155">Estimated risk: low</span>
+        </div>
+      </article>
+
+      <section class="ml-card">
+        <h2 style="margin-top:0">Reviewer notes</h2>
+        <label for="review-note">Optional approval note</label>
+        <textarea id="review-note" rows="4" maxlength="240" placeholder="Looks good. Verified timeout cancellation and tests cover the retry path."></textarea>
+        <div class="ml-inline" style="justify-content:space-between;margin-top:8px">
+          <div class="ml-error" id="review-note-error" aria-live="polite"></div>
+          <div class="ml-counter"><span id="note-char-count">0</span>/240</div>
+        </div>
+        <div class="ml-status-box">
+          <div>
+            <strong>Smoke status:</strong>
+            <span id="code-review-smoke-status" data-smoke-status="">Ready for review action.</span>
+            <div class="ml-note" id="last-updated-note">No action recorded yet.</div>
+          </div>
+          <div>
+            <button type="button" class="ml-btn" id="preview-note-btn">Preview note</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="ml-toolbar">
+          <strong>Diff viewer</strong>
+          <span class="ml-note">File: src/http/client.ts</span>
+          <button type="button" class="ml-btn ml-btn--ghost" id="toggle-context-btn" aria-pressed="true">Hide context lines</button>
+        </div>
+        <div class="ml-diff" aria-label="Code diff">
+          <div class="ml-diff-head"><div>Old</div><div>Code</div><div>New</div></div>
+          <div class="ml-diff-row ml-diff-line--ctx diff-context"><div class="ml-diff-code">118</div><div class="ml-diff-code">export async function requestWithRetry(input, opts) {</div><div class="ml-diff-code">118</div></div>
+          <div class="ml-diff-row ml-diff-line--del"><div class="ml-diff-code">119</div><div class="ml-diff-code">  const response = await transport.send(input, opts)</div><div class="ml-diff-code"></div></div>
+          <div class="ml-diff-row ml-diff-line--add"><div class="ml-diff-code"></div><div class="ml-diff-code">  const timeoutMs = opts.timeout ?? DEFAULT_TIMEOUT</div><div class="ml-diff-code">119</div></div>
+          <div class="ml-diff-row ml-diff-line--add"><div class="ml-diff-code"></div><div class="ml-diff-code">  const signal = createTimeoutSignal(timeoutMs, opts.signal)</div><div class="ml-diff-code">120</div></div>
+          <div class="ml-diff-row ml-diff-line--add"><div class="ml-diff-code"></div><div class="ml-diff-code">  const response = await waitFor(() =&gt; transport.send(input, { ...opts, signal }), timeoutMs)</div><div class="ml-diff-code">121</div></div>
+          <div class="ml-diff-row ml-diff-line--ctx diff-context"><div class="ml-diff-code">120</div><div class="ml-diff-code">  return normalizeResponse(response)</div><div class="ml-diff-code">122</div></div>
+          <div class="ml-diff-row ml-diff-line--ctx diff-context"><div class="ml-diff-code">121</div><div class="ml-diff-code">}</div><div class="ml-diff-code">123</div></div>
+        </div>
+      </section>
+
+      <section class="ml-card">
+        <h2 style="margin-top:0">Latest review activity</h2>
+        <ul class="ml-reviews">
+          <li><span><strong>mgarcia</strong> approved test coverage</span><span class="ml-note">14 min ago</span></li>
+          <li><span><strong>infra-bot</strong> CI passed on linux, macos</span><span class="ml-note">9 min ago</span></li>
+          <li><span><strong>jlee</strong> left 2 comments on retry cancellation</span><span class="ml-note">31 min ago</span></li>
+        </ul>
+      </section>
+
+      <section class="ml-card">
+        <h2 style="margin-top:0">Review decision</h2>
+        <p>You can leave an optional note and approve the pull request, or request changes if the timeout fix is incomplete. Approving will mark this review as accepted and update the review status banner.</p>
+        <div class="ml-actions">
+          <button type="button" class="ml-btn ml-btn--primary" data-pr-action="approve" id="approve-pr-4182" data-wci-id="approve-pr-4182" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary approve action for pull request 4182" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="code_review-page">Approve</button>
+          <button type="button" class="ml-btn ml-btn--danger" id="request-changes-btn">Request changes</button>
+          <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Try Pro</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</div><aside class="ml-rail ml-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p>Speed up enterprise code reviews with AI summaries, compliance checks, and team dashboards.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="ml-filler" aria-hidden="true"><div class="ml-filler-inner"><a href="/misc/0" class="ml-btn ml-btn--ghost">Link 1</a><button type="button" class="ml-btn ml-btn--ghost">Action 2</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/4" class="ml-btn ml-btn--ghost">Link 5</a><button type="button" class="ml-btn ml-btn--ghost">Action 6</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/8" class="ml-btn ml-btn--ghost">Link 9</a><button type="button" class="ml-btn ml-btn--ghost">Action 10</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/12" class="ml-btn ml-btn--ghost">Link 13</a><button type="button" class="ml-btn ml-btn--ghost">Action 14</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/16" class="ml-btn ml-btn--ghost">Link 17</a><button type="button" class="ml-btn ml-btn--ghost">Action 18</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/20" class="ml-btn ml-btn--ghost">Link 21</a><button type="button" class="ml-btn ml-btn--ghost">Action 22</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/24" class="ml-btn ml-btn--ghost">Link 25</a><button type="button" class="ml-btn ml-btn--ghost">Action 26</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/28" class="ml-btn ml-btn--ghost">Link 29</a><button type="button" class="ml-btn ml-btn--ghost">Action 30</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/32" class="ml-btn ml-btn--ghost">Link 33</a><button type="button" class="ml-btn ml-btn--ghost">Action 34</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/36" class="ml-btn ml-btn--ghost">Link 37</a><button type="button" class="ml-btn ml-btn--ghost">Action 38</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/40" class="ml-btn ml-btn--ghost">Link 41</a><button type="button" class="ml-btn ml-btn--ghost">Action 42</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button></div></div><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ml-ftr"><small>© Demo MergeLab</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
+  <div class="ml-note">Queue health</div>
+  <div style="margin-top:6px"><strong>Median review time:</strong> 37 min</div>
+  <div><strong>Open PRs:</strong> 12</div>
+</aside></div><div class="ml-filler" aria-hidden="true"><div class="ml-filler-inner"><a href="/misc/0" class="ml-btn ml-btn--ghost">Link 1</a><button type="button" class="ml-btn ml-btn--ghost">Action 2</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/4" class="ml-btn ml-btn--ghost">Link 5</a><button type="button" class="ml-btn ml-btn--ghost">Action 6</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/8" class="ml-btn ml-btn--ghost">Link 9</a><button type="button" class="ml-btn ml-btn--ghost">Action 10</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/12" class="ml-btn ml-btn--ghost">Link 13</a><button type="button" class="ml-btn ml-btn--ghost">Action 14</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/16" class="ml-btn ml-btn--ghost">Link 17</a><button type="button" class="ml-btn ml-btn--ghost">Action 18</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/20" class="ml-btn ml-btn--ghost">Link 21</a><button type="button" class="ml-btn ml-btn--ghost">Action 22</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/24" class="ml-btn ml-btn--ghost">Link 25</a><button type="button" class="ml-btn ml-btn--ghost">Action 26</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/28" class="ml-btn ml-btn--ghost">Link 29</a><button type="button" class="ml-btn ml-btn--ghost">Action 30</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/32" class="ml-btn ml-btn--ghost">Link 33</a><button type="button" class="ml-btn ml-btn--ghost">Action 34</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/36" class="ml-btn ml-btn--ghost">Link 37</a><button type="button" class="ml-btn ml-btn--ghost">Action 38</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/40" class="ml-btn ml-btn--ghost">Link 41</a><button type="button" class="ml-btn ml-btn--ghost">Action 42</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button></div></div><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional element" data-wci-priority="2" data-wci-scope="code_review-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="ml-ftr"><small>© Demo MergeLab</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+
+<div class="ml-overlay" id="note-preview-modal" aria-hidden="true">
+  <div class="ml-modal-card" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <div class="ml-modal-head"><strong id="preview-title">Review note preview</strong></div>
+    <div class="ml-modal-body">
+      <p id="preview-note-text" style="white-space:pre-wrap">No note entered.</p>
+    </div>
+    <div class="ml-modal-foot">
+      <button type="button" class="ml-btn" id="close-preview-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('[data-page="code-review"]');
+  var smoke = document.getElementById('code-review-smoke-status');
+  var note = document.getElementById('review-note');
+  var noteError = document.getElementById('review-note-error');
+  var noteCount = document.getElementById('note-char-count');
+  var previewBtn = document.getElementById('preview-note-btn');
+  var previewModal = document.getElementById('note-preview-modal');
+  var previewText = document.getElementById('preview-note-text');
+  var closePreviewBtn = document.getElementById('close-preview-btn');
+  var approveBtn = document.querySelector('[data-pr="4182"] button[data-pr-action="approve"]');
+  var requestBtn = document.getElementById('request-changes-btn');
+  var badge = document.getElementById('review-state-badge');
+  var updatedNote = document.getElementById('last-updated-note');
+  var toggleContextBtn = document.getElementById('toggle-context-btn');
+  var commentCount = document.getElementById('comment-count');
+  var cookieBanner = document.getElementById('cookie-banner');
+
+  function setSmoke(message, actionName){
+    var ts = Date.now();
+    smoke.textContent = message;
+    updatedNote.textContent = 'Last updated ' + new Date(ts).toLocaleTimeString();
+    window.__scenarioSmoke = { lastAction: actionName, updatedAt: ts };
+  }
+
+  function validateNote(){
+    var value = note.value.trim();
+    noteCount.textContent = String(note.value.length);
+    if(value.length > 0 && value.length < 6){
+      noteError.textContent = 'Optional note is too short to be meaningful.';
+      return false;
+    }
+    noteError.textContent = '';
+    return true;
+  }
+
+  note.addEventListener('input', validateNote);
+
+  previewBtn.addEventListener('click', function(){
+    previewText.textContent = note.value.trim() || 'No note entered.';
+    previewModal.classList.add('is-open');
+    previewModal.setAttribute('aria-hidden','false');
+  });
+
+  closePreviewBtn.addEventListener('click', function(){
+    previewModal.classList.remove('is-open');
+    previewModal.setAttribute('aria-hidden','true');
+  });
+
+  previewModal.addEventListener('click', function(e){
+    if(e.target === previewModal){
+      previewModal.classList.remove('is-open');
+      previewModal.setAttribute('aria-hidden','true');
+    }
+  });
+
+  toggleContextBtn.addEventListener('click', function(){
+    var hidden = toggleContextBtn.getAttribute('aria-pressed') === 'false';
+    var rows = document.querySelectorAll('.diff-context');
+    rows.forEach(function(row){ row.classList.toggle('ml-hidden', !hidden); });
+    toggleContextBtn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+    toggleContextBtn.textContent = hidden ? 'Hide context lines' : 'Show context lines';
+  });
+
+  if(cookieBanner){
+    cookieBanner.addEventListener('click', function(e){
+      var btn = e.target.closest('[data-cookie-action]');
+      if(!btn) return;
+      cookieBanner.style.display = 'none';
+    });
+  }
+
+  requestBtn.addEventListener('click', function(){
+    if(!validateNote()) return;
+    badge.textContent = 'Changes requested';
+    badge.className = 'ml-badge ml-badge--red';
+    setSmoke('Review state changed: changes requested for PR #4182.', 'request_changes');
+  });
+
+  approveBtn.addEventListener('click', function(){
+    if(!validateNote()) return;
+    badge.textContent = 'Approved';
+    badge.className = 'ml-badge ml-badge--green';
+    approveBtn.disabled = true;
+    approveBtn.textContent = 'Approved';
+    requestBtn.disabled = true;
+    commentCount.textContent = '2';
+    setSmoke('PR #4182 approved. Timeout fix accepted and review submitted.', 'approve_pr_4182');
+  });
+
+  root.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && previewModal.classList.contains('is-open')){
+      previewModal.classList.remove('is-open');
+      previewModal.setAttribute('aria-hidden','true');
+    }
+  });
+
+  validateNote();
+})();
+</script>
+</body></html>

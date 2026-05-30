@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .nc-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .nc-subnav a:hover{background:#f8fafc;color:#334155}
 .nc-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.nc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.nc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.nc-page-wrap{grid-template-columns:1fr}}
 .nc-page-main{padding:20px 24px 32px;min-height:42vh}
 .nc-page-main>h1,.nc-page-main [role=main]>h1,.nc-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .nc-page-main h2,.nc-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .nc-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .nc-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.nc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.nc-page-main select,.nc-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.nc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.nc-page-main select,.nc-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .nc-page-main input:focus,.nc-page-main select:focus,.nc-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
 .nc-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .nc-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,13 +34,11 @@ table{border-collapse:collapse}
 .nc-page-main th,.nc-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .nc-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .nc-page-main tr:hover td{background:#fafafa}
-.nc-page-main article,.nc-page-main .nc-card,.nc-page-main .nc-resto,.nc-page-main .nc-slot,.nc-page-main .nc-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.nc-page-main article,.nc-page-main .nc-card,.nc-page-main .nc-resto,.nc-page-main .nc-slot,.nc-page-main .nc-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .nc-page-main ul:not([class]){list-style:none;padding:0}
 .nc-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .nc-page-main ul:not([class]) li:hover{background:#f8fafc}
-.nc-page-main dialog,.nc-page-main .nc-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.nc-page-main dialog,.nc-page-main .nc-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .nc-page-main .nc-modal.is-open,.nc-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .nc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .nc-btn:hover{background:#f8fafc}
@@ -67,37 +64,48 @@ table{border-collapse:collapse}
 .nc-filters,.nc-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .nc-filters h2,.nc-frame aside h2{font-size:14px;margin:0 0 10px}
 .nc-card__actions,.nc-slot__actions,.nc-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.nc-wizard{max-width:760px}
+.nc-wizard{max-width:860px}
 .nc-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .nc-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .nc-step.is-active{background:hsl(262 72% 46%);color:#fff}
 .nc-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.nc-hero{border-radius:12px;margin-bottom:8px}
-.nc-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.nc-grid{display:grid;gap:14px}
-.nc-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.nc-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.nc-patient{border-radius:10px}
-.nc-slots{display:grid;gap:10px}
-.nc-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.nc-cell{background:#fff;padding:8px;min-height:44px}
-.nc-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.nc-diff{border-radius:8px}
 .nc-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.nc-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.nc-badge--ok{background:#dcfce7;color:#166534}
+.nc-badge--warn{background:#fef3c7;color:#92400e}
+.nc-badge--lock{background:#fee2e2;color:#991b1b}
+.nc-muted{color:#64748b}
+.nc-ssid-list{display:grid;gap:12px}
+.nc-network{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.nc-network__meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.nc-network__name{font-size:16px;font-weight:700;color:#0f172a}
+.nc-network__detail{font-size:13px;color:#475569}
+.nc-kv{display:grid;grid-template-columns:150px 1fr;gap:8px;margin-top:6px;font-size:13px}
+.nc-status-bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:14px}
+.nc-inline-msg{min-height:20px;font-size:12px;color:#b45309}
+.nc-inline-msg.is-error{color:#b91c1c}
+.nc-inline-msg.is-success{color:#15803d}
+.nc-settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.nc-settings-grid{grid-template-columns:1fr}}
+.nc-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.42);display:none;z-index:50}
+.nc-modal-backdrop.is-open{display:block}
+.nc-modal{display:none;position:fixed;inset:auto;top:12%;left:50%;transform:translateX(-50%);width:min(92vw,560px);z-index:60}
+.nc-modal.is-open{display:block}
+.nc-signal{letter-spacing:1px;font-weight:700}
 </style></head><body>
-<div class="nc-app" data-page="wifi-setup"><div class="nc-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="nc-app" data-page="wifi-setup" id="wifi_setup-page"><div class="nc-cookie" role="dialog" aria-label="Cookie preferences">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="nc-btn nc-btn--muted">Reject non-essential</button>
-  <button type="button" class="nc-btn nc-btn--primary">Accept all</button>
-  <button type="button" class="nc-btn nc-btn--ghost">Customize</button>
+  <button type="button" class="nc-btn nc-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="nc-btn nc-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="nc-btn nc-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="nc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="nc-btn nc-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="nc-btn">Continue as guest — express</button>
 </div><header class="nc-hdr">
-  <nav class="nc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="nc-hdr-promo"><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="nc-nav" aria-label="Global"><a href="#">Dashboard</a><a href="#">Devices</a><a href="#">Network</a><a href="#">Security</a><a href="#">Account</a></nav>
+  <div class="nc-hdr-promo"><span class="nc-badge nc-badge--ok">Router online</span><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="nc-btn nc-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="nc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="nc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Wireless</a><a href="#">Clients</a><a href="#">Advanced</a><a href="#">Logs</a>
   <button type="button" class="nc-btn nc-btn--ghost">Submit</button>
   <button type="button" class="nc-btn nc-btn--ghost">Continue</button>
 </nav><div class="nc-dup-row" aria-label="Quick actions">
@@ -105,11 +113,260 @@ table{border-collapse:collapse}
   <button type="button" class="nc-btn nc-btn--ghost">Continue</button>
   <button type="button" class="nc-btn nc-btn--ghost">Save changes</button>
   <button type="button" class="nc-btn nc-btn--ghost">Confirm</button>
-</div><div class="nc-dup-row"><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-promo">Connect Guest_5G</button><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-nav">Connect guest network Guest_5G</button></div><div class="nc-page-wrap"><div class="nc-page-main"><ul role="main" style="list-style:none;padding:16px"><li style="display:flex;justify-content:space-between;padding:16px;border:1px solid #ddd;margin:8px 0">Home_5G <span>Locked</span></li>
-<li style="display:flex;justify-content:space-between;padding:16px;border:1px solid #ddd" data-ssid="Guest_5G">Guest_5G
-<button type="button" class="nc-btn nc-btn--primary" data-connect-ssid="Guest_5G">Confirm</button></li></ul></div><aside class="nc-rail nc-rail--ads" aria-label="Sponsored">
+</div><div class="nc-dup-row"><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-promo">Connect Guest_5G</button><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-nav">Connect guest network Guest_5G</button></div><div class="nc-page-wrap"><div class="nc-page-main"><main class="nc-wizard" role="main" aria-label="Wi‑Fi setup main content">
+  <h1>Wi‑Fi setup</h1>
+  <p>Select an available SSID for this device. Networks marked <strong>Locked</strong> require administrator approval and cannot be joined from guest onboarding.</p>
+
+  <div class="nc-status-bar" aria-live="polite">
+    <div><strong>Device:</strong> Patio Camera #2</div>
+    <div><strong>Scan results:</strong> <span id="network-count">3</span> networks</div>
+    <div><strong>Status:</strong> <span id="wifi-setup-smoke-status" class="nc-badge nc-badge--warn">Idle — awaiting network selection</span></div>
+  </div>
+
+  <div class="nc-steps" aria-label="Connection progress">
+    <div class="nc-step is-active">1. Scan</div>
+    <div class="nc-step">2. Select SSID</div>
+    <div class="nc-step">3. Confirm</div>
+    <div class="nc-step">4. Join</div>
+  </div>
+
+  <section class="nc-panel" aria-labelledby="ssid-list-heading">
+    <div class="nc-toolbar">
+      <strong id="ssid-list-heading">Nearby wireless networks</strong>
+      <span class="nc-muted">Sorted by signal strength</span>
+      <button type="button" class="nc-btn nc-btn--ghost" id="rescan-btn">Rescan</button>
+    </div>
+
+    <div class="nc-card">
+      <label for="ssid-filter">Filter SSIDs</label>
+      <input id="ssid-filter" type="text" placeholder="Type to filter by name" autocomplete="off"/>
+      <div id="filter-feedback" class="nc-inline-msg">Showing all discovered networks.</div>
+    </div>
+
+    <div class="nc-ssid-list" id="ssid-list">
+      <article class="nc-network" data-network-row data-ssid-row="Home_5G" data-locked="true">
+        <div>
+          <div class="nc-network__meta"><span class="nc-network__name">Home_5G</span><span class="nc-badge nc-badge--lock">Locked</span><span class="nc-badge nc-badge--warn">5 GHz</span></div>
+          <div class="nc-network__detail">Administrator-managed household network. Guest devices cannot connect without approval.</div>
+          <div class="nc-kv"><div>Security</div><div>WPA3 Personal</div><div>Signal</div><div class="nc-signal">▂▄▆█ Strong</div><div>Channel</div><div>149</div></div>
+          <div id="locked-msg" class="nc-inline-msg">This SSID is unavailable for guest onboarding.</div>
+        </div>
+        <div>
+          <button type="button" class="nc-btn nc-btn--muted" disabled aria-disabled="true">Locked</button>
+        </div>
+      </article>
+
+      <article class="nc-network" data-network-row data-ssid-row="Guest_5G" data-locked="false">
+        <div>
+          <div class="nc-network__meta"><span class="nc-network__name">Guest_5G</span><span class="nc-badge nc-badge--ok">Open for guests</span><span class="nc-badge nc-badge--warn">5 GHz</span></div>
+          <div class="nc-network__detail">Dedicated guest network with internet-only access. Recommended for setup and temporary devices.</div>
+          <div class="nc-kv"><div>Security</div><div>WPA2/WPA3 transition</div><div>Signal</div><div class="nc-signal">▂▄▆▇ Good</div><div>Channel</div><div>44</div></div>
+          <label for="guest-note">Connection note (optional)</label>
+          <input id="guest-note" type="text" maxlength="32" placeholder="Example: camera onboarding"/>
+          <div id="guest-note-msg" class="nc-inline-msg">Optional note will appear in connection history.</div>
+        </div>
+        <div>
+          <button type="button" class="nc-btn nc-btn--primary" data-connect-ssid="Guest_5G" id="connect-guest-5g">Confirm</button>
+        </div>
+      </article>
+
+      <article class="nc-network" data-network-row data-ssid-row="Cafe_Free_WiFi" data-locked="false">
+        <div>
+          <div class="nc-network__meta"><span class="nc-network__name">Cafe_Free_WiFi</span><span class="nc-badge nc-badge--warn">Public</span><span class="nc-badge nc-badge--warn">2.4 GHz</span></div>
+          <div class="nc-network__detail">Weak and unstable. Captive portal detected during last scan.</div>
+          <div class="nc-kv"><div>Security</div><div>Open</div><div>Signal</div><div class="nc-signal">▂▄░░ Weak</div><div>Channel</div><div>6</div></div>
+        </div>
+        <div>
+          <button type="button" class="nc-btn" data-open-public="Cafe_Free_WiFi">Review</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="nc-settings-grid" aria-label="Connection options">
+    <div class="nc-panel">
+      <h2>Setup checks</h2>
+      <ul>
+        <li>Guest network is reachable on 5 GHz.</li>
+        <li>Home_5G is policy-restricted for this workflow.</li>
+        <li>Device firmware supports WPA2/WPA3 transition mode.</li>
+      </ul>
+    </div>
+    <div class="nc-panel">
+      <h2>Session activity</h2>
+      <p>Selected SSID: <strong id="selected-ssid">None</strong></p>
+      <p>Last scan time: <strong id="last-scan">Just now</strong></p>
+      <p>Connection state: <strong id="connection-state">Not connected</strong></p>
+    </div>
+  </section>
+</main></div><aside class="nc-rail nc-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <p>Upgrade to NetConfig Pro for saved wireless profiles, policy templates, and remote provisioning.</p>
+  <a href="#">Partner offer — limited time</a><br/>
   <button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="nc-filler" aria-hidden="true"><div class="nc-filler-inner"><a href="/misc/0" class="nc-btn nc-btn--ghost">Link 1</a><button type="button" class="nc-btn nc-btn--ghost">Action 2</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/4" class="nc-btn nc-btn--ghost">Link 5</a><button type="button" class="nc-btn nc-btn--ghost">Action 6</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/8" class="nc-btn nc-btn--ghost">Link 9</a><button type="button" class="nc-btn nc-btn--ghost">Action 10</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/12" class="nc-btn nc-btn--ghost">Link 13</a><button type="button" class="nc-btn nc-btn--ghost">Action 14</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/16" class="nc-btn nc-btn--ghost">Link 17</a><button type="button" class="nc-btn nc-btn--ghost">Action 18</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/20" class="nc-btn nc-btn--ghost">Link 21</a><button type="button" class="nc-btn nc-btn--ghost">Action 22</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/24" class="nc-btn nc-btn--ghost">Link 25</a><button type="button" class="nc-btn nc-btn--ghost">Action 26</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/28" class="nc-btn nc-btn--ghost">Link 29</a><button type="button" class="nc-btn nc-btn--ghost">Action 30</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/32" class="nc-btn nc-btn--ghost">Link 33</a><button type="button" class="nc-btn nc-btn--ghost">Action 34</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/36" class="nc-btn nc-btn--ghost">Link 37</a><button type="button" class="nc-btn nc-btn--ghost">Action 38</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/40" class="nc-btn nc-btn--ghost">Link 41</a><button type="button" class="nc-btn nc-btn--ghost">Action 42</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button></div></div><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="nc-ftr"><small>© Demo NetConfig</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0"/>
+  <h2 style="margin:0 0 8px;font-size:14px">Troubleshooting</h2>
+  <p style="margin-bottom:8px">If the preferred SSID does not appear, move the device closer to the access point and rescan.</p>
+  <button type="button" class="nc-btn nc-btn--ghost" id="open-help">Open help</button>
+</aside></div><div class="nc-filler" aria-hidden="true"><div class="nc-filler-inner"><a href="/misc/0" class="nc-btn nc-btn--ghost">Link 1</a><button type="button" class="nc-btn nc-btn--ghost">Action 2</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/4" class="nc-btn nc-btn--ghost">Link 5</a><button type="button" class="nc-btn nc-btn--ghost">Action 6</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/8" class="nc-btn nc-btn--ghost">Link 9</a><button type="button" class="nc-btn nc-btn--ghost">Action 10</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/12" class="nc-btn nc-btn--ghost">Link 13</a><button type="button" class="nc-btn nc-btn--ghost">Action 14</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/16" class="nc-btn nc-btn--ghost">Link 17</a><button type="button" class="nc-btn nc-btn--ghost">Action 18</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/20" class="nc-btn nc-btn--ghost">Link 21</a><button type="button" class="nc-btn nc-btn--ghost">Action 22</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/24" class="nc-btn nc-btn--ghost">Link 25</a><button type="button" class="nc-btn nc-btn--ghost">Action 26</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/28" class="nc-btn nc-btn--ghost">Link 29</a><button type="button" class="nc-btn nc-btn--ghost">Action 30</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/32" class="nc-btn nc-btn--ghost">Link 33</a><button type="button" class="nc-btn nc-btn--ghost">Action 34</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/36" class="nc-btn nc-btn--ghost">Link 37</a><button type="button" class="nc-btn nc-btn--ghost">Action 38</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button><a href="/misc/40" class="nc-btn nc-btn--ghost">Link 41</a><button type="button" class="nc-btn nc-btn--ghost">Action 42</button><button type="button" class="nc-btn nc-btn--ghost">Submit</button><button type="button" class="nc-btn nc-btn--ghost">Continue</button></div></div><button type="button" class="nc-btn nc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="nc-ftr"><small>© Demo NetConfig</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+
+<div class="nc-modal-backdrop" id="modal-backdrop"></div>
+<div class="nc-modal" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-hidden="true">
+  <h2 id="confirm-title">Confirm connection</h2>
+  <p>You are about to join <strong>Guest_5G</strong> for device <strong>Patio Camera #2</strong>.</p>
+  <p id="modal-note-preview" class="nc-muted">No setup note provided.</p>
+  <div class="nc-card__actions">
+    <button type="button" class="nc-btn nc-btn--ghost" id="cancel-connect">Cancel</button>
+    <button type="button" class="nc-btn nc-btn--primary" id="approve-connect">Connect now</button>
+  </div>
+</div>
+
+<div class="nc-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" aria-hidden="true">
+  <h2 id="help-title">Wireless setup help</h2>
+  <p>Locked SSIDs are controlled by network policy. For this setup, choose the guest network that permits onboarding traffic.</p>
+  <div class="nc-card__actions">
+    <button type="button" class="nc-btn nc-btn--primary" id="close-help">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var smoke = document.getElementById('wifi-setup-smoke-status');
+  var selectedSsid = document.getElementById('selected-ssid');
+  var connectionState = document.getElementById('connection-state');
+  var lastScan = document.getElementById('last-scan');
+  var noteInput = document.getElementById('guest-note');
+  var noteMsg = document.getElementById('guest-note-msg');
+  var filterInput = document.getElementById('ssid-filter');
+  var filterFeedback = document.getElementById('filter-feedback');
+  var networkRows = Array.prototype.slice.call(document.querySelectorAll('[data-network-row]'));
+  var countNode = document.getElementById('network-count');
+  var rescanBtn = document.getElementById('rescan-btn');
+  var connectBtn = document.querySelector('button[data-connect-ssid="Guest_5G"]');
+  var modal = document.getElementById('confirm-modal');
+  var helpModal = document.getElementById('help-modal');
+  var backdrop = document.getElementById('modal-backdrop');
+  var approveBtn = document.getElementById('approve-connect');
+  var cancelBtn = document.getElementById('cancel-connect');
+  var openHelpBtn = document.getElementById('open-help');
+  var closeHelpBtn = document.getElementById('close-help');
+  var notePreview = document.getElementById('modal-note-preview');
+
+  function setSmoke(text, variant){
+    smoke.textContent = text;
+    smoke.className = 'nc-badge ' + (variant || 'nc-badge--warn');
+  }
+
+  function updateVisibleCount(){
+    var visible = networkRows.filter(function(row){ return row.style.display !== 'none'; }).length;
+    countNode.textContent = String(visible);
+    filterFeedback.textContent = visible + ' network' + (visible === 1 ? '' : 's') + ' shown.';
+  }
+
+  function openModal(node){
+    backdrop.classList.add('is-open');
+    node.classList.add('is-open');
+    node.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(node){
+    backdrop.classList.remove('is-open');
+    node.classList.remove('is-open');
+    node.setAttribute('aria-hidden','true');
+  }
+
+  noteInput.addEventListener('input', function(){
+    var len = noteInput.value.trim().length;
+    if(len === 0){
+      noteMsg.textContent = 'Optional note will appear in connection history.';
+      noteMsg.className = 'nc-inline-msg';
+      connectBtn.disabled = false;
+    } else if(len < 3){
+      noteMsg.textContent = 'If provided, use at least 3 characters.';
+      noteMsg.className = 'nc-inline-msg is-error';
+      connectBtn.disabled = true;
+    } else {
+      noteMsg.textContent = 'Note ready to save with this connection.';
+      noteMsg.className = 'nc-inline-msg is-success';
+      connectBtn.disabled = false;
+    }
+  });
+
+  filterInput.addEventListener('input', function(){
+    var q = filterInput.value.trim().toLowerCase();
+    networkRows.forEach(function(row){
+      var ssid = (row.getAttribute('data-ssid-row') || '').toLowerCase();
+      row.style.display = !q || ssid.indexOf(q) !== -1 ? '' : 'none';
+    });
+    updateVisibleCount();
+    if(!q){ filterFeedback.textContent = 'Showing all discovered networks.'; }
+  });
+
+  rescanBtn.addEventListener('click', function(){
+    lastScan.textContent = new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit', second:'2-digit'});
+    setSmoke('Rescan complete — Guest_5G available', 'nc-badge--ok');
+    window.__scenarioSmoke = { lastAction: 'rescan', updatedAt: Date.now() };
+  });
+
+  document.querySelector('[data-ssid-row="Home_5G"]').addEventListener('click', function(){
+    selectedSsid.textContent = 'Home_5G';
+    connectionState.textContent = 'Blocked by policy';
+    setSmoke('Home_5G is locked and cannot be joined from guest setup', 'nc-badge--warn');
+  });
+
+  connectBtn.addEventListener('click', function(){
+    var note = noteInput.value.trim();
+    if(note.length > 0 && note.length < 3){
+      noteMsg.textContent = 'Please enter at least 3 characters or clear the note.';
+      noteMsg.className = 'nc-inline-msg is-error';
+      setSmoke('Validation error — note too short', 'nc-badge--warn');
+      return;
+    }
+    notePreview.textContent = note ? 'Setup note: ' + note : 'No setup note provided.';
+    selectedSsid.textContent = 'Guest_5G';
+    connectionState.textContent = 'Pending confirmation';
+    setSmoke('Guest_5G selected — confirm connection', 'nc-badge--warn');
+    openModal(modal);
+    window.__scenarioSmoke = { lastAction: 'select-guest-5g', updatedAt: Date.now() };
+  });
+
+  approveBtn.addEventListener('click', function(){
+    closeModal(modal);
+    connectionState.textContent = 'Connected to Guest_5G';
+    setSmoke('Connected to Guest_5G successfully', 'nc-badge--ok');
+    window.__scenarioSmoke = { lastAction: 'connected-guest-5g', updatedAt: Date.now() };
+  });
+
+  cancelBtn.addEventListener('click', function(){
+    closeModal(modal);
+    connectionState.textContent = 'Connection canceled';
+    setSmoke('Connection canceled — no network joined', 'nc-badge--warn');
+    window.__scenarioSmoke = { lastAction: 'cancel-connect', updatedAt: Date.now() };
+  });
+
+  openHelpBtn.addEventListener('click', function(){
+    openModal(helpModal);
+    setSmoke('Help panel opened', 'nc-badge--warn');
+  });
+
+  closeHelpBtn.addEventListener('click', function(){
+    closeModal(helpModal);
+    setSmoke('Help panel closed', 'nc-badge--warn');
+  });
+
+  backdrop.addEventListener('click', function(){
+    closeModal(modal);
+    closeModal(helpModal);
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cookie-action]'), function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelector('.nc-cookie').style.display = 'none';
+    });
+  });
+
+  updateVisibleCount();
+  window.__scenarioSmoke = { lastAction: 'page-load', updatedAt: Date.now() };
+})();
+</script></div></body></html>

@@ -107,7 +107,7 @@ table{border-collapse:collapse}
 .hf-small-list li{padding:6px 0;border-bottom:1px solid #e2e8f0}
 .hf-small-list li:last-child{border-bottom:none}
 </style></head><body>
-<div class="hf-app" data-page="job-board" id="job_board-page" data-agent-id="job_board-page" data-agent-role="landmark" data-agent-desc="Job board page root landmark" data-agent-priority="1" data-agent-action="navigate" data-agent-state="{&quot;ready&quot;:true}">
+<div class="hf-app" data-page="job-board" id="job_board-page" data-wci-id="job_board-page" data-wci-role="landmark" data-wci-desc="Job board page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
   <div class="hf-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
     <button type="button" class="hf-btn hf-btn--muted" data-cookie-action="reject">Reject non-essential</button>
@@ -127,8 +127,8 @@ table{border-collapse:collapse}
       <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/saved">Saved jobs</a><a href="/employers">Employers</a>
     </nav>
     <div class="hf-hdr-promo">
-      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-agent-id="decoy-promo" data-agent-role="action" data-agent-action="click" data-agent-desc="Promotional decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Claim Offer</button>
-      <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-agent-id="decoy-nav" data-agent-role="nav" data-agent-action="click" data-agent-desc="Navigation decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Learn More</button>
+      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+      <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Navigation decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
     </div>
   </header>
 
@@ -149,7 +149,7 @@ table{border-collapse:collapse}
   <div class="hf-dup-row">
     <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Apply Senior Engineer Acme</button>
     <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav">Apply to Acme Senior</button>
-    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-agent-id="decoy-extra" data-agent-role="action" data-agent-action="click" data-agent-desc="Extra decoy action" data-agent-priority="2" data-agent-scope="job_board-page" data-agent-state="{&quot;ready&quot;:true}">Quick Apply Senior</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Extra decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Quick Apply Senior</button>
   </div>
 
   <div class="hf-page-wrap">
@@ -265,7 +265,7 @@ table{border-collapse:collapse}
                   <li>Application review begins immediately</li>
                 </ul>
                 <div class="hf-card__actions">
-                  <button id="apply-senior-engineer" type="button" class="hf-btn hf-btn--primary" data-agent-id="apply-senior-engineer" data-agent-role="action" data-agent-action="click" data-agent-desc="Primary confirm action for the ACM-447 senior in-office role" data-agent-priority="1" data-agent-state="{&quot;ready&quot;:true}" data-agent-scope="job_board-page">Confirm</button>
+                  <button id="apply-senior-engineer" type="button" class="hf-btn hf-btn--primary" data-wci-id="apply-senior-engineer" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary confirm action for the ACM-447 senior in-office role" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="job_board-page">Confirm</button>
                   <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
                   <button type="button" class="hf-btn hf-btn--ghost">View team</button>
                 </div>

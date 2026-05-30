@@ -9,6 +9,7 @@
     "Multiple ghost buttons in top bar (notifications, refresh, export)",
     "Decoy Export CSV under Pipeline submenu vs dashboard Export",
     "Closed-won deals in table can mislead probability comparison",
+    "In-app hash routing — sidebar pages swap without full reload; dashboard data stays in DOM",
     "Stage and owner filters plus search narrow visible rows",
     "Keyboard shortcuts overlay and export modal both block interaction",
     "Bulk action bar appears only when rows are selected",
@@ -95,7 +96,7 @@
   "tasks": {
     "singleShot": {
       "goal": "Find the deal with the highest probability and export the dashboard",
-      "groundTruthSelector": ".qc-topbar__right button:has-text(\"Export\")",
+      "groundTruthSelector": "#export-btn",
       "groundTruthNodeId": "export-btn"
     },
     "multiStep": [
@@ -110,7 +111,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Final action uses ground-truth selector: #export-btn",
           "Primary WCI action id: export-btn",
           "No decoy ids triggered: export-csv-btn"
         ],
@@ -180,7 +181,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: .qc-topbar__right button:has-text(\"Export\")",
+          "Final action uses ground-truth selector: #export-btn",
           "Primary WCI action id: export-btn",
           "No decoy ids triggered: export-csv-btn"
         ],

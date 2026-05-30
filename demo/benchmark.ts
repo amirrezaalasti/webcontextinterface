@@ -211,7 +211,7 @@ export class BenchmarkEngine {
 
     const parser = new DOMParser();
     const annotatedDoc = parser.parseFromString(scenario.annotatedHtml, 'text/html');
-    const distilledNodes = annotatedDoc.querySelectorAll('[data-agent-id]').length;
+    const distilledNodes = annotatedDoc.querySelectorAll('[data-wci-id]').length;
 
     const rawElements = countElements(scenario.rawHtml);
     const rawInteractive = countInteractive(scenario.rawHtml);
@@ -277,37 +277,37 @@ export class BenchmarkEngine {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const nodes: Record<string, unknown>[] = [];
-    doc.querySelectorAll('[data-agent-id]').forEach((el) => {
+    doc.querySelectorAll('[data-wci-id]').forEach((el) => {
       const htmlEl = el as HTMLElement;
       let state = {};
       try {
-        state = JSON.parse(htmlEl.dataset.agentState ?? '{}');
+        state = JSON.parse(htmlEl.dataset.wciState ?? '{}');
       } catch {
         /* ignore */
       }
       let options: string[] | undefined;
       try {
-        const raw = htmlEl.dataset.agentOptions;
+        const raw = htmlEl.dataset.wciOptions;
         if (raw) options = JSON.parse(raw);
       } catch {
         /* ignore */
       }
       nodes.push({
-        id: htmlEl.dataset.agentId,
-        role: htmlEl.dataset.agentRole,
-        desc: htmlEl.dataset.agentDesc,
-        ...(htmlEl.dataset.agentAction ? { action: htmlEl.dataset.agentAction } : {}),
-        ...(htmlEl.dataset.agentRequired === 'true' ? { required: true } : {}),
-        ...(htmlEl.dataset.agentPrecondition ? { precondition: htmlEl.dataset.agentPrecondition } : {}),
+        id: htmlEl.dataset.wciId,
+        role: htmlEl.dataset.wciRole,
+        desc: htmlEl.dataset.wciDesc,
+        ...(htmlEl.dataset.wciAction ? { action: htmlEl.dataset.wciAction } : {}),
+        ...(htmlEl.dataset.wciRequired === 'true' ? { required: true } : {}),
+        ...(htmlEl.dataset.wciPrecondition ? { precondition: htmlEl.dataset.wciPrecondition } : {}),
         ...(options ? { options } : {}),
         state,
-        priority: parseInt(htmlEl.dataset.agentPriority ?? '3', 10),
+        priority: parseInt(htmlEl.dataset.wciPriority ?? '3', 10),
       });
     });
 
     return JSON.stringify(
       {
-        agentdom_version: '1.0',
+        wci_version: '1.0',
         page_title: doc.title || '(untitled)',
         node_count: nodes.length,
         nodes,

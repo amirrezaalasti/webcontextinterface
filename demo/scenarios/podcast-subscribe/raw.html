@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>PodWave</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>PodWave — AI Daily</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .pw-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .pw-subnav a:hover{background:#f8fafc;color:#334155}
 .pw-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.pw-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.pw-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.pw-page-wrap{grid-template-columns:1fr}}
 .pw-page-main{padding:20px 24px 32px;min-height:42vh}
 .pw-page-main>h1,.pw-page-main [role=main]>h1,.pw-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .pw-page-main h2,.pw-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.pw-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.pw-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .pw-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.pw-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pw-page-main select,.pw-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.pw-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pw-page-main select,.pw-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .pw-page-main input:focus,.pw-page-main select:focus,.pw-page-main textarea:focus{outline:2px solid hsl(142 72% 46%);outline-offset:1px;border-color:hsl(142 72% 46%)}
 .pw-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .pw-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +34,13 @@ table{border-collapse:collapse}
 .pw-page-main th,.pw-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .pw-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .pw-page-main tr:hover td{background:#fafafa}
-.pw-page-main article,.pw-page-main .pw-card,.pw-page-main .pw-resto,.pw-page-main .pw-slot,.pw-page-main .pw-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.pw-page-main article,.pw-page-main .pw-card,.pw-page-main .pw-resto,.pw-page-main .pw-slot,.pw-page-main .pw-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .pw-page-main ul:not([class]){list-style:none;padding:0}
 .pw-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .pw-page-main ul:not([class]) li:hover{background:#f8fafc}
-.pw-page-main dialog,.pw-page-main .pw-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.pw-page-main .pw-modal.is-open,.pw-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.pw-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.pw-page-main dialog,.pw-page-main .pw-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.pw-page-main .pw-modal.is-open,.pw-page-main [role=dialog]{position:fixed;inset:12% 22%;z-index:60;max-width:560px;margin:auto}
+.pw-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .pw-btn:hover{background:#f8fafc}
 .pw-btn--primary{background:hsl(142 72% 46%);color:#fff;border-color:hsl(142 72% 38%)}
 .pw-btn--primary:hover{filter:brightness(1.05)}
@@ -64,52 +61,337 @@ table{border-collapse:collapse}
 .pw-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .pw-ab{display:none!important}
 .pw-layout{display:grid;gap:16px;align-items:start}
-.pw-filters,.pw-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.pw-filters h2,.pw-frame aside h2{font-size:14px;margin:0 0 10px}
 .pw-card__actions,.pw-slot__actions,.pw-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.pw-wizard{max-width:760px}
-.pw-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.pw-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.pw-step.is-active{background:hsl(142 72% 46%);color:#fff}
-.pw-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.pw-hero{border-radius:12px;margin-bottom:8px}
-.pw-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.pw-grid{display:grid;gap:14px}
-.pw-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.pw-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.pw-patient{border-radius:10px}
-.pw-slots{display:grid;gap:10px}
-.pw-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.pw-cell{background:#fff;padding:8px;min-height:44px}
-.pw-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.pw-diff{border-radius:8px}
-.pw-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.pw-hero{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding:24px!important}
+@media(max-width:640px){.pw-hero{grid-template-columns:1fr}}
+.pw-cover{width:120px;height:120px;border-radius:18px;background:linear-gradient(135deg,#8b5cf6,#22c55e);display:flex;align-items:flex-end;justify-content:flex-start;padding:12px;color:#fff;font-weight:700;letter-spacing:.02em;box-shadow:0 10px 30px rgba(139,92,246,.25)}
+.pw-badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 10px}
+.pw-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:600;background:#ecfeff;color:#155e75;border:1px solid #bae6fd}
+.pw-badge--live{background:#dcfce7;border-color:#bbf7d0;color:#166534}
+.pw-badge--muted{background:#f1f5f9;border-color:#e2e8f0;color:#475569}
+.pw-meta{display:flex;flex-wrap:wrap;gap:14px;color:#64748b;font-size:12px;margin-bottom:12px}
+.pw-split{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+@media(max-width:900px){.pw-split{grid-template-columns:1fr}}
+.pw-status-line{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 14px}
+.pw-status-box{padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#f8fafc;font-size:13px;color:#334155}
+ .pw-inline-note{font-size:12px;color:#64748b}
+.pw-success{color:#166534}
+.pw-error{color:#b91c1c}
+.pw-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.pw-overlay.is-open{display:block}
+.pw-modal{display:none}
+.pw-modal.is-open{display:block}
+.pw-list-tight li{padding:6px 0;border-bottom:1px solid #e2e8f0}
+.pw-list-tight li:last-child{border-bottom:none}
+.pw-kpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+@media(max-width:640px){.pw-kpi{grid-template-columns:1fr}}
+.pw-kpi .pw-card{margin:0;padding:12px}
+.pw-mini{font-size:12px;color:#64748b}
+.pw-switch{display:flex;align-items:center;gap:8px;margin:8px 0}
+.pw-preview{padding:10px 12px;border:1px dashed #cbd5e1;border-radius:8px;background:#fcfcff;color:#334155;font-size:13px}
 </style></head><body>
-<div class="pw-app" data-page="podcast-subscribe"><div class="pw-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pw-btn pw-btn--muted">Reject non-essential</button>
-  <button type="button" class="pw-btn pw-btn--primary">Accept all</button>
-  <button type="button" class="pw-btn pw-btn--ghost">Customize</button>
-</div><div class="pw-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="pw-btn pw-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="pw-btn">Continue as guest — express</button>
-</div><header class="pw-hdr">
-  <nav class="pw-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="pw-hdr-promo"><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="pw-btn pw-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="pw-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="pw-btn pw-btn--ghost">Submit</button>
-  <button type="button" class="pw-btn pw-btn--ghost">Continue</button>
-</nav><div class="pw-dup-row" aria-label="Quick actions">
-  <button type="button" class="pw-btn pw-btn--ghost">Submit</button>
-  <button type="button" class="pw-btn pw-btn--ghost">Continue</button>
-  <button type="button" class="pw-btn pw-btn--ghost">Save changes</button>
-  <button type="button" class="pw-btn pw-btn--ghost">Confirm</button>
-</div><div class="pw-dup-row"><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Subscribe AI Daily</button><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-nav">Subscribe show AI Daily</button></div><div class="pw-page-wrap"><div class="pw-page-main"><article role="main" style="display:flex;gap:20px;padding:24px" data-show="ai-daily"><div style="width:120px;height:120px;background:#a855f7"></div>
-<div><h1>AI Daily</h1><button type="button" class="pw-btn pw-btn--primary" data-subscribe="ai-daily">Confirm</button>
-<button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Free trial</button></div></article></div><aside class="pw-rail pw-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
-  <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pw-filler" aria-hidden="true"><div class="pw-filler-inner"><a href="/misc/0" class="pw-btn pw-btn--ghost">Link 1</a><button type="button" class="pw-btn pw-btn--ghost">Action 2</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/4" class="pw-btn pw-btn--ghost">Link 5</a><button type="button" class="pw-btn pw-btn--ghost">Action 6</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/8" class="pw-btn pw-btn--ghost">Link 9</a><button type="button" class="pw-btn pw-btn--ghost">Action 10</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/12" class="pw-btn pw-btn--ghost">Link 13</a><button type="button" class="pw-btn pw-btn--ghost">Action 14</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/16" class="pw-btn pw-btn--ghost">Link 17</a><button type="button" class="pw-btn pw-btn--ghost">Action 18</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/20" class="pw-btn pw-btn--ghost">Link 21</a><button type="button" class="pw-btn pw-btn--ghost">Action 22</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/24" class="pw-btn pw-btn--ghost">Link 25</a><button type="button" class="pw-btn pw-btn--ghost">Action 26</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/28" class="pw-btn pw-btn--ghost">Link 29</a><button type="button" class="pw-btn pw-btn--ghost">Action 30</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/32" class="pw-btn pw-btn--ghost">Link 33</a><button type="button" class="pw-btn pw-btn--ghost">Action 34</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/36" class="pw-btn pw-btn--ghost">Link 37</a><button type="button" class="pw-btn pw-btn--ghost">Action 38</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="/misc/40" class="pw-btn pw-btn--ghost">Link 41</a><button type="button" class="pw-btn pw-btn--ghost">Action 42</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button></div></div><button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="pw-ftr"><small>© Demo PodWave</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<div class="pw-app" data-page="podcast-subscribe" id="podcast_subscribe-page">
+  <div class="pw-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+    <p>We use cookies for analytics, personalization, and occasional partner placements across PodWave. Manage preferences or accept to continue.</p>
+    <button type="button" class="pw-btn pw-btn--muted" id="cookieReject">Reject non-essential</button>
+    <button type="button" class="pw-btn pw-btn--primary" id="cookieAccept">Accept all</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="cookieCustomize">Customize</button>
+  </div>
+
+  <div class="pw-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="pw-btn pw-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="pw-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="pw-hdr">
+    <nav class="pw-nav" aria-label="Global">
+      <a href="#">Discover</a><a href="#">Charts</a><a href="#">Creators</a><a href="#">Library</a><a href="#">Account</a>
+    </nav>
+    <div class="pw-hdr-promo">
+      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+      <button type="button" class="pw-btn pw-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="pw-subnav" aria-label="Secondary">
+    <a href="#about">About the show</a><a href="#episodes">Episodes</a><a href="#reviews">Reviews</a><a href="#host">Host</a><a href="#similar">Similar shows</a>
+    <button type="button" class="pw-btn pw-btn--ghost" id="shareBtn">Share</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="saveBtn">Save</button>
+  </nav>
+
+  <div class="pw-dup-row" aria-label="Quick actions">
+    <button type="button" class="pw-btn pw-btn--ghost" id="playSampleBtn">Play latest</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="followCreatorBtn">Follow creator</button>
+    <button type="button" class="pw-btn pw-btn--ghost">Add to queue</button>
+    <button type="button" class="pw-btn pw-btn--ghost">Report</button>
+  </div>
+
+  <div class="pw-dup-row">
+    <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Start 30-day trial</button>
+    <button type="button" class="pw-btn pw-btn--ghost">Upgrade for ad-free</button>
+  </div>
+
+  <div class="pw-page-wrap">
+    <div class="pw-page-main">
+      <article role="main" class="pw-hero" data-show="ai-daily">
+        <div class="pw-cover" aria-hidden="true">AI<br/>DAILY</div>
+        <div>
+          <div class="pw-badges">
+            <span class="pw-badge pw-badge--live">Updated every weekday</span>
+            <span class="pw-badge pw-badge--muted" id="followStateBadge">Not subscribed</span>
+          </div>
+          <h1>AI Daily</h1>
+          <div class="pw-meta">
+            <span>Technology News</span>
+            <span>4.9 ★ from 18,420 ratings</span>
+            <span>12 min average episode</span>
+            <span id="subscriberCountLabel">238,114 subscribers</span>
+          </div>
+          <p>Your concise morning briefing on AI launches, model releases, research breakthroughs, regulation, and practical tools for work. Hosted by Maya Chen and the PodWave editorial team.</p>
+          <div class="pw-status-line">
+            <button type="button" class="pw-btn pw-btn--primary" data-subscribe="ai-daily" id="subscribe-ai-daily">Subscribe</button>
+            <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Free trial</button>
+            <span class="pw-status-box" id="podcast-subscribe-smoke-status" data-smoke-status>Ready to subscribe to AI Daily.</span>
+          </div>
+          <p class="pw-inline-note">Subscribing follows the show feed and adds new episodes to your library. This is separate from any premium trial or paid membership.</p>
+        </div>
+      </article>
+
+      <div class="pw-split">
+        <section class="pw-card" id="about">
+          <h2>About this show</h2>
+          <p>AI Daily turns the noise of the AI ecosystem into a clear, practical update you can finish before your first meeting. Each episode summarizes the news that matters, gives context on why it matters now, and closes with one practical takeaway.</p>
+          <div class="pw-kpi">
+            <div class="pw-card"><div class="pw-mini">Release cadence</div><strong>5 episodes/week</strong></div>
+            <div class="pw-card"><div class="pw-mini">Avg. listen time</div><strong>11m 48s</strong></div>
+            <div class="pw-card"><div class="pw-mini">Completion rate</div><strong>78%</strong></div>
+          </div>
+        </section>
+
+        <section class="pw-card">
+          <h2>Subscription preferences</h2>
+          <form id="notifyForm" novalidate>
+            <label for="emailInput">Email for release alerts</label>
+            <input id="emailInput" name="email" type="email" placeholder="you@example.com" aria-describedby="emailHelp emailError"/>
+            <div id="emailHelp" class="pw-inline-note">Optional. Receive a quick alert when a new episode drops.</div>
+            <div id="emailError" class="pw-inline-note pw-error" aria-live="polite"></div>
+
+            <div class="pw-switch">
+              <input id="episodeAlerts" type="checkbox" checked/>
+              <label for="episodeAlerts" style="margin:0">Send me new episode notifications</label>
+            </div>
+            <div class="pw-switch">
+              <input id="breakingAlerts" type="checkbox"/>
+              <label for="breakingAlerts" style="margin:0">Send occasional breaking AI news alerts</label>
+            </div>
+            <div class="pw-preview" id="alertPreview">Preview: New episodes only.</div>
+          </form>
+        </section>
+      </div>
+
+      <section class="pw-card" id="episodes">
+        <h2>Recent episodes</h2>
+        <table aria-label="Recent AI Daily episodes">
+          <thead><tr><th>Episode</th><th>Summary</th><th>Length</th></tr></thead>
+          <tbody>
+            <tr><td>Open model race, May recap</td><td>What changed in open-weight releases, benchmarks, and enterprise adoption signals.</td><td>13 min</td></tr>
+            <tr><td>Chip demand and inference costs</td><td>How supply constraints and optimized serving stacks are affecting model economics.</td><td>11 min</td></tr>
+            <tr><td>EU policy watch</td><td>A plain-English breakdown of compliance timelines, risk categories, and likely product impact.</td><td>10 min</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="pw-card" id="reviews">
+        <h2>Listener reviews</h2>
+        <ul class="pw-list-tight">
+          <li><strong>“Actually useful.”</strong> Short enough to finish, dense enough to matter.</li>
+          <li><strong>“Great signal-to-noise ratio.”</strong> Covers launches and regulation without drifting into hype.</li>
+          <li><strong>“My commute default.”</strong> I subscribe to the feed and skim the transcript later.</li>
+        </ul>
+      </section>
+
+      <section class="pw-card" id="host">
+        <h2>Host & editorial notes</h2>
+        <p>Maya Chen is a former product lead turned technology journalist covering applied AI, developer tooling, and enterprise adoption. PodWave’s editorial desk verifies claims from primary sources and updates show notes when stories evolve.</p>
+      </section>
+    </div>
+
+    <aside class="pw-rail pw-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <p>Try PodWave Premium for ad-free listening, offline downloads, and early access playlists.</p>
+      <a href="#">Partner offer — limited time</a><br/>
+      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <section class="pw-card" style="margin-top:14px">
+        <h3 style="margin-top:0">Show details</h3>
+        <p class="pw-mini">Language: English<br/>Category: Technology<br/>Published by: PodWave Originals</p>
+        <button type="button" class="pw-btn pw-btn--ghost" id="openInfoBtn">What does subscribe do?</button>
+      </section>
+      <section class="pw-card" id="similar">
+        <h3 style="margin-top:0">Listeners also follow</h3>
+        <ul class="pw-list-tight">
+          <li>Practical ML Weekly</li>
+          <li>Inside the Model Lab</li>
+          <li>Tech Brief Tonight</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <div class="pw-filler" aria-hidden="true"><div class="pw-filler-inner"><a href="#" class="pw-btn pw-btn--ghost">Link 1</a><button type="button" class="pw-btn pw-btn--ghost">Action 2</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="#" class="pw-btn pw-btn--ghost">Link 5</a><button type="button" class="pw-btn pw-btn--ghost">Action 6</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="#" class="pw-btn pw-btn--ghost">Link 9</a><button type="button" class="pw-btn pw-btn--ghost">Action 10</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+
+  <div class="pw-overlay" id="modalOverlay"></div>
+  <div class="pw-modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle" aria-describedby="infoModalDesc">
+    <h2 id="infoModalTitle" style="margin-top:0">Subscribing vs. free trial</h2>
+    <p id="infoModalDesc">Subscribing follows the AI Daily show feed so new episodes appear in your library. A free trial is a separate premium promotion and is not required to subscribe to this show.</p>
+    <div class="pw-card__actions">
+      <button type="button" class="pw-btn pw-btn--primary" id="closeInfoBtn">Got it</button>
+    </div>
+  </div>
+
+  <footer class="pw-ftr"><small>© Demo PodWave</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+</div>
+
+<script>
+(function(){
+  var subscribeBtn = document.querySelector('[data-show="ai-daily"] button[data-subscribe="ai-daily"]');
+  var smoke = document.getElementById('podcast-subscribe-smoke-status');
+  var badge = document.getElementById('followStateBadge');
+  var countLabel = document.getElementById('subscriberCountLabel');
+  var infoBtn = document.getElementById('openInfoBtn');
+  var closeInfoBtn = document.getElementById('closeInfoBtn');
+  var overlay = document.getElementById('modalOverlay');
+  var modal = document.getElementById('infoModal');
+  var saveBtn = document.getElementById('saveBtn');
+  var shareBtn = document.getElementById('shareBtn');
+  var playSampleBtn = document.getElementById('playSampleBtn');
+  var followCreatorBtn = document.getElementById('followCreatorBtn');
+  var emailInput = document.getElementById('emailInput');
+  var emailError = document.getElementById('emailError');
+  var episodeAlerts = document.getElementById('episodeAlerts');
+  var breakingAlerts = document.getElementById('breakingAlerts');
+  var alertPreview = document.getElementById('alertPreview');
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+  var cookieReject = document.getElementById('cookieReject');
+  var cookieCustomize = document.getElementById('cookieCustomize');
+  var subscribed = false;
+  var saved = false;
+  var playing = false;
+  var creatorFollowed = false;
+  var baseCount = 238114;
+
+  function setSmoke(text, action){
+    smoke.textContent = text;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
+  function formatCount(n){
+    return n.toLocaleString('en-US') + ' subscribers';
+  }
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+    setSmoke('Info opened: subscribing follows the show feed, not the trial promo.', 'open-subscribe-info');
+  }
+
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+  }
+
+  function updatePreview(){
+    var parts = [];
+    if(episodeAlerts.checked) parts.push('new episodes');
+    if(breakingAlerts.checked) parts.push('breaking AI news');
+    if(parts.length === 0){
+      alertPreview.textContent = 'Preview: Notifications are off.';
+    } else {
+      alertPreview.textContent = 'Preview: You\'ll receive ' + parts.join(' and ') + '.';
+    }
+  }
+
+  function validateEmail(){
+    var value = emailInput.value.trim();
+    if(value === ''){
+      emailError.textContent = '';
+      emailInput.removeAttribute('aria-invalid');
+      return true;
+    }
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if(!ok){
+      emailError.textContent = 'Enter a valid email address to receive alerts.';
+      emailInput.setAttribute('aria-invalid','true');
+      return false;
+    }
+    emailError.textContent = 'Looks good — alerts can be sent to this address.';
+    emailError.classList.remove('pw-error');
+    emailError.classList.add('pw-success');
+    emailInput.removeAttribute('aria-invalid');
+    return true;
+  }
+
+  emailInput.addEventListener('input', function(){
+    emailError.classList.add('pw-error');
+    emailError.classList.remove('pw-success');
+    validateEmail();
+  });
+  episodeAlerts.addEventListener('change', updatePreview);
+  breakingAlerts.addEventListener('change', updatePreview);
+  updatePreview();
+
+  subscribeBtn.addEventListener('click', function(){
+    var emailOk = validateEmail();
+    subscribed = true;
+    subscribeBtn.textContent = 'Subscribed';
+    subscribeBtn.disabled = true;
+    badge.textContent = 'Subscribed';
+    badge.classList.remove('pw-badge--muted');
+    badge.classList.add('pw-badge--live');
+    countLabel.textContent = formatCount(baseCount + 1);
+    var msg = emailOk && emailInput.value.trim() !== ''
+      ? 'Subscribed to AI Daily. Release alerts will go to ' + emailInput.value.trim() + '.'
+      : 'Subscribed to AI Daily feed.';
+    setSmoke(msg, 'subscribe-ai-daily-feed');
+  });
+
+  infoBtn.addEventListener('click', openModal);
+  closeInfoBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  saveBtn.addEventListener('click', function(){
+    saved = !saved;
+    saveBtn.textContent = saved ? 'Saved' : 'Save';
+    setSmoke(saved ? 'Show saved to your library.' : 'Show removed from saved items.', saved ? 'save-show' : 'unsave-show');
+  });
+
+  shareBtn.addEventListener('click', function(){
+    setSmoke('Share sheet prepared for AI Daily.', 'share-show');
+  });
+
+  playSampleBtn.addEventListener('click', function(){
+    playing = !playing;
+    playSampleBtn.textContent = playing ? 'Pause latest' : 'Play latest';
+    setSmoke(playing ? 'Playing latest AI Daily episode preview.' : 'Paused latest AI Daily episode preview.', playing ? 'play-latest-preview' : 'pause-latest-preview');
+  });
+
+  followCreatorBtn.addEventListener('click', function(){
+    creatorFollowed = !creatorFollowed;
+    followCreatorBtn.textContent = creatorFollowed ? 'Following creator' : 'Follow creator';
+    setSmoke(creatorFollowed ? 'Now following the AI Daily creator.' : 'Creator unfollowed.', creatorFollowed ? 'follow-creator' : 'unfollow-creator');
+  });
+
+  [cookieAccept,cookieReject,cookieCustomize].forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      setSmoke('Cookie preference updated.', 'cookie-preference-updated');
+    });
+  });
+
+  window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

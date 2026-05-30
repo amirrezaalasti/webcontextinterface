@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .hd-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .hd-subnav a:hover{background:#f8fafc;color:#334155}
 .hd-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.hd-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.hd-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.hd-page-wrap{grid-template-columns:1fr}}
 .hd-page-main{padding:20px 24px 32px;min-height:42vh}
 .hd-page-main>h1,.hd-page-main [role=main]>h1,.hd-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .hd-page-main h2,.hd-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .hd-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .hd-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.hd-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.hd-page-main select,.hd-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.hd-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.hd-page-main select,.hd-page-main textarea{display:block;width:100%;max-width:100%;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .hd-page-main input:focus,.hd-page-main select:focus,.hd-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .hd-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .hd-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,13 +34,11 @@ table{border-collapse:collapse}
 .hd-page-main th,.hd-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .hd-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .hd-page-main tr:hover td{background:#fafafa}
-.hd-page-main article,.hd-page-main .hd-card,.hd-page-main .hd-resto,.hd-page-main .hd-slot,.hd-page-main .hd-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.hd-page-main article,.hd-page-main .hd-card,.hd-page-main .hd-resto,.hd-page-main .hd-slot,.hd-page-main .hd-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .hd-page-main ul:not([class]){list-style:none;padding:0}
 .hd-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .hd-page-main ul:not([class]) li:hover{background:#f8fafc}
-.hd-page-main dialog,.hd-page-main .hd-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.hd-page-main dialog,.hd-page-main .hd-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .hd-page-main .hd-modal.is-open,.hd-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .hd-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .hd-btn:hover{background:#f8fafc}
@@ -67,14 +64,17 @@ table{border-collapse:collapse}
 .hd-filters,.hd-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .hd-filters h2,.hd-frame aside h2{font-size:14px;margin:0 0 10px}
 .hd-card__actions,.hd-slot__actions,.hd-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.hd-wizard{max-width:760px}
+.hd-wizard{max-width:860px}
 .hd-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .hd-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .hd-step.is-active{background:hsl(330 72% 46%);color:#fff}
+.hd-step.is-done{background:#dcfce7;color:#166534}
 .hd-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
 .hd-hero{border-radius:12px;margin-bottom:8px}
 .hd-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .hd-grid{display:grid;gap:14px}
+.hd-grid--2{grid-template-columns:1.4fr .9fr}
+@media(max-width:760px){.hd-grid--2{grid-template-columns:1fr}}
 .hd-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
 .hd-inbox tr.unread td{font-weight:600;background:#eff6ff}
 .hd-patient{border-radius:10px}
@@ -84,20 +84,44 @@ table{border-collapse:collapse}
 .hd-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .hd-diff{border-radius:8px}
 .hd-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.hd-kpi{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.hd-kpi--danger{background:#fee2e2;color:#991b1b}
+.hd-kpi--warn{background:#fef3c7;color:#92400e}
+.hd-kpi--ok{background:#dcfce7;color:#166534}
+.hd-inline{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hd-note{font-size:12px;color:#64748b}
+.hd-error{color:#b91c1c;font-size:12px;margin-top:6px;display:none}
+ .hd-error.is-visible{display:block}
+.hd-success{color:#166534}
+.hd-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em}
+.hd-badge--draft{background:#e2e8f0;color:#334155}
+.hd-badge--ready{background:#dbeafe;color:#1d4ed8}
+.hd-badge--high{background:#fee2e2;color:#b91c1c}
+.hd-preview{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:14px}
+.hd-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:620px){.hd-meta{grid-template-columns:1fr}}
+.hd-list-tight li{padding:6px 0;border-bottom:1px solid #eef2f7}
+.hd-list-tight li:last-child{border-bottom:none}
+.hd-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.hd-overlay.is-open{display:block}
+.hd-confirm{position:fixed;inset:12% auto auto 50%;transform:translateX(-50%);width:min(92vw,560px);display:none;z-index:60;background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 20px 40px rgba(15,23,42,.18);padding:20px}
+.hd-confirm.is-open{display:block}
+.hd-confirm h3{margin-top:0}
+.hd-muted-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px}
 </style></head><body>
-<div class="hd-app" data-page="support-ticket" data-agent-role="landmark" data-agent-id="support_ticket-page" data-agent-desc="Ticket form" data-agent-priority="2"><div class="hd-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="hd-app" data-page="support-ticket" id="support_ticket-page" data-wci-id="support_ticket-page" data-wci-role="landmark" data-wci-desc="Support ticket page root for HelpDesk One" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="hd-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="hd-btn hd-btn--muted">Reject non-essential</button>
-  <button type="button" class="hd-btn hd-btn--primary">Accept all</button>
-  <button type="button" class="hd-btn hd-btn--ghost">Customize</button>
+  <button type="button" class="hd-btn hd-btn--muted" id="cookie-reject">Reject non-essential</button>
+  <button type="button" class="hd-btn hd-btn--primary" id="cookie-accept">Accept all</button>
+  <button type="button" class="hd-btn hd-btn--ghost" id="cookie-customize">Customize</button>
 </div><div class="hd-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="hd-btn hd-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="hd-btn">Continue as guest — express</button>
 </div><header class="hd-hdr">
-  <nav class="hd-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="hd-hdr-promo"><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="hd-btn hd-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="hd-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <nav class="hd-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/status">System Status</a></nav>
+  <div class="hd-hdr-promo"><span class="hd-kpi hd-kpi--danger">P1 incidents: 1 open</span><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="hd-btn hd-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation-style actions and draft-related controls" data-wci-priority="1" data-wci-scope="support_ticket-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button></div>
+</header><nav class="hd-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Queues</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
   <button type="button" class="hd-btn hd-btn--ghost">Submit</button>
   <button type="button" class="hd-btn hd-btn--ghost">Continue</button>
 </nav><div class="hd-dup-row" aria-label="Quick actions">
@@ -105,13 +129,287 @@ table{border-collapse:collapse}
   <button type="button" class="hd-btn hd-btn--ghost">Continue</button>
   <button type="button" class="hd-btn hd-btn--ghost">Save changes</button>
   <button type="button" class="hd-btn hd-btn--ghost">Confirm</button>
-</div><div class="hd-dup-row"><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-promo">Submit priority ticket</button><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-nav">Submit priority login</button></div><div class="hd-page-wrap"><div class="hd-page-main"><form style="max-width:560px;margin:24px auto" role="main"><h1>New ticket</h1><input type="text" value="Login outage">
-<div><label><input type="radio" name="prio" value="low"> Low</label><label><input type="radio" name="prio" value="high" checked=""> High</label></div>
-<textarea rows="4">Outage since 09:00 UTC</textarea>
-<button type="submit" class="hd-btn hd-btn--primary" data-prio="high" data-topic="login-outage" data-agent-role="action" data-agent-id="submit-priority-ticket" data-agent-desc="Submit the high-priority ticket about login outage (not draft or low priority)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="hd-btn hd-btn--ghost" data-decoy="decoy-nav">Save draft</button></form></div><aside class="hd-rail hd-rail--ads" aria-label="Sponsored">
+  <span class="hd-note">Autosave checks every 30 seconds</span>
+</div><div class="hd-dup-row"><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-promo">Submit priority ticket</button><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-nav">Submit priority login</button></div><div class="hd-page-wrap"><div class="hd-page-main"><main class="hd-wizard" role="main">
+  <div class="hd-steps" aria-label="Ticket steps"><div class="hd-step is-done">1. Requester</div><div class="hd-step is-active">2. Incident details</div><div class="hd-step">3. Review</div></div>
+  <div class="hd-inline" style="justify-content:space-between;margin-bottom:12px;gap:12px"><div><h1>New ticket</h1><p>Create a support request for a customer-facing issue. High priority tickets require confirmation and cannot be left in draft state.</p></div><div class="hd-inline"><span id="ticket-state-badge" class="hd-badge hd-badge--draft">Draft</span><span id="priority-pill" class="hd-badge hd-badge--high">Priority: High</span></div></div>
+
+  <div class="hd-grid hd-grid--2">
+    <section class="hd-panel">
+      <form id="ticket-form" novalidate="">
+        <div class="hd-meta">
+          <div>
+            <label for="requester-name">Requester</label>
+            <input id="requester-name" name="requesterName" type="text" value="Alicia Gomez" autocomplete="name">
+          </div>
+          <div>
+            <label for="requester-email">Email</label>
+            <input id="requester-email" name="requesterEmail" type="email" value="alicia.gomez@northstar.example" autocomplete="email">
+          </div>
+        </div>
+
+        <label for="ticket-subject">Subject</label>
+        <input id="ticket-subject" name="subject" type="text" value="Login outage" maxlength="120">
+        <div class="hd-note">Subject length: <span id="subject-count">13</span>/120</div>
+        <div id="subject-error" class="hd-error" aria-live="polite">Subject is required and should clearly mention the incident.</div>
+
+        <div class="hd-meta">
+          <div>
+            <label for="ticket-topic">Category</label>
+            <select id="ticket-topic" name="topic">
+              <option value="password-reset">Password reset</option>
+              <option value="login-outage" selected="">Login outage</option>
+              <option value="billing">Billing issue</option>
+              <option value="api">API degradation</option>
+            </select>
+          </div>
+          <div>
+            <label for="impact-scope">Affected users</label>
+            <select id="impact-scope" name="scope">
+              <option>Single user</option>
+              <option>Single team</option>
+              <option selected="">All customers</option>
+              <option>Unknown</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Priority</legend>
+          <label><input type="radio" name="prio" value="low"> Low — non-blocking or workaround available</label>
+          <label><input type="radio" name="prio" value="medium"> Medium — degraded, partial impact</label>
+          <label><input type="radio" name="prio" value="high" checked=""> High — widespread outage, immediate response</label>
+          <div id="priority-error" class="hd-error" aria-live="polite">High priority must remain selected for this escalation path.</div>
+        </fieldset>
+
+        <label for="ticket-details">Incident details</label>
+        <textarea id="ticket-details" name="details" rows="7">Users cannot sign in to the production web app. Outage started around 09:00 UTC and affects all customer tenants. Error observed after credential submission: "Session initialization failed". No known workaround.</textarea>
+        <div class="hd-note">Characters: <span id="detail-count">214</span></div>
+        <div id="details-error" class="hd-error" aria-live="polite">Provide at least 30 characters describing the outage.</div>
+
+        <fieldset>
+          <legend>Workflow</legend>
+          <label><input type="checkbox" id="notify-oncall" checked=""> Notify on-call incident channel</label>
+          <label><input type="checkbox" id="customer-impact" checked=""> Mark as customer impacting</label>
+          <label><input type="checkbox" id="attach-logs"> Attach logs later</label>
+          <label><input type="checkbox" id="save-as-draft"> Save as draft instead of sending</label>
+          <div id="draft-warning" class="hd-error" aria-live="polite">Draft mode prevents final submission. Uncheck it to confirm the priority ticket.</div>
+        </fieldset>
+
+        <div class="hd-toolbar" aria-label="Ticket actions">
+          <span class="hd-kpi hd-kpi--warn">Validation: <span id="validation-state">Pending review</span></span>
+          <span class="hd-note">Required: subject, login outage category, high priority, detailed description, draft off</span>
+        </div>
+        <div class="hd-panel" style="border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
+          <div class="hd-card__actions">
+            <button type="button" class="hd-btn hd-btn--ghost" id="preview-btn">Preview summary</button>
+            <button type="button" class="hd-btn hd-btn--ghost" id="save-draft-btn">Save draft</button>
+            <button type="submit" class="hd-btn hd-btn--primary" data-prio="high" data-topic="login-outage" id="submit-priority-ticket" data-wci-id="submit-priority-ticket" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to confirm the high-priority login outage ticket" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="support_ticket-page">Confirm</button>
+            <button type="button" class="hd-btn hd-btn--ghost" data-decoy="decoy-nav">Save draft</button>
+          </div>
+          <p class="hd-note">Selecting Confirm opens a final review modal before the ticket is submitted.</p>
+          <div id="support-ticket-smoke-status" class="hd-muted-box" role="status" aria-live="polite">Smoke status: waiting for priority ticket confirmation.</div>
+        </div>
+      </form>
+    </section>
+
+    <aside class="hd-layout">
+      <article class="hd-card">
+        <h2>Review snapshot</h2>
+        <div class="hd-preview" id="preview-box">
+          <p><strong>Subject:</strong> <span id="preview-subject">Login outage</span></p>
+          <p><strong>Category:</strong> <span id="preview-topic">login-outage</span></p>
+          <p><strong>Priority:</strong> <span id="preview-priority">high</span></p>
+          <p><strong>Status:</strong> <span id="preview-status">Draft</span></p>
+          <p><strong>Detail excerpt:</strong> <span id="preview-details">Users cannot sign in to the production web app...</span></p>
+        </div>
+      </article>
+
+      <article class="hd-card">
+        <h2>Escalation checklist</h2>
+        <ul class="hd-list-tight">
+          <li>Service impacted: <strong id="check-service">Yes</strong></li>
+          <li>Authentication issue: <strong id="check-auth">Yes</strong></li>
+          <li>Draft disabled: <strong id="check-draft">Yes</strong></li>
+          <li>On-call notify: <strong id="check-oncall">Enabled</strong></li>
+        </ul>
+      </article>
+
+      <article class="hd-card">
+        <h2>Recent related tickets</h2>
+        <table>
+          <thead><tr><th>ID</th><th>Summary</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr class="unread"><td>#18422</td><td>SSO redirect loop in EU region</td><td><span class="hd-kpi hd-kpi--warn">Investigating</span></td></tr>
+            <tr><td>#18411</td><td>Password reset emails delayed</td><td><span class="hd-kpi hd-kpi--ok">Resolved</span></td></tr>
+            <tr><td>#18397</td><td>Login page latency spike</td><td><span class="hd-kpi hd-kpi--danger">Escalated</span></td></tr>
+          </tbody>
+        </table>
+      </article>
+    </aside>
+  </div>
+</main></div><aside class="hd-rail hd-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Upgrade to incident analytics pro for automated outage summaries and status-page sync.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="hd-filler" aria-hidden="true"><div class="hd-filler-inner"><a href="/misc/0" class="hd-btn hd-btn--ghost">Link 1</a><button type="button" class="hd-btn hd-btn--ghost">Action 2</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/4" class="hd-btn hd-btn--ghost">Link 5</a><button type="button" class="hd-btn hd-btn--ghost">Action 6</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/8" class="hd-btn hd-btn--ghost">Link 9</a><button type="button" class="hd-btn hd-btn--ghost">Action 10</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/12" class="hd-btn hd-btn--ghost">Link 13</a><button type="button" class="hd-btn hd-btn--ghost">Action 14</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/16" class="hd-btn hd-btn--ghost">Link 17</a><button type="button" class="hd-btn hd-btn--ghost">Action 18</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/20" class="hd-btn hd-btn--ghost">Link 21</a><button type="button" class="hd-btn hd-btn--ghost">Action 22</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/24" class="hd-btn hd-btn--ghost">Link 25</a><button type="button" class="hd-btn hd-btn--ghost">Action 26</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/28" class="hd-btn hd-btn--ghost">Link 29</a><button type="button" class="hd-btn hd-btn--ghost">Action 30</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/32" class="hd-btn hd-btn--ghost">Link 33</a><button type="button" class="hd-btn hd-btn--ghost">Action 34</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/36" class="hd-btn hd-btn--ghost">Link 37</a><button type="button" class="hd-btn hd-btn--ghost">Action 38</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/40" class="hd-btn hd-btn--ghost">Link 41</a><button type="button" class="hd-btn hd-btn--ghost">Action 42</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button></div></div><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Keyword trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="hd-ftr"><small>© Demo HelpDesk One</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</aside></div><div class="hd-filler" aria-hidden="true"><div class="hd-filler-inner"><a href="/misc/0" class="hd-btn hd-btn--ghost">Link 1</a><button type="button" class="hd-btn hd-btn--ghost">Action 2</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/4" class="hd-btn hd-btn--ghost">Link 5</a><button type="button" class="hd-btn hd-btn--ghost">Action 6</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/8" class="hd-btn hd-btn--ghost">Link 9</a><button type="button" class="hd-btn hd-btn--ghost">Action 10</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/12" class="hd-btn hd-btn--ghost">Link 13</a><button type="button" class="hd-btn hd-btn--ghost">Action 14</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/16" class="hd-btn hd-btn--ghost">Link 17</a><button type="button" class="hd-btn hd-btn--ghost">Action 18</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/20" class="hd-btn hd-btn--ghost">Link 21</a><button type="button" class="hd-btn hd-btn--ghost">Action 22</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/24" class="hd-btn hd-btn--ghost">Link 25</a><button type="button" class="hd-btn hd-btn--ghost">Action 26</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/28" class="hd-btn hd-btn--ghost">Link 29</a><button type="button" class="hd-btn hd-btn--ghost">Action 30</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/32" class="hd-btn hd-btn--ghost">Link 33</a><button type="button" class="hd-btn hd-btn--ghost">Action 34</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/36" class="hd-btn hd-btn--ghost">Link 37</a><button type="button" class="hd-btn hd-btn--ghost">Action 38</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button><a href="/misc/40" class="hd-btn hd-btn--ghost">Link 41</a><button type="button" class="hd-btn hd-btn--ghost">Action 42</button><button type="button" class="hd-btn hd-btn--ghost">Submit</button><button type="button" class="hd-btn hd-btn--ghost">Continue</button></div></div><button type="button" class="hd-btn hd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo control" data-wci-priority="1" data-wci-scope="support_ticket-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="hd-ftr"><small>© Demo HelpDesk One</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+
+<div class="hd-overlay" id="confirm-overlay"></div>
+<div class="hd-confirm" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+  <h3 id="confirm-title">Confirm priority submission</h3>
+  <p>You are about to submit a <strong>high-priority</strong> ticket for <strong>login outage</strong>. Draft mode must be off to continue.</p>
+  <div class="hd-muted-box" style="margin:12px 0">
+    <div><strong>Subject:</strong> <span id="modal-subject">Login outage</span></div>
+    <div><strong>Priority:</strong> <span id="modal-priority">high</span></div>
+    <div><strong>Category:</strong> <span id="modal-topic">login-outage</span></div>
+  </div>
+  <div class="hd-card__actions">
+    <button type="button" class="hd-btn hd-btn--ghost" id="cancel-confirm">Back</button>
+    <button type="button" class="hd-btn hd-btn--primary" id="final-confirm">Submit priority ticket</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var form=document.getElementById('ticket-form');
+  var subject=document.getElementById('ticket-subject');
+  var details=document.getElementById('ticket-details');
+  var topic=document.getElementById('ticket-topic');
+  var draft=document.getElementById('save-as-draft');
+  var highButton=document.querySelector('button[data-prio="high"][data-topic="login-outage"]');
+  var smoke=document.getElementById('support-ticket-smoke-status');
+  var previewBtn=document.getElementById('preview-btn');
+  var saveDraftBtn=document.getElementById('save-draft-btn');
+  var overlay=document.getElementById('confirm-overlay');
+  var modal=document.getElementById('confirm-modal');
+  var finalConfirm=document.getElementById('final-confirm');
+  var cancelConfirm=document.getElementById('cancel-confirm');
+  var stateBadge=document.getElementById('ticket-state-badge');
+  var validationState=document.getElementById('validation-state');
+  var subjectError=document.getElementById('subject-error');
+  var detailsError=document.getElementById('details-error');
+  var priorityError=document.getElementById('priority-error');
+  var draftWarning=document.getElementById('draft-warning');
+  var subjectCount=document.getElementById('subject-count');
+  var detailCount=document.getElementById('detail-count');
+
+  function selectedPriority(){
+    var checked=form.querySelector('input[name="prio"]:checked');
+    return checked?checked.value:'';
+  }
+
+  function validate(showErrors){
+    var ok=true;
+    var subjectVal=subject.value.trim();
+    var detailsVal=details.value.trim();
+    var topicVal=topic.value;
+    var prioVal=selectedPriority();
+    var draftOn=draft.checked;
+
+    var subjectValid=subjectVal.length>0 && /login|outage|sign in|signin/i.test(subjectVal);
+    var detailsValid=detailsVal.length>=30;
+    var topicValid=topicVal==='login-outage';
+    var priorityValid=prioVal==='high';
+    var draftValid=!draftOn;
+
+    ok=subjectValid && detailsValid && topicValid && priorityValid && draftValid;
+
+    subjectError.classList.toggle('is-visible',!!showErrors && !subjectValid);
+    detailsError.classList.toggle('is-visible',!!showErrors && !detailsValid);
+    priorityError.classList.toggle('is-visible',!!showErrors && (!priorityValid || !topicValid));
+    draftWarning.classList.toggle('is-visible',!!showErrors && !draftValid);
+
+    highButton.disabled=!ok;
+    validationState.textContent=ok?'Ready to confirm':'Needs required fields';
+    stateBadge.textContent=draftOn?'Draft':'Ready';
+    stateBadge.className='hd-badge '+(draftOn?'hd-badge--draft':'hd-badge--ready');
+    document.getElementById('preview-status').textContent=draftOn?'Draft':'Ready';
+    document.getElementById('preview-subject').textContent=subjectVal||'—';
+    document.getElementById('preview-topic').textContent=topicVal||'—';
+    document.getElementById('preview-priority').textContent=prioVal||'—';
+    document.getElementById('preview-details').textContent=(detailsVal||'—').slice(0,90)+(detailsVal.length>90?'...':'');
+    document.getElementById('check-service').textContent=topicVal==='login-outage'?'Yes':'Review';
+    document.getElementById('check-auth').textContent=/login/i.test(subjectVal)||topicVal==='login-outage'?'Yes':'Unknown';
+    document.getElementById('check-draft').textContent=draftOn?'No':'Yes';
+    document.getElementById('check-oncall').textContent=document.getElementById('notify-oncall').checked?'Enabled':'Disabled';
+    document.getElementById('modal-subject').textContent=subjectVal||'—';
+    document.getElementById('modal-priority').textContent=prioVal||'—';
+    document.getElementById('modal-topic').textContent=topicVal||'—';
+    return ok;
+  }
+
+  function updateCounts(){
+    subjectCount.textContent=subject.value.length;
+    detailCount.textContent=details.value.length;
+  }
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+  }
+
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+  }
+
+  form.addEventListener('input',function(){updateCounts();validate(false);});
+  form.addEventListener('change',function(){validate(false);});
+
+  previewBtn.addEventListener('click',function(){
+    validate(false);
+    smoke.textContent='Smoke status: preview refreshed for '+(subject.value.trim()||'untitled ticket')+'.';
+  });
+
+  saveDraftBtn.addEventListener('click',function(){
+    draft.checked=true;
+    validate(true);
+    smoke.textContent='Smoke status: draft saved locally; confirmation disabled until draft mode is turned off.';
+    window.__scenarioSmoke={lastAction:'draft-saved',updatedAt:Date.now()};
+  });
+
+  highButton.addEventListener('click',function(e){
+    e.preventDefault();
+    if(!validate(true)){
+      smoke.textContent='Smoke status: cannot confirm yet. Review validation errors and ensure draft mode is off.';
+      window.__scenarioSmoke={lastAction:'confirm-blocked',updatedAt:Date.now()};
+      return;
+    }
+    smoke.textContent='Smoke status: priority ticket ready. Awaiting final confirmation.';
+    window.__scenarioSmoke={lastAction:'open-confirmation',updatedAt:Date.now()};
+    openModal();
+  });
+
+  finalConfirm.addEventListener('click',function(){
+    if(!validate(true)){
+      closeModal();
+      smoke.textContent='Smoke status: submission halted because the ticket no longer meets high-priority requirements.';
+      window.__scenarioSmoke={lastAction:'final-confirm-blocked',updatedAt:Date.now()};
+      return;
+    }
+    closeModal();
+    stateBadge.textContent='Submitted';
+    stateBadge.className='hd-badge hd-badge--high';
+    smoke.textContent='Smoke status: submitted high-priority login outage ticket successfully.';
+    window.__scenarioSmoke={lastAction:'submitted-priority-login-outage-ticket',updatedAt:Date.now()};
+  });
+
+  cancelConfirm.addEventListener('click',function(){
+    closeModal();
+    smoke.textContent='Smoke status: confirmation dismissed; ticket remains ready but not submitted.';
+    window.__scenarioSmoke={lastAction:'dismiss-confirmation',updatedAt:Date.now()};
+  });
+  overlay.addEventListener('click',closeModal);
+
+  document.getElementById('cookie-accept').addEventListener('click',function(){document.getElementById('cookie-banner').style.display='none';});
+  document.getElementById('cookie-reject').addEventListener('click',function(){document.getElementById('cookie-banner').style.display='none';});
+  document.getElementById('cookie-customize').addEventListener('click',function(){smoke.textContent='Smoke status: cookie customization panel is unavailable in demo mode.';});
+
+  updateCounts();
+  validate(false);
+  window.__scenarioSmoke=window.__scenarioSmoke||{lastAction:'initialized',updatedAt:Date.now()};
+})();
+</script>
+</body></html>

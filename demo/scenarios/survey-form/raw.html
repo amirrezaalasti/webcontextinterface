@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .fl-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .fl-subnav a:hover{background:#f8fafc;color:#334155}
 .fl-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.fl-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.fl-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.fl-page-wrap{grid-template-columns:1fr}}
 .fl-page-main{padding:20px 24px 32px;min-height:42vh}
 .fl-page-main>h1,.fl-page-main [role=main]>h1,.fl-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .fl-page-main h2,.fl-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .fl-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .fl-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.fl-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fl-page-main select,.fl-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.fl-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fl-page-main select,.fl-page-main textarea{display:block;width:100%;max-width:560px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .fl-page-main input:focus,.fl-page-main select:focus,.fl-page-main textarea:focus{outline:2px solid hsl(199 72% 46%);outline-offset:1px;border-color:hsl(199 72% 46%)}
 .fl-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .fl-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +34,13 @@ table{border-collapse:collapse}
 .fl-page-main th,.fl-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .fl-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .fl-page-main tr:hover td{background:#fafafa}
-.fl-page-main article,.fl-page-main .fl-card,.fl-page-main .fl-resto,.fl-page-main .fl-slot,.fl-page-main .fl-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.fl-page-main article,.fl-page-main .fl-card,.fl-page-main .fl-resto,.fl-page-main .fl-slot,.fl-page-main .fl-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .fl-page-main ul:not([class]){list-style:none;padding:0}
 .fl-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .fl-page-main ul:not([class]) li:hover{background:#f8fafc}
-.fl-page-main dialog,.fl-page-main .fl-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.fl-page-main dialog,.fl-page-main .fl-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .fl-page-main .fl-modal.is-open,.fl-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.fl-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.fl-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .fl-btn:hover{background:#f8fafc}
 .fl-btn--primary{background:hsl(199 72% 46%);color:#fff;border-color:hsl(199 72% 38%)}
 .fl-btn--primary:hover{filter:brightness(1.05)}
@@ -64,32 +61,41 @@ table{border-collapse:collapse}
 .fl-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .fl-ab{display:none!important}
 .fl-layout{display:grid;gap:16px;align-items:start}
-.fl-filters,.fl-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.fl-filters h2,.fl-frame aside h2{font-size:14px;margin:0 0 10px}
 .fl-card__actions,.fl-slot__actions,.fl-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.fl-wizard{max-width:760px}
+.fl-wizard{max-width:860px}
 .fl-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .fl-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .fl-step.is-active{background:hsl(199 72% 46%);color:#fff}
 .fl-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.fl-hero{border-radius:12px;margin-bottom:8px}
-.fl-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.fl-grid{display:grid;gap:14px}
-.fl-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.fl-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.fl-patient{border-radius:10px}
-.fl-slots{display:grid;gap:10px}
-.fl-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.fl-cell{background:#fff;padding:8px;min-height:44px}
-.fl-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.fl-diff{border-radius:8px}
-.fl-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.fl-score-grid{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:8px;max-width:760px;margin:14px 0}
+@media(max-width:700px){.fl-score-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.fl-score-btn{padding:12px 0;border-radius:10px;font-weight:700}
+.fl-score-btn.is-selected{background:#dbeafe;border-color:#60a5fa;color:#1d4ed8;box-shadow:inset 0 0 0 1px #60a5fa}
+.fl-inline{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.fl-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:600}
+.fl-badge--draft{background:#e2e8f0;color:#334155}
+.fl-badge--ready{background:#dcfce7;color:#166534}
+.fl-badge--warn{background:#fef3c7;color:#92400e}
+.fl-help{font-size:12px;color:#64748b}
+.fl-error{font-size:12px;color:#b91c1c;margin-top:6px;display:none}
+.fl-error.is-visible{display:block}
+.fl-success{color:#166534}
+.fl-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 0}
+@media(max-width:700px){.fl-meta{grid-template-columns:1fr}}
+.fl-stat{padding:12px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc}
+.fl-stat strong{display:block;font-size:18px;color:#0f172a}
+.fl-review{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:12px 14px;margin-top:12px;max-width:560px}
+.fl-review p{margin:0 0 6px}
+.fl-kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#e2e8f0;border-radius:6px;padding:2px 6px;font-size:12px}
+.fl-hidden{display:none!important}
+.fl-toast{position:fixed;top:18px;right:18px;background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 12px 30px rgba(15,23,42,.2);z-index:120;opacity:0;transform:translateY(-8px);transition:.2s ease;pointer-events:none}
+.fl-toast.is-open{opacity:1;transform:translateY(0)}
 </style></head><body>
-<div class="fl-app" data-page="survey-form"><div class="fl-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="fl-app" data-page="survey-form" id="survey_form-page"><div class="fl-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="fl-btn fl-btn--muted">Reject non-essential</button>
-  <button type="button" class="fl-btn fl-btn--primary">Accept all</button>
-  <button type="button" class="fl-btn fl-btn--ghost">Customize</button>
+  <button type="button" class="fl-btn fl-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="fl-btn fl-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="fl-btn fl-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="fl-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="fl-btn fl-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="fl-btn">Continue as guest — express</button>
@@ -97,7 +103,7 @@ table{border-collapse:collapse}
   <nav class="fl-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
   <div class="fl-hdr-promo"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="fl-btn fl-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="fl-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="fl-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#reports">Reports</a><a href="#settings">Settings</a><a href="#billing">Billing</a><a href="#support">Support</a>
   <button type="button" class="fl-btn fl-btn--ghost">Submit</button>
   <button type="button" class="fl-btn fl-btn--ghost">Continue</button>
 </nav><div class="fl-dup-row" aria-label="Quick actions">
@@ -105,11 +111,278 @@ table{border-collapse:collapse}
   <button type="button" class="fl-btn fl-btn--ghost">Continue</button>
   <button type="button" class="fl-btn fl-btn--ghost">Save changes</button>
   <button type="button" class="fl-btn fl-btn--ghost">Confirm</button>
-</div><div class="fl-dup-row"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Submit NPS 9</button><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-nav">Submit NPS score 9</button></div><div class="fl-page-wrap"><div class="fl-page-main"><form role="main" style="padding:32px"><h1>NPS</h1><div style="display:flex;gap:4px"><button type="button" class="fl-btn fl-btn--ghost" data-score="0">0</button><button type="button" class="fl-btn fl-btn--ghost" data-score="1">1</button><button type="button" class="fl-btn fl-btn--ghost" data-score="2">2</button><button type="button" class="fl-btn fl-btn--ghost" data-score="3">3</button><button type="button" class="fl-btn fl-btn--ghost" data-score="4">4</button><button type="button" class="fl-btn fl-btn--ghost" data-score="5">5</button><button type="button" class="fl-btn fl-btn--ghost" data-score="6">6</button><button type="button" class="fl-btn fl-btn--ghost" data-score="7">7</button><button type="button" class="fl-btn fl-btn--ghost" data-score="8">8</button><button type="button" class="fl-btn fl-btn--ghost" data-score="9">9</button><button type="button" class="fl-btn fl-btn--ghost" data-score="10">10</button></div>
-<textarea>Great product</textarea><button type="submit" class="fl-btn fl-btn--primary" data-nps-submit="9">Confirm</button>
-<button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Skip prize</button></form></div><aside class="fl-rail fl-rail--ads" aria-label="Sponsored">
+</div><div class="fl-dup-row"><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Submit NPS 9</button><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-nav">Submit NPS score 9</button></div><div class="fl-page-wrap"><div class="fl-page-main">
+  <main class="fl-wizard" role="main" aria-labelledby="surveyTitle">
+    <section class="fl-panel fl-hero" id="overview">
+      <div class="fl-inline" style="justify-content:space-between;align-items:flex-start">
+        <div>
+          <h1 id="surveyTitle">FeedbackLoop quarterly customer survey</h1>
+          <p>Your answers help us improve onboarding, collaboration, and reporting. This form takes about 30 seconds.</p>
+        </div>
+        <div class="fl-inline">
+          <span class="fl-badge fl-badge--draft" id="responseStateBadge">Draft response</span>
+          <span class="fl-badge fl-badge--warn" id="survey-form-smoke-status" data-smoke-status>Waiting for input</span>
+        </div>
+      </div>
+      <div class="fl-meta" aria-label="Survey details">
+        <div class="fl-stat"><span class="fl-help">Survey type</span><strong>NPS + comment</strong><span class="fl-help">Used by product operations</span></div>
+        <div class="fl-stat"><span class="fl-help">Response window</span><strong>Closes Friday</strong><span class="fl-help">11:59 PM local time</span></div>
+        <div class="fl-stat"><span class="fl-help">Current progress</span><strong id="completionText">0%</strong><span class="fl-help">Auto-saved in browser</span></div>
+      </div>
+    </section>
+
+    <div class="fl-steps" aria-hidden="true">
+      <div class="fl-step is-active">1. Rate</div>
+      <div class="fl-step">2. Comment</div>
+      <div class="fl-step">3. Review</div>
+    </div>
+
+    <form id="npsForm" class="fl-panel" novalidate>
+      <h2>How likely are you to recommend FeedbackLoop?</h2>
+      <p>Choose a score from 0 to 10, where 0 means not at all likely and 10 means extremely likely.</p>
+      <div class="fl-inline" style="justify-content:space-between;max-width:760px"><span class="fl-help">Not likely</span><span class="fl-help">Extremely likely</span></div>
+      <div class="fl-score-grid" role="group" aria-label="NPS score selector">
+        <button type="button" class="fl-btn fl-score-btn" data-score="0" aria-pressed="false">0</button><button type="button" class="fl-btn fl-score-btn" data-score="1" aria-pressed="false">1</button><button type="button" class="fl-btn fl-score-btn" data-score="2" aria-pressed="false">2</button><button type="button" class="fl-btn fl-score-btn" data-score="3" aria-pressed="false">3</button><button type="button" class="fl-btn fl-score-btn" data-score="4" aria-pressed="false">4</button><button type="button" class="fl-btn fl-score-btn" data-score="5" aria-pressed="false">5</button><button type="button" class="fl-btn fl-score-btn" data-score="6" aria-pressed="false">6</button><button type="button" class="fl-btn fl-score-btn" data-score="7" aria-pressed="false">7</button><button type="button" class="fl-btn fl-score-btn" data-score="8" aria-pressed="false">8</button><button type="button" class="fl-btn fl-score-btn" data-score="9" aria-pressed="false">9</button><button type="button" class="fl-btn fl-score-btn" data-score="10" aria-pressed="false">10</button>
+      </div>
+      <div id="scoreError" class="fl-error" aria-live="polite">Please select a score before submitting.</div>
+
+      <label for="commentField">What is the main reason for your score?</label>
+      <textarea id="commentField" name="comment" rows="5" maxlength="220" placeholder="Tell us what worked well or what should improve.">Great product</textarea>
+      <div class="fl-inline" style="justify-content:space-between;max-width:560px">
+        <span class="fl-help">Be specific if you can. Teams use this to prioritize fixes.</span>
+        <span class="fl-help"><span id="charCount">13</span>/220</span>
+      </div>
+      <div id="commentError" class="fl-error" aria-live="polite">Please enter a short positive comment to continue.</div>
+
+      <fieldset>
+        <legend>Prize draw preferences</legend>
+        <p>You can optionally enter our monthly giveaway after completing your survey. This does not affect your response.</p>
+        <label class="fl-inline" style="gap:8px"><input type="checkbox" id="prizeToggle"/> Enter me in the prize draw</label>
+        <div id="prizeFields" class="fl-hidden">
+          <label for="emailField">Contact email for prize notifications</label>
+          <input id="emailField" type="email" placeholder="name@company.com"/>
+          <div id="emailError" class="fl-error" aria-live="polite">Enter a valid email or turn off prize entry.</div>
+        </div>
+        <div class="fl-card__actions">
+          <button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">Skip prize</button>
+        </div>
+      </fieldset>
+
+      <section class="fl-review" aria-live="polite">
+        <p><strong>Review</strong></p>
+        <p>Selected score: <span id="reviewScore">None</span></p>
+        <p>Comment preview: <span id="reviewComment">Great product</span></p>
+      </section>
+
+      <div class="fl-card__actions">
+        <button type="submit" class="fl-btn fl-btn--primary" data-nps-submit="9" id="submit-nps-9">Confirm score 9</button>
+        <button type="button" class="fl-btn fl-btn--ghost" id="resetDraft">Reset draft</button>
+      </div>
+      <p class="fl-help">Tip: the primary button remains available, but validation will block incorrect score, empty feedback, or an invalid prize email.</p>
+    </form>
+
+    <section class="fl-card" id="reports">
+      <h3>Why we ask for NPS</h3>
+      <p>Our support, product, and customer success teams review grouped responses weekly. Scores 9–10 typically indicate strong product fit, while comments often reveal the specific workflows customers value.</p>
+      <table aria-label="Recent survey activity">
+        <thead><tr><th>Metric</th><th>Current</th><th>Trend</th></tr></thead>
+        <tbody>
+          <tr><td>Completion rate</td><td>78%</td><td>+4% vs. last cycle</td></tr>
+          <tr><td>Avg. response time</td><td>26 sec</td><td>-3 sec</td></tr>
+          <tr><td>Promoter share</td><td>61%</td><td>Stable</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div><aside class="fl-rail fl-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Optimize your customer follow-up workflow with prebuilt retention templates and weekly sentiment snapshots.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <hr style="border:none;border-top:1px solid #fcd34d;margin:14px 0"/>
+  <h3 style="margin-top:0">Response tips</h3>
+  <ul>
+    <li>Choose the score that best reflects your overall experience.</li>
+    <li>Keep comments short and concrete.</li>
+    <li>Prize entry is optional.</li>
+  </ul>
 </aside></div><div class="fl-filler" aria-hidden="true"><div class="fl-filler-inner"><a href="/misc/0" class="fl-btn fl-btn--ghost">Link 1</a><button type="button" class="fl-btn fl-btn--ghost">Action 2</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/4" class="fl-btn fl-btn--ghost">Link 5</a><button type="button" class="fl-btn fl-btn--ghost">Action 6</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/8" class="fl-btn fl-btn--ghost">Link 9</a><button type="button" class="fl-btn fl-btn--ghost">Action 10</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/12" class="fl-btn fl-btn--ghost">Link 13</a><button type="button" class="fl-btn fl-btn--ghost">Action 14</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/16" class="fl-btn fl-btn--ghost">Link 17</a><button type="button" class="fl-btn fl-btn--ghost">Action 18</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/20" class="fl-btn fl-btn--ghost">Link 21</a><button type="button" class="fl-btn fl-btn--ghost">Action 22</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/24" class="fl-btn fl-btn--ghost">Link 25</a><button type="button" class="fl-btn fl-btn--ghost">Action 26</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/28" class="fl-btn fl-btn--ghost">Link 29</a><button type="button" class="fl-btn fl-btn--ghost">Action 30</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/32" class="fl-btn fl-btn--ghost">Link 33</a><button type="button" class="fl-btn fl-btn--ghost">Action 34</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/36" class="fl-btn fl-btn--ghost">Link 37</a><button type="button" class="fl-btn fl-btn--ghost">Action 38</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button><a href="/misc/40" class="fl-btn fl-btn--ghost">Link 41</a><button type="button" class="fl-btn fl-btn--ghost">Action 42</button><button type="button" class="fl-btn fl-btn--ghost">Submit</button><button type="button" class="fl-btn fl-btn--ghost">Continue</button></div></div><button type="button" class="fl-btn fl-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="fl-ftr"><small>© Demo FeedbackLoop</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div><div class="fl-toast" id="toast" aria-live="polite">Saved</div></div>
+<script>
+(function(){
+  var app = document.querySelector('[data-page="survey-form"]');
+  var form = document.getElementById('npsForm');
+  var scoreButtons = Array.prototype.slice.call(document.querySelectorAll('[data-score]'));
+  var commentField = document.getElementById('commentField');
+  var charCount = document.getElementById('charCount');
+  var reviewScore = document.getElementById('reviewScore');
+  var reviewComment = document.getElementById('reviewComment');
+  var completionText = document.getElementById('completionText');
+  var scoreError = document.getElementById('scoreError');
+  var commentError = document.getElementById('commentError');
+  var emailError = document.getElementById('emailError');
+  var prizeToggle = document.getElementById('prizeToggle');
+  var prizeFields = document.getElementById('prizeFields');
+  var emailField = document.getElementById('emailField');
+  var responseStateBadge = document.getElementById('responseStateBadge');
+  var smokeStatus = document.getElementById('survey-form-smoke-status');
+  var submitBtn = document.querySelector('button[data-nps-submit="9"]');
+  var resetBtn = document.getElementById('resetDraft');
+  var cookieBanner = document.getElementById('cookieBanner');
+  var toast = document.getElementById('toast');
+  var state = {score:null};
+
+  function showToast(text){
+    toast.textContent = text;
+    toast.classList.add('is-open');
+    window.clearTimeout(showToast._t);
+    showToast._t = window.setTimeout(function(){toast.classList.remove('is-open');}, 1400);
+  }
+
+  function updateProgress(){
+    var progress = 0;
+    if(state.score !== null){ progress += 50; }
+    if(commentField.value.trim().length > 0){ progress += 50; }
+    completionText.textContent = progress + '%';
+    if(progress === 100){
+      responseStateBadge.textContent = 'Ready to submit';
+      responseStateBadge.className = 'fl-badge fl-badge--ready';
+      smokeStatus.textContent = 'Ready for confirmation';
+      smokeStatus.className = 'fl-badge fl-badge--ready';
+    } else {
+      responseStateBadge.textContent = 'Draft response';
+      responseStateBadge.className = 'fl-badge fl-badge--draft';
+      smokeStatus.textContent = state.score === null ? 'Waiting for input' : 'Comment required';
+      smokeStatus.className = 'fl-badge fl-badge--warn';
+    }
+  }
+
+  function updateReview(){
+    reviewScore.textContent = state.score === null ? 'None' : state.score;
+    var text = commentField.value.trim();
+    reviewComment.textContent = text ? text : 'No comment yet';
+    charCount.textContent = commentField.value.length;
+    updateProgress();
+  }
+
+  function setScore(score){
+    state.score = String(score);
+    scoreButtons.forEach(function(btn){
+      var active = btn.getAttribute('data-score') === String(score);
+      btn.classList.toggle('is-selected', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    scoreError.classList.remove('is-visible');
+    updateReview();
+    showToast('Score ' + score + ' selected');
+  }
+
+  function togglePrize(){
+    prizeFields.classList.toggle('fl-hidden', !prizeToggle.checked);
+    if(!prizeToggle.checked){
+      emailError.classList.remove('is-visible');
+      emailField.value = '';
+    }
+  }
+
+  function validEmail(value){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function validate(){
+    var ok = true;
+    if(state.score === null){
+      scoreError.classList.add('is-visible');
+      ok = false;
+    } else {
+      scoreError.classList.remove('is-visible');
+    }
+
+    var comment = commentField.value.trim();
+    if(comment.length < 3){
+      commentError.textContent = 'Please enter a short positive comment to continue.';
+      commentError.classList.add('is-visible');
+      ok = false;
+    } else {
+      commentError.classList.remove('is-visible');
+    }
+
+    if(prizeToggle.checked){
+      if(!validEmail(emailField.value.trim())){
+        emailError.classList.add('is-visible');
+        ok = false;
+      } else {
+        emailError.classList.remove('is-visible');
+      }
+    } else {
+      emailError.classList.remove('is-visible');
+    }
+
+    if(state.score !== '9'){
+      scoreError.textContent = 'For this confirmation flow, please keep the selected score at 9.';
+      scoreError.classList.add('is-visible');
+      ok = false;
+    } else {
+      scoreError.textContent = 'Please select a score before submitting.';
+    }
+
+    return ok;
+  }
+
+  scoreButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){ setScore(btn.getAttribute('data-score')); });
+  });
+
+  commentField.addEventListener('input', function(){
+    if(commentField.value.trim().length >= 3){ commentError.classList.remove('is-visible'); }
+    updateReview();
+  });
+
+  prizeToggle.addEventListener('change', function(){ togglePrize(); updateProgress(); });
+  emailField.addEventListener('input', function(){ if(validEmail(emailField.value.trim())){ emailError.classList.remove('is-visible'); } });
+
+  resetBtn.addEventListener('click', function(){
+    state.score = null;
+    scoreButtons.forEach(function(btn){ btn.classList.remove('is-selected'); btn.setAttribute('aria-pressed','false'); });
+    commentField.value = 'Great product';
+    prizeToggle.checked = false;
+    togglePrize();
+    scoreError.classList.remove('is-visible');
+    commentError.classList.remove('is-visible');
+    emailError.classList.remove('is-visible');
+    updateReview();
+    showToast('Draft reset');
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-cookie-action]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      showToast('Preferences saved');
+    });
+  });
+
+  submitBtn.addEventListener('click', function(){
+    var isValid = validate();
+    if(!isValid){
+      smokeStatus.textContent = 'Validation failed — review your response';
+      window.__scenarioSmoke = { lastAction: 'validation-failed', updatedAt: Date.now() };
+      return;
+    }
+    smokeStatus.textContent = 'NPS 9 submitted with comment';
+    smokeStatus.className = 'fl-badge fl-badge--ready fl-success';
+    window.__scenarioSmoke = { lastAction: 'submitted-nps-9', updatedAt: Date.now() };
+    responseStateBadge.textContent = 'Submitted';
+    responseStateBadge.className = 'fl-badge fl-badge--ready';
+    reviewScore.textContent = '9';
+    reviewComment.textContent = commentField.value.trim();
+    showToast('Response submitted');
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+  });
+
+  updateReview();
+})();
+</script>
+</body></html>

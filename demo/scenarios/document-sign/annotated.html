@@ -19,7 +19,7 @@ table{border-collapse:collapse}
 .sn-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .sn-subnav a:hover{background:#f8fafc;color:#334155}
 .sn-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sn-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sn-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.sn-page-wrap{grid-template-columns:1fr}}
 .sn-page-main{padding:20px 24px 32px;min-height:42vh}
 .sn-page-main>h1,.sn-page-main [role=main]>h1,.sn-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
@@ -42,7 +42,6 @@ table{border-collapse:collapse}
 .sn-page-main ul:not([class]) li:hover{background:#f8fafc}
 .sn-page-main dialog,.sn-page-main .sn-modal{
   border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.sn-page-main .sn-modal.is-open,.sn-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .sn-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .sn-btn:hover{background:#f8fafc}
 .sn-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
@@ -63,41 +62,47 @@ table{border-collapse:collapse}
 .sn-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .sn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .sn-ab{display:none!important}
-.sn-layout{display:grid;gap:16px;align-items:start}
-.sn-filters,.sn-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.sn-filters h2,.sn-frame aside h2{font-size:14px;margin:0 0 10px}
-.sn-card__actions,.sn-slot__actions,.sn-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.sn-wizard{max-width:760px}
-.sn-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.sn-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.sn-step.is-active{background:hsl(262 72% 46%);color:#fff}
-.sn-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.sn-hero{border-radius:12px;margin-bottom:8px}
-.sn-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.sn-grid{display:grid;gap:14px}
-.sn-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.sn-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.sn-patient{border-radius:10px}
-.sn-slots{display:grid;gap:10px}
-.sn-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.sn-cell{background:#fff;padding:8px;min-height:44px}
-.sn-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.sn-diff{border-radius:8px}
-.sn-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.sn-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.sn-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.sn-badge--ok{background:#dcfce7;color:#166534}
+.sn-badge--warn{background:#fef3c7;color:#92400e}
+.sn-badge--neutral{background:#e2e8f0;color:#334155}
+.sn-viewer-shell{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px;align-items:start}
+@media(max-width:860px){.sn-viewer-shell{grid-template-columns:1fr}}
+.sn-doc-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;margin-bottom:14px}
+.sn-doc-toolbar .sn-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sn-viewer{border:1px solid #cbd5e1;border-radius:12px;background:#e2e8f0;padding:18px;height:920px;overflow:auto;position:relative}
+.sn-page{background:#fff;border:1px solid #cbd5e1;border-radius:8px;min-height:420px;margin:0 auto 18px;max-width:760px;padding:26px 34px;box-shadow:0 8px 24px rgba(15,23,42,.08);position:relative}
+.sn-page.is-current{outline:3px solid rgba(109,40,217,.25);border-color:hsl(262 72% 46%)}
+.sn-page-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;color:#64748b;font-size:12px}
+.sn-sig-box{border:2px dashed #a78bfa;background:#f5f3ff;padding:14px;border-radius:10px;margin-top:18px}
+.sn-sidebar-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:14px 16px;margin-bottom:12px}
+.sn-sidebar-card h3{margin:0 0 10px;font-size:14px}
+.sn-mini{font-size:12px;color:#64748b}
+.sn-checklist li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #f1f5f9}
+.sn-checklist li:last-child{border-bottom:none}
+.sn-alert{padding:10px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;margin:10px 0}
+.sn-error{padding:10px 12px;border-radius:10px;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;margin-top:10px;display:none}
+.sn-success{padding:10px 12px;border-radius:10px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;margin-top:10px;display:none}
+.sn-progress{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.sn-progress > span{display:block;height:100%;background:hsl(262 72% 46%);width:75%}
+.sn-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.sn-modal{position:fixed;inset:14% auto auto 50%;transform:translateX(-50%);z-index:60;width:min(92vw,520px);display:none}
+.sn-modal.is-open,.sn-modal-backdrop.is-open{display:block}
 </style></head><body>
-<div class="sn-app" data-page="document-sign" data-agent-role="landmark" data-agent-id="document_sign-page" data-agent-desc="Doc viewer" data-agent-priority="2"><div class="sn-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="sn-app" data-page="document-sign" id="document_sign-page" data-wci-id="document_sign-page" data-wci-role="landmark" data-wci-desc="Document sign application root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sn-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sn-btn sn-btn--muted">Reject non-essential</button>
-  <button type="button" class="sn-btn sn-btn--primary">Accept all</button>
-  <button type="button" class="sn-btn sn-btn--ghost">Customize</button>
+  <button type="button" class="sn-btn sn-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="sn-btn sn-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="sn-btn sn-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="sn-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="sn-btn sn-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="sn-btn">Continue as guest — express</button>
 </div><header class="sn-hdr">
-  <nav class="sn-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sn-hdr-promo"><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="sn-nav" aria-label="Global"><a href="#">Home</a><a href="#">Templates</a><a href="#">Teams</a><a href="#">API</a><a href="#">Account</a></nav>
+  <div class="sn-hdr-promo"><span class="sn-badge sn-badge--neutral">Workspace: People Ops</span><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="sn-btn sn-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sn-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="sn-subnav" aria-label="Secondary"><a href="#">Documents</a><a href="#">Inbox</a><a href="#">Audit trail</a><a href="#">Shared folders</a><a href="#">Billing</a>
   <button type="button" class="sn-btn sn-btn--ghost">Submit</button>
   <button type="button" class="sn-btn sn-btn--ghost">Continue</button>
 </nav><div class="sn-dup-row" aria-label="Quick actions">
@@ -105,11 +110,124 @@ table{border-collapse:collapse}
   <button type="button" class="sn-btn sn-btn--ghost">Continue</button>
   <button type="button" class="sn-btn sn-btn--ghost">Save changes</button>
   <button type="button" class="sn-btn sn-btn--ghost">Confirm</button>
-</div><div class="sn-dup-row"><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Sign page 12</button><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-nav">Sign employment agreement page 12</button></div><div class="sn-page-wrap"><div class="sn-page-main"><div style="display:flex"><div role="main" style="flex:1;overflow:auto"><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="1">Pg 1</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="2">Pg 2</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="3">Pg 3</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="4">Pg 4</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="5">Pg 5</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="6">Pg 6</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="7">Pg 7</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="8">Pg 8</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="9">Pg 9</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="10">Pg 10</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="11">Pg 11</div><div style="height:120px;margin:8px;border:1px solid #ccc" data-page-num="12">Pg 12</div></div>
-<aside style="width:200px;padding:12px;border-left:1px solid #ddd"><button type="button" class="sn-btn sn-btn--ghost">Initial</button>
-<button type="button" class="sn-btn sn-btn--primary" data-sign-page="12" data-agent-role="action" data-agent-id="sign-agreement-p12" data-agent-desc="Sign employment agreement on page twelve of the document viewer." data-agent-action="click" data-agent-priority="1">Confirm</button></aside></div></div><aside class="sn-rail sn-rail--ads" aria-label="Sponsored">
+  <span class="sn-badge sn-badge--warn" id="docStatusBadge">Needs initials on p.12</span>
+</div><div class="sn-dup-row"><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">Sign page 12</button><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-nav">Sign employment agreement page 12</button></div><div class="sn-page-wrap"><div class="sn-page-main"><h1>Employment Agreement — Signature Request</h1><p>Review the hiring packet and complete the signer task assigned to you. The signature block for this request is on page 12. Fields marked required must be completed before signing is finalized.</p><div class="sn-alert">Requester: Northstar Health Systems • Recipient: Jordan Applicant • Due today at 5:00 PM</div><div class="sn-doc-toolbar"><div class="sn-group"><strong>Document Viewer</strong><span class="sn-mini">12 of 12 pages loaded</span></div><div class="sn-group"><label for="jumpPage" style="margin:0">Jump to page</label><select id="jumpPage" aria-label="Jump to page"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12" selected="">12</option></select><button type="button" class="sn-btn" id="focusP12">Go to signature page</button></div></div><div class="sn-viewer-shell"><div><div class="sn-viewer" id="docViewer" aria-label="Employment agreement pages"><section class="sn-page" data-page-num="1"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 1</span></div><h2>Offer Summary</h2><p>This Employment Agreement is entered into between Northstar Health Systems and Jordan Applicant. It outlines compensation, duties, confidentiality, and conditions of employment.</p><p>Start date, reporting manager, work location, and benefits eligibility are specified in the attached summary and onboarding policy.</p></section><section class="sn-page" data-page-num="2"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 2</span></div><h2>Position and Scope</h2><p>The Employee agrees to perform duties consistent with the position of Clinical Operations Associate, including reasonable related tasks assigned by management.</p><p>Nothing in this section modifies at-will employment status except where prohibited by applicable law.</p></section><section class="sn-page" data-page-num="3"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 3</span></div><h2>Compensation</h2><p>Base compensation, payroll schedule, and bonus eligibility are determined by the compensation schedule incorporated by reference.</p><p>Applicable deductions and withholding will be made in accordance with federal, state, and local requirements.</p></section><section class="sn-page" data-page-num="4"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 4</span></div><h2>Benefits</h2><p>Employee may participate in benefit plans made generally available to similarly situated employees, subject to plan terms and carrier rules.</p><p>Eligibility windows, waiting periods, and continuation rights are described in separate notices.</p></section><section class="sn-page" data-page-num="5"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 5</span></div><h2>Confidentiality</h2><p>During and after employment, Employee must protect confidential information, trade secrets, and patient-related information in accordance with law and policy.</p><p>Unauthorized disclosure may result in disciplinary action up to and including termination.</p></section><section class="sn-page" data-page-num="6"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 6</span></div><h2>Data Security</h2><p>Employee agrees to use company systems in compliance with security protocols, device controls, and access restrictions.</p><p>Multi-factor authentication and secure handling of credentials are mandatory.</p></section><section class="sn-page" data-page-num="7"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 7</span></div><h2>Standards of Conduct</h2><p>Professional conduct, anti-harassment expectations, and patient safety obligations apply at all times while on duty or representing the employer.</p><p>Violations will be investigated under company policy.</p></section><section class="sn-page" data-page-num="8"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 8</span></div><h2>Scheduling</h2><p>Work schedules may vary based on staffing and operational needs. Overtime must be approved in advance unless emergency circumstances apply.</p><p>Meal and rest periods are governed by applicable law and employer policy.</p></section><section class="sn-page" data-page-num="9"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 9</span></div><h2>Compliance Acknowledgments</h2><p>Employee confirms receipt of the code of conduct, HIPAA training notice, and workplace safety orientation materials.</p><p>Additional acknowledgments may be executed electronically within the onboarding portal.</p></section><section class="sn-page" data-page-num="10"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 10</span></div><h2>Dispute Resolution</h2><p>Where enforceable, certain disputes may be subject to the dispute resolution process described in the accompanying policy documents.</p><p>This clause does not limit rights that cannot be waived by law.</p></section><section class="sn-page" data-page-num="11"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 11</span></div><h2>Final Terms</h2><p>This Agreement, together with incorporated policies and notices, represents the current understanding between the parties regarding employment terms.</p><p>Any amendment must be in writing and authorized by the employer.</p></section><section class="sn-page is-current" data-page-num="12" id="signaturePage"><div class="sn-page-header"><span>Employment Agreement</span><span>Page 12</span></div><h2>Employee Signature</h2><p>By signing below, you confirm that you have reviewed the terms of employment, understand the company policies provided, and consent to execute this agreement electronically.</p><div class="sn-sig-box"><strong>Signer field assigned to Jordan Applicant</strong><p style="margin-top:8px">Required: enter your full legal name exactly as it should appear in the audit log, then confirm page 12 signature.</p><label for="typedName">Typed signature</label><input id="typedName" type="text" placeholder="Enter full legal name" autocomplete="name"><label style="display:flex;gap:8px;align-items:flex-start;max-width:680px"><input id="consentCheck" type="checkbox" style="margin-top:3px"> <span>I agree to use an electronic signature and confirm that the typed name above is my legal signature for this employment agreement.</span></label><div class="sn-error" id="signError">Please enter your name and accept electronic signature consent before signing page 12.</div><div class="sn-success" id="signSuccess">Page 12 signed successfully. Audit trail has been updated.</div></div></section></div></div><aside><div class="sn-sidebar-card"><h3>Task progress</h3><div class="sn-progress" aria-hidden="true"><span id="progressBar"></span></div><ul class="sn-checklist" style="list-style:none;margin-top:10px;padding:0"><li><span>Open document</span><span class="sn-badge sn-badge--ok">Done</span></li><li><span>Review packet</span><span class="sn-badge sn-badge--ok">Done</span></li><li><span>Initial page 12</span><span class="sn-badge sn-badge--warn" id="initialBadge">Pending</span></li><li><span>Submit signer action</span><span class="sn-badge sn-badge--neutral" id="submitBadge">Waiting</span></li></ul></div><div class="sn-sidebar-card"><h3>Signer tools</h3><button type="button" class="sn-btn sn-btn--ghost">Initial</button>
+<button type="button" class="sn-btn sn-btn--primary" data-sign-page="12" id="sign-agreement-p12" data-wci-id="sign-agreement-p12" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary button to sign employment agreement on page twelve" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="document_sign-page">Confirm</button><p class="sn-mini">This action applies only to page 12.</p><div id="document-sign-smoke-status" class="sn-alert" aria-live="polite">Smoke status: viewer ready</div></div><div class="sn-sidebar-card"><h3>Document details</h3><table><tbody><tr><th>File</th><td>Employment_Agreement_v4.pdf</td></tr><tr><th>Pages</th><td><span id="pageCount">12</span></td></tr><tr><th>Recipient</th><td>Jordan Applicant</td></tr><tr><th>Last event</th><td id="lastEvent">Viewed page 12</td></tr></tbody></table><div class="sn-toolbar"><button type="button" class="sn-btn" id="previewAudit">Preview audit</button><button type="button" class="sn-btn sn-btn--ghost">Decline</button></div></div></aside></div></div><aside class="sn-rail sn-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sn-filler" aria-hidden="true"><div class="sn-filler-inner"><a href="/misc/0" class="sn-btn sn-btn--ghost">Link 1</a><button type="button" class="sn-btn sn-btn--ghost">Action 2</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/4" class="sn-btn sn-btn--ghost">Link 5</a><button type="button" class="sn-btn sn-btn--ghost">Action 6</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/8" class="sn-btn sn-btn--ghost">Link 9</a><button type="button" class="sn-btn sn-btn--ghost">Action 10</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/12" class="sn-btn sn-btn--ghost">Link 13</a><button type="button" class="sn-btn sn-btn--ghost">Action 14</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/16" class="sn-btn sn-btn--ghost">Link 17</a><button type="button" class="sn-btn sn-btn--ghost">Action 18</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/20" class="sn-btn sn-btn--ghost">Link 21</a><button type="button" class="sn-btn sn-btn--ghost">Action 22</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/24" class="sn-btn sn-btn--ghost">Link 25</a><button type="button" class="sn-btn sn-btn--ghost">Action 26</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/28" class="sn-btn sn-btn--ghost">Link 29</a><button type="button" class="sn-btn sn-btn--ghost">Action 30</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/32" class="sn-btn sn-btn--ghost">Link 33</a><button type="button" class="sn-btn sn-btn--ghost">Action 34</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/36" class="sn-btn sn-btn--ghost">Link 37</a><button type="button" class="sn-btn sn-btn--ghost">Action 38</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="/misc/40" class="sn-btn sn-btn--ghost">Link 41</a><button type="button" class="sn-btn sn-btn--ghost">Action 42</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button></div></div><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sn-ftr"><small>© Demo SignNow</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</aside></div><div class="sn-filler" aria-hidden="true"><div class="sn-filler-inner"><a href="#" class="sn-btn sn-btn--ghost">Link 1</a><button type="button" class="sn-btn sn-btn--ghost">Action 2</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="#" class="sn-btn sn-btn--ghost">Link 5</a><button type="button" class="sn-btn sn-btn--ghost">Action 6</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="#" class="sn-btn sn-btn--ghost">Link 9</a><button type="button" class="sn-btn sn-btn--ghost">Action 10</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="#" class="sn-btn sn-btn--ghost">Link 13</a><button type="button" class="sn-btn sn-btn--ghost">Action 14</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button><a href="#" class="sn-btn sn-btn--ghost">Link 17</a><button type="button" class="sn-btn sn-btn--ghost">Action 18</button><button type="button" class="sn-btn sn-btn--ghost">Submit</button><button type="button" class="sn-btn sn-btn--ghost">Continue</button></div></div><button type="button" class="sn-btn sn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo button" data-wci-priority="1" data-wci-scope="document_sign-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sn-ftr"><small>© Demo SignNow</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div><div class="sn-modal-backdrop" id="auditBackdrop"></div><div class="sn-modal" id="auditModal" role="dialog" aria-modal="true" aria-labelledby="auditTitle"><h2 id="auditTitle" style="margin-top:0">Audit Preview</h2><p>Request created by People Ops on behalf of Northstar Health Systems.</p><table><tbody><tr><th>Timestamp</th><th>Event</th></tr><tr><td id="auditTime1">—</td><td>Document viewed</td></tr><tr><td id="auditTime2">Pending</td><td id="auditEvent2">Signature not yet completed</td></tr></tbody></table><div class="sn-toolbar"><button type="button" class="sn-btn sn-btn--primary" id="closeAudit">Close</button></div></div></div><script>
+(function(){
+  var smoke = document.getElementById('document-sign-smoke-status');
+  var signBtn = document.querySelector('button[data-sign-page="12"]');
+  var nameInput = document.getElementById('typedName');
+  var consentCheck = document.getElementById('consentCheck');
+  var signError = document.getElementById('signError');
+  var signSuccess = document.getElementById('signSuccess');
+  var lastEvent = document.getElementById('lastEvent');
+  var initialBadge = document.getElementById('initialBadge');
+  var submitBadge = document.getElementById('submitBadge');
+  var docStatusBadge = document.getElementById('docStatusBadge');
+  var progressBar = document.getElementById('progressBar');
+  var jumpPage = document.getElementById('jumpPage');
+  var focusP12 = document.getElementById('focusP12');
+  var viewer = document.getElementById('docViewer');
+  var signaturePage = document.getElementById('signaturePage');
+  var previewAudit = document.getElementById('previewAudit');
+  var auditModal = document.getElementById('auditModal');
+  var auditBackdrop = document.getElementById('auditBackdrop');
+  var closeAudit = document.getElementById('closeAudit');
+  var auditTime1 = document.getElementById('auditTime1');
+  var auditTime2 = document.getElementById('auditTime2');
+  var auditEvent2 = document.getElementById('auditEvent2');
+  var cookieBanner = document.getElementById('cookieBanner');
+  var signed = false;
+
+  function nowLabel(){
+    return new Date().toLocaleString();
+  }
+
+  function setSmoke(text){
+    smoke.textContent = text;
+  }
+
+  function focusPage(num){
+    var page = document.querySelector('.sn-page[data-page-num="' + num + '"]');
+    if(!page) return;
+    document.querySelectorAll('.sn-page').forEach(function(p){ p.classList.remove('is-current'); });
+    page.classList.add('is-current');
+    page.scrollIntoView({behavior:'smooth', block:'start'});
+    lastEvent.textContent = 'Navigated to page ' + num;
+    setSmoke('Smoke status: focused page ' + num);
+  }
+
+  jumpPage.addEventListener('change', function(){ focusPage(this.value); });
+  focusP12.addEventListener('click', function(){ jumpPage.value = '12'; focusPage('12'); });
+
+  signBtn.addEventListener('click', function(){
+    var name = (nameInput.value || '').trim();
+    var consent = consentCheck.checked;
+    if(!name || !consent){
+      signError.style.display = 'block';
+      signSuccess.style.display = 'none';
+      initialBadge.textContent = 'Pending';
+      submitBadge.textContent = 'Waiting';
+      docStatusBadge.textContent = 'Needs initials on p.12';
+      setSmoke('Smoke status: sign attempt blocked on page 12');
+      window.__scenarioSmoke = { lastAction: 'blocked-sign-page-12', updatedAt: Date.now() };
+      return;
+    }
+    signed = true;
+    signError.style.display = 'none';
+    signSuccess.style.display = 'block';
+    initialBadge.textContent = 'Done';
+    initialBadge.className = 'sn-badge sn-badge--ok';
+    submitBadge.textContent = 'Completed';
+    submitBadge.className = 'sn-badge sn-badge--ok';
+    docStatusBadge.textContent = 'Signed on p.12';
+    docStatusBadge.className = 'sn-badge sn-badge--ok';
+    progressBar.style.width = '100%';
+    lastEvent.textContent = 'Page 12 signed by ' + name;
+    auditTime2.textContent = nowLabel();
+    auditEvent2.textContent = 'Employment agreement signed on page 12 by ' + name;
+    setSmoke('Smoke status: signed employment agreement on page 12');
+    window.__scenarioSmoke = { lastAction: 'signed-page-12', updatedAt: Date.now() };
+  });
+
+  nameInput.addEventListener('input', function(){
+    if(this.value.trim()) signError.style.display = 'none';
+    lastEvent.textContent = 'Signature name updated';
+  });
+
+  consentCheck.addEventListener('change', function(){
+    if(this.checked) signError.style.display = 'none';
+    lastEvent.textContent = this.checked ? 'Electronic consent accepted' : 'Electronic consent removed';
+  });
+
+  previewAudit.addEventListener('click', function(){
+    auditTime1.textContent = nowLabel();
+    auditBackdrop.classList.add('is-open');
+    auditModal.classList.add('is-open');
+    setSmoke('Smoke status: audit preview opened');
+  });
+
+  function closeModal(){
+    auditBackdrop.classList.remove('is-open');
+    auditModal.classList.remove('is-open');
+  }
+  closeAudit.addEventListener('click', closeModal);
+  auditBackdrop.addEventListener('click', closeModal);
+
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      setSmoke('Smoke status: cookies ' + this.getAttribute('data-cookie-action'));
+    });
+  });
+
+  focusPage('12');
+  setSmoke('Smoke status: viewer ready');
+  window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script></body></html>

@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .df-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .df-subnav a:hover{background:#f8fafc;color:#334155}
 .df-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.df-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.df-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.df-page-wrap{grid-template-columns:1fr}}
 .df-page-main{padding:20px 24px 32px;min-height:42vh}
 .df-page-main>h1,.df-page-main [role=main]>h1,.df-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .df-page-main h2,.df-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .df-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .df-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.df-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.df-page-main select,.df-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.df-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.df-page-main select,.df-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .df-page-main input:focus,.df-page-main select:focus,.df-page-main textarea:focus{outline:2px solid hsl(199 72% 46%);outline-offset:1px;border-color:hsl(199 72% 46%)}
 .df-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .df-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .df-page-main th,.df-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .df-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .df-page-main tr:hover td{background:#fafafa}
-.df-page-main article,.df-page-main .df-card,.df-page-main .df-resto,.df-page-main .df-slot,.df-page-main .df-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.df-page-main article,.df-page-main .df-card,.df-page-main .df-resto,.df-page-main .df-slot,.df-page-main .df-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .df-page-main ul:not([class]){list-style:none;padding:0}
 .df-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .df-page-main ul:not([class]) li:hover{background:#f8fafc}
-.df-page-main dialog,.df-page-main .df-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.df-page-main .df-modal.is-open,.df-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.df-page-main dialog,.df-page-main .df-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.df-page-main .df-modal.is-open,.df-page-main [role=dialog]{position:fixed;inset:12% 25%;z-index:60;max-width:560px;margin:auto}
 .df-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .df-btn:hover{background:#f8fafc}
 .df-btn--primary{background:hsl(199 72% 46%);color:#fff;border-color:hsl(199 72% 38%)}
@@ -67,37 +64,50 @@ table{border-collapse:collapse}
 .df-filters,.df-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .df-filters h2,.df-frame aside h2{font-size:14px;margin:0 0 10px}
 .df-card__actions,.df-slot__actions,.df-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.df-wizard{max-width:760px}
-.df-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.df-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.df-step.is-active{background:hsl(199 72% 46%);color:#fff}
-.df-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.df-hero{border-radius:12px;margin-bottom:8px}
-.df-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.df-grid{display:grid;gap:14px}
-.df-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.df-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.df-patient{border-radius:10px}
-.df-slots{display:grid;gap:10px}
-.df-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.df-cell{background:#fff;padding:8px;min-height:44px}
-.df-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.df-diff{border-radius:8px}
-.df-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.df-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.df-list{list-style:none;padding:0;margin:0}
+.df-thread{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:start;padding:16px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:12px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.df-thread.is-pinned{border-color:#0ea5e9;background:linear-gradient(180deg,#f0f9ff,#fff)}
+.df-thread__title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.df-thread__title h3{margin:0;font-size:17px}
+.df-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.df-badge--open{background:#ecfeff;color:#0f766e}
+.df-badge--feedback{background:#eff6ff;color:#1d4ed8}
+.df-badge--pinned{background:#dbeafe;color:#1d4ed8}
+.df-badge--hot{background:#fef3c7;color:#92400e}
+.df-meta{display:flex;flex-wrap:wrap;gap:12px;color:#64748b;font-size:12px;margin-top:6px}
+.df-thread__excerpt{margin-top:8px;max-width:74ch}
+.df-thread__actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:170px}
+.df-pin-state{font-size:12px;color:#64748b;min-height:18px}
+.df-toolbar .df-search{flex:1;min-width:220px}
+ .df-toolbar .df-search input{max-width:none;margin:0}
+.df-statbar{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px}
+.df-stat{padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;min-width:120px}
+.df-stat strong{display:block;font-size:18px;color:#0f172a}
+.df-stat span{font-size:12px;color:#64748b}
+.df-inline-note{font-size:12px;color:#64748b}
+.df-error{font-size:12px;color:#b91c1c;min-height:16px}
+.df-success{font-size:12px;color:#166534}
+.df-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.df-overlay.is-open{display:block}
+.df-modal{display:none}
+.df-modal.is-open{display:block}
+.df-flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.df-smoke{margin:12px 0 18px;padding:10px 12px;border:1px solid #bae6fd;background:#f0f9ff;border-radius:10px;color:#0c4a6e;font-size:13px}
 </style></head><body>
-<div class="df-app" data-page="forum-post"><div class="df-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="df-app" data-page="forum-post" id="forum_post-page"><div class="df-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="df-btn df-btn--muted">Reject non-essential</button>
-  <button type="button" class="df-btn df-btn--primary">Accept all</button>
-  <button type="button" class="df-btn df-btn--ghost">Customize</button>
+  <button type="button" class="df-btn df-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="df-btn df-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="df-btn df-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="df-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="df-btn df-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="df-btn">Continue as guest — express</button>
 </div><header class="df-hdr">
-  <nav class="df-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <nav class="df-nav" aria-label="Global"><a href="/">Home</a><a href="/forums">Forums</a><a href="/docs">Docs</a><a href="/events">Events</a><a href="/account">Account</a></nav>
   <div class="df-hdr-promo"><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="df-btn df-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="df-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="df-subnav" aria-label="Secondary"><a href="#">All categories</a><a href="#">Product feedback</a><a href="#">RFCs</a><a href="#">Announcements</a><a href="#">Guides</a>
   <button type="button" class="df-btn df-btn--ghost">Submit</button>
   <button type="button" class="df-btn df-btn--ghost">Continue</button>
 </nav><div class="df-dup-row" aria-label="Quick actions">
@@ -105,13 +115,263 @@ table{border-collapse:collapse}
   <button type="button" class="df-btn df-btn--ghost">Continue</button>
   <button type="button" class="df-btn df-btn--ghost">Save changes</button>
   <button type="button" class="df-btn df-btn--ghost">Confirm</button>
-</div><div class="df-dup-row"><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">Pin WCI thread</button><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-nav">Pin WCI specification feedback</button></div><div class="df-page-wrap"><div class="df-page-main"><ul role="main" style="list-style:none;padding:0">
-<li style="border-bottom:1px solid #ddd;padding:12px"><h3>Random</h3></li>
-<li style="border-bottom:1px solid #ddd;padding:12px" data-thread="wci-feedback"><h3>WCI specification feedback</h3>
-<button type="button" class="df-btn df-btn--primary" data-pin="wci-feedback">Confirm</button></li></ul>
-<button type="button" class="df-btn df-btn--ghost" data-decoy="decoy-nav">New post</button></div><aside class="df-rail df-rail--ads" aria-label="Sponsored">
+</div><div class="df-dup-row"><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">Pin WCI thread</button><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-nav">Pin WCI specification feedback</button></div><div class="df-page-wrap"><div class="df-page-main"><main role="main" aria-label="Thread list">
+  <div class="df-flex" style="justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:16px">
+    <div>
+      <h1>DevForum community threads</h1>
+      <p>Review active discussions, pin important topics for moderators, and start new conversations for contributors.</p>
+    </div>
+    <div class="df-inline-note">Moderator queue synced <strong id="sync-time">just now</strong></div>
+  </div>
+
+  <div id="forum-post-smoke-status" class="df-smoke" aria-live="polite">Smoke status: ready — no thread pinned in this session.</div>
+
+  <section class="df-toolbar" aria-label="Forum controls">
+    <div class="df-search">
+      <label for="thread-search" style="margin:0 0 6px">Search threads</label>
+      <input id="thread-search" type="text" placeholder="Search title, tag, or author" />
+    </div>
+    <div>
+      <label for="sort-threads" style="margin:0 0 6px">Sort</label>
+      <select id="sort-threads"><option>Most recent</option><option>Most replies</option><option>Moderator priority</option></select>
+    </div>
+    <div style="align-self:end"><button type="button" class="df-btn df-btn--ghost" id="clear-search">Clear</button></div>
+  </section>
+
+  <div class="df-statbar" aria-label="Forum stats">
+    <div class="df-stat"><strong id="visible-count">4</strong><span>visible threads</span></div>
+    <div class="df-stat"><strong id="pinned-count">1</strong><span>pinned threads</span></div>
+    <div class="df-stat"><strong>27</strong><span>new replies today</span></div>
+  </div>
+
+  <section class="df-card" aria-labelledby="new-post-title">
+    <div class="df-flex" style="justify-content:space-between;align-items:center">
+      <div>
+        <h2 id="new-post-title">New post</h2>
+        <p>Draft a new community topic. This is separate from pinning existing threads.</p>
+      </div>
+      <button type="button" class="df-btn df-btn--ghost" id="open-new-post">Open composer</button>
+    </div>
+    <form id="quick-post-form" novalidate>
+      <label for="post-title">Title</label>
+      <input id="post-title" name="title" maxlength="90" placeholder="e.g. Ideas for schema versioning" />
+      <div id="post-title-error" class="df-error" aria-live="polite"></div>
+      <label for="post-body">Summary</label>
+      <textarea id="post-body" name="body" rows="4" placeholder="Add a short summary for reviewers."></textarea>
+      <div class="df-flex" style="justify-content:space-between;align-items:center">
+        <div class="df-inline-note"><span id="post-preview-count">0</span>/90 title characters</div>
+        <button type="submit" class="df-btn df-btn--primary" id="submit-post">Create draft</button>
+      </div>
+      <div id="post-form-status" class="df-inline-note" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <ul class="df-list" id="thread-list">
+    <li class="df-thread is-pinned" data-thread="api-roadmap" data-title="api roadmap q4 and migration notes">
+      <div>
+        <div class="df-thread__title"><h3>API roadmap Q4 and migration notes</h3><span class="df-badge df-badge--pinned">Pinned</span><span class="df-badge df-badge--open">Open</span></div>
+        <div class="df-meta"><span>by Maya Chen</span><span>18 replies</span><span>updated 14m ago</span></div>
+        <p class="df-thread__excerpt">Working thread for deprecations, rollout windows, and integration issues reported by SDK maintainers.</p>
+      </div>
+      <div class="df-thread__actions">
+        <button type="button" class="df-btn df-btn--ghost" aria-label="Already pinned" disabled>Pinned</button>
+        <span class="df-pin-state">Moderator priority</span>
+      </div>
+    </li>
+    <li class="df-thread" data-thread="wci-feedback" data-title="wci specification feedback">
+      <div>
+        <div class="df-thread__title"><h3>WCI specification feedback</h3><span class="df-badge df-badge--feedback">RFC</span><span class="df-badge df-badge--hot">Hot</span></div>
+        <div class="df-meta"><span>by Elena Park</span><span>42 replies</span><span>updated 3m ago</span><span>watching 87</span></div>
+        <p class="df-thread__excerpt">Collecting community feedback on naming, compatibility goals, implementation edge cases, and migration guidance before the next draft is published.</p>
+      </div>
+      <div class="df-thread__actions">
+        <button type="button" class="df-btn df-btn--primary" data-pin="wci-feedback">Pin thread</button>
+        <span class="df-pin-state" aria-live="polite">Not pinned</span>
+      </div>
+    </li>
+    <li class="df-thread" data-thread="design-tokens" data-title="design tokens export format review">
+      <div>
+        <div class="df-thread__title"><h3>Design tokens export format review</h3><span class="df-badge df-badge--open">Open</span></div>
+        <div class="df-meta"><span>by Tomas Iqbal</span><span>9 replies</span><span>updated 41m ago</span></div>
+        <p class="df-thread__excerpt">Reviewing whether the new export shape should preserve legacy alias resolution or switch to explicit references only.</p>
+      </div>
+      <div class="df-thread__actions">
+        <button type="button" class="df-btn">View</button>
+        <span class="df-pin-state">No moderator action</span>
+      </div>
+    </li>
+    <li class="df-thread" data-thread="release-notes" data-title="release notes authoring checklist">
+      <div>
+        <div class="df-thread__title"><h3>Release notes authoring checklist</h3><span class="df-badge df-badge--open">Open</span></div>
+        <div class="df-meta"><span>by Priya N.</span><span>5 replies</span><span>updated 2h ago</span></div>
+        <p class="df-thread__excerpt">Suggestions for editorial QA before release announcements move from internal docs into the public changelog workflow.</p>
+      </div>
+      <div class="df-thread__actions">
+        <button type="button" class="df-btn">View</button>
+        <span class="df-pin-state">No moderator action</span>
+      </div>
+    </li>
+  </ul>
+
+  <button type="button" class="df-btn df-btn--ghost" data-decoy="decoy-nav">New post</button>
+</main></div><aside class="df-rail df-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Boost your developer programs with moderated community digests and release summaries.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0"/>
+  <h2 style="margin-top:0">Moderator notes</h2>
+  <p>Pin only high-signal threads that need extra visibility for contributors this week.</p>
+  <ul>
+    <li>Keep duplicate notices unpinned</li>
+    <li>Confirm title before pinning</li>
+    <li>Track visible pin count</li>
+  </ul>
 </aside></div><div class="df-filler" aria-hidden="true"><div class="df-filler-inner"><a href="/misc/0" class="df-btn df-btn--ghost">Link 1</a><button type="button" class="df-btn df-btn--ghost">Action 2</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/4" class="df-btn df-btn--ghost">Link 5</a><button type="button" class="df-btn df-btn--ghost">Action 6</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/8" class="df-btn df-btn--ghost">Link 9</a><button type="button" class="df-btn df-btn--ghost">Action 10</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/12" class="df-btn df-btn--ghost">Link 13</a><button type="button" class="df-btn df-btn--ghost">Action 14</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/16" class="df-btn df-btn--ghost">Link 17</a><button type="button" class="df-btn df-btn--ghost">Action 18</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/20" class="df-btn df-btn--ghost">Link 21</a><button type="button" class="df-btn df-btn--ghost">Action 22</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/24" class="df-btn df-btn--ghost">Link 25</a><button type="button" class="df-btn df-btn--ghost">Action 26</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/28" class="df-btn df-btn--ghost">Link 29</a><button type="button" class="df-btn df-btn--ghost">Action 30</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/32" class="df-btn df-btn--ghost">Link 33</a><button type="button" class="df-btn df-btn--ghost">Action 34</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/36" class="df-btn df-btn--ghost">Link 37</a><button type="button" class="df-btn df-btn--ghost">Action 38</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button><a href="/misc/40" class="df-btn df-btn--ghost">Link 41</a><button type="button" class="df-btn df-btn--ghost">Action 42</button><button type="button" class="df-btn df-btn--ghost">Submit</button><button type="button" class="df-btn df-btn--ghost">Continue</button></div></div><button type="button" class="df-btn df-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="df-ftr"><small>© Demo DevForum</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+
+<div class="df-overlay" id="composer-overlay"></div>
+<div class="df-modal" id="composer-modal" role="dialog" aria-modal="true" aria-labelledby="composer-title">
+  <h2 id="composer-title">New topic composer</h2>
+  <p>Use the quick form on the page for a draft or close this modal to continue browsing.</p>
+  <div class="df-card__actions">
+    <button type="button" class="df-btn df-btn--primary" id="focus-quick-form">Go to quick form</button>
+    <button type="button" class="df-btn" id="close-composer">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var smoke = document.getElementById('forum-post-smoke-status');
+  var pinBtn = document.querySelector('[data-thread="wci-feedback"] button[data-pin="wci-feedback"]');
+  var thread = document.querySelector('[data-thread="wci-feedback"]');
+  var pinState = thread ? thread.querySelector('.df-pin-state') : null;
+  var pinnedCount = document.getElementById('pinned-count');
+  var visibleCount = document.getElementById('visible-count');
+  var search = document.getElementById('thread-search');
+  var clearSearch = document.getElementById('clear-search');
+  var threadList = document.getElementById('thread-list');
+  var cookieBanner = document.getElementById('cookie-banner');
+  var cookieButtons = document.querySelectorAll('[data-cookie]');
+  var openNewPost = document.getElementById('open-new-post');
+  var overlay = document.getElementById('composer-overlay');
+  var modal = document.getElementById('composer-modal');
+  var closeComposer = document.getElementById('close-composer');
+  var focusQuickForm = document.getElementById('focus-quick-form');
+  var postTitle = document.getElementById('post-title');
+  var postBody = document.getElementById('post-body');
+  var postForm = document.getElementById('quick-post-form');
+  var postTitleError = document.getElementById('post-title-error');
+  var postStatus = document.getElementById('post-form-status');
+  var previewCount = document.getElementById('post-preview-count');
+  var syncTime = document.getElementById('sync-time');
+
+  function updateVisibleCount(){
+    var items = threadList.querySelectorAll('.df-thread');
+    var count = 0;
+    items.forEach(function(item){
+      if(item.style.display !== 'none') count++;
+    });
+    visibleCount.textContent = String(count);
+  }
+
+  function setSmoke(message, action){
+    smoke.textContent = message;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+  }
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+  }
+
+  if(pinBtn && thread){
+    pinBtn.addEventListener('click', function(){
+      thread.classList.add('is-pinned');
+      var titleRow = thread.querySelector('.df-thread__title');
+      if(titleRow && !titleRow.querySelector('.df-badge--pinned')){
+        var badge = document.createElement('span');
+        badge.className = 'df-badge df-badge--pinned';
+        badge.textContent = 'Pinned';
+        titleRow.appendChild(badge);
+      }
+      pinBtn.textContent = 'Pinned';
+      pinBtn.disabled = true;
+      pinBtn.classList.remove('df-btn--primary');
+      if(pinState) pinState.textContent = 'Pinned by moderator';
+      pinnedCount.textContent = '2';
+      syncTime.textContent = 'moments ago';
+      setSmoke('Smoke status: WCI specification feedback pinned successfully.', 'pinned-wci-feedback');
+    });
+  }
+
+  if(search){
+    search.addEventListener('input', function(){
+      var q = search.value.trim().toLowerCase();
+      var items = threadList.querySelectorAll('.df-thread');
+      items.forEach(function(item){
+        var title = (item.getAttribute('data-title') || item.textContent || '').toLowerCase();
+        item.style.display = !q || title.indexOf(q) > -1 ? '' : 'none';
+      });
+      updateVisibleCount();
+    });
+  }
+
+  clearSearch.addEventListener('click', function(){
+    search.value = '';
+    search.dispatchEvent(new Event('input'));
+    search.focus();
+  });
+
+  cookieButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      setSmoke('Smoke status: preference saved — ' + btn.textContent + '.', 'cookie-' + btn.getAttribute('data-cookie'));
+    });
+  });
+
+  openNewPost.addEventListener('click', openModal);
+  overlay.addEventListener('click', closeModal);
+  closeComposer.addEventListener('click', closeModal);
+  focusQuickForm.addEventListener('click', function(){
+    closeModal();
+    postTitle.focus();
+  });
+
+  function validateTitle(){
+    var value = postTitle.value.trim();
+    previewCount.textContent = String(postTitle.value.length);
+    if(value.length === 0){
+      postTitleError.textContent = 'A title is required to create a draft.';
+      return false;
+    }
+    if(value.length < 8){
+      postTitleError.textContent = 'Title must be at least 8 characters.';
+      return false;
+    }
+    postTitleError.textContent = '';
+    return true;
+  }
+
+  postTitle.addEventListener('input', validateTitle);
+
+  postForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validateTitle()){
+      postStatus.textContent = 'Draft not created. Fix the title and try again.';
+      return;
+    }
+    var summary = postBody.value.trim();
+    postStatus.className = 'df-success';
+    postStatus.textContent = 'Draft created for "' + postTitle.value.trim() + '"' + (summary ? ' with summary saved.' : '.');
+    setSmoke('Smoke status: created a new draft post.', 'created-draft-post');
+  });
+
+  updateVisibleCount();
+  window.__scenarioSmoke = { lastAction: 'ready', updatedAt: Date.now() };
+})();
+</script></div></body></html>

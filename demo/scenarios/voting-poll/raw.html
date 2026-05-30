@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>VoteHub</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>VoteHub — Measure 12 Ballot</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .vh-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .vh-subnav a:hover{background:#f8fafc;color:#334155}
 .vh-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.vh-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.vh-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.vh-page-wrap{grid-template-columns:1fr}}
 .vh-page-main{padding:20px 24px 32px;min-height:42vh}
 .vh-page-main>h1,.vh-page-main [role=main]>h1,.vh-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .vh-page-main h2,.vh-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .vh-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .vh-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.vh-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.vh-page-main select,.vh-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.vh-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.vh-page-main select,.vh-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .vh-page-main input:focus,.vh-page-main select:focus,.vh-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .vh-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .vh-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,13 +34,11 @@ table{border-collapse:collapse}
 .vh-page-main th,.vh-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .vh-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .vh-page-main tr:hover td{background:#fafafa}
-.vh-page-main article,.vh-page-main .vh-card,.vh-page-main .vh-resto,.vh-page-main .vh-slot,.vh-page-main .vh-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.vh-page-main article,.vh-page-main .vh-card,.vh-page-main .vh-resto,.vh-page-main .vh-slot,.vh-page-main .vh-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .vh-page-main ul:not([class]){list-style:none;padding:0}
 .vh-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .vh-page-main ul:not([class]) li:hover{background:#f8fafc}
-.vh-page-main dialog,.vh-page-main .vh-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.vh-page-main dialog,.vh-page-main .vh-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .vh-page-main .vh-modal.is-open,.vh-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .vh-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .vh-btn:hover{background:#f8fafc}
@@ -67,37 +64,46 @@ table{border-collapse:collapse}
 .vh-filters,.vh-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .vh-filters h2,.vh-frame aside h2{font-size:14px;margin:0 0 10px}
 .vh-card__actions,.vh-slot__actions,.vh-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.vh-wizard{max-width:760px}
+.vh-wizard{max-width:860px}
 .vh-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .vh-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .vh-step.is-active{background:hsl(291 72% 46%);color:#fff}
 .vh-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.vh-hero{border-radius:12px;margin-bottom:8px}
-.vh-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.vh-grid{display:grid;gap:14px}
-.vh-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.vh-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.vh-patient{border-radius:10px}
-.vh-slots{display:grid;gap:10px}
-.vh-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.vh-cell{background:#fff;padding:8px;min-height:44px}
-.vh-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.vh-diff{border-radius:8px}
-.vh-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.vh-status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}
+.vh-status--ok{background:#dcfce7;color:#166534}
+.vh-status--warn{background:#fef3c7;color:#92400e}
+.vh-status--info{background:#e0f2fe;color:#075985}
+.vh-callout{border-left:4px solid #7c3aed;background:#faf5ff;padding:12px 14px;border-radius:8px;margin:12px 0}
+.vh-choice{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;margin:10px 0;transition:border-color .15s,box-shadow .15s,background .15s}
+.vh-choice.is-selected{border-color:hsl(291 72% 46%);box-shadow:0 0 0 3px rgba(168,85,247,.12);background:#fcf7ff}
+.vh-choice input{margin-top:3px}
+ .vh-split{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+@media(max-width:760px){.vh-split{grid-template-columns:1fr}}
+.vh-kv{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;font-size:13px}
+.vh-kv div{padding:4px 0;border-bottom:1px solid #eef2f7}
+.vh-muted{color:#64748b}
+.vh-inline-note{font-size:12px;color:#64748b}
+.vh-error{color:#b91c1c;font-size:12px;font-weight:600;margin-top:6px}
+.vh-success{color:#166534;font-size:12px;font-weight:600}
+.vh-review{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:12px}
+.vh-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:50;display:none}
+.vh-modal-backdrop.is-open{display:block}
+#measure12-confirm-modal{display:none;position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92vw,520px)}
+#measure12-confirm-modal.is-open{display:block}
 </style></head><body>
-<div class="vh-app" data-page="voting-poll"><div class="vh-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="vh-btn vh-btn--muted">Reject non-essential</button>
-  <button type="button" class="vh-btn vh-btn--primary">Accept all</button>
-  <button type="button" class="vh-btn vh-btn--ghost">Customize</button>
+<div class="vh-app" data-page="voting-poll" id="voting_poll-page"><div class="vh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <p>We use cookies for analytics, ballot-session recovery, and accessibility improvements. Manage preferences or accept to continue.</p>
+  <button type="button" class="vh-btn vh-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="vh-btn vh-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="vh-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="vh-btn vh-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="vh-btn">Continue as guest — express</button>
 </div><header class="vh-hdr">
-  <nav class="vh-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="vh-hdr-promo"><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="vh-nav" aria-label="Global"><a href="#">Home</a><a href="#">Help</a><a href="#">Voter Guide</a><a href="#">Account</a></nav>
+  <div class="vh-hdr-promo"><span class="vh-status vh-status--info" aria-live="polite">Ballot session active</span><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Claim civic rewards</button>
     <button type="button" class="vh-btn vh-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="vh-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="vh-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Measures</a><a href="#">Candidates</a><a href="#">FAQ</a><a href="#">Support</a>
   <button type="button" class="vh-btn vh-btn--ghost">Submit</button>
   <button type="button" class="vh-btn vh-btn--ghost">Continue</button>
 </nav><div class="vh-dup-row" aria-label="Quick actions">
@@ -105,12 +111,282 @@ table{border-collapse:collapse}
   <button type="button" class="vh-btn vh-btn--ghost">Continue</button>
   <button type="button" class="vh-btn vh-btn--ghost">Save changes</button>
   <button type="button" class="vh-btn vh-btn--ghost">Confirm</button>
-</div><div class="vh-dup-row"><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Cast vote Proposition 12</button><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-nav">Vote yes Proposition 12</button></div><div class="vh-page-wrap"><div class="vh-page-main"><form role="main" style="max-width:480px;margin:32px auto;border:2px solid #1e3a8a;padding:24px" data-measure="12">
-<h1>Measure 12</h1><label style="display:block;margin:12px 0"><input type="radio" name="m12" value="no" /> No</label>
-<label style="display:block;margin:12px 0"><input type="radio" name="m12" value="yes" checked data-vote="yes" /> Yes</label>
-<button type="submit" class="vh-btn vh-btn--primary" data-measure-submit="12">Confirm</button></form></div><aside class="vh-rail vh-rail--ads" aria-label="Sponsored">
+</div><div class="vh-dup-row"><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Cast vote Proposition 12</button><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-nav">Vote yes Proposition 12</button></div><div class="vh-page-wrap"><div class="vh-page-main"><main class="vh-wizard" role="main" aria-labelledby="ballot-title">
+  <div class="vh-steps" aria-label="Ballot progress">
+    <div class="vh-step">Identity</div>
+    <div class="vh-step is-active">Measures</div>
+    <div class="vh-step">Review</div>
+    <div class="vh-step">Receipt</div>
+  </div>
+
+  <section class="vh-panel" aria-labelledby="ballot-title">
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+      <div>
+        <h1 id="ballot-title">Municipal Ballot — Local Measure Twelve</h1>
+        <p>Record your position on Measure 12, then confirm and submit this item to your ballot review queue.</p>
+      </div>
+      <div>
+        <div id="voting-poll-smoke-status" class="vh-status vh-status--warn" data-smoke-status>Awaiting ballot confirmation</div>
+      </div>
+    </div>
+
+    <div class="vh-callout">
+      <strong>Measure summary:</strong> Local Measure 12 authorizes a neighborhood infrastructure bond focused on street safety, storm drainage, and park access improvements over a six-year capital schedule.
+    </div>
+
+    <div class="vh-split">
+      <div>
+        <form id="measure12-form" data-measure="12" novalidate>
+          <fieldset aria-describedby="measure12-help measure12-error">
+            <legend>Choose your vote for Measure 12</legend>
+            <p id="measure12-help" class="vh-inline-note">Selecting <strong>Yes</strong> records an affirmative vote. You must also check the confirmation box before submission.</p>
+
+            <label class="vh-choice" for="m12-no-card">
+              <input id="m12-no-card" type="radio" name="m12" value="no" aria-describedby="choice-no-desc" />
+              <span><strong>No</strong><br/><span id="choice-no-desc" class="vh-muted">Oppose Local Measure 12 as written.</span></span>
+            </label>
+
+            <label class="vh-choice is-selected" for="m12-yes-card">
+              <input id="m12-yes-card" type="radio" name="m12" value="yes" checked data-vote="yes" aria-describedby="choice-yes-desc" />
+              <span><strong>Yes</strong><br/><span id="choice-yes-desc" class="vh-muted">Support Local Measure 12 and cast an affirmative vote.</span></span>
+            </label>
+
+            <div id="measure12-error" class="vh-error" aria-live="polite"></div>
+          </fieldset>
+
+          <fieldset aria-describedby="confirm-help confirm-error">
+            <legend>Confirmation</legend>
+            <label style="display:flex;gap:10px;align-items:flex-start;margin-top:0">
+              <input id="m12-confirm-check" type="checkbox" />
+              <span>I confirm that my intended vote on Local Measure 12 is reflected above and I want to place it on my ballot.</span>
+            </label>
+            <div id="confirm-help" class="vh-inline-note">For security, ballot items require a separate confirmation acknowledgment.</div>
+            <div id="confirm-error" class="vh-error" aria-live="polite"></div>
+          </fieldset>
+
+          <label for="voter-note">Optional private note</label>
+          <textarea id="voter-note" rows="3" maxlength="140" placeholder="Add a reminder for your ballot review (not submitted to election officials)."></textarea>
+          <div class="vh-inline-note">Characters remaining: <span id="note-counter">140</span></div>
+
+          <div class="vh-review" aria-live="polite">
+            <h3 style="margin-top:0">Live review</h3>
+            <p style="margin-bottom:6px">Current selection: <strong id="review-vote">Yes</strong></p>
+            <p style="margin-bottom:6px">Confirmation checkbox: <strong id="review-confirm">Not confirmed</strong></p>
+            <p style="margin-bottom:0">Private note preview: <span id="review-note" class="vh-muted">No note added.</span></p>
+          </div>
+
+          <div class="vh-card__actions" style="margin-top:16px">
+            <button type="button" class="vh-btn vh-btn--ghost" id="preview-ballot-btn">Preview summary</button>
+            <button type="submit" class="vh-btn vh-btn--primary" data-measure-submit="12" id="vote-prop-12">Confirm</button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <article class="vh-card" aria-labelledby="measure-meta-title">
+          <h2 id="measure-meta-title">Ballot item details</h2>
+          <div class="vh-kv">
+            <div class="vh-muted">Measure ID</div><div>12</div>
+            <div class="vh-muted">District</div><div>Central Municipal Region</div>
+            <div class="vh-muted">Election date</div><div>November 5</div>
+            <div class="vh-muted">Submission deadline</div><div>8:00 PM local time</div>
+          </div>
+        </article>
+
+        <article class="vh-card">
+          <h2>Before you submit</h2>
+          <ul>
+            <li>Verify that your vote reflects your intent.</li>
+            <li>Check the confirmation box to unlock ballot submission.</li>
+            <li>Use preview to review what will be recorded.</li>
+          </ul>
+        </article>
+
+        <article class="vh-card">
+          <h2>Recent ballot activity</h2>
+          <table aria-label="Recent activity">
+            <thead><tr><th>Time</th><th>Activity</th></tr></thead>
+            <tbody id="activity-log">
+              <tr><td>09:14</td><td>Entered measures section</td></tr>
+              <tr><td>09:15</td><td>Measure 12 loaded</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </div>
+  </section>
+</main></div><aside class="vh-rail vh-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <p>Review local transportation briefings and neighborhood policy newsletters.</p>
+  <a href="#">Partner offer — limited time</a><br/>
   <button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="vh-filler" aria-hidden="true"><div class="vh-filler-inner"><a href="/misc/0" class="vh-btn vh-btn--ghost">Link 1</a><button type="button" class="vh-btn vh-btn--ghost">Action 2</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/4" class="vh-btn vh-btn--ghost">Link 5</a><button type="button" class="vh-btn vh-btn--ghost">Action 6</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/8" class="vh-btn vh-btn--ghost">Link 9</a><button type="button" class="vh-btn vh-btn--ghost">Action 10</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/12" class="vh-btn vh-btn--ghost">Link 13</a><button type="button" class="vh-btn vh-btn--ghost">Action 14</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/16" class="vh-btn vh-btn--ghost">Link 17</a><button type="button" class="vh-btn vh-btn--ghost">Action 18</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/20" class="vh-btn vh-btn--ghost">Link 21</a><button type="button" class="vh-btn vh-btn--ghost">Action 22</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/24" class="vh-btn vh-btn--ghost">Link 25</a><button type="button" class="vh-btn vh-btn--ghost">Action 26</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/28" class="vh-btn vh-btn--ghost">Link 29</a><button type="button" class="vh-btn vh-btn--ghost">Action 30</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/32" class="vh-btn vh-btn--ghost">Link 33</a><button type="button" class="vh-btn vh-btn--ghost">Action 34</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/36" class="vh-btn vh-btn--ghost">Link 37</a><button type="button" class="vh-btn vh-btn--ghost">Action 38</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="/misc/40" class="vh-btn vh-btn--ghost">Link 41</a><button type="button" class="vh-btn vh-btn--ghost">Action 42</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button></div></div><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="vh-ftr"><small>© Demo VoteHub</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+</aside></div><div class="vh-filler" aria-hidden="true"><div class="vh-filler-inner"><a href="#" class="vh-btn vh-btn--ghost">Link 1</a><button type="button" class="vh-btn vh-btn--ghost">Action 2</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 5</a><button type="button" class="vh-btn vh-btn--ghost">Action 6</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 9</a><button type="button" class="vh-btn vh-btn--ghost">Action 10</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 13</a><button type="button" class="vh-btn vh-btn--ghost">Action 14</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 17</a><button type="button" class="vh-btn vh-btn--ghost">Action 18</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button></div></div><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="vh-ftr"><small>© Demo VoteHub</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+
+<div class="vh-modal-backdrop" id="modal-backdrop"></div>
+<div class="vh-modal" id="measure12-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+  <h2 id="modal-title" style="margin-top:0">Ballot preview</h2>
+  <p id="modal-desc">Review your current vote before placing it on your ballot.</p>
+  <div class="vh-review">
+    <p><strong>Measure:</strong> Local Measure 12</p>
+    <p><strong>Vote:</strong> <span id="modal-vote">Yes</span></p>
+    <p><strong>Confirmation:</strong> <span id="modal-confirm">Not confirmed</span></p>
+    <p><strong>Private note:</strong> <span id="modal-note">No note added.</span></p>
+  </div>
+  <div class="vh-card__actions">
+    <button type="button" class="vh-btn vh-btn--ghost" id="close-modal-btn">Close</button>
+    <button type="button" class="vh-btn vh-btn--primary" id="apply-from-modal-btn">Looks good</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var app = document.querySelector('[data-page="voting-poll"]');
+  var form = document.getElementById('measure12-form');
+  var smoke = document.getElementById('voting-poll-smoke-status');
+  var note = document.getElementById('voter-note');
+  var noteCounter = document.getElementById('note-counter');
+  var reviewVote = document.getElementById('review-vote');
+  var reviewConfirm = document.getElementById('review-confirm');
+  var reviewNote = document.getElementById('review-note');
+  var measureError = document.getElementById('measure12-error');
+  var confirmError = document.getElementById('confirm-error');
+  var confirmCheck = document.getElementById('m12-confirm-check');
+  var previewBtn = document.getElementById('preview-ballot-btn');
+  var modal = document.getElementById('measure12-confirm-modal');
+  var backdrop = document.getElementById('modal-backdrop');
+  var closeModalBtn = document.getElementById('close-modal-btn');
+  var applyFromModalBtn = document.getElementById('apply-from-modal-btn');
+  var activityLog = document.getElementById('activity-log');
+
+  function selectedVote(){
+    var checked = form.querySelector('input[name="m12"]:checked');
+    return checked ? checked.value : '';
+  }
+
+  function appendActivity(text){
+    var row = document.createElement('tr');
+    var time = document.createElement('td');
+    var action = document.createElement('td');
+    var now = new Date();
+    time.textContent = now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    action.textContent = text;
+    row.appendChild(time);
+    row.appendChild(action);
+    activityLog.appendChild(row);
+  }
+
+  function updateChoiceCards(){
+    var cards = form.querySelectorAll('.vh-choice');
+    cards.forEach(function(card){ card.classList.remove('is-selected'); });
+    var checked = form.querySelector('input[name="m12"]:checked');
+    if(checked){
+      var label = checked.closest('.vh-choice');
+      if(label){ label.classList.add('is-selected'); }
+    }
+  }
+
+  function updateReview(){
+    var vote = selectedVote();
+    reviewVote.textContent = vote ? vote.charAt(0).toUpperCase() + vote.slice(1) : 'No selection';
+    reviewConfirm.textContent = confirmCheck.checked ? 'Confirmed' : 'Not confirmed';
+    reviewNote.textContent = note.value.trim() ? note.value.trim() : 'No note added.';
+    noteCounter.textContent = String(140 - note.value.length);
+    updateChoiceCards();
+  }
+
+  function setSmoke(text, mode){
+    smoke.textContent = text;
+    smoke.className = 'vh-status ' + (mode || 'vh-status--info');
+  }
+
+  function validateForm(){
+    var vote = selectedVote();
+    var ok = true;
+    measureError.textContent = '';
+    confirmError.textContent = '';
+
+    if(!vote){
+      measureError.textContent = 'Select Yes or No to continue.';
+      ok = false;
+    }
+    if(vote !== 'yes'){
+      measureError.textContent = 'To cast an affirmative vote on Local Measure 12, select Yes.';
+      ok = false;
+    }
+    if(!confirmCheck.checked){
+      confirmError.textContent = 'Check the confirmation box before submitting your ballot item.';
+      ok = false;
+    }
+    return ok;
+  }
+
+  function syncModal(){
+    document.getElementById('modal-vote').textContent = selectedVote() ? selectedVote().charAt(0).toUpperCase() + selectedVote().slice(1) : 'No selection';
+    document.getElementById('modal-confirm').textContent = confirmCheck.checked ? 'Confirmed' : 'Not confirmed';
+    document.getElementById('modal-note').textContent = note.value.trim() ? note.value.trim() : 'No note added.';
+  }
+
+  function openModal(){
+    syncModal();
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    setSmoke('Preview opened for Measure 12', 'vh-status--info');
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+  }
+
+  form.addEventListener('change', function(e){
+    updateReview();
+    if(e.target.name === 'm12') appendActivity('Vote selection changed to ' + e.target.value.toUpperCase());
+    if(e.target === confirmCheck) appendActivity('Confirmation checkbox ' + (confirmCheck.checked ? 'checked' : 'cleared'));
+  });
+
+  note.addEventListener('input', function(){
+    updateReview();
+  });
+
+  previewBtn.addEventListener('click', function(){
+    openModal();
+  });
+
+  closeModalBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  applyFromModalBtn.addEventListener('click', function(){
+    closeModal();
+    setSmoke('Preview accepted — ready to confirm ballot item', 'vh-status--warn');
+    appendActivity('Preview accepted');
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    updateReview();
+    if(!validateForm()){
+      setSmoke('Action required before ballot submission', 'vh-status--warn');
+      appendActivity('Submission blocked by validation');
+      return;
+    }
+    var ts = Date.now();
+    setSmoke('Ballot submitted: YES on Local Measure 12', 'vh-status--ok');
+    window.__scenarioSmoke = { lastAction: 'submitted affirmative vote for measure 12', updatedAt: ts };
+    appendActivity('Measure 12 submitted as YES');
+    confirmError.textContent = '';
+    measureError.textContent = '';
+  });
+
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'none';
+      appendActivity('Cookie banner dismissed');
+    });
+  });
+
+  updateReview();
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: 'page ready', updatedAt: Date.now() };
+  if(app){ app.dataset.ready = 'true'; }
+})();
+</script></div></body></html>

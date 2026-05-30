@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>FreshCart</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>FreshCart — Shared Family List</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .fcart-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .fcart-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .fcart-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.fcart-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#0f172a}
+.fcart-brand__mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#16a34a,#84cc16);display:grid;place-items:center;color:#fff;font-size:18px;box-shadow:0 6px 16px rgba(22,163,74,.24)}
 .fcart-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .fcart-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .fcart-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,32 +21,24 @@ table{border-collapse:collapse}
 .fcart-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .fcart-subnav a:hover{background:#f8fafc;color:#334155}
 .fcart-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.fcart-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.fcart-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.fcart-page-wrap{grid-template-columns:1fr}}
 .fcart-page-main{padding:20px 24px 32px;min-height:42vh}
 .fcart-page-main>h1,.fcart-page-main [role=main]>h1,.fcart-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .fcart-page-main h2,.fcart-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .fcart-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .fcart-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.fcart-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fcart-page-main select,.fcart-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.fcart-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fcart-page-main select,.fcart-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .fcart-page-main input:focus,.fcart-page-main select:focus,.fcart-page-main textarea:focus{outline:2px solid hsl(221 72% 46%);outline-offset:1px;border-color:hsl(221 72% 46%)}
 .fcart-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .fcart-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
-.fcart-page-main table{width:100%;margin:12px 0;font-size:13px}
-.fcart-page-main th,.fcart-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
-.fcart-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.fcart-page-main tr:hover td{background:#fafafa}
-.fcart-page-main article,.fcart-page-main .fcart-card,.fcart-page-main .fcart-resto,.fcart-page-main .fcart-slot,.fcart-page-main .fcart-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.fcart-page-main article,.fcart-page-main .fcart-card,.fcart-page-main .fcart-resto,.fcart-page-main .fcart-slot,.fcart-page-main .fcart-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .fcart-page-main ul:not([class]){list-style:none;padding:0}
 .fcart-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .fcart-page-main ul:not([class]) li:hover{background:#f8fafc}
-.fcart-page-main dialog,.fcart-page-main .fcart-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.fcart-page-main .fcart-modal.is-open,.fcart-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.fcart-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.fcart-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .08s}
 .fcart-btn:hover{background:#f8fafc}
+.fcart-btn:active{transform:translateY(1px)}
 .fcart-btn--primary{background:hsl(221 72% 46%);color:#fff;border-color:hsl(221 72% 38%)}
 .fcart-btn--primary:hover{filter:brightness(1.05)}
 .fcart-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -64,40 +58,62 @@ table{border-collapse:collapse}
 .fcart-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .fcart-ab{display:none!important}
 .fcart-layout{display:grid;gap:16px;align-items:start}
-.fcart-filters,.fcart-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.fcart-filters h2,.fcart-frame aside h2{font-size:14px;margin:0 0 10px}
-.fcart-card__actions,.fcart-slot__actions,.fcart-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.fcart-wizard{max-width:760px}
-.fcart-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.fcart-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.fcart-step.is-active{background:hsl(221 72% 46%);color:#fff}
-.fcart-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.fcart-hero{border-radius:12px;margin-bottom:8px}
-.fcart-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .fcart-grid{display:grid;gap:14px}
-.fcart-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.fcart-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.fcart-patient{border-radius:10px}
-.fcart-slots{display:grid;gap:10px}
-.fcart-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.fcart-cell{background:#fff;padding:8px;min-height:44px}
-.fcart-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.fcart-diff{border-radius:8px}
-.fcart-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.fcart-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.fcart-breadcrumbs{display:flex;flex-wrap:wrap;gap:8px;color:#64748b;font-size:12px;margin-bottom:10px}
+.fcart-breadcrumbs span::after{content:"/";margin-left:8px;color:#cbd5e1}
+.fcart-breadcrumbs span:last-child::after{display:none}
+.fcart-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 18px}
+@media(max-width:780px){.fcart-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fcart-stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px}
+.fcart-stat__label{font-size:12px;color:#64748b}
+.fcart-stat__value{font-size:20px;font-weight:800;color:#0f172a;margin-top:4px}
+.fcart-status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.fcart-status--ok{background:#dcfce7;color:#166534}
+.fcart-status--idle{background:#e2e8f0;color:#334155}
+.fcart-status--warn{background:#fef3c7;color:#92400e}
+.fcart-list{list-style:none;padding:0;margin:0}
+.fcart-list-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 12px;border-bottom:1px solid #e2e8f0}
+.fcart-list-item:last-child{border-bottom:none}
+.fcart-list-item__meta{display:flex;align-items:flex-start;gap:12px}
+.fcart-checkbox{width:18px;height:18px;border:1px solid #cbd5e1;border-radius:5px;background:#fff;display:inline-grid;place-items:center;flex:0 0 auto;margin-top:2px}
+.fcart-checkbox.is-checked{background:#16a34a;border-color:#15803d;color:#fff}
+.fcart-item-title{font-weight:700;color:#0f172a}
+.fcart-item-sub{font-size:12px;color:#64748b;margin-top:3px}
+.fcart-item-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.fcart-tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.fcart-tag--organic{background:#dcfce7;color:#166534;border-color:#bbf7d0}
+.fcart-tag--family{background:#f3e8ff;color:#7e22ce;border-color:#e9d5ff}
+.fcart-composer{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px}
+.fcart-inline{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.fcart-inline > div{flex:1 1 180px}
+.fcart-help{font-size:12px;color:#64748b}
+.fcart-error{font-size:12px;color:#b91c1c;min-height:18px;margin-top:6px}
+.fcart-success{color:#166534}
+.fcart-note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;color:#1e3a8a}
+.fcart-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:70}
+.fcart-modal-backdrop.is-open{display:block}
+.fcart-modal{display:none;position:fixed;inset:0;z-index:80;align-items:center;justify-content:center;padding:20px}
+.fcart-modal.is-open{display:flex}
+.fcart-modal__panel{width:min(560px,100%);background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;box-shadow:0 20px 60px rgba(15,23,42,.25)}
+.fcart-modal__hd{display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:8px}
+.fcart-mini-list{margin-top:10px;padding-left:18px;color:#334155}
+.fcart-muted{color:#64748b}
 </style></head><body>
-<div class="fcart-app" data-page="grocery-list"><div class="fcart-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="fcart-app" data-page="grocery-list" id="grocery_list-page"><div class="fcart-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="fcart-btn fcart-btn--muted">Reject non-essential</button>
-  <button type="button" class="fcart-btn fcart-btn--primary">Accept all</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Customize</button>
+  <button type="button" class="fcart-btn fcart-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="fcart-btn fcart-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="fcart-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="fcart-btn fcart-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="fcart-btn">Continue as guest — express</button>
 </div><header class="fcart-hdr">
-  <nav class="fcart-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="fcart-brand" aria-label="FreshCart brand"><div class="fcart-brand__mark">🛒</div><div>FreshCart</div></div>
+  <nav class="fcart-nav" aria-label="Global"><a href="/">Home</a><a href="/shop">Shop</a><a href="/lists">Lists</a><a href="/recipes">Recipes</a><a href="/help">Help</a><a href="/account">Account</a></nav>
   <div class="fcart-hdr-promo"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="fcart-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="fcart-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#family-list">Family list</a><a href="#meal-plan">Meal plan</a><a href="#settings">Sharing</a><a href="#support">Support</a>
   <button type="button" class="fcart-btn fcart-btn--ghost">Submit</button>
   <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
 </nav><div class="fcart-dup-row" aria-label="Quick actions">
@@ -105,13 +121,296 @@ table{border-collapse:collapse}
   <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
   <button type="button" class="fcart-btn fcart-btn--ghost">Save changes</button>
   <button type="button" class="fcart-btn fcart-btn--ghost">Confirm</button>
-</div><div class="fcart-dup-row"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Add avocados family list</button><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-nav">Add organic avocados list</button></div><div class="fcart-page-wrap"><div class="fcart-page-main"><ul role="main" style="list-style:none;padding:0"><li style="display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee">Milk
-<button type="button" class="fcart-btn fcart-btn--ghost">Remove</button></li>
-<li style="display:flex;justify-content:space-between;padding:12px" data-item="organic-avocados">Organic avocados
-<button type="button" class="fcart-btn fcart-btn--primary" data-add-family="avocados">Confirm</button></li></ul>
-<a href="/share" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav">Share list</a></div><aside class="fcart-rail fcart-rail--ads" aria-label="Sponsored">
+</div><div class="fcart-dup-row"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Add avocados family list</button><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-nav">Add organic avocados list</button></div><div class="fcart-page-wrap"><div class="fcart-page-main">
+  <div class="fcart-breadcrumbs" aria-label="Breadcrumbs"><span>Lists</span><span>Shared household</span><span>Weekly groceries</span></div>
+  <main role="main" aria-labelledby="page-title">
+    <div class="fcart-layout">
+      <section class="fcart-card" id="overview">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
+          <div>
+            <h1 id="page-title">Family grocery list</h1>
+            <p>Keep the shared household list in sync for pickup and delivery. Everyone in the Rivera family can add staples, suggest swaps, and mark items complete.</p>
+          </div>
+          <div>
+            <span class="fcart-status fcart-status--idle" id="list-sync-badge">Not synced yet</span>
+          </div>
+        </div>
+        <div class="fcart-summary" aria-label="List summary">
+          <div class="fcart-stat"><div class="fcart-stat__label">Open items</div><div class="fcart-stat__value" id="open-items-count">5</div></div>
+          <div class="fcart-stat"><div class="fcart-stat__label">Family members</div><div class="fcart-stat__value">4</div></div>
+          <div class="fcart-stat"><div class="fcart-stat__label">Organic picks</div><div class="fcart-stat__value" id="organic-count">1</div></div>
+          <div class="fcart-stat"><div class="fcart-stat__label">Shared updates</div><div class="fcart-stat__value" id="updates-count">12</div></div>
+        </div>
+        <div class="fcart-note">Tip: items marked <strong>Family</strong> are visible to everyone instantly once added to the shared list.</div>
+      </section>
+
+      <section class="fcart-composer" aria-labelledby="quick-add-title">
+        <h2 id="quick-add-title">Quick add suggestion</h2>
+        <p>Use this helper to stage a custom item before sharing it. The target task for this page is the dedicated avocados row below.</p>
+        <div class="fcart-inline">
+          <div>
+            <label for="quick-item-name">Item name</label>
+            <input id="quick-item-name" type="text" placeholder="e.g. bananas" />
+          </div>
+          <div>
+            <label for="quick-item-qty">Qty</label>
+            <select id="quick-item-qty"><option value="">Select qty</option><option>1 bag</option><option>2</option><option>3</option><option>6</option></select>
+          </div>
+          <div style="flex:0 0 auto">
+            <button type="button" class="fcart-btn" id="preview-add-btn" disabled>Preview item</button>
+          </div>
+        </div>
+        <div class="fcart-error" id="quick-add-error" aria-live="polite"></div>
+        <div class="fcart-help" id="quick-preview">Preview: nothing staged</div>
+      </section>
+
+      <section class="fcart-card" id="family-list" aria-labelledby="shared-list-title">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div>
+            <h2 id="shared-list-title">Shared family list</h2>
+            <p>Review items added by family members. Use the action buttons to remove, defer, or share an item to the family board.</p>
+          </div>
+          <div class="fcart-toolbar">
+            <a href="/share" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav">Share list</a>
+            <button type="button" class="fcart-btn fcart-btn--ghost" id="open-share-modal">Manage access</button>
+          </div>
+        </div>
+
+        <ul class="fcart-list" aria-label="Grocery items">
+          <li class="fcart-list-item">
+            <div class="fcart-list-item__meta">
+              <div class="fcart-checkbox is-checked" aria-hidden="true">✓</div>
+              <div>
+                <div class="fcart-item-title">Milk</div>
+                <div class="fcart-item-sub">2% lowfat · added by Maya</div>
+                <div class="fcart-item-tags"><span class="fcart-tag">Dairy</span></div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+            </div>
+          </li>
+          <li class="fcart-list-item">
+            <div class="fcart-list-item__meta">
+              <div class="fcart-checkbox" aria-hidden="true"></div>
+              <div>
+                <div class="fcart-item-title">Whole grain bread</div>
+                <div class="fcart-item-sub">1 loaf · pantry restock</div>
+                <div class="fcart-item-tags"><span class="fcart-tag">Bakery</span></div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+            </div>
+          </li>
+          <li class="fcart-list-item">
+            <div class="fcart-list-item__meta">
+              <div class="fcart-checkbox" aria-hidden="true"></div>
+              <div>
+                <div class="fcart-item-title">Greek yogurt</div>
+                <div class="fcart-item-sub">32 oz tub · approved swap available</div>
+                <div class="fcart-item-tags"><span class="fcart-tag">Dairy</span><span class="fcart-tag">Protein</span></div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+            </div>
+          </li>
+          <li class="fcart-list-item" data-item="organic-avocados">
+            <div class="fcart-list-item__meta">
+              <div class="fcart-checkbox" id="avocado-check" aria-hidden="true"></div>
+              <div>
+                <div class="fcart-item-title">Organic avocados</div>
+                <div class="fcart-item-sub">4 count bag · suggested for taco night</div>
+                <div class="fcart-item-tags"><span class="fcart-tag fcart-tag--organic">Organic</span><span class="fcart-tag fcart-tag--family" id="avocado-family-tag" hidden>Family</span></div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="fcart-btn fcart-btn--primary" data-add-family="avocados" id="add-avocados-list">Add to family list</button>
+            </div>
+          </li>
+          <li class="fcart-list-item">
+            <div class="fcart-list-item__meta">
+              <div class="fcart-checkbox" aria-hidden="true"></div>
+              <div>
+                <div class="fcart-item-title">Pasta sauce</div>
+                <div class="fcart-item-sub">2 jars · no sugar added</div>
+                <div class="fcart-item-tags"><span class="fcart-tag">Pantry</span></div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="fcart-toolbar" style="justify-content:space-between">
+          <div class="fcart-help">Visible status: <strong id="family-list-status">Awaiting shared update</strong></div>
+          <div id="grocery-list-smoke-status" class="fcart-status fcart-status--warn" aria-live="polite">Smoke status: waiting for primary action</div>
+        </div>
+      </section>
+
+      <section class="fcart-card" id="meal-plan">
+        <h2>This week’s meal notes</h2>
+        <p>Wednesday taco bowls, Friday avocado toast brunch, and Sunday burger night. Produce suggestions are pulled from the shared list automatically.</p>
+        <ul>
+          <li>Check ripeness before checkout for weekend use.</li>
+          <li>Add duplicate produce to the family list only once to avoid overbuying.</li>
+          <li>Organic produce counts toward the monthly healthy-home challenge.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div><aside class="fcart-rail fcart-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p class="fcart-muted">Upgrade to FreshCart Plus for faster list syncing and member permissions.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0"/>
+  <h3 style="margin-top:0">List members</h3>
+  <ul style="list-style:none;padding:0;margin:0 0 12px">
+    <li style="padding:6px 0">Maya — owner</li>
+    <li style="padding:6px 0">Jon — can edit</li>
+    <li style="padding:6px 0">Ella — can add</li>
+    <li style="padding:6px 0">Noah — viewer</li>
+  </ul>
+  <div class="fcart-help">Last family sync preview: <span id="rail-sync-preview">no recent action</span></div>
 </aside></div><div class="fcart-filler" aria-hidden="true"><div class="fcart-filler-inner"><a href="/misc/0" class="fcart-btn fcart-btn--ghost">Link 1</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 2</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/4" class="fcart-btn fcart-btn--ghost">Link 5</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 6</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/8" class="fcart-btn fcart-btn--ghost">Link 9</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 10</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/12" class="fcart-btn fcart-btn--ghost">Link 13</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 14</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/16" class="fcart-btn fcart-btn--ghost">Link 17</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 18</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/20" class="fcart-btn fcart-btn--ghost">Link 21</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 22</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/24" class="fcart-btn fcart-btn--ghost">Link 25</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 26</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/28" class="fcart-btn fcart-btn--ghost">Link 29</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 30</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/32" class="fcart-btn fcart-btn--ghost">Link 33</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 34</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/36" class="fcart-btn fcart-btn--ghost">Link 37</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 38</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/40" class="fcart-btn fcart-btn--ghost">Link 41</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 42</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button></div></div><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="fcart-ftr"><small>© Demo FreshCart</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+
+<div class="fcart-modal-backdrop" id="share-backdrop"></div>
+<div class="fcart-modal" id="share-modal" aria-hidden="true">
+  <div class="fcart-modal__panel" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+    <div class="fcart-modal__hd">
+      <div>
+        <h2 id="share-modal-title" style="margin:0">Manage family access</h2>
+        <p class="fcart-muted" style="margin-top:6px">Invite a family member or adjust a permission level.</p>
+      </div>
+      <button type="button" class="fcart-btn fcart-btn--ghost" id="close-share-modal" aria-label="Close">Close</button>
+    </div>
+    <form id="share-form" novalidate>
+      <label for="share-email">Family member email</label>
+      <input id="share-email" type="email" placeholder="name@example.com" />
+      <label for="share-role">Permission</label>
+      <select id="share-role"><option value="">Select permission</option><option value="viewer">Viewer</option><option value="add">Can add</option><option value="edit">Can edit</option></select>
+      <div class="fcart-error" id="share-form-error" aria-live="polite"></div>
+      <div class="fcart-toolbar">
+        <button type="submit" class="fcart-btn fcart-btn--primary">Send invite</button>
+        <button type="button" class="fcart-btn" id="cancel-share-modal">Cancel</button>
+      </div>
+    </form>
+    <div class="fcart-help" id="share-form-success">No invite sent yet.</div>
+    <ol class="fcart-mini-list">
+      <li>Invites expire in 48 hours.</li>
+      <li>Editors can add and remove items for everyone.</li>
+      <li>Viewers can open the list but cannot change it.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cookieBanner = document.getElementById('cookie-banner');
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  var quickName = document.getElementById('quick-item-name');
+  var quickQty = document.getElementById('quick-item-qty');
+  var quickBtn = document.getElementById('preview-add-btn');
+  var quickError = document.getElementById('quick-add-error');
+  var quickPreview = document.getElementById('quick-preview');
+
+  function updateQuickState(){
+    var hasName = quickName.value.trim().length > 1;
+    var hasQty = !!quickQty.value;
+    quickBtn.disabled = !(hasName && hasQty);
+    if(quickName.value.trim() && quickName.value.trim().length < 2){
+      quickError.textContent = 'Enter at least 2 characters for the item name.';
+    } else {
+      quickError.textContent = '';
+    }
+    if(hasName || hasQty){
+      quickPreview.textContent = 'Preview: ' + (quickName.value.trim() || 'item') + (hasQty ? ' · ' + quickQty.value : '');
+    } else {
+      quickPreview.textContent = 'Preview: nothing staged';
+    }
+  }
+  quickName.addEventListener('input', updateQuickState);
+  quickQty.addEventListener('change', updateQuickState);
+  quickBtn.addEventListener('click', function(){
+    quickPreview.textContent = 'Preview saved: ' + quickName.value.trim() + ' · ' + quickQty.value;
+    quickError.textContent = '';
+  });
+
+  var openShare = document.getElementById('open-share-modal');
+  var closeShare = document.getElementById('close-share-modal');
+  var cancelShare = document.getElementById('cancel-share-modal');
+  var modal = document.getElementById('share-modal');
+  var backdrop = document.getElementById('share-backdrop');
+  var shareForm = document.getElementById('share-form');
+  var shareEmail = document.getElementById('share-email');
+  var shareRole = document.getElementById('share-role');
+  var shareError = document.getElementById('share-form-error');
+  var shareSuccess = document.getElementById('share-form-success');
+
+  function setModal(open){
+    modal.classList.toggle('is-open', open);
+    backdrop.classList.toggle('is-open', open);
+    modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  openShare.addEventListener('click', function(){ setModal(true); });
+  closeShare.addEventListener('click', function(){ setModal(false); });
+  cancelShare.addEventListener('click', function(){ setModal(false); });
+  backdrop.addEventListener('click', function(){ setModal(false); });
+  shareForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = shareEmail.value.trim();
+    var role = shareRole.value;
+    if(!email || email.indexOf('@') === -1){
+      shareError.textContent = 'Enter a valid email address.';
+      shareSuccess.textContent = 'No invite sent yet.';
+      return;
+    }
+    if(!role){
+      shareError.textContent = 'Choose a permission level.';
+      shareSuccess.textContent = 'No invite sent yet.';
+      return;
+    }
+    shareError.textContent = '';
+    shareSuccess.textContent = 'Invite sent to ' + email + ' with “' + role + '” access.';
+    setModal(false);
+  });
+
+  var addBtn = document.querySelector('[data-item="organic-avocados"] button[data-add-family="avocados"]');
+  var smoke = document.getElementById('grocery-list-smoke-status');
+  var familyStatus = document.getElementById('family-list-status');
+  var syncBadge = document.getElementById('list-sync-badge');
+  var railPreview = document.getElementById('rail-sync-preview');
+  var organicCount = document.getElementById('organic-count');
+  var updatesCount = document.getElementById('updates-count');
+  var avocadoTag = document.getElementById('avocado-family-tag');
+  var avocadoCheck = document.getElementById('avocado-check');
+
+  addBtn.addEventListener('click', function(){
+    var ts = Date.now();
+    smoke.textContent = 'Smoke status: organic avocados added to shared family list';
+    smoke.className = 'fcart-status fcart-status--ok';
+    familyStatus.textContent = 'Organic avocados shared with family';
+    syncBadge.textContent = 'Synced just now';
+    syncBadge.className = 'fcart-status fcart-status--ok';
+    railPreview.textContent = 'organic avocados shared at ' + new Date(ts).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+    avocadoTag.hidden = false;
+    avocadoCheck.textContent = '✓';
+    avocadoCheck.classList.add('is-checked');
+    addBtn.textContent = 'Added';
+    addBtn.disabled = true;
+    organicCount.textContent = String(parseInt(organicCount.textContent,10) + 1);
+    updatesCount.textContent = String(parseInt(updatesCount.textContent,10) + 1);
+    window.__scenarioSmoke = { lastAction: 'added organic avocados to family list', updatedAt: ts };
+  });
+})();
+</script>
+</body></html>

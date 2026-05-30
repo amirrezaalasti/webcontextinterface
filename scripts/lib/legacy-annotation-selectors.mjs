@@ -82,7 +82,7 @@ export const LEGACY_ANNOTATION_SELECTORS = {
   },
   'admin-dashboard': {
     'crm-dashboard': '#qc-root',
-    'kpi-overview': '.qc-kpi-grid',
+    'kpi-overview': '#kpi-overview',
     'kpi-revenue': '.qc-kpi-card__icon--revenue',
     'kpi-deals': '.qc-kpi-card__icon--deals',
     'kpi-contacts': '.qc-kpi-card__icon--contacts',

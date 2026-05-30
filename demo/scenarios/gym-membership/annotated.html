@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FitClub</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FitClub Memberships</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .fc-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .fc-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .fc-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.fc-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#111827}
+.fc-brand-badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:0 8px 16px rgba(124,58,237,.18)}
 .fc-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .fc-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .fc-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .fc-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .fc-subnav a:hover{background:#f8fafc;color:#334155}
 .fc-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.fc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.fc-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.fc-page-wrap{grid-template-columns:1fr}}
 .fc-page-main{padding:20px 24px 32px;min-height:42vh}
 .fc-page-main>h1,.fc-page-main [role=main]>h1,.fc-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .fc-page-main h2,.fc-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.fc-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.fc-page-main p{margin:0 0 10px;color:#475569;max-width:70ch}
 .fc-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.fc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fc-page-main select,.fc-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.fc-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.fc-page-main select,.fc-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .fc-page-main input:focus,.fc-page-main select:focus,.fc-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
 .fc-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .fc-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +36,13 @@ table{border-collapse:collapse}
 .fc-page-main th,.fc-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .fc-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .fc-page-main tr:hover td{background:#fafafa}
-.fc-page-main article,.fc-page-main .fc-card,.fc-page-main .fc-resto,.fc-page-main .fc-slot,.fc-page-main .fc-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.fc-page-main article,.fc-page-main .fc-card,.fc-page-main .fc-resto,.fc-page-main .fc-slot,.fc-page-main .fc-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .fc-page-main ul:not([class]){list-style:none;padding:0}
 .fc-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .fc-page-main ul:not([class]) li:hover{background:#f8fafc}
-.fc-page-main dialog,.fc-page-main .fc-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.fc-page-main .fc-modal.is-open,.fc-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.fc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.fc-page-main dialog,.fc-page-main .fc-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.fc-page-main .fc-modal.is-open,.fc-page-main [role=dialog]{position:fixed;inset:12% 22%;z-index:60;max-width:560px;margin:auto}
+.fc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .fc-btn:hover{background:#f8fafc}
 .fc-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
 .fc-btn--primary:hover{filter:brightness(1.05)}
@@ -54,7 +53,7 @@ table{border-collapse:collapse}
 .fc-btn:disabled{opacity:.5;cursor:not-allowed}
 .fc-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .fc-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.fc-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+.fc-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
 @media(min-width:901px){.fc-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .fc-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .fc-rail a{color:#b45309;font-weight:500}
@@ -72,9 +71,12 @@ table{border-collapse:collapse}
 .fc-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .fc-step.is-active{background:hsl(262 72% 46%);color:#fff}
 .fc-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.fc-hero{border-radius:12px;margin-bottom:8px}
+.fc-hero{border-radius:16px;margin-bottom:18px;padding:22px;background:linear-gradient(135deg,#ffffff,#f5f3ff);border:1px solid #e9d5ff;display:grid;grid-template-columns:1.25fr .9fr;gap:18px}
+@media(max-width:820px){.fc-hero{grid-template-columns:1fr}}
 .fc-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .fc-grid{display:grid;gap:14px}
+.fc-grid--plans{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:980px){.fc-grid--plans{grid-template-columns:1fr}}
 .fc-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
 .fc-inbox tr.unread td{font-weight:600;background:#eff6ff}
 .fc-patient{border-radius:10px}
@@ -84,20 +86,57 @@ table{border-collapse:collapse}
 .fc-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .fc-diff{border-radius:8px}
 .fc-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.fc-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
+.fc-badge--success{background:#dcfce7;color:#166534}
+.fc-badge--warning{background:#fef3c7;color:#92400e}
+.fc-badge--info{background:#e0e7ff;color:#4338ca}
+.fc-badge--muted{background:#e2e8f0;color:#475569}
+.fc-plan-card{display:flex;flex-direction:column;min-height:100%;position:relative}
+.fc-plan-card.is-featured{border-color:#8b5cf6;box-shadow:0 12px 24px rgba(124,58,237,.12)}
+.fc-plan-card.is-current{outline:2px solid #cbd5e1}
+.fc-plan-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.fc-price{font-size:34px;line-height:1;font-weight:800;color:#111827}
+.fc-price small{font-size:13px;color:#64748b;font-weight:600}
+.fc-plan-meta{font-size:13px;color:#64748b}
+.fc-plan-list{list-style:none;padding:0;margin:12px 0 0}
+.fc-plan-list li{display:flex;gap:8px;padding:7px 0;color:#334155}
+.fc-plan-list li::before{content:"✓";color:#16a34a;font-weight:800}
+.fc-inline{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.fc-segment{display:inline-flex;padding:4px;background:#e2e8f0;border-radius:999px}
+.fc-segment button{border:none;background:transparent;padding:8px 14px;border-radius:999px;font-weight:700;color:#475569}
+.fc-segment button.is-active{background:#fff;color:#111827;box-shadow:0 1px 2px rgba(15,23,42,.12)}
+.fc-note{font-size:12px;color:#64748b}
+.fc-status-panel{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid #dbeafe;background:#eff6ff;border-radius:12px;margin-bottom:16px}
+.fc-smoke{font-weight:700;color:#1e3a8a}
+.fc-mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:760px){.fc-mini-grid{grid-template-columns:1fr}}
+.fc-stat{padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.fc-stat strong{display:block;font-size:20px;color:#111827}
+.fc-compare td:first-child,.fc-compare th:first-child{font-weight:600}
+.fc-overlay{position:fixed;inset:0;background:rgba(15,23,42,.52);display:none;z-index:55}
+.fc-overlay.is-open{display:block}
+.fc-modal{display:none}
+.fc-modal.is-open{display:block}
+.fc-error{color:#b91c1c;font-size:12px;min-height:18px;margin-top:4px}
+.fc-success{color:#166534}
+.fc-input-row{display:grid;grid-template-columns:1fr 180px;gap:12px}
+@media(max-width:640px){.fc-input-row{grid-template-columns:1fr}}
+.fc-check{display:flex;align-items:flex-start;gap:8px;margin-top:8px;color:#334155}
 </style></head><body>
-<div class="fc-app" data-page="gym-membership" data-agent-role="landmark" data-agent-id="gym_membership-page" data-agent-desc="Plans" data-agent-priority="2"><div class="fc-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="fc-app" data-page="gym-membership" id="gym_membership-page" data-wci-id="gym_membership-page" data-wci-role="landmark" data-wci-desc="FitClub gym membership page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="fc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="fc-btn fc-btn--muted">Reject non-essential</button>
-  <button type="button" class="fc-btn fc-btn--primary">Accept all</button>
-  <button type="button" class="fc-btn fc-btn--ghost">Customize</button>
+  <button type="button" class="fc-btn fc-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="fc-btn fc-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="fc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="fc-btn fc-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="fc-btn">Continue as guest — express</button>
 </div><header class="fc-hdr">
-  <nav class="fc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="fc-brand" aria-label="FitClub brand"><div class="fc-brand-badge">FC</div><div><div>FitClub</div><div class="fc-note">Membership &amp; wellness</div></div></div>
+  <nav class="fc-nav" aria-label="Global"><a href="/">Home</a><a href="/classes">Classes</a><a href="/locations">Locations</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
   <div class="fc-hdr-promo"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="fc-btn fc-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="fc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="fc-subnav" aria-label="Secondary"><a href="#plans">Plans</a><a href="#compare">Compare</a><a href="#benefits">Benefits</a><a href="#support">Support</a><a href="#billing-tools">Billing tools</a>
   <button type="button" class="fc-btn fc-btn--ghost">Submit</button>
   <button type="button" class="fc-btn fc-btn--ghost">Continue</button>
 </nav><div class="fc-dup-row" aria-label="Quick actions">
@@ -105,11 +144,346 @@ table{border-collapse:collapse}
   <button type="button" class="fc-btn fc-btn--ghost">Continue</button>
   <button type="button" class="fc-btn fc-btn--ghost">Save changes</button>
   <button type="button" class="fc-btn fc-btn--ghost">Confirm</button>
-</div><div class="fc-dup-row"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">Upgrade to annual</button><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-nav">Upgrade annual plan</button></div><div class="fc-page-wrap"><div class="fc-page-main"><div role="main" style="display:flex;gap:20px;justify-content:center;padding:32px">
-<div style="border:2px solid #ddd;padding:24px"><h3>Monthly</h3><button type="button" class="fc-btn fc-btn--ghost">Current</button></div>
-<div style="border:2px solid #7c3aed;padding:24px" data-plan="annual"><h3>Annual</h3><button type="button" class="fc-btn fc-btn--primary" data-agent-role="action" data-agent-id="upgrade-annual-plan" data-agent-desc="Switch from monthly to the featured annual membership plan." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div></div><aside class="fc-rail fc-rail--ads" aria-label="Sponsored">
+</div><div class="fc-dup-row"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">Upgrade to annual</button><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-nav">Upgrade annual plan</button></div><div class="fc-page-wrap"><div class="fc-page-main"><main role="main">
+<section class="fc-hero" aria-label="Membership hero">
+  <div>
+    <span class="fc-badge fc-badge--info">Best value: annual saves 20%</span>
+    <h1>Choose a membership that fits your training routine</h1>
+    <p>You're currently on a monthly membership. Switch to annual billing to lock in a lower rate, keep class credits rolling over longer, and get a complimentary onboarding session with a trainer.</p>
+    <div class="fc-inline" style="margin-top:12px">
+      <div class="fc-segment" aria-label="Billing period toggle">
+        <button type="button" class="is-active" data-billing-toggle="monthly" aria-pressed="true">Monthly view</button>
+        <button type="button" data-billing-toggle="annual" aria-pressed="false">Annual view</button>
+      </div>
+      <span class="fc-note" id="billing-caption">Displayed prices reflect monthly billing by default.</span>
+    </div>
+  </div>
+  <div class="fc-panel">
+    <h2 style="margin-top:0">Your current status</h2>
+    <div class="fc-status-panel">
+      <div>
+        <div class="fc-note">Membership</div>
+        <strong id="current-plan-label">Starter Monthly</strong>
+      </div>
+      <span class="fc-badge fc-badge--warning" id="membership-badge">Current plan</span>
+    </div>
+    <div class="fc-mini-grid">
+      <div class="fc-stat"><div class="fc-note">Monthly visits</div><strong>11</strong><span class="fc-note">tracked this cycle</span></div>
+      <div class="fc-stat"><div class="fc-note">Class credits</div><strong id="credit-count">4</strong><span class="fc-note">available now</span></div>
+      <div class="fc-stat"><div class="fc-note">Renewal</div><strong>Jun 18</strong><span class="fc-note">auto-renews monthly</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="fc-panel" aria-label="Membership state" style="margin-bottom:16px">
+  <div class="fc-inline" style="justify-content:space-between;width:100%">
+    <div>
+      <h2 style="margin:0 0 4px">Membership checkout state</h2>
+      <p style="margin:0">Review plans, optionally add a promo code, and confirm your switch when you're ready.</p>
+    </div>
+    <div id="gym-membership-smoke-status" class="fc-smoke" data-smoke-status="">Smoke status: ready</div>
+  </div>
+</section>
+
+<section id="plans" class="fc-grid fc-grid--plans" aria-label="Pricing cards">
+  <article class="fc-card fc-plan-card is-current" data-plan="monthly">
+    <div class="fc-plan-top">
+      <div>
+        <h3 style="margin-top:0">Starter Monthly</h3>
+        <div class="fc-plan-meta">Flexible billing • cancel anytime</div>
+      </div>
+      <span class="fc-badge fc-badge--muted">Current</span>
+    </div>
+    <div class="fc-price" data-price-monthly="$39"><span>$39</span> <small>/mo</small></div>
+    <p>Good for members who prefer flexibility and short-term commitment.</p>
+    <ul class="fc-plan-list">
+      <li>Unlimited gym floor access</li>
+      <li>4 group classes per month</li>
+      <li>1 guest pass each quarter</li>
+      <li>Basic progress tracking</li>
+    </ul>
+    <div class="fc-card__actions" style="margin-top:auto">
+      <button type="button" class="fc-btn fc-btn--ghost" disabled="" aria-disabled="true">Current plan</button>
+      <button type="button" class="fc-btn">View details</button>
+    </div>
+  </article>
+
+  <article class="fc-card fc-plan-card is-featured" data-plan="annual">
+    <div class="fc-plan-top">
+      <div>
+        <h3 style="margin-top:0">Performance Annual</h3>
+        <div class="fc-plan-meta">Billed once yearly • featured plan</div>
+      </div>
+      <span class="fc-badge fc-badge--success">Most popular</span>
+    </div>
+    <div class="fc-price"><span id="annual-price-display">$374</span> <small id="annual-price-caption">/year</small></div>
+    <p>Save compared with paying month-to-month, plus receive premium perks immediately after switching.</p>
+    <ul class="fc-plan-list">
+      <li>Unlimited gym floor access</li>
+      <li>12 group classes per month</li>
+      <li>Priority booking windows</li>
+      <li>2 guest passes every month</li>
+      <li>Free onboarding session</li>
+    </ul>
+    <div class="fc-note" id="featured-savings">You save $94 over 12 months.</div>
+    <div class="fc-card__actions" style="margin-top:auto">
+      <button type="button" class="fc-btn fc-btn--ghost" data-open-modal="annual-review">Review terms</button>
+      <button type="button" class="fc-btn fc-btn--primary" id="upgrade-annual-plan" data-wci-id="upgrade-annual-plan" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to switch to the featured annual membership plan" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="gym_membership-page">Confirm</button>
+    </div>
+  </article>
+
+  <article class="fc-card fc-plan-card" data-plan="premium-plus">
+    <div class="fc-plan-top">
+      <div>
+        <h3 style="margin-top:0">Premium Plus</h3>
+        <div class="fc-plan-meta">For coaching-focused members</div>
+      </div>
+      <span class="fc-badge fc-badge--info">Includes PT intro</span>
+    </div>
+    <div class="fc-price"><span>$59</span> <small>/mo</small></div>
+    <p>Includes recovery lounge access and one small-group coaching session each month.</p>
+    <ul class="fc-plan-list">
+      <li>Everything in Starter</li>
+      <li>Recovery lounge access</li>
+      <li>Small-group coaching</li>
+      <li>Nutrition webinar library</li>
+    </ul>
+    <div class="fc-card__actions" style="margin-top:auto">
+      <button type="button" class="fc-btn">Compare</button>
+      <button type="button" class="fc-btn fc-btn--ghost">Contact sales</button>
+    </div>
+  </article>
+</section>
+
+<section class="fc-layout" style="grid-template-columns:1.15fr .85fr;margin-top:18px">
+  <div class="fc-panel" id="compare">
+    <h2 style="margin-top:0">Feature comparison</h2>
+    <table class="fc-compare" aria-label="Plan comparison table">
+      <thead><tr><th>Feature</th><th>Starter Monthly</th><th>Performance Annual</th><th>Premium Plus</th></tr></thead>
+      <tbody>
+        <tr><td>Gym access</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Group classes</td><td>4/mo</td><td>12/mo</td><td>8/mo</td></tr>
+        <tr><td>Guest passes</td><td>Quarterly</td><td>2/mo</td><td>1/mo</td></tr>
+        <tr><td>Booking priority</td><td>Standard</td><td>Priority</td><td>Priority</td></tr>
+        <tr><td>Commitment</td><td>Month-to-month</td><td>12 months</td><td>Month-to-month</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <aside class="fc-filters" id="billing-tools">
+    <h2>Apply promo code</h2>
+    <p>Optional: use a valid promo code before switching plans.</p>
+    <form id="promo-form" novalidate="">
+      <div class="fc-input-row">
+        <div>
+          <label for="promo-code">Promo code</label>
+          <input id="promo-code" name="promoCode" type="text" placeholder="Try SAVE20 or TRAIN10" autocomplete="off" maxlength="12">
+          <div class="fc-error" id="promo-error" aria-live="polite"></div>
+        </div>
+        <div>
+          <label for="payment-method">Payment method</label>
+          <select id="payment-method" name="paymentMethod">
+            <option value="">Choose…</option>
+            <option value="visa">Visa ending 4242</option>
+            <option value="amex">Amex ending 3005</option>
+          </select>
+        </div>
+      </div>
+      <label class="fc-check"><input type="checkbox" id="agree-terms"> <span>I understand the annual plan renews yearly unless canceled according to FitClub terms.</span></label>
+      <div class="fc-card__actions">
+        <button type="submit" class="fc-btn">Apply code</button>
+        <button type="button" class="fc-btn fc-btn--ghost" id="reset-promo">Reset</button>
+      </div>
+      <div class="fc-note" id="promo-preview">No promo applied. Annual total remains $374.</div>
+    </form>
+  </aside>
+</section>
+
+<section class="fc-panel" id="benefits" style="margin-top:18px">
+  <h2 style="margin-top:0">Why members switch to annual</h2>
+  <div class="fc-mini-grid">
+    <div class="fc-tile"><strong>Lower effective rate</strong><p>Pay once and save versus 12 separate monthly charges.</p></div>
+    <div class="fc-tile"><strong>Priority booking</strong><p>Reserve peak evening classes earlier than monthly members.</p></div>
+    <div class="fc-tile"><strong>Better retention tools</strong><p>Annual members unlock longer progress history and milestone reports.</p></div>
+  </div>
+</section>
+
+<section class="fc-panel" id="support" style="margin-top:18px">
+  <h2 style="margin-top:0">Common questions</h2>
+  <details open=""><summary><strong>When does the plan change take effect?</strong></summary><p>Your annual plan begins immediately after confirmation. Remaining monthly days are credited in the final total shown at checkout.</p></details>
+  <details><summary><strong>Can I freeze my annual membership?</strong></summary><p>Yes. Eligible members may freeze for up to 30 days once per annual term.</p></details>
+  <details><summary><strong>Will my class credits change?</strong></summary><p>Yes. Your included monthly class allotment updates as soon as the new plan is active.</p></details>
+</section>
+</main></div><aside class="fc-rail fc-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p style="margin-top:0">Add a recovery kit to your membership and save 10% this week.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="fc-filler" aria-hidden="true"><div class="fc-filler-inner"><a href="/misc/0" class="fc-btn fc-btn--ghost">Link 1</a><button type="button" class="fc-btn fc-btn--ghost">Action 2</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/4" class="fc-btn fc-btn--ghost">Link 5</a><button type="button" class="fc-btn fc-btn--ghost">Action 6</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/8" class="fc-btn fc-btn--ghost">Link 9</a><button type="button" class="fc-btn fc-btn--ghost">Action 10</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/12" class="fc-btn fc-btn--ghost">Link 13</a><button type="button" class="fc-btn fc-btn--ghost">Action 14</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/16" class="fc-btn fc-btn--ghost">Link 17</a><button type="button" class="fc-btn fc-btn--ghost">Action 18</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/20" class="fc-btn fc-btn--ghost">Link 21</a><button type="button" class="fc-btn fc-btn--ghost">Action 22</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/24" class="fc-btn fc-btn--ghost">Link 25</a><button type="button" class="fc-btn fc-btn--ghost">Action 26</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/28" class="fc-btn fc-btn--ghost">Link 29</a><button type="button" class="fc-btn fc-btn--ghost">Action 30</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/32" class="fc-btn fc-btn--ghost">Link 33</a><button type="button" class="fc-btn fc-btn--ghost">Action 34</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/36" class="fc-btn fc-btn--ghost">Link 37</a><button type="button" class="fc-btn fc-btn--ghost">Action 38</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/40" class="fc-btn fc-btn--ghost">Link 41</a><button type="button" class="fc-btn fc-btn--ghost">Action 42</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button></div></div><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="fc-ftr"><small>© Demo FitClub</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fcd34d;margin:14px 0">
+  <div class="fc-note">This sidebar contains promotional content and is not required to manage your plan.</div>
+</aside></div><div class="fc-filler" aria-hidden="true"><div class="fc-filler-inner"><a href="/misc/0" class="fc-btn fc-btn--ghost">Link 1</a><button type="button" class="fc-btn fc-btn--ghost">Action 2</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/4" class="fc-btn fc-btn--ghost">Link 5</a><button type="button" class="fc-btn fc-btn--ghost">Action 6</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/8" class="fc-btn fc-btn--ghost">Link 9</a><button type="button" class="fc-btn fc-btn--ghost">Action 10</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/12" class="fc-btn fc-btn--ghost">Link 13</a><button type="button" class="fc-btn fc-btn--ghost">Action 14</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/16" class="fc-btn fc-btn--ghost">Link 17</a><button type="button" class="fc-btn fc-btn--ghost">Action 18</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/20" class="fc-btn fc-btn--ghost">Link 21</a><button type="button" class="fc-btn fc-btn--ghost">Action 22</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/24" class="fc-btn fc-btn--ghost">Link 25</a><button type="button" class="fc-btn fc-btn--ghost">Action 26</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/28" class="fc-btn fc-btn--ghost">Link 29</a><button type="button" class="fc-btn fc-btn--ghost">Action 30</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/32" class="fc-btn fc-btn--ghost">Link 33</a><button type="button" class="fc-btn fc-btn--ghost">Action 34</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/36" class="fc-btn fc-btn--ghost">Link 37</a><button type="button" class="fc-btn fc-btn--ghost">Action 38</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/40" class="fc-btn fc-btn--ghost">Link 41</a><button type="button" class="fc-btn fc-btn--ghost">Action 42</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button></div></div><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional button" data-wci-priority="1" data-wci-scope="gym_membership-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="fc-ftr"><small>© Demo FitClub</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="fc-overlay" id="modal-overlay"></div>
+<div class="fc-modal" id="annual-review-modal" role="dialog" aria-modal="true" aria-labelledby="annual-review-title" aria-hidden="true">
+  <h2 id="annual-review-title" style="margin-top:0">Annual membership review</h2>
+  <p>This plan renews yearly at the then-current annual rate. A prorated credit from your current monthly cycle may be applied at checkout. You can freeze your membership once per term for up to 30 days.</p>
+  <ul>
+    <li>Featured annual total: <strong id="modal-annual-total">$374</strong></li>
+    <li>Included classes: <strong>12 per month</strong></li>
+    <li>Current status: <strong id="modal-current-status">Starter Monthly</strong></li>
+  </ul>
+  <div class="fc-card__actions">
+    <button type="button" class="fc-btn fc-btn--ghost" id="close-modal">Close</button>
+    <button type="button" class="fc-btn fc-btn--primary" id="modal-confirm">Looks good</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var smoke = document.getElementById('gym-membership-smoke-status');
+  var annualButton = document.querySelector('[data-plan="annual"] .fc-btn--primary');
+  var billingButtons = document.querySelectorAll('[data-billing-toggle]');
+  var billingCaption = document.getElementById('billing-caption');
+  var annualPriceDisplay = document.getElementById('annual-price-display');
+  var annualPriceCaption = document.getElementById('annual-price-caption');
+  var featuredSavings = document.getElementById('featured-savings');
+  var promoForm = document.getElementById('promo-form');
+  var promoInput = document.getElementById('promo-code');
+  var promoError = document.getElementById('promo-error');
+  var promoPreview = document.getElementById('promo-preview');
+  var paymentMethod = document.getElementById('payment-method');
+  var agreeTerms = document.getElementById('agree-terms');
+  var resetPromo = document.getElementById('reset-promo');
+  var membershipBadge = document.getElementById('membership-badge');
+  var currentPlanLabel = document.getElementById('current-plan-label');
+  var creditCount = document.getElementById('credit-count');
+  var overlay = document.getElementById('modal-overlay');
+  var modal = document.getElementById('annual-review-modal');
+  var closeModalBtn = document.getElementById('close-modal');
+  var modalConfirm = document.getElementById('modal-confirm');
+  var openModalBtn = document.querySelector('[data-open-modal="annual-review"]');
+  var cookieBanner = document.getElementById('cookie-banner');
+  var modalAnnualTotal = document.getElementById('modal-annual-total');
+  var appliedDiscount = 0;
+  var annualBase = 374;
+  var activeBillingView = 'monthly';
+
+  function formatDollars(value){ return '$' + value; }
+
+  function updateAnnualDisplay(){
+    var total = Math.max(annualBase - appliedDiscount, 0);
+    annualPriceDisplay.textContent = formatDollars(total);
+    annualPriceCaption.textContent = activeBillingView === 'annual' ? '/year billed today' : '/year';
+    featuredSavings.textContent = appliedDiscount > 0 ? 'Promo applied. New annual savings are reflected above.' : 'You save $94 over 12 months.';
+    promoPreview.textContent = appliedDiscount > 0 ? ('Promo applied. Annual total is now ' + formatDollars(total) + '.') : 'No promo applied. Annual total remains $374.';
+    modalAnnualTotal.textContent = formatDollars(total);
+  }
+
+  function setSmoke(message, action){
+    smoke.textContent = message;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
+  function setBilling(view){
+    activeBillingView = view;
+    billingButtons.forEach(function(btn){
+      var isActive = btn.getAttribute('data-billing-toggle') === view;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    billingCaption.textContent = view === 'annual' ? 'Displayed prices emphasize annual savings and billed-today totals.' : 'Displayed prices reflect monthly billing by default.';
+    annualPriceCaption.textContent = view === 'annual' ? '/year billed today' : '/year';
+  }
+
+  billingButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      setBilling(btn.getAttribute('data-billing-toggle'));
+    });
+  });
+
+  promoForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var code = promoInput.value.trim().toUpperCase();
+    promoError.textContent = '';
+
+    if (!paymentMethod.value) {
+      promoError.textContent = 'Select a payment method to preview annual pricing.';
+      return;
+    }
+
+    if (!code) {
+      promoError.textContent = 'Enter a promo code or use Reset to continue without one.';
+      return;
+    }
+
+    if (code === 'SAVE20') {
+      appliedDiscount = 20;
+      updateAnnualDisplay();
+      promoError.textContent = '';
+      setSmoke('Smoke status: promo code SAVE20 applied', 'promo SAVE20 applied');
+    } else if (code === 'TRAIN10') {
+      appliedDiscount = 10;
+      updateAnnualDisplay();
+      promoError.textContent = '';
+      setSmoke('Smoke status: promo code TRAIN10 applied', 'promo TRAIN10 applied');
+    } else {
+      appliedDiscount = 0;
+      updateAnnualDisplay();
+      promoError.textContent = 'Promo code not recognized. Try SAVE20 or TRAIN10.';
+    }
+  });
+
+  resetPromo.addEventListener('click', function(){
+    promoInput.value = '';
+    paymentMethod.value = '';
+    agreeTerms.checked = false;
+    appliedDiscount = 0;
+    promoError.textContent = '';
+    updateAnnualDisplay();
+    setSmoke('Smoke status: promo reset', 'promo reset');
+  });
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  openModalBtn.addEventListener('click', openModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  modalConfirm.addEventListener('click', function(){ closeModal(); setSmoke('Smoke status: annual terms reviewed', 'annual terms reviewed'); });
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){ cookieBanner.style.display = 'none'; });
+  });
+
+  annualButton.addEventListener('click', function(){
+    if (!agreeTerms.checked) {
+      promoError.textContent = 'Please acknowledge the annual renewal terms before confirming.';
+      smoke.textContent = 'Smoke status: annual selection blocked — accept renewal terms';
+      window.__scenarioSmoke = { lastAction: 'annual selection blocked: terms unchecked', updatedAt: Date.now() };
+      return;
+    }
+    membershipBadge.textContent = 'Annual selected';
+    membershipBadge.className = 'fc-badge fc-badge--success';
+    currentPlanLabel.textContent = 'Performance Annual';
+    creditCount.textContent = '12';
+    promoError.textContent = '';
+    smoke.textContent = 'Smoke status: switched to featured annual membership plan';
+    window.__scenarioSmoke = { lastAction: 'switched to featured annual membership plan', updatedAt: Date.now() };
+  });
+
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+  updateAnnualDisplay();
+  setBilling('monthly');
+  window.__scenarioSmoke = { lastAction: 'page ready', updatedAt: Date.now() };
+})();
+</script></div></body></html>

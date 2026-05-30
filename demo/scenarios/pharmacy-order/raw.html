@@ -7,6 +7,7 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
+[hidden]{display:none!important}
 
 .rx-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .rx-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
@@ -19,15 +20,14 @@ table{border-collapse:collapse}
 .rx-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .rx-subnav a:hover{background:#f8fafc;color:#334155}
 .rx-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.rx-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.rx-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.rx-page-wrap{grid-template-columns:1fr}}
 .rx-page-main{padding:20px 24px 32px;min-height:42vh}
 .rx-page-main>h1,.rx-page-main [role=main]>h1,.rx-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .rx-page-main h2,.rx-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .rx-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .rx-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.rx-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.rx-page-main select,.rx-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.rx-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.rx-page-main select,.rx-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .rx-page-main input:focus,.rx-page-main select:focus,.rx-page-main textarea:focus{outline:2px solid hsl(199 72% 46%);outline-offset:1px;border-color:hsl(199 72% 46%)}
 .rx-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .rx-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +35,12 @@ table{border-collapse:collapse}
 .rx-page-main th,.rx-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .rx-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .rx-page-main tr:hover td{background:#fafafa}
-.rx-page-main article,.rx-page-main .rx-card,.rx-page-main .rx-resto,.rx-page-main .rx-slot,.rx-page-main .rx-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.rx-page-main article,.rx-page-main .rx-card,.rx-page-main .rx-resto,.rx-page-main .rx-slot,.rx-page-main .rx-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .rx-page-main ul:not([class]){list-style:none;padding:0}
 .rx-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .rx-page-main ul:not([class]) li:hover{background:#f8fafc}
-.rx-page-main dialog,.rx-page-main .rx-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.rx-page-main .rx-modal.is-open,.rx-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.rx-page-main dialog,.rx-page-main .rx-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.rx-page-main .rx-modal.is-open,.rx-page-main [role=dialog]{position:fixed;inset:10% 20%;z-index:60;max-width:640px;margin:auto}
 .rx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .rx-btn:hover{background:#f8fafc}
 .rx-btn--primary{background:hsl(199 72% 46%);color:#fff;border-color:hsl(199 72% 38%)}
@@ -71,6 +69,7 @@ table{border-collapse:collapse}
 .rx-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .rx-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .rx-step.is-active{background:hsl(199 72% 46%);color:#fff}
+.rx-step.is-done{background:#dcfce7;color:#166534}
 .rx-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
 .rx-hero{border-radius:12px;margin-bottom:8px}
 .rx-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
@@ -84,33 +83,402 @@ table{border-collapse:collapse}
 .rx-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .rx-diff{border-radius:8px}
 .rx-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.rx-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid #cbd5e1;background:#fff;color:#334155}
+.rx-badge--ok{background:#ecfdf5;border-color:#a7f3d0;color:#166534}
+.rx-badge--warn{background:#fff7ed;border-color:#fdba74;color:#9a3412}
+.rx-badge--muted{background:#f8fafc;color:#64748b}
+.rx-muted{color:#64748b}
+.rx-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+@media(max-width:700px){.rx-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rx-kpi{padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.rx-kpi strong{display:block;font-size:20px;color:#0f172a}
+.rx-table-wrap{overflow:auto;border:1px solid #e2e8f0;border-radius:12px}
+.rx-toolbar-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.rx-search{max-width:320px}
+.rx-note{font-size:12px;color:#64748b}
+.rx-status-strip{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px}
+.rx-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:50}
+.rx-confirm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.rx-confirm-grid{grid-template-columns:1fr}}
+.rx-inline-msg{font-size:12px;margin-top:6px}
+.rx-inline-msg.is-error{color:#b91c1c}
+.rx-inline-msg.is-ok{color:#166534}
+.rx-pill-list{display:flex;flex-wrap:wrap;gap:8px}
+.rx-pill{padding:6px 10px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;font-size:12px;color:#334155}
+.rx-sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 </style></head><body>
-<div class="rx-app" data-page="pharmacy-order"><div class="rx-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="rx-btn rx-btn--muted">Reject non-essential</button>
-  <button type="button" class="rx-btn rx-btn--primary">Accept all</button>
-  <button type="button" class="rx-btn rx-btn--ghost">Customize</button>
-</div><div class="rx-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="rx-btn rx-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="rx-btn">Continue as guest — express</button>
-</div><header class="rx-hdr">
-  <nav class="rx-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="rx-hdr-promo"><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="rx-btn rx-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="rx-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
-  <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
-</nav><div class="rx-dup-row" aria-label="Quick actions">
-  <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
-  <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
-  <button type="button" class="rx-btn rx-btn--ghost">Save changes</button>
-  <button type="button" class="rx-btn rx-btn--ghost">Confirm</button>
-</div><div class="rx-dup-row"><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Refill Lisinopril</button><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-nav">Refill Lisinopril 10mg</button></div><div class="rx-page-wrap"><div class="rx-page-main"><table role="main" style="width:100%;border-collapse:collapse"><thead><tr><th>Drug</th><th>Dose</th><th></th></tr></thead><tbody>
-<tr><td>Metformin</td><td>500mg</td><td><button type="button" class="rx-btn rx-btn--ghost">View</button></td></tr>
-<tr data-rx="lisinopril-10"><td>Lisinopril</td><td>10mg</td><td><button type="button" class="rx-btn rx-btn--primary">Confirm</button></td></tr>
-</tbody></table></div><aside class="rx-rail rx-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
-  <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="rx-filler" aria-hidden="true"><div class="rx-filler-inner"><a href="/misc/0" class="rx-btn rx-btn--ghost">Link 1</a><button type="button" class="rx-btn rx-btn--ghost">Action 2</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/4" class="rx-btn rx-btn--ghost">Link 5</a><button type="button" class="rx-btn rx-btn--ghost">Action 6</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/8" class="rx-btn rx-btn--ghost">Link 9</a><button type="button" class="rx-btn rx-btn--ghost">Action 10</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/12" class="rx-btn rx-btn--ghost">Link 13</a><button type="button" class="rx-btn rx-btn--ghost">Action 14</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/16" class="rx-btn rx-btn--ghost">Link 17</a><button type="button" class="rx-btn rx-btn--ghost">Action 18</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/20" class="rx-btn rx-btn--ghost">Link 21</a><button type="button" class="rx-btn rx-btn--ghost">Action 22</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/24" class="rx-btn rx-btn--ghost">Link 25</a><button type="button" class="rx-btn rx-btn--ghost">Action 26</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/28" class="rx-btn rx-btn--ghost">Link 29</a><button type="button" class="rx-btn rx-btn--ghost">Action 30</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/32" class="rx-btn rx-btn--ghost">Link 33</a><button type="button" class="rx-btn rx-btn--ghost">Action 34</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/36" class="rx-btn rx-btn--ghost">Link 37</a><button type="button" class="rx-btn rx-btn--ghost">Action 38</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/40" class="rx-btn rx-btn--ghost">Link 41</a><button type="button" class="rx-btn rx-btn--ghost">Action 42</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button></div></div><button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="rx-ftr"><small>© Demo RxDirect</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+<div class="rx-app" data-page="pharmacy-order" id="pharmacy_order-page">
+  <div class="rx-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, refill reminders, and personalization. Manage preferences or accept to continue.</p>
+    <button type="button" class="rx-btn rx-btn--muted" data-cookie="reject">Reject non-essential</button>
+    <button type="button" class="rx-btn rx-btn--primary" data-cookie="accept">Accept all</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-cookie="customize">Customize</button>
+  </div>
+
+  <div class="rx-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="rx-btn rx-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="rx-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="rx-hdr">
+    <nav class="rx-nav" aria-label="Global">
+      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/messages">Messages</a>
+    </nav>
+    <div class="rx-hdr-promo">
+      <span class="rx-badge rx-badge--ok">Auto-refill eligible</span>
+      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+      <button type="button" class="rx-btn rx-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="rx-subnav" aria-label="Secondary">
+    <a href="#">Overview</a><a href="#">Orders</a><a href="#">Prescriptions</a><a href="#">Insurance</a><a href="#">Support</a>
+    <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
+    <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="rx-dup-row" aria-label="Quick actions">
+    <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
+    <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
+    <button type="button" class="rx-btn rx-btn--ghost">Save changes</button>
+    <button type="button" class="rx-btn rx-btn--ghost">Confirm</button>
+    <span class="rx-note">Tip: only prescriptions with refill status <strong>Ready</strong> can be submitted today.</span>
+  </div>
+
+  <div class="rx-dup-row">
+    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Refill Lisinopril</button>
+    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-nav">Refill Lisinopril 10mg</button>
+    <button type="button" class="rx-btn rx-btn--ghost">View reminders</button>
+  </div>
+
+  <div class="rx-page-wrap">
+    <main class="rx-page-main" role="main">
+      <section class="rx-hero rx-panel">
+        <div class="rx-toolbar-top">
+          <div>
+            <h1>Prescription refills</h1>
+            <p>Review eligible prescriptions, confirm shipping details, and submit your refill request. Some items may be view-only if the prescription has no remaining refills or requires provider review.</p>
+          </div>
+          <div class="rx-search">
+            <label for="rx-search">Search prescriptions</label>
+            <input id="rx-search" type="text" placeholder="Drug name or Rx #" aria-describedby="rx-search-hint"/>
+            <div class="rx-inline-msg" id="rx-search-hint">Filter the table by medicine name.</div>
+          </div>
+        </div>
+
+        <div class="rx-kpis" aria-label="Prescription summary">
+          <div class="rx-kpi"><span class="rx-muted">Active prescriptions</span><strong id="kpi-active">4</strong></div>
+          <div class="rx-kpi"><span class="rx-muted">Ready to refill</span><strong id="kpi-ready">2</strong></div>
+          <div class="rx-kpi"><span class="rx-muted">Pending provider review</span><strong>1</strong></div>
+          <div class="rx-kpi"><span class="rx-muted">Cart requests</span><strong id="cart-count">0</strong></div>
+        </div>
+
+        <div class="rx-status-strip">
+          <span class="rx-badge rx-badge--muted" id="selected-pharmacy">Pharmacy: RxDirect Mail</span>
+          <span class="rx-badge rx-badge--muted" id="selected-shipping">Shipping: Standard 3–5 days</span>
+          <span class="rx-badge rx-badge--muted">Insurance on file</span>
+        </div>
+      </section>
+
+      <section class="rx-layout" style="grid-template-columns:minmax(220px,260px) minmax(0,1fr)">
+        <aside class="rx-filters" aria-label="Refill preferences">
+          <h2>Refill preferences</h2>
+          <label for="pharmacy-select">Pickup or delivery</label>
+          <select id="pharmacy-select">
+            <option value="mail" selected>Mail order - RxDirect Mail</option>
+            <option value="pickup">Store pickup - Market St #214</option>
+          </select>
+
+          <label for="shipping-speed">Shipping speed</label>
+          <select id="shipping-speed">
+            <option value="standard" selected>Standard (3–5 days)</option>
+            <option value="expedited">Expedited (1–2 days)</option>
+          </select>
+
+          <fieldset>
+            <legend>Safety reminders</legend>
+            <label><input type="checkbox" id="agree-interactions"/> I have reviewed current medications for interactions.</label>
+            <label><input type="checkbox" id="agree-address"/> Shipping address and contact number are current.</label>
+            <div class="rx-inline-msg" id="pref-msg">Complete reminders during confirmation for eligible refills.</div>
+          </fieldset>
+
+          <div class="rx-card__actions">
+            <button type="button" class="rx-btn rx-btn--ghost" id="preview-settings">Preview summary</button>
+          </div>
+        </aside>
+
+        <section>
+          <div class="rx-panel">
+            <h2>Your prescriptions</h2>
+            <p>Rows marked <span class="rx-badge rx-badge--ok">Ready</span> can be refilled. Rows marked <span class="rx-badge rx-badge--warn">View only</span> cannot be submitted today.</p>
+            <div class="rx-table-wrap">
+              <table aria-label="Prescription table" id="rx-table">
+                <thead>
+                  <tr><th>Drug</th><th>Dose</th><th>Rx #</th><th>Prescriber</th><th>Status</th><th>Remaining</th><th>Last filled</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-rx="metformin-500">
+                    <td><strong>Metformin</strong><div class="rx-note">Generic for Glucophage</div></td>
+                    <td>500mg tablet</td>
+                    <td>#8831042</td>
+                    <td>Dr. K. Shah</td>
+                    <td><span class="rx-badge rx-badge--warn">View only</span></td>
+                    <td>0 refills</td>
+                    <td>Apr 02, 2026</td>
+                    <td><button type="button" class="rx-btn rx-btn--ghost" data-view-row="metformin">View</button></td>
+                  </tr>
+                  <tr data-rx="lisinopril-10">
+                    <td><strong>Lisinopril</strong><div class="rx-note">ACE inhibitor • 30 tablets</div></td>
+                    <td>10mg</td>
+                    <td>#4412098</td>
+                    <td>Dr. R. Patel</td>
+                    <td><span class="rx-badge rx-badge--ok" id="lisinopril-status">Ready</span></td>
+                    <td id="lisinopril-remaining">2 refills</td>
+                    <td>May 12, 2026</td>
+                    <td><button type="button" class="rx-btn rx-btn--primary" id="refill-lisinopril">Confirm</button></td>
+                  </tr>
+                  <tr data-rx="atorvastatin-20">
+                    <td><strong>Atorvastatin</strong><div class="rx-note">Generic for Lipitor</div></td>
+                    <td>20mg</td>
+                    <td>#1129045</td>
+                    <td>Dr. L. Owens</td>
+                    <td><span class="rx-badge rx-badge--ok">Ready</span></td>
+                    <td>1 refill</td>
+                    <td>May 01, 2026</td>
+                    <td><button type="button" class="rx-btn rx-btn--muted" disabled>Add later</button></td>
+                  </tr>
+                  <tr data-rx="sertraline-50">
+                    <td><strong>Sertraline</strong><div class="rx-note">Maintenance therapy</div></td>
+                    <td>50mg</td>
+                    <td>#9920084</td>
+                    <td>Dr. J. Romero</td>
+                    <td><span class="rx-badge rx-badge--muted">Too soon</span></td>
+                    <td>3 refills</td>
+                    <td>May 27, 2026</td>
+                    <td><button type="button" class="rx-btn rx-btn--ghost" disabled>Available Jun 18</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rx-inline-msg" id="table-feedback">Select <strong>Confirm</strong> on an eligible row to review refill details before submitting.</div>
+          </div>
+
+          <article class="rx-card">
+            <h3>Patient & delivery summary</h3>
+            <div class="rx-confirm-grid">
+              <div>
+                <p><strong>Patient:</strong> Jordan Lee</p>
+                <p><strong>Date of birth:</strong> 11/08/1985</p>
+                <p><strong>Address:</strong> 1442 Cedar Ave, Apt 3B, Portland, OR 97204</p>
+              </div>
+              <div>
+                <p><strong>Allergies:</strong> NKDA reported</p>
+                <p><strong>Payment:</strong> Visa ending in 1944</p>
+                <p><strong>Counseling:</strong> Pharmacist consult available on request</p>
+              </div>
+            </div>
+            <div class="rx-pill-list">
+              <span class="rx-pill">90-day supply unavailable for lisinopril</span>
+              <span class="rx-pill">Generic substitution allowed</span>
+              <span class="rx-pill">Text alerts enabled</span>
+            </div>
+          </article>
+
+          <article class="rx-card rx-cart">
+            <h3>Submission status</h3>
+            <p id="pharmacy-order-smoke-status" data-smoke-status>Idle — no refill action taken yet.</p>
+            <div class="rx-inline-msg" id="submission-preview">Preview: no refill request prepared.</div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <aside class="rx-rail rx-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <p>Compare home blood pressure cuffs and organize medication reminders with partner tools.</p>
+      <a href="/ads/1">Partner offer — limited time</a><br/>
+      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0"/>
+      <h2 style="font-size:14px">Need help?</h2>
+      <p class="rx-note">A pharmacist can review side effects, interactions, and missed dose guidance before you submit.</p>
+      <button type="button" class="rx-btn rx-btn--ghost" id="open-help">Contact pharmacist</button>
+    </aside>
+  </div>
+
+  <div class="rx-filler" aria-hidden="true"><div class="rx-filler-inner"><a href="/misc/0" class="rx-btn rx-btn--ghost">Link 1</a><button type="button" class="rx-btn rx-btn--ghost">Action 2</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/4" class="rx-btn rx-btn--ghost">Link 5</a><button type="button" class="rx-btn rx-btn--ghost">Action 6</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/8" class="rx-btn rx-btn--ghost">Link 9</a><button type="button" class="rx-btn rx-btn--ghost">Action 10</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/12" class="rx-btn rx-btn--ghost">Link 13</a><button type="button" class="rx-btn rx-btn--ghost">Action 14</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/16" class="rx-btn rx-btn--ghost">Link 17</a><button type="button" class="rx-btn rx-btn--ghost">Action 18</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/20" class="rx-btn rx-btn--ghost">Link 21</a><button type="button" class="rx-btn rx-btn--ghost">Action 22</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/24" class="rx-btn rx-btn--ghost">Link 25</a><button type="button" class="rx-btn rx-btn--ghost">Action 26</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/28" class="rx-btn rx-btn--ghost">Link 29</a><button type="button" class="rx-btn rx-btn--ghost">Action 30</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/32" class="rx-btn rx-btn--ghost">Link 33</a><button type="button" class="rx-btn rx-btn--ghost">Action 34</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/36" class="rx-btn rx-btn--ghost">Link 37</a><button type="button" class="rx-btn rx-btn--ghost">Action 38</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/40" class="rx-btn rx-btn--ghost">Link 41</a><button type="button" class="rx-btn rx-btn--ghost">Action 42</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+
+  <footer class="rx-ftr"><small>© Demo RxDirect</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+
+  <div class="rx-overlay" id="modal-overlay" hidden></div>
+  <div class="rx-modal" id="refill-modal" role="dialog" aria-modal="true" aria-labelledby="refill-modal-title" hidden>
+    <h2 id="refill-modal-title">Confirm refill request</h2>
+    <p>You are reviewing the eligible refill for <strong>Lisinopril 10mg</strong>. This medication is refillable today. Metformin remains view-only and cannot be submitted from this screen.</p>
+
+    <div class="rx-confirm-grid">
+      <section>
+        <h3>Prescription details</h3>
+        <p><strong>Medication:</strong> Lisinopril 10mg</p>
+        <p><strong>Quantity:</strong> 30 tablets</p>
+        <p><strong>Supply:</strong> 30 days</p>
+        <p><strong>Prescriber:</strong> Dr. R. Patel</p>
+      </section>
+      <section>
+        <h3>Delivery confirmation</h3>
+        <label for="confirm-shipping">Shipping speed</label>
+        <select id="confirm-shipping">
+          <option value="standard" selected>Standard (3–5 days)</option>
+          <option value="expedited">Expedited (1–2 days)</option>
+        </select>
+        <label for="confirm-notes">Notes for pharmacy</label>
+        <textarea id="confirm-notes" maxlength="180" placeholder="Optional: gate code, delivery timing, counseling request"></textarea>
+        <div class="rx-inline-msg" id="notes-count">0 / 180 characters</div>
+      </section>
+    </div>
+
+    <fieldset>
+      <legend>Required acknowledgements</legend>
+      <label><input type="checkbox" id="ack-dose"/> I confirm I am refilling the 10mg Lisinopril prescription shown in this dialog.</label>
+      <label><input type="checkbox" id="ack-address-modal"/> I confirm the shipping address is correct.</label>
+      <label><input type="checkbox" id="ack-sideeffects"/> I do not need a pharmacist call before submission.</label>
+      <div class="rx-inline-msg is-error" id="modal-validation">Select all required acknowledgements to submit this refill.</div>
+    </fieldset>
+
+    <div class="rx-card__actions">
+      <button type="button" class="rx-btn rx-btn--ghost" id="cancel-modal">Cancel</button>
+      <button type="button" class="rx-btn rx-btn--primary" id="submit-refill" disabled>Submit refill</button>
+    </div>
+  </div>
+
+  <div class="rx-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden>
+    <h2 id="help-title">Contact pharmacist</h2>
+    <p>A licensed pharmacist is available 24/7. For urgent symptoms, call your care team or 911.</p>
+    <div class="rx-card__actions">
+      <button type="button" class="rx-btn rx-btn--primary" id="close-help">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cookieBanner = document.getElementById('cookie-banner');
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){ cookieBanner.hidden = true; });
+  });
+
+  var smoke = document.getElementById('pharmacy-order-smoke-status');
+  var preview = document.getElementById('submission-preview');
+  var cartCount = document.getElementById('cart-count');
+  var tableFeedback = document.getElementById('table-feedback');
+  var selectedShipping = document.getElementById('selected-shipping');
+  var selectedPharmacy = document.getElementById('selected-pharmacy');
+  var shippingSpeed = document.getElementById('shipping-speed');
+  var pharmacySelect = document.getElementById('pharmacy-select');
+  var previewSettings = document.getElementById('preview-settings');
+  var refillModal = document.getElementById('refill-modal');
+  var helpModal = document.getElementById('help-modal');
+  var overlay = document.getElementById('modal-overlay');
+  var notes = document.getElementById('confirm-notes');
+  var notesCount = document.getElementById('notes-count');
+  var submitRefill = document.getElementById('submit-refill');
+  var confirmShipping = document.getElementById('confirm-shipping');
+  var lisBtn = document.querySelector('tr[data-rx="lisinopril-10"] .rx-btn--primary');
+  var lisStatus = document.getElementById('lisinopril-status');
+  var lisRemaining = document.getElementById('lisinopril-remaining');
+  var kpiReady = document.getElementById('kpi-ready');
+  var modalValidation = document.getElementById('modal-validation');
+  var acks = ['ack-dose','ack-address-modal','ack-sideeffects'].map(function(id){ return document.getElementById(id); });
+
+  function setSmoke(text, action){
+    smoke.textContent = text;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
+  function openModal(modal){
+    overlay.hidden = false;
+    modal.hidden = false;
+    modal.classList.add('is-open');
+  }
+
+  function closeModal(modal){
+    modal.hidden = true;
+    modal.classList.remove('is-open');
+    if(refillModal.hidden && helpModal.hidden){ overlay.hidden = true; }
+  }
+
+  function syncPrefs(){
+    selectedShipping.textContent = 'Shipping: ' + (shippingSpeed.value === 'expedited' ? 'Expedited 1–2 days' : 'Standard 3–5 days');
+    selectedPharmacy.textContent = 'Pharmacy: ' + (pharmacySelect.value === 'pickup' ? 'Store pickup - Market St #214' : 'RxDirect Mail');
+    confirmShipping.value = shippingSpeed.value;
+  }
+
+  function validateModal(){
+    var ok = acks.every(function(el){ return el.checked; });
+    submitRefill.disabled = !ok;
+    modalValidation.className = 'rx-inline-msg ' + (ok ? 'is-ok' : 'is-error');
+    modalValidation.textContent = ok ? 'All acknowledgements complete. You can submit this refill.' : 'Select all required acknowledgements to submit this refill.';
+  }
+
+  previewSettings.addEventListener('click', function(){
+    syncPrefs();
+    preview.textContent = 'Preview: Lisinopril 10mg will use ' + (pharmacySelect.value === 'pickup' ? 'store pickup' : 'mail order') + ' with ' + (shippingSpeed.value === 'expedited' ? 'expedited shipping' : 'standard shipping') + '.';
+    tableFeedback.textContent = 'Preferences updated. Eligible refills will use the current pharmacy and shipping selection.';
+  });
+
+  shippingSpeed.addEventListener('change', syncPrefs);
+  pharmacySelect.addEventListener('change', syncPrefs);
+  syncPrefs();
+
+  notes.addEventListener('input', function(){
+    notesCount.textContent = notes.value.length + ' / 180 characters';
+  });
+
+  acks.forEach(function(el){ el.addEventListener('change', validateModal); });
+
+  lisBtn.addEventListener('click', function(){
+    setSmoke('Opened confirmation for Lisinopril 10mg refill.', 'open-lisinopril-confirm');
+    preview.textContent = 'Preview: confirmation in progress for Lisinopril 10mg.';
+    validateModal();
+    openModal(refillModal);
+  });
+
+  document.getElementById('cancel-modal').addEventListener('click', function(){
+    closeModal(refillModal);
+    tableFeedback.textContent = 'Refill confirmation canceled. No request submitted.';
+  });
+
+  document.getElementById('open-help').addEventListener('click', function(){
+    openModal(helpModal);
+  });
+  document.getElementById('close-help').addEventListener('click', function(){ closeModal(helpModal); });
+  overlay.addEventListener('click', function(){ closeModal(refillModal); closeModal(helpModal); });
+
+  document.querySelector('[data-view-row="metformin"]').addEventListener('click', function(){
+    tableFeedback.textContent = 'Metformin 500mg is view-only because there are no refills remaining. Contact your prescriber for renewal.';
+  });
+
+  document.getElementById('rx-search').addEventListener('input', function(e){
+    var q = e.target.value.toLowerCase().trim();
+    document.querySelectorAll('#rx-table tbody tr').forEach(function(row){
+      row.hidden = q && row.textContent.toLowerCase().indexOf(q) === -1;
+    });
+  });
+
+  submitRefill.addEventListener('click', function(){
+    closeModal(refillModal);
+    lisStatus.textContent = 'Requested';
+    lisStatus.className = 'rx-badge rx-badge--warn';
+    lisRemaining.textContent = '1 refill after request';
+    cartCount.textContent = '1';
+    kpiReady.textContent = '1';
+    lisBtn.disabled = true;
+    lisBtn.textContent = 'Submitted';
+    preview.textContent = 'Preview: Lisinopril 10mg refill submitted via ' + (pharmacySelect.value === 'pickup' ? 'store pickup' : 'mail order') + ' with ' + (confirmShipping.value === 'expedited' ? 'expedited shipping' : 'standard shipping') + '.';
+    tableFeedback.textContent = 'Lisinopril 10mg refill submitted successfully. Metformin remains view-only.';
+    setSmoke('Submitted refill for Lisinopril 10mg.', 'submit-lisinopril-refill');
+  });
+})();
+</script>
+</body></html>

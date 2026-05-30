@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CloudAlbum</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CloudAlbum — Album Uploads</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .ca-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ca-subnav a:hover{background:#f8fafc;color:#334155}
 .ca-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ca-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.ca-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.ca-page-wrap{grid-template-columns:1fr}}
 .ca-page-main{padding:20px 24px 32px;min-height:42vh}
 .ca-page-main>h1,.ca-page-main [role=main]>h1,.ca-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ca-page-main h2,.ca-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .ca-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .ca-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ca-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ca-page-main select,.ca-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ca-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ca-page-main select,.ca-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ca-page-main input:focus,.ca-page-main select:focus,.ca-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .ca-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .ca-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,12 @@ table{border-collapse:collapse}
 .ca-page-main th,.ca-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .ca-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ca-page-main tr:hover td{background:#fafafa}
-.ca-page-main article,.ca-page-main .ca-card,.ca-page-main .ca-resto,.ca-page-main .ca-slot,.ca-page-main .ca-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ca-page-main article,.ca-page-main .ca-card,.ca-page-main .ca-resto,.ca-page-main .ca-slot,.ca-page-main .ca-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ca-page-main ul:not([class]){list-style:none;padding:0}
 .ca-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .ca-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ca-page-main dialog,.ca-page-main .ca-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ca-page-main .ca-modal.is-open,.ca-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.ca-page-main dialog,.ca-page-main .ca-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.ca-page-main .ca-modal.is-open,.ca-page-main [role=dialog]{position:fixed;inset:10% 20%;z-index:60;max-width:720px;margin:auto}
 .ca-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .ca-btn:hover{background:#f8fafc}
 .ca-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
@@ -67,37 +64,70 @@ table{border-collapse:collapse}
 .ca-filters,.ca-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .ca-filters h2,.ca-frame aside h2{font-size:14px;margin:0 0 10px}
 .ca-card__actions,.ca-slot__actions,.ca-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ca-wizard{max-width:760px}
+.ca-wizard{max-width:1000px}
 .ca-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .ca-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .ca-step.is-active{background:hsl(330 72% 46%);color:#fff}
 .ca-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.ca-hero{border-radius:12px;margin-bottom:8px}
 .ca-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .ca-grid{display:grid;gap:14px}
-.ca-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.ca-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ca-patient{border-radius:10px}
-.ca-slots{display:grid;gap:10px}
-.ca-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ca-cell{background:#fff;padding:8px;min-height:44px}
-.ca-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ca-diff{border-radius:8px}
-.ca-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ca-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.ca-breadcrumbs{display:flex;gap:8px;align-items:center;font-size:12px;color:#64748b;margin-bottom:12px;flex-wrap:wrap}
+.ca-breadcrumbs span{color:#94a3b8}
+.ca-albums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+@media(max-width:760px){.ca-albums{grid-template-columns:1fr}}
+.ca-album-card{border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.ca-album-card:hover{border-color:#cbd5e1;box-shadow:0 4px 16px rgba(15,23,42,.06)}
+.ca-album-card.is-selected{border-color:hsl(330 72% 46%);box-shadow:0 0 0 3px hsla(330,72%,46%,.12)}
+.ca-album-thumb{height:110px;background:linear-gradient(135deg,#cbd5e1,#e2e8f0);display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;color:#fff;font-weight:700}
+.ca-album-thumb--blue{background:linear-gradient(135deg,#2563eb,#93c5fd)}
+.ca-album-thumb--green{background:linear-gradient(135deg,#059669,#86efac)}
+.ca-album-thumb--ice{background:linear-gradient(135deg,#0f172a,#38bdf8)}
+.ca-album-body{padding:12px}
+.ca-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ca-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:600;background:#e2e8f0;color:#334155}
+.ca-badge--success{background:#dcfce7;color:#166534}
+.ca-badge--warn{background:#fef3c7;color:#92400e}
+.ca-upload-shell{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:16px}
+@media(max-width:900px){.ca-upload-shell{grid-template-columns:1fr}}
+.ca-dropzone{border:2px dashed #94a3b8;border-radius:16px;padding:20px;background:#f8fafc;min-height:220px}
+.ca-dropzone.is-active{border-color:hsl(330 72% 46%);background:#fff1f8}
+.ca-dropzone-header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.ca-muted{color:#64748b}
+.ca-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:12px;margin-top:16px}
+.ca-thumb{border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;position:relative}
+.ca-thumb-visual{height:90px;background:linear-gradient(135deg,#e2e8f0,#cbd5e1);display:flex;align-items:center;justify-content:center;font-size:28px}
+.ca-thumb-body{padding:10px}
+.ca-thumb-title{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ca-thumb-sub{font-size:11px;color:#64748b;margin-top:4px}
+.ca-remove{position:absolute;top:8px;right:8px;background:rgba(15,23,42,.8);color:#fff;border:none;border-radius:999px;width:24px;height:24px;line-height:1}
+.ca-info-list{display:grid;gap:10px}
+.ca-info-row{display:flex;justify-content:space-between;gap:12px;font-size:13px;border-bottom:1px solid #e2e8f0;padding-bottom:8px}
+.ca-info-row:last-child{border-bottom:none;padding-bottom:0}
+.ca-inline-status{margin-top:10px;font-size:12px}
+.ca-error{color:#b91c1c}
+.ca-success{color:#166534}
+.ca-smoke{margin-top:14px;padding:10px 12px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:13px}
+.ca-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
+.ca-overlay.is-open{display:block}
+.ca-modal{display:none}
+.ca-modal.is-open{display:block}
+.ca-switch{display:flex;align-items:center;gap:8px;margin-top:8px}
+.ca-section-note{font-size:12px;color:#64748b}
 </style></head><body>
-<div class="ca-app" data-page="photo-upload" data-agent-role="landmark" data-agent-id="photo_upload-page" data-agent-desc="Albums" data-agent-priority="2"><div class="ca-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="ca-app" data-page="photo-upload" id="photo_upload-page" data-wci-id="photo_upload-page" data-wci-role="landmark" data-wci-desc="Photo upload page root for CloudAlbum" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="ca-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ca-btn ca-btn--muted">Reject non-essential</button>
-  <button type="button" class="ca-btn ca-btn--primary">Accept all</button>
-  <button type="button" class="ca-btn ca-btn--ghost">Customize</button>
+  <button type="button" class="ca-btn ca-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="ca-btn ca-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="ca-btn ca-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="ca-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="ca-btn ca-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="ca-btn">Continue as guest — express</button>
 </div><header class="ca-hdr">
-  <nav class="ca-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <nav class="ca-nav" aria-label="Global"><a href="#">Home</a><a href="#">Albums</a><a href="#">Shared</a><a href="#">Archive</a><a href="#">Account</a></nav>
   <div class="ca-hdr-promo"><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="ca-btn ca-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="ca-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="ca-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Albums</a><a href="#">Upload center</a><a href="#">Settings</a><a href="#">Storage</a>
   <button type="button" class="ca-btn ca-btn--ghost">Submit</button>
   <button type="button" class="ca-btn ca-btn--ghost">Continue</button>
 </nav><div class="ca-dup-row" aria-label="Quick actions">
@@ -105,11 +135,288 @@ table{border-collapse:collapse}
   <button type="button" class="ca-btn ca-btn--ghost">Continue</button>
   <button type="button" class="ca-btn ca-btn--ghost">Save changes</button>
   <button type="button" class="ca-btn ca-btn--ghost">Confirm</button>
-</div><div class="ca-dup-row"><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">Upload Iceland 2026</button><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-nav">Upload album Iceland 2026</button></div><div class="ca-page-wrap"><div class="ca-page-main"><div role="main" style="padding:24px"><div style="display:flex;gap:12px"><div style="width:80px;height:80px;background:#e2e8f0">Trip</div><div style="width:80px;height:80px;background:#e2e8f0">Family</div><div style="width:80px;height:80px;background:#e2e8f0">Iceland 2026</div></div>
-<div style="border:3px dashed #94a3b8;padding:60px;text-align:center;margin-top:16px" data-album="iceland-2026">
-<button type="button" class="ca-btn ca-btn--primary" data-agent-role="action" data-agent-id="upload-iceland-album" data-agent-desc="Upload new photos into album Iceland 2026 (not other albums)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div></div><aside class="ca-rail ca-rail--ads" aria-label="Sponsored">
+</div><div class="ca-dup-row"><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">Upload Iceland 2026</button><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-nav">Upload album Iceland 2026</button></div><div class="ca-page-wrap"><div class="ca-page-main"><main role="main" class="ca-wizard">
+  <div class="ca-breadcrumbs"><a href="#">Albums</a><span>›</span><a href="#">Travel</a><span>›</span><strong>Upload photos</strong></div>
+  <h1>CloudAlbum upload center</h1>
+  <p>Choose an album, review your files, and upload with visibility settings. The current workspace contains multiple similar travel albums to reduce accidental uploads.</p>
+  <div class="ca-steps" aria-label="Progress"><div class="ca-step is-active">1. Choose album</div><div class="ca-step is-active">2. Add photos</div><div class="ca-step">3. Upload</div></div>
+
+  <section class="ca-card" aria-labelledby="album-section-title">
+    <div class="ca-toolbar"><strong id="album-section-title">Albums in this workspace</strong><span class="ca-muted">Select exactly one destination album before uploading.</span></div>
+    <div class="ca-albums" id="album-selector">
+      <article class="ca-album-card" tabindex="0" data-select-album="family-summer-2025" aria-label="Family Summer 2025 album card">
+        <div class="ca-album-thumb ca-album-thumb--green">Family Summer 2025</div>
+        <div class="ca-album-body"><strong>Family Summer 2025</strong><div class="ca-meta"><span class="ca-badge">218 photos</span><span class="ca-badge ca-badge--warn">Shared</span></div><p>Beach trip, cabin weekend, and reunion edits.</p></div>
+      </article>
+      <article class="ca-album-card is-selected" tabindex="0" data-select-album="iceland-2026" aria-label="Iceland 2026 album card">
+        <div class="ca-album-thumb ca-album-thumb--ice">Iceland 2026</div>
+        <div class="ca-album-body"><strong>Iceland 2026</strong><div class="ca-meta"><span class="ca-badge">84 photos</span><span class="ca-badge ca-badge--success" id="selected-album-badge">Selected</span></div><p>Ring Road scouting, glacier lagoon, Reykjavík street scenes.</p></div>
+      </article>
+      <article class="ca-album-card" tabindex="0" data-select-album="iceland-2024" aria-label="Iceland 2024 album card">
+        <div class="ca-album-thumb ca-album-thumb--blue">Iceland 2024</div>
+        <div class="ca-album-body"><strong>Iceland 2024</strong><div class="ca-meta"><span class="ca-badge">146 photos</span><span class="ca-badge">Private</span></div><p>Older draft album with similar naming. Double-check before uploading.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <div class="ca-upload-shell">
+    <section class="ca-panel" data-album="iceland-2026">
+      <div class="ca-dropzone" id="dropzone">
+        <div class="ca-dropzone-header">
+          <div>
+            <h2 style="margin-top:0">Upload to Iceland 2026</h2>
+            <p>Add trip photos for the Iceland 2026 album only. Use the sample files below or generate thumbnails automatically.</p>
+          </div>
+          <div><span class="ca-badge" id="thumb-count-badge">0 files staged</span></div>
+        </div>
+        <div class="ca-card" style="margin-top:14px;background:#fff7ed;border-color:#fed7aa">
+          <strong>Recommended import checklist</strong>
+          <ul>
+            <li>Only JPG, PNG, HEIC, WEBP accepted</li>
+            <li>Max 10 files per batch in this demo</li>
+            <li>Captions are optional but help organize the gallery grid</li>
+          </ul>
+        </div>
+        <label for="file-input">Choose photos</label>
+        <input id="file-input" type="file" multiple="" accept="image/*">
+        <div class="ca-card__actions">
+          <button type="button" class="ca-btn" id="add-samples">Add 3 sample trip photos</button>
+          <button type="button" class="ca-btn ca-btn--ghost" id="clear-files">Clear staged files</button>
+        </div>
+        <label for="upload-caption">Batch caption</label>
+        <input id="upload-caption" type="text" maxlength="80" placeholder="e.g. South coast stops and waterfall approach">
+        <div class="ca-section-note">Caption appears on all newly uploaded items in this batch unless edited later.</div>
+        <div class="ca-switch"><input id="optimize-thumbs" type="checkbox" checked=""> <label for="optimize-thumbs" style="margin:0">Generate high-quality thumbs</label></div>
+        <div class="ca-switch"><input id="notify-collaborators" type="checkbox"> <label for="notify-collaborators" style="margin:0">Notify collaborators after upload</label></div>
+        <div class="ca-inline-status ca-error" id="validation-msg" aria-live="polite">Add at least one photo to enable upload.</div>
+        <div class="ca-preview-grid" id="preview-grid" aria-live="polite"></div>
+        <div class="ca-card__actions" style="margin-top:18px">
+          <button type="button" class="ca-btn ca-btn--primary" id="upload-iceland-album" disabled="" data-wci-id="upload-iceland-album" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary upload action for Iceland 2026 album" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="photo_upload-page">Upload to Iceland 2026</button>
+          <button type="button" class="ca-btn" id="review-files">Review upload</button>
+        </div>
+        <div id="photo-upload-smoke-status" class="ca-smoke">Waiting for upload action.</div>
+      </div>
+    </section>
+
+    <aside class="ca-panel" aria-labelledby="summary-title">
+      <h2 id="summary-title" style="margin-top:0">Batch summary</h2>
+      <div class="ca-info-list">
+        <div class="ca-info-row"><span>Selected album</span><strong id="selected-album-name">Iceland 2026</strong></div>
+        <div class="ca-info-row"><span>Files staged</span><strong id="files-count">0</strong></div>
+        <div class="ca-info-row"><span>Estimated upload size</span><strong id="upload-size">0 MB</strong></div>
+        <div class="ca-info-row"><span>Thumb generation</span><strong id="thumb-mode">High quality</strong></div>
+        <div class="ca-info-row"><span>Notify collaborators</span><strong id="notify-mode">Off</strong></div>
+      </div>
+      <table aria-label="Recent uploads">
+        <thead><tr><th>Recent batch</th><th>Status</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Reykjavík arrival set</td><td><span class="ca-badge ca-badge--success">Completed</span></td><td>12</td></tr>
+          <tr><td>Snæfellsnes drone stills</td><td><span class="ca-badge">Processing</span></td><td>9</td></tr>
+          <tr><td>Hotel lobby references</td><td><span class="ca-badge">Completed</span></td><td>4</td></tr>
+        </tbody>
+      </table>
+      <p class="ca-section-note">Uploads are grouped by batch and may take a few moments to appear in the public album grid after thumb processing.</p>
+    </aside>
+  </div>
+</main></div><aside class="ca-rail ca-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <a href="#">Partner offer — limited time on 2 TB cold storage</a><br>
   <button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="ca-filler" aria-hidden="true"><div class="ca-filler-inner"><a href="/misc/0" class="ca-btn ca-btn--ghost">Link 1</a><button type="button" class="ca-btn ca-btn--ghost">Action 2</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/4" class="ca-btn ca-btn--ghost">Link 5</a><button type="button" class="ca-btn ca-btn--ghost">Action 6</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/8" class="ca-btn ca-btn--ghost">Link 9</a><button type="button" class="ca-btn ca-btn--ghost">Action 10</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/12" class="ca-btn ca-btn--ghost">Link 13</a><button type="button" class="ca-btn ca-btn--ghost">Action 14</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/16" class="ca-btn ca-btn--ghost">Link 17</a><button type="button" class="ca-btn ca-btn--ghost">Action 18</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/20" class="ca-btn ca-btn--ghost">Link 21</a><button type="button" class="ca-btn ca-btn--ghost">Action 22</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/24" class="ca-btn ca-btn--ghost">Link 25</a><button type="button" class="ca-btn ca-btn--ghost">Action 26</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/28" class="ca-btn ca-btn--ghost">Link 29</a><button type="button" class="ca-btn ca-btn--ghost">Action 30</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/32" class="ca-btn ca-btn--ghost">Link 33</a><button type="button" class="ca-btn ca-btn--ghost">Action 34</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/36" class="ca-btn ca-btn--ghost">Link 37</a><button type="button" class="ca-btn ca-btn--ghost">Action 38</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="/misc/40" class="ca-btn ca-btn--ghost">Link 41</a><button type="button" class="ca-btn ca-btn--ghost">Action 42</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button></div></div><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="ca-ftr"><small>© Demo CloudAlbum</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
+  <strong>Workspace tips</strong>
+  <p>Album names that differ by year can be easy to confuse. Confirm the destination label in the summary panel before uploading.</p>
+</aside></div><div class="ca-filler" aria-hidden="true"><div class="ca-filler-inner"><a href="#" class="ca-btn ca-btn--ghost">Link 1</a><button type="button" class="ca-btn ca-btn--ghost">Action 2</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="#" class="ca-btn ca-btn--ghost">Link 5</a><button type="button" class="ca-btn ca-btn--ghost">Action 6</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="#" class="ca-btn ca-btn--ghost">Link 9</a><button type="button" class="ca-btn ca-btn--ghost">Action 10</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button><a href="#" class="ca-btn ca-btn--ghost">Link 13</a><button type="button" class="ca-btn ca-btn--ghost">Action 14</button><button type="button" class="ca-btn ca-btn--ghost">Submit</button><button type="button" class="ca-btn ca-btn--ghost">Continue</button></div></div><button type="button" class="ca-btn ca-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo button" data-wci-priority="1" data-wci-scope="photo_upload-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="ca-ftr"><small>© Demo CloudAlbum</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+<div class="ca-overlay" id="modal-overlay"></div>
+<div class="ca-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-title">
+  <h2 id="review-title" style="margin-top:0">Review staged upload</h2>
+  <p id="review-copy">No files selected yet.</p>
+  <div class="ca-card" id="review-list"></div>
+  <div class="ca-card__actions"><button type="button" class="ca-btn" id="close-modal">Close</button></div>
+</div>
+<script>
+(function(){
+  const app = document.querySelector('[data-page="photo-upload"]');
+  const fileInput = document.getElementById('file-input');
+  const addSamples = document.getElementById('add-samples');
+  const clearFiles = document.getElementById('clear-files');
+  const previewGrid = document.getElementById('preview-grid');
+  const validationMsg = document.getElementById('validation-msg');
+  const uploadBtn = document.getElementById('upload-iceland-album');
+  const smokeStatus = document.getElementById('photo-upload-smoke-status');
+  const filesCount = document.getElementById('files-count');
+  const uploadSize = document.getElementById('upload-size');
+  const thumbCountBadge = document.getElementById('thumb-count-badge');
+  const optimizeThumbs = document.getElementById('optimize-thumbs');
+  const notifyCollaborators = document.getElementById('notify-collaborators');
+  const thumbMode = document.getElementById('thumb-mode');
+  const notifyMode = document.getElementById('notify-mode');
+  const selectedAlbumName = document.getElementById('selected-album-name');
+  const albumCards = Array.from(document.querySelectorAll('[data-select-album]'));
+  const reviewBtn = document.getElementById('review-files');
+  const reviewModal = document.getElementById('review-modal');
+  const reviewCopy = document.getElementById('review-copy');
+  const reviewList = document.getElementById('review-list');
+  const closeModal = document.getElementById('close-modal');
+  const overlay = document.getElementById('modal-overlay');
+  const captionInput = document.getElementById('upload-caption');
+  const dropzone = document.getElementById('dropzone');
+  const cookieBanner = document.getElementById('cookie-banner');
+
+  let selectedAlbum = 'iceland-2026';
+  let stagedFiles = [];
+
+  function friendlySize(totalMb){
+    return totalMb <= 0 ? '0 MB' : totalMb.toFixed(1) + ' MB';
+  }
+
+  function makeSample(name, sizeMb, icon){
+    return { name:name, sizeMb:sizeMb, type:'image/jpeg', icon:icon || '🖼️' };
+  }
+
+  function renderFiles(){
+    previewGrid.innerHTML = '';
+    stagedFiles.forEach(function(file, index){
+      const item = document.createElement('article');
+      item.className = 'ca-thumb';
+      item.innerHTML = '<button type="button" class="ca-remove" aria-label="Remove '+file.name.replace(/"/g,'&quot;')+'" data-remove-index="'+index+'">×</button>'+
+        '<div class="ca-thumb-visual">'+(file.icon || '🖼️')+'</div>'+
+        '<div class="ca-thumb-body"><div class="ca-thumb-title">'+file.name+'</div><div class="ca-thumb-sub">'+file.type+' · '+file.sizeMb.toFixed(1)+' MB</div></div>';
+      previewGrid.appendChild(item);
+    });
+
+    const count = stagedFiles.length;
+    const size = stagedFiles.reduce(function(sum, file){ return sum + file.sizeMb; }, 0);
+    filesCount.textContent = String(count);
+    uploadSize.textContent = friendlySize(size);
+    thumbCountBadge.textContent = count + (count === 1 ? ' file staged' : ' files staged');
+
+    const validAlbum = selectedAlbum === 'iceland-2026';
+    const hasFiles = count > 0;
+    uploadBtn.disabled = !(validAlbum && hasFiles);
+
+    if(!validAlbum){
+      validationMsg.textContent = 'Uploads are disabled because a different album is selected. Switch back to Iceland 2026.';
+      validationMsg.className = 'ca-inline-status ca-error';
+    } else if(!hasFiles){
+      validationMsg.textContent = 'Add at least one photo to enable upload.';
+      validationMsg.className = 'ca-inline-status ca-error';
+    } else {
+      validationMsg.textContent = 'Ready to upload '+count+' photo'+(count===1?'':'s')+' into Iceland 2026.';
+      validationMsg.className = 'ca-inline-status ca-success';
+    }
+  }
+
+  function updateSummary(){
+    selectedAlbumName.textContent = selectedAlbum === 'iceland-2026' ? 'Iceland 2026' : (selectedAlbum === 'iceland-2024' ? 'Iceland 2024' : 'Family Summer 2025');
+    thumbMode.textContent = optimizeThumbs.checked ? 'High quality' : 'Fast mode';
+    notifyMode.textContent = notifyCollaborators.checked ? 'On' : 'Off';
+    renderFiles();
+  }
+
+  function setAlbum(albumId){
+    selectedAlbum = albumId;
+    albumCards.forEach(function(card){
+      const active = card.getAttribute('data-select-album') === albumId;
+      card.classList.toggle('is-selected', active);
+    });
+    updateSummary();
+  }
+
+  albumCards.forEach(function(card){
+    card.addEventListener('click', function(){ setAlbum(card.getAttribute('data-select-album')); });
+    card.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setAlbum(card.getAttribute('data-select-album')); } });
+  });
+
+  fileInput.addEventListener('change', function(){
+    const incoming = Array.from(fileInput.files || []).slice(0, 10).map(function(file, i){
+      return { name:file.name || ('photo-'+(i+1)+'.jpg'), sizeMb: Math.max(0.4, ((file.size || 2100000) / 1048576)), type:file.type || 'image/jpeg', icon:'📷' };
+    });
+    stagedFiles = stagedFiles.concat(incoming).slice(0, 10);
+    renderFiles();
+    fileInput.value = '';
+  });
+
+  addSamples.addEventListener('click', function(){
+    stagedFiles = stagedFiles.concat([
+      makeSample('skogafoss-trail.jpg', 4.8, '🌊'),
+      makeSample('diamond-beach-ice.jpg', 5.2, '🧊'),
+      makeSample('reykjavik-street-night.jpg', 3.9, '🌃')
+    ]).slice(0,10);
+    renderFiles();
+  });
+
+  clearFiles.addEventListener('click', function(){
+    stagedFiles = [];
+    renderFiles();
+  });
+
+  previewGrid.addEventListener('click', function(e){
+    const btn = e.target.closest('[data-remove-index]');
+    if(!btn) return;
+    const index = Number(btn.getAttribute('data-remove-index'));
+    stagedFiles.splice(index,1);
+    renderFiles();
+  });
+
+  optimizeThumbs.addEventListener('change', updateSummary);
+  notifyCollaborators.addEventListener('change', updateSummary);
+
+  reviewBtn.addEventListener('click', function(){
+    overlay.classList.add('is-open');
+    reviewModal.classList.add('is-open');
+    reviewCopy.textContent = stagedFiles.length ? ('Reviewing '+stagedFiles.length+' staged photo'+(stagedFiles.length===1?'':'s')+' for '+selectedAlbumName.textContent+'.') : 'No files selected yet.';
+    reviewList.innerHTML = stagedFiles.length ? stagedFiles.map(function(file){ return '<div class="ca-info-row"><span>'+file.name+'</span><strong>'+file.sizeMb.toFixed(1)+' MB</strong></div>'; }).join('') : '<p class="ca-muted">Use “Add 3 sample trip photos” or choose local files first.</p>';
+  });
+
+  function closeReview(){
+    overlay.classList.remove('is-open');
+    reviewModal.classList.remove('is-open');
+  }
+  closeModal.addEventListener('click', closeReview);
+  overlay.addEventListener('click', closeReview);
+
+  ['dragenter','dragover'].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.add('is-active'); });
+  });
+  ['dragleave','drop'].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.remove('is-active'); });
+  });
+  dropzone.addEventListener('drop', function(){
+    stagedFiles = stagedFiles.concat([
+      makeSample('dropped-glacier-lagoon.jpg', 4.4, '🧊'),
+      makeSample('dropped-roadside-moss.jpg', 3.1, '🛣️')
+    ]).slice(0,10);
+    renderFiles();
+  });
+
+  app.addEventListener('click', function(e){
+    const cookieBtn = e.target.closest('[data-cookie-action]');
+    if(cookieBtn){ cookieBanner.style.display = 'none'; }
+  });
+
+  document.querySelector('[data-album="iceland-2026"] .ca-btn--primary').addEventListener('click', function(){
+    const actionLabel = 'Uploaded '+stagedFiles.length+' photo'+(stagedFiles.length===1?'':'s')+' to Iceland 2026';
+    if(selectedAlbum !== 'iceland-2026'){
+      smokeStatus.textContent = 'Upload blocked: active destination is not Iceland 2026.';
+      window.__scenarioSmoke = { lastAction: 'blocked-wrong-album', updatedAt: Date.now() };
+      return;
+    }
+    if(!stagedFiles.length){
+      smokeStatus.textContent = 'Upload blocked: no photos staged for Iceland 2026.';
+      window.__scenarioSmoke = { lastAction: 'blocked-no-files', updatedAt: Date.now() };
+      return;
+    }
+    smokeStatus.textContent = actionLabel + (captionInput.value ? ' — caption: '+captionInput.value : '') + '.';
+    window.__scenarioSmoke = { lastAction: actionLabel, updatedAt: Date.now() };
+    validationMsg.textContent = 'Upload queued successfully. New thumbs are processing for the album grid.';
+    validationMsg.className = 'ca-inline-status ca-success';
+    stagedFiles = [];
+    renderFiles();
+  });
+
+  window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
+  updateSummary();
+})();
+</script>
+</body></html>

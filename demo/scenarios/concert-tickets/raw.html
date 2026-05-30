@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .tr-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .tr-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .tr-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.tr-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#111827}
+.tr-brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#a21caf,#312e81);display:grid;place-items:center;color:#fff;font-size:15px;box-shadow:0 8px 20px rgba(91,33,182,.25)}
 .tr-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .tr-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .tr-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .tr-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .tr-subnav a:hover{background:#f8fafc;color:#334155}
 .tr-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.tr-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.tr-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.tr-page-wrap{grid-template-columns:1fr}}
 .tr-page-main{padding:20px 24px 32px;min-height:42vh}
 .tr-page-main>h1,.tr-page-main [role=main]>h1,.tr-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .tr-page-main h2,.tr-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.tr-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.tr-page-main p{margin:0 0 10px;color:#475569;max-width:75ch}
 .tr-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.tr-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tr-page-main select,.tr-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.tr-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tr-page-main select,.tr-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .tr-page-main input:focus,.tr-page-main select:focus,.tr-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .tr-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .tr-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,16 +36,15 @@ table{border-collapse:collapse}
 .tr-page-main th,.tr-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .tr-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .tr-page-main tr:hover td{background:#fafafa}
-.tr-page-main article,.tr-page-main .tr-card,.tr-page-main .tr-resto,.tr-page-main .tr-slot,.tr-page-main .tr-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.tr-page-main article,.tr-page-main .tr-card,.tr-page-main .tr-resto,.tr-page-main .tr-slot,.tr-page-main .tr-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .tr-page-main ul:not([class]){list-style:none;padding:0}
 .tr-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .tr-page-main ul:not([class]) li:hover{background:#f8fafc}
-.tr-page-main dialog,.tr-page-main .tr-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.tr-page-main .tr-modal.is-open,.tr-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.tr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.tr-page-main dialog,.tr-page-main .tr-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.tr-page-main .tr-modal.is-open,.tr-page-main [role=dialog]{position:fixed;inset:12% 20%;z-index:60;max-width:560px;margin:auto}
+.tr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .tr-btn:hover{background:#f8fafc}
+.tr-btn:active{transform:translateY(1px)}
 .tr-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
 .tr-btn--primary:hover{filter:brightness(1.05)}
 .tr-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -64,6 +64,8 @@ table{border-collapse:collapse}
 .tr-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .tr-ab{display:none!important}
 .tr-layout{display:grid;gap:16px;align-items:start}
+.tr-main-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.8fr);gap:18px;align-items:start}
+@media(max-width:920px){.tr-main-grid{grid-template-columns:1fr}}
 .tr-filters,.tr-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .tr-filters h2,.tr-frame aside h2{font-size:14px;margin:0 0 10px}
 .tr-card__actions,.tr-slot__actions,.tr-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
@@ -72,32 +74,55 @@ table{border-collapse:collapse}
 .tr-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .tr-step.is-active{background:hsl(291 72% 46%);color:#fff}
 .tr-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.tr-hero{border-radius:12px;margin-bottom:8px}
-.tr-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.tr-grid{display:grid;gap:14px}
-.tr-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.tr-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.tr-patient{border-radius:10px}
-.tr-slots{display:grid;gap:10px}
-.tr-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.tr-cell{background:#fff;padding:8px;min-height:44px}
-.tr-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.tr-diff{border-radius:8px}
-.tr-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.tr-hero{border-radius:16px;margin-bottom:8px;background:radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 26%),linear-gradient(135deg,#111827,#312e81 55%,#a21caf);padding:24px;color:#fff;overflow:hidden;position:relative}
+.tr-hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);font-size:12px;margin-bottom:10px}
+.tr-hero h1{font-size:30px;line-height:1.05;margin:0 0 8px;color:#fff}
+.tr-hero p{color:rgba(255,255,255,.86);margin-bottom:8px}
+.tr-hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.tr-pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:600;font-size:12px}
+.tr-pill--ok{background:#dcfce7;color:#166534}
+.tr-pill--warn{background:#fef3c7;color:#92400e}
+.tr-listing{display:grid;gap:12px}
+.tr-ticket-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid #e2e8f0;border-radius:12px;padding:16px;background:#fff}
+.tr-ticket-row.is-recommended{border-color:#c4b5fd;box-shadow:0 0 0 3px rgba(167,139,250,.15)}
+.tr-ticket-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tr-price{font-size:24px;font-weight:800;color:#111827}
+.tr-muted{color:#64748b}
+.tr-small{font-size:12px}
+.tr-status{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;font-size:13px;font-weight:600}
+.tr-status--danger{background:#fef2f2;color:#b91c1c;border-color:#fecaca}
+.tr-status--success{background:#ecfdf5;color:#047857;border-color:#a7f3d0}
+.tr-summary-line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed #e2e8f0}
+.tr-summary-line:last-child{border-bottom:none}
+.tr-check{display:flex;align-items:flex-start;gap:8px;margin:10px 0;color:#334155}
+.tr-check input{margin-top:2px}
+.tr-note{font-size:12px;color:#64748b;margin-top:8px}
+.tr-alert{margin-top:10px;padding:10px 12px;border-radius:8px;background:#fff7ed;border:1px solid #fdba74;color:#9a3412;font-size:13px}
+.tr-banner{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}
+.tr-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:50;display:none}
+.tr-overlay.is-open{display:block}
+.tr-modal{display:none}
+.tr-modal.is-open{display:block}
+.tr-close{float:right}
+.tr-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+@media(max-width:600px){.tr-kpis{grid-template-columns:1fr}}
+.tr-kpi{padding:12px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.tr-kpi strong{display:block;font-size:18px}
 </style></head><body>
-<div class="tr-app" data-page="concert-tickets"><div class="tr-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="tr-app" data-page="concert-tickets" id="concert_tickets-page"><div class="tr-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="tr-btn tr-btn--muted">Reject non-essential</button>
-  <button type="button" class="tr-btn tr-btn--primary">Accept all</button>
-  <button type="button" class="tr-btn tr-btn--ghost">Customize</button>
+  <button type="button" class="tr-btn tr-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="tr-btn tr-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="tr-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="tr-btn tr-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="tr-btn">Continue as guest — express</button>
 </div><header class="tr-hdr">
-  <nav class="tr-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="tr-brand" aria-label="TicketRush home"><div class="tr-brand-mark">TR</div><span>TicketRush</span></div>
+  <nav class="tr-nav" aria-label="Global"><a href="#">Concerts</a><a href="#">Sports</a><a href="#">Theater</a><a href="#">Help</a><a href="#">Account</a></nav>
   <div class="tr-hdr-promo"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="tr-btn tr-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="tr-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="tr-subnav" aria-label="Secondary"><a href="#details">Event overview</a><a href="#tickets">Tickets</a><a href="#venue">Venue</a><a href="#policies">Policies</a><a href="#faq">Support</a>
   <button type="button" class="tr-btn tr-btn--ghost">Submit</button>
   <button type="button" class="tr-btn tr-btn--ghost">Continue</button>
 </nav><div class="tr-dup-row" aria-label="Quick actions">
@@ -105,12 +130,287 @@ table{border-collapse:collapse}
   <button type="button" class="tr-btn tr-btn--ghost">Continue</button>
   <button type="button" class="tr-btn tr-btn--ghost">Save changes</button>
   <button type="button" class="tr-btn tr-btn--ghost">Confirm</button>
-</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav">Buy 2 GA Neon Pulse</button></div><div class="tr-page-wrap"><div class="tr-page-main"><div role="main" style="display:flex;gap:24px;padding:16px" data-event="neon-pulse"><section style="flex:1;background:#1e1b4b;color:#fff;padding:24px"><h1>Neon Pulse</h1><p>GA Floor</p></section>
-<aside style="width:280px"><select><option>2</option></select>
-<button type="button" class="tr-btn tr-btn--primary" data-tickets="ga-2">Confirm</button>
-<button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">VIP upgrade</button></aside></div></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored">
+</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav">Buy 2 GA Neon Pulse</button></div><div class="tr-page-wrap"><div class="tr-page-main"><main role="main" class="tr-layout">
+  <section class="tr-hero" id="details" aria-labelledby="eventTitle">
+    <div class="tr-hero-badge">Live nation tour stop · Tonight only</div>
+    <h1 id="eventTitle">Neon Pulse — Fractured Lights Tour</h1>
+    <p>Catch Neon Pulse live at Harborline Pavilion with an all-ages general admission floor, visual effects, and support from Static Bloom.</p>
+    <div class="tr-hero-meta">
+      <span class="tr-pill">Fri, Aug 16 · 8:00 PM</span>
+      <span class="tr-pill">Harborline Pavilion · Pier District</span>
+      <span class="tr-pill tr-pill--ok" id="inventoryBadge">GA available</span>
+      <span class="tr-pill tr-pill--warn">VIP nearly sold out</span>
+    </div>
+    <div class="tr-kpis" aria-label="Event highlights">
+      <div class="tr-kpi"><strong>Doors 6:30</strong><span>Fast-lane not included with GA</span></div>
+      <div class="tr-kpi"><strong>4.8/5</strong><span>Fans recommend the floor mix</span></div>
+      <div class="tr-kpi"><strong>No re-entry</strong><span>Bring photo ID for pickup issues</span></div>
+    </div>
+  </section>
+
+  <div class="tr-banner" aria-label="booking status">
+    <div>
+      <div class="tr-status" id="concert-tickets-smoke-status" data-smoke-status>Ready to book Neon Pulse tickets.</div>
+      <div class="tr-note">Smoke status updates after a primary ticket action.</div>
+    </div>
+    <div class="tr-small tr-muted">Session hold: <strong id="holdTimer">09:00</strong></div>
+  </div>
+
+  <div class="tr-main-grid">
+    <section class="tr-panel" id="tickets">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div>
+          <h2 style="margin-top:0">Choose your ticket type</h2>
+          <p>General admission includes floor access for the full show. VIP packages add lounge access and merch pickup, but are not required for entry.</p>
+        </div>
+        <div class="tr-status" id="selectionBadge">No ticket selected</div>
+      </div>
+
+      <div class="tr-listing">
+        <article class="tr-ticket-row is-recommended" data-event="neon-pulse">
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+              <div>
+                <h3 style="margin:0">General Admission Floor</h3>
+                <p class="tr-muted">Standing floor access. Official mobile transfer. Limit 6 per customer.</p>
+              </div>
+              <div class="tr-price">$79<span class="tr-small tr-muted">/ticket</span></div>
+            </div>
+            <div class="tr-ticket-meta">
+              <span class="tr-pill">Best availability</span>
+              <span class="tr-pill">Standard entry</span>
+              <span class="tr-pill">Fees shown in summary</span>
+            </div>
+            <div class="tr-card__actions" style="margin-top:14px">
+              <label for="gaQty" style="margin:0">Quantity
+                <select id="gaQty" aria-label="General admission quantity">
+                  <option value="1">1 ticket</option>
+                  <option value="2" selected>2 tickets</option>
+                  <option value="3">3 tickets</option>
+                  <option value="4">4 tickets</option>
+                </select>
+              </label>
+              <button type="button" class="tr-btn tr-btn--primary" data-tickets="ga-2" id="buy-neon-pulse-ga">Confirm</button>
+              <button type="button" class="tr-btn" data-preview="ga">Preview charges</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tr-ticket-row">
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+              <div>
+                <h3 style="margin:0">VIP Soundcheck Experience</h3>
+                <p class="tr-muted">Early entry, commemorative laminate, merch gift, and a pre-show check-in window.</p>
+              </div>
+              <div class="tr-price">$229<span class="tr-small tr-muted">/ticket</span></div>
+            </div>
+            <div class="tr-ticket-meta">
+              <span class="tr-pill tr-pill--warn">Limited</span>
+              <span class="tr-pill">Separate check-in</span>
+            </div>
+            <div class="tr-card__actions">
+              <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">VIP upgrade</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tr-card" id="venue">
+          <h3>Venue details</h3>
+          <p>Harborline Pavilion is a covered waterfront venue with standing room floor sections, ADA platforms, mobile-only entry, and public transit drop-off two blocks east of Gate B.</p>
+          <table aria-label="Venue facts">
+            <thead><tr><th>Item</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td>Entry</td><td>Mobile ticket required. Screenshots may not scan.</td></tr>
+              <tr><td>Parking</td><td>Official lots open at 5:30 PM. Prepaid parking not included.</td></tr>
+              <tr><td>Bags</td><td>Small clear bags only. Outside food prohibited.</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <aside class="tr-panel tr-cart" aria-label="Order summary">
+      <h2 style="margin-top:0">Order summary</h2>
+      <div class="tr-summary-line"><span>Selection</span><strong id="summaryLabel">None</strong></div>
+      <div class="tr-summary-line"><span>Tickets</span><strong id="summaryTickets">0</strong></div>
+      <div class="tr-summary-line"><span>Subtotal</span><strong id="summarySubtotal">$0.00</strong></div>
+      <div class="tr-summary-line"><span>Service fees</span><strong id="summaryFees">$0.00</strong></div>
+      <div class="tr-summary-line"><span>Total</span><strong id="summaryTotal">$0.00</strong></div>
+
+      <fieldset>
+        <legend>Delivery</legend>
+        <label for="deliveryMethod">Ticket delivery method
+          <select id="deliveryMethod">
+            <option value="mobile">Mobile transfer</option>
+            <option value="willcall">Will call pickup</option>
+          </select>
+        </label>
+        <label for="buyerEmail">Email for receipt
+          <input id="buyerEmail" type="email" placeholder="name@example.com" autocomplete="email"/>
+        </label>
+        <div id="emailError" class="tr-status tr-status--danger" style="display:none;margin-top:8px">Enter a valid email before checkout.</div>
+      </fieldset>
+
+      <label class="tr-check"><input id="agreeTerms" type="checkbox"/> <span>I understand all sales are final and ticket limits apply.</span></label>
+      <label class="tr-check"><input id="smsOptIn" type="checkbox"/> <span>Text me event updates and gate alerts.</span></label>
+
+      <div class="tr-alert" id="checkoutHint">Select a ticket option to continue.</div>
+      <div class="tr-card__actions">
+        <button type="button" class="tr-btn tr-btn--primary" id="checkoutBtn" disabled>Proceed to checkout</button>
+        <button type="button" class="tr-btn tr-btn--ghost" data-preview="summary">Refresh totals</button>
+      </div>
+      <p class="tr-note" id="policies">By continuing, you agree to TicketRush Marketplace Terms, venue policies, and ticket transfer restrictions.</p>
+    </aside>
+  </div>
+
+  <section class="tr-panel" id="faq">
+    <h2 style="margin-top:0">Know before you go</h2>
+    <ul>
+      <li><strong>Arrival:</strong> GA floor lines usually peak 45–60 minutes before doors.</li>
+      <li><strong>Transfers:</strong> Tickets release to your account once payment clears and anti-fraud checks complete.</li>
+      <li><strong>Accessibility:</strong> ADA assistance is available from the west guest services desk.</li>
+    </ul>
+  </section>
+</main></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <p style="margin:0 0 8px">Bundle parking and skip scanning delays with a premium arrival package.</p>
+  <a href="#">Partner offer — limited time</a><br/>
   <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost">Action 2</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost">Action 6</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost">Action 10</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost">Action 14</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost">Action 18</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost">Action 22</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost">Action 26</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost">Action 30</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost">Action 34</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost">Action 38</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost">Action 42</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tr-ftr"><small>© Demo TicketRush</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+</aside></div><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost">Action 2</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost">Action 6</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost">Action 10</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost">Action 14</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost">Action 18</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost">Action 22</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost">Action 26</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost">Action 30</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost">Action 34</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost">Action 38</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost">Action 42</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tr-ftr"><small>© Demo TicketRush</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
+<div class="tr-overlay" id="modalOverlay"></div>
+<div class="tr-modal" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+  <button type="button" class="tr-btn tr-btn--ghost tr-close" id="closeModal">Close</button>
+  <h2 id="previewTitle" style="margin-top:0">Ticket preview</h2>
+  <p id="modalBody">Charges preview will appear here.</p>
+  <div class="tr-status tr-status--success" id="modalStatus">Preview ready.</div>
+</div>
+<script>
+(function(){
+  var smoke = document.getElementById('concert-tickets-smoke-status');
+  var primaryBtn = document.querySelector('[data-event="neon-pulse"] button[data-tickets="ga-2"]');
+  var gaQty = document.getElementById('gaQty');
+  var selectionBadge = document.getElementById('selectionBadge');
+  var inventoryBadge = document.getElementById('inventoryBadge');
+  var summaryLabel = document.getElementById('summaryLabel');
+  var summaryTickets = document.getElementById('summaryTickets');
+  var summarySubtotal = document.getElementById('summarySubtotal');
+  var summaryFees = document.getElementById('summaryFees');
+  var summaryTotal = document.getElementById('summaryTotal');
+  var checkoutBtn = document.getElementById('checkoutBtn');
+  var checkoutHint = document.getElementById('checkoutHint');
+  var buyerEmail = document.getElementById('buyerEmail');
+  var emailError = document.getElementById('emailError');
+  var agreeTerms = document.getElementById('agreeTerms');
+  var deliveryMethod = document.getElementById('deliveryMethod');
+  var overlay = document.getElementById('modalOverlay');
+  var modal = document.getElementById('previewModal');
+  var closeModal = document.getElementById('closeModal');
+  var modalBody = document.getElementById('modalBody');
+  var holdTimer = document.getElementById('holdTimer');
+  var selected = null;
+  var timerSeconds = 540;
+
+  function money(n){ return '$' + n.toFixed(2); }
+  function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  function recalc(){
+    var qty = Number(gaQty.value || 0);
+    var subtotal = selected === 'ga' ? qty * 79 : 0;
+    var fees = selected === 'ga' ? qty * 18.5 : 0;
+    var total = subtotal + fees;
+    summaryLabel.textContent = selected === 'ga' ? 'Neon Pulse · General Admission' : 'None';
+    summaryTickets.textContent = selected === 'ga' ? String(qty) : '0';
+    summarySubtotal.textContent = money(subtotal);
+    summaryFees.textContent = money(fees);
+    summaryTotal.textContent = money(total);
+    selectionBadge.textContent = selected === 'ga' ? ('GA selected · ' + qty + ' ticket' + (qty>1?'s':'')) : 'No ticket selected';
+    inventoryBadge.textContent = qty >= 4 ? 'Low GA inventory' : 'GA available';
+    validate();
+  }
+
+  function validate(){
+    var hasEmail = isEmail(buyerEmail.value.trim());
+    var hasSelection = selected === 'ga';
+    var canCheckout = hasSelection && hasEmail && agreeTerms.checked;
+    emailError.style.display = buyerEmail.value.trim() && !hasEmail ? 'inline-flex' : 'none';
+    checkoutBtn.disabled = !canCheckout;
+    if(!hasSelection){
+      checkoutHint.textContent = 'Select a ticket option to continue.';
+    } else if(!hasEmail){
+      checkoutHint.textContent = 'Add a valid receipt email to continue.';
+    } else if(!agreeTerms.checked){
+      checkoutHint.textContent = 'Review and accept the final sale terms.';
+    } else {
+      checkoutHint.textContent = 'Ready for checkout via ' + (deliveryMethod.value === 'mobile' ? 'mobile transfer' : 'will call') + '.';
+    }
+  }
+
+  function openPreview(source){
+    var qty = Number(gaQty.value || 0);
+    var subtotal = qty * 79;
+    var fees = qty * 18.5;
+    modalBody.textContent = source === 'ga'
+      ? ('Previewing ' + qty + ' General Admission ticket' + (qty>1?'s':'') + '. Subtotal ' + money(subtotal) + ', fees ' + money(fees) + ', estimated total ' + money(subtotal + fees) + '.')
+      : ('Current summary total is ' + summaryTotal.textContent + ' with ' + summaryTickets.textContent + ' ticket(s).');
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+  }
+
+  function closePreview(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+  }
+
+  if(primaryBtn){
+    primaryBtn.addEventListener('click', function(){
+      selected = 'ga';
+      gaQty.value = '2';
+      recalc();
+      smoke.textContent = 'Added 2 General Admission tickets for Neon Pulse.';
+      window.__scenarioSmoke = { lastAction: 'Selected Neon Pulse GA x2', updatedAt: Date.now() };
+    });
+  }
+
+  gaQty.addEventListener('change', function(){
+    if(selected === 'ga'){ recalc(); }
+  });
+  buyerEmail.addEventListener('input', validate);
+  agreeTerms.addEventListener('change', validate);
+  deliveryMethod.addEventListener('change', validate);
+
+  document.querySelectorAll('[data-preview]').forEach(function(btn){
+    btn.addEventListener('click', function(){ openPreview(btn.getAttribute('data-preview')); });
+  });
+  closeModal.addEventListener('click', closePreview);
+  overlay.addEventListener('click', closePreview);
+
+  checkoutBtn.addEventListener('click', function(){
+    if(checkoutBtn.disabled) return;
+    smoke.textContent = 'Checkout started for Neon Pulse GA order.';
+    window.__scenarioSmoke = { lastAction: 'Checkout started after GA selection', updatedAt: Date.now() };
+    checkoutHint.textContent = 'Processing secure checkout…';
+    checkoutHint.style.background = '#ecfdf5';
+    checkoutHint.style.borderColor = '#86efac';
+    checkoutHint.style.color = '#166534';
+  });
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.getElementById('cookieBanner').style.display = 'none';
+    });
+  });
+
+  setInterval(function(){
+    timerSeconds = Math.max(0, timerSeconds - 1);
+    var m = String(Math.floor(timerSeconds / 60)).padStart(2,'0');
+    var s = String(timerSeconds % 60).padStart(2,'0');
+    holdTimer.textContent = m + ':' + s;
+  },1000);
+
+  recalc();
+  validate();
+  window.__scenarioSmoke = { lastAction: 'page_ready', updatedAt: Date.now() };
+})();
+</script></div></body></html>

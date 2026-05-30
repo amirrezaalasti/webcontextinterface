@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>TaxEase</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>TaxEase — Income Import</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -7,45 +7,39 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
-
-.tx-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
-.tx-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.tx-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+:root{--tx-primary:hsl(330 72% 46%);--tx-primary-dark:hsl(330 72% 38%);--tx-bg:#f1f5f9;--tx-card:#fff;--tx-line:#e2e8f0;--tx-text:#0f172a;--tx-muted:#64748b;--tx-success:#166534;--tx-success-bg:#dcfce7;--tx-warn:#92400e;--tx-warn-bg:#fff7ed;--tx-info:#1d4ed8;--tx-info-bg:#dbeafe}
+.tx-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:var(--tx-text);background:var(--tx-bg);min-height:100vh}
+.tx-hdr{background:#fff;border-bottom:1px solid var(--tx-line);box-shadow:0 1px 2px rgba(15,23,42,.04);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:20}
+.tx-brand{display:flex;align-items:center;gap:10px}
+.tx-brand__logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--tx-primary),#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700}
+.tx-brand small{display:block;color:var(--tx-muted);font-size:11px}
 .tx-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
-.tx-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.tx-nav a{color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .tx-nav a:hover{background:#f1f5f9;color:#0f172a}
 .tx-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.tx-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
+.tx-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid var(--tx-line)}
 .tx-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .tx-subnav a:hover{background:#f8fafc;color:#334155}
 .tx-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.tx-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
-@media(max-width:900px){.tx-page-wrap{grid-template-columns:1fr}}
+.tx-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid var(--tx-line)}
+@media(max-width:980px){.tx-page-wrap{grid-template-columns:1fr}}
 .tx-page-main{padding:20px 24px 32px;min-height:42vh}
-.tx-page-main>h1,.tx-page-main [role=main]>h1,.tx-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.tx-page-main h1{font-size:28px;font-weight:700;margin:0 0 10px;color:#0f172a}
 .tx-page-main h2,.tx-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.tx-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.tx-page-main p{margin:0 0 10px;color:#475569;max-width:70ch}
 .tx-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.tx-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tx-page-main select,.tx-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
-.tx-page-main input:focus,.tx-page-main select:focus,.tx-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
-.tx-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.tx-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tx-page-main select,.tx-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.tx-page-main input:focus,.tx-page-main select:focus,.tx-page-main textarea:focus{outline:2px solid var(--tx-primary);outline-offset:1px;border-color:var(--tx-primary)}
+.tx-page-main fieldset{border:1px solid var(--tx-line);border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .tx-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
 .tx-page-main table{width:100%;margin:12px 0;font-size:13px}
-.tx-page-main th,.tx-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.tx-page-main th,.tx-page-main td{padding:10px 12px;border-bottom:1px solid var(--tx-line);text-align:left;vertical-align:top}
 .tx-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.tx-page-main tr:hover td{background:#fafafa}
-.tx-page-main article,.tx-page-main .tx-card,.tx-page-main .tx-resto,.tx-page-main .tx-slot,.tx-page-main .tx-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.tx-page-main ul:not([class]){list-style:none;padding:0}
-.tx-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.tx-page-main ul:not([class]) li:hover{background:#f8fafc}
-.tx-page-main dialog,.tx-page-main .tx-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.tx-page-main .tx-modal.is-open,.tx-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.tx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.tx-page-main article,.tx-page-main .tx-card,.tx-page-main .tx-slot,.tx-page-main .tx-tile{border:1px solid var(--tx-line);border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.tx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .tx-btn:hover{background:#f8fafc}
-.tx-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
+.tx-btn:active{transform:translateY(1px)}
+.tx-btn--primary{background:var(--tx-primary);color:#fff;border-color:var(--tx-primary-dark)}
 .tx-btn--primary:hover{filter:brightness(1.05)}
 .tx-btn--ghost{background:transparent;border-color:transparent;color:#475569}
 .tx-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
@@ -54,65 +48,242 @@ table{border-collapse:collapse}
 .tx-btn:disabled{opacity:.5;cursor:not-allowed}
 .tx-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .tx-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.tx-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.tx-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.tx-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:88px}
+@media(min-width:981px){.tx-rail{border-left:1px solid var(--tx-line);border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .tx-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .tx-rail a{color:#b45309;font-weight:500}
-.tx-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.tx-ftr{padding:16px 20px;border-top:1px solid var(--tx-line);font-size:12px;color:#64748b;background:#fff}
 .tx-ftr a{color:#475569;margin-right:8px}
-.tx-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.tx-filler{padding:12px 20px;border-top:1px dashed var(--tx-line);background:#fafafa}
 .tx-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .tx-ab{display:none!important}
-.tx-layout{display:grid;gap:16px;align-items:start}
-.tx-filters,.tx-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.tx-filters h2,.tx-frame aside h2{font-size:14px;margin:0 0 10px}
-.tx-card__actions,.tx-slot__actions,.tx-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.tx-wizard{max-width:760px}
-.tx-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.tx-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.tx-step.is-active{background:hsl(330 72% 46%);color:#fff}
-.tx-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.tx-hero{border-radius:12px;margin-bottom:8px}
-.tx-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.tx-grid{display:grid;gap:14px}
-.tx-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.tx-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.tx-patient{border-radius:10px}
-.tx-slots{display:grid;gap:10px}
-.tx-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.tx-cell{background:#fff;padding:8px;min-height:44px}
-.tx-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.tx-diff{border-radius:8px}
-.tx-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.tx-wizard{max-width:720px;margin:24px auto}.tx-steps{display:flex;gap:8px;margin-bottom:24px}.tx-step{flex:1;padding:8px;background:#e5e7eb;text-align:center}.tx-step.is-active{background:#3b82f6;color:#fff}.tx-panel{border:1px solid #d1d5db;padding:20px}</style></head><body>
-<div class="tx-app" data-page="tax-filing"><div class="tx-cookie" role="dialog" aria-label="Cookie preferences">
+.tx-wizard{max-width:860px;margin:24px auto}
+.tx-wizard-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px}
+.tx-progress{min-width:240px;max-width:320px;width:100%}
+.tx-progress__bar{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.tx-progress__fill{height:100%;width:50%;background:linear-gradient(90deg,var(--tx-primary),#fb7185)}
+.tx-progress__meta{display:flex;justify-content:space-between;font-size:12px;color:var(--tx-muted);margin-top:6px}
+.tx-steps{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tx-step{flex:1;min-width:110px;padding:10px 8px;background:#e5e7eb;text-align:center;border-radius:8px;font-size:12px;font-weight:600;color:#64748b}
+.tx-step.is-active{background:var(--tx-primary);color:#fff}
+.tx-step.is-complete{background:#dcfce7;color:#166534}
+.tx-panel{border:1px solid #d1d5db;padding:20px;border-radius:12px;background:#fff}
+.tx-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+@media(max-width:800px){.tx-layout{grid-template-columns:1fr}}
+.tx-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.tx-badge--info{background:var(--tx-info-bg);color:var(--tx-info)}
+.tx-badge--success{background:var(--tx-success-bg);color:var(--tx-success)}
+.tx-badge--warn{background:var(--tx-warn-bg);color:var(--tx-warn)}
+.tx-stack{display:grid;gap:12px}
+.tx-option{border:1px solid var(--tx-line);border-radius:12px;padding:16px;background:#fff}
+.tx-option.is-selected{border-color:var(--tx-primary);box-shadow:0 0 0 3px rgba(190,24,93,.08)}
+.tx-option__top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.tx-option__desc{font-size:13px;color:#64748b}
+.tx-checklist{list-style:none;padding:0;margin:10px 0 0}
+.tx-checklist li{padding:6px 0;color:#334155}
+.tx-inline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tx-note{padding:10px 12px;border-radius:10px;background:#f8fafc;border:1px solid var(--tx-line);color:#334155;font-size:13px}
+.tx-alert{padding:10px 12px;border-radius:10px;border:1px solid #fecaca;background:#fef2f2;color:#991b1b;font-size:13px;display:none}
+.tx-alert.is-visible{display:block}
+.tx-status-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.tx-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.tx-kpis{grid-template-columns:1fr}}
+.tx-kpi{border:1px solid var(--tx-line);background:#f8fafc;border-radius:10px;padding:12px}
+.tx-kpi strong{display:block;font-size:20px;color:#0f172a}
+.tx-provider-list{display:grid;gap:10px}
+.tx-provider{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border:1px solid var(--tx-line);border-radius:10px;background:#fff}
+.tx-provider small{display:block;color:var(--tx-muted)}
+.tx-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.tx-modal-backdrop.is-open{display:block}
+.tx-modal{display:none;position:fixed;inset:10% 50% auto 50%;transform:translateX(-50%);width:min(92vw,560px);z-index:60;border:1px solid var(--tx-line);border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.18)}
+.tx-modal.is-open{display:block}
+.tx-modal h3{margin-top:0}
+.tx-modal__actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tx-smoke{margin-top:12px;padding:10px 12px;border-radius:10px;border:1px dashed #cbd5e1;background:#f8fafc;color:#334155;font-size:13px}
+.tx-preview{background:#fafafa;border:1px dashed var(--tx-line);border-radius:10px;padding:12px}
+.tx-muted{color:var(--tx-muted)}
+.tx-hidden{display:none!important}
+</style></head><body>
+<div class="tx-app" data-page="tax-filing" id="tax_filing-page"><div class="tx-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="tx-btn tx-btn--muted">Reject non-essential</button>
-  <button type="button" class="tx-btn tx-btn--primary">Accept all</button>
-  <button type="button" class="tx-btn tx-btn--ghost">Customize</button>
+  <button type="button" class="tx-btn tx-btn--muted" id="cookie-reject">Reject non-essential</button>
+  <button type="button" class="tx-btn tx-btn--primary" id="cookie-accept">Accept all</button>
+  <button type="button" class="tx-btn tx-btn--ghost" id="cookie-customize">Customize</button>
 </div><div class="tx-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="tx-btn tx-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="tx-btn">Continue as guest — express</button>
 </div><header class="tx-hdr">
-  <nav class="tx-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="tx-brand"><div class="tx-brand__logo">T</div><div><strong>TaxEase</strong><small>Federal return • 2025 filing season</small></div></div>
+  <nav class="tx-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="#income-step">Income</a></nav>
   <div class="tx-hdr-promo">
+    <span class="tx-badge tx-badge--info">Auto-save on</span>
     <button type="button" class="tx-btn tx-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="tx-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="tx-subnav" aria-label="Secondary"><a href="#summary-card">Overview</a><a href="#provider-card">Provider links</a><a href="#manual-entry-card">Manual entry</a><a href="#activity-card">Recent activity</a><a href="#support-card">Support</a>
   <button type="button" class="tx-btn tx-btn--ghost">Submit</button>
   <button type="button" class="tx-btn tx-btn--ghost">Continue</button>
 </nav><div class="tx-dup-row" aria-label="Quick actions">
   <button type="button" class="tx-btn tx-btn--ghost">Submit</button>
   <button type="button" class="tx-btn tx-btn--ghost">Continue</button>
-  <button type="button" class="tx-btn tx-btn--ghost">Save changes</button>
+  <button type="button" class="tx-btn tx-btn--ghost" id="save-draft">Save changes</button>
   <button type="button" class="tx-btn tx-btn--ghost">Confirm</button>
-</div><div class="tx-dup-row"><button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-promo">Import W-2 from ADP</button><button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-nav">Import W-2 ADP payroll</button></div><div class="tx-page-wrap"><div class="tx-page-main"><div class="tx-wizard" role="main"><nav class="tx-steps" aria-label="Progress"><div class="tx-step">Personal</div>
+</div><div class="tx-dup-row"><button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-promo">Import W-2 from ADP</button><button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-nav">Import W-2 ADP payroll</button><button type="button" class="tx-btn tx-btn--decoy">ADP tax article</button></div><div class="tx-page-wrap"><div class="tx-page-main"><div class="tx-wizard" role="main" id="income-step"><div class="tx-wizard-head"><div><h1>Income — W-2 import</h1><p>Bring in your wage and withholding information from a payroll provider or continue with manual entry. Imported forms are reviewed before being added to your return.</p></div><div class="tx-progress" aria-label="Filing progress"><div class="tx-progress__bar"><div class="tx-progress__fill" id="progress-fill"></div></div><div class="tx-progress__meta"><span id="progress-label">Step 2 of 4</span><span id="completion-label">50% complete</span></div></div></div><nav class="tx-steps" aria-label="Progress"><div class="tx-step is-complete">Personal</div>
 <div class="tx-step is-active">Income</div><div class="tx-step">Deductions</div><div class="tx-step">Review</div></nav>
-<section class="tx-panel"><h1>Income — W-2</h1><p>Payroll import or manual.</p>
-<button type="button" class="tx-btn tx-btn--ghost" data-decoy="decoy-nav">Enter manually</button>
-<button type="button" class="tx-btn tx-btn--primary" data-provider="ADP" data-form="W2">Confirm</button>
-<input type="file" style="display:none" /></section></div></div><aside class="tx-rail tx-rail--ads" aria-label="Sponsored">
+<section class="tx-panel" id="summary-card"><div class="tx-status-row"><span class="tx-badge tx-badge--warn" id="income-status-badge">Action needed</span><span class="tx-muted">No W-2 imported yet</span></div><div class="tx-kpis" aria-label="Return summary"><div class="tx-kpi"><span class="tx-muted">Imported forms</span><strong id="imported-count">0</strong></div><div class="tx-kpi"><span class="tx-muted">Manual forms</span><strong id="manual-count">0</strong></div><div class="tx-kpi"><span class="tx-muted">Draft saves</span><strong id="draft-count">1</strong></div></div><div class="tx-layout"><div class="tx-stack">
+  <article class="tx-card" id="provider-card"><div class="tx-option is-selected" id="adp-option"><div class="tx-option__top"><div><h2 style="margin:0 0 4px">Import from payroll provider</h2><div class="tx-option__desc">Recommended for faster filing and fewer entry errors. Connect to your provider to retrieve your W-2 securely.</div></div><span class="tx-badge tx-badge--info">Recommended</span></div>
+    <div class="tx-provider-list" style="margin-top:12px">
+      <div class="tx-provider"><div><strong>ADP</strong><small>Payroll import • W-2 supported • Usually available within 2 minutes</small></div><div class="tx-inline"><button type="button" class="tx-btn tx-btn--ghost">Provider info</button><button type="button" class="tx-btn tx-btn--primary" data-provider="ADP" data-form="W2" id="import-w2-adp">Import from ADP</button></div></div>
+      <div class="tx-provider"><div><strong>Workday</strong><small>Payroll import • This employer not yet linked</small></div><button type="button" class="tx-btn">Connect</button></div>
+      <div class="tx-provider"><div><strong>Paychex</strong><small>Import supported for selected employers</small></div><button type="button" class="tx-btn">Connect</button></div>
+    </div>
+    <ul class="tx-checklist"><li>✓ Pulls employer name, EIN, wages, and withholding</li><li>✓ Lets you review imported values before finalizing</li><li>✓ Avoids duplicate manual entry on this step</li></ul>
+    <div class="tx-smoke" id="tax-filing-smoke-status" data-smoke-status>Ready to import W-2 from a provider.</div>
+    <div class="tx-alert" id="provider-error" aria-live="polite">Please acknowledge the authorization statement before importing from ADP.</div>
+    <fieldset><legend>Import authorization</legend><label class="tx-inline" style="margin:0"><input type="checkbox" id="consent-checkbox"/> <span>I authorize TaxEase to request my W-2 from the selected payroll provider for this return.</span></label><label for="ssn-last4">Confirm last 4 digits of SSN</label><input id="ssn-last4" inputmode="numeric" maxlength="4" placeholder="1234" aria-describedby="ssn-help"/><div id="ssn-help" class="tx-muted">Used only to match your provider account. Must be 4 digits.</div></fieldset>
+    <div class="tx-inline"><button type="button" class="tx-btn tx-btn--ghost" data-decoy="decoy-nav">Enter manually</button><button type="button" class="tx-btn" id="preview-import" disabled>Preview mapped fields</button></div>
+  </article>
+  <article class="tx-card" id="manual-entry-card"><h2>Manual entry</h2><p>If your payroll provider is unavailable, you can type your W-2 by hand. You can still switch back to provider import later, but manually entered values will not be imported automatically.</p><label class="tx-inline" style="margin:0"><input type="radio" name="entryMode" value="import" checked/> <span>Use payroll import</span></label><label class="tx-inline" style="margin:6px 0 0"><input type="radio" name="entryMode" value="manual"/> <span>Enter W-2 manually</span></label><div class="tx-note" id="entry-mode-note">Current mode: payroll import selected.</div><div class="tx-preview tx-hidden" id="manual-fields"><label for="employer-name">Employer name</label><input id="employer-name" placeholder="Employer Inc."/><label for="wages">Box 1 wages</label><input id="wages" inputmode="decimal" placeholder="0.00"/><button type="button" class="tx-btn" id="manual-add-btn">Add manual W-2</button></div></article>
+  <article class="tx-card" id="activity-card"><h2>Recent activity</h2><table aria-label="Recent import activity"><thead><tr><th>Time</th><th>Event</th><th>Status</th></tr></thead><tbody id="activity-log"><tr><td>Today</td><td>Income step opened</td><td><span class="tx-badge tx-badge--info">In progress</span></td></tr><tr><td>Earlier</td><td>Profile auto-saved</td><td><span class="tx-badge tx-badge--success">Saved</span></td></tr></tbody></table></article>
+</div><div class="tx-stack">
+  <article class="tx-card"><h3 style="margin-top:0">Import preview</h3><div class="tx-preview" id="import-preview"><p class="tx-muted">No provider data loaded yet. After connecting to ADP, previewed W-2 values will appear here.</p></div></article>
+  <article class="tx-card" id="support-card"><h3 style="margin-top:0">Need help choosing?</h3><p>Use payroll import if your employer uses ADP and your W-2 is already available. Choose manual entry only when you have a paper W-2 and cannot connect to your provider.</p><button type="button" class="tx-btn">Read import FAQ</button><button type="button" class="tx-btn tx-btn--ghost">Chat with support</button></article>
+</div></div><div class="tx-toolbar" style="margin-top:16px;border-radius:10px;border:1px solid var(--tx-line)"><strong style="margin-right:auto">Step actions</strong><button type="button" class="tx-btn tx-btn--ghost">Back</button><button type="button" class="tx-btn" id="next-step" disabled>Continue to deductions</button></div></section></div></div><aside class="tx-rail tx-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Tax prep discount partners and payroll education resources may appear here while you file.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <article class="tx-card" style="margin-top:14px"><h3 style="margin-top:0">Provider tips</h3><ul style="padding-left:18px;margin:0"><li>ADP imports usually include federal withholding.</li><li>Review each imported box before filing.</li><li>Do not duplicate the same W-2 manually.</li></ul></article>
 </aside></div><div class="tx-filler" aria-hidden="true"><div class="tx-filler-inner"><a href="/misc/0" class="tx-btn tx-btn--ghost">Link 1</a><button type="button" class="tx-btn tx-btn--ghost">Action 2</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/4" class="tx-btn tx-btn--ghost">Link 5</a><button type="button" class="tx-btn tx-btn--ghost">Action 6</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/8" class="tx-btn tx-btn--ghost">Link 9</a><button type="button" class="tx-btn tx-btn--ghost">Action 10</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/12" class="tx-btn tx-btn--ghost">Link 13</a><button type="button" class="tx-btn tx-btn--ghost">Action 14</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/16" class="tx-btn tx-btn--ghost">Link 17</a><button type="button" class="tx-btn tx-btn--ghost">Action 18</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/20" class="tx-btn tx-btn--ghost">Link 21</a><button type="button" class="tx-btn tx-btn--ghost">Action 22</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/24" class="tx-btn tx-btn--ghost">Link 25</a><button type="button" class="tx-btn tx-btn--ghost">Action 26</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/28" class="tx-btn tx-btn--ghost">Link 29</a><button type="button" class="tx-btn tx-btn--ghost">Action 30</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/32" class="tx-btn tx-btn--ghost">Link 33</a><button type="button" class="tx-btn tx-btn--ghost">Action 34</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/36" class="tx-btn tx-btn--ghost">Link 37</a><button type="button" class="tx-btn tx-btn--ghost">Action 38</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button><a href="/misc/40" class="tx-btn tx-btn--ghost">Link 41</a><button type="button" class="tx-btn tx-btn--ghost">Action 42</button><button type="button" class="tx-btn tx-btn--ghost">Submit</button><button type="button" class="tx-btn tx-btn--ghost">Continue</button></div></div><button type="button" class="tx-btn tx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tx-ftr"><small>© Demo TaxEase</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="tx-modal-backdrop" id="modal-backdrop"></div>
+<div class="tx-modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+  <h3 id="preview-title">Mapped W-2 fields from ADP</h3>
+  <p>These values are a preview only. Continue to add them to your return after verifying they match your records.</p>
+  <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Employer</td><td>North Ridge Logistics LLC</td></tr><tr><td>EIN</td><td>12-3456789</td></tr><tr><td>Box 1 wages</td><td>$68,420.51</td></tr><tr><td>Federal withholding</td><td>$8,764.20</td></tr></tbody></table>
+  <div class="tx-modal__actions"><button type="button" class="tx-btn" id="close-preview">Close</button></div>
+</div>
+<script>
+(function(){
+  var smoke=document.getElementById('tax-filing-smoke-status');
+  var consent=document.getElementById('consent-checkbox');
+  var ssn=document.getElementById('ssn-last4');
+  var importBtn=document.querySelector('button[data-provider="ADP"][data-form="W2"]');
+  var previewBtn=document.getElementById('preview-import');
+  var providerError=document.getElementById('provider-error');
+  var importedCount=document.getElementById('imported-count');
+  var manualCount=document.getElementById('manual-count');
+  var incomeBadge=document.getElementById('income-status-badge');
+  var nextStep=document.getElementById('next-step');
+  var importPreview=document.getElementById('import-preview');
+  var activityLog=document.getElementById('activity-log');
+  var draftCount=document.getElementById('draft-count');
+  var progressFill=document.getElementById('progress-fill');
+  var completionLabel=document.getElementById('completion-label');
+  var entryModeNote=document.getElementById('entry-mode-note');
+  var manualFields=document.getElementById('manual-fields');
+  var manualAddBtn=document.getElementById('manual-add-btn');
+  var employerName=document.getElementById('employer-name');
+  var wages=document.getElementById('wages');
+  var modal=document.getElementById('preview-modal');
+  var backdrop=document.getElementById('modal-backdrop');
+  var closePreview=document.getElementById('close-preview');
+  var cookieBanner=document.getElementById('cookie-banner');
+
+  function nowString(){
+    return new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+  }
+
+  function setSmoke(text, action){
+    smoke.textContent=text;
+    window.__scenarioSmoke={lastAction:action,updatedAt:Date.now()};
+  }
+
+  function validSsn(){
+    return /^\d{4}$/.test(ssn.value.trim());
+  }
+
+  function updateControls(){
+    var ok=consent.checked && validSsn();
+    previewBtn.disabled=!ok;
+    if(providerError.classList.contains('is-visible') && ok){providerError.classList.remove('is-visible');}
+  }
+
+  function addActivity(eventText,statusText,statusClass){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>'+nowString()+'</td><td>'+eventText+'</td><td><span class="tx-badge '+statusClass+'">'+statusText+'</span></td>';
+    activityLog.insertBefore(tr,activityLog.firstChild);
+  }
+
+  consent.addEventListener('change',updateControls);
+  ssn.addEventListener('input',function(){
+    ssn.value=ssn.value.replace(/\D+/g,'').slice(0,4);
+    updateControls();
+  });
+
+  importBtn.addEventListener('click',function(){
+    if(!consent.checked || !validSsn()){
+      providerError.classList.add('is-visible');
+      setSmoke('Import blocked: authorization statement or SSN confirmation is incomplete.','blocked-adp-import');
+      addActivity('ADP import attempted without required authorization','Blocked','tx-badge--warn');
+      return;
+    }
+    importedCount.textContent='1';
+    incomeBadge.textContent='Imported';
+    incomeBadge.className='tx-badge tx-badge--success';
+    nextStep.disabled=false;
+    progressFill.style.width='75%';
+    completionLabel.textContent='75% complete';
+    importPreview.innerHTML='<p><strong>ADP import ready.</strong></p><p>Employer: North Ridge Logistics LLC</p><p>W-2 wages: $68,420.51</p><p>Federal withholding: $8,764.20</p>';
+    setSmoke('ADP W-2 import started and preview loaded.','imported-w2-from-adp');
+    addActivity('ADP W-2 import started','Imported','tx-badge--success');
+  });
+
+  previewBtn.addEventListener('click',function(){
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    setSmoke('Opened ADP W-2 field mapping preview.','preview-adp-w2');
+  });
+
+  function closeModal(){modal.classList.remove('is-open');backdrop.classList.remove('is-open');}
+  closePreview.addEventListener('click',closeModal);
+  backdrop.addEventListener('click',closeModal);
+
+  document.querySelectorAll('input[name="entryMode"]').forEach(function(radio){
+    radio.addEventListener('change',function(){
+      if(this.value==='manual'){
+        manualFields.classList.remove('tx-hidden');
+        entryModeNote.textContent='Current mode: manual entry selected. Imported data will not be added unless you switch back.';
+        addActivity('Switched to manual W-2 mode','Updated','tx-badge--info');
+      }else{
+        manualFields.classList.add('tx-hidden');
+        entryModeNote.textContent='Current mode: payroll import selected.';
+        addActivity('Switched to payroll import mode','Updated','tx-badge--info');
+      }
+    });
+  });
+
+  manualAddBtn.addEventListener('click',function(){
+    if(!employerName.value.trim() || !wages.value.trim()){
+      entryModeNote.textContent='Enter an employer name and wages before adding a manual W-2.';
+      return;
+    }
+    manualCount.textContent=String(Number(manualCount.textContent||'0')+1);
+    entryModeNote.textContent='Manual W-2 added for '+employerName.value.trim()+'.';
+    addActivity('Manual W-2 added for '+employerName.value.trim(),'Saved','tx-badge--success');
+  });
+
+  document.getElementById('save-draft').addEventListener('click',function(){
+    draftCount.textContent=String(Number(draftCount.textContent||'0')+1);
+    addActivity('Draft saved on income step','Saved','tx-badge--success');
+    setSmoke('Income step draft saved.','saved-income-draft');
+  });
+
+  ['cookie-accept','cookie-reject','cookie-customize'].forEach(function(id){
+    document.getElementById(id).addEventListener('click',function(){
+      cookieBanner.style.display='none';
+    });
+  });
+
+  window.__scenarioSmoke={lastAction:'page-loaded',updatedAt:Date.now()};
+})();
+</script>
+</body></html>

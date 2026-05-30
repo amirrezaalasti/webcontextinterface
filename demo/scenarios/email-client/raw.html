@@ -7,19 +7,17 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
-
-:root{--bg:#f1f5f9;--panel:#fff;--line:#e2e8f0;--muted:#64748b;--text:#0f172a;--accent:hsl(262 72% 46%);--accent2:hsl(262 72% 38%)}
+:root{--bg:#f1f5f9;--panel:#fff;--line:#e2e8f0;--muted:#64748b;--text:#0f172a;--accent:hsl(262 72% 46%);--accent2:hsl(262 72% 38%);--success:#166534;--successBg:#dcfce7;--warn:#92400e;--warnBg:#fef3c7;--danger:#991b1b;--dangerBg:#fee2e2}
 .ip-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:100vh}
 .ip-skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .ip-skip:focus{left:16px;top:12px;width:auto;height:auto;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;z-index:1000}
-.ip-hdr{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.ip-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.ip-hdr{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.04);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
 .ip-brand{display:flex;align-items:center;gap:10px;min-width:220px}
 .ip-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:0 6px 18px rgba(124,58,237,.24)}
 .ip-brand h1{font-size:16px;line-height:1.1;margin:0}
 .ip-brand p{margin:0;color:var(--muted);font-size:12px}
 .ip-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
-.ip-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.ip-nav a{color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .ip-nav a:hover{background:#f1f5f9;color:#0f172a}
 .ip-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .ip-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:600;border:1px solid #dbeafe}
@@ -27,29 +25,23 @@ table{border-collapse:collapse}
 .ip-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ip-subnav a:hover{background:#f8fafc;color:#334155}
 .ip-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ip-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,280px);gap:0;align-items:start;background:#fff;border-top:1px solid var(--line)}
-@media(max-width:900px){.ip-page-wrap{grid-template-columns:1fr}}
+.ip-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid var(--line)}
+@media(max-width:980px){.ip-page-wrap{grid-template-columns:1fr}}
 .ip-page-main{padding:20px 24px 32px;min-height:42vh}
-.ip-page-main>h1,.ip-page-main [role=main]>h1,.ip-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
+.ip-page-main h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ip-page-main h2,.ip-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.ip-page-main p{margin:0 0 10px;color:#475569;max-width:70ch}
+.ip-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .ip-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
 .ip-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ip-page-main select,.ip-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ip-page-main input:focus,.ip-page-main select:focus,.ip-page-main textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
-.ip-page-main fieldset{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
-.ip-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
 .ip-page-main table{width:100%;margin:12px 0;font-size:13px}
 .ip-page-main th,.ip-page-main td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 .ip-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ip-page-main tr:hover td{background:#fafafa}
-.ip-page-main article,.ip-page-main .ip-card,.ip-page-main .ip-resto,.ip-page-main .ip-slot,.ip-page-main .ip-tile,.ip-panel{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.ip-page-main ul:not([class]){list-style:none;padding:0}
-.ip-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.ip-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ip-page-main dialog,.ip-page-main .ip-modal{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ip-page-main .ip-modal.is-open,.ip-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.ip-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ip-panel{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ip-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .08s}
 .ip-btn:hover{background:#f8fafc}
+.ip-btn:active{transform:translateY(1px)}
 .ip-btn--primary{background:var(--accent);color:#fff;border-color:var(--accent2)}
 .ip-btn--primary:hover{filter:brightness(1.05)}
 .ip-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -60,8 +52,8 @@ table{border-collapse:collapse}
 .ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .ip-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
 .ip-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.ip-rail{border-left:1px solid var(--line);border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
-.ip-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
+@media(min-width:981px){.ip-rail{border-left:1px solid var(--line);border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.ip-rail strong{display:block;margin-bottom:8px}
 .ip-rail a{color:#b45309;font-weight:500}
 .ip-ftr{padding:16px 20px;border-top:1px solid var(--line);font-size:12px;color:#64748b;background:#fff}
 .ip-ftr a{color:#475569;margin-right:8px}
@@ -69,35 +61,54 @@ table{border-collapse:collapse}
 .ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .ip-ab{display:none!important}
 .ip-layout{display:grid;gap:16px;align-items:start}
-.ip-filters,.ip-frame aside:first-child{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px}
-.ip-filters h2,.ip-frame aside h2{font-size:14px;margin:0 0 10px}
-.ip-card__actions,.ip-slot__actions,.ip-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ip-wizard{max-width:760px}
-.ip-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.ip-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.ip-step.is-active{background:var(--accent);color:#fff}
-.ip-panel{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff}
-.ip-hero{border-radius:12px;margin-bottom:8px}
 .ip-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.ip-grid{display:grid;gap:14px}
-.ip-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
 .ip-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ip-patient{border-radius:10px}
-.ip-slots{display:grid;gap:10px}
-.ip-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ip-cell{background:#fff;padding:8px;min-height:44px}
-.ip-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ip-diff{border-radius:8px}
-.ip-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid var(--line);border-bottom:none}
-.ip-frame{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(220px,280px);min-height:55vh;gap:0}.ip-frame>aside:first-child{padding:14px;border-right:1px solid var(--line);background:#f8fafc}.ip-pane{border-left:1px solid var(--line);padding:16px;background:#fafafa}.ip-mailbox{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}.ip-mailbox h1{margin:0;font-size:22px}.ip-mailbox__meta{color:var(--muted);font-size:12px}.ip-search{display:flex;gap:8px;align-items:center;margin:12px 0 14px}.ip-search input{max-width:unset;flex:1}.ip-list{width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.ip-list td,.ip-list th{padding:11px 12px}.ip-chip{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#e2e8f0;color:#334155;margin-right:6px}.ip-chip--unread{background:#dbeafe;color:#1d4ed8}.ip-chip--secure{background:#dcfce7;color:#166534}.ip-thread-preview{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}.ip-thread-preview h2{margin-top:0}.ip-thread-meta{display:grid;gap:4px;font-size:13px;color:#334155}.ip-muted{color:var(--muted)}
+.ip-inbox tr.is-selected td{outline:2px solid #c4b5fd;outline-offset:-2px}
+.ip-inbox tr.is-archived td{background:#f8fafc;color:#94a3b8;text-decoration:line-through}
+.ip-list{width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.ip-chip{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#e2e8f0;color:#334155;margin-right:6px}
+.ip-chip--unread{background:#dbeafe;color:#1d4ed8}
+.ip-chip--secure{background:#dcfce7;color:#166534}
+.ip-chip--archived{background:#e2e8f0;color:#475569}
+.ip-thread-preview{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}
+.ip-thread-preview h2{margin-top:0}
+.ip-thread-meta{display:grid;gap:4px;font-size:13px;color:#334155}
+.ip-muted{color:var(--muted)}
+.ip-frame{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(230px,300px);min-height:55vh;gap:0}
+@media(max-width:1100px){.ip-frame{grid-template-columns:1fr}.ip-frame>aside:first-child,.ip-pane{border-left:none!important;border-right:none!important}}
+.ip-frame>aside:first-child{padding:14px;border-right:1px solid var(--line);background:#f8fafc;border-radius:12px 0 0 12px}
+.ip-pane{border-left:1px solid var(--line);padding:16px;background:#fafafa;border-radius:0 12px 12px 0}
+.ip-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center;background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid var(--line);border-bottom:none}
+.ip-toolbar-note{padding:10px 12px;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;background:#fff;font-size:12px;color:#64748b}
+.ip-stack{display:grid;gap:12px}
+.ip-status-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:16px}
+.ip-status-msg{font-size:13px;color:#334155}
+#email-client-smoke-status{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#ede9fe;color:#5b21b6;font-weight:600;font-size:12px}
+.ip-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:720px){.ip-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ .ip-kpi .ip-panel{margin:0}
+.ip-kpi strong{display:block;font-size:20px;color:#0f172a}
+.ip-kpi span{font-size:12px;color:#64748b}
+.ip-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;align-items:center;justify-content:center;z-index:150;padding:16px}
+.ip-modal-backdrop.is-open{display:flex}
+.ip-modal{width:min(100%,520px);background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;box-shadow:0 24px 48px rgba(15,23,42,.28)}
+.ip-modal h3{margin:0 0 8px}
+.ip-modal p{margin:0 0 12px}
+.ip-form-row{display:grid;gap:6px;margin:10px 0}
+.ip-help{font-size:12px;color:#64748b}
+.ip-error{font-size:12px;color:var(--danger);min-height:16px}
+.ip-banner{padding:10px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#eff6ff;color:#1e3a8a;font-size:13px}
+.ip-banner--success{border-color:#bbf7d0;background:var(--successBg);color:var(--success)}
+.ip-banner--warn{border-color:#fde68a;background:var(--warnBg);color:var(--warn)}
+.hidden{display:none!important}
 </style></head><body>
 <a class="ip-skip" href="#email_client-page">Skip to email list</a>
 <div class="ip-app" data-page="email-client" id="email_client-page" role="main" aria-label="InboxPro Mail application">
-  <div class="ip-cookie" role="dialog" aria-label="Cookie preferences">
+  <div class="ip-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-    <button type="button" class="ip-btn ip-btn--muted">Reject non-essential</button>
-    <button type="button" class="ip-btn ip-btn--primary">Accept all</button>
-    <button type="button" class="ip-btn ip-btn--ghost">Customize</button>
+    <button type="button" class="ip-btn ip-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+    <button type="button" class="ip-btn ip-btn--primary" data-cookie-action="accept">Accept all</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-cookie-action="customize">Customize</button>
   </div>
 
   <div class="ip-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
@@ -114,10 +125,10 @@ table{border-collapse:collapse}
       </div>
     </div>
     <nav class="ip-nav" aria-label="Global">
-      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a>
+      <a href="#">Home</a><a href="#">Help</a><a href="#">Blog</a><a href="#">Account</a>
     </nav>
     <div class="ip-hdr-promo">
-      <span class="ip-badge">3 new</span>
+      <span class="ip-badge" id="header-new-count">3 new</span>
       <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" id="decoy-promo">Claim Offer</button>
       <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-nav">Learn More</button>
     </div>
@@ -145,22 +156,35 @@ table{border-collapse:collapse}
 
   <div class="ip-page-wrap">
     <div class="ip-page-main">
+      <section class="ip-status-bar" aria-label="Mailbox status">
+        <div class="ip-status-msg">Finance priority inbox is active. Select an unread billing conversation to review archive tools.</div>
+        <div id="email-client-smoke-status" data-smoke-status>Idle · no archive action yet</div>
+      </section>
+
+      <section class="ip-kpi" aria-label="Mailbox counters">
+        <div class="ip-panel"><strong id="kpi-total">12</strong><span>Total conversations</span></div>
+        <div class="ip-panel"><strong id="kpi-unread">3</strong><span>Unread</span></div>
+        <div class="ip-panel"><strong id="kpi-finance">2</strong><span>Finance priority</span></div>
+        <div class="ip-panel"><strong id="kpi-archived">18</strong><span>Archived today</span></div>
+      </section>
+
       <div class="ip-mailbox">
         <div>
           <h1 id="inbox">Inbox</h1>
-          <div class="ip-mailbox__meta">12 conversations · 3 unread · Smart filter: finance priority</div>
+          <div class="ip-mailbox__meta"><span id="mailbox-count-text">12 conversations · 3 unread · Smart filter: finance priority</span></div>
         </div>
         <div>
-          <button type="button" class="ip-btn ip-btn--ghost">Refresh</button>
-          <button type="button" class="ip-btn ip-btn--ghost">Mark all read</button>
+          <button type="button" class="ip-btn ip-btn--ghost" id="refresh-mail">Refresh</button>
+          <button type="button" class="ip-btn ip-btn--ghost" id="mark-all-read">Mark all read</button>
         </div>
       </div>
 
       <div class="ip-search" role="search">
         <label class="ip-skip" for="mail-search">Search mail</label>
         <input id="mail-search" type="search" placeholder="Search sender, subject, tag, or thread" aria-label="Search mail"/>
-        <button type="button" class="ip-btn ip-btn--ghost">Search</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="search-btn">Search</button>
       </div>
+      <div class="ip-help" id="search-feedback">Tip: try “acme”, “invoice”, or “unread”.</div>
 
       <div class="ip-layout">
         <section class="ip-panel" aria-label="Mailbox folders">
@@ -171,10 +195,11 @@ table{border-collapse:collapse}
             <button type="button" class="ip-btn ip-btn--ghost">Archive</button>
             <button type="button" class="ip-btn ip-btn--ghost">Spam</button>
           </div>
+          <div class="ip-banner" id="selection-banner">Selected thread: billing@acme.com · unread finance reminder.</div>
         </section>
 
         <section class="ip-panel" aria-label="Mail list">
-          <table class="ip-inbox ip-list" role="grid" aria-label="Conversation list">
+          <table class="ip-inbox ip-list" role="grid" aria-label="Conversation list" id="conversation-table">
             <thead>
               <tr>
                 <th scope="col">From</th>
@@ -185,51 +210,66 @@ table{border-collapse:collapse}
               </tr>
             </thead>
             <tbody>
-              <tr data-thread="digest" data-domain="digest.com">
+              <tr data-thread="digest" data-domain="digest.com" data-category="digest" data-unread="false" tabindex="0">
                 <td>news@digest.com</td>
                 <td>Weekly roundup</td>
                 <td>Five updates you may have missed</td>
                 <td><span class="ip-chip">Digest</span></td>
                 <td>08:14</td>
               </tr>
-              <tr class="unread" data-thread="billing-acme" data-domain="acme.com" aria-selected="true">
+              <tr class="unread is-selected" data-thread="billing-acme" data-domain="acme.com" data-category="billing" data-unread="true" aria-selected="true" tabindex="0">
                 <td>billing@acme.com</td>
                 <td>Invoice #992 due today</td>
                 <td>Payment reminder for enterprise plan</td>
                 <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
                 <td>09:21</td>
               </tr>
-              <tr data-thread="social" data-domain="social.io">
+              <tr data-thread="social" data-domain="social.io" data-category="social" data-unread="false" tabindex="0">
                 <td>noreply@social.io</td>
                 <td>3 new mentions</td>
                 <td>Social notifications and reactions</td>
                 <td><span class="ip-chip">Social</span></td>
                 <td>09:40</td>
               </tr>
-              <tr data-thread="support" data-domain="helpdesk.net">
+              <tr data-thread="support" data-domain="helpdesk.net" data-category="support" data-unread="false" tabindex="0">
                 <td>support@helpdesk.net</td>
                 <td>Ticket update</td>
                 <td>We updated your case #1184</td>
                 <td><span class="ip-chip">Support</span></td>
                 <td>10:02</td>
               </tr>
+              <tr class="unread" data-thread="billing-contoso" data-domain="contoso.com" data-category="billing" data-unread="true" tabindex="0">
+                <td>billing@contoso.com</td>
+                <td>Card on file failed</td>
+                <td>Retry scheduled for tomorrow morning</td>
+                <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
+                <td>10:14</td>
+              </tr>
+              <tr class="unread" data-thread="digest-acme" data-domain="acme.com" data-category="digest" data-unread="true" tabindex="0">
+                <td>digest@acme.com</td>
+                <td>Monthly product digest</td>
+                <td>Feature highlights and release notes</td>
+                <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip">Digest</span></td>
+                <td>11:03</td>
+              </tr>
             </tbody>
           </table>
         </section>
 
-        <section class="ip-panel ip-thread-preview" aria-label="Selected message preview">
+        <section class="ip-panel ip-thread-preview" aria-label="Selected message preview" id="thread-preview">
           <h2>Selected thread</h2>
           <div class="ip-thread-meta">
-            <div><strong>Sender:</strong> billing@acme.com</div>
-            <div><strong>Domain:</strong> acme.com</div>
-            <div><strong>Status:</strong> Unread, finance priority</div>
-            <div><strong>Subject:</strong> Invoice #992 due today</div>
+            <div><strong>Sender:</strong> <span id="preview-sender">billing@acme.com</span></div>
+            <div><strong>Domain:</strong> <span id="preview-domain">acme.com</span></div>
+            <div><strong>Status:</strong> <span id="preview-status">Unread, finance priority</span></div>
+            <div><strong>Subject:</strong> <span id="preview-subject">Invoice #992 due today</span></div>
           </div>
-          <p>Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.</p>
+          <p id="preview-body">Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.</p>
+          <div class="ip-toolbar-note">Preview updates as you select rows from the list. The active row controls thread tools below.</div>
           <div class="ip-card__actions">
             <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
             <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Mark unread</button>
+            <button type="button" class="ip-btn ip-btn--ghost" id="toggle-read">Mark unread</button>
           </div>
         </section>
       </div>
@@ -251,13 +291,14 @@ table{border-collapse:collapse}
             <li>Mentions</li>
             <li>Attachments</li>
           </ul>
+          <div class="ip-banner ip-banner--warn" style="margin-top:12px">Note: sender domain alone is not enough. Avoid digest and social notifications when archiving.</div>
         </aside>
 
         <main aria-label="Conversation details">
           <article class="ip-panel">
             <h2>Thread details</h2>
-            <p><strong>billing@acme.com</strong> from <strong>acme.com</strong> is the active unread conversation. This is the thread to archive.</p>
-            <p class="ip-muted">Avoid digest and social notifications; they are separate rows with similar action wording.</p>
+            <p><strong id="details-sender">billing@acme.com</strong> from <strong id="details-domain">acme.com</strong> is the active unread conversation. This is the thread to archive.</p>
+            <p class="ip-muted" id="details-note">Avoid digest and social notifications; they are separate rows with similar action wording.</p>
             <div class="ip-toolbar" data-action-bar="thread-tools" aria-label="Thread tools">
               <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
               <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
@@ -265,16 +306,36 @@ table{border-collapse:collapse}
               <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-promo">Upgrade storage</button>
               <button type="button" class="ip-btn ip-btn--ghost">Archive</button>
             </div>
+            <div class="ip-toolbar-note" id="tools-feedback">Primary confirm archives the currently selected thread after a quick reason check.</div>
+          </article>
+
+          <article class="ip-panel ip-stack" aria-label="Archive checklist">
+            <h3>Archive checklist</h3>
+            <label for="archive-reason">Reason for archive</label>
+            <select id="archive-reason" aria-describedby="archive-reason-help archive-reason-error">
+              <option value="">Choose a reason</option>
+              <option value="processed">Invoice reviewed and filed</option>
+              <option value="duplicate">Duplicate billing reminder</option>
+              <option value="resolved">Issue resolved with sender</option>
+            </select>
+            <div class="ip-help" id="archive-reason-help">Required before confirming from thread tools.</div>
+            <div class="ip-error" id="archive-reason-error" aria-live="polite"></div>
+            <label><input type="checkbox" id="archive-attachments"/> Keep attachments available in archive</label>
           </article>
         </main>
 
         <aside class="ip-pane" aria-label="Context panel">
           <h2>Message</h2>
-          <p>Invoice attached. Please confirm receipt and archive this thread after review.</p>
+          <p id="context-message">Invoice attached. Please confirm receipt and archive this thread after review.</p>
           <div class="ip-panel" style="padding:12px;margin:12px 0 0">
-            <div><strong>Thread ID:</strong> billing-acme</div>
-            <div><strong>State:</strong> unread</div>
-            <div><strong>Channel:</strong> billing</div>
+            <div><strong>Thread ID:</strong> <span id="context-thread-id">billing-acme</span></div>
+            <div><strong>State:</strong> <span id="context-state">unread</span></div>
+            <div><strong>Channel:</strong> <span id="context-channel">billing</span></div>
+          </div>
+          <div class="ip-panel" style="padding:12px;margin:12px 0 0">
+            <div><strong>Assignee:</strong> Finance Ops Queue</div>
+            <div><strong>SLA:</strong> Respond within 4 business hours</div>
+            <div><strong>Retention:</strong> 18 months</div>
           </div>
         </aside>
       </div>
@@ -288,6 +349,10 @@ table{border-collapse:collapse}
         <strong>Tips</strong>
         <p>Use sender domain, unread state, and folder tags to identify the billing thread quickly.</p>
       </div>
+      <div style="margin-top:14px">
+        <strong>Activity</strong>
+        <p id="rail-activity">No archive changes recorded in this session.</p>
+      </div>
     </aside>
   </div>
 
@@ -299,10 +364,279 @@ table{border-collapse:collapse}
 
   <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
 
+  <div class="ip-modal-backdrop" id="archive-modal-backdrop" aria-hidden="true">
+    <div class="ip-modal" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title" aria-describedby="archive-modal-copy">
+      <h3 id="archive-modal-title">Archive thread</h3>
+      <p id="archive-modal-copy">You're about to archive the selected conversation.</p>
+      <div class="ip-form-row">
+        <label for="archive-confirm-input">Type ARCHIVE to continue</label>
+        <input id="archive-confirm-input" type="text" autocomplete="off" placeholder="ARCHIVE"/>
+        <div class="ip-error" id="archive-confirm-error" aria-live="polite"></div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:8px">
+        <button type="button" class="ip-btn ip-btn--ghost" id="cancel-archive-modal">Cancel</button>
+        <button type="button" class="ip-btn ip-btn--primary" id="confirm-archive-modal">Archive now</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="ip-ftr">
-    <small>© Demo InboxPro Mail</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+    <small>© Demo InboxPro Mail</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
     <span> · Sponsored content may appear in feeds.</span>
   </footer>
 
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div>
-</div></body></html>
+</div>
+<script>
+(function(){
+  const rows = Array.from(document.querySelectorAll('#conversation-table tbody tr'));
+  const smoke = document.getElementById('email-client-smoke-status');
+  const selectionBanner = document.getElementById('selection-banner');
+  const reason = document.getElementById('archive-reason');
+  const reasonError = document.getElementById('archive-reason-error');
+  const toolsFeedback = document.getElementById('tools-feedback');
+  const railActivity = document.getElementById('rail-activity');
+  const modalBackdrop = document.getElementById('archive-modal-backdrop');
+  const modalCopy = document.getElementById('archive-modal-copy');
+  const archiveInput = document.getElementById('archive-confirm-input');
+  const archiveInputError = document.getElementById('archive-confirm-error');
+  const confirmModalBtn = document.getElementById('confirm-archive-modal');
+  const cancelModalBtn = document.getElementById('cancel-archive-modal');
+  const archiveBtn = document.getElementById('archive-billing-thread');
+  const preview = {
+    sender: document.getElementById('preview-sender'),
+    domain: document.getElementById('preview-domain'),
+    status: document.getElementById('preview-status'),
+    subject: document.getElementById('preview-subject'),
+    body: document.getElementById('preview-body')
+  };
+  const detailsSender = document.getElementById('details-sender');
+  const detailsDomain = document.getElementById('details-domain');
+  const detailsNote = document.getElementById('details-note');
+  const contextThreadId = document.getElementById('context-thread-id');
+  const contextState = document.getElementById('context-state');
+  const contextChannel = document.getElementById('context-channel');
+  const contextMessage = document.getElementById('context-message');
+  const searchInput = document.getElementById('mail-search');
+  const searchFeedback = document.getElementById('search-feedback');
+  const mailboxCountText = document.getElementById('mailbox-count-text');
+  const unreadKpi = document.getElementById('kpi-unread');
+  const archivedKpi = document.getElementById('kpi-archived');
+  const headerNewCount = document.getElementById('header-new-count');
+  const toggleReadBtn = document.getElementById('toggle-read');
+  let selectedRow = document.querySelector('#conversation-table tbody tr[aria-selected="true"]') || rows[0];
+  let archivedToday = 18;
+  const threadBodies = {
+    digest: 'Your weekly digest is ready. Here are the highlights, trends, and articles selected for your workspace.',
+    'billing-acme': 'Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.',
+    social: 'You have three new mentions, two reactions, and one follow recommendation from your network.',
+    support: 'Your helpdesk ticket #1184 was updated with the latest customer response and next steps.',
+    'billing-contoso': 'We attempted to charge the saved payment method but the bank returned a decline. Retry is scheduled for tomorrow morning.',
+    'digest-acme': 'Monthly product digest from Acme. Highlights, release notes, and optional upgrades are included below.'
+  };
+
+  function getRowData(row){
+    const cells = row.querySelectorAll('td');
+    return {
+      sender: cells[0].textContent.trim(),
+      subject: cells[1].textContent.trim(),
+      preview: cells[2].textContent.trim(),
+      tags: cells[3].textContent.trim(),
+      date: cells[4].textContent.trim(),
+      domain: row.dataset.domain || '',
+      thread: row.dataset.thread || '',
+      unread: row.dataset.unread === 'true',
+      category: row.dataset.category || ''
+    };
+  }
+
+  function updateCounts(){
+    const unread = rows.filter(r => r.dataset.unread === 'true' && !r.classList.contains('is-archived')).length;
+    unreadKpi.textContent = String(unread);
+    headerNewCount.textContent = unread + ' new';
+    mailboxCountText.textContent = '12 conversations · ' + unread + ' unread · Smart filter: finance priority';
+  }
+
+  function selectRow(row){
+    rows.forEach(r => { r.classList.remove('is-selected'); r.setAttribute('aria-selected','false'); });
+    selectedRow = row;
+    row.classList.add('is-selected');
+    row.setAttribute('aria-selected','true');
+    const data = getRowData(row);
+    preview.sender.textContent = data.sender;
+    preview.domain.textContent = data.domain;
+    preview.subject.textContent = data.subject;
+    preview.body.textContent = threadBodies[data.thread] || data.preview;
+    const statusText = row.classList.contains('is-archived') ? 'Archived' : (data.unread ? 'Unread' : 'Read') + (data.category === 'billing' ? ', finance priority' : ', standard routing');
+    preview.status.textContent = statusText;
+    detailsSender.textContent = data.sender;
+    detailsDomain.textContent = data.domain;
+    contextThreadId.textContent = data.thread;
+    contextState.textContent = row.classList.contains('is-archived') ? 'archived' : (data.unread ? 'unread' : 'read');
+    contextChannel.textContent = data.category;
+    contextMessage.textContent = data.preview;
+    selectionBanner.textContent = 'Selected thread: ' + data.sender + ' · ' + (row.classList.contains('is-archived') ? 'archived' : data.preview.toLowerCase()) + '.';
+    detailsNote.textContent = data.category === 'billing' && data.domain === 'acme.com' && data.sender.indexOf('digest@') !== 0
+      ? 'This selected conversation matches the billing sender domain target.'
+      : 'Selected conversation is not the target billing thread. Avoid digest and social notifications.';
+    toggleReadBtn.textContent = data.unread ? 'Mark read' : 'Mark unread';
+    toolsFeedback.textContent = row.classList.contains('is-archived')
+      ? 'This thread is already archived.'
+      : 'Primary confirm archives the currently selected thread after a quick reason check.';
+  }
+
+  rows.forEach(row => {
+    row.addEventListener('click', () => selectRow(row));
+    row.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); selectRow(row); }
+    });
+  });
+
+  document.getElementById('search-btn').addEventListener('click', function(){
+    const q = searchInput.value.trim().toLowerCase();
+    if(!q){
+      rows.forEach(r => r.classList.remove('hidden'));
+      searchFeedback.textContent = 'Showing all conversations.';
+      return;
+    }
+    let visible = 0;
+    rows.forEach(r => {
+      const hay = r.textContent.toLowerCase() + ' ' + (r.dataset.domain || '') + ' ' + (r.dataset.category || '');
+      const match = hay.indexOf(q) > -1;
+      r.classList.toggle('hidden', !match);
+      if(match) visible++;
+    });
+    searchFeedback.textContent = 'Search for “' + q + '” returned ' + visible + ' result' + (visible === 1 ? '' : 's') + '.';
+  });
+
+  reason.addEventListener('change', function(){
+    if(reason.value){ reasonError.textContent = ''; toolsFeedback.textContent = 'Archive reason selected: ' + reason.options[reason.selectedIndex].textContent + '.'; }
+  });
+
+  toggleReadBtn.addEventListener('click', function(){
+    if(!selectedRow || selectedRow.classList.contains('is-archived')) return;
+    const unread = selectedRow.dataset.unread === 'true';
+    selectedRow.dataset.unread = unread ? 'false' : 'true';
+    selectedRow.classList.toggle('unread', !unread);
+    const tagsCell = selectedRow.querySelectorAll('td')[3];
+    if(!unread){
+      if(tagsCell.textContent.indexOf('Unread') === -1){
+        tagsCell.insertAdjacentHTML('afterbegin','<span class="ip-chip ip-chip--unread">Unread</span>');
+      }
+    } else {
+      const unreadChip = tagsCell.querySelector('.ip-chip--unread');
+      if(unreadChip) unreadChip.remove();
+    }
+    updateCounts();
+    selectRow(selectedRow);
+  });
+
+  document.getElementById('mark-all-read').addEventListener('click', function(){
+    rows.forEach(r => {
+      if(!r.classList.contains('is-archived')){
+        r.dataset.unread = 'false';
+        r.classList.remove('unread');
+        const unreadChip = r.querySelector('.ip-chip--unread');
+        if(unreadChip) unreadChip.remove();
+      }
+    });
+    updateCounts();
+    selectRow(selectedRow);
+    smoke.textContent = 'Updated · all visible active threads marked read';
+    window.__scenarioSmoke = { lastAction: 'mark-all-read', updatedAt: Date.now() };
+  });
+
+  document.getElementById('refresh-mail').addEventListener('click', function(){
+    smoke.textContent = 'Refreshed inbox preview';
+    railActivity.textContent = 'Mailbox refreshed at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'} ) + '.';
+    window.__scenarioSmoke = { lastAction: 'refresh-mail', updatedAt: Date.now() };
+  });
+
+  function openModal(){
+    modalBackdrop.classList.add('is-open');
+    modalBackdrop.setAttribute('aria-hidden','false');
+    archiveInput.value = '';
+    archiveInputError.textContent = '';
+    const data = getRowData(selectedRow);
+    modalCopy.textContent = 'You\'re about to archive ' + data.sender + ' — ' + data.subject + '.';
+    setTimeout(() => archiveInput.focus(), 0);
+  }
+
+  function closeModal(){
+    modalBackdrop.classList.remove('is-open');
+    modalBackdrop.setAttribute('aria-hidden','true');
+  }
+
+  archiveBtn.addEventListener('click', function(){
+    if(!selectedRow){ return; }
+    if(!reason.value){
+      reasonError.textContent = 'Choose an archive reason before confirming.';
+      smoke.textContent = 'Validation required · choose archive reason';
+      window.__scenarioSmoke = { lastAction: 'archive-validation-reason', updatedAt: Date.now() };
+      reason.focus();
+      return;
+    }
+    openModal();
+    smoke.textContent = 'Archive confirmation opened';
+    window.__scenarioSmoke = { lastAction: 'open-archive-confirmation', updatedAt: Date.now() };
+  });
+
+  confirmModalBtn.addEventListener('click', function(){
+    const typed = archiveInput.value.trim();
+    if(typed !== 'ARCHIVE'){
+      archiveInputError.textContent = 'Type ARCHIVE exactly to continue.';
+      smoke.textContent = 'Validation required · type ARCHIVE';
+      window.__scenarioSmoke = { lastAction: 'archive-validation-keyword', updatedAt: Date.now() };
+      archiveInput.focus();
+      return;
+    }
+    if(selectedRow){
+      selectedRow.classList.remove('unread');
+      selectedRow.classList.add('is-archived');
+      selectedRow.dataset.unread = 'false';
+      const tagsCell = selectedRow.querySelectorAll('td')[3];
+      const unreadChip = tagsCell.querySelector('.ip-chip--unread');
+      if(unreadChip) unreadChip.remove();
+      if(!tagsCell.querySelector('.ip-chip--archived')){
+        tagsCell.insertAdjacentHTML('beforeend','<span class="ip-chip ip-chip--archived">Archived</span>');
+      }
+      archivedToday += 1;
+      archivedKpi.textContent = String(archivedToday);
+      updateCounts();
+      selectRow(selectedRow);
+      const data = getRowData(selectedRow);
+      toolsFeedback.textContent = 'Archived successfully: ' + data.sender + '.';
+      railActivity.textContent = 'Last archive: ' + data.thread + ' at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) + '.';
+      smoke.textContent = 'Archived thread: ' + data.thread;
+      window.__scenarioSmoke = { lastAction: 'archive-' + data.thread, updatedAt: Date.now() };
+    } else {
+      smoke.textContent = 'Archive action completed';
+      window.__scenarioSmoke = { lastAction: 'archive-complete', updatedAt: Date.now() };
+    }
+    closeModal();
+  });
+
+  cancelModalBtn.addEventListener('click', function(){
+    closeModal();
+    smoke.textContent = 'Archive cancelled';
+    window.__scenarioSmoke = { lastAction: 'cancel-archive', updatedAt: Date.now() };
+  });
+
+  modalBackdrop.addEventListener('click', function(e){
+    if(e.target === modalBackdrop){ closeModal(); }
+  });
+
+  document.querySelectorAll('[data-cookie-action]').forEach(btn => {
+    btn.addEventListener('click', function(){
+      document.getElementById('cookie-banner').style.display = 'none';
+      smoke.textContent = 'Cookie preferences saved';
+      window.__scenarioSmoke = { lastAction: 'cookie-' + btn.dataset.cookieAction, updatedAt: Date.now() };
+    });
+  });
+
+  updateCounts();
+  selectRow(selectedRow);
+  window.__scenarioSmoke = { lastAction: 'initial-load', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

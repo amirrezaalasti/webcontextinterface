@@ -22,9 +22,9 @@ Multi-step task definitions are still shipped for every scenario in `demo/scenar
 
 ### How to read the comparison
 
-**Standard baselines** (`raw-html`, `dom-outline`, `interactive-candidates`) simulate agents that **do not** use WCI: they search messy DOM or lists with no `data-agent-*` layer. They share the same goals and the same underlying `raw.html` per scenario.
+**Standard baselines** (`raw-html`, `dom-outline`, `interactive-candidates`) simulate agents that **do not** use WCI: they search messy DOM or lists with no `data-wci-*` layer. They share the same goals and the same underlying `raw.html` per scenario.
 
-**WCI paths** assume an **annotation pass** already ran (`annotated.html` = same DOM as `raw.html` + `data-agent-*` overlays). The distiller/eval builder turns that into JSON; the model never sees raw tag soup for WCI conditions.
+**WCI paths** assume an **annotation pass** already ran (`annotated.html` = same DOM as `raw.html` + `data-wci-*` overlays). The distiller/eval builder turns that into JSON; the model never sees raw tag soup for WCI conditions.
 
 - **`wci-grounding`** is the **headline WCI score** — what you ship to an agent: small actionable menu, typed `state` / `precondition`, decision-point state where needed. Leaderboard column **“WCI Grounding”** uses this.
 - **`wci-full`** is an **ablation** on the same annotations: full graph, no actionable filter, no snapshot patches. Models can answer with landmark ids (`quick-transfer`) or mid-flow controls; expect **lower** accuracy than grounding, especially on legacy banking/checkout/flight. Reported as **`wciFull`** in `eval-results.json`.
@@ -235,7 +235,7 @@ These numbers are useful for comparing **context formats on a fixed grounding ta
 |-----|----------------|
 | **Multi-step trajectories** | One goal → one answer per call. No observe → act → observe loop, backtracking, or error recovery after a wrong click. |
 | **Live browsing** | Static `raw.html` / `annotated.html` files in `demo/scenarios/`, loaded in Playwright — not dynamic SPAs, network delays, auth, or post-click DOM updates. |
-| **Annotation cost / quality** | WCI paths assume `data-agent-*` is already correct and complete. The benchmark does not score mis-annotation, drift, or pages without annotations. |
+| **Annotation cost / quality** | WCI paths assume `data-wci-*` is already correct and complete. The benchmark does not score mis-annotation, drift, or pages without annotations. |
 | **Tooling ecosystems** | Models answer via OpenRouter chat only — not Browser Use, Playwright agents, computer-use APIs, or site-specific SDKs. |
 | **End-user outcomes** | Success = “picked the element Playwright agrees is correct,” not task completion (payment succeeded, form submitted, etc.). |
 

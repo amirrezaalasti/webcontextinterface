@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .tp-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .tp-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .tp-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.tp-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#0f172a}
+.tp-brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#db2777,#7c3aed);display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:0 6px 18px rgba(124,58,237,.25)}
 .tp-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .tp-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .tp-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .tp-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .tp-subnav a:hover{background:#f8fafc;color:#334155}
 .tp-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.tp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
-@media(max-width:900px){.tp-page-wrap{grid-template-columns:1fr}}
+.tp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,280px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:1050px){.tp-page-wrap{grid-template-columns:1fr}}
 .tp-page-main{padding:20px 24px 32px;min-height:42vh}
 .tp-page-main>h1,.tp-page-main [role=main]>h1,.tp-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .tp-page-main h2,.tp-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .tp-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .tp-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.tp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tp-page-main select,.tp-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.tp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.tp-page-main select,.tp-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .tp-page-main input:focus,.tp-page-main select:focus,.tp-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .tp-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .tp-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,16 +36,15 @@ table{border-collapse:collapse}
 .tp-page-main th,.tp-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .tp-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .tp-page-main tr:hover td{background:#fafafa}
-.tp-page-main article,.tp-page-main .tp-card,.tp-page-main .tp-resto,.tp-page-main .tp-slot,.tp-page-main .tp-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.tp-page-main article,.tp-page-main .tp-card,.tp-page-main .tp-resto,.tp-page-main .tp-slot,.tp-page-main .tp-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .tp-page-main ul:not([class]){list-style:none;padding:0}
 .tp-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .tp-page-main ul:not([class]) li:hover{background:#f8fafc}
-.tp-page-main dialog,.tp-page-main .tp-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.tp-page-main dialog,.tp-page-main .tp-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .tp-page-main .tp-modal.is-open,.tp-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .tp-btn:hover{background:#f8fafc}
+.tp-btn:active{transform:translateY(1px)}
 .tp-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
 .tp-btn--primary:hover{filter:brightness(1.05)}
 .tp-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -55,7 +55,7 @@ table{border-collapse:collapse}
 .tp-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .tp-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
 .tp-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.tp-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+@media(min-width:1051px){.tp-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .tp-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .tp-rail a{color:#b45309;font-weight:500}
 .tp-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -72,32 +72,66 @@ table{border-collapse:collapse}
 .tp-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .tp-step.is-active{background:hsl(330 72% 46%);color:#fff}
 .tp-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.tp-hero{border-radius:12px;margin-bottom:8px}
 .tp-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .tp-grid{display:grid;gap:14px}
-.tp-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.tp-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.tp-patient{border-radius:10px}
-.tp-slots{display:grid;gap:10px}
-.tp-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.tp-cell{background:#fff;padding:8px;min-height:44px}
-.tp-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.tp-diff{border-radius:8px}
 .tp-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.tp-trade-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,.9fr);gap:18px;align-items:start}
+@media(max-width:900px){.tp-trade-layout{grid-template-columns:1fr}}
+.tp-market-board{background:linear-gradient(180deg,#0f172a,#111827);color:#e2e8f0;border-radius:16px;padding:18px;border:1px solid #1f2937;box-shadow:0 10px 30px rgba(15,23,42,.18)}
+.tp-ticker-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.tp-ticker-symbol{font-size:28px;font-weight:800;color:#fff;letter-spacing:.02em}
+.tp-price{font-size:34px;font-weight:800;color:#22c55e;line-height:1}
+.tp-change{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:rgba(34,197,94,.14);color:#86efac;font-size:12px;font-weight:700}
+.tp-chart{margin-top:16px;height:220px;border-radius:12px;background:linear-gradient(180deg,rgba(30,41,59,.55),rgba(15,23,42,.95));border:1px solid rgba(148,163,184,.2);position:relative;overflow:hidden}
+.tp-chart svg{position:absolute;inset:0;width:100%;height:100%}
+.tp-chart-legend{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;color:#94a3b8;font-size:12px}
+.tp-mini-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+@media(max-width:700px){.tp-mini-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tp-stat{padding:10px 12px;border:1px solid rgba(148,163,184,.18);border-radius:10px;background:rgba(15,23,42,.32)}
+.tp-stat .k{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.04em}
+.tp-stat .v{margin-top:4px;font-size:16px;font-weight:700;color:#f8fafc}
+.tp-order{border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.06);overflow:hidden}
+.tp-order-head{padding:16px 18px;border-bottom:1px solid #e2e8f0;background:linear-gradient(180deg,#fff,#f8fafc)}
+.tp-order-body{padding:18px}
+.tp-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tp-seg{display:inline-flex;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:4px;gap:4px}
+.tp-seg button{border:none;background:transparent;padding:8px 12px;border-radius:8px;font-weight:600;color:#475569}
+.tp-seg button.is-active{background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.08);color:#0f172a}
+.tp-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid #dbeafe;background:#eff6ff;color:#1d4ed8}
+.tp-status-good{background:#ecfdf5;border-color:#bbf7d0;color:#15803d}
+.tp-status-warn{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
+.tp-help{font-size:12px;color:#64748b}
+ .tp-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.tp-field-row{grid-template-columns:1fr}}
+.tp-order-preview{margin-top:14px;padding:12px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0}
+.tp-msg{margin-top:8px;font-size:12px}
+.tp-msg.is-error{color:#b91c1c}
+.tp-msg.is-success{color:#15803d}
+.tp-watchlist td:first-child strong{display:block}
+.tp-pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#f1f5f9;color:#334155;font-size:11px;font-weight:700}
+.tp-news li{padding:10px 12px;border-bottom:1px solid #e2e8f0}
+.tp-news li:last-child{border-bottom:none}
+.tp-smoke{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-weight:700;font-size:12px}
+.tp-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.tp-modal-backdrop.is-open{display:block}
+.tp-modal-box{position:fixed;inset:18% auto auto 50%;transform:translateX(-50%);width:min(92vw,560px);background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 30px 60px rgba(15,23,42,.28);padding:20px;display:none;z-index:80}
+.tp-modal-box.is-open{display:block}
+.tp-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;flex-wrap:wrap}
 </style></head><body>
-<div class="tp-app" data-page="stock-trade"><div class="tp-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="tp-app" data-page="stock-trade" id="stock_trade-page"><div class="tp-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="tp-btn tp-btn--muted">Reject non-essential</button>
-  <button type="button" class="tp-btn tp-btn--primary">Accept all</button>
-  <button type="button" class="tp-btn tp-btn--ghost">Customize</button>
+  <button type="button" class="tp-btn tp-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="tp-btn tp-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="tp-btn tp-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="tp-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="tp-btn tp-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="tp-btn">Continue as guest — express</button>
 </div><header class="tp-hdr">
-  <nav class="tp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="tp-hdr-promo"><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <div class="tp-brand" aria-label="TradePulse home"><div class="tp-brand-mark">↗</div><div><div>TradePulse</div><div style="font-size:12px;color:#64748b;font-weight:600">US equities · live trading demo</div></div></div>
+  <nav class="tp-nav" aria-label="Global"><a href="#">Dashboard</a><a href="#">Markets</a><a href="#">Research</a><a href="#">Portfolio</a><a href="#">Account</a></nav>
+  <div class="tp-hdr-promo"><span class="tp-badge tp-status-good" id="session-state">Market open</span><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="tp-btn tp-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="tp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="tp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">News</a><a href="#">Options</a><a href="#">Analyst Ratings</a><a href="#">SEC Filings</a>
   <button type="button" class="tp-btn tp-btn--ghost">Submit</button>
   <button type="button" class="tp-btn tp-btn--ghost">Continue</button>
 </nav><div class="tp-dup-row" aria-label="Quick actions">
@@ -105,11 +139,299 @@ table{border-collapse:collapse}
   <button type="button" class="tp-btn tp-btn--ghost">Continue</button>
   <button type="button" class="tp-btn tp-btn--ghost">Save changes</button>
   <button type="button" class="tp-btn tp-btn--ghost">Confirm</button>
-</div><div class="tp-dup-row"><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-promo">Buy AAPL market</button><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-nav">Buy 10 shares AAPL</button></div><div class="tp-page-wrap"><div class="tp-page-main"><div style="display:grid;grid-template-columns:1fr 320px;min-height:50vh"><div style="background:#0c0c0c;color:#22c55e;padding:16px" role="main">AAPL 182.44</div>
-<aside style="background:#1e293b;color:#fff;padding:16px"><select><option selected>Market</option><option>Limit</option></select>
-<input type="number" value="10" data-shares="10" /><button type="button" class="tp-btn tp-btn--primary" data-symbol="AAPL" data-order="market">Confirm</button></aside></div></div><aside class="tp-rail tp-rail--ads" aria-label="Sponsored">
+  <span class="tp-smoke" id="stock-trade-smoke-status">Smoke status: awaiting order</span>
+</div><div class="tp-dup-row"><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-promo">Buy AAPL market</button><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-nav">Buy 10 shares AAPL</button></div><div class="tp-page-wrap"><div class="tp-page-main"><main class="tp-layout" role="main">
+  <section class="tp-trade-layout" aria-label="Trading workspace">
+    <div>
+      <section class="tp-market-board" aria-labelledby="ticker-aapl">
+        <div class="tp-ticker-head">
+          <div>
+            <div id="ticker-aapl" class="tp-ticker-symbol">AAPL</div>
+            <div style="color:#94a3b8">Apple Inc. · NASDAQ</div>
+          </div>
+          <div style="text-align:right">
+            <div class="tp-price" id="live-price">182.44</div>
+            <div class="tp-change" id="price-change">+2.18 (+1.21%)</div>
+          </div>
+        </div>
+        <div class="tp-chart" aria-label="Intraday chart">
+          <svg viewBox="0 0 800 220" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="lineFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="rgba(34,197,94,.45)"/><stop offset="100%" stop-color="rgba(34,197,94,0)"/></linearGradient></defs>
+            <path d="M0,172 C60,165 85,140 130,145 C185,150 220,85 272,98 C320,110 360,70 418,82 C470,92 518,55 565,68 C615,82 660,62 705,49 C745,38 780,54 800,42 L800,220 L0,220 Z" fill="url(#lineFill)"></path>
+            <path d="M0,172 C60,165 85,140 130,145 C185,150 220,85 272,98 C320,110 360,70 418,82 C470,92 518,55 565,68 C615,82 660,62 705,49 C745,38 780,54 800,42" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="tp-chart-legend"><span>Open 180.20</span><span>Day range 179.88 - 183.10</span><span>Volume 52.4M</span><span>Updated <span id="quote-time">09:48:12 ET</span></span></div>
+        <div class="tp-mini-stats">
+          <div class="tp-stat"><div class="k">Bid</div><div class="v">182.40 × 900</div></div>
+          <div class="tp-stat"><div class="k">Ask</div><div class="v">182.44 × 1,100</div></div>
+          <div class="tp-stat"><div class="k">52W High</div><div class="v">199.62</div></div>
+          <div class="tp-stat"><div class="k">Mkt Cap</div><div class="v">2.81T</div></div>
+        </div>
+      </section>
+
+      <section class="tp-card" aria-labelledby="watchlist-title">
+        <div class="tp-inline" style="justify-content:space-between">
+          <h2 id="watchlist-title">Tech watchlist</h2>
+          <span class="tp-pill">Auto-refresh on</span>
+        </div>
+        <table class="tp-watchlist">
+          <thead><tr><th>Symbol</th><th>Last</th><th>Change</th><th>Position</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AAPL</strong><span style="color:#64748b">Apple</span></td><td>182.44</td><td style="color:#15803d">+1.21%</td><td>24 sh</td></tr>
+            <tr><td><strong>MSFT</strong><span style="color:#64748b">Microsoft</span></td><td>425.90</td><td style="color:#15803d">+0.73%</td><td>8 sh</td></tr>
+            <tr><td><strong>NVDA</strong><span style="color:#64748b">NVIDIA</span></td><td>958.11</td><td style="color:#15803d">+2.90%</td><td>2 sh</td></tr>
+            <tr><td><strong>TSLA</strong><span style="color:#64748b">Tesla</span></td><td>173.62</td><td style="color:#b91c1c">-0.84%</td><td>0 sh</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="tp-card" aria-labelledby="news-title">
+        <div class="tp-inline" style="justify-content:space-between"><h2 id="news-title">Latest headlines</h2><button type="button" class="tp-btn tp-btn--ghost" id="toggle-news">Hide news</button></div>
+        <ul class="tp-news" id="news-list">
+          <li><strong>Apple supplier commentary lifts sentiment</strong><div style="color:#64748b">Analysts cite resilient demand for premium devices into next quarter.</div></li>
+          <li><strong>Nasdaq opens higher on mega-cap strength</strong><div style="color:#64748b">Broad participation improves while Treasury yields remain stable.</div></li>
+          <li><strong>Options flow points to elevated short-dated activity</strong><div style="color:#64748b">Call volume in AAPL remains above the 20-session average.</div></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside>
+      <section class="tp-order" aria-labelledby="order-ticket-title">
+        <div class="tp-order-head">
+          <div class="tp-inline" style="justify-content:space-between;align-items:flex-start">
+            <div>
+              <h2 id="order-ticket-title" style="margin:0">Order ticket</h2>
+              <div style="color:#64748b">Preview an order before sending to market.</div>
+            </div>
+            <span class="tp-badge" id="order-badge">Draft</span>
+          </div>
+        </div>
+        <div class="tp-order-body">
+          <form id="order-form" novalidate>
+            <label for="trade-symbol">Symbol</label>
+            <input id="trade-symbol" name="symbol" type="text" value="AAPL" readonly aria-readonly="true"/>
+
+            <div class="tp-field-row">
+              <div>
+                <label for="trade-side">Side</label>
+                <div class="tp-seg" role="group" aria-label="Order side">
+                  <button type="button" class="is-active" id="side-buy" data-side="buy">Buy</button>
+                  <button type="button" id="side-sell" data-side="sell">Sell</button>
+                </div>
+              </div>
+              <div>
+                <label for="trade-account">Account</label>
+                <select id="trade-account" name="account">
+                  <option selected>Individual Margin ••• 4821</option>
+                  <option>IRA ••• 1209</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="tp-field-row">
+              <div>
+                <label for="trade-order-type">Order type</label>
+                <select id="trade-order-type" name="orderType">
+                  <option value="market" selected>Market</option>
+                  <option value="limit">Limit</option>
+                </select>
+                <div class="tp-help">Market orders execute at the best available price.</div>
+              </div>
+              <div>
+                <label for="trade-qty">Shares</label>
+                <input id="trade-qty" name="qty" type="number" min="1" step="1" value="10" data-shares="10" inputmode="numeric"/>
+                <div class="tp-help">Whole shares only for this demo.</div>
+              </div>
+            </div>
+
+            <div id="limit-wrap" hidden>
+              <label for="trade-limit-price">Limit price</label>
+              <input id="trade-limit-price" name="limitPrice" type="number" min="0.01" step="0.01" placeholder="Enter limit price"/>
+              <div class="tp-help">Required only when order type is set to Limit.</div>
+            </div>
+
+            <fieldset>
+              <legend>Time in force</legend>
+              <label style="display:flex;align-items:center;gap:8px;margin:0 0 8px"><input type="radio" name="tif" value="day" checked/> Day</label>
+              <label style="display:flex;align-items:center;gap:8px;margin:0"><input type="radio" name="tif" value="gtc"/> Good 'til canceled</label>
+            </fieldset>
+
+            <div class="tp-order-preview" aria-live="polite">
+              <div class="tp-inline" style="justify-content:space-between"><strong>Estimated order value</strong><span id="estimated-value">$1,824.40</span></div>
+              <div class="tp-inline" style="justify-content:space-between"><span>Buying power after trade</span><span id="buying-power">$23,175.60</span></div>
+              <div class="tp-inline" style="justify-content:space-between"><span>Preview</span><span id="order-preview-text">Buy 10 shares of AAPL at market</span></div>
+            </div>
+
+            <div id="validation-message" class="tp-msg" aria-live="polite">Ready to place order.</div>
+            <div id="last-order-message" class="tp-msg"></div>
+
+            <div class="tp-card__actions">
+              <button type="button" class="tp-btn tp-btn--primary" data-symbol="AAPL" data-order="market" id="buy-aapl-market">Buy AAPL at market</button>
+              <button type="button" class="tp-btn" id="preview-order">Preview</button>
+              <button type="reset" class="tp-btn tp-btn--ghost" id="reset-form">Reset</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="tp-card" aria-labelledby="position-title">
+        <div class="tp-inline" style="justify-content:space-between"><h3 id="position-title">Position snapshot</h3><span class="tp-badge tp-status-good">Long</span></div>
+        <table>
+          <tbody>
+            <tr><th>Current position</th><td id="position-shares">24 shares</td></tr>
+            <tr><th>Avg cost</th><td>$176.10</td></tr>
+            <tr><th>Day P/L</th><td style="color:#15803d">+$151.20</td></tr>
+            <tr><th>Cash available</th><td id="cash-available">$25,000.00</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </aside>
+  </section>
+</main></div><aside class="tp-rail tp-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br/>
+  <p>Upgrade to TradePulse Pro for advanced charting, options Greeks, and real-time depth.</p>
+  <a href="#">Partner offer — limited time</a><br/>
   <button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="tp-filler" aria-hidden="true"><div class="tp-filler-inner"><a href="/misc/0" class="tp-btn tp-btn--ghost">Link 1</a><button type="button" class="tp-btn tp-btn--ghost">Action 2</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/4" class="tp-btn tp-btn--ghost">Link 5</a><button type="button" class="tp-btn tp-btn--ghost">Action 6</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/8" class="tp-btn tp-btn--ghost">Link 9</a><button type="button" class="tp-btn tp-btn--ghost">Action 10</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/12" class="tp-btn tp-btn--ghost">Link 13</a><button type="button" class="tp-btn tp-btn--ghost">Action 14</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/16" class="tp-btn tp-btn--ghost">Link 17</a><button type="button" class="tp-btn tp-btn--ghost">Action 18</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/20" class="tp-btn tp-btn--ghost">Link 21</a><button type="button" class="tp-btn tp-btn--ghost">Action 22</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/24" class="tp-btn tp-btn--ghost">Link 25</a><button type="button" class="tp-btn tp-btn--ghost">Action 26</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/28" class="tp-btn tp-btn--ghost">Link 29</a><button type="button" class="tp-btn tp-btn--ghost">Action 30</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/32" class="tp-btn tp-btn--ghost">Link 33</a><button type="button" class="tp-btn tp-btn--ghost">Action 34</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/36" class="tp-btn tp-btn--ghost">Link 37</a><button type="button" class="tp-btn tp-btn--ghost">Action 38</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/40" class="tp-btn tp-btn--ghost">Link 41</a><button type="button" class="tp-btn tp-btn--ghost">Action 42</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button></div></div><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tp-ftr"><small>© Demo TradePulse</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+</aside></div><div class="tp-filler" aria-hidden="true"><div class="tp-filler-inner"><a href="/misc/0" class="tp-btn tp-btn--ghost">Link 1</a><button type="button" class="tp-btn tp-btn--ghost">Action 2</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/4" class="tp-btn tp-btn--ghost">Link 5</a><button type="button" class="tp-btn tp-btn--ghost">Action 6</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/8" class="tp-btn tp-btn--ghost">Link 9</a><button type="button" class="tp-btn tp-btn--ghost">Action 10</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/12" class="tp-btn tp-btn--ghost">Link 13</a><button type="button" class="tp-btn tp-btn--ghost">Action 14</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/16" class="tp-btn tp-btn--ghost">Link 17</a><button type="button" class="tp-btn tp-btn--ghost">Action 18</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/20" class="tp-btn tp-btn--ghost">Link 21</a><button type="button" class="tp-btn tp-btn--ghost">Action 22</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/24" class="tp-btn tp-btn--ghost">Link 25</a><button type="button" class="tp-btn tp-btn--ghost">Action 26</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/28" class="tp-btn tp-btn--ghost">Link 29</a><button type="button" class="tp-btn tp-btn--ghost">Action 30</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/32" class="tp-btn tp-btn--ghost">Link 33</a><button type="button" class="tp-btn tp-btn--ghost">Action 34</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/36" class="tp-btn tp-btn--ghost">Link 37</a><button type="button" class="tp-btn tp-btn--ghost">Action 38</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button><a href="/misc/40" class="tp-btn tp-btn--ghost">Link 41</a><button type="button" class="tp-btn tp-btn--ghost">Action 42</button><button type="button" class="tp-btn tp-btn--ghost">Submit</button><button type="button" class="tp-btn tp-btn--ghost">Continue</button></div></div><button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="tp-ftr"><small>© Demo TradePulse</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="tp-modal-backdrop" id="order-modal-backdrop"></div>
+<div class="tp-modal-box" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" aria-hidden="true">
+  <h3 id="order-modal-title" style="margin-top:0">Confirm order</h3>
+  <p id="modal-summary">Buy 10 shares of AAPL at market order.</p>
+  <div class="tp-order-preview">
+    <div class="tp-inline" style="justify-content:space-between"><span>Estimated value</span><strong id="modal-estimated">$1,824.40</strong></div>
+    <div class="tp-inline" style="justify-content:space-between"><span>Time in force</span><strong id="modal-tif">Day</strong></div>
+  </div>
+  <div class="tp-modal-actions">
+    <button type="button" class="tp-btn" id="close-modal">Cancel</button>
+    <button type="button" class="tp-btn tp-btn--primary" id="modal-confirm">Send order</button>
+  </div>
+</div>
+<script>
+(function(){
+  var state={price:182.44,buyingPower:25000,position:24,side:'buy'};
+  var qtyInput=document.getElementById('trade-qty');
+  var orderType=document.getElementById('trade-order-type');
+  var limitWrap=document.getElementById('limit-wrap');
+  var limitInput=document.getElementById('trade-limit-price');
+  var estimated=document.getElementById('estimated-value');
+  var buyingPowerEl=document.getElementById('buying-power');
+  var previewText=document.getElementById('order-preview-text');
+  var validation=document.getElementById('validation-message');
+  var badge=document.getElementById('order-badge');
+  var smoke=document.getElementById('stock-trade-smoke-status');
+  var lastOrder=document.getElementById('last-order-message');
+  var marketBtn=document.querySelector('button[data-symbol="AAPL"][data-order="market"]');
+  var previewBtn=document.getElementById('preview-order');
+  var positionShares=document.getElementById('position-shares');
+  var cashAvailable=document.getElementById('cash-available');
+  var modal=document.getElementById('order-modal');
+  var backdrop=document.getElementById('order-modal-backdrop');
+  var modalSummary=document.getElementById('modal-summary');
+  var modalEstimated=document.getElementById('modal-estimated');
+  var modalTif=document.getElementById('modal-tif');
+  var closeModalBtn=document.getElementById('close-modal');
+  var modalConfirm=document.getElementById('modal-confirm');
+  var toggleNews=document.getElementById('toggle-news');
+  var newsList=document.getElementById('news-list');
+  var sideBuy=document.getElementById('side-buy');
+  var sideSell=document.getElementById('side-sell');
+  var quoteTime=document.getElementById('quote-time');
+
+  function money(v){return '$'+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function tifValue(){var checked=document.querySelector('input[name="tif"]:checked');return checked?checked.value:'day';}
+  function currentQty(){return Math.max(0,parseInt(qtyInput.value,10)||0);}
+
+  function updatePreview(){
+    var qty=currentQty();
+    var type=orderType.value;
+    var estPrice=type==='limit' ? (parseFloat(limitInput.value)||0) : state.price;
+    var total=qty*estPrice;
+    estimated.textContent=money(total);
+    buyingPowerEl.textContent=money(Math.max(0,state.buyingPower-total));
+    previewText.textContent=(state.side==='buy'?'Buy ':'Sell ')+qty+' shares of AAPL at '+type+(type==='limit'&&limitInput.value?' $'+Number(limitInput.value).toFixed(2):'');
+    modalSummary.textContent=previewText.textContent+'.';
+    modalEstimated.textContent=estimated.textContent;
+    modalTif.textContent=tifValue().toUpperCase();
+    validate();
+  }
+
+  function validate(){
+    var qty=currentQty();
+    var type=orderType.value;
+    var valid=true;
+    var msg='Ready to place order.';
+    validation.className='tp-msg';
+    if(qty!==10){valid=false;msg='Enter exactly 10 shares to match the current trade task.';validation.classList.add('is-error');}
+    else if(type!=='market'){valid=false;msg='Market order is required. Limit is available, but not valid for this task.';validation.classList.add('is-error');}
+    else if(state.side!=='buy'){valid=false;msg='Switch side to Buy to continue.';validation.classList.add('is-error');}
+    else if(type==='limit' && !(parseFloat(limitInput.value)>0)){valid=false;msg='Enter a valid limit price.';validation.classList.add('is-error');}
+    else {validation.classList.add('is-success');}
+    marketBtn.disabled=!valid;
+    previewBtn.disabled=qty<1 || (type==='limit' && !(parseFloat(limitInput.value)>0));
+    badge.textContent=valid?'Ready':'Needs review';
+    badge.className='tp-badge '+(valid?'tp-status-good':'tp-status-warn');
+    validation.textContent=msg;
+    return valid;
+  }
+
+  function setOrderType(){
+    var isLimit=orderType.value==='limit';
+    limitWrap.hidden=!isLimit;
+    marketBtn.textContent=isLimit?'Buy AAPL at limit':'Buy AAPL at market';
+    updatePreview();
+  }
+
+  function openModal(){
+    updatePreview();
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  function recordPrimaryAction(){
+    var qty=currentQty();
+    var ts=Date.now();
+    var action='buy-'+qty+'-AAPL-market';
+    smoke.textContent='Smoke status: submitted '+qty+' AAPL shares as a market buy';
+    window.__scenarioSmoke={lastAction:action,updatedAt:ts};
+    state.position+=qty;
+    state.buyingPower=Math.max(0,state.buyingPower-(qty*state.price));
+    positionShares.textContent=state.position+' shares';
+    cashAvailable.textContent=money(state.buyingPower);
+    lastOrder.textContent='Order accepted at market. Route: NASDAQ. Client timestamp: '+new Date(ts).toLocaleTimeString();
+    lastOrder.className='tp-msg is-success';
+    badge.textContent='Submitted';
+    badge.className='tp-badge tp-status-good';
+  }
+
+  qtyInput.addEventListener('input',updatePreview);
+  orderType.addEventListener('change',setOrderType);
+  limitInput.addEventListener('input',updatePreview);
+  document.querySelectorAll('input[name="tif"]').forEach(function(el){el.addEventListener('change',updatePreview);});
+  sideBuy.addEventListener('click',function(){state.side='buy';sideBuy.classList.add('is-active');sideSell.classList.remove('is-active');updatePreview();});
+  sideSell.addEventListener('click',function(){state.side='sell';sideSell.classList.add('is-active');sideBuy.classList.remove('is-active');updatePreview();});
+  previewBtn.addEventListener('click',function(){if(!previewBtn.disabled){openModal();}});
+  closeModalBtn.addEventListener('click',closeModal);
+  backdrop.addEventListener('click',closeModal);
+  modalConfirm.addEventListener('click',function(){closeModal();if(validate()){recordPrimaryAction();}});
+  marketBtn.addEventListener('click',function(){if(validate()){recordPrimaryAction();} else {smoke.textContent='Smoke status: order blocked by validation';window.__scenarioSmoke={lastAction:'validation-blocked',updatedAt:Date.now()};}});
+  toggleNews.addEventListener('click',function(){var hidden=newsList.hasAttribute('hidden');if(hidden){newsList.removeAttribute('hidden');toggleNews.textContent='Hide news';}else{newsList.setAttribute('hidden','hidden');toggleNews.textContent='Show news';}});
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){btn.addEventListener('click',function(){document.getElementById('cookie-banner').style.display='none';});});
+  document.getElementById('reset-form').addEventListener('click',function(){setTimeout(function(){state.side='buy';sideBuy.classList.add('is-active');sideSell.classList.remove('is-active');setOrderType();lastOrder.textContent='';},0);});
+
+  setInterval(function(){
+    var now=new Date();
+    quoteTime.textContent=now.toLocaleTimeString('en-US',{hour12:false})+' ET';
+  },1000);
+
+  setOrderType();
+  updatePreview();
+})();
+</script></body></html>

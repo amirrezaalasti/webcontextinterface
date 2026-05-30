@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>StayFinder</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>StayFinder - Hotels in Downtown</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -14,35 +14,28 @@ table{border-collapse:collapse}
 .sf-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .sf-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .sf-nav a:hover{background:#f1f5f9;color:#0f172a}
+.sf-brand{display:flex;align-items:center;gap:12px}
+.sf-brand__mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:0 8px 24px rgba(79,70,229,.25)}
 .sf-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .sf-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
 .sf-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .sf-subnav a:hover{background:#f8fafc;color:#334155}
 .sf-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sf-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.sf-page-wrap{grid-template-columns:1fr}}
 .sf-page-main{padding:20px 24px 32px;min-height:42vh}
 .sf-page-main>h1,.sf-page-main [role=main]>h1,.sf-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .sf-page-main h2,.sf-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.sf-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.sf-page-main p{margin:0 0 10px;color:#475569;max-width:70ch}
 .sf-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.sf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sf-page-main select,.sf-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.sf-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sf-page-main select,.sf-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .sf-page-main input:focus,.sf-page-main select:focus,.sf-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
 .sf-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .sf-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
-.sf-page-main table{width:100%;margin:12px 0;font-size:13px}
-.sf-page-main th,.sf-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
-.sf-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.sf-page-main tr:hover td{background:#fafafa}
-.sf-page-main article,.sf-page-main .sf-card,.sf-page-main .sf-resto,.sf-page-main .sf-slot,.sf-page-main .sf-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sf-page-main article,.sf-page-main .sf-card,.sf-page-main .sf-resto,.sf-page-main .sf-slot,.sf-page-main .sf-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .sf-page-main ul:not([class]){list-style:none;padding:0}
-.sf-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.sf-page-main ul:not([class]) li:hover{background:#f8fafc}
-.sf-page-main dialog,.sf-page-main .sf-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.sf-page-main .sf-modal.is-open,.sf-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sf-page-main dialog,.sf-page-main .sf-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.sf-page-main .sf-modal.is-open,[role=dialog].sf-modal.is-open{position:fixed;inset:10% 50% auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px);margin:auto}
 .sf-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .sf-btn:hover{background:#f8fafc}
 .sf-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
@@ -54,8 +47,8 @@ table{border-collapse:collapse}
 .sf-btn:disabled{opacity:.5;cursor:not-allowed}
 .sf-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .sf-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.sf-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.sf-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.sf-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
+@media(min-width:901px){.sf-rail{border-left:1px solid #e2e8f0;border-radius:12px;background:#fffbeb}}
 .sf-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .sf-rail a{color:#b45309;font-weight:500}
 .sf-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -63,54 +56,422 @@ table{border-collapse:collapse}
 .sf-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .sf-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .sf-ab{display:none!important}
-.sf-layout{display:grid;gap:16px;align-items:start}
-.sf-filters,.sf-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.sf-filters h2,.sf-frame aside h2{font-size:14px;margin:0 0 10px}
-.sf-card__actions,.sf-slot__actions,.sf-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.sf-wizard{max-width:760px}
-.sf-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.sf-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.sf-step.is-active{background:hsl(262 72% 46%);color:#fff}
-.sf-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.sf-hero{border-radius:12px;margin-bottom:8px}
-.sf-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.sf-grid{display:grid;gap:14px}
-.sf-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.sf-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.sf-patient{border-radius:10px}
-.sf-slots{display:grid;gap:10px}
-.sf-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.sf-cell{background:#fff;padding:8px;min-height:44px}
-.sf-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.sf-diff{border-radius:8px}
-.sf-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.sf-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:900px){.sf-layout{grid-template-columns:1fr}}
+.sf-filters{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.sf-filters h2{font-size:14px;margin:0 0 10px}
+.sf-card__actions,.sf-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.sf-hero{border-radius:16px;margin-bottom:16px;padding:18px;background:linear-gradient(135deg,#ede9fe,#dbeafe);border:1px solid #ddd6fe}
+.sf-statusbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0 18px}
+.sf-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:12px;font-weight:600}
+.sf-badge.is-live{background:#dcfce7;color:#166534}
+.sf-badge.is-warn{background:#fef3c7;color:#92400e}
+.sf-search-summary{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin-bottom:14px}
+.sf-results{display:grid;gap:14px}
+.sf-hotel{display:grid;grid-template-columns:170px minmax(0,1fr) auto;gap:16px;align-items:start;padding:16px;border:1px solid #e2e8f0;border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+@media(max-width:760px){.sf-hotel{grid-template-columns:1fr}}
+.sf-thumb{height:120px;border-radius:12px;background:linear-gradient(135deg,#cbd5e1,#94a3b8);position:relative;overflow:hidden}
+.sf-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(15,23,42,.18))}
+.sf-thumb span{position:absolute;left:10px;bottom:10px;color:#fff;font-size:12px;font-weight:700;z-index:1}
+.sf-hotel h2{margin:0 0 6px;font-size:19px}
+.sf-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.sf-meta .sf-chip{padding:4px 8px;border-radius:999px;background:#f1f5f9;color:#334155;font-size:12px}
+.sf-amenities{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.sf-amenities span{font-size:12px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;padding:4px 8px;border-radius:999px}
+.sf-price{text-align:right;min-width:140px}
+.sf-price strong{display:block;font-size:24px;line-height:1;color:#0f172a}
+.sf-price small{display:block;color:#64748b;margin-top:4px}
+.sf-note{font-size:12px;color:#64748b}
+.sf-selected{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.sf-summary-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin-top:14px}
+.sf-summary-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #f1f5f9}
+.sf-summary-row:last-child{border-bottom:none}
+.sf-error{color:#b91c1c;font-size:12px;min-height:18px;margin-top:4px}
+.sf-success{color:#166534;font-size:12px}
+.sf-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:55}
+.sf-overlay.is-open{display:block}
+.sf-modal{display:none}
+.sf-modal.is-open{display:block}
+.sf-close{position:absolute;top:10px;right:12px;font-size:20px;line-height:1;border:none;background:transparent;color:#64748b}
 </style></head><body>
-<div class="sf-app" data-page="hotel-booking" data-agent-role="landmark" data-agent-id="hotel_booking-page" data-agent-desc="Hotel results" data-agent-priority="2"><div class="sf-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sf-btn sf-btn--muted">Reject non-essential</button>
-  <button type="button" class="sf-btn sf-btn--primary">Accept all</button>
-  <button type="button" class="sf-btn sf-btn--ghost">Customize</button>
-</div><div class="sf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="sf-btn sf-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="sf-btn">Continue as guest — express</button>
-</div><header class="sf-hdr">
-  <nav class="sf-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sf-hdr-promo"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="sf-btn sf-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="sf-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
-  <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
-</nav><div class="sf-dup-row" aria-label="Quick actions">
-  <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
-  <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
-  <button type="button" class="sf-btn sf-btn--ghost">Save changes</button>
-  <button type="button" class="sf-btn sf-btn--ghost">Confirm</button>
-</div><div class="sf-dup-row"><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Book Marriott downtown</button><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-nav">Book 2 nights Marriott</button></div><div class="sf-page-wrap"><div class="sf-page-main"><ul role="main" style="list-style:none;padding:16px">
-<li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="airport-inn"><div style="flex:1"><h2>Airport Inn</h2></div><button type="button" class="sf-btn sf-btn--ghost">Select</button></li>
-<li style="display:flex;border:1px solid #ddd;padding:16px;margin:8px 0" data-hotel="marriott-downtown" data-nights="2"><div style="flex:1"><h2>Marriott Downtown</h2><p>2 nights</p></div>
-<button type="button" class="sf-btn sf-btn--primary" data-agent-role="action" data-agent-id="book-marriott-downtown" data-agent-desc="Book two nights at the downtown Marriott property (not airport inn)." data-agent-action="click" data-agent-priority="1">Confirm</button></li></ul></div><aside class="sf-rail sf-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sf-filler" aria-hidden="true"><div class="sf-filler-inner"><a href="/misc/0" class="sf-btn sf-btn--ghost">Link 1</a><button type="button" class="sf-btn sf-btn--ghost">Action 2</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/4" class="sf-btn sf-btn--ghost">Link 5</a><button type="button" class="sf-btn sf-btn--ghost">Action 6</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/8" class="sf-btn sf-btn--ghost">Link 9</a><button type="button" class="sf-btn sf-btn--ghost">Action 10</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/12" class="sf-btn sf-btn--ghost">Link 13</a><button type="button" class="sf-btn sf-btn--ghost">Action 14</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/16" class="sf-btn sf-btn--ghost">Link 17</a><button type="button" class="sf-btn sf-btn--ghost">Action 18</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/20" class="sf-btn sf-btn--ghost">Link 21</a><button type="button" class="sf-btn sf-btn--ghost">Action 22</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/24" class="sf-btn sf-btn--ghost">Link 25</a><button type="button" class="sf-btn sf-btn--ghost">Action 26</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/28" class="sf-btn sf-btn--ghost">Link 29</a><button type="button" class="sf-btn sf-btn--ghost">Action 30</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/32" class="sf-btn sf-btn--ghost">Link 33</a><button type="button" class="sf-btn sf-btn--ghost">Action 34</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/36" class="sf-btn sf-btn--ghost">Link 37</a><button type="button" class="sf-btn sf-btn--ghost">Action 38</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="/misc/40" class="sf-btn sf-btn--ghost">Link 41</a><button type="button" class="sf-btn sf-btn--ghost">Action 42</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button></div></div><button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Keyword trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sf-ftr"><small>© Demo StayFinder</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+<div class="sf-app" data-page="hotel-booking" id="hotel_booking-page" data-wci-id="hotel_booking-page" data-wci-role="landmark" data-wci-desc="Hotel booking page root for StayFinder" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+  <div class="sf-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+    <button type="button" class="sf-btn sf-btn--muted" id="cookie-reject">Reject non-essential</button>
+    <button type="button" class="sf-btn sf-btn--primary" id="cookie-accept">Accept all</button>
+    <button type="button" class="sf-btn sf-btn--ghost" id="cookie-customize">Customize</button>
+  </div>
+  <div class="sf-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="sf-btn sf-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="sf-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="sf-hdr">
+    <div class="sf-brand">
+      <div class="sf-brand__mark" aria-hidden="true">SF</div>
+      <div>
+        <div style="font-weight:700;font-size:16px">StayFinder</div>
+        <div style="font-size:12px;color:#64748b">Hotels, stays, and weekend trips</div>
+      </div>
+    </div>
+    <nav class="sf-nav" aria-label="Global">
+      <a href="#">Home</a><a href="#">Trips</a><a href="#">Rewards</a><a href="#">Help</a><a href="#">Account</a>
+    </nav>
+    <div class="sf-hdr-promo">
+      <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy button unrelated to the required booking action" data-wci-priority="2" data-wci-scope="hotel_booking-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+      <button type="button" class="sf-btn sf-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="sf-subnav" aria-label="Secondary">
+    <a href="#">Overview</a><a href="#">Map</a><a href="#">Saved</a><a href="#">Price alerts</a><a href="#">Support</a>
+    <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
+    <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="sf-dup-row" aria-label="Quick actions">
+    <button type="button" class="sf-btn sf-btn--ghost">Submit</button>
+    <button type="button" class="sf-btn sf-btn--ghost">Continue</button>
+    <button type="button" class="sf-btn sf-btn--ghost">Save changes</button>
+    <button type="button" class="sf-btn sf-btn--ghost">Confirm</button>
+  </div>
+  <div class="sf-dup-row">
+    <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">Book Marriott downtown</button>
+    <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-nav">Book 2 nights Marriott</button>
+  </div>
+
+  <div class="sf-page-wrap">
+    <div class="sf-page-main">
+      <main role="main" aria-label="Hotel booking results">
+        <section class="sf-hero">
+          <h1>Downtown hotel deals for your next 2-night stay</h1>
+          <p>Compare price, location, parking, and cancellation details before booking. Your search is preset for a two-night downtown stay, and availability updates live as you adjust filters.</p>
+          <div class="sf-statusbar">
+            <span class="sf-badge is-live">Live inventory</span>
+            <span class="sf-badge">4 hotels compared</span>
+            <span class="sf-badge is-warn">1 property nearly sold out</span>
+            <span class="sf-badge" id="hotel-booking-smoke-status">Smoke status: ready</span>
+          </div>
+        </section>
+
+        <div class="sf-layout">
+          <aside class="sf-filters" aria-label="Filters and trip details">
+            <h2>Trip details</h2>
+            <label for="checkin">Check-in</label>
+            <input id="checkin" type="date" value="2026-06-12">
+            <label for="nights">Nights</label>
+            <select id="nights">
+              <option value="1">1 night</option>
+              <option value="2" selected="">2 nights</option>
+              <option value="3">3 nights</option>
+              <option value="4">4 nights</option>
+            </select>
+            <label for="guests">Guests</label>
+            <select id="guests">
+              <option>1 guest</option>
+              <option selected="">2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+            </select>
+            <fieldset>
+              <legend>Neighborhood</legend>
+              <label><input type="radio" name="area" checked=""> Downtown</label>
+              <label><input type="radio" name="area"> Airport</label>
+              <label><input type="radio" name="area"> Waterfront</label>
+            </fieldset>
+            <fieldset>
+              <legend>Preferences</legend>
+              <label><input type="checkbox" id="free-cancel" checked=""> Free cancellation</label>
+              <label><input type="checkbox" id="parking"> Parking included</label>
+              <label><input type="checkbox" id="breakfast"> Breakfast included</label>
+            </fieldset>
+            <div class="sf-summary-card">
+              <h3 style="margin-top:0">Current search</h3>
+              <div class="sf-summary-row"><span>Destination</span><strong>Downtown</strong></div>
+              <div class="sf-summary-row"><span>Stay length</span><strong id="trip-nights-label">2 nights</strong></div>
+              <div class="sf-summary-row"><span>Guests</span><strong id="trip-guests-label">2 guests</strong></div>
+              <div class="sf-summary-row"><span>Selected hotel</span><strong id="selected-hotel-label">None</strong></div>
+            </div>
+          </aside>
+
+          <section>
+            <div class="sf-search-summary">
+              <div>
+                <strong id="results-count">4 downtown properties</strong>
+                <div class="sf-note">Sorted by recommended • taxes and fees shown before checkout</div>
+              </div>
+              <div>
+                <label for="sort-by" style="margin:0">Sort by</label>
+                <select id="sort-by" style="max-width:220px">
+                  <option value="recommended" selected="">Recommended</option>
+                  <option value="price">Price: low to high</option>
+                  <option value="rating">Guest rating</option>
+                  <option value="distance">Distance to center</option>
+                </select>
+              </div>
+            </div>
+
+            <ul class="sf-results" aria-label="Hotel results">
+              <li class="sf-hotel" data-hotel="airport-inn">
+                <div class="sf-thumb"><span>Airport district</span></div>
+                <div>
+                  <h2>Airport Inn</h2>
+                  <div class="sf-meta"><span class="sf-chip">7.8 Good</span><span class="sf-chip">8.4 mi from downtown</span><span class="sf-chip">Free shuttle</span></div>
+                  <p>Budget-friendly airport property with fast shuttle service, late check-in, and simple rooms for overnight layovers.</p>
+                  <div class="sf-amenities"><span>Free Wi‑Fi</span><span>Airport shuttle</span><span>24/7 desk</span></div>
+                  <div class="sf-note">Not the downtown Marriott property requested.</div>
+                </div>
+                <div class="sf-price">
+                  <strong>$129</strong>
+                  <small>per night</small>
+                  <button type="button" class="sf-btn sf-btn--ghost hotel-select-btn">Select</button>
+                </div>
+              </li>
+
+              <li class="sf-hotel" data-hotel="marriott-downtown" data-nights="2">
+                <div class="sf-thumb" style="background:linear-gradient(135deg,#c4b5fd,#60a5fa)"><span>Downtown core</span></div>
+                <div>
+                  <h2>Marriott Downtown</h2>
+                  <div class="sf-meta"><span class="sf-chip">9.1 Wonderful</span><span class="sf-chip">0.3 mi to convention center</span><span class="sf-chip">Free cancellation</span></div>
+                  <p>Modern downtown Marriott with walkable access to restaurants, business district offices, and the riverfront. Includes workspace, gym, and on-site dining.</p>
+                  <div class="sf-amenities"><span>Free Wi‑Fi</span><span>Fitness center</span><span>Restaurant</span><span>Valet parking</span></div>
+                  <div class="sf-note">Preset for <strong>2 nights</strong>. This is the intended downtown Marriott property.</div>
+                </div>
+                <div class="sf-price">
+                  <strong>$249</strong>
+                  <small>per night</small>
+                  <button type="button" class="sf-btn sf-btn--primary" id="book-marriott-downtown" data-wci-id="book-marriott-downtown" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary confirm action for the downtown Marriott property" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="hotel_booking-page">Confirm</button>
+                </div>
+              </li>
+
+              <li class="sf-hotel" data-hotel="riverside-suites">
+                <div class="sf-thumb" style="background:linear-gradient(135deg,#93c5fd,#22c55e)"><span>Riverwalk</span></div>
+                <div>
+                  <h2>Riverside Suites</h2>
+                  <div class="sf-meta"><span class="sf-chip">8.8 Excellent</span><span class="sf-chip">0.8 mi to center</span><span class="sf-chip">Kitchenettes</span></div>
+                  <p>Spacious suites with kitchenettes and river views, ideal for longer stays and flexible work travel.</p>
+                  <div class="sf-amenities"><span>Pet friendly</span><span>Kitchenette</span><span>Pool</span></div>
+                </div>
+                <div class="sf-price">
+                  <strong>$214</strong>
+                  <small>per night</small>
+                  <button type="button" class="sf-btn sf-btn--ghost hotel-select-btn">Select</button>
+                </div>
+              </li>
+
+              <li class="sf-hotel" data-hotel="city-center-plaza">
+                <div class="sf-thumb" style="background:linear-gradient(135deg,#fda4af,#f59e0b)"><span>Historic district</span></div>
+                <div>
+                  <h2>City Center Plaza</h2>
+                  <div class="sf-meta"><span class="sf-chip">8.2 Very good</span><span class="sf-chip">0.4 mi to center</span><span class="sf-chip">Breakfast available</span></div>
+                  <p>Convenient historic district hotel with renovated lobby, compact rooms, and quick access to downtown transit lines.</p>
+                  <div class="sf-amenities"><span>Breakfast</span><span>Business lounge</span><span>Late checkout</span></div>
+                </div>
+                <div class="sf-price">
+                  <strong>$186</strong>
+                  <small>per night</small>
+                  <button type="button" class="sf-btn sf-btn--ghost hotel-select-btn">Select</button>
+                </div>
+              </li>
+            </ul>
+
+            <section class="sf-summary-card" aria-label="Booking preview">
+              <h3 style="margin-top:0">Booking preview</h3>
+              <div class="sf-summary-row"><span>Hotel</span><strong id="preview-hotel">Marriott Downtown</strong></div>
+              <div class="sf-summary-row"><span>Stay</span><strong id="preview-stay">2 nights</strong></div>
+              <div class="sf-summary-row"><span>Estimated subtotal</span><strong id="preview-total">$498</strong></div>
+              <label for="traveler-name">Primary traveler name</label>
+              <input id="traveler-name" type="text" placeholder="Enter full name" aria-describedby="traveler-name-error">
+              <div class="sf-error" id="traveler-name-error">Please enter the primary traveler's full name before confirming.</div>
+              <label for="traveler-email">Email for itinerary</label>
+              <input id="traveler-email" type="email" placeholder="name@example.com" aria-describedby="traveler-email-error">
+              <div class="sf-error" id="traveler-email-error">Please enter a valid email address.</div>
+              <div class="sf-card__actions">
+                <button type="button" class="sf-btn sf-btn--muted" id="preview-apply">Refresh estimate</button>
+                <span class="sf-note" id="preview-helper">Fill traveler details, then use the hotel card's Confirm button to complete the booking flow.</span>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <aside class="sf-rail sf-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <p style="margin:0 0 10px">Bundle your stay with rideshare credit and local dining perks.</p>
+      <a href="#">Partner offer — limited time</a><br>
+      <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <div class="sf-summary-card" style="margin-top:14px;background:#fffdf5">
+        <h3 style="margin-top:0">Session status</h3>
+        <div class="sf-summary-row"><span>Selected item</span><strong id="rail-selected">Marriott Downtown</strong></div>
+        <div class="sf-summary-row"><span>Traveler form</span><strong id="rail-form-status">Incomplete</strong></div>
+        <div class="sf-summary-row"><span>Last action</span><strong id="rail-last-action">Waiting</strong></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="sf-overlay" id="booking-overlay"></div>
+  <div class="sf-modal" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" aria-hidden="true">
+    <button type="button" class="sf-close" id="booking-close" aria-label="Close">×</button>
+    <h2 id="booking-modal-title" style="margin-top:0">Booking confirmed</h2>
+    <p id="booking-modal-copy">Your 2-night stay at Marriott Downtown has been prepared.</p>
+    <div class="sf-summary-card" style="margin-top:12px">
+      <div class="sf-summary-row"><span>Traveler</span><strong id="modal-traveler">—</strong></div>
+      <div class="sf-summary-row"><span>Email</span><strong id="modal-email">—</strong></div>
+      <div class="sf-summary-row"><span>Stay length</span><strong id="modal-stay">2 nights</strong></div>
+    </div>
+    <div class="sf-card__actions">
+      <button type="button" class="sf-btn sf-btn--primary" id="modal-done">Done</button>
+    </div>
+  </div>
+
+  <div class="sf-filler" aria-hidden="true"><div class="sf-filler-inner"><a href="#" class="sf-btn sf-btn--ghost">Link 1</a><button type="button" class="sf-btn sf-btn--ghost">Action 2</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="#" class="sf-btn sf-btn--ghost">Link 5</a><button type="button" class="sf-btn sf-btn--ghost">Action 6</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="#" class="sf-btn sf-btn--ghost">Link 9</a><button type="button" class="sf-btn sf-btn--ghost">Action 10</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button><a href="#" class="sf-btn sf-btn--ghost">Link 13</a><button type="button" class="sf-btn sf-btn--ghost">Action 14</button><button type="button" class="sf-btn sf-btn--ghost">Submit</button><button type="button" class="sf-btn sf-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="sf-btn sf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional button" data-wci-priority="2" data-wci-scope="hotel_booking-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+
+  <footer class="sf-ftr"><small>© Demo StayFinder</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var nightsSelect = document.getElementById('nights');
+  var guestsSelect = document.getElementById('guests');
+  var travelerName = document.getElementById('traveler-name');
+  var travelerEmail = document.getElementById('traveler-email');
+  var nameError = document.getElementById('traveler-name-error');
+  var emailError = document.getElementById('traveler-email-error');
+  var previewStay = document.getElementById('preview-stay');
+  var previewTotal = document.getElementById('preview-total');
+  var tripNightsLabel = document.getElementById('trip-nights-label');
+  var tripGuestsLabel = document.getElementById('trip-guests-label');
+  var selectedHotelLabel = document.getElementById('selected-hotel-label');
+  var railSelected = document.getElementById('rail-selected');
+  var railFormStatus = document.getElementById('rail-form-status');
+  var railLastAction = document.getElementById('rail-last-action');
+  var smokeStatus = document.getElementById('hotel-booking-smoke-status');
+  var previewHotel = document.getElementById('preview-hotel');
+  var modal = document.getElementById('booking-modal');
+  var overlay = document.getElementById('booking-overlay');
+  var modalTraveler = document.getElementById('modal-traveler');
+  var modalEmail = document.getElementById('modal-email');
+  var modalStay = document.getElementById('modal-stay');
+  var modalCopy = document.getElementById('booking-modal-copy');
+  var nightlyRate = 249;
+  var currentHotel = 'Marriott Downtown';
+
+  function updateEstimate(){
+    var nights = parseInt(nightsSelect.value, 10) || 2;
+    var guestsText = guestsSelect.value;
+    tripNightsLabel.textContent = nights + (nights === 1 ? ' night' : ' nights');
+    previewStay.textContent = nights + (nights === 1 ? ' night' : ' nights');
+    modalStay.textContent = nights + (nights === 1 ? ' night' : ' nights');
+    tripGuestsLabel.textContent = guestsText;
+    previewTotal.textContent = '$' + (nightlyRate * nights);
+  }
+
+  function validateName(){
+    var valid = travelerName.value.trim().length >= 3 && travelerName.value.trim().indexOf(' ') > 0;
+    nameError.textContent = valid ? '' : 'Please enter the primary traveler\'s full name before confirming.';
+    return valid;
+  }
+
+  function validateEmail(){
+    var value = travelerEmail.value.trim();
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    emailError.textContent = valid ? '' : 'Please enter a valid email address.';
+    return valid;
+  }
+
+  function updateFormStatus(){
+    var ok = validateName() && validateEmail();
+    railFormStatus.textContent = ok ? 'Ready' : 'Incomplete';
+    railFormStatus.style.color = ok ? '#166534' : '#92400e';
+    return ok;
+  }
+
+  function selectHotel(card){
+    document.querySelectorAll('.sf-hotel').forEach(function(node){ node.classList.remove('sf-selected'); });
+    card.classList.add('sf-selected');
+    var name = card.querySelector('h2').textContent.trim();
+    currentHotel = name;
+    selectedHotelLabel.textContent = name;
+    railSelected.textContent = name;
+    previewHotel.textContent = name;
+    railLastAction.textContent = 'Selected ' + name;
+  }
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  document.querySelectorAll('.hotel-select-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      selectHotel(btn.closest('.sf-hotel'));
+      smokeStatus.textContent = 'Smoke status: selected ' + currentHotel;
+      window.__scenarioSmoke = { lastAction: 'selected ' + currentHotel, updatedAt: Date.now() };
+    });
+  });
+
+  var marriottButton = document.querySelector('[data-hotel="marriott-downtown"] .sf-btn--primary');
+  if(marriottButton){
+    marriottButton.addEventListener('click', function(){
+      selectHotel(marriottButton.closest('[data-hotel="marriott-downtown"]'));
+      var nameOk = validateName();
+      var emailOk = validateEmail();
+      updateEstimate();
+      if(!(nameOk && emailOk)){
+        smokeStatus.textContent = 'Smoke status: validation required before confirming Marriott Downtown';
+        railLastAction.textContent = 'Validation required';
+        window.__scenarioSmoke = { lastAction: 'validation required for Marriott Downtown confirm', updatedAt: Date.now() };
+        return;
+      }
+      modalTraveler.textContent = travelerName.value.trim();
+      modalEmail.textContent = travelerEmail.value.trim();
+      modalCopy.textContent = 'Your ' + previewStay.textContent + ' stay at Marriott Downtown has been confirmed.';
+      smokeStatus.textContent = 'Smoke status: confirmed Marriott Downtown for ' + previewStay.textContent;
+      railLastAction.textContent = 'Confirmed Marriott Downtown';
+      window.__scenarioSmoke = { lastAction: 'confirmed Marriott Downtown', updatedAt: Date.now() };
+      openModal();
+    });
+  }
+
+  nightsSelect.addEventListener('change', updateEstimate);
+  guestsSelect.addEventListener('change', updateEstimate);
+  travelerName.addEventListener('input', updateFormStatus);
+  travelerEmail.addEventListener('input', updateFormStatus);
+  document.getElementById('preview-apply').addEventListener('click', function(){
+    updateEstimate();
+    updateFormStatus();
+    railLastAction.textContent = 'Estimate refreshed';
+  });
+
+  document.getElementById('booking-close').addEventListener('click', closeModal);
+  document.getElementById('modal-done').addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  ['cookie-reject','cookie-accept','cookie-customize'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('click', function(){
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'none';
+      railLastAction.textContent = 'Cookie banner dismissed';
+    });
+  });
+
+  updateEstimate();
+  selectHotel(document.querySelector('[data-hotel="marriott-downtown"]'));
+  updateFormStatus();
+  smokeStatus.textContent = 'Smoke status: ready';
+  window.__scenarioSmoke = { lastAction: 'page ready', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

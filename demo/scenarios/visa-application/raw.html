@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>VisaPath</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>VisaPath — B-1 Documents</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -7,7 +7,6 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
-
 .vp-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .vp-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .vp-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
@@ -19,15 +18,14 @@ table{border-collapse:collapse}
 .vp-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .vp-subnav a:hover{background:#f8fafc;color:#334155}
 .vp-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.vp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.vp-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.vp-page-wrap{grid-template-columns:1fr}}
 .vp-page-main{padding:20px 24px 32px;min-height:42vh}
 .vp-page-main>h1,.vp-page-main [role=main]>h1,.vp-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .vp-page-main h2,.vp-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.vp-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.vp-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .vp-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.vp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.vp-page-main select,.vp-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.vp-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.vp-page-main select,.vp-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .vp-page-main input:focus,.vp-page-main select:focus,.vp-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .vp-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .vp-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +33,12 @@ table{border-collapse:collapse}
 .vp-page-main th,.vp-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .vp-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .vp-page-main tr:hover td{background:#fafafa}
-.vp-page-main article,.vp-page-main .vp-card,.vp-page-main .vp-resto,.vp-page-main .vp-slot,.vp-page-main .vp-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.vp-page-main article,.vp-page-main .vp-card,.vp-page-main .vp-resto,.vp-page-main .vp-slot,.vp-page-main .vp-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .vp-page-main ul:not([class]){list-style:none;padding:0}
 .vp-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .vp-page-main ul:not([class]) li:hover{background:#f8fafc}
-.vp-page-main dialog,.vp-page-main .vp-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.vp-page-main .vp-modal.is-open,.vp-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.vp-page-main dialog,.vp-page-main .vp-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.vp-page-main .vp-modal.is-open,[role=dialog].vp-modal.is-open{position:fixed;inset:10% 24%;z-index:60;max-width:520px;margin:auto}
 .vp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .vp-btn:hover{background:#f8fafc}
 .vp-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
@@ -64,53 +60,279 @@ table{border-collapse:collapse}
 .vp-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .vp-ab{display:none!important}
 .vp-layout{display:grid;gap:16px;align-items:start}
-.vp-filters,.vp-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.vp-filters h2,.vp-frame aside h2{font-size:14px;margin:0 0 10px}
 .vp-card__actions,.vp-slot__actions,.vp-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.vp-wizard{max-width:760px}
+.vp-wizard{max-width:860px}
 .vp-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .vp-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .vp-step.is-active{background:hsl(291 72% 46%);color:#fff}
+.vp-step.is-done{background:#dcfce7;color:#166534}
 .vp-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.vp-hero{border-radius:12px;margin-bottom:8px}
-.vp-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.vp-grid{display:grid;gap:14px}
-.vp-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.vp-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.vp-patient{border-radius:10px}
-.vp-slots{display:grid;gap:10px}
-.vp-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.vp-cell{background:#fff;padding:8px;min-height:44px}
-.vp-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.vp-diff{border-radius:8px}
-.vp-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.vp-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.vp-badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600}
+.vp-badge--ok{background:#dcfce7;color:#166534}
+.vp-badge--warn{background:#fef3c7;color:#92400e}
+.vp-badge--info{background:#e0f2fe;color:#075985}
+.vp-badge--neutral{background:#e2e8f0;color:#334155}
+.vp-dropzone{border:2px dashed #8b5cf6;border-radius:14px;padding:24px;background:linear-gradient(180deg,#faf5ff,#fff);text-align:center}
+.vp-dropzone.is-ready{border-color:#16a34a;background:linear-gradient(180deg,#f0fdf4,#fff)}
+.vp-dropzone.is-error{border-color:#dc2626;background:#fef2f2}
+.vp-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.vp-help{font-size:12px;color:#64748b}
+.vp-error{color:#b91c1c;font-size:12px;margin-top:6px;display:none}
+.vp-error.is-visible{display:block}
+.vp-success{color:#166534;font-size:12px;margin-top:6px}
+.vp-doc-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px 0;border-top:1px solid #e2e8f0}
+.vp-doc-row:first-child{border-top:none}
+.vp-summary-list{display:grid;gap:8px}
+.vp-summary-item{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9}
+.vp-kv{display:grid;grid-template-columns:180px 1fr;gap:10px;font-size:13px}
+.vp-preview{min-height:42px;margin-top:10px;padding:10px 12px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;color:#334155}
+.vp-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;z-index:50}
+.vp-overlay.is-open{display:block}
+#visa-application-smoke-status{font-weight:600}
 </style></head><body>
-<div class="vp-app" data-page="visa-application"><div class="vp-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="vp-app" data-page="visa-application" id="visa_application-page"><div class="vp-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="vp-btn vp-btn--muted">Reject non-essential</button>
-  <button type="button" class="vp-btn vp-btn--primary">Accept all</button>
-  <button type="button" class="vp-btn vp-btn--ghost">Customize</button>
+  <button type="button" class="vp-btn vp-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="vp-btn vp-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="vp-btn vp-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="vp-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="vp-btn vp-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="vp-btn">Continue as guest — express</button>
 </div><header class="vp-hdr">
-  <nav class="vp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="vp-inline"><strong style="font-size:18px">VisaPath</strong><span class="vp-badge vp-badge--info">Application in progress</span></div>
+  <nav class="vp-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help Center</a><a href="/guides">Travel Guides</a><a href="/account">Account</a></nav>
   <div class="vp-hdr-promo"><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="vp-btn vp-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="vp-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="vp-subnav" aria-label="Secondary"><a href="#app-overview">Overview</a><a href="#documents-section">Documents</a><a href="#upload-requirements">Requirements</a><a href="#support-panel">Support</a><a href="#billing-panel">Billing</a>
   <button type="button" class="vp-btn vp-btn--ghost">Submit</button>
   <button type="button" class="vp-btn vp-btn--ghost">Continue</button>
 </nav><div class="vp-dup-row" aria-label="Quick actions">
   <button type="button" class="vp-btn vp-btn--ghost">Submit</button>
   <button type="button" class="vp-btn vp-btn--ghost">Continue</button>
-  <button type="button" class="vp-btn vp-btn--ghost">Save changes</button>
-  <button type="button" class="vp-btn vp-btn--ghost">Confirm</button>
-</div><div class="vp-dup-row"><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Upload passport scan</button><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-nav">Upload passport B-1</button></div><div class="vp-page-wrap"><div class="vp-page-main"><ol style="display:flex;gap:8px;list-style:none;padding:16px"><li>Personal</li><li>Documents</li><li>Review</li></ol>
-<section role="main" style="padding:24px"><h1>B-1 Documents</h1><div style="border:2px dashed #6366f1;padding:40px;text-align:center">
-<button type="button" class="vp-btn vp-btn--primary" data-doc="passport-scan">Confirm</button></div>
-<button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Expedite $99</button></section></div><aside class="vp-rail vp-rail--ads" aria-label="Sponsored">
+  <button type="button" class="vp-btn vp-btn--ghost" id="saveDraftBtn">Save draft</button>
+  <button type="button" class="vp-btn vp-btn--ghost" id="openChecklistBtn">Checklist</button>
+</div><div class="vp-dup-row"><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">Upload passport scan</button><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-nav">Upload passport B-1</button></div><div class="vp-page-wrap"><div class="vp-page-main"><div class="vp-wizard" role="main" aria-labelledby="page-title">
+<ol class="vp-steps" aria-label="Visa application steps"><li class="vp-step is-done">1. Personal</li><li class="vp-step is-active">2. Documents</li><li class="vp-step">3. Review</li><li class="vp-step">4. Submit</li></ol>
+<section id="app-overview" class="vp-panel">
+  <div class="vp-inline" style="justify-content:space-between;align-items:flex-start"><div><h1 id="page-title">B-1 Documents</h1><p>Upload the supporting files required for your visitor visa application. Your passport scan must show the full identity page, be legible, and include all four corners.</p></div><div><span class="vp-badge vp-badge--warn" id="overallStatusBadge">1 item pending</span></div></div>
+  <div class="vp-summary-list" style="margin-top:10px">
+    <div class="vp-summary-item"><span>Applicant</span><strong>Jordan Reyes</strong></div>
+    <div class="vp-summary-item"><span>Visa type</span><strong>B-1 Business Visitor</strong></div>
+    <div class="vp-summary-item"><span>Embassy region</span><strong>United States — London</strong></div>
+    <div class="vp-summary-item"><span>Document deadline</span><strong>Within 14 days</strong></div>
+  </div>
+</section>
+<section id="documents-section" class="vp-panel">
+  <div class="vp-inline" style="justify-content:space-between;align-items:center"><h2 style="margin:0">Required documents</h2><span class="vp-badge vp-badge--neutral" id="docCounter">0 of 2 uploaded</span></div>
+  <div class="vp-doc-row">
+    <div><strong>Passport identity page scan</strong><p>Accepted formats: PDF, JPG, PNG. Maximum size: 10 MB. Color scan preferred.</p><div class="vp-help">This is required before you can continue to the review step.</div></div>
+    <div><span class="vp-badge vp-badge--warn" id="passportStatusBadge">Missing</span></div>
+  </div>
+  <div class="vp-dropzone" id="passportDropzone">
+    <p style="margin-bottom:12px"><strong>Select your passport scan</strong></p>
+    <div class="vp-inline" style="justify-content:center">
+      <input type="file" id="passportFile" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" aria-describedby="passportHelp passportError"/>
+      <button type="button" class="vp-btn vp-btn--primary" data-doc="passport-scan" id="upload-passport-scan" disabled>Upload passport scan</button>
+    </div>
+    <div class="vp-help" id="passportHelp">Choose a file first, then upload. Do not use the expedited paid option unless instructed by support.</div>
+    <div class="vp-error" id="passportError">Please choose a valid file under 10 MB before uploading.</div>
+    <div class="vp-preview" id="passportPreview">No file selected.</div>
+    <div class="vp-success" id="passportUploadedMessage" style="display:none">Passport scan uploaded and ready for review.</div>
+  </div>
+  <fieldset id="upload-requirements"><legend>Upload confirmation</legend>
+    <label class="vp-inline"><input type="checkbox" id="confirmLegible"/> I confirm the passport scan is legible and unaltered.</label>
+    <label class="vp-inline"><input type="checkbox" id="confirmCorners"/> I confirm all four corners of the identity page are visible.</label>
+    <label for="docNotes">Optional note for reviewer</label>
+    <textarea id="docNotes" rows="4" placeholder="Add context only if your passport was recently renewed or contains minor glare."></textarea>
+  </fieldset>
+  <div class="vp-card__actions">
+    <button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo" id="expediteOfferBtn">Expedite review — $99</button>
+    <button type="button" class="vp-btn vp-btn--ghost" id="resetUploadBtn">Reset selection</button>
+    <span id="visa-application-smoke-status" class="vp-badge vp-badge--neutral">Awaiting passport upload</span>
+  </div>
+</section>
+<section class="vp-panel" id="billing-panel">
+  <h2>Fee summary</h2>
+  <table aria-label="Current fees">
+    <thead><tr><th>Item</th><th>Status</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>B-1 application processing</td><td>Paid</td><td>$185</td></tr>
+      <tr><td>Document review</td><td>Included</td><td>$0</td></tr>
+      <tr><td>Expedited handling</td><td id="expediteState">Not selected</td><td>$99</td></tr>
+    </tbody>
+  </table>
+</section>
+<section class="vp-panel" id="support-panel">
+  <h2>Before you continue</h2>
+  <div class="vp-kv">
+    <div>Common rejection reason</div><div>Blurry mobile photos with cropped edges or glare over the passport number.</div>
+    <div>Recommended resolution</div><div>At least 300 DPI for scans, or a high-resolution image exported to PDF.</div>
+    <div>Review time</div><div>Typically 1–2 business days after successful upload.</div>
+  </div>
+</section>
+</div></div><aside class="vp-rail vp-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p style="margin-top:0">Need help preparing travel paperwork? Our partners offer premium concierge packages and appointment reminders.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:16px 0"/>
+  <h3 style="margin-top:0">Application progress</h3>
+  <div class="vp-summary-list">
+    <div class="vp-summary-item"><span>Profile completeness</span><strong id="profilePercent">82%</strong></div>
+    <div class="vp-summary-item"><span>Uploads pending</span><strong id="pendingCount">2</strong></div>
+    <div class="vp-summary-item"><span>Draft saved</span><strong id="draftStatus">No</strong></div>
+  </div>
 </aside></div><div class="vp-filler" aria-hidden="true"><div class="vp-filler-inner"><a href="/misc/0" class="vp-btn vp-btn--ghost">Link 1</a><button type="button" class="vp-btn vp-btn--ghost">Action 2</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/4" class="vp-btn vp-btn--ghost">Link 5</a><button type="button" class="vp-btn vp-btn--ghost">Action 6</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/8" class="vp-btn vp-btn--ghost">Link 9</a><button type="button" class="vp-btn vp-btn--ghost">Action 10</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/12" class="vp-btn vp-btn--ghost">Link 13</a><button type="button" class="vp-btn vp-btn--ghost">Action 14</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/16" class="vp-btn vp-btn--ghost">Link 17</a><button type="button" class="vp-btn vp-btn--ghost">Action 18</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/20" class="vp-btn vp-btn--ghost">Link 21</a><button type="button" class="vp-btn vp-btn--ghost">Action 22</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/24" class="vp-btn vp-btn--ghost">Link 25</a><button type="button" class="vp-btn vp-btn--ghost">Action 26</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/28" class="vp-btn vp-btn--ghost">Link 29</a><button type="button" class="vp-btn vp-btn--ghost">Action 30</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/32" class="vp-btn vp-btn--ghost">Link 33</a><button type="button" class="vp-btn vp-btn--ghost">Action 34</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/36" class="vp-btn vp-btn--ghost">Link 37</a><button type="button" class="vp-btn vp-btn--ghost">Action 38</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button><a href="/misc/40" class="vp-btn vp-btn--ghost">Link 41</a><button type="button" class="vp-btn vp-btn--ghost">Action 42</button><button type="button" class="vp-btn vp-btn--ghost">Submit</button><button type="button" class="vp-btn vp-btn--ghost">Continue</button></div></div><button type="button" class="vp-btn vp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="vp-ftr"><small>© Demo VisaPath</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="vp-overlay" id="modalOverlay"></div>
+<div class="vp-modal" id="checklistModal" role="dialog" aria-modal="true" aria-labelledby="checklistTitle" hidden>
+  <h2 id="checklistTitle" style="margin-top:0">Document checklist</h2>
+  <ul>
+    <li>Passport identity page selected</li>
+    <li>All edges visible</li>
+    <li>Name and passport number readable</li>
+    <li>No expedited option selected unless required</li>
+  </ul>
+  <div class="vp-card__actions"><button type="button" class="vp-btn vp-btn--primary" id="closeChecklistBtn">Close</button></div>
+</div>
+<script>
+(function(){
+  var fileInput=document.getElementById('passportFile');
+  var uploadBtn=document.querySelector('button[data-doc="passport-scan"]');
+  var preview=document.getElementById('passportPreview');
+  var error=document.getElementById('passportError');
+  var uploadedMessage=document.getElementById('passportUploadedMessage');
+  var smoke=document.getElementById('visa-application-smoke-status');
+  var dropzone=document.getElementById('passportDropzone');
+  var passportStatusBadge=document.getElementById('passportStatusBadge');
+  var docCounter=document.getElementById('docCounter');
+  var overallStatusBadge=document.getElementById('overallStatusBadge');
+  var pendingCount=document.getElementById('pendingCount');
+  var expediteBtn=document.getElementById('expediteOfferBtn');
+  var expediteState=document.getElementById('expediteState');
+  var saveDraftBtn=document.getElementById('saveDraftBtn');
+  var draftStatus=document.getElementById('draftStatus');
+  var resetUploadBtn=document.getElementById('resetUploadBtn');
+  var checklistModal=document.getElementById('checklistModal');
+  var modalOverlay=document.getElementById('modalOverlay');
+  var openChecklistBtn=document.getElementById('openChecklistBtn');
+  var closeChecklistBtn=document.getElementById('closeChecklistBtn');
+  var cookieBanner=document.getElementById('cookieBanner');
+  var profilePercent=document.getElementById('profilePercent');
+  var uploaded=false;
+  var expedited=false;
+
+  function validFile(file){
+    if(!file) return false;
+    var okType=/pdf|png|jpg|jpeg/i.test(file.type||'')||/\.(pdf|png|jpe?g)$/i.test(file.name||'');
+    var okSize=file.size<=10*1024*1024;
+    return okType&&okSize;
+  }
+
+  function updateSelectionState(){
+    var file=fileInput.files&&fileInput.files[0];
+    uploaded=false;
+    uploadedMessage.style.display='none';
+    passportStatusBadge.textContent='Missing';
+    passportStatusBadge.className='vp-badge vp-badge--warn';
+    docCounter.textContent='0 of 2 uploaded';
+    overallStatusBadge.textContent='1 item pending';
+    pendingCount.textContent='2';
+    if(validFile(file)){
+      uploadBtn.disabled=false;
+      error.classList.remove('is-visible');
+      preview.textContent='Selected: '+file.name+' ('+Math.max(1,Math.round(file.size/1024))+' KB)';
+      dropzone.classList.remove('is-error');
+      dropzone.classList.add('is-ready');
+      smoke.textContent='File selected: ready to upload';
+    }else if(file){
+      uploadBtn.disabled=true;
+      error.classList.add('is-visible');
+      preview.textContent='Invalid file: use PDF, JPG, or PNG under 10 MB.';
+      dropzone.classList.remove('is-ready');
+      dropzone.classList.add('is-error');
+      smoke.textContent='Validation error: invalid passport file';
+    }else{
+      uploadBtn.disabled=true;
+      error.classList.remove('is-visible');
+      preview.textContent='No file selected.';
+      dropzone.classList.remove('is-ready','is-error');
+      smoke.textContent='Awaiting passport upload';
+    }
+  }
+
+  fileInput.addEventListener('change',updateSelectionState);
+
+  uploadBtn.addEventListener('click',function(){
+    var file=fileInput.files&&fileInput.files[0];
+    if(!validFile(file)){
+      error.classList.add('is-visible');
+      smoke.textContent='Upload blocked: choose a valid passport scan';
+      window.__scenarioSmoke={lastAction:'passport-upload-blocked',updatedAt:Date.now()};
+      return;
+    }
+    uploaded=true;
+    passportStatusBadge.textContent='Uploaded';
+    passportStatusBadge.className='vp-badge vp-badge--ok';
+    docCounter.textContent='1 of 2 uploaded';
+    overallStatusBadge.textContent='Passport received';
+    pendingCount.textContent='1';
+    uploadedMessage.style.display='block';
+    preview.textContent='Uploaded file: '+file.name;
+    smoke.textContent='Passport scan uploaded successfully';
+    window.__scenarioSmoke={lastAction:'passport-scan-uploaded',updatedAt:Date.now()};
+  });
+
+  expediteBtn.addEventListener('click',function(){
+    expedited=!expedited;
+    expediteState.textContent=expedited?'Selected':'Not selected';
+    expediteBtn.textContent=expedited?'Remove expedited review — $99':'Expedite review — $99';
+    expediteBtn.className='vp-btn '+(expedited?'vp-btn--muted':'vp-btn--decoy');
+  });
+
+  saveDraftBtn.addEventListener('click',function(){
+    draftStatus.textContent='Saved just now';
+    smoke.textContent='Draft saved';
+  });
+
+  resetUploadBtn.addEventListener('click',function(){
+    fileInput.value='';
+    uploaded=false;
+    updateSelectionState();
+    uploadedMessage.style.display='none';
+  });
+
+  function openModal(){
+    checklistModal.hidden=false;
+    checklistModal.classList.add('is-open');
+    modalOverlay.classList.add('is-open');
+  }
+  function closeModal(){
+    checklistModal.hidden=true;
+    checklistModal.classList.remove('is-open');
+    modalOverlay.classList.remove('is-open');
+  }
+  openChecklistBtn.addEventListener('click',openModal);
+  closeChecklistBtn.addEventListener('click',closeModal);
+  modalOverlay.addEventListener('click',closeModal);
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      cookieBanner.style.display='none';
+    });
+  });
+
+  document.getElementById('confirmLegible').addEventListener('change',function(){
+    profilePercent.textContent=this.checked?'88%':'82%';
+  });
+  document.getElementById('confirmCorners').addEventListener('change',function(){
+    if(this.checked&&document.getElementById('confirmLegible').checked){
+      profilePercent.textContent='92%';
+    }
+  });
+
+  updateSelectionState();
+})();
+</script>
+</body></html>

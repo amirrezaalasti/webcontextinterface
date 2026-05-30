@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AuthGate</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AuthGate Admin Console</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -7,7 +7,6 @@ button{cursor:pointer}
 a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
-
 .ag-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .ag-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ag-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
@@ -19,15 +18,14 @@ table{border-collapse:collapse}
 .ag-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ag-subnav a:hover{background:#f8fafc;color:#334155}
 .ag-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ag-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.ag-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.ag-page-wrap{grid-template-columns:1fr}}
 .ag-page-main{padding:20px 24px 32px;min-height:42vh}
 .ag-page-main>h1,.ag-page-main [role=main]>h1,.ag-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ag-page-main h2,.ag-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.ag-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.ag-page-main p{margin:0 0 10px;color:#475569;max-width:75ch}
 .ag-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ag-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ag-page-main select,.ag-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ag-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ag-page-main select,.ag-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ag-page-main input:focus,.ag-page-main select:focus,.ag-page-main textarea:focus{outline:2px solid hsl(221 72% 46%);outline-offset:1px;border-color:hsl(221 72% 46%)}
 .ag-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .ag-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,26 +33,25 @@ table{border-collapse:collapse}
 .ag-page-main th,.ag-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .ag-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ag-page-main tr:hover td{background:#fafafa}
-.ag-page-main article,.ag-page-main .ag-card,.ag-page-main .ag-resto,.ag-page-main .ag-slot,.ag-page-main .ag-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ag-page-main article,.ag-page-main .ag-card,.ag-page-main .ag-resto,.ag-page-main .ag-slot,.ag-page-main .ag-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ag-page-main ul:not([class]){list-style:none;padding:0}
 .ag-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .ag-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ag-page-main dialog,.ag-page-main .ag-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ag-page-main .ag-modal.is-open,.ag-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.ag-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ag-page-main dialog,.ag-page-main .ag-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.ag-page-main .ag-modal.is-open,.ag-page-main [role=dialog].ag-dialog{position:fixed;inset:12% 22%;z-index:60;max-width:560px;margin:auto}
+.ag-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,opacity .12s}
 .ag-btn:hover{background:#f8fafc}
 .ag-btn--primary{background:hsl(221 72% 46%);color:#fff;border-color:hsl(221 72% 38%)}
 .ag-btn--primary:hover{filter:brightness(1.05)}
 .ag-btn--ghost{background:transparent;border-color:transparent;color:#475569}
 .ag-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
 .ag-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.ag-btn--danger{background:#fff1f2;border-color:#fecdd3;color:#be123c}
 .ag-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
 .ag-btn:disabled{opacity:.5;cursor:not-allowed}
 .ag-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .ag-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.ag-rail{padding:16px;margin:16px;background:hsl(221 60% 96%);border:1px solid hsl(221 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
+.ag-rail{padding:16px;margin:16px;background:hsl(221 60% 96%);border:1px solid hsl(221 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
 @media(min-width:901px){.ag-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .ag-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .ag-rail a{color:#b45309;font-weight:500}
@@ -67,37 +64,56 @@ table{border-collapse:collapse}
 .ag-filters,.ag-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .ag-filters h2,.ag-frame aside h2{font-size:14px;margin:0 0 10px}
 .ag-card__actions,.ag-slot__actions,.ag-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ag-wizard{max-width:760px}
+.ag-wizard{max-width:960px}
 .ag-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .ag-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .ag-step.is-active{background:hsl(221 72% 46%);color:#fff}
+.ag-step.is-done{background:#dcfce7;color:#166534}
 .ag-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.ag-hero{border-radius:12px;margin-bottom:8px}
 .ag-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .ag-grid{display:grid;gap:14px}
-.ag-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.ag-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ag-patient{border-radius:10px}
-.ag-slots{display:grid;gap:10px}
-.ag-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ag-cell{background:#fff;padding:8px;min-height:44px}
-.ag-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ag-diff{border-radius:8px}
-.ag-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ag-two-col{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:16px}
+@media(max-width:980px){.ag-two-col{grid-template-columns:1fr}}
+.ag-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+.ag-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid #cbd5e1;background:#fff;color:#334155}
+.ag-badge--ok{background:#ecfdf5;border-color:#a7f3d0;color:#166534}
+.ag-badge--warn{background:#fff7ed;border-color:#fdba74;color:#9a3412}
+.ag-badge--danger{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
+.ag-muted{color:#64748b}
+.ag-small{font-size:12px}
+.ag-inline{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ag-kv{display:grid;grid-template-columns:160px 1fr;gap:8px 12px;font-size:13px}
+.ag-kv dt{color:#64748b}
+.ag-kv dd{margin:0;color:#0f172a;font-weight:500}
+.ag-status-box{padding:12px 14px;border-radius:10px;border:1px solid #dbeafe;background:#eff6ff;color:#1d4ed8}
+.ag-warning{padding:12px 14px;border-radius:10px;border:1px solid #fde68a;background:#fffbeb;color:#92400e}
+.ag-success{padding:12px 14px;border-radius:10px;border:1px solid #86efac;background:#f0fdf4;color:#166534}
+.ag-error{padding:12px 14px;border-radius:10px;border:1px solid #fecaca;background:#fef2f2;color:#b91c1c}
+.ag-sidebar{background:#111827;color:#e5e7eb;padding:16px;min-height:100%}
+.ag-sidebar h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#94a3b8;margin:16px 0 8px}
+.ag-sidebar a,.ag-sidebar button{display:flex;width:100%;align-items:center;justify-content:space-between;text-decoration:none;color:#e5e7eb;background:transparent;border:0;padding:10px 12px;border-radius:8px;font-size:13px;margin:2px 0}
+.ag-sidebar a:hover,.ag-sidebar button:hover{background:#1f2937}
+.ag-sidebar .is-active{background:#1e3a8a;color:#fff}
+.ag-list{display:grid;gap:10px}
+.ag-check{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
+.ag-check input{margin-top:3px}
+.ag-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
+.ag-overlay.is-open{display:block}
+.ag-hidden{display:none!important}
 </style></head><body>
-<div class="ag-app" data-page="password-reset" data-agent-role="landmark" data-agent-id="password_reset-page" data-agent-desc="Admin reset" data-agent-priority="2"><div class="ag-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="ag-app" data-page="password-reset" id="password_reset-page" data-wci-id="password_reset-page" data-wci-role="landmark" data-wci-desc="Password reset admin page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="ag-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ag-btn ag-btn--muted">Reject non-essential</button>
-  <button type="button" class="ag-btn ag-btn--primary">Accept all</button>
-  <button type="button" class="ag-btn ag-btn--ghost">Customize</button>
+  <button type="button" class="ag-btn ag-btn--muted" id="cookie-reject">Reject non-essential</button>
+  <button type="button" class="ag-btn ag-btn--primary" id="cookie-accept">Accept all</button>
+  <button type="button" class="ag-btn ag-btn--ghost" id="cookie-customize">Customize</button>
 </div><div class="ag-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="ag-btn ag-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="ag-btn">Continue as guest — express</button>
 </div><header class="ag-hdr">
-  <nav class="ag-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="ag-hdr-promo"><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="ag-btn ag-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="ag-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <nav class="ag-nav" aria-label="Global"><a href="#">Overview</a><a href="#">Tenants</a><a href="#">Security</a><a href="#">Audit</a><a href="#">Support</a></nav>
+  <div class="ag-hdr-promo"><span class="ag-badge ag-badge--warn">2 policy exceptions</span><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="ag-btn ag-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation and disable-related controls" data-wci-priority="1" data-wci-scope="password_reset-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button></div>
+</header><nav class="ag-subnav" aria-label="Secondary"><a href="#">Users</a><a href="#">Password policies</a><a href="#">SSO</a><a href="#">Risk events</a><a href="#">Notifications</a>
   <button type="button" class="ag-btn ag-btn--ghost">Submit</button>
   <button type="button" class="ag-btn ag-btn--ghost">Continue</button>
 </nav><div class="ag-dup-row" aria-label="Quick actions">
@@ -105,12 +121,120 @@ table{border-collapse:collapse}
   <button type="button" class="ag-btn ag-btn--ghost">Continue</button>
   <button type="button" class="ag-btn ag-btn--ghost">Save changes</button>
   <button type="button" class="ag-btn ag-btn--ghost">Confirm</button>
-</div><div class="ag-dup-row"><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-promo">Send reset link user@corp.com</button><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-nav">Send password reset</button></div><div class="ag-page-wrap"><div class="ag-page-main"><div style="display:grid;grid-template-columns:200px 1fr;min-height:50vh"><nav style="background:#111827;color:#fff;padding:16px"><a href="/users">Users</a></nav>
-<main role="main" style="padding:32px"><h1>Reset</h1><input type="email" value="user@corp.com" data-user="user@corp.com">
-<button type="button" class="ag-btn ag-btn--primary" data-action="send-reset" data-agent-role="action" data-agent-id="send-reset-link" data-agent-desc="Send password reset link to user@corp.com (not disable account)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="ag-btn ag-btn--ghost" data-decoy="decoy-nav">Disable account</button></main></div></div><aside class="ag-rail ag-rail--ads" aria-label="Sponsored">
+</div><div class="ag-dup-row"><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-promo">Send reset link user@corp.com</button><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-nav">Send password reset</button></div><div class="ag-page-wrap"><div class="ag-page-main"><div style="display:grid;grid-template-columns:220px minmax(0,1fr);min-height:60vh;gap:0;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff"><nav class="ag-sidebar" aria-label="Admin modules"><div class="ag-inline" style="justify-content:space-between"><strong>AuthGate</strong><span class="ag-badge">Admin</span></div><h2>Identity</h2><a href="#">Directory <span>184</span></a><a href="#" class="is-active">Users <span>27</span></a><a href="#">Groups <span>12</span></a><a href="#">Invites <span>4</span></a><h2>Access</h2><a href="#">Policies <span>9</span></a><a href="#">MFA <span>Enabled</span></a><a href="#">Sessions <span>31</span></a><h2>Danger zone</h2><button type="button" data-decoy="decoy-nav">Disable account</button></nav>
+<main role="main" style="padding:24px 28px;background:#f8fafc"><div class="ag-wizard"><div class="ag-inline" style="justify-content:space-between;align-items:flex-start"><div><h1>Password reset for directory user</h1><p>Use this flow to issue a reset link without changing account status. Audit metadata and delivery previews update automatically before you confirm.</p></div><div><span class="ag-badge ag-badge--ok" id="user-status-badge">Active account</span></div></div>
+<div class="ag-steps" aria-label="Reset workflow"><div class="ag-step is-done">1. Locate user</div><div class="ag-step is-active">2. Review action</div><div class="ag-step">3. Deliver reset</div></div>
+<div class="ag-two-col"><section class="ag-panel" aria-labelledby="reset-form-heading"><div class="ag-toolbar"><strong id="reset-form-heading">Action details</strong><span class="ag-muted ag-small">All password reset events are written to the audit log.</span></div>
+<div class="ag-grid" style="margin-top:14px"><div class="ag-status-box" id="password-reset-smoke-status">Ready to send password reset link.</div>
+<form id="reset-form" novalidate=""><label for="user-email">User email</label><input id="user-email" type="email" value="user@corp.com" data-user="user@corp.com" aria-describedby="email-help email-error" autocomplete="off"><div id="email-help" class="ag-small ag-muted">Expected recipient: corporate directory account.</div><div id="email-error" class="ag-small ag-error ag-hidden" aria-live="polite">Enter a valid corporate email address ending in @corp.com.</div>
+<fieldset><legend>Delivery options</legend><label for="delivery-channel">Channel</label><select id="delivery-channel"><option value="email" selected="">Email reset link</option><option value="sms">SMS reset code</option><option value="both">Email + SMS backup</option></select><label for="link-expiry">Link expiry</label><select id="link-expiry"><option value="15">15 minutes</option><option value="30" selected="">30 minutes</option><option value="60">60 minutes</option><option value="120">2 hours</option></select><div class="ag-check"><input type="checkbox" id="notify-manager"><label for="notify-manager" style="margin:0">Notify reporting manager after successful delivery</label></div><div class="ag-check"><input type="checkbox" id="force-rotation" checked=""><label for="force-rotation" style="margin:0">Require new password to meet latest rotation policy on next sign-in</label></div></fieldset>
+<fieldset><legend>Reason and safeguards</legend><label for="reset-reason">Internal note</label><textarea id="reset-reason" rows="4" maxlength="220" placeholder="Example: Requested by helpdesk ticket #48219 after lockout.">Requested by helpdesk ticket #48219 after lockout.</textarea><div class="ag-inline"><span class="ag-small ag-muted">Characters:</span><strong id="reason-counter">52</strong></div><div class="ag-check"><input type="checkbox" id="confirm-identity" checked=""><label for="confirm-identity" style="margin:0">I verified the requestor identity using approved support procedure.</label></div></fieldset>
+<div class="ag-card"><h3 style="margin-top:0">Preview</h3><p id="delivery-preview">An email reset link will be sent to <strong>user@corp.com</strong> and expire in <strong>30 minutes</strong>.</p><div class="ag-inline"><span class="ag-badge" id="risk-badge">Risk score: low</span><span class="ag-badge" id="queue-badge">Mailer queue: idle</span></div></div>
+<div class="ag-card__actions"><button type="button" class="ag-btn ag-btn--primary" data-action="send-reset" id="send-reset-link" data-wci-id="send-reset-link" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary button to send a password reset link" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="password_reset-page">Send reset link</button><button type="button" class="ag-btn ag-btn--ghost" id="preview-open">Open email preview</button><button type="button" class="ag-btn ag-btn--danger" id="disable-decoy-inline">Disable account</button></div><div class="ag-small ag-muted">Primary action sends a reset link only; no lockout or disable action occurs from this button.</div></form></div></section>
+<aside class="ag-grid" aria-label="Context panels"><article class="ag-card"><h3 style="margin-top:0">User snapshot</h3><dl class="ag-kv"><dt>Name</dt><dd>Casey Morgan</dd><dt>Email</dt><dd>user@corp.com</dd><dt>Department</dt><dd>Finance Operations</dd><dt>Last sign-in</dt><dd>Today, 08:14 UTC</dd><dt>MFA</dt><dd>Enforced</dd><dt>Status</dt><dd>Active</dd></dl></article><article class="ag-card"><h3 style="margin-top:0">Recent security activity</h3><table aria-label="Recent events"><thead><tr><th>Time</th><th>Event</th><th>Result</th></tr></thead><tbody><tr><td>08:14</td><td>Interactive login</td><td><span class="ag-badge ag-badge--ok">Allowed</span></td></tr><tr><td>07:58</td><td>Password retry threshold</td><td><span class="ag-badge ag-badge--warn">Warning</span></td></tr><tr><td>Yesterday</td><td>Admin profile view</td><td><span class="ag-badge">Logged</span></td></tr></tbody></table></article><article class="ag-warning"><strong>Safety reminder</strong><p style="margin-top:6px">Disabling an account interrupts active sessions and can affect payroll and SSO apps. Use password reset first unless a compromise is confirmed.</p></article></aside></div>
+<section class="ag-card" aria-labelledby="audit-heading"><h2 id="audit-heading">Queued audit entry</h2><table aria-label="Pending audit write"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Action</td><td id="audit-action">Password reset link requested</td></tr><tr><td>Recipient</td><td id="audit-recipient">user@corp.com</td></tr><tr><td>Delivery</td><td id="audit-delivery">Email reset link</td></tr><tr><td>Justification</td><td id="audit-note">Requested by helpdesk ticket #48219 after lockout.</td></tr></tbody></table></section>
+<section class="ag-card" aria-labelledby="related-heading"><h2 id="related-heading">Related admin tools</h2><div class="ag-row"><button type="button" class="ag-btn">Unlock session tokens</button><button type="button" class="ag-btn">View support case</button><button type="button" class="ag-btn">Export audit trail</button><button type="button" class="ag-btn" data-decoy="decoy-nav">Suspend user</button></div></section></div></main></div></div><aside class="ag-rail ag-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p class="ag-small">Identity maturity assessment for enterprises. Benchmark password reset completion and support load.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="ag-filler" aria-hidden="true"><div class="ag-filler-inner"><a href="/misc/0" class="ag-btn ag-btn--ghost">Link 1</a><button type="button" class="ag-btn ag-btn--ghost">Action 2</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/4" class="ag-btn ag-btn--ghost">Link 5</a><button type="button" class="ag-btn ag-btn--ghost">Action 6</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/8" class="ag-btn ag-btn--ghost">Link 9</a><button type="button" class="ag-btn ag-btn--ghost">Action 10</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/12" class="ag-btn ag-btn--ghost">Link 13</a><button type="button" class="ag-btn ag-btn--ghost">Action 14</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/16" class="ag-btn ag-btn--ghost">Link 17</a><button type="button" class="ag-btn ag-btn--ghost">Action 18</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/20" class="ag-btn ag-btn--ghost">Link 21</a><button type="button" class="ag-btn ag-btn--ghost">Action 22</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/24" class="ag-btn ag-btn--ghost">Link 25</a><button type="button" class="ag-btn ag-btn--ghost">Action 26</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/28" class="ag-btn ag-btn--ghost">Link 29</a><button type="button" class="ag-btn ag-btn--ghost">Action 30</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/32" class="ag-btn ag-btn--ghost">Link 33</a><button type="button" class="ag-btn ag-btn--ghost">Action 34</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/36" class="ag-btn ag-btn--ghost">Link 37</a><button type="button" class="ag-btn ag-btn--ghost">Action 38</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/40" class="ag-btn ag-btn--ghost">Link 41</a><button type="button" class="ag-btn ag-btn--ghost">Action 42</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button></div></div><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Keyword trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="ag-ftr"><small>© Demo AuthGate</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</aside></div><div class="ag-filler" aria-hidden="true"><div class="ag-filler-inner"><a href="/misc/0" class="ag-btn ag-btn--ghost">Link 1</a><button type="button" class="ag-btn ag-btn--ghost">Action 2</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/4" class="ag-btn ag-btn--ghost">Link 5</a><button type="button" class="ag-btn ag-btn--ghost">Action 6</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/8" class="ag-btn ag-btn--ghost">Link 9</a><button type="button" class="ag-btn ag-btn--ghost">Action 10</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/12" class="ag-btn ag-btn--ghost">Link 13</a><button type="button" class="ag-btn ag-btn--ghost">Action 14</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/16" class="ag-btn ag-btn--ghost">Link 17</a><button type="button" class="ag-btn ag-btn--ghost">Action 18</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/20" class="ag-btn ag-btn--ghost">Link 21</a><button type="button" class="ag-btn ag-btn--ghost">Action 22</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/24" class="ag-btn ag-btn--ghost">Link 25</a><button type="button" class="ag-btn ag-btn--ghost">Action 26</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/28" class="ag-btn ag-btn--ghost">Link 29</a><button type="button" class="ag-btn ag-btn--ghost">Action 30</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/32" class="ag-btn ag-btn--ghost">Link 33</a><button type="button" class="ag-btn ag-btn--ghost">Action 34</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/36" class="ag-btn ag-btn--ghost">Link 37</a><button type="button" class="ag-btn ag-btn--ghost">Action 38</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button><a href="/misc/40" class="ag-btn ag-btn--ghost">Link 41</a><button type="button" class="ag-btn ag-btn--ghost">Action 42</button><button type="button" class="ag-btn ag-btn--ghost">Submit</button><button type="button" class="ag-btn ag-btn--ghost">Continue</button></div></div><button type="button" class="ag-btn ag-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra control" data-wci-priority="1" data-wci-scope="password_reset-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="ag-ftr"><small>© Demo AuthGate</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+<div class="ag-overlay" id="modal-overlay"></div>
+<div class="ag-modal ag-hidden" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+  <h2 id="preview-title" style="margin-top:0">Email preview</h2>
+  <p class="ag-small ag-muted">This preview is generated from the current delivery settings.</p>
+  <div class="ag-card" style="margin:12px 0 16px;background:#f8fafc"><div class="ag-small ag-muted">To</div><div id="preview-to">user@corp.com</div><div class="ag-small ag-muted" style="margin-top:8px">Subject</div><div>Password reset instructions</div><div class="ag-small ag-muted" style="margin-top:8px">Body</div><p id="preview-body" style="margin-top:4px">A secure reset link will be sent to user@corp.com and expire in 30 minutes.</p></div>
+  <div class="ag-card__actions"><button type="button" class="ag-btn ag-btn--primary" id="close-preview">Close</button></div>
+</div>
+<script>
+(function(){
+  var root=document.querySelector('[data-page="password-reset"]');
+  var email=document.getElementById('user-email');
+  var channel=document.getElementById('delivery-channel');
+  var expiry=document.getElementById('link-expiry');
+  var reason=document.getElementById('reset-reason');
+  var reasonCounter=document.getElementById('reason-counter');
+  var confirmIdentity=document.getElementById('confirm-identity');
+  var sendBtn=document.querySelector('button[data-action="send-reset"]');
+  var smoke=document.getElementById('password-reset-smoke-status');
+  var emailError=document.getElementById('email-error');
+  var preview=document.getElementById('delivery-preview');
+  var auditRecipient=document.getElementById('audit-recipient');
+  var auditDelivery=document.getElementById('audit-delivery');
+  var auditNote=document.getElementById('audit-note');
+  var riskBadge=document.getElementById('risk-badge');
+  var queueBadge=document.getElementById('queue-badge');
+  var previewOpen=document.getElementById('preview-open');
+  var modal=document.getElementById('preview-modal');
+  var overlay=document.getElementById('modal-overlay');
+  var closePreview=document.getElementById('close-preview');
+  var previewTo=document.getElementById('preview-to');
+  var previewBody=document.getElementById('preview-body');
+  var cookieBanner=document.getElementById('cookie-banner');
+  function channelLabel(){
+    return channel.options[channel.selectedIndex].text;
+  }
+  function validCorpEmail(value){
+    return /^[^\s@]+@corp\.com$/i.test((value||'').trim());
+  }
+  function syncPreview(){
+    var e=email.value.trim()||'—';
+    var ex=expiry.value;
+    var c=channel.value;
+    var deliveryText=c==='email'?'An email reset link':(c==='sms'?'An SMS reset code':'An reset email and SMS backup');
+    preview.innerHTML=deliveryText+' will be sent to <strong>'+e+'</strong> and expire in <strong>'+ex+' minutes</strong>.';
+    auditRecipient.textContent=e;
+    auditDelivery.textContent=channelLabel();
+    auditNote.textContent=reason.value.trim()||'No internal note provided.';
+    previewTo.textContent=e;
+    previewBody.textContent='A secure reset instruction will be sent to '+e+' using '+channelLabel().toLowerCase()+' and expire in '+ex+' minutes.';
+    var risk='low';
+    if(c==='both'||ex==='120'){risk='medium';}
+    if(!validCorpEmail(e)){risk='high';}
+    riskBadge.textContent='Risk score: '+risk;
+    riskBadge.className='ag-badge '+(risk==='low'?'ag-badge--ok':risk==='medium'?'ag-badge--warn':'ag-badge--danger');
+    queueBadge.textContent='Mailer queue: '+(c==='both'?'warming':'idle');
+  }
+  function validate(){
+    var ok=validCorpEmail(email.value) && confirmIdentity.checked;
+    emailError.classList.toggle('ag-hidden', validCorpEmail(email.value));
+    sendBtn.disabled=!ok;
+    smoke.textContent=ok?'Ready to send password reset link.':'Resolve validation issues before sending reset link.';
+    return ok;
+  }
+  function openModal(){
+    overlay.classList.add('is-open');
+    modal.classList.remove('ag-hidden');
+    modal.classList.add('is-open');
+  }
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    modal.classList.add('ag-hidden');
+    modal.classList.remove('is-open');
+  }
+  email.addEventListener('input',function(){syncPreview();validate();});
+  channel.addEventListener('change',function(){syncPreview();validate();});
+  expiry.addEventListener('change',syncPreview);
+  reason.addEventListener('input',function(){reasonCounter.textContent=reason.value.length;syncPreview();});
+  confirmIdentity.addEventListener('change',validate);
+  previewOpen.addEventListener('click',function(){syncPreview();openModal();});
+  closePreview.addEventListener('click',closeModal);
+  overlay.addEventListener('click',closeModal);
+  sendBtn.addEventListener('click',function(){
+    if(!validate()) return;
+    var recipient=email.value.trim();
+    var stamp=Date.now();
+    smoke.textContent='Reset link sent to '+recipient+' via '+channelLabel().toLowerCase()+'. Audit log queued.';
+    window.__scenarioSmoke={lastAction:'send-reset-link',updatedAt:stamp};
+    queueBadge.textContent='Mailer queue: dispatched';
+    auditDelivery.textContent=channelLabel()+' • Sent';
+  });
+  document.getElementById('cookie-accept').addEventListener('click',function(){cookieBanner.style.display='none';});
+  document.getElementById('cookie-reject').addEventListener('click',function(){cookieBanner.style.display='none';});
+  document.getElementById('cookie-customize').addEventListener('click',function(){smoke.textContent='Cookie preferences opened. Password reset form unchanged.';});
+  document.getElementById('disable-decoy-inline').addEventListener('click',function(){smoke.textContent='Disable account requires a separate incident workflow.';});
+  syncPreview();
+  validate();
+})();
+</script></body></html>

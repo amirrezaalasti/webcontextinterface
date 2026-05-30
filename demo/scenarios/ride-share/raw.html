@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .gr-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .gr-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .gr-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.gr-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#0f172a}
+.gr-brand-badge{width:32px;height:32px;border-radius:10px;background:hsl(262 72% 46%);color:#fff;display:grid;place-items:center;font-size:16px;box-shadow:0 4px 12px rgba(91,33,182,.25)}
 .gr-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .gr-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .gr-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .gr-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .gr-subnav a:hover{background:#f8fafc;color:#334155}
 .gr-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.gr-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.gr-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.gr-page-wrap{grid-template-columns:1fr}}
 .gr-page-main{padding:20px 24px 32px;min-height:42vh}
 .gr-page-main>h1,.gr-page-main [role=main]>h1,.gr-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .gr-page-main h2,.gr-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .gr-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .gr-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.gr-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.gr-page-main select,.gr-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.gr-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.gr-page-main select,.gr-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .gr-page-main input:focus,.gr-page-main select:focus,.gr-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
 .gr-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .gr-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,13 +36,11 @@ table{border-collapse:collapse}
 .gr-page-main th,.gr-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .gr-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .gr-page-main tr:hover td{background:#fafafa}
-.gr-page-main article,.gr-page-main .gr-card,.gr-page-main .gr-resto,.gr-page-main .gr-slot,.gr-page-main .gr-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.gr-page-main article,.gr-page-main .gr-card,.gr-page-main .gr-resto,.gr-page-main .gr-slot,.gr-page-main .gr-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .gr-page-main ul:not([class]){list-style:none;padding:0}
 .gr-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .gr-page-main ul:not([class]) li:hover{background:#f8fafc}
-.gr-page-main dialog,.gr-page-main .gr-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.gr-page-main dialog,.gr-page-main .gr-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .gr-page-main .gr-modal.is-open,.gr-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .gr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .gr-btn:hover{background:#f8fafc}
@@ -67,37 +66,85 @@ table{border-collapse:collapse}
 .gr-filters,.gr-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .gr-filters h2,.gr-frame aside h2{font-size:14px;margin:0 0 10px}
 .gr-card__actions,.gr-slot__actions,.gr-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.gr-wizard{max-width:760px}
-.gr-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.gr-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.gr-step.is-active{background:hsl(262 72% 46%);color:#fff}
 .gr-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.gr-hero{border-radius:12px;margin-bottom:8px}
 .gr-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .gr-grid{display:grid;gap:14px}
-.gr-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.gr-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.gr-patient{border-radius:10px}
-.gr-slots{display:grid;gap:10px}
-.gr-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.gr-cell{background:#fff;padding:8px;min-height:44px}
-.gr-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.gr-diff{border-radius:8px}
 .gr-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+
+.gr-ride-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,420px);gap:18px;align-items:start}
+@media(max-width:980px){.gr-ride-layout{grid-template-columns:1fr}}
+.gr-map{position:relative;min-height:520px;border:1px solid #cbd5e1;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#dbeafe 0%,#eff6ff 26%,#e2e8f0 27%,#f8fafc 100%)}
+.gr-map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.45) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.45) 1px,transparent 1px);background-size:34px 34px;opacity:.55}
+.gr-road{position:absolute;background:#cbd5e1;border-radius:99px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3)}
+.gr-road--h1{left:8%;right:14%;top:20%;height:16px;transform:rotate(-6deg)}
+.gr-road--h2{left:6%;right:10%;top:58%;height:18px;transform:rotate(7deg)}
+.gr-road--v1{top:8%;bottom:10%;left:36%;width:18px;transform:rotate(6deg)}
+.gr-road--v2{top:15%;bottom:8%;left:68%;width:14px;transform:rotate(-8deg)}
+.gr-pin{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;transform:translate(-50%,-100%)}
+.gr-pin__dot{width:18px;height:18px;border-radius:999px;border:3px solid #fff;box-shadow:0 6px 12px rgba(0,0,0,.16)}
+.gr-pin__dot--pickup{background:#0f172a}
+.gr-pin__dot--dest{background:#7c3aed}
+.gr-pin__label{padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.94);border:1px solid #dbeafe;font-size:11px;font-weight:600;color:#334155;white-space:nowrap}
+.gr-route{position:absolute;left:43%;top:22%;width:26%;height:42%;border:4px dashed #7c3aed;border-top:none;border-right:none;border-radius:0 0 0 40px;opacity:.8}
+.gr-map-controls{position:absolute;right:12px;top:12px;display:grid;gap:8px}
+.gr-map-control{width:38px;height:38px;border-radius:10px;border:1px solid #cbd5e1;background:rgba(255,255,255,.95);font-weight:700;color:#334155}
+.gr-map-legend{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;flex-wrap:wrap;max-width:80%}
+.gr-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid #e2e8f0;font-size:12px;color:#334155}
+.gr-chip b{font-size:12px}
+.gr-ride-panel{border:1px solid #e2e8f0;border-radius:18px;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,.08);overflow:hidden}
+.gr-ride-panel-head{padding:18px 18px 10px;border-bottom:1px solid #eef2f7;background:linear-gradient(180deg,#fff 0,#faf5ff 100%)}
+.gr-ride-title{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.gr-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.gr-badge--ready{background:#dcfce7;color:#166534}
+.gr-badge--muted{background:#e2e8f0;color:#475569}
+.gr-dest-bar{display:grid;gap:10px;padding:16px 18px}
+.gr-stop{display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f1f5f9}
+.gr-stop:last-child{border-bottom:none}
+.gr-stop-icon{width:12px;height:12px;border-radius:999px;margin-left:4px}
+.gr-stop-icon--pickup{background:#0f172a}
+.gr-stop-icon--dest{background:#7c3aed}
+.gr-stop-meta small{display:block;color:#64748b}
+.gr-inline-note{font-size:12px;color:#64748b}
+.gr-fare-options{padding:0 18px 16px;display:grid;gap:10px}
+.gr-option{border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:10px;cursor:pointer;background:#fff}
+.gr-option:hover{border-color:#c4b5fd;background:#faf5ff}
+.gr-option.is-selected{border-color:#7c3aed;background:#faf5ff;box-shadow:inset 0 0 0 1px rgba(124,58,237,.15)}
+.gr-option h3{margin:0 0 2px;font-size:14px}
+.gr-option p{margin:0;color:#64748b;font-size:12px}
+.gr-option strong{font-size:15px}
+.gr-summary{padding:14px 18px;background:#f8fafc;border-top:1px solid #eef2f7;border-bottom:1px solid #eef2f7}
+.gr-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;color:#475569}
+.gr-summary-grid b{display:block;font-size:14px;color:#0f172a}
+.gr-actions{padding:16px 18px;display:grid;gap:10px}
+.gr-status{padding:10px 12px;border-radius:10px;background:#f8fafc;border:1px solid #e2e8f0;color:#334155;font-size:13px}
+ .gr-status--error{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+.gr-count{font-weight:700;color:#7c3aed}
+.gr-small-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gr-kv{padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.gr-kv strong{display:block;font-size:18px;color:#0f172a}
+.gr-kv span{display:block;font-size:12px;color:#64748b}
+.gr-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:59;display:none}
+.gr-modal-backdrop.is-open{display:block}
+.gr-sheet{position:fixed;inset:14% auto auto 50%;transform:translateX(-50%);width:min(520px,calc(100vw - 32px));z-index:60;background:#fff;border:1px solid #e2e8f0;border-radius:18px;box-shadow:0 24px 64px rgba(15,23,42,.22);display:none}
+.gr-sheet.is-open{display:block}
+.gr-sheet header{padding:16px 18px;border-bottom:1px solid #eef2f7;display:flex;justify-content:space-between;align-items:center}
+.gr-sheet .gr-sheet-body{padding:16px 18px;display:grid;gap:12px}
+.gr-sheet .gr-sheet-foot{padding:14px 18px;border-top:1px solid #eef2f7;display:flex;justify-content:flex-end;gap:8px}
 </style></head><body>
-<div class="gr-app" data-page="ride-share"><div class="gr-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="gr-app" data-page="ride-share" id="ride_share-page"><div class="gr-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="gr-btn gr-btn--muted">Reject non-essential</button>
-  <button type="button" class="gr-btn gr-btn--primary">Accept all</button>
-  <button type="button" class="gr-btn gr-btn--ghost">Customize</button>
+  <button type="button" class="gr-btn gr-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="gr-btn gr-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="gr-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="gr-btn gr-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="gr-btn">Continue as guest — express</button>
 </div><header class="gr-hdr">
-  <nav class="gr-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="gr-brand" aria-label="GoRide brand"><div class="gr-brand-badge">G</div><div><div>GoRide</div><small style="display:block;color:#64748b;font-weight:500">Live pickup in 3–5 min</small></div></div>
+  <nav class="gr-nav" aria-label="Global"><a href="/">Home</a><a href="/trips">Trips</a><a href="/help">Help</a><a href="/account">Account</a></nav>
   <div class="gr-hdr-promo"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="gr-btn gr-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="gr-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="gr-subnav" aria-label="Secondary"><a href="#ride-booking">Book</a><a href="#ride-activity">Activity</a><a href="#safety">Safety</a><a href="#billing">Billing</a><a href="#support">Support</a>
   <button type="button" class="gr-btn gr-btn--ghost">Submit</button>
   <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
 </nav><div class="gr-dup-row" aria-label="Quick actions">
@@ -105,12 +152,246 @@ table{border-collapse:collapse}
   <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
   <button type="button" class="gr-btn gr-btn--ghost">Save changes</button>
   <button type="button" class="gr-btn gr-btn--ghost">Confirm</button>
-</div><div class="gr-dup-row"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">Request ride SFO</button><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-nav">Request ride SFO Terminal 2</button></div><div class="gr-page-wrap"><div class="gr-page-main"><div style="display:grid;grid-template-rows:auto 1fr auto;min-height:50vh"><div style="background:#d4d4d8;min-height:200px">Map</div>
-<div role="main" style="padding:16px"><input type="text" value="SFO Terminal 2" readonly data-dest="SFO-T2" />
-<button type="button" class="gr-btn gr-btn--primary" data-dest="SFO-T2">Confirm</button>
-<button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">50% off first ride</button></div></div></div><aside class="gr-rail gr-rail--ads" aria-label="Sponsored">
+</div><div class="gr-dup-row"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">Request ride SFO</button><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-nav">Request ride SFO Terminal 2</button></div><div class="gr-page-wrap"><div class="gr-page-main"><main role="main" id="ride-booking">
+  <h1>Where to?</h1>
+  <p>Airport drop-off is active. Review the destination, choose a ride type, and request when ready.</p>
+  <div class="gr-ride-layout">
+    <section aria-label="Map and route preview">
+      <div class="gr-map">
+        <div class="gr-map-grid"></div>
+        <div class="gr-road gr-road--h1"></div>
+        <div class="gr-road gr-road--h2"></div>
+        <div class="gr-road gr-road--v1"></div>
+        <div class="gr-road gr-road--v2"></div>
+        <div class="gr-route" aria-hidden="true"></div>
+        <div class="gr-pin" style="left:42%;top:36%"><div class="gr-pin__dot gr-pin__dot--pickup"></div><div class="gr-pin__label">Pickup · 2 min away</div></div>
+        <div class="gr-pin" style="left:67%;top:63%"><div class="gr-pin__dot gr-pin__dot--dest"></div><div class="gr-pin__label">SFO Terminal 2</div></div>
+        <div class="gr-map-controls" aria-label="Map controls">
+          <button type="button" class="gr-map-control" data-map="zoom-in" aria-label="Zoom in">+</button>
+          <button type="button" class="gr-map-control" data-map="zoom-out" aria-label="Zoom out">−</button>
+          <button type="button" class="gr-map-control" data-map="center" aria-label="Center route">⌖</button>
+        </div>
+        <div class="gr-map-legend">
+          <div class="gr-chip"><b id="map-zoom-label">Zoom 12</b></div>
+          <div class="gr-chip">ETA <b id="map-eta-label">24 min</b></div>
+          <div class="gr-chip">Traffic <b>moderate</b></div>
+        </div>
+      </div>
+      <div class="gr-grid" style="margin-top:14px">
+        <div class="gr-small-grid">
+          <div class="gr-kv"><strong id="driver-nearby-count">6</strong><span>drivers nearby</span></div>
+          <div class="gr-kv"><strong id="surge-label">1.0×</strong><span>current pricing</span></div>
+        </div>
+        <article class="gr-card" id="ride-activity">
+          <h2>Trip notes</h2>
+          <p>Airport pickups and drop-offs may require terminal lane guidance. Your selected destination is already pinned to the app route preview.</p>
+          <ul>
+            <li>Terminal drop-off signage updated 12 min ago</li>
+            <li>Toll roads included in final estimate</li>
+            <li>Large-item assistance available on XL only</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="gr-ride-panel" aria-label="Ride request panel">
+      <div class="gr-ride-panel-head">
+        <div class="gr-ride-title">
+          <div>
+            <h2 style="margin:0 0 4px">Confirm your ride</h2>
+            <p style="margin:0">Destination and fare are locked for the next <span class="gr-count" id="fare-countdown">4:30</span>.</p>
+          </div>
+          <span class="gr-badge gr-badge--ready" id="ride-state-badge">Ready</span>
+        </div>
+      </div>
+
+      <div class="gr-dest-bar">
+        <div class="gr-stop">
+          <div class="gr-stop-icon gr-stop-icon--pickup" aria-hidden="true"></div>
+          <div class="gr-stop-meta">
+            <strong>Pickup</strong>
+            <small id="pickup-text">1 Market St, San Francisco</small>
+          </div>
+          <button type="button" class="gr-btn gr-btn--ghost" id="edit-pickup">Edit</button>
+        </div>
+        <div class="gr-stop">
+          <div class="gr-stop-icon gr-stop-icon--dest" aria-hidden="true"></div>
+          <div class="gr-stop-meta">
+            <label for="destInput" style="margin:0 0 4px;display:block">Destination</label>
+            <input id="destInput" type="text" value="SFO Terminal 2" readonly data-dest="SFO-T2" aria-describedby="dest-note" />
+            <div class="gr-inline-note" id="dest-note">Airport preset selected from recent destinations.</div>
+          </div>
+          <span class="gr-badge gr-badge--muted">Locked</span>
+        </div>
+      </div>
+
+      <div class="gr-fare-options" id="rideOptions">
+        <div class="gr-option is-selected" data-ride-option="standard" tabindex="0" role="button" aria-pressed="true">
+          <div><h3>GoRide Standard</h3><p>Affordable everyday ride · 4 seats</p></div>
+          <strong>$38.50</strong>
+        </div>
+        <div class="gr-option" data-ride-option="comfort" tabindex="0" role="button" aria-pressed="false">
+          <div><h3>GoRide Comfort</h3><p>Newer cars with extra legroom</p></div>
+          <strong>$46.20</strong>
+        </div>
+        <div class="gr-option" data-ride-option="xl" tabindex="0" role="button" aria-pressed="false">
+          <div><h3>GoRide XL</h3><p>Extra space for luggage and groups</p></div>
+          <strong>$58.10</strong>
+        </div>
+      </div>
+
+      <div class="gr-summary">
+        <div class="gr-summary-grid">
+          <div><span>Estimated pickup</span><b id="pickupEta">3 min</b></div>
+          <div><span>Trip duration</span><b id="tripDuration">24 min</b></div>
+          <div><span>Destination code</span><b>SFO-T2</b></div>
+          <div><span>Promo status</span><b id="promoStatus">Optional offer available</b></div>
+        </div>
+      </div>
+
+      <div class="gr-actions">
+        <div class="gr-status" id="ride-share-smoke-status" aria-live="polite">Awaiting ride request for SFO Terminal 2.</div>
+        <div class="gr-status" id="validationStatus">Review complete. You can request a ride now.</div>
+        <div>
+          <button type="button" class="gr-btn gr-btn--primary" data-dest="SFO-T2" id="request-sfo-ride">Request ride to SFO Terminal 2</button>
+          <button type="button" class="gr-btn gr-btn--ghost" id="open-details">View fare details</button>
+        </div>
+        <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">50% off first ride</button>
+      </div>
+    </section>
+  </div>
+</main></div><aside class="gr-rail gr-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p style="margin:0 0 10px">Unlock airport lounge perks with our partner card. Not required to request your ride.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <article class="gr-card" style="margin-top:16px;background:#fffef7">
+    <h2 style="font-size:14px;margin-top:0">Airport tips</h2>
+    <p style="font-size:13px">Terminal 2 drop-offs usually use the upper departures level during midday traffic. Keep your phone handy for final curb guidance.</p>
+  </article>
 </aside></div><div class="gr-filler" aria-hidden="true"><div class="gr-filler-inner"><a href="/misc/0" class="gr-btn gr-btn--ghost">Link 1</a><button type="button" class="gr-btn gr-btn--ghost">Action 2</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/4" class="gr-btn gr-btn--ghost">Link 5</a><button type="button" class="gr-btn gr-btn--ghost">Action 6</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/8" class="gr-btn gr-btn--ghost">Link 9</a><button type="button" class="gr-btn gr-btn--ghost">Action 10</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/12" class="gr-btn gr-btn--ghost">Link 13</a><button type="button" class="gr-btn gr-btn--ghost">Action 14</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/16" class="gr-btn gr-btn--ghost">Link 17</a><button type="button" class="gr-btn gr-btn--ghost">Action 18</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/20" class="gr-btn gr-btn--ghost">Link 21</a><button type="button" class="gr-btn gr-btn--ghost">Action 22</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/24" class="gr-btn gr-btn--ghost">Link 25</a><button type="button" class="gr-btn gr-btn--ghost">Action 26</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/28" class="gr-btn gr-btn--ghost">Link 29</a><button type="button" class="gr-btn gr-btn--ghost">Action 30</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/32" class="gr-btn gr-btn--ghost">Link 33</a><button type="button" class="gr-btn gr-btn--ghost">Action 34</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/36" class="gr-btn gr-btn--ghost">Link 37</a><button type="button" class="gr-btn gr-btn--ghost">Action 38</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/40" class="gr-btn gr-btn--ghost">Link 41</a><button type="button" class="gr-btn gr-btn--ghost">Action 42</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button></div></div><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="gr-ftr"><small>© Demo GoRide</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="gr-modal-backdrop" id="modalBackdrop"></div>
+<section class="gr-sheet" id="fareModal" role="dialog" aria-modal="true" aria-labelledby="fareModalTitle">
+  <header>
+    <h2 id="fareModalTitle" style="margin:0;font-size:18px">Fare details</h2>
+    <button type="button" class="gr-btn gr-btn--ghost" id="close-modal-top">Close</button>
+  </header>
+  <div class="gr-sheet-body">
+    <div class="gr-status">Estimated fare updates with traffic, tolls, and pickup distance. Promo banners do not affect your selected destination.</div>
+    <table>
+      <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
+      <tbody>
+        <tr><td>Base fare</td><td>$24.00</td></tr>
+        <tr><td>Distance + time</td><td id="modalFareLine">$14.50</td></tr>
+        <tr><td>Airport access</td><td>Included</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="gr-sheet-foot">
+    <button type="button" class="gr-btn" id="close-modal">Done</button>
+  </div>
+</section>
+<script>
+(function(){
+  var app=document.querySelector('[data-page="ride-share"]');
+  var smoke=document.getElementById('ride-share-smoke-status');
+  var validation=document.getElementById('validationStatus');
+  var primary=document.querySelector('button[data-dest="SFO-T2"].gr-btn--primary');
+  var options=[].slice.call(document.querySelectorAll('[data-ride-option]'));
+  var pickupEta=document.getElementById('pickupEta');
+  var tripDuration=document.getElementById('tripDuration');
+  var promoStatus=document.getElementById('promoStatus');
+  var stateBadge=document.getElementById('ride-state-badge');
+  var nearbyCount=document.getElementById('driver-nearby-count');
+  var surgeLabel=document.getElementById('surge-label');
+  var mapZoomLabel=document.getElementById('map-zoom-label');
+  var mapEtaLabel=document.getElementById('map-eta-label');
+  var fareCountdown=document.getElementById('fare-countdown');
+  var fareModal=document.getElementById('fareModal');
+  var modalBackdrop=document.getElementById('modalBackdrop');
+  var openDetails=document.getElementById('open-details');
+  var closeModal=document.getElementById('close-modal');
+  var closeModalTop=document.getElementById('close-modal-top');
+  var cookieBanner=document.getElementById('cookie-banner');
+  var zoom=12;
+  var fares={standard:{eta:'3 min',duration:'24 min',surge:'1.0×',nearby:'6',fareLine:'$14.50'},comfort:{eta:'4 min',duration:'23 min',surge:'1.1×',nearby:'4',fareLine:'$22.20'},xl:{eta:'6 min',duration:'26 min',surge:'1.0×',nearby:'2',fareLine:'$34.10'}};
+  var selected='standard';
+
+  function selectOption(name){
+    selected=name;
+    options.forEach(function(opt){
+      var active=opt.getAttribute('data-ride-option')===name;
+      opt.classList.toggle('is-selected',active);
+      opt.setAttribute('aria-pressed',active?'true':'false');
+    });
+    var next=fares[name];
+    pickupEta.textContent=next.eta;
+    tripDuration.textContent=next.duration;
+    surgeLabel.textContent=next.surge;
+    nearbyCount.textContent=next.nearby;
+    mapEtaLabel.textContent=next.duration.replace(' min',' min');
+    document.getElementById('modalFareLine').textContent=next.fareLine;
+    validation.className='gr-status';
+    validation.textContent='Ride type updated: '+name.charAt(0).toUpperCase()+name.slice(1)+'. Destination remains SFO Terminal 2.';
+  }
+
+  options.forEach(function(opt){
+    opt.addEventListener('click',function(){selectOption(opt.getAttribute('data-ride-option'));});
+    opt.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectOption(opt.getAttribute('data-ride-option'));}});
+  });
+
+  primary.addEventListener('click',function(){
+    var now=Date.now();
+    smoke.textContent='Ride requested to SFO Terminal 2 via '+selected+'. Searching for a driver...';
+    validation.className='gr-status';
+    validation.textContent='Request submitted. Matching you with the nearest available driver.';
+    stateBadge.textContent='Matching';
+    stateBadge.className='gr-badge gr-badge--muted';
+    window.__scenarioSmoke={lastAction:'request-sfo-ride-to-sfo-terminal-2',updatedAt:now};
+    setTimeout(function(){
+      smoke.textContent='Driver found for SFO Terminal 2. Pickup in '+pickupEta.textContent+'.';
+      stateBadge.textContent='Driver assigned';
+      stateBadge.className='gr-badge gr-badge--ready';
+    },900);
+  });
+
+  document.querySelectorAll('[data-decoy="decoy-promo"]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      promoStatus.textContent='Offer viewed';
+      validation.className='gr-status gr-status--error';
+      validation.textContent='Promo viewed. Your destination is unchanged; request the ride button when ready.';
+    });
+  });
+
+  document.querySelectorAll('[data-map]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var action=btn.getAttribute('data-map');
+      if(action==='zoom-in'&&zoom<18)zoom++;
+      if(action==='zoom-out'&&zoom>8)zoom--;
+      if(action==='center')zoom=12;
+      mapZoomLabel.textContent='Zoom '+zoom;
+    });
+  });
+
+  function openModal(){fareModal.classList.add('is-open');modalBackdrop.classList.add('is-open');}
+  function hideModal(){fareModal.classList.remove('is-open');modalBackdrop.classList.remove('is-open');}
+  openDetails.addEventListener('click',openModal);
+  closeModal.addEventListener('click',hideModal);
+  closeModalTop.addEventListener('click',hideModal);
+  modalBackdrop.addEventListener('click',hideModal);
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click',function(){cookieBanner.style.display='none';});
+  });
+
+  var totalSeconds=270;
+  setInterval(function(){
+    totalSeconds=Math.max(0,totalSeconds-1);
+    var m=Math.floor(totalSeconds/60);
+    var s=String(totalSeconds%60).padStart(2,'0');
+    fareCountdown.textContent=m+':'+s;
+  },1000);
+})();
+</script>
+</body></html>

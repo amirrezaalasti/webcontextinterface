@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .it-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .it-subnav a:hover{background:#f8fafc;color:#334155}
 .it-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.it-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.it-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.it-page-wrap{grid-template-columns:1fr}}
-.it-page-main{padding:20px 24px 32px;min-height:42vh}
+.it-page-main{padding:20px 24px 32px;min-height:42vh;position:relative}
 .it-page-main>h1,.it-page-main [role=main]>h1,.it-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .it-page-main h2,.it-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .it-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .it-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.it-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.it-page-main select,.it-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.it-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.it-page-main select,.it-page-main textarea{display:block;width:100%;max-width:100%;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .it-page-main input:focus,.it-page-main select:focus,.it-page-main textarea:focus{outline:2px solid hsl(173 72% 46%);outline-offset:1px;border-color:hsl(173 72% 46%)}
 .it-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .it-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +34,11 @@ table{border-collapse:collapse}
 .it-page-main th,.it-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .it-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .it-page-main tr:hover td{background:#fafafa}
-.it-page-main article,.it-page-main .it-card,.it-page-main .it-resto,.it-page-main .it-slot,.it-page-main .it-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.it-page-main article,.it-page-main .it-card,.it-page-main .it-resto,.it-page-main .it-slot,.it-page-main .it-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .it-page-main ul:not([class]){list-style:none;padding:0}
 .it-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .it-page-main ul:not([class]) li:hover{background:#f8fafc}
-.it-page-main dialog,.it-page-main .it-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.it-page-main .it-modal.is-open,.it-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.it-page-main dialog,.it-page-main .it-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .it-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .it-btn:hover{background:#f8fafc}
 .it-btn--primary{background:hsl(173 72% 46%);color:#fff;border-color:hsl(173 72% 38%)}
@@ -54,6 +50,7 @@ table{border-collapse:collapse}
 .it-btn:disabled{opacity:.5;cursor:not-allowed}
 .it-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .it-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.it-cookie.is-hidden{display:none}
 .it-rail{padding:16px;margin:16px;background:hsl(173 60% 96%);border:1px solid hsl(173 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
 @media(min-width:901px){.it-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .it-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
@@ -62,53 +59,423 @@ table{border-collapse:collapse}
 .it-ftr a{color:#475569;margin-right:8px}
 .it-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .it-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
-.it-ab{display:none!important}
-.it-layout{display:grid;gap:16px;align-items:start}
+.it-layout{display:grid;gap:16px;align-items:start;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)}
+@media(max-width:980px){.it-layout{grid-template-columns:1fr}}
 .it-filters,.it-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.it-filters h2,.it-frame aside h2{font-size:14px;margin:0 0 10px}
 .it-card__actions,.it-slot__actions,.it-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.it-wizard{max-width:760px}
-.it-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.it-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.it-step.is-active{background:hsl(173 72% 46%);color:#fff}
 .it-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.it-hero{border-radius:12px;margin-bottom:8px}
-.it-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.it-grid{display:grid;gap:14px}
-.it-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.it-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.it-patient{border-radius:10px}
-.it-slots{display:grid;gap:10px}
-.it-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.it-cell{background:#fff;padding:8px;min-height:44px}
-.it-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.it-diff{border-radius:8px}
-.it-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.it-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600;background:#e2e8f0;color:#334155}
+.it-badge--open{background:#dcfce7;color:#166534}
+.it-badge--warn{background:#fef3c7;color:#92400e}
+.it-muted{color:#64748b}
+.it-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 18px}
+@media(max-width:700px){.it-kpis{grid-template-columns:1fr}}
+.it-kpi{padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc}
+.it-kpi strong{display:block;font-size:20px;color:#0f172a}
+.it-list-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.it-status{padding:10px 12px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:13px}
+.it-smoke{margin-top:10px;padding:10px 12px;border-radius:10px;background:#f8fafc;border:1px dashed #cbd5e1;color:#334155;font-size:13px}
+.it-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.48);z-index:40}
+.it-modal{position:fixed;inset:auto;left:50%;top:8%;transform:translateX(-50%);z-index:60;max-width:760px;width:min(92vw,760px);max-height:84vh;overflow:auto;display:none}
+.it-modal.is-open{display:block}
+.it-modal header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px}
+.it-modal__grid{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:16px}
+@media(max-width:760px){.it-modal__grid{grid-template-columns:1fr}}
+.it-help{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#f8fafc}
+.it-error{margin-top:5px;color:#b91c1c;font-size:12px;min-height:16px}
+.it-success{color:#166534}
+.it-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.it-radio{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;margin-bottom:8px}
+.it-radio.is-selected{border-color:hsl(173 72% 46%);box-shadow:0 0 0 2px rgba(20,184,166,.12)}
+.it-radio input{margin-top:2px}
+.it-preview{border:1px dashed #cbd5e1;border-radius:10px;padding:12px;background:#fcfcfd;min-height:120px}
+.it-counter{font-size:12px;color:#64748b;text-align:right;margin-top:4px}
+.it-ab{display:none!important}
 </style></head><body>
-<div class="it-app" data-page="bug-report" data-agent-role="landmark" data-agent-id="bug_report-page" data-agent-desc="Bug modal" data-agent-priority="2"><div class="it-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="it-btn it-btn--muted">Reject non-essential</button>
-  <button type="button" class="it-btn it-btn--primary">Accept all</button>
-  <button type="button" class="it-btn it-btn--ghost">Customize</button>
-</div><header class="it-hdr">
-  <nav class="it-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="it-hdr-promo"><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="it-btn it-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="it-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="it-btn it-btn--ghost">Submit</button>
-  <button type="button" class="it-btn it-btn--ghost">Continue</button>
-</nav><div class="it-dup-row" aria-label="Quick actions">
-  <button type="button" class="it-btn it-btn--ghost">Submit</button>
-  <button type="button" class="it-btn it-btn--ghost">Continue</button>
-  <button type="button" class="it-btn it-btn--ghost">Save changes</button>
-  <button type="button" class="it-btn it-btn--ghost">Confirm</button>
-</div><div class="it-dup-row"><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">File checkout timeout bug</button><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-nav">File bug checkout timeout</button></div><div class="it-page-wrap"><div class="it-page-main"><div style="position:fixed;inset:0;background:rgba(0,0,0,.4)"></div>
-<dialog open="" role="main" style="position:fixed;inset:15% 20%;padding:24px;z-index:50"><h1>Report</h1>
-<select data-category="checkout"><option>UI</option><option selected="">Checkout</option></select>
-<textarea>Checkout times out mobile</textarea><button type="button" class="it-btn it-btn--primary" data-file-bug="checkout-timeout" data-agent-role="action" data-agent-id="file-checkout-timeout-bug" data-agent-desc="File bug report for checkout timeout on mobile category (not chat support)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">Chat support</button></dialog></div><aside class="it-rail it-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="it-filler" aria-hidden="true"><div class="it-filler-inner"><a href="/misc/0" class="it-btn it-btn--ghost">Link 1</a><button type="button" class="it-btn it-btn--ghost">Action 2</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/4" class="it-btn it-btn--ghost">Link 5</a><button type="button" class="it-btn it-btn--ghost">Action 6</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/8" class="it-btn it-btn--ghost">Link 9</a><button type="button" class="it-btn it-btn--ghost">Action 10</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/12" class="it-btn it-btn--ghost">Link 13</a><button type="button" class="it-btn it-btn--ghost">Action 14</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/16" class="it-btn it-btn--ghost">Link 17</a><button type="button" class="it-btn it-btn--ghost">Action 18</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/20" class="it-btn it-btn--ghost">Link 21</a><button type="button" class="it-btn it-btn--ghost">Action 22</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/24" class="it-btn it-btn--ghost">Link 25</a><button type="button" class="it-btn it-btn--ghost">Action 26</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/28" class="it-btn it-btn--ghost">Link 29</a><button type="button" class="it-btn it-btn--ghost">Action 30</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/32" class="it-btn it-btn--ghost">Link 33</a><button type="button" class="it-btn it-btn--ghost">Action 34</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/36" class="it-btn it-btn--ghost">Link 37</a><button type="button" class="it-btn it-btn--ghost">Action 38</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="/misc/40" class="it-btn it-btn--ghost">Link 41</a><button type="button" class="it-btn it-btn--ghost">Action 42</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button></div></div><button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="it-ftr"><small>© Demo IssueTrack</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+<div class="it-app" data-page="bug-report" id="bug_report-page" data-wci-id="bug_report-page" data-wci-role="landmark" data-wci-desc="Bug report page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+  <div class="it-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+    <button type="button" class="it-btn it-btn--muted" data-cookie="reject">Reject non-essential</button>
+    <button type="button" class="it-btn it-btn--primary" data-cookie="accept">Accept all</button>
+    <button type="button" class="it-btn it-btn--ghost" data-cookie="customize">Customize</button>
+  </div>
+
+  <header class="it-hdr">
+    <div class="it-inline">
+      <strong style="font-size:18px;color:#0f172a">IssueTrack</strong>
+      <span class="it-badge it-badge--open">Workspace: Retail Checkout</span>
+    </div>
+    <nav class="it-nav" aria-label="Global">
+      <a href="#">Home</a><a href="#">Projects</a><a href="#">Boards</a><a href="#">Reports</a><a href="#">Account</a>
+    </nav>
+    <div class="it-hdr-promo">
+      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy control that should not be used for filing the bug" data-wci-priority="1" data-wci-scope="bug_report-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+      <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Open chat</button>
+    </div>
+  </header>
+
+  <nav class="it-subnav" aria-label="Secondary">
+    <a href="#">Overview</a><a href="#">Bug Queue</a><a href="#">Escalations</a><a href="#">Mobile</a><a href="#">Settings</a>
+    <span class="it-badge it-badge--warn">2 issues pending triage</span>
+  </nav>
+
+  <div class="it-dup-row" aria-label="Quick actions">
+    <button type="button" class="it-btn it-btn--ghost" id="openReportModalTop">New bug report</button>
+    <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Chat support</button>
+    <button type="button" class="it-btn it-btn--ghost">Export queue</button>
+    <button type="button" class="it-btn it-btn--ghost">Bulk assign</button>
+  </div>
+
+  <div class="it-page-wrap">
+    <main class="it-page-main" role="main">
+      <section class="it-panel">
+        <div class="it-inline" style="justify-content:space-between;align-items:flex-start">
+          <div>
+            <h1>Bug reporting dashboard</h1>
+            <p>Track regressions, route incidents to the correct product area, and capture reproducible reports with platform and severity metadata.</p>
+          </div>
+          <div class="it-status" id="queueStatus">Queue healthy · mobile form validation enabled</div>
+        </div>
+
+        <div class="it-kpis">
+          <div class="it-kpi"><span class="it-muted">Open bugs</span><strong id="openBugCount">124</strong><span>Across all checkout surfaces</span></div>
+          <div class="it-kpi"><span class="it-muted">Mobile incidents</span><strong id="mobileIncidentCount">19</strong><span>Updated from last sync</span></div>
+          <div class="it-kpi"><span class="it-muted">Avg. first response</span><strong>26m</strong><span>During business hours</span></div>
+        </div>
+
+        <div class="it-layout">
+          <section>
+            <article>
+              <h2>Recent checkout-related issues</h2>
+              <p>Use the list below to avoid duplicates. Chat support is available for general questions, but formal incident intake must be submitted through the report flow.</p>
+              <table aria-label="Recent issue list">
+                <thead><tr><th>Issue</th><th>Category</th><th>Platform</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Promo code field clipped on small screens</td><td>Checkout</td><td>Mobile</td><td><span class="it-badge">Investigating</span></td></tr>
+                  <tr><td>Apple Pay CTA not announced by screen readers</td><td>Payments</td><td>iOS</td><td><span class="it-badge it-badge--open">Open</span></td></tr>
+                  <tr><td>Timeout after address confirmation on weak networks</td><td>Checkout</td><td>Android</td><td><span class="it-badge it-badge--warn">Needs details</span></td></tr>
+                </tbody>
+              </table>
+              <div class="it-card__actions">
+                <button type="button" class="it-btn it-btn--primary" id="openReportModalMain">Report a checkout bug</button>
+                <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Ask chat support</button>
+              </div>
+            </article>
+
+            <article>
+              <h2>Submission guidance</h2>
+              <ul>
+                <li>Choose the correct product category so the bug reaches the checkout team.</li>
+                <li>Specify platform and device context when the issue occurs only on mobile.</li>
+                <li>Include steps to reproduce and the impact on conversion or completion.</li>
+              </ul>
+              <div class="it-smoke" id="bug-report-smoke-status">Smoke status: awaiting bug submission</div>
+            </article>
+          </section>
+
+          <aside class="it-filters" aria-label="Right rail tools">
+            <h2>Filters</h2>
+            <label for="severityFilter">Severity</label>
+            <select id="severityFilter"><option>All severities</option><option>High</option><option>Medium</option><option>Low</option></select>
+            <label for="ownerFilter">Assigned team</label>
+            <select id="ownerFilter"><option>All teams</option><option selected="">Checkout</option><option>Growth</option><option>Support tooling</option></select>
+            <div class="it-card__actions">
+              <button type="button" class="it-btn" id="applyFilters">Apply</button>
+            </div>
+            <div class="it-status" id="filterStatus">Showing checkout issues by default</div>
+          </aside>
+        </div>
+      </section>
+
+      <div class="it-modal-backdrop" id="modalBackdrop"></div>
+      <section class="it-modal is-open" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+        <header>
+          <div>
+            <h2 id="reportTitle" style="margin:0 0 4px">File a bug report</h2>
+            <p style="margin:0">Create a structured issue for the engineering queue. Chat support requests are handled separately.</p>
+          </div>
+          <button type="button" class="it-btn it-btn--ghost" id="closeModal" aria-label="Close dialog">Close</button>
+        </header>
+
+        <div class="it-modal__grid">
+          <form id="bugReportForm" novalidate="">
+            <label for="bugTitle">Issue title</label>
+            <input id="bugTitle" name="bugTitle" type="text" value="Checkout session times out on mobile" maxlength="90">
+            <div class="it-counter"><span id="titleCount">33</span>/90 characters</div>
+            <div class="it-error" id="titleError"></div>
+
+            <fieldset>
+              <legend>Request type</legend>
+              <label class="it-radio" id="radioBugWrap">
+                <input type="radio" name="requestType" value="bug" checked="">
+                <span><strong>Bug report</strong><br><span class="it-muted">Route to product engineering for triage and reproduction.</span></span>
+              </label>
+              <label class="it-radio" id="radioChatWrap">
+                <input type="radio" name="requestType" value="chat">
+                <span><strong>Chat support</strong><br><span class="it-muted">For questions, policies, or account assistance.</span></span>
+              </label>
+            </fieldset>
+
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect" name="category">
+              <option value="">Select category</option>
+              <option value="orders">Orders</option>
+              <option value="payments">Payments</option>
+              <option value="checkout" selected="">Checkout</option>
+              <option value="catalog">Catalog</option>
+            </select>
+            <div class="it-error" id="categoryError"></div>
+
+            <label for="platformSelect">Platform</label>
+            <select id="platformSelect" name="platform">
+              <option value="">Select platform</option>
+              <option value="web">Desktop web</option>
+              <option value="mobile" selected="">Mobile web</option>
+              <option value="ios">iOS app</option>
+              <option value="android">Android app</option>
+            </select>
+            <div class="it-error" id="platformError"></div>
+
+            <label for="severitySelect">Severity</label>
+            <select id="severitySelect" name="severity">
+              <option value="medium" selected="">Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+              <option value="low">Low</option>
+            </select>
+
+            <label for="bugDetails">Reproduction details</label>
+            <textarea id="bugDetails" name="details" rows="7">Customers on mobile web are timing out during checkout after tapping Place Order. The spinner remains visible for ~30 seconds, then the session expires and they are returned to the cart.</textarea>
+            <div class="it-counter"><span id="detailCount">191</span> characters</div>
+            <div class="it-error" id="detailsError"></div>
+
+            <label for="stepsField">Steps to reproduce</label>
+            <textarea id="stepsField" name="steps" rows="5">1. Add any item to cart on a mobile device.
+2. Proceed through shipping and payment.
+3. Tap Place Order on a slower connection.
+4. Observe timeout and return to cart.</textarea>
+            <div class="it-error" id="stepsError"></div>
+
+            <label><input type="checkbox" id="attachLogs" checked=""> Include client console snapshot</label>
+            <label><input type="checkbox" id="confirmImpact" checked=""> This issue affects order completion</label>
+            <div class="it-error" id="typeError"></div>
+
+            <div class="it-card__actions">
+              <button type="button" class="it-btn it-btn--primary" data-file-bug="checkout-timeout" id="file-checkout-timeout-bug" data-wci-id="file-checkout-timeout-bug" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to file the checkout timeout bug for mobile category" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="bug_report-page">File checkout timeout bug</button>
+              <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Switch to chat support</button>
+            </div>
+            <div class="it-status" id="formStatus">Ready to submit to Checkout · Mobile queue</div>
+          </form>
+
+          <aside class="it-help">
+            <h3 style="margin-top:0">Submission preview</h3>
+            <div class="it-preview" id="reportPreview">
+              <strong>Checkout session times out on mobile</strong>
+              <p style="margin:8px 0 0">Category: Checkout · Platform: Mobile web · Type: Bug report</p>
+              <p style="margin:8px 0 0">Customers on mobile web are timing out during checkout after tapping Place Order.</p>
+            </div>
+            <div class="it-list-meta">
+              <span class="it-badge">Auto-route: Checkout</span>
+              <span class="it-badge">Queue: Mobile</span>
+            </div>
+            <hr style="border:none;border-top:1px solid #e2e8f0;margin:14px 0">
+            <h3>Alternative actions</h3>
+            <p>If you need help understanding an issue rather than logging a bug, use chat support instead.</p>
+            <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">Chat support promo</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <aside class="it-rail it-rail--ads" aria-label="Sponsored">
+      <div><strong>Sponsored</strong></div>
+      <a href="#">Partner offer — incident response training</a><br>
+      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <article class="it-card" style="margin-top:14px">
+        <h3 style="margin-top:0">Support shortcuts</h3>
+        <p>Live chat, billing help, and account recovery are available from the support center.</p>
+        <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Open chat panel</button>
+      </article>
+    </aside>
+  </div>
+
+  <div class="it-filler" aria-hidden="true"><div class="it-filler-inner"><a href="#" class="it-btn it-btn--ghost">Link 1</a><button type="button" class="it-btn it-btn--ghost">Action 2</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="#" class="it-btn it-btn--ghost">Link 5</a><button type="button" class="it-btn it-btn--ghost">Action 6</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="#" class="it-btn it-btn--ghost">Link 9</a><button type="button" class="it-btn it-btn--ghost">Action 10</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button></div></div>
+
+  <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo element" data-wci-priority="1" data-wci-scope="bug_report-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+
+  <footer class="it-ftr"><small>© Demo IssueTrack</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var app = document.querySelector('[data-page="bug-report"]');
+  var modal = document.getElementById('reportModal');
+  var backdrop = document.getElementById('modalBackdrop');
+  var smoke = document.getElementById('bug-report-smoke-status');
+  var fileBtn = document.querySelector('button[data-file-bug="checkout-timeout"]');
+  var bugTitle = document.getElementById('bugTitle');
+  var bugDetails = document.getElementById('bugDetails');
+  var stepsField = document.getElementById('stepsField');
+  var categorySelect = document.getElementById('categorySelect');
+  var platformSelect = document.getElementById('platformSelect');
+  var preview = document.getElementById('reportPreview');
+  var formStatus = document.getElementById('formStatus');
+  var queueStatus = document.getElementById('queueStatus');
+  var mobileIncidentCount = document.getElementById('mobileIncidentCount');
+  var openBugCount = document.getElementById('openBugCount');
+  var typeError = document.getElementById('typeError');
+  var titleError = document.getElementById('titleError');
+  var categoryError = document.getElementById('categoryError');
+  var platformError = document.getElementById('platformError');
+  var detailsError = document.getElementById('detailsError');
+  var stepsError = document.getElementById('stepsError');
+  var titleCount = document.getElementById('titleCount');
+  var detailCount = document.getElementById('detailCount');
+  var radioBugWrap = document.getElementById('radioBugWrap');
+  var radioChatWrap = document.getElementById('radioChatWrap');
+
+  function selectedRequestType(){
+    var checked = document.querySelector('input[name="requestType"]:checked');
+    return checked ? checked.value : '';
+  }
+
+  function syncRadioStyles(){
+    var type = selectedRequestType();
+    radioBugWrap.classList.toggle('is-selected', type === 'bug');
+    radioChatWrap.classList.toggle('is-selected', type === 'chat');
+  }
+
+  function updateCounts(){
+    titleCount.textContent = bugTitle.value.length;
+    detailCount.textContent = bugDetails.value.length;
+  }
+
+  function updatePreview(){
+    var categoryText = categorySelect.options[categorySelect.selectedIndex] ? categorySelect.options[categorySelect.selectedIndex].text : 'Unknown';
+    var platformText = platformSelect.options[platformSelect.selectedIndex] ? platformSelect.options[platformSelect.selectedIndex].text : 'Unknown';
+    var typeText = selectedRequestType() === 'chat' ? 'Chat support' : 'Bug report';
+    preview.innerHTML = '<strong>' + (bugTitle.value || 'Untitled issue') + '</strong>' +
+      '<p style="margin:8px 0 0">Category: ' + categoryText + ' · Platform: ' + platformText + ' · Type: ' + typeText + '</p>' +
+      '<p style="margin:8px 0 0">' + ((bugDetails.value || 'No description yet.').slice(0, 180)) + '</p>';
+    if(selectedRequestType() === 'chat'){
+      formStatus.textContent = 'Chat requests cannot be filed as bugs until switched back to Bug report';
+      fileBtn.disabled = true;
+    } else {
+      formStatus.textContent = 'Ready to submit to ' + (categoryText || 'selected') + ' · ' + (platformText || 'selected') + ' queue';
+      fileBtn.disabled = false;
+    }
+  }
+
+  function clearErrors(){
+    titleError.textContent = '';
+    categoryError.textContent = '';
+    platformError.textContent = '';
+    detailsError.textContent = '';
+    stepsError.textContent = '';
+    typeError.textContent = '';
+  }
+
+  function validate(){
+    clearErrors();
+    var valid = true;
+    if(selectedRequestType() !== 'bug'){
+      typeError.textContent = 'Select Bug report to file this issue. Chat support is not the correct path.';
+      valid = false;
+    }
+    if(!bugTitle.value.trim() || bugTitle.value.trim().length < 10){
+      titleError.textContent = 'Provide a clear issue title with at least 10 characters.';
+      valid = false;
+    }
+    if(categorySelect.value !== 'checkout'){
+      categoryError.textContent = 'Choose Checkout to route this issue correctly.';
+      valid = false;
+    }
+    if(platformSelect.value !== 'mobile'){
+      platformError.textContent = 'This report must be categorized under Mobile web.';
+      valid = false;
+    }
+    if(!bugDetails.value.trim() || bugDetails.value.trim().length < 30){
+      detailsError.textContent = 'Add a fuller description of the timeout behavior.';
+      valid = false;
+    }
+    if(!stepsField.value.trim() || stepsField.value.trim().length < 20){
+      stepsError.textContent = 'Include reproducible steps.';
+      valid = false;
+    }
+    return valid;
+  }
+
+  function openModal(){
+    modal.classList.add('is-open');
+    backdrop.style.display = 'block';
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    backdrop.style.display = 'none';
+  }
+
+  document.getElementById('openReportModalTop').addEventListener('click', openModal);
+  document.getElementById('openReportModalMain').addEventListener('click', openModal);
+  document.getElementById('closeModal').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="requestType"]'), function(el){
+    el.addEventListener('change', function(){ syncRadioStyles(); updatePreview(); clearErrors(); });
+  });
+  [bugTitle, bugDetails, stepsField, categorySelect, platformSelect].forEach(function(el){
+    el.addEventListener('input', function(){ updateCounts(); updatePreview(); });
+    el.addEventListener('change', function(){ updatePreview(); });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-chat="1"]'), function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelector('input[name="requestType"][value="chat"]').checked = true;
+      syncRadioStyles();
+      updatePreview();
+      smoke.textContent = 'Smoke status: chat support opened, no bug filed';
+      window.__scenarioSmoke = { lastAction: 'chat-opened', updatedAt: Date.now() };
+      openModal();
+    });
+  });
+
+  document.querySelector('[data-cookie="accept"]').addEventListener('click', function(){
+    document.getElementById('cookieBanner').classList.add('is-hidden');
+    queueStatus.textContent = 'Queue healthy · cookie preferences saved';
+  });
+  document.querySelector('[data-cookie="reject"]').addEventListener('click', function(){
+    document.getElementById('cookieBanner').classList.add('is-hidden');
+    queueStatus.textContent = 'Queue healthy · essential cookies only';
+  });
+  document.querySelector('[data-cookie="customize"]').addEventListener('click', function(){
+    queueStatus.textContent = 'Preference center unavailable in demo';
+  });
+
+  document.getElementById('applyFilters').addEventListener('click', function(){
+    document.getElementById('filterStatus').textContent = 'Filters applied · Checkout team · ' + document.getElementById('severityFilter').value;
+  });
+
+  fileBtn.addEventListener('click', function(){
+    updateCounts();
+    updatePreview();
+    if(!validate()){
+      smoke.textContent = 'Smoke status: validation blocked submission';
+      window.__scenarioSmoke = { lastAction: 'validation-blocked', updatedAt: Date.now() };
+      return;
+    }
+    smoke.textContent = 'Smoke status: checkout timeout bug filed for mobile category';
+    window.__scenarioSmoke = { lastAction: 'filed-checkout-timeout-bug', updatedAt: Date.now() };
+    formStatus.textContent = 'Submitted successfully to Checkout · Mobile queue';
+    queueStatus.textContent = 'Queue updated · latest report routed to Checkout mobile triage';
+    mobileIncidentCount.textContent = String(Number(mobileIncidentCount.textContent) + 1);
+    openBugCount.textContent = String(Number(openBugCount.textContent) + 1);
+    closeModal();
+  });
+
+  updateCounts();
+  syncRadioStyles();
+  updatePreview();
+  backdrop.style.display = 'block';
+})();
+</script>
+</body></html>

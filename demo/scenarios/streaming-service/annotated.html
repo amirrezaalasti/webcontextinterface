@@ -8,96 +8,104 @@ a{color:inherit}
 ul,ol{margin:0;padding:0}
 table{border-collapse:collapse}
 
-.sv-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
-.sv-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.sv-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.sv-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#e5e7eb;background:#05070b;min-height:100vh}
+.sv-hdr{background:#0b1220;border-bottom:1px solid #1f2937;box-shadow:0 1px 2px rgba(0,0,0,.35)}
+.sv-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:40}
+.sv-brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
+.sv-brand-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:inline-block}
 .sv-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
-.sv-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
-.sv-nav a:hover{background:#f1f5f9;color:#0f172a}
+.sv-nav a{margin-right:0;color:#cbd5e1;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.sv-nav a:hover,.sv-nav a.is-active{background:#111827;color:#fff}
 .sv-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.sv-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
-.sv-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
-.sv-subnav a:hover{background:#f8fafc;color:#334155}
-.sv-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.sv-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.sv-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#0f172a;border-bottom:1px solid #1f2937}
+.sv-subnav a{color:#94a3b8;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.sv-subnav a:hover{background:#111827;color:#e2e8f0}
+.sv-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#0b0f18;border-bottom:1px solid #111827}
+.sv-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,320px);gap:0;align-items:start;background:#05070b;border-top:1px solid #111827}
 @media(max-width:900px){.sv-page-wrap{grid-template-columns:1fr}}
 .sv-page-main{padding:20px 24px 32px;min-height:42vh}
-.sv-page-main>h1,.sv-page-main [role=main]>h1,.sv-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
-.sv-page-main h2,.sv-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.sv-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
-.sv-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.sv-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sv-page-main select,.sv-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
-.sv-page-main input:focus,.sv-page-main select:focus,.sv-page-main textarea:focus{outline:2px solid hsl(262 72% 46%);outline-offset:1px;border-color:hsl(262 72% 46%)}
-.sv-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
+.sv-page-main>h1,.sv-page-main [role=main]>h1,.sv-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#f8fafc}
+.sv-page-main h2,.sv-page-main h3{margin:12px 0 8px;font-weight:600;color:#f8fafc}
+.sv-page-main p{margin:0 0 10px;color:#94a3b8;max-width:65ch}
+.sv-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#cbd5e1}
+.sv-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.sv-page-main select,.sv-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #334155;border-radius:8px;background:#0f172a;font-size:14px;color:#f8fafc}
+.sv-page-main input:focus,.sv-page-main select:focus,.sv-page-main textarea:focus{outline:2px solid hsl(262 72% 56%);outline-offset:1px;border-color:hsl(262 72% 56%)}
+.sv-page-main fieldset{border:1px solid #1f2937;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0b1220}
 .sv-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
-.sv-page-main table{width:100%;margin:12px 0;font-size:13px}
-.sv-page-main th,.sv-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
-.sv-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.sv-page-main tr:hover td{background:#fafafa}
-.sv-page-main article,.sv-page-main .sv-card,.sv-page-main .sv-resto,.sv-page-main .sv-slot,.sv-page-main .sv-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.sv-page-main ul:not([class]){list-style:none;padding:0}
-.sv-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.sv-page-main ul:not([class]) li:hover{background:#f8fafc}
-.sv-page-main dialog,.sv-page-main .sv-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.sv-page-main .sv-modal.is-open,.sv-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
-.sv-btn:hover{background:#f8fafc}
+.sv-page-main article,.sv-page-main .sv-card,.sv-page-main .sv-resto,.sv-page-main .sv-slot,.sv-page-main .sv-tile{border:1px solid #1f2937;border-radius:12px;padding:14px 16px;margin:10px 0;background:#0f172a;box-shadow:0 1px 2px rgba(0,0,0,.24)}
+.sv-page-main dialog,.sv-page-main .sv-modal{border:1px solid #334155;border-radius:12px;padding:20px;background:#0b1220;box-shadow:0 20px 40px rgba(0,0,0,.45);color:#e5e7eb}
+.sv-page-main .sv-modal.is-open,.sv-page-main [role=dialog].is-open{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #334155;background:#111827;color:#f8fafc;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
+.sv-btn:hover{background:#172033}
 .sv-btn--primary{background:hsl(262 72% 46%);color:#fff;border-color:hsl(262 72% 38%)}
-.sv-btn--primary:hover{filter:brightness(1.05)}
-.sv-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.sv-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
-.sv-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
-.sv-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+.sv-btn--primary:hover{filter:brightness(1.08)}
+.sv-btn--ghost{background:transparent;border-color:transparent;color:#cbd5e1}
+.sv-btn--ghost:hover{background:#111827;color:#fff}
+.sv-btn--decoy{background:#3f2a05;border-color:#854d0e;color:#fde68a}
+.sv-btn--muted{background:#1f2937;color:#cbd5e1;border-color:#334155}
 .sv-btn:disabled{opacity:.5;cursor:not-allowed}
-.sv-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.sv-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.35)}
 .sv-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.sv-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.sv-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
-.sv-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
-.sv-rail a{color:#b45309;font-weight:500}
-.sv-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
-.sv-ftr a{color:#475569;margin-right:8px}
-.sv-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.sv-rail{padding:16px;margin:16px;background:#0b1220;border:1px solid #1f2937;border-radius:12px;font-size:13px;color:#cbd5e1;line-height:1.5;position:sticky;top:86px}
+@media(min-width:901px){.sv-rail{border-left:1px solid #1f2937;border-radius:12px;margin:16px 16px 16px 0;background:#0b1220}}
+.sv-rail--ads strong{display:block;margin-bottom:8px;color:#f59e0b}
+.sv-rail a{color:#fbbf24;font-weight:500}
+.sv-ftr{padding:16px 20px;border-top:1px solid #1f2937;font-size:12px;color:#94a3b8;background:#0b1220}
+.sv-ftr a{color:#cbd5e1;margin-right:8px}
+.sv-filler{padding:12px 20px;border-top:1px dashed #1f2937;background:#070b13}
 .sv-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .sv-ab{display:none!important}
-.sv-layout{display:grid;gap:16px;align-items:start}
-.sv-filters,.sv-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.sv-filters h2,.sv-frame aside h2{font-size:14px;margin:0 0 10px}
-.sv-card__actions,.sv-slot__actions,.sv-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.sv-wizard{max-width:760px}
-.sv-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.sv-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.sv-step.is-active{background:hsl(262 72% 46%);color:#fff}
-.sv-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.sv-hero{border-radius:12px;margin-bottom:8px}
-.sv-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.sv-grid{display:grid;gap:14px}
-.sv-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.sv-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.sv-patient{border-radius:10px}
-.sv-slots{display:grid;gap:10px}
-.sv-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.sv-cell{background:#fff;padding:8px;min-height:44px}
-.sv-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.sv-diff{border-radius:8px}
-.sv-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.sv-stream{background:#0f0f0f;color:#e5e5e5;border-radius:12px;overflow:hidden}.sv-hero{min-height:140px;background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:24px 28px}.sv-tile{min-width:150px;background:#1f2937;color:#fff;border-color:#374151}</style></head><body>
-<div class="sv-app" data-page="streaming-service" data-agent-role="landmark" data-agent-id="streaming_service-page" data-agent-desc="Streaming catalog with hero and title row" data-agent-priority="2"><div class="sv-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sv-btn sv-btn--muted">Reject non-essential</button>
-  <button type="button" class="sv-btn sv-btn--primary">Accept all</button>
-  <button type="button" class="sv-btn sv-btn--ghost">Customize</button>
+.sv-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.sv-hero{border-radius:16px;margin-bottom:18px;min-height:240px;background:linear-gradient(120deg,rgba(15,23,42,.55),rgba(17,24,39,.2)),linear-gradient(135deg,#0f172a,#312e81 60%,#0f766e);color:#fff;padding:28px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);gap:20px;align-items:end}
+@media(max-width:800px){.sv-hero{grid-template-columns:1fr}}
+.sv-hero__eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#c4b5fd;margin-bottom:6px}
+.sv-hero__meta,.sv-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:#cbd5e1;font-size:12px}
+.sv-chip{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:#111827;border:1px solid #334155;color:#cbd5e1;font-size:11px}
+.sv-stream{background:#05070b;color:#e5e5e5;border-radius:12px;overflow:hidden}
+.sv-section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:18px}
+.sv-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0 18px}
+.sv-tile{min-width:210px;background:#111827;color:#fff;border-color:#374151;position:relative}
+.sv-tile h3{margin:0 0 6px;font-size:16px}
+.sv-tile p{margin:0 0 10px;color:#94a3b8;font-size:13px;max-width:none}
+.sv-tile.is-watchlisted{outline:2px solid #22c55e;outline-offset:0}
+.sv-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;letter-spacing:.02em}
+.sv-badge--ok{background:rgba(34,197,94,.12);color:#86efac;border:1px solid rgba(34,197,94,.35)}
+.sv-badge--info{background:rgba(96,165,250,.12);color:#93c5fd;border:1px solid rgba(96,165,250,.3)}
+.sv-badge--warn{background:rgba(251,191,36,.12);color:#fde68a;border:1px solid rgba(251,191,36,.3)}
+.sv-split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;margin-top:18px}
+@media(max-width:1000px){.sv-split{grid-template-columns:1fr}}
+.sv-panel{border:1px solid #1f2937;border-radius:12px;padding:16px;background:#0b1220}
+.sv-statusline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0 14px}
+.sv-note{font-size:12px;color:#94a3b8}
+ .sv-counter{font-weight:700;color:#f8fafc}
+.sv-watchlist-list li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #1f2937;color:#cbd5e1}
+.sv-watchlist-list li:last-child{border-bottom:none}
+.sv-searchline{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.sv-hidden{display:none!important}
+.sv-smoke{padding:10px 12px;border-radius:10px;border:1px solid #334155;background:#111827;color:#e2e8f0;font-size:13px}
+.sv-kicker{font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:.12em}
+.sv-modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.7);z-index:50;display:none}
+.sv-modal-backdrop.is-open{display:block}
+.sv-modal h3{margin-top:0}
+.sv-help{font-size:12px;color:#94a3b8}
+.sv-input-error{color:#fca5a5;font-size:12px;min-height:18px;margin-top:6px}
+</style></head><body>
+<div class="sv-app" data-page="streaming-service" id="streaming_service-page" data-wci-id="streaming_service-page" data-wci-role="landmark" data-wci-desc="StreamVault streaming service app root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sv-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <p>We use cookies for analytics, personalization, and partner promotions. You can accept all, reject non-essential cookies, or customize saved preferences.</p>
+  <button type="button" class="sv-btn sv-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="sv-btn sv-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="sv-btn sv-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="sv-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="sv-btn sv-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="sv-btn">Continue as guest — express</button>
 </div><header class="sv-hdr">
-  <nav class="sv-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
+  <div class="sv-brand" aria-label="StreamVault brand"><span class="sv-brand-mark" aria-hidden="true"></span><span>StreamVault</span></div>
+  <nav class="sv-nav" aria-label="Global"><a href="#" class="is-active">Home</a><a href="#">Movies</a><a href="#">Documentaries</a><a href="#">My List</a><a href="#">Account</a></nav>
   <div class="sv-hdr-promo">
+    <span class="sv-chip">Dark theme</span>
+    <span class="sv-chip">4K available</span>
     <button type="button" class="sv-btn sv-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sv-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="sv-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">New this week</a><a href="#">Continue watching</a><a href="#">Top picks</a><a href="#">Billing</a><a href="#">Support</a>
   <button type="button" class="sv-btn sv-btn--ghost">Submit</button>
   <button type="button" class="sv-btn sv-btn--ghost">Continue</button>
 </nav><div class="sv-dup-row" aria-label="Quick actions">
@@ -105,14 +113,213 @@ table{border-collapse:collapse}
   <button type="button" class="sv-btn sv-btn--ghost">Continue</button>
   <button type="button" class="sv-btn sv-btn--ghost">Save changes</button>
   <button type="button" class="sv-btn sv-btn--ghost">Confirm</button>
-</div><div class="sv-dup-row"><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-promo">Add Ocean Deep watchlist</button><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-nav">Watchlist Ocean Deep documentary</button></div><div class="sv-page-wrap"><div class="sv-page-main"><div class="sv-stream"><div class="sv-hero"><h1>Featured</h1><button type="button" class="sv-btn sv-btn--ghost">Play trailer</button></div>
-<section class="sv-row" role="main"><h2 style="width:100%;color:#fff;margin:0 0 8px">Documentaries</h2>
-<div class="sv-tile"><span>Arctic Light</span><button type="button" class="sv-btn sv-btn--ghost">Play</button></div>
-<div class="sv-tile" data-title-id="ocean-deep" data-runtime="52"><strong>Ocean Deep</strong><span> · 52m</span>
-<button type="button" class="sv-btn sv-btn--primary" data-agent-role="action" data-agent-id="add-ocean-deep-watchlist" data-agent-desc="Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer)." data-agent-action="click" data-agent-priority="1">Confirm</button></div>
-<div class="sv-tile"><span>City Skies</span><button type="button" class="sv-btn sv-btn--ghost">Play</button></div></section></div></div><aside class="sv-rail sv-rail--ads" aria-label="Sponsored">
+</div><div class="sv-dup-row"><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-promo">Add Ocean Deep watchlist</button><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-nav">Watchlist Ocean Deep documentary</button></div><div class="sv-page-wrap"><div class="sv-page-main"><div class="sv-stream"><section class="sv-hero" aria-label="Featured title">
+  <div>
+    <div class="sv-hero__eyebrow">Featured premiere</div>
+    <h1>Blue Frontier</h1>
+    <p>A cinematic journey across remote coastlines, reef habitats, and deep-ocean expeditions narrated by marine scientists and long-form field crews.</p>
+    <div class="sv-hero__meta"><span class="sv-chip">Docuseries</span><span class="sv-chip">58m episodes</span><span class="sv-chip">Award nominee</span></div>
+    <div class="sv-toolbar">
+      <button type="button" class="sv-btn sv-btn--primary" data-hero-action="play">Play trailer</button>
+      <button type="button" class="sv-btn" data-hero-action="details">More info</button>
+    </div>
+  </div>
+  <div class="sv-panel">
+    <div class="sv-kicker">Session status</div>
+    <div class="sv-statusline">
+      <span class="sv-badge sv-badge--info" id="sv-theme-status">Dark mode enabled</span>
+      <span class="sv-badge sv-badge--ok" id="sv-watchlist-count-badge">Watchlist: 1</span>
+    </div>
+    <div id="streaming-service-smoke-status" class="sv-smoke" data-smoke-status="">Ready. No watchlist updates yet.</div>
+    <p class="sv-note">Tip: trailers and watchlist confirmations update different states. Runtime filters affect visible documentary tiles only.</p>
+  </div>
+</section>
+
+<section aria-label="Discovery tools" class="sv-split">
+  <div class="sv-panel">
+    <div class="sv-section-head"><div><h2 style="margin:0">Browse documentaries</h2><p>Filter the slate by search query and runtime to narrow the current row.</p></div><div class="sv-meta"><span class="sv-chip">Marine</span><span class="sv-chip">Nature</span><span class="sv-chip">History</span></div></div>
+    <form id="doc-filter-form" novalidate="">
+      <div class="sv-searchline">
+        <label style="flex:1;min-width:220px">Search titles
+          <input id="doc-search" name="q" type="text" placeholder="Search documentaries" autocomplete="off">
+        </label>
+        <label>Runtime
+          <select id="runtime-filter" name="runtime">
+            <option value="all">All runtimes</option>
+            <option value="45">45m or less</option>
+            <option value="52">Exactly 52m</option>
+            <option value="60">60m or more</option>
+          </select>
+        </label>
+        <button type="submit" class="sv-btn">Apply filters</button>
+      </div>
+      <div id="filter-error" class="sv-input-error" aria-live="polite"></div>
+      <div class="sv-help">Searching for fewer than 2 characters shows a validation message and leaves current results unchanged.</div>
+    </form>
+
+    <div class="sv-section-head"><div><h2 style="margin:12px 0 0">Documentaries</h2><p id="results-summary">Showing 4 documentary titles.</p></div><button type="button" class="sv-btn sv-btn--ghost" id="reset-filters">Reset</button></div>
+    <section class="sv-row" role="main" id="doc-row"><h2 style="width:100%;color:#fff;margin:0 0 8px">Documentary picks</h2>
+      <div class="sv-tile" data-title-id="arctic-light" data-runtime="48" data-title-text="Arctic Light">
+        <div class="sv-meta"><span class="sv-badge sv-badge--info">Nature</span><span>48m</span></div>
+        <h3>Arctic Light</h3><p>Glacial survey teams map shifting ice shelves during a short summer season.</p>
+        <div class="sv-toolbar"><button type="button" class="sv-btn sv-btn--ghost" data-preview-title="Arctic Light">Play</button><button type="button" class="sv-btn">Details</button></div>
+      </div>
+      <div class="sv-tile" data-title-id="ocean-deep" data-runtime="52" data-title-text="Ocean Deep">
+        <div class="sv-meta"><span class="sv-badge sv-badge--warn">Trending</span><span>52m</span><span>Documentary</span></div>
+        <h3>Ocean Deep</h3><p>Submersible teams document abyssal trenches, bioluminescent ecosystems, and fragile habitats far below the photic zone.</p>
+        <div class="sv-toolbar"><button type="button" class="sv-btn" data-preview-title="Ocean Deep">Play trailer</button><button type="button" class="sv-btn sv-btn--primary" id="add-ocean-deep-watchlist" data-wci-id="add-ocean-deep-watchlist" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to add the 52 minute Ocean Deep documentary to the watchlist" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="streaming_service-page">Confirm</button></div>
+      </div>
+      <div class="sv-tile" data-title-id="city-skies" data-runtime="44" data-title-text="City Skies">
+        <div class="sv-meta"><span class="sv-badge sv-badge--info">Science</span><span>44m</span></div>
+        <h3>City Skies</h3><p>How urban observatories reclaim dark-sky access for new generations of astronomers.</p>
+        <div class="sv-toolbar"><button type="button" class="sv-btn sv-btn--ghost" data-preview-title="City Skies">Play</button><button type="button" class="sv-btn">Details</button></div>
+      </div>
+      <div class="sv-tile" data-title-id="desert-lines" data-runtime="61" data-title-text="Desert Lines">
+        <div class="sv-meta"><span class="sv-badge sv-badge--info">Exploration</span><span>61m</span></div>
+        <h3>Desert Lines</h3><p>Archaeologists and pilots investigate ancient routes visible only from the air.</p>
+        <div class="sv-toolbar"><button type="button" class="sv-btn sv-btn--ghost" data-preview-title="Desert Lines">Play</button><button type="button" class="sv-btn">Details</button></div>
+      </div>
+    </section>
+  </div>
+  <aside class="sv-panel" aria-label="Watchlist and preview sidebar">
+    <div class="sv-kicker">My list</div>
+    <h2 style="margin-top:4px">Watchlist</h2>
+    <div class="sv-statusline"><span class="sv-counter" id="watchlist-count">1 title</span><span class="sv-note" id="watchlist-updated">Updated earlier today</span></div>
+    <ul class="sv-watchlist-list" id="watchlist-list">
+      <li><span>Harbor Nights</span><span class="sv-chip">49m</span></li>
+    </ul>
+    <hr style="border:none;border-top:1px solid #1f2937;margin:14px 0">
+    <div class="sv-kicker">Preview</div>
+    <h3 id="preview-title" style="margin-bottom:6px">No trailer playing</h3>
+    <p id="preview-copy">Select a Play or Play trailer button to update the preview card. This does not add titles to your watchlist.</p>
+    <div class="sv-statusline"><span class="sv-badge sv-badge--info" id="preview-badge">Idle</span></div>
+  </aside>
+</section>
+</div></div><aside class="sv-rail sv-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p>Upgrade to StreamVault Plus for offline downloads, director commentary tracks, and dual household watchlists.</p>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sv-filler" aria-hidden="true"><div class="sv-filler-inner"><a href="/misc/0" class="sv-btn sv-btn--ghost">Link 1</a><button type="button" class="sv-btn sv-btn--ghost">Action 2</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/4" class="sv-btn sv-btn--ghost">Link 5</a><button type="button" class="sv-btn sv-btn--ghost">Action 6</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/8" class="sv-btn sv-btn--ghost">Link 9</a><button type="button" class="sv-btn sv-btn--ghost">Action 10</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/12" class="sv-btn sv-btn--ghost">Link 13</a><button type="button" class="sv-btn sv-btn--ghost">Action 14</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/16" class="sv-btn sv-btn--ghost">Link 17</a><button type="button" class="sv-btn sv-btn--ghost">Action 18</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/20" class="sv-btn sv-btn--ghost">Link 21</a><button type="button" class="sv-btn sv-btn--ghost">Action 22</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/24" class="sv-btn sv-btn--ghost">Link 25</a><button type="button" class="sv-btn sv-btn--ghost">Action 26</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/28" class="sv-btn sv-btn--ghost">Link 29</a><button type="button" class="sv-btn sv-btn--ghost">Action 30</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/32" class="sv-btn sv-btn--ghost">Link 33</a><button type="button" class="sv-btn sv-btn--ghost">Action 34</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/36" class="sv-btn sv-btn--ghost">Link 37</a><button type="button" class="sv-btn sv-btn--ghost">Action 38</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/40" class="sv-btn sv-btn--ghost">Link 41</a><button type="button" class="sv-btn sv-btn--ghost">Action 42</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button></div></div><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Watchlist trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="sv-ftr"><small>© Demo StreamVault</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <div class="sv-panel" style="margin-top:14px;padding:12px">
+    <div class="sv-kicker">Need help?</div>
+    <p>Use the filters to narrow documentaries by runtime. Titles can be previewed without being saved.</p>
+  </div>
+</aside></div><div class="sv-filler" aria-hidden="true"><div class="sv-filler-inner"><a href="/misc/0" class="sv-btn sv-btn--ghost">Link 1</a><button type="button" class="sv-btn sv-btn--ghost">Action 2</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/4" class="sv-btn sv-btn--ghost">Link 5</a><button type="button" class="sv-btn sv-btn--ghost">Action 6</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/8" class="sv-btn sv-btn--ghost">Link 9</a><button type="button" class="sv-btn sv-btn--ghost">Action 10</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/12" class="sv-btn sv-btn--ghost">Link 13</a><button type="button" class="sv-btn sv-btn--ghost">Action 14</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/16" class="sv-btn sv-btn--ghost">Link 17</a><button type="button" class="sv-btn sv-btn--ghost">Action 18</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/20" class="sv-btn sv-btn--ghost">Link 21</a><button type="button" class="sv-btn sv-btn--ghost">Action 22</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/24" class="sv-btn sv-btn--ghost">Link 25</a><button type="button" class="sv-btn sv-btn--ghost">Action 26</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/28" class="sv-btn sv-btn--ghost">Link 29</a><button type="button" class="sv-btn sv-btn--ghost">Action 30</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/32" class="sv-btn sv-btn--ghost">Link 33</a><button type="button" class="sv-btn sv-btn--ghost">Action 34</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/36" class="sv-btn sv-btn--ghost">Link 37</a><button type="button" class="sv-btn sv-btn--ghost">Action 38</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button><a href="/misc/40" class="sv-btn sv-btn--ghost">Link 41</a><button type="button" class="sv-btn sv-btn--ghost">Action 42</button><button type="button" class="sv-btn sv-btn--ghost">Submit</button><button type="button" class="sv-btn sv-btn--ghost">Continue</button></div></div><button type="button" class="sv-btn sv-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promotional button" data-wci-priority="1" data-wci-scope="streaming_service-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sv-ftr"><small>© Demo StreamVault</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+<div class="sv-modal-backdrop" id="info-backdrop"></div>
+<div class="sv-modal" id="info-modal" aria-hidden="true" style="display:none;position:fixed;inset:18% auto auto 50%;transform:translateX(-50%);z-index:61;max-width:520px;width:min(92vw,520px)">
+  <h3 id="modal-title">Title details</h3>
+  <p id="modal-copy">Additional information appears here.</p>
+  <div class="sv-toolbar"><button type="button" class="sv-btn sv-btn--primary" id="modal-close">Close</button></div>
+</div>
+<script>
+(function(){
+  var cookieBanner = document.getElementById('cookie-banner');
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+    });
+  });
+
+  var searchInput = document.getElementById('doc-search');
+  var runtimeFilter = document.getElementById('runtime-filter');
+  var filterForm = document.getElementById('doc-filter-form');
+  var filterError = document.getElementById('filter-error');
+  var resetFilters = document.getElementById('reset-filters');
+  var resultsSummary = document.getElementById('results-summary');
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('#doc-row .sv-tile'));
+
+  function applyFilters(validate){
+    var q = searchInput.value.trim().toLowerCase();
+    var runtime = runtimeFilter.value;
+    if(validate && q.length === 1){
+      filterError.textContent = 'Enter at least 2 characters to search, or clear the field.';
+      return;
+    }
+    filterError.textContent = '';
+    var visible = 0;
+    tiles.forEach(function(tile){
+      var title = (tile.getAttribute('data-title-text') || '').toLowerCase();
+      var tr = parseInt(tile.getAttribute('data-runtime'),10);
+      var matchesQuery = !q || title.indexOf(q) !== -1;
+      var matchesRuntime = runtime === 'all' || (runtime === '45' ? tr <= 45 : runtime === '52' ? tr === 52 : tr >= 60);
+      var show = matchesQuery && matchesRuntime;
+      tile.classList.toggle('sv-hidden', !show);
+      if(show) visible++;
+    });
+    resultsSummary.textContent = 'Showing ' + visible + ' documentary title' + (visible === 1 ? '' : 's') + '.';
+  }
+
+  filterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    applyFilters(true);
+  });
+  runtimeFilter.addEventListener('change', function(){ applyFilters(false); });
+  resetFilters.addEventListener('click', function(){
+    searchInput.value = '';
+    runtimeFilter.value = 'all';
+    filterError.textContent = '';
+    applyFilters(false);
+  });
+
+  var previewTitle = document.getElementById('preview-title');
+  var previewCopy = document.getElementById('preview-copy');
+  var previewBadge = document.getElementById('preview-badge');
+  document.querySelectorAll('[data-preview-title],[data-hero-action="play"]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var title = btn.getAttribute('data-preview-title') || 'Blue Frontier';
+      previewTitle.textContent = 'Previewing: ' + title;
+      previewCopy.textContent = 'Trailer playback has started for ' + title + '. Preview activity does not change your watchlist.';
+      previewBadge.textContent = 'Trailer playing';
+    });
+  });
+
+  var backdrop = document.getElementById('info-backdrop');
+  var modal = document.getElementById('info-modal');
+  var modalTitle = document.getElementById('modal-title');
+  var modalCopy = document.getElementById('modal-copy');
+  function closeModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); backdrop.classList.remove('is-open'); }
+  function openModal(title, copy){ modalTitle.textContent = title; modalCopy.textContent = copy; modal.style.display='block'; modal.setAttribute('aria-hidden','false'); backdrop.classList.add('is-open'); }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.querySelectorAll('[data-hero-action="details"], #doc-row .sv-btn:not(.sv-btn--primary):not(.sv-btn--ghost)').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openModal('About this title', 'Cast notes, synopsis, production details, and accessibility information are available in the full title view.');
+    });
+  });
+
+  var smoke = document.getElementById('streaming-service-smoke-status');
+  var watchlistList = document.getElementById('watchlist-list');
+  var watchlistCount = document.getElementById('watchlist-count');
+  var watchlistCountBadge = document.getElementById('sv-watchlist-count-badge');
+  var watchlistUpdated = document.getElementById('watchlist-updated');
+  var primaryButton = document.querySelector('[data-title-id="ocean-deep"][data-runtime="52"] .sv-btn--primary');
+  var oceanTile = document.querySelector('[data-title-id="ocean-deep"][data-runtime="52"]');
+
+  function setWatchlistCount(){
+    var count = watchlistList.querySelectorAll('li').length;
+    watchlistCount.textContent = count + (count === 1 ? ' title' : ' titles');
+    watchlistCountBadge.textContent = 'Watchlist: ' + count;
+  }
+
+  primaryButton.addEventListener('click', function(){
+    var existing = watchlistList.querySelector('[data-watchlist-id="ocean-deep"]');
+    var now = Date.now();
+    if(!existing){
+      var li = document.createElement('li');
+      li.setAttribute('data-watchlist-id','ocean-deep');
+      li.innerHTML = '<span>Ocean Deep</span><span class="sv-chip">52m</span>';
+      watchlistList.appendChild(li);
+      oceanTile.classList.add('is-watchlisted');
+      primaryButton.textContent = 'Saved';
+    }
+    smoke.textContent = 'Ocean Deep added to watchlist.';
+    watchlistUpdated.textContent = 'Updated just now';
+    setWatchlistCount();
+    window.__scenarioSmoke = { lastAction: 'add-ocean-deep-watchlist', updatedAt: now };
+  });
+
+  setWatchlistCount();
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: 'page-ready', updatedAt: Date.now() };
+})();
+</script></body></html>

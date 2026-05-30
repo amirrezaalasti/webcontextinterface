@@ -14,8 +14,8 @@ demo/scenarios/
   ground-truth.generated.json # Playwright-verified selectors (regenerate via script)
   multi-step.generated.json  # catalog of richer multi-step tasks per scenario
   {scenario-id}/
-    raw.html                 # noisy, realistic DOM (no data-agent-*)
-    annotated.html           # same DOM tree with data-agent-* overlay injected
+    raw.html                 # noisy, realistic DOM (no data-wci-*)
+    annotated.html           # same DOM tree with data-wci-* overlay injected
     meta.json                # title, icon, difficulty, single-shot + multi-step tasks
 ```
 
@@ -55,8 +55,8 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 
 **Annotated overlay**
 
-- Same DOM as `raw.html`; `data-agent-id` on the true target may stay semantic (`apply-senior-engineer`, `schedule-video-visit`) for WCI evals.
-- `data-agent-desc` carries the full constraint goal so WCI grounding remains high when annotations are good.
+- Same DOM as `raw.html`; `data-wci-id` on the true target may stay semantic (`apply-senior-engineer`, `schedule-video-visit`) for WCI evals.
+- `data-wci-desc` carries the full constraint goal so WCI grounding remains high when annotations are good.
 
 **Ground truth**
 
@@ -70,7 +70,7 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 `annotated.html` is **not** a separate minimal stub document. The setup script:
 
 1. Builds `raw.html` for the scenario.
-2. Parses it with JSDOM and injects `data-agent-id`, `data-agent-role`, `data-agent-desc`, `data-agent-action`, `data-agent-state`, `data-agent-scope`, and `data-agent-priority` on the page landmark, primary action, decoys, and optional sub-landmarks.
+2. Parses it with JSDOM and injects `data-wci-id`, `data-wci-role`, `data-wci-desc`, `data-wci-action`, `data-wci-state`, `data-wci-scope`, and `data-wci-priority` on the page landmark, primary action, decoys, and optional sub-landmarks.
 3. Writes the serialized result as `annotated.html` (same element tree as raw).
 
 Primary `wciNodeId` in `meta.json` / `ground-truth.generated.json` must match the injected id on the primary target. `rawSelectors` must resolve in `raw.html` (verified by `npm run eval:verify`).

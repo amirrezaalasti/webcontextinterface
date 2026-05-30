@@ -192,13 +192,13 @@ function normalizeTarget(t) {
   const desc = typeof t.desc === 'string' ? t.desc : wciId;
   const priority = Number.isFinite(t.priority) ? t.priority : undefined;
   const attrs = {
-    'data-agent-id': wciId,
-    'data-agent-desc': desc,
-    ...(role ? { 'data-agent-role': role } : {}),
-    ...(action ? { 'data-agent-action': action } : {}),
-    ...(priority != null ? { 'data-agent-priority': String(priority) } : {}),
-    ...(t.scope ? { 'data-agent-scope': String(t.scope) } : {}),
-    ...(t.state && typeof t.state === 'object' ? { 'data-agent-state': JSON.stringify(t.state) } : {}),
+    'data-wci-id': wciId,
+    'data-wci-desc': desc,
+    ...(role ? { 'data-wci-role': role } : {}),
+    ...(action ? { 'data-wci-action': action } : {}),
+    ...(priority != null ? { 'data-wci-priority': String(priority) } : {}),
+    ...(t.scope ? { 'data-wci-scope': String(t.scope) } : {}),
+    ...(t.state && typeof t.state === 'object' ? { 'data-wci-state': JSON.stringify(t.state) } : {}),
   };
   return { selector, wciId, attrs };
 }
@@ -211,10 +211,10 @@ function requiredTargets(meta, isLegacy) {
       selector: `[data-page="${meta.id}"]`,
       wciId: `${slug(meta.id)}-page`,
       attrs: {
-        'data-agent-id': `${slug(meta.id)}-page`,
-        'data-agent-role': 'landmark',
-        'data-agent-desc': `${meta.title} — ${meta.description ?? 'scenario page'}`,
-        'data-agent-priority': '2',
+        'data-wci-id': `${slug(meta.id)}-page`,
+        'data-wci-role': 'landmark',
+        'data-wci-desc': `${meta.title} — ${meta.description ?? 'scenario page'}`,
+        'data-wci-priority': '2',
       },
     });
   }
@@ -222,12 +222,12 @@ function requiredTargets(meta, isLegacy) {
     selector: gt.rawSelectors?.[0],
     wciId: gt.wciNodeId,
     attrs: {
-      'data-agent-id': gt.wciNodeId,
-      'data-agent-role': 'action',
-      'data-agent-action': 'click',
-      'data-agent-desc': meta.task?.goal ?? meta.description ?? 'primary action',
-      'data-agent-priority': '1',
-      'data-agent-state': JSON.stringify({ ready: true }),
+      'data-wci-id': gt.wciNodeId,
+      'data-wci-role': 'action',
+      'data-wci-action': 'click',
+      'data-wci-desc': meta.task?.goal ?? meta.description ?? 'primary action',
+      'data-wci-priority': '1',
+      'data-wci-state': JSON.stringify({ ready: true }),
     },
   });
   for (const id of gt.decoyNodeIds ?? []) {
@@ -235,11 +235,11 @@ function requiredTargets(meta, isLegacy) {
       selector: `[data-decoy="${id}"]`,
       wciId: id,
       attrs: {
-        'data-agent-id': id,
-        'data-agent-role': 'action',
-        'data-agent-action': 'click',
-        'data-agent-desc': `Decoy: ${id}`,
-        'data-agent-priority': '5',
+        'data-wci-id': id,
+        'data-wci-role': 'action',
+        'data-wci-action': 'click',
+        'data-wci-desc': `Decoy: ${id}`,
+        'data-wci-priority': '5',
       },
     });
   }
@@ -279,7 +279,7 @@ function validateAnnotatedHtml(rawHtml, annotatedHtml, meta, isLegacy) {
   ];
   for (const id of requiredIds) {
     if (!id) continue;
-    const n = doc.querySelectorAll(`[data-agent-id="${id}"]`).length;
+    const n = doc.querySelectorAll(`[data-wci-id="${id}"]`).length;
     if (n === 0) errors.push(`Missing annotation id: ${id}`);
     if (n > 1) warnings.push(`Annotation id appears multiple times: ${id} (${n})`);
   }
@@ -289,8 +289,8 @@ function validateAnnotatedHtml(rawHtml, annotatedHtml, meta, isLegacy) {
     try {
       const el = doc.querySelector(primarySel);
       if (!el) errors.push(`Primary selector not found in annotated: ${primarySel}`);
-      else if (el.getAttribute('data-agent-id') !== gt.wciNodeId) {
-        errors.push(`Primary selector does not map to data-agent-id=${gt.wciNodeId}`);
+      else if (el.getAttribute('data-wci-id') !== gt.wciNodeId) {
+        errors.push(`Primary selector does not map to data-wci-id=${gt.wciNodeId}`);
       }
     } catch (e) {
       errors.push(`Invalid primary selector in annotated check: ${e.message}`);

@@ -47,13 +47,13 @@ export function buildDomOutline(html: string, maxLines = 80): string {
   return lines.join('\n');
 }
 
-/** AgentDOM / legacy annotated view (matches demo BenchmarkEngine.buildDistilledView) */
-/** All data-agent-id / WCI node ids in annotated HTML */
+/** WCI annotated view (matches demo BenchmarkEngine.buildDistilledView) */
+/** All data-wci-id node ids in annotated HTML */
 export function listAnnotatedNodeIds(html: string): string[] {
   const doc = new JSDOM(html).window.document;
   const ids: string[] = [];
-  doc.querySelectorAll('[data-agent-id]').forEach((el) => {
-    const id = el.getAttribute('data-agent-id');
+  doc.querySelectorAll('[data-wci-id]').forEach((el) => {
+    const id = el.getAttribute('data-wci-id');
     if (id) ids.push(id);
   });
   return ids;
@@ -77,37 +77,37 @@ function parseAnnotatedNodes(html: string): { pageTitle: string; nodes: WciDisti
   const doc = new JSDOM(html).window.document;
   const nodes: WciDistillNode[] = [];
 
-  doc.querySelectorAll('[data-agent-id]').forEach((el) => {
+  doc.querySelectorAll('[data-wci-id]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     let state: Record<string, unknown> = {};
     try {
-      state = JSON.parse(htmlEl.getAttribute('data-agent-state') ?? '{}');
+      state = JSON.parse(htmlEl.getAttribute('data-wci-state') ?? '{}');
     } catch {
       /* ignore */
     }
     let options: string[] | undefined;
     try {
-      const raw = htmlEl.getAttribute('data-agent-options');
+      const raw = htmlEl.getAttribute('data-wci-options');
       if (raw) options = JSON.parse(raw);
     } catch {
       /* ignore */
     }
-    const scope = htmlEl.getAttribute('data-agent-scope') ?? undefined;
+    const scope = htmlEl.getAttribute('data-wci-scope') ?? undefined;
     nodes.push({
-      id: htmlEl.getAttribute('data-agent-id') ?? '',
-      role: htmlEl.getAttribute('data-agent-role'),
-      desc: htmlEl.getAttribute('data-agent-desc'),
-      ...(htmlEl.getAttribute('data-agent-action')
-        ? { action: htmlEl.getAttribute('data-agent-action')! }
+      id: htmlEl.getAttribute('data-wci-id') ?? '',
+      role: htmlEl.getAttribute('data-wci-role'),
+      desc: htmlEl.getAttribute('data-wci-desc'),
+      ...(htmlEl.getAttribute('data-wci-action')
+        ? { action: htmlEl.getAttribute('data-wci-action')! }
         : {}),
-      ...(htmlEl.getAttribute('data-agent-required') === 'true' ? { required: true } : {}),
-      ...(htmlEl.getAttribute('data-agent-precondition')
-        ? { precondition: htmlEl.getAttribute('data-agent-precondition')! }
+      ...(htmlEl.getAttribute('data-wci-required') === 'true' ? { required: true } : {}),
+      ...(htmlEl.getAttribute('data-wci-precondition')
+        ? { precondition: htmlEl.getAttribute('data-wci-precondition')! }
         : {}),
       ...(options ? { options } : {}),
       ...(scope ? { scope } : {}),
       state,
-      priority: parseInt(htmlEl.getAttribute('data-agent-priority') ?? '3', 10),
+      priority: parseInt(htmlEl.getAttribute('data-wci-priority') ?? '3', 10),
     });
   });
 

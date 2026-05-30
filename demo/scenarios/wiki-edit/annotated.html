@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenWiki</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenWiki — Edit: Web Context Interface</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .ow-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ow-subnav a:hover{background:#f8fafc;color:#334155}
 .ow-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ow-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.ow-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.ow-page-wrap{grid-template-columns:1fr}}
 .ow-page-main{padding:20px 24px 32px;min-height:42vh}
 .ow-page-main>h1,.ow-page-main [role=main]>h1,.ow-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ow-page-main h2,.ow-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.ow-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.ow-page-main p{margin:0 0 10px;color:#475569;max-width:75ch}
 .ow-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ow-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ow-page-main select,.ow-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ow-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ow-page-main select,.ow-page-main textarea{display:block;width:100%;max-width:100%;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ow-page-main input:focus,.ow-page-main select:focus,.ow-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
 .ow-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .ow-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +34,11 @@ table{border-collapse:collapse}
 .ow-page-main th,.ow-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .ow-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ow-page-main tr:hover td{background:#fafafa}
-.ow-page-main article,.ow-page-main .ow-card,.ow-page-main .ow-resto,.ow-page-main .ow-slot,.ow-page-main .ow-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ow-page-main article,.ow-page-main .ow-card,.ow-page-main .ow-resto,.ow-page-main .ow-slot,.ow-page-main .ow-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ow-page-main ul:not([class]){list-style:none;padding:0}
 .ow-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .ow-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ow-page-main dialog,.ow-page-main .ow-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ow-page-main .ow-modal.is-open,.ow-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.ow-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ow-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,opacity .12s}
 .ow-btn:hover{background:#f8fafc}
 .ow-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
 .ow-btn--primary:hover{filter:brightness(1.05)}
@@ -54,8 +49,8 @@ table{border-collapse:collapse}
 .ow-btn:disabled{opacity:.5;cursor:not-allowed}
 .ow-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .ow-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.ow-rail{padding:16px;margin:16px;background:hsl(291 60% 96%);border:1px solid hsl(291 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.ow-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.ow-rail{padding:16px;margin:16px;background:hsl(291 60% 96%);border:1px solid hsl(291 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:12px}
+@media(min-width:901px){.ow-rail{border-left:1px solid #e2e8f0;border-radius:12px;margin:16px 16px 16px 0;background:#fffbeb}}
 .ow-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .ow-rail a{color:#b45309;font-weight:500}
 .ow-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -63,55 +58,404 @@ table{border-collapse:collapse}
 .ow-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .ow-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .ow-ab{display:none!important}
-.ow-layout{display:grid;gap:16px;align-items:start}
-.ow-filters,.ow-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.ow-filters h2,.ow-frame aside h2{font-size:14px;margin:0 0 10px}
-.ow-card__actions,.ow-slot__actions,.ow-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ow-wizard{max-width:760px}
-.ow-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.ow-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.ow-step.is-active{background:hsl(291 72% 46%);color:#fff}
-.ow-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.ow-hero{border-radius:12px;margin-bottom:8px}
-.ow-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.ow-grid{display:grid;gap:14px}
-.ow-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.ow-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ow-patient{border-radius:10px}
-.ow-slots{display:grid;gap:10px}
-.ow-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ow-cell{background:#fff;padding:8px;min-height:44px}
-.ow-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ow-diff{border-radius:8px}
-.ow-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.ow-edit{display:grid;grid-template-columns:1fr 1fr;min-height:50vh}.ow-toolbar{display:flex;gap:8px;padding:8px;background:#f3f4f6;border-bottom:1px solid #ccc}.ow-editor{padding:16px}.ow-diff{background:#fff8e1;padding:16px}</style></head><body>
-<div class="ow-app" data-page="wiki-edit" data-agent-role="landmark" data-agent-id="wiki_edit-page" data-agent-desc="Wiki editor with toolbar and diff pane" data-agent-priority="2"><div class="ow-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ow-btn ow-btn--muted">Reject non-essential</button>
-  <button type="button" class="ow-btn ow-btn--primary">Accept all</button>
-  <button type="button" class="ow-btn ow-btn--ghost">Customize</button>
-</div><div class="ow-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="ow-btn ow-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="ow-btn">Continue as guest — express</button>
-</div><header class="ow-hdr">
-  <nav class="ow-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="ow-hdr-promo"><button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Show history" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="ow-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="ow-btn ow-btn--ghost">Submit</button>
-  <button type="button" class="ow-btn ow-btn--ghost">Continue</button>
-</nav><div class="ow-dup-row" aria-label="Quick actions">
-  <button type="button" class="ow-btn ow-btn--ghost">Submit</button>
-  <button type="button" class="ow-btn ow-btn--ghost">Continue</button>
-  <button type="button" class="ow-btn ow-btn--ghost">Save changes</button>
-  <button type="button" class="ow-btn ow-btn--ghost">Confirm</button>
-</div><div class="ow-dup-row"><button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Publish WCI article</button><button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-nav">Publish Web Context Interface changes</button></div><div class="ow-page-wrap"><div class="ow-page-main"><div class="ow-toolbar" role="toolbar"><button type="button" class="ow-btn ow-btn--ghost">Bold</button>
-<button type="button" class="ow-btn ow-btn--ghost">Link</button><button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav">Show history</button>
-<button type="button" class="ow-btn ow-btn--primary" data-article="web-context-interface" data-action="publish" data-agent-role="action" data-agent-id="publish-wci-edit" data-agent-desc="Publish pending edits to the Web Context Interface article (not history or formatting tools)." data-agent-action="click" data-agent-priority="1">Confirm</button></div>
-<div class="ow-edit"><textarea class="ow-editor" role="main" rows="16">== Web Context Interface ==</textarea>
-<div class="ow-diff"><h3>Diff</h3><ins>+ distillation</ins></div></div></div><aside class="ow-rail ow-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="ow-filler" aria-hidden="true"><div class="ow-filler-inner"><a href="/misc/0" class="ow-btn ow-btn--ghost">Link 1</a><button type="button" class="ow-btn ow-btn--ghost">Action 2</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/4" class="ow-btn ow-btn--ghost">Link 5</a><button type="button" class="ow-btn ow-btn--ghost">Action 6</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/8" class="ow-btn ow-btn--ghost">Link 9</a><button type="button" class="ow-btn ow-btn--ghost">Action 10</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/12" class="ow-btn ow-btn--ghost">Link 13</a><button type="button" class="ow-btn ow-btn--ghost">Action 14</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/16" class="ow-btn ow-btn--ghost">Link 17</a><button type="button" class="ow-btn ow-btn--ghost">Action 18</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/20" class="ow-btn ow-btn--ghost">Link 21</a><button type="button" class="ow-btn ow-btn--ghost">Action 22</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/24" class="ow-btn ow-btn--ghost">Link 25</a><button type="button" class="ow-btn ow-btn--ghost">Action 26</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/28" class="ow-btn ow-btn--ghost">Link 29</a><button type="button" class="ow-btn ow-btn--ghost">Action 30</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/32" class="ow-btn ow-btn--ghost">Link 33</a><button type="button" class="ow-btn ow-btn--ghost">Action 34</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/36" class="ow-btn ow-btn--ghost">Link 37</a><button type="button" class="ow-btn ow-btn--ghost">Action 38</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="/misc/40" class="ow-btn ow-btn--ghost">Link 41</a><button type="button" class="ow-btn ow-btn--ghost">Action 42</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button></div></div><button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Publish trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="ow-ftr"><small>© Demo OpenWiki</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+.ow-toolbar{display:flex;flex-wrap:wrap;gap:8px;padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px 10px 0 0;align-items:center}
+.ow-edit-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);border:1px solid #e2e8f0;border-top:none;border-radius:0 0 10px 10px;overflow:hidden;min-height:56vh}
+@media(max-width:900px){.ow-edit-layout{grid-template-columns:1fr}}
+.ow-editor-pane,.ow-diff-pane{background:#fff}
+.ow-editor-pane{border-right:1px solid #e2e8f0}
+@media(max-width:900px){.ow-editor-pane{border-right:none;border-bottom:1px solid #e2e8f0}}
+.ow-pane-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e2e8f0;background:#fff}
+.ow-pane-title{font-weight:700;color:#0f172a}
+.ow-pane-sub{font-size:12px;color:#64748b}
+.ow-editor-wrap{padding:16px}
+ .ow-editor-wrap textarea{min-height:380px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;resize:vertical}
+.ow-diff-pane{background:#fffdf5}
+.ow-diff-body{padding:16px}
+.ow-diff-box{border:1px dashed #f59e0b;background:#fffbeb;border-radius:8px;padding:12px}
+.ow-inline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+@media(max-width:860px){.ow-inline-grid{grid-template-columns:1fr}}
+.ow-stat{border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:12px}
+.ow-stat strong{display:block;font-size:18px;color:#0f172a}
+.ow-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:600}
+.ow-badge--warning{background:#fff7ed;color:#9a3412;border:1px solid #fdba74}
+.ow-badge--ok{background:#ecfdf5;color:#166534;border:1px solid #86efac}
+.ow-badge--muted{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.ow-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}
+.ow-note{font-size:12px;color:#64748b}
+.ow-status-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center;margin:10px 0 14px}
+.ow-input-help{font-size:12px;color:#64748b;margin-top:4px}
+.ow-error{font-size:12px;color:#b91c1c;margin-top:6px;display:none}
+.ow-error.is-visible{display:block}
+.ow-success{font-size:12px;color:#166534}
+.ow-check{display:flex;gap:8px;align-items:flex-start;margin:10px 0;color:#334155}
+.ow-preview{border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:12px;min-height:72px}
+.ow-sidebar-section{border-top:1px solid rgba(180,83,9,.15);padding-top:12px;margin-top:12px}
+.ow-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.52);display:none;z-index:80}
+.ow-modal-backdrop.is-open{display:block}
+.ow-modal{display:none;position:fixed;inset:10% 50% auto 50%;transform:translateX(-50%);width:min(92vw,560px);background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 20px 40px rgba(15,23,42,.2);z-index:90}
+.ow-modal.is-open{display:block}
+.ow-modal__head,.ow-modal__foot{padding:14px 18px;border-bottom:1px solid #e2e8f0}
+.ow-modal__foot{border-bottom:none;border-top:1px solid #e2e8f0;display:flex;justify-content:flex-end;gap:8px}
+.ow-modal__body{padding:16px 18px}
+.code-pill{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:2px 6px}
+.hidden{display:none!important}
+</style></head><body>
+<div class="ow-app" data-page="wiki-edit" id="wiki_edit-page" data-wci-id="wiki_edit-page" data-wci-role="landmark" data-wci-desc="OpenWiki edit page root for the wiki editor scenario" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+  <div class="ow-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+    <button type="button" class="ow-btn ow-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+    <button type="button" class="ow-btn ow-btn--primary" data-cookie-action="accept">Accept all</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-cookie-action="customize">Customize</button>
+  </div>
+
+  <div class="ow-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="ow-btn ow-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="ow-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="ow-hdr">
+    <nav class="ow-nav" aria-label="Global">
+      <a href="#">OpenWiki</a><a href="#">Explore</a><a href="#">Recent changes</a><a href="#">Help</a><a href="#">Account</a>
+    </nav>
+    <div class="ow-hdr-promo">
+      <span class="ow-badge ow-badge--warning">Pending edit queue: 3</span>
+      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+      <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation and history-related controls that should not be used for publishing" data-wci-priority="1" data-wci-scope="wiki_edit-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+    </div>
+  </header>
+
+  <nav class="ow-subnav" aria-label="Secondary">
+    <a href="#">Article</a><a href="#">Talk</a><a href="#">Source</a><a href="#">Formatting help</a><a href="#">History</a>
+    <button type="button" class="ow-btn ow-btn--ghost">Submit</button>
+    <button type="button" class="ow-btn ow-btn--ghost">Continue</button>
+  </nav>
+
+  <div class="ow-dup-row" aria-label="Quick actions">
+    <button type="button" class="ow-btn ow-btn--ghost">Save draft</button>
+    <button type="button" class="ow-btn ow-btn--ghost">Preview</button>
+    <button type="button" class="ow-btn ow-btn--ghost">Formatting tips</button>
+    <button type="button" class="ow-btn ow-btn--ghost">Confirm</button>
+  </div>
+
+  <div class="ow-dup-row">
+    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Publish WCI article</button>
+    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-nav">Publish Web Context Interface changes</button>
+  </div>
+
+  <div class="ow-page-wrap">
+    <main class="ow-page-main" role="main">
+      <div class="ow-status-row">
+        <div>
+          <h1>Edit pending changes: Web Context Interface</h1>
+          <div class="ow-meta">
+            <span class="ow-badge ow-badge--warning" id="queue-badge">Pending review</span>
+            <span class="ow-badge ow-badge--muted">Slug: <span class="code-pill" id="slug-chip">web-context-interface</span></span>
+            <span class="ow-badge ow-badge--muted">Section count: <span id="section-count">4</span></span>
+          </div>
+          <p>Review the proposed edits before publishing. The split view shows article source on the left and a compact diff summary on the right. Publishing will apply the pending revision to the live article slug shown above.</p>
+        </div>
+        <div style="min-width:240px;text-align:right">
+          <div id="wiki-edit-smoke-status" class="ow-success">Smoke status: idle</div>
+          <div class="ow-note" id="autosave-status">Autosave ready</div>
+        </div>
+      </div>
+
+      <div class="ow-inline-grid">
+        <div class="ow-stat"><span class="ow-note">Words</span><strong id="word-count">46</strong></div>
+        <div class="ow-stat"><span class="ow-note">Changed lines</span><strong id="changed-lines">3</strong></div>
+        <div class="ow-stat"><span class="ow-note">Last reviewer</span><strong style="font-size:15px">M. Ortega</strong></div>
+      </div>
+
+      <section class="ow-card">
+        <h2>Publish options</h2>
+        <label for="summary-input">Edit summary</label>
+        <input id="summary-input" type="text" maxlength="160" value="Clarify article scope and add implementation notes" aria-describedby="summary-help summary-error">
+        <div class="ow-input-help"><span id="summary-help">Required. Briefly explain what changed.</span> · <span>Characters: <span id="summary-count">49</span>/160</span></div>
+        <div class="ow-error" id="summary-error">Enter an edit summary before publishing.</div>
+
+        <label for="reviewer-input">Reviewer initials</label>
+        <input id="reviewer-input" type="text" maxlength="12" value="MO" aria-describedby="reviewer-error">
+        <div class="ow-error" id="reviewer-error">Reviewer initials are required.</div>
+
+        <label class="ow-check"><input id="minor-edit" type="checkbox"> Mark as minor copy edit</label>
+        <label class="ow-check"><input id="confirm-live" type="checkbox" checked=""> I understand this publishes the pending edits to the live article <span class="code-pill">web-context-interface</span></label>
+        <div class="ow-error" id="confirm-error">You must acknowledge live publishing before continuing.</div>
+
+        <div class="ow-preview" aria-live="polite">
+          <strong>Publish preview</strong>
+          <p id="publish-preview" style="margin-top:8px">Publishing to slug <span class="code-pill">web-context-interface</span> with summary “Clarify article scope and add implementation notes”.</p>
+        </div>
+      </section>
+
+      <div class="ow-toolbar" role="toolbar" aria-label="Editor toolbar">
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="bold">Bold</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="link">Link</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="heading">Heading</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="reference">Reference</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav">Show history</button>
+        <button type="button" class="ow-btn ow-btn--ghost" id="toggle-diff">Hide diff</button>
+        <button type="button" class="ow-btn ow-btn--ghost" id="open-preview">Open preview</button>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span class="ow-note">Target slug: <span class="code-pill">web-context-interface</span></span>
+          <button type="button" id="publish-wci-edit" class="ow-btn ow-btn--primary" data-article="web-context-interface" data-action="publish" data-wci-id="publish-wci-edit" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary publish button for pending edits to the Web Context Interface article" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="wiki_edit-page">Publish pending edit</button>
+        </div>
+      </div>
+
+      <div class="ow-edit-layout" id="edit-layout">
+        <section class="ow-editor-pane" aria-label="Source editor">
+          <div class="ow-pane-head">
+            <div>
+              <div class="ow-pane-title">Source</div>
+              <div class="ow-pane-sub">Article markup for Web Context Interface</div>
+            </div>
+            <span class="ow-badge ow-badge--muted">Draft revision #1843</span>
+          </div>
+          <div class="ow-editor-wrap">
+            <label for="article-editor">Article source</label>
+            <textarea id="article-editor" class="ow-editor" rows="18">== Web Context Interface ==
+The Web Context Interface (WCI) defines a structured way for applications to expose page metadata, active selection state, and user-facing context to cooperating tools.
+
+=== Overview ===
+WCI is commonly discussed in integration guides where an assistant, browser surface, or automation layer needs to identify the current article, route user actions, and preserve auditability.
+
+=== Implementation notes ===
+* Add stable article slugs for publish flows.
+* Include visible confirmation before sending live updates.
+* Preserve decoy controls in benchmark environments.
+
+=== See also ===
+* Context windowing
+* Web page state models</textarea>
+            <div class="ow-input-help">Editor updates word count and section count automatically. Toolbar buttons are non-publishing helpers.</div>
+          </div>
+        </section>
+
+        <aside class="ow-diff-pane" aria-label="Diff summary" id="diff-pane">
+          <div class="ow-pane-head">
+            <div>
+              <div class="ow-pane-title">Diff</div>
+              <div class="ow-pane-sub">Pending changes vs published version</div>
+            </div>
+            <span class="ow-badge ow-badge--warning">3 additions</span>
+          </div>
+          <div class="ow-diff-body">
+            <div class="ow-diff-box">
+              <h3 style="margin-top:0">Summary of changes</h3>
+              <p><ins>+ defines structured metadata exchange</ins></p>
+              <p><ins>+ adds implementation notes for live publish confirmation</ins></p>
+              <p><ins>+ documents stable article slugs in benchmark environments</ins></p>
+            </div>
+            <table aria-label="Change metadata">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Current slug</td><td><span class="code-pill">web-context-interface</span></td></tr>
+                <tr><td>Risk level</td><td>Low</td></tr>
+                <tr><td>Queue owner</td><td>Editorial systems</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <aside class="ow-rail ow-rail--ads" aria-label="Sponsored and workflow details">
+      <div><strong>Sponsored</strong></div>
+      <a href="#">Partner offer — limited time</a><br>
+      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">View deal</button>
+
+      <div class="ow-sidebar-section">
+        <strong>Review checklist</strong>
+        <ul>
+          <li>Confirm article slug matches intended page</li>
+          <li>Check summary for reviewer clarity</li>
+          <li>Verify diff does not include formatting-only regressions</li>
+        </ul>
+      </div>
+
+      <div class="ow-sidebar-section">
+        <strong>Pending article details</strong>
+        <p>Title: Web Context Interface</p>
+        <p>Slug: <span class="code-pill">web-context-interface</span></p>
+        <p>Status badge updates after successful publish.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="ow-filler" aria-hidden="true">
+    <div class="ow-filler-inner">
+      <a href="#" class="ow-btn ow-btn--ghost">Link 1</a><button type="button" class="ow-btn ow-btn--ghost">Action 2</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 5</a><button type="button" class="ow-btn ow-btn--ghost">Action 6</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 9</a><button type="button" class="ow-btn ow-btn--ghost">Action 10</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 13</a><button type="button" class="ow-btn ow-btn--ghost">Action 14</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button>
+    </div>
+  </div>
+
+  <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="nav" data-wci-action="click" data-wci-desc="Hidden decoy extra node preserved for benchmark noise" data-wci-priority="1" data-wci-scope="wiki_edit-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+
+  <div class="ow-modal-backdrop" id="modal-backdrop"></div>
+  <div class="ow-modal" id="publish-modal" role="dialog" aria-modal="true" aria-labelledby="publish-modal-title">
+    <div class="ow-modal__head">
+      <h2 id="publish-modal-title" style="margin:0;font-size:18px">Confirm publish</h2>
+    </div>
+    <div class="ow-modal__body">
+      <p>You are about to publish pending edits to the live article slug <span class="code-pill" id="modal-slug">web-context-interface</span>.</p>
+      <p><strong>Summary:</strong> <span id="modal-summary">Clarify article scope and add implementation notes</span></p>
+      <p><strong>Reviewer:</strong> <span id="modal-reviewer">MO</span></p>
+      <p class="ow-note">This action targets the article itself, not history, diff tools, or formatting aids.</p>
+    </div>
+    <div class="ow-modal__foot">
+      <button type="button" class="ow-btn ow-btn--ghost" id="cancel-publish">Cancel</button>
+      <button type="button" class="ow-btn ow-btn--primary" id="confirm-publish-final">Publish article</button>
+    </div>
+  </div>
+
+  <div class="ow-modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-modal-title">
+    <div class="ow-modal__head">
+      <h2 id="preview-modal-title" style="margin:0;font-size:18px">Rendered preview</h2>
+    </div>
+    <div class="ow-modal__body">
+      <div id="rendered-preview"></div>
+    </div>
+    <div class="ow-modal__foot">
+      <button type="button" class="ow-btn ow-btn--primary" id="close-preview">Close preview</button>
+    </div>
+  </div>
+
+  <footer class="ow-ftr"><small>© Demo OpenWiki</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var summaryInput=document.getElementById('summary-input');
+  var reviewerInput=document.getElementById('reviewer-input');
+  var confirmLive=document.getElementById('confirm-live');
+  var summaryCount=document.getElementById('summary-count');
+  var summaryError=document.getElementById('summary-error');
+  var reviewerError=document.getElementById('reviewer-error');
+  var confirmError=document.getElementById('confirm-error');
+  var publishPreview=document.getElementById('publish-preview');
+  var editor=document.getElementById('article-editor');
+  var wordCount=document.getElementById('word-count');
+  var sectionCount=document.getElementById('section-count');
+  var changedLines=document.getElementById('changed-lines');
+  var autosaveStatus=document.getElementById('autosave-status');
+  var publishBtn=document.querySelector('button[data-article="web-context-interface"][data-action="publish"]');
+  var smoke=document.getElementById('wiki-edit-smoke-status');
+  var queueBadge=document.getElementById('queue-badge');
+  var slugChip=document.getElementById('slug-chip');
+  var modal=document.getElementById('publish-modal');
+  var previewModal=document.getElementById('preview-modal');
+  var backdrop=document.getElementById('modal-backdrop');
+  var modalSummary=document.getElementById('modal-summary');
+  var modalReviewer=document.getElementById('modal-reviewer');
+  var modalSlug=document.getElementById('modal-slug');
+  var confirmFinal=document.getElementById('confirm-publish-final');
+  var cancelPublish=document.getElementById('cancel-publish');
+  var openPreview=document.getElementById('open-preview');
+  var closePreview=document.getElementById('close-preview');
+  var renderedPreview=document.getElementById('rendered-preview');
+  var toggleDiff=document.getElementById('toggle-diff');
+  var diffPane=document.getElementById('diff-pane');
+  var cookieBanner=document.getElementById('cookie-banner');
+
+  function updateCounts(){
+    var text=editor.value.trim();
+    var words=text?text.split(/\s+/).filter(Boolean).length:0;
+    var sections=(editor.value.match(/^==+\s.*?\s==+$/gm)||[]).length;
+    var additions=(editor.value.match(/^\*/gm)||[]).length;
+    wordCount.textContent=String(words);
+    sectionCount.textContent=String(sections);
+    changedLines.textContent=String(Math.max(3,additions));
+    autosaveStatus.textContent='Unsaved editor changes';
+  }
+
+  function updateSummary(){
+    var summary=summaryInput.value.trim();
+    var reviewer=reviewerInput.value.trim();
+    summaryCount.textContent=String(summaryInput.value.length);
+    publishPreview.innerHTML='Publishing to slug <span class="code-pill">'+slugChip.textContent+'</span> with summary “'+(summary||'')+'”.';
+    modalSummary.textContent=summary||'—';
+    modalReviewer.textContent=reviewer||'—';
+    modalSlug.textContent=slugChip.textContent;
+  }
+
+  function validate(showErrors){
+    var valid=true;
+    if(!summaryInput.value.trim()){ valid=false; if(showErrors) summaryError.classList.add('is-visible'); }
+    else summaryError.classList.remove('is-visible');
+    if(!reviewerInput.value.trim()){ valid=false; if(showErrors) reviewerError.classList.add('is-visible'); }
+    else reviewerError.classList.remove('is-visible');
+    if(!confirmLive.checked){ valid=false; if(showErrors) confirmError.classList.add('is-visible'); }
+    else confirmError.classList.remove('is-visible');
+    publishBtn.disabled=false;
+    return valid;
+  }
+
+  function openModal(el){
+    backdrop.classList.add('is-open');
+    el.classList.add('is-open');
+  }
+  function closeModal(el){
+    el.classList.remove('is-open');
+    if(!modal.classList.contains('is-open')&&!previewModal.classList.contains('is-open')) backdrop.classList.remove('is-open');
+  }
+
+  summaryInput.addEventListener('input',function(){updateSummary();validate(false);});
+  reviewerInput.addEventListener('input',function(){updateSummary();validate(false);});
+  confirmLive.addEventListener('change',function(){validate(false);});
+  editor.addEventListener('input',function(){updateCounts();});
+
+  document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
+    btn.addEventListener('click',function(){ cookieBanner.style.display='none'; });
+  });
+
+  document.querySelectorAll('[data-tool]').forEach(function(btn){
+    btn.addEventListener('click',function(){ autosaveStatus.textContent='Toolbar action: '+btn.getAttribute('data-tool'); });
+  });
+
+  toggleDiff.addEventListener('click',function(){
+    var hidden=diffPane.classList.toggle('hidden');
+    toggleDiff.textContent=hidden?'Show diff':'Hide diff';
+    autosaveStatus.textContent=hidden?'Diff panel hidden':'Diff panel visible';
+  });
+
+  openPreview.addEventListener('click',function(){
+    var html=editor.value
+      .replace(/^==\s(.+)\s==$/gm,'<h2>$1</h2>')
+      .replace(/^===\s(.+)\s===$/gm,'<h3>$1</h3>')
+      .replace(/^\*\s(.+)$/gm,'<li>$1</li>')
+      .replace(/\n\n/g,'</p><p>');
+    renderedPreview.innerHTML='<div class="ow-preview"><p>'+html+'</p></div>';
+    openModal(previewModal);
+  });
+
+  closePreview.addEventListener('click',function(){ closeModal(previewModal); });
+  cancelPublish.addEventListener('click',function(){ closeModal(modal); });
+  backdrop.addEventListener('click',function(){ closeModal(modal); closeModal(previewModal); });
+
+  publishBtn.addEventListener('click',function(){
+    updateSummary();
+    if(!validate(true)){
+      smoke.textContent='Smoke status: validation blocked publish';
+      window.__scenarioSmoke={ lastAction:'publish-blocked', updatedAt:Date.now() };
+      return;
+    }
+    openModal(modal);
+    smoke.textContent='Smoke status: publish confirmation opened for web-context-interface';
+    window.__scenarioSmoke={ lastAction:'publish-confirm-open', updatedAt:Date.now() };
+  });
+
+  confirmFinal.addEventListener('click',function(){
+    queueBadge.textContent='Published';
+    queueBadge.className='ow-badge ow-badge--ok';
+    autosaveStatus.textContent='Published just now';
+    smoke.textContent='Smoke status: published web-context-interface';
+    window.__scenarioSmoke={ lastAction:'published-web-context-interface', updatedAt:Date.now() };
+    closeModal(modal);
+  });
+
+  updateCounts();
+  updateSummary();
+  validate(false);
+  window.__scenarioSmoke={ lastAction:'page-ready', updatedAt:Date.now() };
+})();
+</script>
+</body></html>

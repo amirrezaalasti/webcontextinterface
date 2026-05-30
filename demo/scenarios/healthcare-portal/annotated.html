@@ -109,7 +109,7 @@ table{border-collapse:collapse}
 .mg-smoke{padding:10px 12px;border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;font-size:13px;color:#334155}
 .mg-hidden{display:none!important}
 </style></head><body>
-<div class="mg-app" data-page="healthcare-portal" id="healthcare_portal-page" data-agent-id="healthcare_portal-page" data-agent-role="landmark" data-agent-desc="Healthcare portal application root" data-agent-priority="1" data-agent-action="navigate" data-agent-state="{&quot;ready&quot;:true}">
+<div class="mg-app" data-page="healthcare-portal" id="healthcare_portal-page" data-wci-id="healthcare_portal-page" data-wci-role="landmark" data-wci-desc="Healthcare portal application root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
   <div class="mg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
     <p>We use cookies for analytics, personalization, secure sign-in telemetry, and experience optimization. You can manage preferences or accept to continue using the portal.</p>
     <button type="button" class="mg-btn mg-btn--muted" data-cookie="reject">Reject non-essential</button>
@@ -132,7 +132,7 @@ table{border-collapse:collapse}
     </nav>
     <div class="mg-hdr-promo">
       <span class="mg-chip">Authenticated patient</span>
-      <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" id="decoy-nav" data-agent-id="decoy-nav" data-agent-role="nav" data-agent-action="click" data-agent-desc="Decoy navigation/promo action" data-agent-priority="2" data-agent-scope="healthcare_portal-page" data-agent-state="{&quot;ready&quot;:true}">Learn More</button>
+      <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" id="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation/promo action" data-wci-priority="2" data-wci-scope="healthcare_portal-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
     </div>
   </header>
 
@@ -152,7 +152,7 @@ table{border-collapse:collapse}
   <div class="mg-dup-row">
     <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">Schedule video visit Tuesday</button>
     <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav">Schedule video visit Tue</button>
-    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" data-agent-id="decoy-extra" data-agent-role="action" data-agent-action="click" data-agent-desc="Decoy extra booking action" data-agent-priority="2" data-agent-scope="healthcare_portal-page" data-agent-state="{&quot;ready&quot;:true}">Book Tuesday video</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy extra booking action" data-wci-priority="2" data-wci-scope="healthcare_portal-page" data-wci-state="{&quot;ready&quot;:true}">Book Tuesday video</button>
   </div>
 
   <div class="mg-page-wrap">
@@ -208,7 +208,7 @@ table{border-collapse:collapse}
             <div class="mg-slot__meta"><strong>Tue 14:30</strong><span class="mg-badge mg-badge--video">Video visit</span></div>
             <div>Telehealth appointment with Dr. Patel. Join link sent by SMS and email.</div>
             <div class="mg-note">Best match for patient preference and provider continuity.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" id="schedule-video-visit" data-agent-id="schedule-video-visit" data-agent-role="action" data-agent-action="click" data-agent-desc="Confirm the Tuesday 14:30 video visit slot" data-agent-priority="1" data-agent-state="{&quot;ready&quot;:true}" data-agent-scope="healthcare_portal-page">Confirm</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" id="schedule-video-visit" data-wci-id="schedule-video-visit" data-wci-role="action" data-wci-action="click" data-wci-desc="Confirm the Tuesday 14:30 video visit slot" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="healthcare_portal-page">Confirm</button></div>
           </div>
 
           <div class="mg-slot" data-slot="tue-1530-callback" data-mode="callback">

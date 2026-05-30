@@ -19,7 +19,7 @@ table{border-collapse:collapse}
 .qb-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .qb-subnav a:hover{background:#f8fafc;color:#334155}
 .qb-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.qb-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.qb-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.qb-page-wrap{grid-template-columns:1fr}}
 .qb-page-main{padding:20px 24px 32px;min-height:42vh}
 .qb-page-main>h1,.qb-page-main [role=main]>h1,.qb-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
@@ -40,8 +40,9 @@ table{border-collapse:collapse}
 .qb-page-main ul:not([class]) li:hover{background:#f8fafc}
 .qb-page-main dialog,.qb-page-main .qb-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .qb-page-main .qb-modal.is-open,.qb-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.qb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.qb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .qb-btn:hover{background:#f8fafc}
+.qb-btn:active{transform:translateY(1px)}
 .qb-btn--primary{background:hsl(24 72% 46%);color:#fff;border-color:hsl(24 72% 38%)}
 .qb-btn--primary:hover{filter:brightness(1.05)}
 .qb-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -81,7 +82,7 @@ table{border-collapse:collapse}
 .qb-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .qb-diff{border-radius:8px}
 .qb-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
-.qb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}.qb-cart{position:sticky;top:16px;margin-top:0!important;border-left:3px solid #f97316}
+.qb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}.qb-cart{position:sticky;top:16px;margin-top:0!important;border-left:3px solid #f97316}
 .qb-meta{display:flex;flex-wrap:wrap;gap:10px;color:#64748b;font-size:12px;margin:0 0 14px}
 .qb-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:12px;font-weight:600}
 .qb-hero-banner{border:1px solid #e2e8f0;border-radius:14px;background:linear-gradient(135deg,#fff7ed,#fff);padding:16px 18px;box-shadow:0 1px 2px rgba(15,23,42,.04);margin-bottom:16px}
@@ -104,20 +105,46 @@ table{border-collapse:collapse}
 .qb-empty{color:#64748b;font-style:italic}
 .qb-checkout{width:100%;margin-top:12px}
 .qb-kicker{text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#f97316;font-weight:700}
+.qb-stack{display:grid;gap:16px}
+.qb-search{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:end}
+.qb-search input{max-width:none}
+@media(max-width:720px){.qb-search{grid-template-columns:1fr}}
+.qb-filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.qb-chip{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;color:#475569}
+ .qb-chip.is-active{background:#fff7ed;border-color:#fdba74;color:#9a3412}
+.qb-cart__totals dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:12px 0 0}
+.qb-cart__totals dt,.qb-cart__totals dd{margin:0}
+.qb-total{font-weight:700;padding-top:8px;border-top:1px solid #fed7aa}
+.qb-inline-note{font-size:12px;color:#64748b}
+.qb-smoke{margin-top:10px;padding:9px 12px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:12px}
+.qb-drawer-actions{display:flex;gap:8px;flex-wrap:wrap}
+.qb-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:140}
+.qb-overlay.is-open{display:block}
+.qb-modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92vw,520px);z-index:160;display:none}
+.qb-modal.is-open{display:block}
+.qb-modal__head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.qb-modal__head h3{margin:0}
+.qb-modal__foot{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:16px}
+.qb-note-error{color:#b91c1c;font-size:12px;margin-top:6px;display:none}
+.qb-note-error.is-visible{display:block}
+.qb-success{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+.qb-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:#f8fafc;color:#475569;font-size:12px;border:1px solid #e2e8f0}
+.qb-menu-preview{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.qb-subtle{color:#64748b}
 </style></head><body>
-<div class="qb-app" data-page="food-delivery" id="food_delivery-page" data-agent-id="food_delivery-page" data-agent-role="landmark" data-agent-desc="App root landmark for the QuickBite food delivery page" data-agent-priority="1" data-agent-action="navigate" data-agent-state="{&quot;ready&quot;:true}"><div class="qb-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="qb-app" data-page="food-delivery" id="food_delivery-page" data-wci-id="food_delivery-page" data-wci-role="landmark" data-wci-desc="QuickBite food delivery app root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="qb-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue. Delivery estimates and saved carts may use local storage.</p>
-  <button type="button" class="qb-btn qb-btn--muted">Reject non-essential</button>
-  <button type="button" class="qb-btn qb-btn--primary">Accept all</button>
-  <button type="button" class="qb-btn qb-btn--ghost">Customize</button>
+  <button type="button" class="qb-btn qb-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="qb-btn qb-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="qb-btn qb-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="qb-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="qb-btn qb-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="qb-btn">Continue as guest — express</button>
 </div><header class="qb-hdr">
   <nav class="qb-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="qb-hdr-promo"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-agent-id="decoy-promo" data-agent-role="action" data-agent-action="click" data-agent-desc="Decoy promotional button that should be ignored" data-agent-priority="5" data-agent-state="{&quot;ready&quot;:true}">Claim Offer</button>
+  <div class="qb-hdr-promo"><span class="qb-pill">Deliver to <strong>Market St</strong></span><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional button that should not be used for the task" data-wci-priority="2" data-wci-scope="food_delivery-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
     <button type="button" class="qb-btn qb-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="qb-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="qb-subnav" aria-label="Secondary"><a href="#restaurants">Restaurants</a><a href="#recommended">Recommended</a><a href="#cart-panel">Cart</a><a href="#delivery-prefs">Delivery details</a><a href="#support">Support</a>
   <button type="button" class="qb-btn qb-btn--ghost">Submit</button>
   <button type="button" class="qb-btn qb-btn--ghost">Continue</button>
 </nav><div class="qb-dup-row" aria-label="Quick actions">
@@ -126,30 +153,268 @@ table{border-collapse:collapse}
   <button type="button" class="qb-btn qb-btn--ghost">Save changes</button>
   <button type="button" class="qb-btn qb-btn--ghost">Confirm</button>
 </div><div class="qb-dup-row"><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Add Teriyaki Bowl checkout</button><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-nav">Chicken Teriyaki Bowl cart</button></div><div class="qb-page-wrap"><div class="qb-page-main">
-<main class="qb-grid" role="main">
-<div class="qb-hero-banner"><span class="qb-kicker">Tonight’s top picks</span><h1>QuickBite delivery</h1><p>Browse neighborhood restaurants, compare prep times, and add your order to the cart drawer before checkout. Track fees, tips, and estimated arrival in one place.</p><div class="qb-meta"><span class="qb-badge">Fastest in 28 min</span><span class="qb-badge">Free delivery over $25</span><span class="qb-badge">Open until 11:30 PM</span></div></div>
-<section class="qb-section" aria-labelledby="featured-restaurants"><div class="qb-section-head"><h2 id="featured-restaurants">Restaurants nearby</h2><div class="qb-mini">12 kitchens available · sort by delivery time</div></div>
-<article class="qb-resto">
+<main class="qb-stack" role="main">
+<div class="qb-hero-banner"><span class="qb-kicker">Tonight’s top picks</span><h1>QuickBite delivery</h1><p>Browse neighborhood restaurants, compare prep times, and add your order to the cart drawer before checkout. Track fees, tips, and estimated arrival in one place.</p><div class="qb-meta"><span class="qb-badge">Fastest in 28 min</span><span class="qb-badge">Free delivery over $25</span><span class="qb-badge">Open until 11:30 PM</span></div><div class="qb-smoke" id="food-delivery-smoke-status" data-smoke-status="">Smoke status: waiting for target action.</div></div>
+<section class="qb-panel" aria-labelledby="find-food">
+  <div class="qb-section-head"><h2 id="find-food">Find dinner fast</h2><div class="qb-mini">Search, filter, and compare item prices before checkout</div></div>
+  <form id="delivery-prefs" novalidate="">
+    <div class="qb-search">
+      <label>Search restaurants or dishes
+        <input type="text" id="searchInput" placeholder="Try teriyaki, ramen, sushi" aria-describedby="search-hint">
+      </label>
+      <label>Sort by
+        <select id="sortSelect"><option value="featured">Featured</option><option value="price-asc">Lowest price</option><option value="eta">Fastest ETA</option></select>
+      </label>
+      <button type="button" class="qb-btn qb-btn--ghost" id="clearSearch">Clear</button>
+    </div>
+    <div id="search-hint" class="qb-inline-note">Tip: item prices may be duplicated in recommendation cards; use the restaurant card to add to cart.</div>
+    <div class="qb-filter-row" style="margin-top:10px">
+      <button type="button" class="qb-chip is-active" data-filter="all">All</button>
+      <button type="button" class="qb-chip" data-filter="asian">Asian</button>
+      <button type="button" class="qb-chip" data-filter="under-15">Under $15</button>
+      <button type="button" class="qb-chip" data-filter="fast">Under 35 min</button>
+    </div>
+  </form>
+</section>
+<section class="qb-section" id="restaurants" aria-labelledby="featured-restaurants"><div class="qb-section-head"><h2 id="featured-restaurants">Restaurants nearby</h2><div class="qb-mini"><span id="resultCount">4</span> kitchens available · sort by delivery time</div></div>
+<div class="qb-grid" id="restaurantGrid">
+<article class="qb-resto" data-tags="asian sushi fast" data-name="sushi zen" data-price-rank="15.49" data-eta="18">
   <div class="qb-item-top"><div><h3>Sushi Zen</h3><p class="qb-desc">Fresh rolls, poke bowls, and bento boxes.</p></div><span class="qb-price">18–32 min</span></div>
-  <div class="qb-card__actions"><button type="button" class="qb-btn qb-btn--ghost">View menu</button><button type="button" class="qb-btn qb-btn--ghost">Save</button></div>
+  <div class="qb-menu-preview"><div class="qb-subtle">Salmon roll · $9.50</div><div class="qb-subtle">Bento set · $15.49</div></div>
+  <div class="qb-card__actions"><button type="button" class="qb-btn qb-btn--ghost" data-open-preview="sushi">View menu</button><button type="button" class="qb-btn qb-btn--ghost">Save</button></div>
 </article>
-<article class="qb-resto" data-restaurant="tokyo-bowl" data-item="teriyaki-1299" data-price="12.99">
+<article class="qb-resto" data-restaurant="tokyo-bowl" data-item="teriyaki-1299" data-price="12.99" data-tags="asian under-15 fast" data-name="tokyo bowl" data-price-rank="12.99" data-eta="31">
   <div class="qb-item-top"><div><h3>Tokyo Bowl</h3><p class="qb-desc">Chargrilled chicken teriyaki, jasmine rice, sesame slaw, and house pickles.</p></div><span class="qb-price">$12.99</span></div>
   <div class="qb-item"><div class="qb-mini">Popular item · 4.8 stars · 31 min delivery</div><p class="qb-desc">Balanced, filling, and designed for quick checkout. Add one bowl or customize sides before moving on.</p></div>
-  <div class="qb-card__actions"><button type="button" class="qb-btn qb-btn--primary" id="add-teriyaki-checkout" data-agent-id="add-teriyaki-checkout" data-agent-role="action" data-agent-action="click" data-agent-desc="Fallback selector for the Tokyo Bowl teriyaki primary action" data-agent-priority="1" data-agent-state="{&quot;ready&quot;:true}">Add to cart</button><button type="button" class="qb-btn qb-btn--ghost">Customize</button></div>
+  <div class="qb-item"><div class="qb-item-top"><div><strong>Teriyaki bowl</strong><p class="qb-desc">Chicken teriyaki, steamed rice, sesame slaw.</p></div><span class="qb-price">$12.99</span></div></div>
+  <div class="qb-card__actions"><button type="button" class="qb-btn qb-btn--primary" id="add-teriyaki-checkout" data-wci-id="add-teriyaki-checkout" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to add Tokyo Bowl teriyaki priced 12.99 to cart" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="food_delivery-page">Add to cart</button><button type="button" class="qb-btn qb-btn--ghost" data-open-preview="tokyo">Customize</button></div>
 </article>
-<article class="qb-resto"><div class="qb-item-top"><div><h3>Pizza Hub</h3><p class="qb-desc">Wood-fired pies, garlic knots, and salads.</p></div><span class="qb-price">22–39 min</span></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Free delivery</button></article>
+<article class="qb-resto" data-tags="pizza" data-name="pizza hub" data-price-rank="17.00" data-eta="22"><div class="qb-item-top"><div><h3>Pizza Hub</h3><p class="qb-desc">Wood-fired pies, garlic knots, and salads.</p></div><span class="qb-price">22–39 min</span></div><div class="qb-menu-preview"><div class="qb-subtle">Margherita · $17.00</div><div class="qb-subtle">Caesar · $8.25</div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">Free delivery</button></article>
+<article class="qb-resto" data-tags="burgers fast" data-name="stack shack" data-price-rank="13.49" data-eta="29"><div class="qb-item-top"><div><h3>Stack Shack</h3><p class="qb-desc">Smashed burgers, fries, and shakes.</p></div><span class="qb-price">29–36 min</span></div><div class="qb-menu-preview"><div class="qb-subtle">Classic burger · $10.99</div><div class="qb-subtle">Combo · $13.49</div></div><div class="qb-card__actions"><button type="button" class="qb-btn qb-btn--ghost">View menu</button><button type="button" class="qb-btn qb-btn--ghost">Save</button></div></article>
+</div>
 </section>
 <section class="qb-section" aria-labelledby="recommended"><div class="qb-section-head"><h2 id="recommended">Recommended for you</h2><div class="qb-mini">Based on your last order</div></div>
 <div class="qb-row">
   <article class="qb-tile"><strong>Spicy Ramen Set</strong><p class="qb-desc">Includes broth, noodles, and egg.</p><button type="button" class="qb-btn qb-btn--ghost">Add</button></article>
   <article class="qb-tile"><strong>Tokyo Bowl Teriyaki</strong><p class="qb-desc">Best value at $12.99 from Tokyo Bowl.</p><button type="button" class="qb-btn qb-btn--ghost">Learn more</button></article>
   <article class="qb-tile"><strong>Matcha Mochi</strong><p class="qb-desc">Dessert add-on with evening orders.</p><button type="button" class="qb-btn qb-btn--ghost">Add</button></article>
+  <article class="qb-tile"><strong>Family Sushi Tray</strong><p class="qb-desc">Feeds 2–3, available from Sushi Zen.</p><button type="button" class="qb-btn qb-btn--ghost">Add</button></article>
 </div></section>
-</main><div class="qb-section"><div class="qb-toolbar"><button type="button" class="qb-btn qb-btn--ghost">Filters</button><button type="button" class="qb-btn qb-btn--ghost">Sort</button><button type="button" class="qb-btn qb-btn--ghost">Pickup</button></div><aside class="qb-cart" aria-label="Cart drawer"><div class="qb-cart__head"><h2 style="margin:0;font-size:16px">Cart</h2><span class="qb-badge">1 item</span></div><div class="qb-cart__body"><ul class="qb-cart__list"><li><span>Tokyo Bowl teriyaki</span><strong>$12.99</strong></li></ul><p class="qb-empty">Add more items to build your order.</p><div class="qb-status" role="status">Ready for checkout.</div><button type="button" class="qb-btn qb-btn--primary qb-checkout">Proceed to checkout</button><button type="button" class="qb-btn qb-btn--ghost">View receipt</button></div></aside></div>
-</div><aside class="qb-rail qb-rail--ads" aria-label="Sponsored">
+<section class="qb-panel" aria-labelledby="delivery-details"><div class="qb-section-head"><h2 id="delivery-details">Checkout preferences</h2><div class="qb-mini">Optional details can be saved locally for demo behavior</div></div>
+  <form id="checkoutPrefs" novalidate="">
+    <label>Delivery instructions
+      <textarea id="instructions" rows="3" placeholder="Apartment gate code, knock preference, allergies..."></textarea>
+    </label>
+    <label>Email for receipt
+      <input type="email" id="receiptEmail" placeholder="name@example.com">
+    </label>
+    <div class="qb-note-error" id="emailError">Enter a valid email to save receipt preferences.</div>
+    <div class="qb-drawer-actions">
+      <button type="button" class="qb-btn qb-btn--ghost" id="savePrefsBtn">Save preferences</button>
+      <span class="qb-inline-note" id="prefsSavedStatus">Nothing saved yet.</span>
+    </div>
+  </form>
+</section>
+</main>
+</div><aside class="qb-rail" aria-label="Order sidebar"><div class="qb-toolbar"><button type="button" class="qb-btn qb-btn--ghost">Filters</button><button type="button" class="qb-btn qb-btn--ghost">Sort</button><button type="button" class="qb-btn qb-btn--ghost">Pickup</button></div><aside class="qb-cart" aria-label="Cart drawer" id="cart-panel"><div class="qb-cart__head"><h2 style="margin:0;font-size:16px">Cart</h2><span class="qb-badge" id="cartCountBadge">0 items</span></div><div class="qb-cart__body"><ul class="qb-cart__list" id="cartList"></ul><p class="qb-empty" id="emptyCartText">Your cart is empty. Add an item from a restaurant card to get started.</p><div class="qb-cart__totals"><dl><dt>Subtotal</dt><dd id="subtotalValue">$0.00</dd><dt>Delivery fee</dt><dd id="deliveryFeeValue">$2.49</dd><dt>Service fee</dt><dd id="serviceFeeValue">$1.29</dd><dt class="qb-total">Estimated total</dt><dd class="qb-total" id="estimatedTotalValue">$3.78</dd></dl></div><div class="qb-status" role="status" id="cartStatus">Choose an item to enable checkout.</div><button type="button" class="qb-btn qb-btn--primary qb-checkout" id="checkoutButton" disabled="">Proceed to checkout</button><button type="button" class="qb-btn qb-btn--ghost" id="viewReceiptBtn">View receipt</button></div></aside>
+<div class="qb-rail qb-rail--ads" aria-label="Sponsored" style="margin:16px 0 0">
   <div><strong>Sponsored</strong></div>
   <a href="/ads/1">Partner offer — limited time</a><br>
   <button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="qb-filler" aria-hidden="true"><div class="qb-filler-inner"><a href="/misc/0" class="qb-btn qb-btn--ghost">Link 1</a><button type="button" class="qb-btn qb-btn--ghost">Action 2</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/4" class="qb-btn qb-btn--ghost">Link 5</a><button type="button" class="qb-btn qb-btn--ghost">Action 6</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/8" class="qb-btn qb-btn--ghost">Link 9</a><button type="button" class="qb-btn qb-btn--ghost">Action 10</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/12" class="qb-btn qb-btn--ghost">Link 13</a><button type="button" class="qb-btn qb-btn--ghost">Action 14</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/16" class="qb-btn qb-btn--ghost">Link 17</a><button type="button" class="qb-btn qb-btn--ghost">Action 18</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/20" class="qb-btn qb-btn--ghost">Link 21</a><button type="button" class="qb-btn qb-btn--ghost">Action 22</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/24" class="qb-btn qb-btn--ghost">Link 25</a><button type="button" class="qb-btn qb-btn--ghost">Action 26</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/28" class="qb-btn qb-btn--ghost">Link 29</a><button type="button" class="qb-btn qb-btn--ghost">Action 30</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/32" class="qb-btn qb-btn--ghost">Link 33</a><button type="button" class="qb-btn qb-btn--ghost">Action 34</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/36" class="qb-btn qb-btn--ghost">Link 37</a><button type="button" class="qb-btn qb-btn--ghost">Action 38</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/40" class="qb-btn qb-btn--ghost">Link 41</a><button type="button" class="qb-btn qb-btn--ghost">Action 42</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button></div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-id="decoy-extra" data-agent-role="action" data-agent-action="click" data-agent-desc="Hidden decoy promotional control that should be ignored" data-agent-priority="5" data-agent-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="qb-ftr"><small>© Demo QuickBite</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</div></aside></div><div class="qb-filler" aria-hidden="true"><div class="qb-filler-inner"><a href="/misc/0" class="qb-btn qb-btn--ghost">Link 1</a><button type="button" class="qb-btn qb-btn--ghost">Action 2</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/4" class="qb-btn qb-btn--ghost">Link 5</a><button type="button" class="qb-btn qb-btn--ghost">Action 6</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/8" class="qb-btn qb-btn--ghost">Link 9</a><button type="button" class="qb-btn qb-btn--ghost">Action 10</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/12" class="qb-btn qb-btn--ghost">Link 13</a><button type="button" class="qb-btn qb-btn--ghost">Action 14</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/16" class="qb-btn qb-btn--ghost">Link 17</a><button type="button" class="qb-btn qb-btn--ghost">Action 18</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/20" class="qb-btn qb-btn--ghost">Link 21</a><button type="button" class="qb-btn qb-btn--ghost">Action 22</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/24" class="qb-btn qb-btn--ghost">Link 25</a><button type="button" class="qb-btn qb-btn--ghost">Action 26</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/28" class="qb-btn qb-btn--ghost">Link 29</a><button type="button" class="qb-btn qb-btn--ghost">Action 30</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/32" class="qb-btn qb-btn--ghost">Link 33</a><button type="button" class="qb-btn qb-btn--ghost">Action 34</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/36" class="qb-btn qb-btn--ghost">Link 37</a><button type="button" class="qb-btn qb-btn--ghost">Action 38</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button><a href="/misc/40" class="qb-btn qb-btn--ghost">Link 41</a><button type="button" class="qb-btn qb-btn--ghost">Action 42</button><button type="button" class="qb-btn qb-btn--ghost">Submit</button><button type="button" class="qb-btn qb-btn--ghost">Continue</button></div></div><button type="button" class="qb-btn qb-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy node preserved for evaluation" data-wci-priority="2" data-wci-scope="food_delivery-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="qb-ftr" id="support"><small>© Demo QuickBite</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+<div class="qb-overlay" id="modalOverlay"></div>
+<div class="qb-modal" id="menuPreviewModal" aria-hidden="true" aria-labelledby="menuPreviewTitle" role="dialog">
+  <div class="qb-modal__head"><h3 id="menuPreviewTitle">Menu preview</h3><button type="button" class="qb-btn qb-btn--ghost" id="closePreview">Close</button></div>
+  <p id="menuPreviewText">Preview details</p>
+  <div class="qb-modal__foot"><button type="button" class="qb-btn qb-btn--primary" id="previewConfirm">Confirm</button></div>
+</div>
+<div class="qb-modal" id="checkoutModal" aria-hidden="true" aria-labelledby="checkoutTitle" role="dialog">
+  <div class="qb-modal__head"><h3 id="checkoutTitle">Confirm checkout</h3><button type="button" class="qb-btn qb-btn--ghost" id="closeCheckoutModal">Close</button></div>
+  <p id="checkoutSummary">Your order summary will appear here.</p>
+  <div class="qb-inline-note" id="checkoutValidationNote">Receipt email is optional, but saved preferences require a valid email.</div>
+  <div class="qb-modal__foot"><button type="button" class="qb-btn qb-btn--ghost" id="cancelCheckout">Cancel</button><button type="button" class="qb-btn qb-btn--primary" id="confirmCheckout">Confirm</button></div>
+</div>
+<script>
+(function(){
+  var cart = [];
+  var state = { filter:'all', sort:'featured' };
+  var els = {
+    searchInput: document.getElementById('searchInput'),
+    clearSearch: document.getElementById('clearSearch'),
+    sortSelect: document.getElementById('sortSelect'),
+    resultCount: document.getElementById('resultCount'),
+    restaurantGrid: document.getElementById('restaurantGrid'),
+    cards: Array.prototype.slice.call(document.querySelectorAll('#restaurantGrid .qb-resto')),
+    cartList: document.getElementById('cartList'),
+    emptyCartText: document.getElementById('emptyCartText'),
+    cartCountBadge: document.getElementById('cartCountBadge'),
+    subtotalValue: document.getElementById('subtotalValue'),
+    estimatedTotalValue: document.getElementById('estimatedTotalValue'),
+    cartStatus: document.getElementById('cartStatus'),
+    checkoutButton: document.getElementById('checkoutButton'),
+    smoke: document.getElementById('food-delivery-smoke-status'),
+    addTeriyakiBtn: document.querySelector('[data-restaurant="tokyo-bowl"][data-item="teriyaki-1299"] .qb-btn--primary'),
+    savePrefsBtn: document.getElementById('savePrefsBtn'),
+    receiptEmail: document.getElementById('receiptEmail'),
+    emailError: document.getElementById('emailError'),
+    prefsSavedStatus: document.getElementById('prefsSavedStatus'),
+    instructions: document.getElementById('instructions'),
+    cookieBanner: document.getElementById('cookie-banner'),
+    overlay: document.getElementById('modalOverlay'),
+    menuPreviewModal: document.getElementById('menuPreviewModal'),
+    menuPreviewText: document.getElementById('menuPreviewText'),
+    closePreview: document.getElementById('closePreview'),
+    previewConfirm: document.getElementById('previewConfirm'),
+    checkoutModal: document.getElementById('checkoutModal'),
+    checkoutSummary: document.getElementById('checkoutSummary'),
+    closeCheckoutModal: document.getElementById('closeCheckoutModal'),
+    cancelCheckout: document.getElementById('cancelCheckout'),
+    confirmCheckout: document.getElementById('confirmCheckout'),
+    viewReceiptBtn: document.getElementById('viewReceiptBtn')
+  };
+
+  function money(n){ return '$' + n.toFixed(2); }
+  function validateEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function openModal(modal){ els.overlay.classList.add('is-open'); modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); }
+  function closeModal(modal){ modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); if(!document.querySelector('.qb-modal.is-open')) els.overlay.classList.remove('is-open'); }
+  function setSmoke(text, action){
+    els.smoke.textContent = text;
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+  function renderCart(){
+    els.cartList.innerHTML = '';
+    var subtotal = 0;
+    cart.forEach(function(item){
+      subtotal += item.price * item.qty;
+      var li = document.createElement('li');
+      li.innerHTML = '<span>' + item.name + ' × ' + item.qty + '</span><strong>' + money(item.price * item.qty) + '</strong>';
+      els.cartList.appendChild(li);
+    });
+    var count = cart.reduce(function(acc, item){ return acc + item.qty; }, 0);
+    els.cartCountBadge.textContent = count + (count === 1 ? ' item' : ' items');
+    els.emptyCartText.style.display = count ? 'none' : 'block';
+    els.subtotalValue.textContent = money(subtotal);
+    var total = subtotal + 2.49 + 1.29;
+    els.estimatedTotalValue.textContent = money(total);
+    els.checkoutButton.disabled = count === 0;
+    els.cartStatus.textContent = count ? 'Ready for checkout.' : 'Choose an item to enable checkout.';
+    if(count && cart[0].restaurant === 'tokyo-bowl'){ els.cartStatus.classList.add('qb-success'); }
+    else { els.cartStatus.classList.remove('qb-success'); }
+  }
+  function addTokyoTeriyaki(){
+    var existing = cart.find(function(item){ return item.id === 'teriyaki-1299'; });
+    if(existing){ existing.qty += 1; }
+    else {
+      cart = [{ id:'teriyaki-1299', restaurant:'tokyo-bowl', name:'Tokyo Bowl teriyaki', price:12.99, qty:1 }];
+    }
+    renderCart();
+    setSmoke('Smoke status: Tokyo Bowl teriyaki added to cart.', 'add_tokyo_bowl_teriyaki');
+  }
+  function applyFilters(){
+    var q = (els.searchInput.value || '').toLowerCase().trim();
+    var visible = els.cards.slice();
+    visible.forEach(function(card){
+      var name = card.getAttribute('data-name') || '';
+      var tags = card.getAttribute('data-tags') || '';
+      var matchesQuery = !q || name.indexOf(q) > -1 || tags.indexOf(q) > -1 || card.textContent.toLowerCase().indexOf(q) > -1;
+      var matchesFilter = state.filter === 'all' || tags.indexOf(state.filter) > -1;
+      card.style.display = matchesQuery && matchesFilter ? '' : 'none';
+    });
+    var shown = visible.filter(function(card){ return card.style.display !== 'none'; });
+    if(state.sort !== 'featured'){
+      shown.sort(function(a,b){
+        if(state.sort === 'price-asc') return parseFloat(a.getAttribute('data-price-rank')) - parseFloat(b.getAttribute('data-price-rank'));
+        if(state.sort === 'eta') return parseInt(a.getAttribute('data-eta'),10) - parseInt(b.getAttribute('data-eta'),10);
+        return 0;
+      }).forEach(function(card){ els.restaurantGrid.appendChild(card); });
+    }
+    els.resultCount.textContent = shown.length;
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-filter]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.slice.call(document.querySelectorAll('[data-filter]')).forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      state.filter = btn.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  els.searchInput.addEventListener('input', applyFilters);
+  els.sortSelect.addEventListener('change', function(){ state.sort = this.value; applyFilters(); });
+  els.clearSearch.addEventListener('click', function(){ els.searchInput.value = ''; state.filter = 'all'; Array.prototype.slice.call(document.querySelectorAll('[data-filter]')).forEach(function(b){ b.classList.toggle('is-active', b.getAttribute('data-filter') === 'all'); }); applyFilters(); });
+
+  els.addTeriyakiBtn.addEventListener('click', addTokyoTeriyaki);
+
+  document.querySelectorAll('[data-open-preview]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.getAttribute('data-open-preview');
+      els.menuPreviewText.textContent = type === 'tokyo' ? 'Tokyo Bowl preview: chicken teriyaki over rice with pickled vegetables. Use the restaurant card Add to cart button for the target action.' : 'Sushi Zen preview: signature rolls, poke bowls, and chef specials.';
+      openModal(els.menuPreviewModal);
+    });
+  });
+  els.closePreview.addEventListener('click', function(){ closeModal(els.menuPreviewModal); });
+  els.previewConfirm.addEventListener('click', function(){ closeModal(els.menuPreviewModal); els.cartStatus.textContent = 'Preview confirmed. Cart unchanged.'; });
+
+  els.savePrefsBtn.addEventListener('click', function(){
+    var email = els.receiptEmail.value.trim();
+    if(email && !validateEmail(email)){
+      els.emailError.classList.add('is-visible');
+      els.prefsSavedStatus.textContent = 'Could not save preferences.';
+      return;
+    }
+    els.emailError.classList.remove('is-visible');
+    localStorage.setItem('qbPrefs', JSON.stringify({ email: email, instructions: els.instructions.value.trim() }));
+    els.prefsSavedStatus.textContent = 'Preferences saved' + (email ? ' for ' + email : '') + '.';
+  });
+
+  els.receiptEmail.addEventListener('input', function(){
+    if(!this.value.trim() || validateEmail(this.value.trim())) els.emailError.classList.remove('is-visible');
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-cookie-action]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var action = btn.getAttribute('data-cookie-action');
+      els.cookieBanner.style.display = 'none';
+      document.cookie = 'qb_cookie_pref=' + action + '; path=/';
+      els.smoke.textContent = 'Smoke status: cookie preference saved (' + action + ').';
+    });
+  });
+
+  els.checkoutButton.addEventListener('click', function(){
+    var first = cart[0];
+    if(!first){ return; }
+    els.checkoutSummary.textContent = 'You are checking out ' + first.name + ' for ' + money(first.price * first.qty) + '. Estimated total ' + els.estimatedTotalValue.textContent + '.';
+    openModal(els.checkoutModal);
+  });
+  function closeCheckout(){ closeModal(els.checkoutModal); }
+  els.closeCheckoutModal.addEventListener('click', closeCheckout);
+  els.cancelCheckout.addEventListener('click', closeCheckout);
+  els.confirmCheckout.addEventListener('click', function(){
+    var first = cart[0];
+    if(first && first.id === 'teriyaki-1299' && first.restaurant === 'tokyo-bowl'){
+      els.cartStatus.textContent = 'Checkout started for Tokyo Bowl teriyaki.';
+      els.cartStatus.classList.add('qb-success');
+      setSmoke('Smoke status: checkout initiated for Tokyo Bowl teriyaki.', 'proceed_to_checkout_tokyo_bowl_teriyaki');
+    } else {
+      els.cartStatus.textContent = 'Checkout blocked: target item not in cart.';
+      setSmoke('Smoke status: incorrect checkout attempt.', 'checkout_blocked_wrong_item');
+    }
+    closeCheckout();
+  });
+
+  els.viewReceiptBtn.addEventListener('click', function(){
+    var prefs = localStorage.getItem('qbPrefs');
+    els.cartStatus.textContent = prefs ? 'Saved receipt preferences found.' : 'No saved receipt preferences yet.';
+  });
+
+  els.overlay.addEventListener('click', function(){
+    document.querySelectorAll('.qb-modal.is-open').forEach(function(m){ closeModal(m); });
+  });
+
+  renderCart();
+  applyFilters();
+  window.__scenarioSmoke = { lastAction: 'page_ready', updatedAt: Date.now() };
+})();
+</script></body></html>

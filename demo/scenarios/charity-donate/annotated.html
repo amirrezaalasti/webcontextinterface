@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GiveHope</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GiveHope — Clean Water Fund</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .gh-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .gh-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .gh-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.gh-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#0f172a}
+.gh-brand-badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#16a34a,#0ea5e9);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
 .gh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .gh-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .gh-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .gh-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .gh-subnav a:hover{background:#f8fafc;color:#334155}
 .gh-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.gh-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.gh-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.gh-page-wrap{grid-template-columns:1fr}}
 .gh-page-main{padding:20px 24px 32px;min-height:42vh}
 .gh-page-main>h1,.gh-page-main [role=main]>h1,.gh-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .gh-page-main h2,.gh-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .gh-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .gh-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.gh-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.gh-page-main select,.gh-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.gh-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.gh-page-main select,.gh-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .gh-page-main input:focus,.gh-page-main select:focus,.gh-page-main textarea:focus{outline:2px solid hsl(142 72% 46%);outline-offset:1px;border-color:hsl(142 72% 46%)}
 .gh-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .gh-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,16 +36,15 @@ table{border-collapse:collapse}
 .gh-page-main th,.gh-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .gh-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .gh-page-main tr:hover td{background:#fafafa}
-.gh-page-main article,.gh-page-main .gh-card,.gh-page-main .gh-resto,.gh-page-main .gh-slot,.gh-page-main .gh-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.gh-page-main article,.gh-page-main .gh-card,.gh-page-main .gh-resto,.gh-page-main .gh-slot,.gh-page-main .gh-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .gh-page-main ul:not([class]){list-style:none;padding:0}
 .gh-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .gh-page-main ul:not([class]) li:hover{background:#f8fafc}
-.gh-page-main dialog,.gh-page-main .gh-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.gh-page-main dialog,.gh-page-main .gh-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .gh-page-main .gh-modal.is-open,.gh-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.gh-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.gh-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .gh-btn:hover{background:#f8fafc}
+.gh-btn.is-selected{background:#dcfce7;border-color:#16a34a;color:#166534}
 .gh-btn--primary{background:hsl(142 72% 46%);color:#fff;border-color:hsl(142 72% 38%)}
 .gh-btn--primary:hover{filter:brightness(1.05)}
 .gh-btn--ghost{background:transparent;border-color:transparent;color:#475569}
@@ -53,9 +53,10 @@ table{border-collapse:collapse}
 .gh-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
 .gh-btn:disabled{opacity:.5;cursor:not-allowed}
 .gh-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.gh-cookie.is-hidden{display:none}
 .gh-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.gh-rail{padding:16px;margin:16px;background:hsl(142 60% 96%);border:1px solid hsl(142 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.gh-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+.gh-rail{padding:16px;margin:16px;background:hsl(142 60% 96%);border:1px solid hsl(142 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:12px}
+@media(min-width:901px){.gh-rail{border-left:1px solid #e2e8f0;border-radius:12px;margin:16px 16px 16px 0;background:#fffbeb}}
 .gh-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .gh-rail a{color:#b45309;font-weight:500}
 .gh-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -64,40 +65,59 @@ table{border-collapse:collapse}
 .gh-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .gh-ab{display:none!important}
 .gh-layout{display:grid;gap:16px;align-items:start}
-.gh-filters,.gh-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.gh-filters h2,.gh-frame aside h2{font-size:14px;margin:0 0 10px}
 .gh-card__actions,.gh-slot__actions,.gh-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.gh-wizard{max-width:760px}
+.gh-wizard{max-width:960px}
 .gh-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .gh-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .gh-step.is-active{background:hsl(142 72% 46%);color:#fff}
 .gh-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.gh-hero{border-radius:12px;margin-bottom:8px}
+.gh-hero{border-radius:16px;margin-bottom:14px;background:linear-gradient(135deg,#0ea5e9,#0369a1 55%,#16a34a);color:#fff;padding:28px 24px;display:grid;grid-template-columns:1.4fr .8fr;gap:16px;align-items:center}
+@media(max-width:800px){.gh-hero{grid-template-columns:1fr}}
 .gh-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
 .gh-grid{display:grid;gap:14px}
-.gh-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.gh-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.gh-patient{border-radius:10px}
-.gh-slots{display:grid;gap:10px}
-.gh-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.gh-cell{background:#fff;padding:8px;min-height:44px}
-.gh-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.gh-diff{border-radius:8px}
-.gh-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.gh-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.24)}
+.gh-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+@media(max-width:700px){.gh-stat-grid{grid-template-columns:1fr}}
+.gh-stat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px}
+.gh-stat strong{display:block;font-size:20px;color:#0f172a}
+ .gh-donate-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+@media(max-width:920px){.gh-donate-layout{grid-template-columns:1fr}}
+.gh-amounts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:700px){.gh-amounts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gh-amount-btn{padding:14px;border-radius:12px;font-size:16px;font-weight:700}
+.gh-frequency{display:flex;gap:10px;flex-wrap:wrap}
+.gh-pill{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #cbd5e1;background:#fff;border-radius:999px}
+.gh-pill.is-selected{border-color:#16a34a;background:#f0fdf4;color:#166534}
+.gh-inline-note{font-size:12px;color:#64748b}
+.gh-summary{border:1px solid #bbf7d0;background:#f0fdf4;border-radius:14px;padding:16px}
+.gh-summary-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #d1fae5}
+.gh-summary-row:last-child{border-bottom:none}
+.gh-status{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#e2e8f0;color:#334155;font-weight:600}
+.gh-status.is-live{background:#dcfce7;color:#166534}
+.gh-small{font-size:12px;color:#64748b}
+.gh-progress{height:10px;border-radius:999px;background:#e2e8f0;overflow:hidden}
+.gh-progress-bar{height:100%;width:62%;background:linear-gradient(90deg,#16a34a,#22c55e)}
+.gh-checklist li{display:flex;justify-content:space-between;gap:8px;border:1px solid #e2e8f0;background:#fff;padding:10px 12px;border-radius:10px;margin:8px 0}
+.gh-check{color:#16a34a;font-weight:700}
+.gh-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.gh-modal-backdrop.is-open{display:block}
+.gh-modal{display:none;position:fixed;inset:12% auto auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px)}
+.gh-modal.is-open{display:block}
 </style></head><body>
-<div class="gh-app" data-page="charity-donate" data-agent-role="landmark" data-agent-id="charity_donate-page" data-agent-desc="Donation" data-agent-priority="2"><div class="gh-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="gh-app" data-page="charity-donate" data-wci-id="charity_donate-page" data-wci-role="landmark" data-wci-desc="Charity donation page root for GiveHope clean water campaign" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="gh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="gh-btn gh-btn--muted">Reject non-essential</button>
-  <button type="button" class="gh-btn gh-btn--primary">Accept all</button>
-  <button type="button" class="gh-btn gh-btn--ghost">Customize</button>
+  <button type="button" class="gh-btn gh-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="gh-btn gh-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="gh-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="gh-btn gh-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="gh-btn">Continue as guest — express</button>
 </div><header class="gh-hdr">
-  <nav class="gh-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="gh-hdr-promo"><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <div class="gh-brand" aria-label="GiveHope brand"><span class="gh-brand-badge">❤</span><span>GiveHope</span></div>
+  <nav class="gh-nav" aria-label="Global"><a href="#">Campaigns</a><a href="#">Impact</a><a href="#">Emergency Relief</a><a href="#">Help</a><a href="#">Account</a></nav>
+  <div class="gh-hdr-promo"><span class="gh-status" id="charity-donate-smoke-status">Ready to donate</span><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="gh-btn gh-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="gh-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="gh-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#stories">Stories</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#support">Support</a>
   <button type="button" class="gh-btn gh-btn--ghost">Submit</button>
   <button type="button" class="gh-btn gh-btn--ghost">Continue</button>
 </nav><div class="gh-dup-row" aria-label="Quick actions">
@@ -105,12 +125,285 @@ table{border-collapse:collapse}
   <button type="button" class="gh-btn gh-btn--ghost">Continue</button>
   <button type="button" class="gh-btn gh-btn--ghost">Save changes</button>
   <button type="button" class="gh-btn gh-btn--ghost">Confirm</button>
-</div><div class="gh-dup-row"><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Donate $25 monthly clean water</button><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-nav">Donate water fund $25</button></div><div class="gh-page-wrap"><div class="gh-page-main"><div style="background:#0ea5e9;color:#fff;padding:48px;text-align:center"><h1>Clean Water Fund</h1></div>
-<div role="main" style="text-align:center;padding:24px"><button type="button" class="gh-btn gh-btn--ghost">$10</button>
-<button type="button" class="gh-btn gh-btn--ghost">$25</button><label><input type="checkbox" checked=""> Monthly</label>
-<button type="button" class="gh-btn gh-btn--primary" data-fund="water" data-amt="25" data-agent-role="action" data-agent-id="donate-water-fund" data-agent-desc="Donate twenty-five dollars monthly to the clean water fund campaign." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div><aside class="gh-rail gh-rail--ads" aria-label="Sponsored">
+</div><div class="gh-dup-row"><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Donate $25 monthly clean water</button><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-nav">Donate water fund $25</button></div><div class="gh-page-wrap"><div class="gh-page-main"><main id="overview" role="main" class="gh-wizard">
+  <section class="gh-hero gh-card">
+    <div>
+      <span class="gh-badge">Monthly giving matched through Friday</span>
+      <h1>Bring clean water closer to home</h1>
+      <p>Your recurring support helps fund durable wells, local water committees, pump repairs, and hygiene education in communities facing seasonal shortages.</p>
+      <div class="gh-stat-grid">
+        <div class="gh-stat"><div class="gh-small">Families reached this quarter</div><strong>4,860</strong></div>
+        <div class="gh-stat"><div class="gh-small">Current campaign goal</div><strong>$120,000</strong></div>
+        <div class="gh-stat"><div class="gh-small">Raised so far</div><strong id="raised-so-far">$74,430</strong></div>
+      </div>
+    </div>
+    <div class="gh-panel" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#fff">
+      <h2 style="margin-top:0;color:#fff">Why monthly gifts matter</h2>
+      <p style="color:#ecfeff">Reliable monthly funding lets field teams schedule maintenance before breakdowns interrupt access.</p>
+      <div class="gh-progress" aria-label="campaign progress"><div class="gh-progress-bar" id="campaign-progress-bar"></div></div>
+      <p class="gh-small" style="color:#e0f2fe;margin-top:8px">62% funded • 18 days remaining</p>
+    </div>
+  </section>
+
+  <div class="gh-donate-layout">
+    <section class="gh-panel" aria-labelledby="donation-title">
+      <div class="gh-steps" aria-label="Donation steps"><div class="gh-step is-active">1. Choose amount</div><div class="gh-step">2. Review</div><div class="gh-step">3. Complete</div></div>
+      <h2 id="donation-title">Support the Clean Water Fund</h2>
+      <p>Select a giving amount, choose your frequency, and review your impact summary before continuing.</p>
+      <form id="donation-form" novalidate="">
+        <fieldset>
+          <legend>Choose an amount</legend>
+          <div class="gh-amounts" role="group" aria-label="Preset donation amounts">
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="10" aria-pressed="false">$10</button>
+            <button type="button" class="gh-btn gh-amount-btn is-selected" data-amount-option="25" aria-pressed="true">$25</button>
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="50" aria-pressed="false">$50</button>
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="100" aria-pressed="false">$100</button>
+          </div>
+          <div class="gh-inline-note">Preset amounts are available for this campaign. The highlighted amount will be used in your summary.</div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Frequency</legend>
+          <div class="gh-frequency" role="group" aria-label="Donation frequency">
+            <button type="button" class="gh-pill is-selected" data-frequency="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" class="gh-pill" data-frequency="one-time" aria-pressed="false">One-time</button>
+          </div>
+          <div class="gh-inline-note" id="frequency-note">Monthly gifts help maintain long-term water access.</div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your details</legend>
+          <label for="donor-name">Full name
+            <input id="donor-name" name="donorName" type="text" placeholder="e.g., Maya Johnson" autocomplete="name">
+          </label>
+          <label for="donor-email">Email address
+            <input id="donor-email" name="donorEmail" type="email" placeholder="you@example.org" autocomplete="email">
+          </label>
+          <label><input id="dedicate-gift" type="checkbox"> Dedicate this monthly gift in honor of someone</label>
+          <div id="dedication-wrap" hidden="">
+            <label for="dedication-name">Honoree name
+              <input id="dedication-name" type="text" placeholder="Who is this gift for?">
+            </label>
+          </div>
+          <div id="validation-message" class="gh-small" aria-live="polite">Enter your name and email to continue.</div>
+        </fieldset>
+
+        <div class="gh-card__actions">
+          <button type="button" class="gh-btn gh-btn--primary" data-fund="water" data-amt="25" data-wci-id="donate-water-fund" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to donate twenty-five dollars monthly to the clean water fund campaign" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="charity_donate-page">Confirm monthly $25 donation</button>
+          <button type="button" class="gh-btn gh-btn--ghost" id="preview-impact">Preview impact</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="gh-summary" aria-labelledby="summary-title">
+      <h3 id="summary-title" style="margin-top:0">Donation summary</h3>
+      <div class="gh-summary-row"><span>Fund</span><strong>Clean Water Fund</strong></div>
+      <div class="gh-summary-row"><span>Amount</span><strong id="summary-amount">$25</strong></div>
+      <div class="gh-summary-row"><span>Frequency</span><strong id="summary-frequency">Monthly</strong></div>
+      <div class="gh-summary-row"><span>Estimated annual support</span><strong id="summary-annual">$300</strong></div>
+      <div class="gh-summary-row"><span>Projected impact</span><strong id="summary-impact">Pump repairs for 1 village block</strong></div>
+      <p class="gh-small" id="summary-note">You are currently set to a monthly recurring donation.</p>
+      <div class="gh-status is-live" id="selection-badge">Selected: $25 monthly</div>
+    </aside>
+  </div>
+
+  <section id="stories" class="gh-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px">
+    <article>
+      <h3>Community-led maintenance</h3>
+      <p>GiveHope equips local water committees with spare parts and training so repairs happen in days, not months.</p>
+    </article>
+    <article>
+      <h3>Safe storage and hygiene</h3>
+      <p>Alongside infrastructure work, families receive practical guidance on water handling, handwashing, and sanitation.</p>
+    </article>
+    <article>
+      <h3>Transparent reporting</h3>
+      <p>Monthly supporters receive field updates, milestone reports, and campaign progress summaries throughout the year.</p>
+    </article>
+  </section>
+
+  <section id="how" class="gh-card">
+    <h2>What your donation supports</h2>
+    <ul class="gh-checklist">
+      <li><span>Preventive pump inspections</span><span class="gh-check">Included</span></li>
+      <li><span>Water quality testing supplies</span><span class="gh-check">Included</span></li>
+      <li><span>Local technician training</span><span class="gh-check">Included</span></li>
+    </ul>
+  </section>
+
+  <section id="faq" class="gh-card">
+    <h2>Frequently asked questions</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Can I change my monthly gift later?</td><td>Yes. You can update, pause, or cancel recurring support from your donor dashboard.</td></tr>
+        <tr><td>Will I get a receipt?</td><td>An emailed tax receipt is sent immediately after your donation is processed.</td></tr>
+        <tr><td>How is the fund allocated?</td><td>Funds are prioritized for water access, maintenance, and community oversight in active field regions.</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main></div><aside class="gh-rail gh-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p>See how employer matching can double recurring gifts for water access campaigns.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="gh-filler" aria-hidden="true"><div class="gh-filler-inner"><a href="/misc/0" class="gh-btn gh-btn--ghost">Link 1</a><button type="button" class="gh-btn gh-btn--ghost">Action 2</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/4" class="gh-btn gh-btn--ghost">Link 5</a><button type="button" class="gh-btn gh-btn--ghost">Action 6</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/8" class="gh-btn gh-btn--ghost">Link 9</a><button type="button" class="gh-btn gh-btn--ghost">Action 10</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/12" class="gh-btn gh-btn--ghost">Link 13</a><button type="button" class="gh-btn gh-btn--ghost">Action 14</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/16" class="gh-btn gh-btn--ghost">Link 17</a><button type="button" class="gh-btn gh-btn--ghost">Action 18</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/20" class="gh-btn gh-btn--ghost">Link 21</a><button type="button" class="gh-btn gh-btn--ghost">Action 22</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/24" class="gh-btn gh-btn--ghost">Link 25</a><button type="button" class="gh-btn gh-btn--ghost">Action 26</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/28" class="gh-btn gh-btn--ghost">Link 29</a><button type="button" class="gh-btn gh-btn--ghost">Action 30</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/32" class="gh-btn gh-btn--ghost">Link 33</a><button type="button" class="gh-btn gh-btn--ghost">Action 34</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/36" class="gh-btn gh-btn--ghost">Link 37</a><button type="button" class="gh-btn gh-btn--ghost">Action 38</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/40" class="gh-btn gh-btn--ghost">Link 41</a><button type="button" class="gh-btn gh-btn--ghost">Action 42</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button></div></div><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="gh-ftr"><small>© Demo GiveHope</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
+  <h3 style="margin:0 0 8px;color:#92400e">Campaign snapshot</h3>
+  <p class="gh-small">Average monthly gift: <strong>$29</strong></p>
+  <p class="gh-small">New recurring donors today: <strong id="donor-count">148</strong></p>
+  <p class="gh-small">Processing status: <strong id="side-status">Idle</strong></p>
+</aside></div><div class="gh-filler" aria-hidden="true"><div class="gh-filler-inner"><a href="/misc/0" class="gh-btn gh-btn--ghost">Link 1</a><button type="button" class="gh-btn gh-btn--ghost">Action 2</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/4" class="gh-btn gh-btn--ghost">Link 5</a><button type="button" class="gh-btn gh-btn--ghost">Action 6</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/8" class="gh-btn gh-btn--ghost">Link 9</a><button type="button" class="gh-btn gh-btn--ghost">Action 10</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/12" class="gh-btn gh-btn--ghost">Link 13</a><button type="button" class="gh-btn gh-btn--ghost">Action 14</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/16" class="gh-btn gh-btn--ghost">Link 17</a><button type="button" class="gh-btn gh-btn--ghost">Action 18</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/20" class="gh-btn gh-btn--ghost">Link 21</a><button type="button" class="gh-btn gh-btn--ghost">Action 22</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/24" class="gh-btn gh-btn--ghost">Link 25</a><button type="button" class="gh-btn gh-btn--ghost">Action 26</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/28" class="gh-btn gh-btn--ghost">Link 29</a><button type="button" class="gh-btn gh-btn--ghost">Action 30</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/32" class="gh-btn gh-btn--ghost">Link 33</a><button type="button" class="gh-btn gh-btn--ghost">Action 34</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/36" class="gh-btn gh-btn--ghost">Link 37</a><button type="button" class="gh-btn gh-btn--ghost">Action 38</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/40" class="gh-btn gh-btn--ghost">Link 41</a><button type="button" class="gh-btn gh-btn--ghost">Action 42</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button></div></div><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promo node that should not be used" data-wci-priority="1" data-wci-scope="charity_donate-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="gh-ftr"><small>© Demo GiveHope</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="gh-modal-backdrop" id="modal-backdrop"></div>
+<div class="gh-modal" id="impact-modal" aria-modal="true" role="dialog" aria-labelledby="impact-modal-title">
+  <h2 id="impact-modal-title" style="margin-top:0">Donation preview</h2>
+  <p id="impact-preview-text">A $25 monthly gift helps keep water systems running with timely repair kits and technician visits.</p>
+  <div class="gh-card__actions">
+    <button type="button" class="gh-btn gh-btn--primary" id="close-modal">Close</button>
+  </div>
+</div>
+</div>
+<script>
+(function(){
+  const app = document.querySelector('[data-page="charity-donate"]');
+  const smoke = document.getElementById('charity-donate-smoke-status');
+  const amountButtons = Array.from(document.querySelectorAll('[data-amount-option]'));
+  const freqButtons = Array.from(document.querySelectorAll('[data-frequency]'));
+  const amountSummary = document.getElementById('summary-amount');
+  const freqSummary = document.getElementById('summary-frequency');
+  const annualSummary = document.getElementById('summary-annual');
+  const impactSummary = document.getElementById('summary-impact');
+  const selectionBadge = document.getElementById('selection-badge');
+  const summaryNote = document.getElementById('summary-note');
+  const frequencyNote = document.getElementById('frequency-note');
+  const donorName = document.getElementById('donor-name');
+  const donorEmail = document.getElementById('donor-email');
+  const dedication = document.getElementById('dedicate-gift');
+  const dedicationWrap = document.getElementById('dedication-wrap');
+  const dedicationName = document.getElementById('dedication-name');
+  const validationMessage = document.getElementById('validation-message');
+  const primaryAction = document.querySelector('button[data-fund="water"][data-amt="25"]');
+  const sideStatus = document.getElementById('side-status');
+  const donorCount = document.getElementById('donor-count');
+  const raised = document.getElementById('raised-so-far');
+  const previewButton = document.getElementById('preview-impact');
+  const modal = document.getElementById('impact-modal');
+  const backdrop = document.getElementById('modal-backdrop');
+  const closeModalBtn = document.getElementById('close-modal');
+  const impactPreviewText = document.getElementById('impact-preview-text');
+  const cookieBanner = document.getElementById('cookie-banner');
+
+  let state = {
+    amount: 25,
+    frequency: 'monthly'
+  };
+
+  function amountImpact(amount, frequency){
+    if(frequency === 'monthly'){
+      if(amount >= 100) return 'Extended maintenance support across multiple sites';
+      if(amount >= 50) return 'Quarterly repair inventory for a community hub';
+      if(amount >= 25) return 'Pump repairs for 1 village block';
+      return 'Water testing and replacement parts support';
+    }
+    if(amount >= 100) return 'One-time rehabilitation materials';
+    if(amount >= 50) return 'A field maintenance visit';
+    if(amount >= 25) return 'Essential repair supplies';
+    return 'Water safety materials';
+  }
+
+  function render(){
+    amountButtons.forEach(btn => {
+      const val = Number(btn.getAttribute('data-amount-option'));
+      const selected = val === state.amount;
+      btn.classList.toggle('is-selected', selected);
+      btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    freqButtons.forEach(btn => {
+      const selected = btn.getAttribute('data-frequency') === state.frequency;
+      btn.classList.toggle('is-selected', selected);
+      btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    amountSummary.textContent = '$' + state.amount;
+    freqSummary.textContent = state.frequency === 'monthly' ? 'Monthly' : 'One-time';
+    annualSummary.textContent = state.frequency === 'monthly' ? '$' + (state.amount * 12) : '$' + state.amount;
+    impactSummary.textContent = amountImpact(state.amount, state.frequency);
+    selectionBadge.textContent = 'Selected: $' + state.amount + ' ' + (state.frequency === 'monthly' ? 'monthly' : 'one-time');
+    summaryNote.textContent = state.frequency === 'monthly' ? 'You are currently set to a monthly recurring donation.' : 'You are currently set to a one-time donation.';
+    frequencyNote.textContent = state.frequency === 'monthly' ? 'Monthly gifts help maintain long-term water access.' : 'One-time gifts support immediate repairs and supplies.';
+    impactPreviewText.textContent = 'A $' + state.amount + ' ' + (state.frequency === 'monthly' ? 'monthly' : 'one-time') + ' gift helps fund ' + amountImpact(state.amount, state.frequency).toLowerCase() + '.';
+  }
+
+  function validate(){
+    const nameOk = donorName.value.trim().length >= 2;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(donorEmail.value.trim());
+    let msg = 'Enter your name and email to continue.';
+    if(nameOk && !emailOk) msg = 'Please enter a valid email address.';
+    if(!nameOk && donorName.value.trim().length > 0) msg = 'Please enter your full name.';
+    if(nameOk && emailOk) msg = 'Details look good. You can continue with your donation.';
+    if(dedication.checked && dedicationName.value.trim().length === 0) msg = 'Optional dedication selected. Add a honoree name or continue without it.';
+    validationMessage.textContent = msg;
+    return nameOk && emailOk;
+  }
+
+  amountButtons.forEach(btn => btn.addEventListener('click', function(){
+    state.amount = Number(this.getAttribute('data-amount-option'));
+    render();
+    validate();
+  }));
+
+  freqButtons.forEach(btn => btn.addEventListener('click', function(){
+    state.frequency = this.getAttribute('data-frequency');
+    render();
+    validate();
+  }));
+
+  [donorName, donorEmail, dedicationName].forEach(el => el.addEventListener('input', validate));
+  dedication.addEventListener('change', function(){
+    dedicationWrap.hidden = !this.checked;
+    validate();
+  });
+
+  function openModal(){
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+  }
+  previewButton.addEventListener('click', openModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.querySelectorAll('[data-cookie]').forEach(btn => btn.addEventListener('click', function(){
+    cookieBanner.classList.add('is-hidden');
+    smoke.textContent = 'Cookie preferences updated';
+  }));
+
+  primaryAction.addEventListener('click', function(){
+    const valid = validate();
+    sideStatus.textContent = 'Processing';
+    const timestamp = Date.now();
+    const actionText = 'donate_water_monthly_25';
+    smoke.textContent = valid ? 'Donation selected: $25 monthly to Clean Water Fund' : 'Donation selected: $25 monthly to Clean Water Fund (details incomplete)';
+    window.__scenarioSmoke = { lastAction: actionText, updatedAt: timestamp };
+    selectionBadge.textContent = 'Selected: $25 monthly';
+    amountSummary.textContent = '$25';
+    freqSummary.textContent = 'Monthly';
+    annualSummary.textContent = '$300';
+    impactSummary.textContent = 'Pump repairs for 1 village block';
+    setTimeout(function(){
+      sideStatus.textContent = valid ? 'Queued for checkout' : 'Awaiting donor details';
+      donorCount.textContent = String(Number(donorCount.textContent) + 1);
+      raised.textContent = '$74,455';
+    }, 250);
+  });
+
+  render();
+  validate();
+  app.setAttribute('id','charity_donate-page');
+  primaryAction.setAttribute('id','donate-water-fund');
+})();
+</script>
+</body></html>

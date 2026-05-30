@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PawMatch</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PawMatch — Max Adoption Profile</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,12 +19,12 @@ table{border-collapse:collapse}
 .pm-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .pm-subnav a:hover{background:#f8fafc;color:#334155}
 .pm-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.pm-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.pm-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.pm-page-wrap{grid-template-columns:1fr}}
 .pm-page-main{padding:20px 24px 32px;min-height:42vh}
 .pm-page-main>h1,.pm-page-main [role=main]>h1,.pm-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .pm-page-main h2,.pm-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.pm-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.pm-page-main p{margin:0 0 10px;color:#475569;max-width:70ch}
 .pm-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
 .pm-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pm-page-main select,.pm-page-main textarea{
   display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
@@ -42,7 +42,6 @@ table{border-collapse:collapse}
 .pm-page-main ul:not([class]) li:hover{background:#f8fafc}
 .pm-page-main dialog,.pm-page-main .pm-modal{
   border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.pm-page-main .pm-modal.is-open,.pm-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
 .pm-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .pm-btn:hover{background:#f8fafc}
 .pm-btn--primary{background:hsl(173 72% 46%);color:#fff;border-color:hsl(173 72% 38%)}
@@ -64,40 +63,61 @@ table{border-collapse:collapse}
 .pm-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .pm-ab{display:none!important}
 .pm-layout{display:grid;gap:16px;align-items:start}
-.pm-filters,.pm-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.pm-filters h2,.pm-frame aside h2{font-size:14px;margin:0 0 10px}
 .pm-card__actions,.pm-slot__actions,.pm-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.pm-wizard{max-width:760px}
+.pm-wizard{max-width:860px}
 .pm-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .pm-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
 .pm-step.is-active{background:hsl(173 72% 46%);color:#fff}
 .pm-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.pm-hero{border-radius:12px;margin-bottom:8px}
-.pm-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.pm-grid{display:grid;gap:14px}
-.pm-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.pm-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.pm-patient{border-radius:10px}
-.pm-slots{display:grid;gap:10px}
-.pm-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.pm-cell{background:#fff;padding:8px;min-height:44px}
-.pm-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.pm-diff{border-radius:8px}
-.pm-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.pm-hero{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;border:1px solid #e2e8f0;border-radius:16px;padding:20px;background:linear-gradient(180deg,#fff,#f8fafc);margin-bottom:16px}
+@media(max-width:680px){.pm-hero{grid-template-columns:1fr}}
+.pm-pet-photo{width:220px;height:220px;border-radius:16px;background:radial-gradient(circle at 45% 35%,#fde68a 0,#fbbf24 55%,#d97706 100%);position:relative;overflow:hidden;box-shadow:inset 0 0 0 4px rgba(255,255,255,.4)}
+.pm-pet-photo:before,.pm-pet-photo:after{content:"";position:absolute;top:28px;width:56px;height:70px;background:#b45309;border-radius:60% 60% 10% 10%}
+.pm-pet-photo:before{left:30px;transform:rotate(-18deg)}
+.pm-pet-photo:after{right:30px;transform:rotate(18deg)}
+.pm-pet-face{position:absolute;inset:48px 34px 24px;border-radius:50%;background:#f59e0b}
+.pm-pet-face i{position:absolute;display:block;background:#111827;border-radius:50%}
+.pm-pet-face .e1{width:12px;height:12px;left:46px;top:54px}.pm-pet-face .e2{width:12px;height:12px;right:46px;top:54px}.pm-pet-face .n{width:18px;height:14px;left:calc(50% - 9px);top:86px;background:#7c2d12;border-radius:40% 40% 60% 60%}
+.pm-pet-face .m{position:absolute;left:50%;top:101px;width:70px;height:28px;transform:translateX(-50%);border-bottom:3px solid #7c2d12;border-radius:0 0 60px 60px}
+.pm-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;font-size:12px;font-weight:700;margin-right:6px}
+.pm-badge--warn{background:#fff7ed;color:#9a3412;border-color:#fdba74}
+.pm-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
+@media(max-width:760px){.pm-meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pm-stat{border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;background:#fff}
+.pm-stat span{display:block;font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+.pm-stat strong{display:block;font-size:15px;color:#0f172a;margin-top:2px}
+.pm-columns{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.9fr);gap:16px}
+@media(max-width:920px){.pm-columns{grid-template-columns:1fr}}
+.pm-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.pm-form-grid{grid-template-columns:1fr}}
+.pm-help{font-size:12px;color:#64748b;margin-top:4px}
+.pm-error{font-size:12px;color:#b91c1c;min-height:18px;margin-top:4px}
+.pm-success{font-size:12px;color:#166534}
+.pm-status-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}
+.pm-smoke{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-weight:600}
+.pm-note{font-size:12px;color:#475569;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;padding:10px 12px}
+.pm-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:90}
+.pm-overlay.is-open{display:block}
+.pm-modal{display:none;position:fixed;inset:12% auto auto 50%;transform:translateX(-50%);z-index:100;max-width:560px;width:min(92vw,560px)}
+.pm-modal.is-open{display:block}
+.pm-checklist li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e2e8f0;padding:8px 0}
+.pm-check{font-weight:700}
+.pm-check.ok{color:#166534}.pm-check.no{color:#b91c1c}
+.pm-mini{font-size:12px;color:#64748b}
 </style></head><body>
-<div class="pm-app" data-page="pet-adoption" data-agent-role="landmark" data-agent-id="pet_adoption-page" data-agent-desc="Pet profile" data-agent-priority="2"><div class="pm-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="pm-app" data-page="pet-adoption" id="pet_adoption-page" data-wci-id="pet_adoption-page" data-wci-role="landmark" data-wci-desc="Pet adoption page root for PawMatch" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="pm-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pm-btn pm-btn--muted">Reject non-essential</button>
-  <button type="button" class="pm-btn pm-btn--primary">Accept all</button>
-  <button type="button" class="pm-btn pm-btn--ghost">Customize</button>
+  <button type="button" class="pm-btn pm-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="pm-btn pm-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="pm-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="pm-btn pm-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="pm-btn">Continue as guest — express</button>
 </div><header class="pm-hdr">
-  <nav class="pm-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="pm-hdr-promo"><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="pm-nav" aria-label="Global"><a href="#">Home</a><a href="#">Find a pet</a><a href="#">Shelters</a><a href="#">Help</a><a href="#">Account</a></nav>
+  <div class="pm-hdr-promo"><span class="pm-badge">87 pets nearby</span><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="pm-btn pm-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="pm-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="pm-subnav" aria-label="Secondary"><a href="#profile">Profile</a><a href="#care">Care details</a><a href="#application">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
   <button type="button" class="pm-btn pm-btn--ghost">Submit</button>
   <button type="button" class="pm-btn pm-btn--ghost">Continue</button>
 </nav><div class="pm-dup-row" aria-label="Quick actions">
@@ -105,10 +125,309 @@ table{border-collapse:collapse}
   <button type="button" class="pm-btn pm-btn--ghost">Continue</button>
   <button type="button" class="pm-btn pm-btn--ghost">Save changes</button>
   <button type="button" class="pm-btn pm-btn--ghost">Confirm</button>
-</div><div class="pm-dup-row"><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Submit adoption Max</button><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-nav">Apply adopt Max dog</button></div><div class="pm-page-wrap"><div class="pm-page-main"><div role="main" style="display:flex;gap:20px;padding:24px" data-pet="max"><div style="width:200px;height:200px;background:#fcd34d;border-radius:50%"></div>
-<div><h1>Max</h1><button type="button" class="pm-btn pm-btn--primary" data-adopt="max" data-agent-role="action" data-agent-id="apply-adopt-max" data-agent-desc="Submit adoption application for dog Max profile." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div></div><aside class="pm-rail pm-rail--ads" aria-label="Sponsored">
+</div><div class="pm-dup-row"><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Submit adoption Max</button><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-nav">Apply adopt Max dog</button></div><div class="pm-page-wrap"><div class="pm-page-main"><main role="main" class="pm-wizard">
+  <div class="pm-status-bar">
+    <div class="pm-smoke" id="pet-adoption-smoke-status">Smoke status: waiting for adoption action</div>
+    <div class="pm-mini" id="interestCounter">12 people bookmarked Max this week</div>
+    <div class="pm-mini" id="draftStatus">Application draft: incomplete</div>
+  </div>
+
+  <section class="pm-hero" id="profile" data-pet="max">
+    <div class="pm-pet-photo" aria-label="Illustration of Max the dog"><div class="pm-pet-face"><i class="e1"></i><i class="e2"></i><i class="n"></i><div class="m"></div></div></div>
+    <div>
+      <div><span class="pm-badge">Available for adoption</span><span class="pm-badge pm-badge--warn" id="profileEnergy">High energy</span></div>
+      <h1 style="margin:8px 0 8px">Max</h1>
+      <p>Max is a 2-year-old mixed breed dog with a playful personality, great leash manners, and a soft spot for squeaky toys. He is currently fostered through PawMatch Rescue and is ready to meet families who can provide daily exercise, patience during transitions, and a fenced yard or committed outdoor routine.</p>
+      <div class="pm-meta">
+        <div class="pm-stat"><span>Breed</span><strong>Mixed Breed</strong></div>
+        <div class="pm-stat"><span>Age</span><strong>2 years</strong></div>
+        <div class="pm-stat"><span>Weight</span><strong>48 lb</strong></div>
+        <div class="pm-stat"><span>Location</span><strong>Austin, TX</strong></div>
+      </div>
+      <div class="pm-card__actions">
+        <button type="button" class="pm-btn pm-btn--primary" data-adopt="max" id="apply-adopt-max" data-wci-id="apply-adopt-max" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action button to apply to adopt Max" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="pet_adoption-page">Apply to adopt Max</button>
+        <button type="button" class="pm-btn" id="bookmarkBtn">Save profile</button>
+        <button type="button" class="pm-btn pm-btn--ghost" id="toggleCareBtn" aria-expanded="true">Hide care summary</button>
+      </div>
+      <p class="pm-help">Tip: completing the application below unlocks a prefilled summary in the final review modal.</p>
+    </div>
+  </section>
+
+  <div class="pm-columns">
+    <section>
+      <article id="care">
+        <h2>Care and compatibility</h2>
+        <p id="careSummary">Best in an active household. Max has lived with older children, enjoys structured play, and benefits from slow introductions to unfamiliar dogs. He is crate trained at night and responds well to treat-based training.</p>
+        <table aria-label="Pet details">
+          <thead><tr><th>Category</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>Vaccines</td><td>Up to date, records available after application review.</td></tr>
+            <tr><td>House training</td><td>Yes, with a consistent routine.</td></tr>
+            <tr><td>Other pets</td><td>Meet-and-greet recommended for resident dogs. Cats unknown.</td></tr>
+            <tr><td>Medical notes</td><td>No chronic issues reported. Recently cleared at wellness exam.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article id="application" class="pm-panel">
+        <div class="pm-steps" aria-label="Application steps">
+          <div class="pm-step is-active">1. Applicant</div>
+          <div class="pm-step">2. Home</div>
+          <div class="pm-step">3. Review</div>
+        </div>
+        <h2>Adoption application</h2>
+        <p>Tell PawMatch a bit about your home and experience. Fields marked with plain labels can be misleading—review carefully before submitting.</p>
+        <form id="adoptionForm" novalidate="">
+          <div class="pm-form-grid">
+            <div>
+              <label for="fullName">Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Jordan Lee">
+              <div class="pm-error" id="fullNameError" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="emailAddress">Contact</label>
+              <input id="emailAddress" name="emailAddress" type="email" autocomplete="email" placeholder="you@example.com">
+              <div class="pm-error" id="emailError" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="phoneNumber">Phone</label>
+              <input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" placeholder="(555) 123-4567">
+              <div class="pm-error" id="phoneError" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="housingType">Residence</label>
+              <select id="housingType" name="housingType">
+                <option value="">Choose one</option>
+                <option>Apartment</option>
+                <option>Townhome</option>
+                <option>House</option>
+                <option>Rural property</option>
+              </select>
+              <div class="pm-error" id="housingError" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Home details</legend>
+            <label for="yardSize">Outdoor access</label>
+            <select id="yardSize" name="yardSize">
+              <option value="">Select access type</option>
+              <option value="none">No private yard</option>
+              <option value="shared">Shared outdoor area</option>
+              <option value="small">Small fenced yard</option>
+              <option value="large">Large fenced yard</option>
+            </select>
+            <div class="pm-error" id="yardError" aria-live="polite"></div>
+
+            <label for="experienceYears">Years</label>
+            <input id="experienceYears" name="experienceYears" type="number" min="0" max="40" step="1" placeholder="3">
+            <div class="pm-help">This refers to prior dog-care experience, not years at your current address.</div>
+            <div class="pm-error" id="experienceError" aria-live="polite"></div>
+
+            <label for="scheduleNotes">Schedule</label>
+            <textarea id="scheduleNotes" name="scheduleNotes" rows="5" placeholder="Describe a typical weekday, exercise time, and who will care for Max when you are away."></textarea>
+            <div class="pm-error" id="scheduleError" aria-live="polite"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Readiness checklist</legend>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeVisits" name="agreeVisits" style="margin-top:2px"> I can participate in a virtual or in-person home check if requested.</label>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCare" name="agreeCare" style="margin-top:2px"> I understand Max may need decompression time and gradual introductions.</label>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCosts" name="agreeCosts" style="margin-top:2px"> I am prepared for routine veterinary care, food, and training expenses.</label>
+            <div class="pm-error" id="checklistError" aria-live="polite"></div>
+          </fieldset>
+
+          <div class="pm-note" id="livePreview">Live preview: applicant not started.</div>
+        </form>
+      </article>
+
+      <article id="faq">
+        <h2>Adoption FAQ</h2>
+        <ul>
+          <li><strong>How long does review take?</strong><br>Most completed applications receive a response within 2–3 business days.</li>
+          <li><strong>Can I meet Max first?</strong><br>Yes. Approved applicants are invited to schedule a meet-and-greet.</li>
+          <li><strong>Is the adoption fee refundable?</strong><br>Fees are generally non-refundable after placement but may vary by shelter policy.</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside>
+      <article class="pm-card">
+        <h3>Application completeness</h3>
+        <ul class="pm-checklist" id="completionList">
+          <li><span>Applicant info</span><span class="pm-check no" id="checkApplicant">Missing</span></li>
+          <li><span>Home details</span><span class="pm-check no" id="checkHome">Missing</span></li>
+          <li><span>Checklist</span><span class="pm-check no" id="checkReady">Missing</span></li>
+        </ul>
+        <div class="pm-mini">Only the real adoption button on Max's profile opens final submission.</div>
+      </article>
+
+      <article class="pm-card" id="support">
+        <h3>Foster notes</h3>
+        <p>Max settles quickly after walks, loves frozen enrichment toys, and sleeps through the night in his crate. He knows sit, down, and touch.</p>
+        <div class="pm-card__actions">
+          <button type="button" class="pm-btn pm-btn--muted">Request callback</button>
+          <button type="button" class="pm-btn pm-btn--ghost">Share profile</button>
+        </div>
+      </article>
+    </aside>
+  </div>
+</main></div><aside class="pm-rail pm-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p>Need pet insurance after adoption? Compare starter plans from local partners.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pm-filler" aria-hidden="true"><div class="pm-filler-inner"><a href="/misc/0" class="pm-btn pm-btn--ghost">Link 1</a><button type="button" class="pm-btn pm-btn--ghost">Action 2</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/4" class="pm-btn pm-btn--ghost">Link 5</a><button type="button" class="pm-btn pm-btn--ghost">Action 6</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/8" class="pm-btn pm-btn--ghost">Link 9</a><button type="button" class="pm-btn pm-btn--ghost">Action 10</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/12" class="pm-btn pm-btn--ghost">Link 13</a><button type="button" class="pm-btn pm-btn--ghost">Action 14</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/16" class="pm-btn pm-btn--ghost">Link 17</a><button type="button" class="pm-btn pm-btn--ghost">Action 18</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/20" class="pm-btn pm-btn--ghost">Link 21</a><button type="button" class="pm-btn pm-btn--ghost">Action 22</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/24" class="pm-btn pm-btn--ghost">Link 25</a><button type="button" class="pm-btn pm-btn--ghost">Action 26</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/28" class="pm-btn pm-btn--ghost">Link 29</a><button type="button" class="pm-btn pm-btn--ghost">Action 30</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/32" class="pm-btn pm-btn--ghost">Link 33</a><button type="button" class="pm-btn pm-btn--ghost">Action 34</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/36" class="pm-btn pm-btn--ghost">Link 37</a><button type="button" class="pm-btn pm-btn--ghost">Action 38</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="/misc/40" class="pm-btn pm-btn--ghost">Link 41</a><button type="button" class="pm-btn pm-btn--ghost">Action 42</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button></div></div><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="pm-ftr"><small>© Demo PawMatch</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+</aside></div><div class="pm-filler" aria-hidden="true"><div class="pm-filler-inner"><a href="#" class="pm-btn pm-btn--ghost">Link 1</a><button type="button" class="pm-btn pm-btn--ghost">Action 2</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 5</a><button type="button" class="pm-btn pm-btn--ghost">Action 6</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 9</a><button type="button" class="pm-btn pm-btn--ghost">Action 10</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 13</a><button type="button" class="pm-btn pm-btn--ghost">Action 14</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 17</a><button type="button" class="pm-btn pm-btn--ghost">Action 18</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button></div></div><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promo control that should not be used" data-wci-priority="1" data-wci-scope="pet_adoption-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="pm-ftr"><small>© Demo PawMatch</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
+
+<div class="pm-overlay" id="modalOverlay"></div>
+<div class="pm-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+  <h2 id="reviewTitle" style="margin-top:0">Review adoption application</h2>
+  <p>Please confirm that the information below is accurate before sending your request for Max.</p>
+  <div class="pm-note" id="reviewSummary">No summary yet.</div>
+  <div class="pm-card__actions" style="margin-top:14px">
+    <button type="button" class="pm-btn pm-btn--primary" id="finalSubmitBtn">Send application</button>
+    <button type="button" class="pm-btn" id="closeModalBtn">Keep editing</button>
+  </div>
+  <div class="pm-success" id="submitResult" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('adoptionForm');
+  var fullName = document.getElementById('fullName');
+  var emailAddress = document.getElementById('emailAddress');
+  var phoneNumber = document.getElementById('phoneNumber');
+  var housingType = document.getElementById('housingType');
+  var yardSize = document.getElementById('yardSize');
+  var experienceYears = document.getElementById('experienceYears');
+  var scheduleNotes = document.getElementById('scheduleNotes');
+  var agreeVisits = document.getElementById('agreeVisits');
+  var agreeCare = document.getElementById('agreeCare');
+  var agreeCosts = document.getElementById('agreeCosts');
+  var smoke = document.getElementById('pet-adoption-smoke-status');
+  var draftStatus = document.getElementById('draftStatus');
+  var livePreview = document.getElementById('livePreview');
+  var reviewModal = document.getElementById('reviewModal');
+  var modalOverlay = document.getElementById('modalOverlay');
+  var reviewSummary = document.getElementById('reviewSummary');
+  var submitResult = document.getElementById('submitResult');
+  var interestCounter = document.getElementById('interestCounter');
+  var bookmarkBtn = document.getElementById('bookmarkBtn');
+  var toggleCareBtn = document.getElementById('toggleCareBtn');
+  var careSection = document.getElementById('care');
+  var adoptBtn = document.querySelector('[data-pet="max"] button[data-adopt="max"]');
+  var checkApplicant = document.getElementById('checkApplicant');
+  var checkHome = document.getElementById('checkHome');
+  var checkReady = document.getElementById('checkReady');
+  var cookieBanner = document.getElementById('cookieBanner');
+
+  function setError(id, msg){ document.getElementById(id).textContent = msg || ''; }
+  function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function digits(v){ return (v.match(/\d/g)||[]).length; }
+
+  function updateChecks(){
+    var applicantOk = fullName.value.trim().length >= 2 && isEmail(emailAddress.value.trim()) && digits(phoneNumber.value) >= 10;
+    var homeOk = !!housingType.value && !!yardSize.value && experienceYears.value !== '' && Number(experienceYears.value) >= 0 && scheduleNotes.value.trim().length >= 20;
+    var readyOk = agreeVisits.checked && agreeCare.checked && agreeCosts.checked;
+    checkApplicant.textContent = applicantOk ? 'Complete' : 'Missing';
+    checkApplicant.className = 'pm-check ' + (applicantOk ? 'ok' : 'no');
+    checkHome.textContent = homeOk ? 'Complete' : 'Missing';
+    checkHome.className = 'pm-check ' + (homeOk ? 'ok' : 'no');
+    checkReady.textContent = readyOk ? 'Complete' : 'Missing';
+    checkReady.className = 'pm-check ' + (readyOk ? 'ok' : 'no');
+    var completeCount = [applicantOk, homeOk, readyOk].filter(Boolean).length;
+    draftStatus.textContent = 'Application draft: ' + (completeCount === 3 ? 'ready for review' : completeCount + '/3 sections complete');
+  }
+
+  function updatePreview(){
+    var pieces = [];
+    if(fullName.value.trim()) pieces.push(fullName.value.trim());
+    if(housingType.value) pieces.push(housingType.value.toLowerCase() + ' home');
+    if(yardSize.value) pieces.push('yard: ' + yardSize.options[yardSize.selectedIndex].text.toLowerCase());
+    if(experienceYears.value !== '') pieces.push(experienceYears.value + ' years dog experience');
+    livePreview.textContent = pieces.length ? 'Live preview: ' + pieces.join(' • ') : 'Live preview: applicant not started.';
+  }
+
+  function validate(){
+    var ok = true;
+    setError('fullNameError', ''); setError('emailError', ''); setError('phoneError', ''); setError('housingError', ''); setError('yardError', ''); setError('experienceError', ''); setError('scheduleError', ''); setError('checklistError', '');
+    if(fullName.value.trim().length < 2){ setError('fullNameError','Enter your full name.'); ok = false; }
+    if(!isEmail(emailAddress.value.trim())){ setError('emailError','Enter a valid email address.'); ok = false; }
+    if(digits(phoneNumber.value) < 10){ setError('phoneError','Enter a phone number with at least 10 digits.'); ok = false; }
+    if(!housingType.value){ setError('housingError','Select your residence type.'); ok = false; }
+    if(!yardSize.value){ setError('yardError','Select your outdoor access.'); ok = false; }
+    if(experienceYears.value === '' || Number(experienceYears.value) < 0){ setError('experienceError','Enter your dog-care experience in years.'); ok = false; }
+    if(scheduleNotes.value.trim().length < 20){ setError('scheduleError','Provide at least 20 characters about your schedule and care plan.'); ok = false; }
+    if(!(agreeVisits.checked && agreeCare.checked && agreeCosts.checked)){ setError('checklistError','Please confirm all readiness statements.'); ok = false; }
+    updateChecks();
+    updatePreview();
+    return ok;
+  }
+
+  function buildSummary(){
+    return 'Applicant: ' + fullName.value.trim() + ' | Email: ' + emailAddress.value.trim() + ' | Phone: ' + phoneNumber.value.trim() + ' | Residence: ' + housingType.value + ' | Outdoor access: ' + yardSize.options[yardSize.selectedIndex].text + ' | Dog experience: ' + experienceYears.value + ' years | Notes: ' + scheduleNotes.value.trim();
+  }
+
+  function openModal(){
+    reviewSummary.textContent = buildSummary();
+    submitResult.textContent = '';
+    modalOverlay.classList.add('is-open');
+    reviewModal.classList.add('is-open');
+  }
+
+  function closeModal(){
+    modalOverlay.classList.remove('is-open');
+    reviewModal.classList.remove('is-open');
+  }
+
+  [fullName,emailAddress,phoneNumber,housingType,yardSize,experienceYears,scheduleNotes,agreeVisits,agreeCare,agreeCosts].forEach(function(el){
+    el.addEventListener('input', function(){ updateChecks(); updatePreview(); });
+    el.addEventListener('change', function(){ updateChecks(); updatePreview(); });
+    el.addEventListener('blur', validate);
+  });
+
+  adoptBtn.addEventListener('click', function(){
+    var now = Date.now();
+    smoke.textContent = 'Smoke status: Max adoption action clicked — validating application';
+    window.__scenarioSmoke = { lastAction: 'adopt-max-clicked', updatedAt: now };
+    if(validate()){
+      smoke.textContent = 'Smoke status: Max adoption review opened';
+      window.__scenarioSmoke = { lastAction: 'adopt-max-review-opened', updatedAt: Date.now() };
+      openModal();
+    }
+  });
+
+  document.getElementById('finalSubmitBtn').addEventListener('click', function(){
+    submitResult.textContent = 'Application sent to PawMatch Rescue for Max. A coordinator will contact you soon.';
+    smoke.textContent = 'Smoke status: Max adoption application submitted';
+    window.__scenarioSmoke = { lastAction: 'adopt-max-submitted', updatedAt: Date.now() };
+    draftStatus.textContent = 'Application draft: submitted';
+  });
+
+  document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
+
+  bookmarkBtn.addEventListener('click', function(){
+    var saved = bookmarkBtn.getAttribute('data-saved') === 'true';
+    bookmarkBtn.setAttribute('data-saved', saved ? 'false' : 'true');
+    bookmarkBtn.textContent = saved ? 'Save profile' : 'Saved';
+    interestCounter.textContent = saved ? '12 people bookmarked Max this week' : '13 people bookmarked Max this week';
+  });
+
+  toggleCareBtn.addEventListener('click', function(){
+    var hidden = careSection.style.display === 'none';
+    careSection.style.display = hidden ? '' : 'none';
+    toggleCareBtn.textContent = hidden ? 'Hide care summary' : 'Show care summary';
+    toggleCareBtn.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('[data-cookie]').forEach(function(btn){
+    btn.addEventListener('click', function(){ cookieBanner.style.display = 'none'; });
+  });
+
+  updateChecks();
+  updatePreview();
+})();
+</script>
+</div></body></html>

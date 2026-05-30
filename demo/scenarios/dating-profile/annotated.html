@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MatchMingle</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MatchMingle — @river_kayak</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,7 +19,7 @@ table{border-collapse:collapse}
 .mm-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .mm-subnav a:hover{background:#f8fafc;color:#334155}
 .mm-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.mm-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.mm-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.mm-page-wrap{grid-template-columns:1fr}}
 .mm-page-main{padding:20px 24px 32px;min-height:42vh}
 .mm-page-main>h1,.mm-page-main [role=main]>h1,.mm-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
@@ -84,33 +84,262 @@ table{border-collapse:collapse}
 .mm-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
 .mm-diff{border-radius:8px}
 .mm-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+
+.mm-profile-grid{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:start}
+@media(max-width:860px){.mm-profile-grid{grid-template-columns:1fr}}
+.mm-gallery{display:grid;gap:10px}
+.mm-photo-main{height:360px;border-radius:16px;background:linear-gradient(160deg,#1d4ed8 0%,#0ea5e9 38%,#a7f3d0 100%);position:relative;overflow:hidden}
+.mm-photo-main::after{content:"Kayak day";position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);padding:6px 10px;border-radius:999px;font-weight:600;color:#0f172a}
+.mm-photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mm-thumb{height:92px;border-radius:12px;background:linear-gradient(135deg,#fda4af,#fdba74)}
+.mm-badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.mm-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:600}
+.mm-profile-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.mm-handle{font-size:28px;font-weight:800;margin:0;color:#0f172a}
+.mm-subtle{color:#64748b;font-size:13px}
+.mm-section-title{font-size:15px;margin:0 0 8px}
+.mm-chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.mm-chip{padding:6px 10px;border-radius:999px;background:#f8fafc;border:1px solid #e2e8f0;color:#334155;font-size:12px}
+.mm-intro-box textarea{min-height:120px;resize:vertical}
+.mm-helper{font-size:12px;color:#64748b;margin-top:6px}
+.mm-error{font-size:12px;color:#b91c1c;min-height:18px;margin-top:6px}
+.mm-success{font-size:12px;color:#166534;min-height:18px;margin-top:6px}
+.mm-statline{display:flex;flex-wrap:wrap;gap:12px;color:#475569;font-size:13px}
+.mm-statline strong{color:#0f172a}
+.mm-boost-box{background:#fff7ed;border:1px solid #fdba74}
+.mm-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:55}
+.mm-overlay.is-open{display:block}
+.mm-modal-panel{position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100% - 32px));background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 24px 60px rgba(15,23,42,.28);padding:18px;display:none}
+.mm-modal-panel.is-open{display:block}
+.mm-price{font-size:28px;font-weight:800;color:#92400e}
+.mm-inline-status{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mm-dot{width:8px;height:8px;border-radius:999px;background:#22c55e;display:inline-block}
+.mm-dot--warn{background:#f59e0b}
+#dating-profile-smoke-status{padding:10px 12px;border-radius:10px;background:#ecfeff;border:1px solid #a5f3fc;color:#155e75;font-weight:600;display:inline-block}
 </style></head><body>
-<div class="mm-app" data-page="dating-profile" data-agent-role="landmark" data-agent-id="dating_profile-page" data-agent-desc="Profile" data-agent-priority="2"><div class="mm-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="mm-app" data-page="dating-profile" id="dating_profile-page" data-wci-id="dating_profile-page" data-wci-role="landmark" data-wci-desc="MatchMingle dating profile page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="mm-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="mm-btn mm-btn--muted">Reject non-essential</button>
-  <button type="button" class="mm-btn mm-btn--primary">Accept all</button>
-  <button type="button" class="mm-btn mm-btn--ghost">Customize</button>
+  <button type="button" class="mm-btn mm-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="mm-btn mm-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="mm-btn mm-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="mm-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="mm-btn mm-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="mm-btn">Continue as guest — express</button>
 </div><header class="mm-hdr">
-  <nav class="mm-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="mm-hdr-promo"><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo" data-agent-role="action" data-agent-id="decoy-promo" data-agent-desc="Promo CTA" data-agent-priority="5" data-agent-action="click">Claim Offer</button>
-    <button type="button" class="mm-btn mm-btn--ghost" data-decoy="decoy-nav" data-agent-role="action" data-agent-id="decoy-nav" data-agent-desc="Nav decoy" data-agent-priority="5" data-agent-action="click">Learn More</button></div>
-</header><nav class="mm-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="mm-btn mm-btn--ghost">Submit</button>
-  <button type="button" class="mm-btn mm-btn--ghost">Continue</button>
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><strong style="font-size:18px;color:#db2777">MatchMingle</strong><nav class="mm-nav" aria-label="Global"><a href="/">Discover</a><a href="/matches">Matches</a><a href="/messages">Messages</a><a href="/events">Events</a><a href="/account">Account</a></nav></div>
+  <div class="mm-hdr-promo"><span class="mm-subtle">Daily likes left: <strong id="likesRemaining">7</strong></span><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional boost or offer decoy controls" data-wci-priority="1" data-wci-scope="dating_profile-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+    <button type="button" class="mm-btn mm-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
+</header><nav class="mm-subnav" aria-label="Secondary"><a href="#profileTop">Profile</a><a href="#aboutSection">About</a><a href="#promptsSection">Prompts</a><a href="#messageSection">Intro</a><a href="#safetySection">Safety tips</a>
+  <button type="button" class="mm-btn mm-btn--ghost" id="saveProfileBtn">Save profile</button>
+  <button type="button" class="mm-btn mm-btn--ghost" id="shareProfileBtn">Share</button>
 </nav><div class="mm-dup-row" aria-label="Quick actions">
-  <button type="button" class="mm-btn mm-btn--ghost">Submit</button>
-  <button type="button" class="mm-btn mm-btn--ghost">Continue</button>
-  <button type="button" class="mm-btn mm-btn--ghost">Save changes</button>
-  <button type="button" class="mm-btn mm-btn--ghost">Confirm</button>
-</div><div class="mm-dup-row"><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo">Send intro river_kayak</button><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-nav">Message river_kayak</button></div><div class="mm-page-wrap"><div class="mm-page-main"><div role="main" style="display:grid;grid-template-columns:300px 1fr;gap:24px;padding:24px" data-profile="river_kayak">
-<div style="height:300px;background:#fda4af;border-radius:16px"></div><div><h1>@river_kayak</h1><textarea>Love your adventure photos!</textarea>
-<button type="button" class="mm-btn mm-btn--primary" data-send-intro="river_kayak" data-agent-role="action" data-agent-id="message-river-kayak" data-agent-desc="Send intro message to profile handle river_kayak (not profile boost)." data-agent-action="click" data-agent-priority="1">Confirm</button>
-<button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo">Boost profile</button></div></div></div><aside class="mm-rail mm-rail--ads" aria-label="Sponsored">
+  <button type="button" class="mm-btn mm-btn--ghost">Pass</button>
+  <button type="button" class="mm-btn mm-btn--ghost">Hide</button>
+  <button type="button" class="mm-btn mm-btn--ghost" id="reportBtn">Report</button>
+  <button type="button" class="mm-btn mm-btn--ghost">Block</button>
+</div><div class="mm-dup-row"><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo">Send intro river_kayak</button><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-nav">Message river_kayak</button></div><div class="mm-page-wrap"><div class="mm-page-main"><main role="main" class="mm-layout">
+  <section class="mm-inline-status" aria-label="Page status">
+    <span id="dating-profile-smoke-status">Smoke status: ready</span>
+    <span class="mm-subtle">Profile open</span>
+    <span class="mm-badge"><span class="mm-dot"></span>Active today</span>
+  </section>
+
+  <section class="mm-profile-grid" data-profile="river_kayak" id="profileTop">
+    <div>
+      <div class="mm-gallery">
+        <div class="mm-photo-main" aria-label="Profile main photo"></div>
+        <div class="mm-photo-strip">
+          <div class="mm-thumb" style="background:linear-gradient(135deg,#93c5fd,#67e8f9)"></div>
+          <div class="mm-thumb" style="background:linear-gradient(135deg,#bbf7d0,#86efac)"></div>
+          <div class="mm-thumb" style="background:linear-gradient(135deg,#fde68a,#fca5a5)"></div>
+        </div>
+      </div>
+      <article class="mm-card">
+        <h2 class="mm-section-title">Quick facts</h2>
+        <div class="mm-statline"><span><strong>29</strong> years</span><span><strong>6 mi away</strong></span><span><strong>Verified</strong> photos</span></div>
+        <div class="mm-chip-row" style="margin-top:12px">
+          <span class="mm-chip">Kayaking</span><span class="mm-chip">Early coffee</span><span class="mm-chip">Weekend road trips</span><span class="mm-chip">Dog-friendly patios</span>
+        </div>
+      </article>
+    </div>
+
+    <div>
+      <div class="mm-profile-head">
+        <div>
+          <h1 class="mm-handle">@river_kayak</h1>
+          <p class="mm-subtle">Outdoor educator • Seattle • Looking for a grounded, playful connection</p>
+        </div>
+        <div class="mm-badges"><span class="mm-badge">92% reply rate</span><span class="mm-badge">New here</span><span class="mm-badge">Wants kids someday</span></div>
+      </div>
+
+      <article class="mm-card" id="aboutSection">
+        <h2 class="mm-section-title">About</h2>
+        <p>Usually somewhere between a river launch and a bookstore. I guide beginner paddling meetups in the summer and disappear into misty trails whenever the weather looks questionable in the best way.</p>
+        <p>I appreciate people who ask thoughtful questions, laugh at themselves, and can turn a simple coffee into a mini adventure. Bonus points if you have a favorite thermos or know how to parallel park near a busy trailhead.</p>
+      </article>
+
+      <article class="mm-card" id="promptsSection">
+        <h2 class="mm-section-title">Prompts</h2>
+        <table aria-label="Profile prompts">
+          <thead><tr><th>Prompt</th><th>Answer</th></tr></thead>
+          <tbody>
+            <tr><td>I get way too excited about</td><td>Finding a calm stretch of water at sunrise and pretending I planned the whole morning that well.</td></tr>
+            <tr><td>A perfect first date</td><td>Tea or coffee, a walk somewhere with a view, then deciding together whether to keep the day going.</td></tr>
+            <tr><td>The key to my heart is</td><td>Consistency, kindness to strangers, and sending me your best trail snack rankings.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="mm-card mm-intro-box" id="messageSection">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+          <h2 class="mm-section-title" style="margin:0">Send an intro</h2>
+          <span class="mm-subtle">Personalized intros get more replies</span>
+        </div>
+        <label for="introMessage">Your message</label>
+        <textarea id="introMessage" maxlength="240" placeholder="Mention something specific from their profile...">Love your adventure photos!</textarea>
+        <div class="mm-helper"><span id="charCount">28</span>/240 characters • Avoid generic openers</div>
+        <div class="mm-error" id="introError" aria-live="polite"></div>
+        <div class="mm-success" id="introSuccess" aria-live="polite"></div>
+        <div class="mm-card__actions">
+          <button type="button" class="mm-btn mm-btn--primary" data-send-intro="river_kayak" id="message-river-kayak" data-wci-id="message-river-kayak" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary button to send intro message to river_kayak" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="dating_profile-page">Send intro</button>
+          <button type="button" class="mm-btn mm-btn--muted" id="previewBtn">Preview</button>
+          <button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo" id="boostTrigger">Boost profile</button>
+        </div>
+        <p class="mm-helper">Sending an intro uses 1 daily message credit. Profile boosts are optional and separate.</p>
+      </article>
+
+      <article class="mm-card" id="safetySection">
+        <h2 class="mm-section-title">Before you message</h2>
+        <ul>
+          <li>Be respectful and specific to their profile.</li>
+          <li>Do not include personal contact information in a first intro.</li>
+          <li>If you are not interested, use pass instead of sending a mixed-signal message.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main></div><aside class="mm-rail mm-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="mm-filler" aria-hidden="true"><div class="mm-filler-inner"><a href="/misc/0" class="mm-btn mm-btn--ghost">Link 1</a><button type="button" class="mm-btn mm-btn--ghost">Action 2</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/4" class="mm-btn mm-btn--ghost">Link 5</a><button type="button" class="mm-btn mm-btn--ghost">Action 6</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/8" class="mm-btn mm-btn--ghost">Link 9</a><button type="button" class="mm-btn mm-btn--ghost">Action 10</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/12" class="mm-btn mm-btn--ghost">Link 13</a><button type="button" class="mm-btn mm-btn--ghost">Action 14</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/16" class="mm-btn mm-btn--ghost">Link 17</a><button type="button" class="mm-btn mm-btn--ghost">Action 18</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/20" class="mm-btn mm-btn--ghost">Link 21</a><button type="button" class="mm-btn mm-btn--ghost">Action 22</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/24" class="mm-btn mm-btn--ghost">Link 25</a><button type="button" class="mm-btn mm-btn--ghost">Action 26</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/28" class="mm-btn mm-btn--ghost">Link 29</a><button type="button" class="mm-btn mm-btn--ghost">Action 30</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/32" class="mm-btn mm-btn--ghost">Link 33</a><button type="button" class="mm-btn mm-btn--ghost">Action 34</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/36" class="mm-btn mm-btn--ghost">Link 37</a><button type="button" class="mm-btn mm-btn--ghost">Action 38</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/40" class="mm-btn mm-btn--ghost">Link 41</a><button type="button" class="mm-btn mm-btn--ghost">Action 42</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button></div></div><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="mm-ftr"><small>© Demo MatchMingle</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <p>Stand out faster with profile boosts, spotlight placement, and premium read insights.</p>
+  <div class="mm-card mm-boost-box">
+    <div class="mm-inline-status"><span class="mm-dot mm-dot--warn"></span><strong>Boost weekend special</strong></div>
+    <p style="margin-top:8px">Get 3x more profile views for 30 minutes.</p>
+    <div class="mm-price">$7.99</div>
+    <button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  </div>
+  <article class="mm-card">
+    <h2 style="margin-top:0">Activity summary</h2>
+    <p><strong id="viewCount">134</strong> profile views this week</p>
+    <p><strong id="saveCount">18</strong> saves</p>
+    <a href="/ads/1">Partner offer — limited time</a>
+  </article>
+</aside></div><div class="mm-filler" aria-hidden="true"><div class="mm-filler-inner"><a href="/misc/0" class="mm-btn mm-btn--ghost">Link 1</a><button type="button" class="mm-btn mm-btn--ghost">Action 2</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/4" class="mm-btn mm-btn--ghost">Link 5</a><button type="button" class="mm-btn mm-btn--ghost">Action 6</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/8" class="mm-btn mm-btn--ghost">Link 9</a><button type="button" class="mm-btn mm-btn--ghost">Action 10</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/12" class="mm-btn mm-btn--ghost">Link 13</a><button type="button" class="mm-btn mm-btn--ghost">Action 14</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/16" class="mm-btn mm-btn--ghost">Link 17</a><button type="button" class="mm-btn mm-btn--ghost">Action 18</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/20" class="mm-btn mm-btn--ghost">Link 21</a><button type="button" class="mm-btn mm-btn--ghost">Action 22</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/24" class="mm-btn mm-btn--ghost">Link 25</a><button type="button" class="mm-btn mm-btn--ghost">Action 26</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/28" class="mm-btn mm-btn--ghost">Link 29</a><button type="button" class="mm-btn mm-btn--ghost">Action 30</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/32" class="mm-btn mm-btn--ghost">Link 33</a><button type="button" class="mm-btn mm-btn--ghost">Action 34</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/36" class="mm-btn mm-btn--ghost">Link 37</a><button type="button" class="mm-btn mm-btn--ghost">Action 38</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button><a href="/misc/40" class="mm-btn mm-btn--ghost">Link 41</a><button type="button" class="mm-btn mm-btn--ghost">Action 42</button><button type="button" class="mm-btn mm-btn--ghost">Submit</button><button type="button" class="mm-btn mm-btn--ghost">Continue</button></div></div><button type="button" class="mm-btn mm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra promotional decoy node" data-wci-priority="1" data-wci-scope="dating_profile-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="mm-ftr"><small>© Demo MatchMingle</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+<div class="mm-overlay" id="modalOverlay"></div>
+<div class="mm-modal-panel" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+  <h2 id="previewTitle" style="margin-top:0">Preview intro</h2>
+  <p class="mm-subtle">This message will be sent to @river_kayak.</p>
+  <div class="mm-panel" id="previewContent" style="background:#f8fafc;margin-bottom:14px"></div>
+  <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+    <button type="button" class="mm-btn" data-close-modal="preview">Close</button>
+  </div>
+</div>
+<div class="mm-modal-panel" id="boostModal" role="dialog" aria-modal="true" aria-labelledby="boostTitle">
+  <h2 id="boostTitle" style="margin-top:0">Boost your profile</h2>
+  <p>Boosting increases your visibility, but it does not send a message to @river_kayak.</p>
+  <fieldset>
+    <legend>Choose a boost</legend>
+    <label><input type="radio" name="boostPlan" checked=""> 30 minutes spotlight — $7.99</label>
+    <label><input type="radio" name="boostPlan"> 2 hours spotlight — $14.99</label>
+  </fieldset>
+  <div class="mm-inline-status" style="margin:12px 0"><span class="mm-dot mm-dot--warn"></span><span id="boostStatus">No boost purchased</span></div>
+  <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+    <button type="button" class="mm-btn" data-close-modal="boost">Close</button>
+    <button type="button" class="mm-btn mm-btn--decoy" id="buyBoostBtn">Purchase boost</button>
+  </div>
+</div>
+<script>
+(function(){
+  var intro = document.getElementById('introMessage');
+  var sendBtn = document.querySelector('[data-profile="river_kayak"] button[data-send-intro="river_kayak"]');
+  var previewBtn = document.getElementById('previewBtn');
+  var error = document.getElementById('introError');
+  var success = document.getElementById('introSuccess');
+  var charCount = document.getElementById('charCount');
+  var smoke = document.getElementById('dating-profile-smoke-status');
+  var likesRemaining = document.getElementById('likesRemaining');
+  var overlay = document.getElementById('modalOverlay');
+  var previewModal = document.getElementById('previewModal');
+  var boostModal = document.getElementById('boostModal');
+  var previewContent = document.getElementById('previewContent');
+  var boostTrigger = document.getElementById('boostTrigger');
+  var buyBoostBtn = document.getElementById('buyBoostBtn');
+  var boostStatus = document.getElementById('boostStatus');
+  var cookieBanner = document.getElementById('cookieBanner');
+  var saveProfileBtn = document.getElementById('saveProfileBtn');
+  var shareProfileBtn = document.getElementById('shareProfileBtn');
+  var reportBtn = document.getElementById('reportBtn');
+
+  function openModal(modal){ overlay.classList.add('is-open'); modal.classList.add('is-open'); }
+  function closeModal(modal){ modal.classList.remove('is-open'); if(!document.querySelector('.mm-modal-panel.is-open')) overlay.classList.remove('is-open'); }
+  function escapeHtml(str){ return str.replace(/[&<>"']/g,function(ch){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]; }); }
+  function validate(){
+    var text = intro.value.trim();
+    charCount.textContent = intro.value.length;
+    error.textContent = '';
+    if(text.length < 10){
+      sendBtn.disabled = true;
+      error.textContent = 'Write at least 10 characters to send an intro.';
+      return false;
+    }
+    if(!/\b(kayak|river|trail|coffee|book|adventure|photos?)\b/i.test(text)){
+      sendBtn.disabled = true;
+      error.textContent = 'Tip: mention something specific from the profile to improve your chances.';
+      return false;
+    }
+    sendBtn.disabled = false;
+    return true;
+  }
+
+  intro.addEventListener('input', validate);
+  previewBtn.addEventListener('click', function(){
+    previewContent.innerHTML = '<strong>To @river_kayak</strong><p style="margin:8px 0 0;color:#334155">' + escapeHtml(intro.value.trim() || 'No message yet.') + '</p>';
+    openModal(previewModal);
+  });
+  boostTrigger.addEventListener('click', function(){ openModal(boostModal); });
+  buyBoostBtn.addEventListener('click', function(){ boostStatus.textContent = 'Boost added to cart — messaging still required separately.'; });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close-modal]'), function(btn){
+    btn.addEventListener('click', function(){ closeModal(btn.closest('.mm-modal-panel')); });
+  });
+  overlay.addEventListener('click', function(){ Array.prototype.forEach.call(document.querySelectorAll('.mm-modal-panel.is-open'), closeModal); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cookie-action]'), function(btn){
+    btn.addEventListener('click', function(){
+      cookieBanner.style.display = 'none';
+      smoke.textContent = 'Smoke status: cookies ' + btn.getAttribute('data-cookie-action');
+    });
+  });
+
+  saveProfileBtn.addEventListener('click', function(){ saveProfileBtn.textContent = 'Saved'; });
+  shareProfileBtn.addEventListener('click', function(){ shareProfileBtn.textContent = 'Link copied'; });
+  reportBtn.addEventListener('click', function(){ reportBtn.textContent = 'Reported'; reportBtn.disabled = true; });
+
+  sendBtn.addEventListener('click', function(){
+    if(!validate()) return;
+    var remaining = Math.max(0, parseInt(likesRemaining.textContent,10) - 1);
+    likesRemaining.textContent = String(remaining);
+    success.textContent = 'Intro sent to @river_kayak.';
+    error.textContent = '';
+    sendBtn.textContent = 'Intro sent';
+    sendBtn.disabled = true;
+    intro.disabled = true;
+    previewBtn.disabled = true;
+    smoke.textContent = 'Smoke status: intro sent to @river_kayak';
+    window.__scenarioSmoke = { lastAction: 'sent intro to river_kayak', updatedAt: Date.now() };
+  });
+
+  validate();
+  window.__scenarioSmoke = { lastAction: 'page ready', updatedAt: Date.now() };
+})();
+</script>
+</body></html>

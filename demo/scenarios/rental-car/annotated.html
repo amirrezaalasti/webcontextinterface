@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DriveAway</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DriveAway — Reserve a Rental Car</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -11,6 +11,8 @@ table{border-collapse:collapse}
 .da-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
 .da-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .da-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
+.da-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#0f172a}
+.da-brand-badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#14b8a6,#0f766e);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
 .da-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .da-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .da-nav a:hover{background:#f1f5f9;color:#0f172a}
@@ -19,15 +21,14 @@ table{border-collapse:collapse}
 .da-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .da-subnav a:hover{background:#f8fafc;color:#334155}
 .da-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.da-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+.da-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.da-page-wrap{grid-template-columns:1fr}}
 .da-page-main{padding:20px 24px 32px;min-height:42vh}
 .da-page-main>h1,.da-page-main [role=main]>h1,.da-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .da-page-main h2,.da-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
 .da-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
 .da-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.da-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.da-page-main select,.da-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.da-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.da-page-main select,.da-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .da-page-main input:focus,.da-page-main select:focus,.da-page-main textarea:focus{outline:2px solid hsl(173 72% 46%);outline-offset:1px;border-color:hsl(173 72% 46%)}
 .da-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .da-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,14 +36,12 @@ table{border-collapse:collapse}
 .da-page-main th,.da-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .da-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .da-page-main tr:hover td{background:#fafafa}
-.da-page-main article,.da-page-main .da-card,.da-page-main .da-resto,.da-page-main .da-slot,.da-page-main .da-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.da-page-main article,.da-page-main .da-card,.da-page-main .da-resto,.da-page-main .da-slot,.da-page-main .da-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .da-page-main ul:not([class]){list-style:none;padding:0}
 .da-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .da-page-main ul:not([class]) li:hover{background:#f8fafc}
-.da-page-main dialog,.da-page-main .da-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.da-page-main .da-modal.is-open,.da-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
+.da-page-main dialog,.da-page-main .da-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.da-page-main .da-modal.is-open,.da-page-main [role=dialog]{position:fixed;inset:12% 22%;z-index:60;max-width:560px;margin:auto}
 .da-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
 .da-btn:hover{background:#f8fafc}
 .da-btn--primary{background:hsl(173 72% 46%);color:#fff;border-color:hsl(173 72% 38%)}
@@ -54,6 +53,7 @@ table{border-collapse:collapse}
 .da-btn:disabled{opacity:.5;cursor:not-allowed}
 .da-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .da-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.da-cookie.is-hidden{display:none}
 .da-rail{padding:16px;margin:16px;background:hsl(173 60% 96%);border:1px solid hsl(173 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
 @media(min-width:901px){.da-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
 .da-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
@@ -63,55 +63,408 @@ table{border-collapse:collapse}
 .da-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
 .da-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .da-ab{display:none!important}
-.da-layout{display:grid;gap:16px;align-items:start}
+.da-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:900px){.da-layout{grid-template-columns:1fr}}
 .da-filters,.da-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
 .da-filters h2,.da-frame aside h2{font-size:14px;margin:0 0 10px}
 .da-card__actions,.da-slot__actions,.da-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.da-wizard{max-width:760px}
-.da-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.da-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
-.da-step.is-active{background:hsl(173 72% 46%);color:#fff}
-.da-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.da-hero{border-radius:12px;margin-bottom:8px}
-.da-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.da-grid{display:grid;gap:14px}
-.da-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.da-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.da-patient{border-radius:10px}
-.da-slots{display:grid;gap:10px}
-.da-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.da-cell{background:#fff;padding:8px;min-height:44px}
-.da-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.da-diff{border-radius:8px}
-.da-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.da-toolbar{justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px}
+.da-result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px}
+.da-search-panel{padding:16px;background:linear-gradient(180deg,#ecfeff,#f8fafc);border:1px solid #dbeafe;border-radius:14px;margin-bottom:16px}
+.da-search-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:900px){.da-search-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.da-search-grid{grid-template-columns:1fr}}
+.da-inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.da-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:12px;font-weight:600}
+.da-badge--ok{background:#dcfce7;color:#166534}
+.da-badge--warn{background:#fef3c7;color:#92400e}
+.da-badge--info{background:#dbeafe;color:#1d4ed8}
+.da-muted{color:#64748b}
+.da-price{font-size:24px;font-weight:800;color:#0f172a}
+.da-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 0}
+.da-meta div{padding:8px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0}
+.da-vehicle-card{position:relative}
+.da-vehicle-card.is-selected{border-color:#14b8a6;box-shadow:0 0 0 3px rgba(20,184,166,.14)}
+.da-card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.da-card ul{margin-top:10px}
+.da-card ul li{list-style:none;padding-left:0;color:#334155}
+.da-statusbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 12px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin:10px 0 16px}
+.da-summary{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.da-summary dl{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin:0}
+.da-summary dt{color:#64748b}
+.da-summary dd{margin:0;font-weight:600}
+.da-help-list li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #f1f5f9;padding:8px 0}
+.da-help-list li:last-child{border-bottom:none}
+.da-note{font-size:12px;color:#64748b}
+.da-error{font-size:12px;color:#b91c1c;min-height:18px;margin-top:4px}
+.da-success{font-size:12px;color:#166534}
+.da-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:55;display:none}
+.da-modal-backdrop.is-open{display:block}
+.da-modal{display:none}
+.da-modal.is-open{display:block}
+.da-smoke{padding:10px 12px;border-radius:10px;background:#ecfeff;border:1px solid #a5f3fc;color:#155e75;font-weight:600}
+.da-divider{height:1px;background:#e2e8f0;margin:12px 0}
 </style></head><body>
-<div class="da-app" data-page="rental-car" data-agent-role="landmark" data-agent-id="rental_car-page" data-agent-desc="Car rental" data-agent-priority="2"><div class="da-cookie" role="dialog" aria-label="Cookie preferences">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="da-btn da-btn--muted">Reject non-essential</button>
-  <button type="button" class="da-btn da-btn--primary">Accept all</button>
-  <button type="button" class="da-btn da-btn--ghost">Customize</button>
+<div class="da-app" data-page="rental-car" id="rental_car-page" data-wci-id="rental_car-page" data-wci-role="landmark" data-wci-desc="Rental car page app root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="da-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <p>We use cookies for analytics, personalization, and offers. Manage preferences or accept to continue searching and reserving with DriveAway.</p>
+  <button type="button" class="da-btn da-btn--muted" data-cookie="reject">Reject non-essential</button>
+  <button type="button" class="da-btn da-btn--primary" data-cookie="accept">Accept all</button>
+  <button type="button" class="da-btn da-btn--ghost" data-cookie="customize">Customize</button>
 </div><div class="da-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="da-btn da-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="da-btn">Continue as guest — express</button>
 </div><header class="da-hdr">
-  <nav class="da-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="da-hdr-promo"><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <div class="da-brand" aria-label="DriveAway brand"><span class="da-brand-badge">DA</span><span>DriveAway</span></div>
+  <nav class="da-nav" aria-label="Global"><a href="#">Home</a><a href="#">Locations</a><a href="#">Deals</a><a href="#">Trips</a><a href="#">Support</a><a href="#">Account</a></nav>
+  <div class="da-hdr-promo"><span class="da-badge da-badge--info">Member prices available</span><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
     <button type="button" class="da-btn da-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="da-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="da-subnav" aria-label="Secondary"><a href="#">Rentals</a><a href="#">Airport pickup</a><a href="#">Weekly rates</a><a href="#">Protection</a><a href="#">Corporate</a>
   <button type="button" class="da-btn da-btn--ghost">Submit</button>
   <button type="button" class="da-btn da-btn--ghost">Continue</button>
 </nav><div class="da-dup-row" aria-label="Quick actions">
   <button type="button" class="da-btn da-btn--ghost">Submit</button>
   <button type="button" class="da-btn da-btn--ghost">Continue</button>
-  <button type="button" class="da-btn da-btn--ghost">Save changes</button>
-  <button type="button" class="da-btn da-btn--ghost">Confirm</button>
-</div><div class="da-dup-row"><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Reserve LAX compact Friday</button><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-nav">Reserve compact LAX</button></div><div class="da-page-wrap"><div class="da-page-main"><form style="display:flex;gap:12px;padding:16px;background:#f1f5f9"><input value="LAX"><input type="date"><select><option selected="">Compact</option></select></form>
-<div role="main" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px">
-<div style="border:1px solid #cbd5e1;padding:16px"><h3>Economy</h3><button type="button" class="da-btn da-btn--ghost">Select</button></div>
-<div style="border:1px solid #cbd5e1;padding:16px" data-vehicle="compact-lax-friday"><h3>Compact Friday</h3>
-<button type="button" class="da-btn da-btn--primary" data-agent-role="action" data-agent-id="reserve-lax-compact" data-agent-desc="Reserve compact vehicle pickup LAX on Friday (not economy select-only)." data-agent-action="click" data-agent-priority="1">Confirm</button></div></div></div><aside class="da-rail da-rail--ads" aria-label="Sponsored">
+  <button type="button" class="da-btn da-btn--ghost">Save search</button>
+  <button type="button" class="da-btn da-btn--ghost">Compare rates</button>
+</div><div class="da-dup-row"><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">Reserve LAX compact Friday</button><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-nav">Reserve compact LAX</button><span class="da-note">Tip: member exclusive cars may require sign-in.</span></div><div class="da-page-wrap"><div class="da-page-main"><main role="main" aria-label="Rental search results">
+  <section class="da-search-panel">
+    <div class="da-inline" style="justify-content:space-between;align-items:flex-start"><div><h1>Find a rental at Los Angeles International</h1><p>Search airport inventory, compare compact and economy options, and reserve instantly with live pricing.</p></div><div class="da-smoke" id="rental-car-smoke-status" aria-live="polite">Smoke status: ready for reservation action.</div></div>
+    <form id="search-form" novalidate="">
+      <div class="da-search-grid">
+        <div><label for="pickup-location">Pickup location</label><input id="pickup-location" name="pickupLocation" value="LAX" aria-describedby="pickup-location-error"><div class="da-error" id="pickup-location-error"></div></div>
+        <div><label for="pickup-date">Pickup date</label><input id="pickup-date" name="pickupDate" type="date" aria-describedby="pickup-date-error"><div class="da-error" id="pickup-date-error"></div></div>
+        <div><label for="dropoff-date">Drop-off date</label><input id="dropoff-date" name="dropoffDate" type="date" aria-describedby="dropoff-date-error"><div class="da-error" id="dropoff-date-error"></div></div>
+        <div><label for="car-class">Car class</label><select id="car-class" name="carClass"><option value="all">All classes</option><option value="economy">Economy</option><option value="compact" selected="">Compact</option><option value="midsize">Midsize</option><option value="suv">SUV</option></select></div>
+      </div>
+      <div class="da-inline" style="margin-top:10px"><label style="display:inline-flex;align-items:center;gap:8px;margin:0"><input type="checkbox" id="airport-only" checked=""> Airport locations only</label><label style="display:inline-flex;align-items:center;gap:8px;margin:0"><input type="checkbox" id="member-pricing"> Show member-only rates</label><button type="submit" class="da-btn da-btn--primary">Update results</button><button type="button" class="da-btn" id="reset-search">Reset</button></div>
+    </form>
+  </section>
+
+  <div class="da-statusbar">
+    <div class="da-inline"><span class="da-badge da-badge--ok" id="result-count-badge">4 vehicles available</span><span class="da-badge" id="day-badge">Pickup day: Friday</span><span class="da-badge da-badge--warn" id="filter-badge">Filter: Compact</span></div>
+    <div class="da-inline"><label for="sort-results" style="margin:0">Sort</label><select id="sort-results" style="max-width:180px"><option value="recommended">Recommended</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select></div>
+  </div>
+
+  <div class="da-layout">
+    <aside class="da-filters" aria-label="Search filters">
+      <h2>Filters</h2>
+      <fieldset><legend>Vehicle type</legend>
+        <label style="display:flex;align-items:center;gap:8px"><input type="radio" name="typeFilter" value="all"> All</label>
+        <label style="display:flex;align-items:center;gap:8px"><input type="radio" name="typeFilter" value="economy"> Economy</label>
+        <label style="display:flex;align-items:center;gap:8px"><input type="radio" name="typeFilter" value="compact" checked=""> Compact</label>
+        <label style="display:flex;align-items:center;gap:8px"><input type="radio" name="typeFilter" value="midsize"> Midsize</label>
+      </fieldset>
+      <fieldset><legend>Rate options</legend>
+        <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="free-cancel" checked=""> Free cancellation</label>
+        <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="pay-later" checked=""> Pay later</label>
+        <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="select-only"> Include select-only inventory</label>
+      </fieldset>
+      <fieldset><legend>Price range</legend>
+        <label for="price-range">Max daily rate: <strong>$<span id="price-range-value">85</span></strong></label>
+        <input id="price-range" type="range" min="35" max="120" value="85">
+      </fieldset>
+      <div class="da-summary" aria-live="polite">
+        <h3 style="margin-top:0">Search summary</h3>
+        <dl>
+          <dt>Pickup</dt><dd id="summary-location">LAX</dd>
+          <dt>Date</dt><dd id="summary-date">Friday</dd>
+          <dt>Preferred class</dt><dd id="summary-class">Compact</dd>
+          <dt>Eligible results</dt><dd id="summary-count">2 shown</dd>
+        </dl>
+        <div class="da-divider"></div>
+        <div class="da-note">Economy vehicles may be listed but do not match your compact goal. Select-only cars are optional inventory and can be hidden.</div>
+      </div>
+    </aside>
+
+    <section aria-label="Vehicle results">
+      <div class="da-toolbar"><div><strong>Available vehicles</strong><div class="da-note">Airport counter open 24/7. Taxes and fees estimated at checkout.</div></div><div class="da-inline"><button type="button" class="da-btn da-btn--ghost" id="toggle-details">Hide details</button><button type="button" class="da-btn" id="open-help">Rental rules</button></div></div>
+      <div class="da-result-grid" id="results-grid">
+        <article class="da-card da-vehicle-card" data-type="economy" data-day="friday" data-price="39" data-select-only="false">
+          <div class="da-card-top"><div><h3>Economy Saver</h3><p class="da-muted">Nissan Versa or similar</p></div><span class="da-badge">5 left</span></div>
+          <div class="da-inline"><span class="da-price">$39/day</span><span class="da-badge da-badge--ok">Free cancellation</span></div>
+          <div class="da-meta"><div><strong>Seats</strong><br>4</div><div><strong>Bags</strong><br>1 large</div><div><strong>Fuel</strong><br>Full to full</div></div>
+          <ul class="vehicle-details"><li>Counter pickup at Terminal B shuttle lot</li><li>Automatic transmission</li><li>Not your requested compact size</li></ul>
+          <div class="da-card__actions"><button type="button" class="da-btn da-btn--ghost">Select</button><button type="button" class="da-btn">Compare</button></div>
+        </article>
+
+        <article class="da-card da-vehicle-card" data-vehicle="compact-lax-friday" data-type="compact" data-day="friday" data-price="47" data-select-only="false">
+          <div class="da-card-top"><div><h3>Compact Flex</h3><p class="da-muted">Toyota Corolla or similar · LAX Friday pickup</p></div><span class="da-badge da-badge--ok" id="featured-badge">Best match</span></div>
+          <div class="da-inline"><span class="da-price">$47/day</span><span class="da-badge da-badge--ok">Pay later</span><span class="da-badge da-badge--info">Standard inventory</span></div>
+          <p>This compact option matches your preferred class and airport pickup request. Includes unlimited mileage in California and free cancellation until 24 hours before pickup.</p>
+          <div class="da-meta"><div><strong>Seats</strong><br>5</div><div><strong>Bags</strong><br>2 small</div><div><strong>Pickup</strong><br>LAX garage</div></div>
+          <ul class="vehicle-details"><li>Automatic transmission</li><li>Bluetooth and backup camera</li><li>Counter wait estimate under 10 minutes</li></ul>
+          <div class="da-card__actions"><button type="button" class="da-btn da-btn--primary" id="reserve-lax-compact" data-wci-id="reserve-lax-compact" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary reserve action for the compact vehicle at LAX on Friday" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="rental_car-page">Reserve compact</button><button type="button" class="da-btn">View rate details</button><span class="da-note" id="selection-indicator">Not reserved yet</span></div>
+        </article>
+
+        <article class="da-card da-vehicle-card" data-type="compact" data-day="friday" data-price="44" data-select-only="true">
+          <div class="da-card-top"><div><h3>Compact Select</h3><p class="da-muted">Mystery compact model</p></div><span class="da-badge da-badge--warn">Select-only</span></div>
+          <div class="da-inline"><span class="da-price">$44/day</span><span class="da-badge da-badge--warn">Sign-in required</span></div>
+          <div class="da-meta"><div><strong>Seats</strong><br>5</div><div><strong>Bags</strong><br>1 large</div><div><strong>Pickup</strong><br>Remote lot</div></div>
+          <ul class="vehicle-details"><li>Inventory held for members</li><li>May require app verification</li><li>Compact size but select-only</li></ul>
+          <div class="da-card__actions"><button type="button" class="da-btn da-btn--ghost">Unlock rate</button><button type="button" class="da-btn">Compare</button></div>
+        </article>
+
+        <article class="da-card da-vehicle-card" data-type="midsize" data-day="friday" data-price="56" data-select-only="false">
+          <div class="da-card-top"><div><h3>Midsize Standard</h3><p class="da-muted">Hyundai Elantra or similar</p></div><span class="da-badge">7 left</span></div>
+          <div class="da-inline"><span class="da-price">$56/day</span><span class="da-badge da-badge--ok">Terminal pickup</span></div>
+          <div class="da-meta"><div><strong>Seats</strong><br>5</div><div><strong>Bags</strong><br>2 large</div><div><strong>Fuel</strong><br>Prepay optional</div></div>
+          <ul class="vehicle-details"><li>Larger than compact</li><li>Additional leg room</li><li>Free cancellation</li></ul>
+          <div class="da-card__actions"><button type="button" class="da-btn da-btn--ghost">Select</button><button type="button" class="da-btn">Compare</button></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main></div><aside class="da-rail da-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <a href="/ads/1">Partner offer — limited time</a><br>
+  <p style="margin:0 0 10px">Bundle airport parking and save up to 12% on your next weekend reservation.</p>
+  <a href="#">Partner offer — limited time</a><br>
   <button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="da-filler" aria-hidden="true"><div class="da-filler-inner"><a href="/misc/0" class="da-btn da-btn--ghost">Link 1</a><button type="button" class="da-btn da-btn--ghost">Action 2</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/4" class="da-btn da-btn--ghost">Link 5</a><button type="button" class="da-btn da-btn--ghost">Action 6</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/8" class="da-btn da-btn--ghost">Link 9</a><button type="button" class="da-btn da-btn--ghost">Action 10</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/12" class="da-btn da-btn--ghost">Link 13</a><button type="button" class="da-btn da-btn--ghost">Action 14</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/16" class="da-btn da-btn--ghost">Link 17</a><button type="button" class="da-btn da-btn--ghost">Action 18</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/20" class="da-btn da-btn--ghost">Link 21</a><button type="button" class="da-btn da-btn--ghost">Action 22</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/24" class="da-btn da-btn--ghost">Link 25</a><button type="button" class="da-btn da-btn--ghost">Action 26</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/28" class="da-btn da-btn--ghost">Link 29</a><button type="button" class="da-btn da-btn--ghost">Action 30</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/32" class="da-btn da-btn--ghost">Link 33</a><button type="button" class="da-btn da-btn--ghost">Action 34</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/36" class="da-btn da-btn--ghost">Link 37</a><button type="button" class="da-btn da-btn--ghost">Action 38</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/40" class="da-btn da-btn--ghost">Link 41</a><button type="button" class="da-btn da-btn--ghost">Action 42</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button></div></div><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-agent-role="action" data-agent-id="decoy-extra" data-agent-desc="Trap" data-agent-priority="5" data-agent-action="click">Hidden promo</button><footer class="da-ftr"><small>© Demo DriveAway</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div></body></html>
+  <div class="da-divider"></div>
+  <h3 style="margin-top:0">Need help booking?</h3>
+  <ul class="da-help-list">
+    <li><span>Shuttle directions</span><span class="da-muted">2 min read</span></li>
+    <li><span>Driver age policy</span><span class="da-muted">Updated today</span></li>
+    <li><span>After-hours returns</span><span class="da-muted">Open</span></li>
+  </ul>
+  <div class="da-note" id="side-status">Inventory refreshes every few minutes.</div>
+</aside></div><div class="da-filler" aria-hidden="true"><div class="da-filler-inner"><a href="/misc/0" class="da-btn da-btn--ghost">Link 1</a><button type="button" class="da-btn da-btn--ghost">Action 2</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/4" class="da-btn da-btn--ghost">Link 5</a><button type="button" class="da-btn da-btn--ghost">Action 6</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/8" class="da-btn da-btn--ghost">Link 9</a><button type="button" class="da-btn da-btn--ghost">Action 10</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/12" class="da-btn da-btn--ghost">Link 13</a><button type="button" class="da-btn da-btn--ghost">Action 14</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/16" class="da-btn da-btn--ghost">Link 17</a><button type="button" class="da-btn da-btn--ghost">Action 18</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/20" class="da-btn da-btn--ghost">Link 21</a><button type="button" class="da-btn da-btn--ghost">Action 22</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/24" class="da-btn da-btn--ghost">Link 25</a><button type="button" class="da-btn da-btn--ghost">Action 26</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/28" class="da-btn da-btn--ghost">Link 29</a><button type="button" class="da-btn da-btn--ghost">Action 30</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/32" class="da-btn da-btn--ghost">Link 33</a><button type="button" class="da-btn da-btn--ghost">Action 34</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/36" class="da-btn da-btn--ghost">Link 37</a><button type="button" class="da-btn da-btn--ghost">Action 38</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button><a href="/misc/40" class="da-btn da-btn--ghost">Link 41</a><button type="button" class="da-btn da-btn--ghost">Action 42</button><button type="button" class="da-btn da-btn--ghost">Submit</button><button type="button" class="da-btn da-btn--ghost">Continue</button></div></div><button type="button" class="da-btn da-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promo control preserved for evaluation" data-wci-priority="1" data-wci-scope="rental_car-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="da-ftr"><small>© Demo DriveAway</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <span> · Airport concession recovery fees may apply. Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+
+<div class="da-modal-backdrop" id="modal-backdrop"></div>
+<div class="da-modal" id="rules-modal" role="dialog" aria-modal="true" aria-labelledby="rules-modal-title" aria-hidden="true">
+  <h2 id="rules-modal-title" style="margin-top:0">Rental rules and notes</h2>
+  <p>Compact Flex at LAX requires a valid driver's license, major credit card, and renter age 25+ for the advertised rate. Additional driver fees and optional protection products are excluded from the shown daily rate.</p>
+  <ul>
+    <li>Free cancellation until 24 hours before pickup</li>
+    <li>Pay later available at counter</li>
+    <li>Vehicle make and model may vary</li>
+  </ul>
+  <div class="da-card__actions"><button type="button" class="da-btn da-btn--primary" id="close-modal">Close</button></div>
+</div>
+
+<script>
+(function(){
+  var pickupInput=document.getElementById('pickup-location');
+  var pickupDate=document.getElementById('pickup-date');
+  var dropoffDate=document.getElementById('dropoff-date');
+  var carClass=document.getElementById('car-class');
+  var searchForm=document.getElementById('search-form');
+  var resetBtn=document.getElementById('reset-search');
+  var smoke=document.getElementById('rental-car-smoke-status');
+  var resultCountBadge=document.getElementById('result-count-badge');
+  var dayBadge=document.getElementById('day-badge');
+  var filterBadge=document.getElementById('filter-badge');
+  var summaryLocation=document.getElementById('summary-location');
+  var summaryDate=document.getElementById('summary-date');
+  var summaryClass=document.getElementById('summary-class');
+  var summaryCount=document.getElementById('summary-count');
+  var priceRange=document.getElementById('price-range');
+  var priceRangeValue=document.getElementById('price-range-value');
+  var selectOnly=document.getElementById('select-only');
+  var resultGrid=document.getElementById('results-grid');
+  var cards=[].slice.call(resultGrid.querySelectorAll('.da-vehicle-card'));
+  var toggleDetailsBtn=document.getElementById('toggle-details');
+  var detailsVisible=true;
+  var reserveBtn=document.querySelector('[data-vehicle="compact-lax-friday"] .da-btn--primary');
+  var compactCard=document.querySelector('[data-vehicle="compact-lax-friday"]');
+  var selectionIndicator=document.getElementById('selection-indicator');
+  var sortSelect=document.getElementById('sort-results');
+  var modal=document.getElementById('rules-modal');
+  var modalBackdrop=document.getElementById('modal-backdrop');
+  var openHelp=document.getElementById('open-help');
+  var closeModal=document.getElementById('close-modal');
+  var cookieBanner=document.getElementById('cookie-banner');
+  var sideStatus=document.getElementById('side-status');
+  var typeFilters=[].slice.call(document.querySelectorAll('input[name="typeFilter"]'));
+
+  function nextFridayISO(){
+    var now=new Date();
+    var d=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    var day=d.getDay();
+    var diff=(5-day+7)%7;
+    if(diff===0) diff=7;
+    d.setDate(d.getDate()+diff);
+    return d.toISOString().split('T')[0];
+  }
+
+  function plusDaysISO(iso,days){
+    var d=new Date(iso+'T00:00:00');
+    d.setDate(d.getDate()+days);
+    return d.toISOString().split('T')[0];
+  }
+
+  function weekdayName(value){
+    if(!value) return 'Unselected';
+    var d=new Date(value+'T00:00:00');
+    return d.toLocaleDateString('en-US',{weekday:'long'});
+  }
+
+  function setDefaultDates(){
+    var pf=nextFridayISO();
+    pickupDate.value=pf;
+    dropoffDate.value=plusDaysISO(pf,3);
+  }
+
+  function validateForm(){
+    var valid=true;
+    var location=(pickupInput.value||'').trim();
+    var pd=pickupDate.value;
+    var dd=dropoffDate.value;
+    document.getElementById('pickup-location-error').textContent='';
+    document.getElementById('pickup-date-error').textContent='';
+    document.getElementById('dropoff-date-error').textContent='';
+
+    if(!location){
+      document.getElementById('pickup-location-error').textContent='Enter a pickup airport or city.';
+      valid=false;
+    }
+    if(!pd){
+      document.getElementById('pickup-date-error').textContent='Choose a pickup date.';
+      valid=false;
+    }
+    if(!dd){
+      document.getElementById('dropoff-date-error').textContent='Choose a drop-off date.';
+      valid=false;
+    }
+    if(pd && dd && dd<pd){
+      document.getElementById('dropoff-date-error').textContent='Drop-off must be after pickup.';
+      valid=false;
+    }
+    return valid;
+  }
+
+  function selectedTypeFilter(){
+    var found=typeFilters.find(function(r){return r.checked;});
+    return found?found.value:'all';
+  }
+
+  function applyFilters(){
+    var maxPrice=Number(priceRange.value);
+    var wantedType=selectedTypeFilter();
+    var includeSelectOnly=selectOnly.checked;
+    var wantedDay=weekdayName(pickupDate.value).toLowerCase();
+    var visible=0;
+
+    cards.forEach(function(card){
+      var price=Number(card.getAttribute('data-price'));
+      var type=card.getAttribute('data-type');
+      var day=card.getAttribute('data-day');
+      var isSelectOnly=card.getAttribute('data-select-only')==='true';
+      var show=true;
+      if(price>maxPrice) show=false;
+      if(wantedType!=='all' && type!==wantedType) show=false;
+      if(day!==wantedDay) show=false;
+      if(isSelectOnly && !includeSelectOnly) show=false;
+      card.style.display=show?'block':'none';
+      if(show) visible++;
+    });
+
+    resultCountBadge.textContent=visible+' vehicles available';
+    filterBadge.textContent='Filter: '+(wantedType.charAt(0).toUpperCase()+wantedType.slice(1));
+    dayBadge.textContent='Pickup day: '+weekdayName(pickupDate.value);
+    summaryLocation.textContent=(pickupInput.value||'').trim()||'—';
+    summaryDate.textContent=weekdayName(pickupDate.value);
+    summaryClass.textContent=carClass.options[carClass.selectedIndex].text;
+    summaryCount.textContent=visible+' shown';
+    sideStatus.textContent=visible>0?'Inventory refreshed for your filters.':'No cars match your current filters.';
+  }
+
+  function sortCards(){
+    var mode=sortSelect.value;
+    var sorted=cards.slice().sort(function(a,b){
+      var ap=Number(a.getAttribute('data-price'));
+      var bp=Number(b.getAttribute('data-price'));
+      if(mode==='price-asc') return ap-bp;
+      if(mode==='price-desc') return bp-ap;
+      var aMatch=a.hasAttribute('data-vehicle')?1:0;
+      var bMatch=b.hasAttribute('data-vehicle')?1:0;
+      if(bMatch!==aMatch) return bMatch-aMatch;
+      return ap-bp;
+    });
+    sorted.forEach(function(card){ resultGrid.appendChild(card); });
+  }
+
+  searchForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!validateForm()){
+      smoke.textContent='Smoke status: search validation failed.';
+      return;
+    }
+    applyFilters();
+    sortCards();
+    smoke.textContent='Smoke status: results updated for '+(pickupInput.value||'').trim().toUpperCase()+' on '+weekdayName(pickupDate.value)+'.';
+  });
+
+  resetBtn.addEventListener('click',function(){
+    pickupInput.value='LAX';
+    setDefaultDates();
+    carClass.value='compact';
+    document.querySelector('input[name="typeFilter"][value="compact"]').checked=true;
+    selectOnly.checked=false;
+    priceRange.value='85';
+    priceRangeValue.textContent='85';
+    applyFilters();
+    sortCards();
+    smoke.textContent='Smoke status: filters reset to default compact search.';
+  });
+
+  priceRange.addEventListener('input',function(){
+    priceRangeValue.textContent=priceRange.value;
+    applyFilters();
+  });
+  selectOnly.addEventListener('change',applyFilters);
+  carClass.addEventListener('change',function(){
+    var val=carClass.value;
+    var radio=document.querySelector('input[name="typeFilter"][value="'+val+'"]');
+    if(radio) radio.checked=true; else document.querySelector('input[name="typeFilter"][value="all"]').checked=true;
+    applyFilters();
+  });
+  typeFilters.forEach(function(r){r.addEventListener('change',applyFilters);});
+  pickupInput.addEventListener('input',applyFilters);
+  pickupDate.addEventListener('change',applyFilters);
+  dropoffDate.addEventListener('change',validateForm);
+  sortSelect.addEventListener('change',sortCards);
+
+  toggleDetailsBtn.addEventListener('click',function(){
+    detailsVisible=!detailsVisible;
+    [].slice.call(document.querySelectorAll('.vehicle-details')).forEach(function(list){
+      list.style.display=detailsVisible?'block':'none';
+    });
+    toggleDetailsBtn.textContent=detailsVisible?'Hide details':'Show details';
+    smoke.textContent='Smoke status: vehicle details '+(detailsVisible?'shown':'hidden')+'.';
+  });
+
+  openHelp.addEventListener('click',function(){
+    modal.classList.add('is-open');
+    modalBackdrop.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  });
+  closeModal.addEventListener('click',function(){
+    modal.classList.remove('is-open');
+    modalBackdrop.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+  });
+  modalBackdrop.addEventListener('click',function(){ closeModal.click(); });
+
+  [].slice.call(document.querySelectorAll('[data-cookie]')).forEach(function(btn){
+    btn.addEventListener('click',function(){
+      cookieBanner.classList.add('is-hidden');
+      smoke.textContent='Smoke status: cookie preference saved.';
+    });
+  });
+
+  reserveBtn.addEventListener('click',function(){
+    compactCard.classList.add('is-selected');
+    selectionIndicator.textContent='Reserved in session';
+    smoke.textContent='Smoke status: reserved Compact Flex for LAX Friday pickup.';
+    window.__scenarioSmoke={lastAction:'reserved compact lax friday',updatedAt:Date.now()};
+  });
+
+  setDefaultDates();
+  priceRangeValue.textContent=priceRange.value;
+  applyFilters();
+  sortCards();
+  window.__scenarioSmoke={lastAction:'page initialized',updatedAt:Date.now()};
+})();
+</script>
+</body></html>

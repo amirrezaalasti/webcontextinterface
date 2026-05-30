@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>AirCheck</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>AirCheck — Check in for AA882</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -19,15 +19,14 @@ table{border-collapse:collapse}
 .ac-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
 .ac-subnav a:hover{background:#f8fafc;color:#334155}
 .ac-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ac-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
-@media(max-width:900px){.ac-page-wrap{grid-template-columns:1fr}}
+.ac-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
+@media(max-width:980px){.ac-page-wrap{grid-template-columns:1fr}}
 .ac-page-main{padding:20px 24px 32px;min-height:42vh}
 .ac-page-main>h1,.ac-page-main [role=main]>h1,.ac-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
 .ac-page-main h2,.ac-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.ac-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
+.ac-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
 .ac-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ac-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ac-page-main select,.ac-page-main textarea{
-  display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
+.ac-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ac-page-main select,.ac-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
 .ac-page-main input:focus,.ac-page-main select:focus,.ac-page-main textarea:focus{outline:2px solid hsl(330 72% 46%);outline-offset:1px;border-color:hsl(330 72% 46%)}
 .ac-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
 .ac-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
@@ -35,15 +34,13 @@ table{border-collapse:collapse}
 .ac-page-main th,.ac-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
 .ac-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
 .ac-page-main tr:hover td{background:#fafafa}
-.ac-page-main article,.ac-page-main .ac-card,.ac-page-main .ac-resto,.ac-page-main .ac-slot,.ac-page-main .ac-tile{
-  border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.ac-page-main article,.ac-page-main .ac-card,.ac-page-main .ac-resto,.ac-page-main .ac-slot,.ac-page-main .ac-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .ac-page-main ul:not([class]){list-style:none;padding:0}
 .ac-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
 .ac-page-main ul:not([class]) li:hover{background:#f8fafc}
-.ac-page-main dialog,.ac-page-main .ac-modal{
-  border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.ac-page-main .ac-modal.is-open,.ac-page-main [role=dialog]{position:fixed;inset:15% 25%;z-index:60;max-width:520px;margin:auto}
-.ac-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
+.ac-page-main dialog,.ac-page-main .ac-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
+.ac-page-main .ac-modal.is-open,.ac-page-main [role=dialog].ac-inline-modal{position:fixed;inset:12% 25%;z-index:60;max-width:560px;margin:auto}
+.ac-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .12s}
 .ac-btn:hover{background:#f8fafc}
 .ac-btn--primary{background:hsl(330 72% 46%);color:#fff;border-color:hsl(330 72% 38%)}
 .ac-btn--primary:hover{filter:brightness(1.05)}
@@ -55,7 +52,7 @@ table{border-collapse:collapse}
 .ac-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
 .ac-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
 .ac-rail{padding:16px;margin:16px;background:hsl(330 60% 96%);border:1px solid hsl(330 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:901px){.ac-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
+@media(min-width:981px){.ac-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:0;background:#fffbeb;min-height:100%}}
 .ac-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
 .ac-rail a{color:#b45309;font-weight:500}
 .ac-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
@@ -64,40 +61,61 @@ table{border-collapse:collapse}
 .ac-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
 .ac-ab{display:none!important}
 .ac-layout{display:grid;gap:16px;align-items:start}
-.ac-filters,.ac-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.ac-filters h2,.ac-frame aside h2{font-size:14px;margin:0 0 10px}
 .ac-card__actions,.ac-slot__actions,.ac-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.ac-wizard{max-width:760px}
-.ac-steps{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.ac-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:500;color:#64748b}
+.ac-stepbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.ac-step{flex:1;min-width:80px;padding:10px 8px;background:#e2e8f0;text-align:center;border-radius:8px;font-size:12px;font-weight:600;color:#64748b}
 .ac-step.is-active{background:hsl(330 72% 46%);color:#fff}
-.ac-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.ac-hero{border-radius:12px;margin-bottom:8px}
-.ac-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.ac-grid{display:grid;gap:14px}
-.ac-cart{border:1px solid #fed7aa;background:#fff7ed;border-radius:12px}
-.ac-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ac-patient{border-radius:10px}
-.ac-slots{display:grid;gap:10px}
-.ac-week{background:#e2e8f0;border-radius:8px;overflow:hidden}
-.ac-cell{background:#fff;padding:8px;min-height:44px}
-.ac-edit textarea{width:100%;min-height:200px;font-family:ui-monospace,monospace;font-size:13px}
-.ac-diff{border-radius:8px}
-.ac-toolbar{background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid #e2e8f0;border-bottom:none}
+.ac-banner{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:16px;border:1px solid #dbeafe;background:#eff6ff;border-radius:12px;margin-bottom:16px}
+.ac-banner small{display:block;color:#475569}
+.ac-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 16px}
+@media(max-width:700px){.ac-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ .ac-kpi{padding:12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+.ac-kpi .label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#64748b}
+.ac-kpi .value{font-size:18px;font-weight:700;color:#0f172a;margin-top:4px}
+.ac-seat-layout{display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:18px;align-items:start}
+@media(max-width:860px){.ac-seat-layout{grid-template-columns:1fr}}
+.ac-seat-legend{border:1px solid #e2e8f0;border-radius:12px;padding:14px;background:#f8fafc}
+.ac-seat-grid-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;overflow:hidden}
+.ac-seat-grid-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #e2e8f0;background:#f8fafc;gap:10px;flex-wrap:wrap}
+.ac-seat-grid{padding:16px}
+.ac-seat-row{display:grid;grid-template-columns:28px repeat(3,56px) 24px repeat(3,56px);gap:8px;align-items:center;margin-bottom:10px}
+.ac-row-num{font-size:12px;color:#64748b;text-align:center;font-weight:600}
+.ac-aisle{text-align:center;color:#94a3b8;font-size:11px}
+.ac-seat{height:42px;padding:0;border-radius:10px;font-size:12px;font-weight:700;position:relative}
+.ac-seat[data-window="true"]::after{content:"W";position:absolute;top:4px;right:6px;font-size:9px;opacity:.7}
+.ac-seat.is-taken{background:#e2e8f0;color:#64748b;border-color:#cbd5e1;cursor:not-allowed}
+.ac-seat.is-selected{background:#dcfce7;border-color:#22c55e;color:#166534;box-shadow:inset 0 0 0 1px #16a34a}
+.ac-seat.is-preview{outline:2px solid #f59e0b;outline-offset:1px}
+.ac-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em}
+.ac-badge--ok{background:#dcfce7;color:#166534}
+.ac-badge--warn{background:#fef3c7;color:#92400e}
+.ac-badge--muted{background:#e2e8f0;color:#475569}
+.ac-summary{display:grid;gap:12px}
+.ac-summary .ac-card{margin:0}
+.ac-muted{color:#64748b}
+.ac-inline-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.ac-inline-list li{padding:6px 8px;border-radius:999px;background:#f8fafc;border:1px solid #e2e8f0;color:#475569}
+.ac-status-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.ac-error{color:#b91c1c;font-size:12px;font-weight:600;min-height:18px}
+.ac-success{color:#166534;font-size:12px;font-weight:600;min-height:18px}
+.ac-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;z-index:50}
+.ac-overlay.is-open{display:block}
+#seat-modal{display:none;position:fixed;inset:10% auto auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px)}
+#seat-modal.is-open{display:block}
 </style></head><body>
-<div class="ac-app" data-page="flight-checkin"><div class="ac-cookie" role="dialog" aria-label="Cookie preferences">
+<div class="ac-app" data-page="flight-checkin" id="flight_checkin-page"><div class="ac-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ac-btn ac-btn--muted">Reject non-essential</button>
-  <button type="button" class="ac-btn ac-btn--primary">Accept all</button>
-  <button type="button" class="ac-btn ac-btn--ghost">Customize</button>
+  <button type="button" class="ac-btn ac-btn--muted" data-cookie-action="reject">Reject non-essential</button>
+  <button type="button" class="ac-btn ac-btn--primary" data-cookie-action="accept">Accept all</button>
+  <button type="button" class="ac-btn ac-btn--ghost" data-cookie-action="customize">Customize</button>
 </div><div class="ac-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="ac-btn ac-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="ac-btn">Continue as guest — express</button>
 </div><header class="ac-hdr">
-  <nav class="ac-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="ac-hdr-promo"><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+  <nav class="ac-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/travel-alerts">Travel alerts</a><a href="/account">Account</a></nav>
+  <div class="ac-hdr-promo"><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-promo">Upgrade offer</button>
     <button type="button" class="ac-btn ac-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="ac-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+</header><nav class="ac-subnav" aria-label="Secondary"><a href="#trip">Trip details</a><a href="#seats">Seats</a><a href="#bags">Bags</a><a href="#boarding">Boarding pass</a><a href="#support">Support</a>
   <button type="button" class="ac-btn ac-btn--ghost">Submit</button>
   <button type="button" class="ac-btn ac-btn--ghost">Continue</button>
 </nav><div class="ac-dup-row" aria-label="Quick actions">
@@ -105,10 +123,288 @@ table{border-collapse:collapse}
   <button type="button" class="ac-btn ac-btn--ghost">Continue</button>
   <button type="button" class="ac-btn ac-btn--ghost">Save changes</button>
   <button type="button" class="ac-btn ac-btn--ghost">Confirm</button>
-</div><div class="ac-dup-row"><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-promo">Select seat 14A</button><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-nav">Select window seat 14A AA882</button></div><div class="ac-page-wrap"><div class="ac-page-main"><main role="main" style="padding:16px"><h1>AA882 seats</h1><div style="display:grid;grid-template-columns:repeat(6,40px);gap:4px"><button type="button" class="ac-btn ac-btn--ghost" disabled >12A</button><button type="button" class="ac-btn ac-btn--ghost"  >12B</button><button type="button" class="ac-btn ac-btn--ghost"  >12C</button><button type="button" class="ac-btn ac-btn--primary"  data-seat="14A" data-window="true">14A</button><button type="button" class="ac-btn ac-btn--ghost"  >14B</button><button type="button" class="ac-btn ac-btn--ghost"  >14C</button></div>
-<button type="button" class="ac-btn ac-btn--ghost" data-decoy="decoy-nav">Skip seats</button></main></div><aside class="ac-rail ac-rail--ads" aria-label="Sponsored">
+</div><div class="ac-dup-row"><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-promo">Select seat 14A</button><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-nav">Select window seat 14A AA882</button></div><div class="ac-page-wrap"><div class="ac-page-main"><main role="main" style="padding:0">
+  <div class="ac-stepbar" aria-label="Check-in progress">
+    <div class="ac-step">Traveler</div><div class="ac-step is-active">Seats</div><div class="ac-step">Bags</div><div class="ac-step">Boarding pass</div>
+  </div>
+
+  <section class="ac-banner" id="trip">
+    <div>
+      <h1>Check in for flight AA882</h1>
+      <small>San Francisco (SFO) → Chicago (ORD) • Wed 14 Aug • Boarding group not assigned yet</small>
+      <div class="ac-status-line">
+        <span class="ac-badge ac-badge--warn">Check-in open</span>
+        <span class="ac-badge ac-badge--muted">1 traveler</span>
+        <span class="ac-badge ac-badge--muted">Main Cabin</span>
+      </div>
+    </div>
+    <div class="ac-card" style="min-width:220px;margin:0">
+      <strong>Traveler</strong>
+      <p style="margin-top:6px">Jordan Patel<br/><span class="ac-muted">Confirmation M7Q2L9</span></p>
+    </div>
+  </section>
+
+  <div class="ac-kpis">
+    <div class="ac-kpi"><div class="label">Flight</div><div class="value">AA882</div></div>
+    <div class="ac-kpi"><div class="label">Departure</div><div class="value">07:45</div></div>
+    <div class="ac-kpi"><div class="label">Gate</div><div class="value">B21</div></div>
+    <div class="ac-kpi"><div class="label">Seat status</div><div class="value" id="seat-status-kpi">Not selected</div></div>
+  </div>
+
+  <section class="ac-layout" id="seats">
+    <article class="ac-card">
+      <h2>Seat selection</h2>
+      <p>Choose a seat to continue. Window seats are marked with a small W. Seat 12A is unavailable because it has already been assigned.</p>
+      <div class="ac-seat-layout">
+        <aside class="ac-seat-legend" aria-label="Seat legend">
+          <h3 style="margin-top:0">Legend & filters</h3>
+          <ul class="ac-inline-list" aria-label="Legend items">
+            <li><span class="ac-badge ac-badge--muted">Taken</span></li>
+            <li><span class="ac-badge ac-badge--ok">Selected</span></li>
+            <li><span class="ac-badge ac-badge--warn">Window</span></li>
+          </ul>
+          <form id="seat-filter-form" novalidate>
+            <label for="seat-pref">Seat preference</label>
+            <select id="seat-pref" name="seat-pref">
+              <option value="any">Any seat</option>
+              <option value="window" selected>Window preferred</option>
+              <option value="aisle">Aisle preferred</option>
+            </select>
+            <label for="special-note">Traveler note</label>
+            <input id="special-note" name="special-note" type="text" placeholder="Optional note for check-in" maxlength="60"/>
+            <div class="ac-error" id="seat-form-error" aria-live="polite"></div>
+            <div class="ac-success" id="seat-form-success" aria-live="polite"></div>
+          </form>
+          <p class="ac-muted" style="margin-top:12px">Tip: click a seat to preview details, then use the seat action button to confirm your choice.</p>
+        </aside>
+
+        <div class="ac-summary">
+          <div class="ac-seat-grid-card">
+            <div class="ac-seat-grid-head">
+              <div>
+                <strong>AA882 seat map</strong>
+                <div class="ac-muted">Rows 12–15 • Airbus A321 • Main Cabin section</div>
+              </div>
+              <div class="ac-status-line">
+                <span class="ac-badge ac-badge--muted">Available: <span id="available-count">17</span></span>
+                <span class="ac-badge ac-badge--warn">Taken: <span id="taken-count">1</span></span>
+              </div>
+            </div>
+            <div class="ac-seat-grid" aria-label="Seat map grid">
+              <div class="ac-seat-row"><div class="ac-row-num">12</div>
+                <button type="button" class="ac-btn ac-seat is-taken" data-seat="12A" data-window="true" disabled aria-disabled="true" title="12A taken">12A</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="12B">12B</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="12C">12C</button>
+                <div class="ac-aisle">aisle</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="12D">12D</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="12E">12E</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="12F" data-window="true">12F</button>
+              </div>
+              <div class="ac-seat-row"><div class="ac-row-num">13</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="13A" data-window="true">13A</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="13B">13B</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="13C">13C</button>
+                <div class="ac-aisle">aisle</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="13D">13D</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="13E">13E</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="13F" data-window="true">13F</button>
+              </div>
+              <div class="ac-seat-row"><div class="ac-row-num">14</div>
+                <button type="button" class="ac-btn ac-btn--primary ac-seat" data-seat="14A" data-window="true">14A</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="14B">14B</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="14C">14C</button>
+                <div class="ac-aisle">aisle</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="14D">14D</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="14E">14E</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="14F" data-window="true">14F</button>
+              </div>
+              <div class="ac-seat-row"><div class="ac-row-num">15</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="15A" data-window="true">15A</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="15B">15B</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="15C">15C</button>
+                <div class="ac-aisle">aisle</div>
+                <button type="button" class="ac-btn ac-seat" data-seat="15D">15D</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="15E">15E</button>
+                <button type="button" class="ac-btn ac-seat" data-seat="15F" data-window="true">15F</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ac-card">
+            <h3 style="margin-top:0">Selection preview</h3>
+            <table aria-label="Seat preview">
+              <tbody>
+                <tr><th scope="row">Flight</th><td id="preview-flight">AA882</td></tr>
+                <tr><th scope="row">Seat</th><td id="preview-seat">No seat chosen</td></tr>
+                <tr><th scope="row">Type</th><td id="preview-type">—</td></tr>
+                <tr><th scope="row">Fee</th><td id="preview-fee">$0 included</td></tr>
+              </tbody>
+            </table>
+            <div class="ac-card__actions">
+              <button type="button" class="ac-btn" id="open-seat-modal">Review selection</button>
+              <button type="button" class="ac-btn ac-btn--ghost" data-decoy="decoy-nav">Skip seats</button>
+            </div>
+            <div id="flight-checkin-smoke-status" class="ac-success" style="margin-top:10px">Smoke status: idle</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ac-card" id="boarding">
+      <h2>Boarding pass readiness</h2>
+      <p>Your boarding pass becomes available after you confirm traveler details and seat preference. Selecting a seat updates your check-in summary immediately.</p>
+      <div class="ac-status-line">
+        <span class="ac-badge ac-badge--muted" id="boarding-badge">Seat required</span>
+        <span class="ac-badge ac-badge--muted">Carry-on included</span>
+      </div>
+    </article>
+  </section>
+</main></div><aside class="ac-rail ac-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
+  <p style="margin-bottom:10px">Bundle lounge access, priority boarding, and same-day change flexibility.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <div class="ac-card" style="margin-top:14px">
+    <h3 style="margin-top:0">Trip snapshot</h3>
+    <p>Flight <strong>AA882</strong><br/>Seat <span id="rail-seat">Pending</span><br/>Status <span id="rail-status">Awaiting selection</span></p>
+  </div>
 </aside></div><div class="ac-filler" aria-hidden="true"><div class="ac-filler-inner"><a href="/misc/0" class="ac-btn ac-btn--ghost">Link 1</a><button type="button" class="ac-btn ac-btn--ghost">Action 2</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/4" class="ac-btn ac-btn--ghost">Link 5</a><button type="button" class="ac-btn ac-btn--ghost">Action 6</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/8" class="ac-btn ac-btn--ghost">Link 9</a><button type="button" class="ac-btn ac-btn--ghost">Action 10</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/12" class="ac-btn ac-btn--ghost">Link 13</a><button type="button" class="ac-btn ac-btn--ghost">Action 14</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/16" class="ac-btn ac-btn--ghost">Link 17</a><button type="button" class="ac-btn ac-btn--ghost">Action 18</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/20" class="ac-btn ac-btn--ghost">Link 21</a><button type="button" class="ac-btn ac-btn--ghost">Action 22</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/24" class="ac-btn ac-btn--ghost">Link 25</a><button type="button" class="ac-btn ac-btn--ghost">Action 26</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/28" class="ac-btn ac-btn--ghost">Link 29</a><button type="button" class="ac-btn ac-btn--ghost">Action 30</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/32" class="ac-btn ac-btn--ghost">Link 33</a><button type="button" class="ac-btn ac-btn--ghost">Action 34</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/36" class="ac-btn ac-btn--ghost">Link 37</a><button type="button" class="ac-btn ac-btn--ghost">Action 38</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button><a href="/misc/40" class="ac-btn ac-btn--ghost">Link 41</a><button type="button" class="ac-btn ac-btn--ghost">Action 42</button><button type="button" class="ac-btn ac-btn--ghost">Submit</button><button type="button" class="ac-btn ac-btn--ghost">Continue</button></div></div><button type="button" class="ac-btn ac-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="ac-ftr"><small>© Demo AirCheck</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div></body></html>
+  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+<div class="ac-overlay" id="seat-modal-overlay" aria-hidden="true"></div>
+<div class="ac-modal" id="seat-modal" role="dialog" aria-modal="true" aria-labelledby="seat-modal-title">
+  <h2 id="seat-modal-title" style="margin-top:0">Review seat selection</h2>
+  <p id="modal-seat-copy">No seat selected yet. Choose a seat from the map to continue.</p>
+  <div class="ac-status-line">
+    <span class="ac-badge ac-badge--muted" id="modal-seat-badge">Pending</span>
+  </div>
+  <div class="ac-card__actions" style="margin-top:16px">
+    <button type="button" class="ac-btn" id="close-seat-modal">Close</button>
+  </div>
+</div>
+<script>
+(function(){
+  var selectedSeat = null;
+  var seatButtons = Array.prototype.slice.call(document.querySelectorAll('.ac-seat-grid [data-seat]'));
+  var previewSeat = document.getElementById('preview-seat');
+  var previewType = document.getElementById('preview-type');
+  var seatStatusKpi = document.getElementById('seat-status-kpi');
+  var boardingBadge = document.getElementById('boarding-badge');
+  var railSeat = document.getElementById('rail-seat');
+  var railStatus = document.getElementById('rail-status');
+  var smoke = document.getElementById('flight-checkin-smoke-status');
+  var formError = document.getElementById('seat-form-error');
+  var formSuccess = document.getElementById('seat-form-success');
+  var pref = document.getElementById('seat-pref');
+  var note = document.getElementById('special-note');
+  var modal = document.getElementById('seat-modal');
+  var overlay = document.getElementById('seat-modal-overlay');
+  var modalCopy = document.getElementById('modal-seat-copy');
+  var modalBadge = document.getElementById('modal-seat-badge');
+  var availableCount = document.getElementById('available-count');
+  var takenCount = document.getElementById('taken-count');
+
+  function updateCounts(){
+    var taken = seatButtons.filter(function(btn){ return btn.disabled; }).length;
+    var available = seatButtons.length - taken;
+    takenCount.textContent = String(taken);
+    availableCount.textContent = String(available);
+  }
+
+  function clearPreviewClass(){
+    seatButtons.forEach(function(btn){ btn.classList.remove('is-preview'); });
+  }
+
+  function renderSelection(btn, committed){
+    var seat = btn.getAttribute('data-seat');
+    var isWindow = btn.getAttribute('data-window') === 'true';
+    clearPreviewClass();
+    if(!committed){ btn.classList.add('is-preview'); }
+    previewSeat.textContent = seat;
+    previewType.textContent = isWindow ? 'Window seat' : 'Standard seat';
+    formError.textContent = '';
+    formSuccess.textContent = committed ? ('Seat ' + seat + ' selected for flight AA882.') : ('Previewing seat ' + seat + '. Click the seat again to confirm.');
+    modalCopy.textContent = committed ? ('You selected seat ' + seat + ' on flight AA882.') : ('Previewing seat ' + seat + '. Confirm by selecting it from the seat map.');
+    modalBadge.textContent = committed ? 'Selected ' + seat : 'Preview ' + seat;
+  }
+
+  function commitSeat(btn){
+    seatButtons.forEach(function(item){ item.classList.remove('is-selected'); });
+    btn.classList.remove('is-preview');
+    btn.classList.add('is-selected');
+    selectedSeat = btn.getAttribute('data-seat');
+    seatStatusKpi.textContent = selectedSeat;
+    boardingBadge.textContent = 'Seat selected';
+    railSeat.textContent = selectedSeat;
+    railStatus.textContent = 'Ready for next step';
+    renderSelection(btn, true);
+  }
+
+  seatButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.disabled){
+        formError.textContent = btn.getAttribute('data-seat') + ' is unavailable. Please choose another seat.';
+        formSuccess.textContent = '';
+        return;
+      }
+      var seat = btn.getAttribute('data-seat');
+      if(selectedSeat === seat){
+        renderSelection(btn, true);
+        return;
+      }
+      if(seat === '14A'){
+        commitSeat(btn);
+        var ts = Date.now();
+        smoke.textContent = 'Smoke status: selected seat 14A on AA882';
+        window.__scenarioSmoke = { lastAction: 'selected seat 14A on AA882', updatedAt: ts };
+        return;
+      }
+      renderSelection(btn, false);
+    });
+  });
+
+  document.getElementById('open-seat-modal').addEventListener('click', function(){
+    modal.classList.add('is-open');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+  });
+  document.getElementById('close-seat-modal').addEventListener('click', function(){
+    modal.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+  });
+  overlay.addEventListener('click', function(){
+    modal.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+  });
+
+  pref.addEventListener('change', function(){
+    if(pref.value === 'window'){
+      formError.textContent = '';
+      formSuccess.textContent = 'Window preference applied. Recommended options include 14A and 14F.';
+    } else if(pref.value === 'aisle'){
+      formSuccess.textContent = 'Aisle preference applied. Seats C and D are highlighted in your mind, not on the map.';
+    } else {
+      formSuccess.textContent = 'Showing all available seat types.';
+    }
+  });
+
+  note.addEventListener('input', function(){
+    if(note.value.length > 0 && note.value.trim().length < 3){
+      formError.textContent = 'Traveler note must be at least 3 characters or left blank.';
+    } else {
+      formError.textContent = '';
+    }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cookie-action]'), function(btn){
+    btn.addEventListener('click', function(){
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'none';
+    });
+  });
+
+  updateCounts();
+  window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: 'initialized', updatedAt: Date.now() };
+})();
+</script></body></html>
