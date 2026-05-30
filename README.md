@@ -12,6 +12,12 @@
   <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/v/@webcontextinterface/bridge?label=bridge" alt="npm @webcontextinterface/bridge" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/v/@webcontextinterface/context?label=context" alt="npm @webcontextinterface/context" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/v/@webcontextinterface/core?label=core" alt="npm @webcontextinterface/core" /></a>
+  <br />
+  <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/dm/@webcontextinterface/spec?label=spec" alt="npm downloads/month @webcontextinterface/spec" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/dm/@webcontextinterface/distiller?label=distiller" alt="npm downloads/month @webcontextinterface/distiller" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/dm/@webcontextinterface/bridge?label=bridge" alt="npm downloads/month @webcontextinterface/bridge" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/dm/@webcontextinterface/context?label=context" alt="npm downloads/month @webcontextinterface/context" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/dm/@webcontextinterface/core?label=core" alt="npm downloads/month @webcontextinterface/core" /></a>
 </p>
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
