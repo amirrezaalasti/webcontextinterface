@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SkyWing Airlines — Search Results</title><style data-wci-legacy-styles="1">
+<!DOCTYPE html><html lang="en"><head><style data-wci-legacy-styles="1">
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
@@ -9,47 +9,1059 @@ a{text-decoration:none}
 ul,ol{margin:0;padding:0;list-style:none}
 h1,h2,h3,h4,p{margin:0}
 
-.sw-root,.sw-theme-dark{--bg:#0c1222;--panel:#151d2e;--text:#e8edf5;--muted:#94a3b8;--line:#2a3548;--accent:#38bdf8;background:var(--bg);color:var(--text);min-height:100vh}
-.sw-container{max-width:1200px;margin:0 auto;padding:0 20px}
-.sw-hdr{background:linear-gradient(180deg,#0f172a,#0c1222);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.sw-hdr__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;flex-wrap:wrap}
-.sw-hdr__logo{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700}
-.sw-hdr__logo-img{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#38bdf8,#6366f1)}
-.sw-hdr__nav-list{display:flex;gap:8px;flex-wrap:wrap}
-.sw-hdr__nav-link{color:var(--muted);padding:8px 12px;border-radius:6px;font-size:13px}
-.sw-hdr__nav-link:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.sw-root,.sw-theme-light{--bg:#fff;--panel:#f8f9fa;--text:#202124;--muted:#5f6368;--line:#dadce0;--accent:#1a73e8;--accent-soft:#e8f0fe;background:var(--bg);color:var(--text);min-height:100vh}
+.sw-hidden{display:none!important}
+.sw-container{max-width:1240px;margin:0 auto;padding:0 24px}
+.sw-hdr{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.sw-hdr__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;flex-wrap:wrap}
+.sw-hdr__logo{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:500;font-size:22px}
+.sw-hdr__logo-img{width:28px;height:28px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#ea4335 25% 50%,#fbbc04 50% 75%,#34a853 75%)}
+.sw-hdr__nav-list{display:flex;gap:4px;flex-wrap:wrap}
+.sw-hdr__nav-link{color:var(--muted);padding:8px 14px;border-radius:999px;font-size:14px}
+.sw-hdr__nav-link:hover{color:var(--text);background:var(--panel)}
 .sw-hdr__right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.sw-search-bar{background:var(--panel);border-bottom:1px solid var(--line)}
-.sw-search-bar__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;flex-wrap:wrap}
-.sw-search-bar__route{font-weight:600;font-size:15px}
+.sw-hdr__nav-item{position:relative}
+.sw-hdr__nav-item--has-mega.is-open .sw-mega{display:block}
+.sw-mega{display:none;position:absolute;top:100%;left:0;min-width:720px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.12);padding:16px;z-index:60}
+.sw-mega__inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sw-mega__heading{font-size:12px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+.sw-mega__col a{display:block;padding:6px 0;color:var(--text);font-size:13px}
+.sw-mega__col a:hover{color:var(--accent)}
+.sw-mega__promo-card{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--panel)}
+.sw-mega__promo-text{display:block;font-size:12px;margin:8px 0}
+.sw-mega__promo-cta{color:var(--accent);font-weight:600;font-size:13px}
+.sw-search-panel{background:var(--panel);border-bottom:1px solid var(--line);padding:14px 0}
+.sw-search-panel__collapsed{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 18px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.sw-search-bar__summary{display:flex;align-items:center;flex-wrap:wrap;gap:2px;font-size:14px}
+.sw-search-bar__route{font-weight:600}
 .sw-search-bar__sep,.sw-breadcrumbs{color:var(--muted);margin:0 6px}
+.sw-search-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.sw-search-form__trip{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.sw-trip-type{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer}
+.sw-search-form__grid{display:grid;grid-template-columns:1fr auto 1fr repeat(4,minmax(120px,1fr));gap:10px;align-items:end}
+@media(max-width:1000px){.sw-search-form__grid{grid-template-columns:1fr 1fr}}
+.sw-field{display:flex;flex-direction:column;gap:4px;position:relative}
+.sw-field label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.sw-field input,.sw-field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text)}
+.sw-field input:focus,.sw-field select:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.sw-field--airport input{padding-right:42px}
+.sw-field__code{position:absolute;right:10px;bottom:10px;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 6px;border-radius:4px}
+.sw-swap-btn{align-self:end;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--accent);margin-bottom:2px}
+.sw-suggest{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:40;max-height:220px;overflow:auto;margin-top:4px}
+.sw-suggest li{padding:10px 12px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.sw-suggest li:hover{background:var(--accent-soft)}
+.sw-suggest__tag{font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.sw-suggest__sub{font-size:11px;color:var(--muted)}
+.sw-page.sw-hidden{display:none!important}
+.sw-hero{padding:48px 24px 32px;text-align:center}
+.sw-hero__title{font-size:42px;font-weight:400;margin-bottom:8px}
+.sw-hero__sub{color:var(--muted);max-width:560px;margin:0 auto 24px;font-size:16px}
+.sw-hero__actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.sw-hero__cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:720px;margin:0 auto}
+.sw-hero-card{text-align:left;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer}
+.sw-hero-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(26,115,232,.12)}
+.sw-hero-card__route{display:block;font-weight:600;margin-bottom:4px}
+.sw-hero-card__price{font-size:13px;color:var(--accent)}
+.sw-subpage{padding:32px 0 48px;max-width:880px}
+.sw-subpage h1{font-size:28px;font-weight:500;margin-bottom:8px}
+.sw-subpage p{color:var(--muted);margin-bottom:20px}
+.sw-subpage--narrow{max-width:420px}
+.sw-subpage-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:20px}
+.sw-subpage-card{padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:left}
+.sw-subpage-card--click{cursor:pointer;width:100%;font:inherit;color:inherit}
+.sw-subpage-card--click:hover{border-color:var(--accent)}
+.sw-subpage-card h3{font-size:16px;margin-bottom:6px}
+.sw-deals-list{margin:0 0 20px;padding-left:20px;color:var(--text)}
+.sw-deals-list li{margin-bottom:8px}
+.sw-signin-form{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.sw-fare-btn--active-cabin,.sw-fare-btn:not(.sw-hidden).sw-fare-btn--economy{border-color:var(--accent)}
+.sw-hdr__nav-link.sw-nav--active{background:var(--accent-soft);color:var(--accent)}
+.sw-search-form__actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+.sw-date-bar{display:flex;align-items:center;gap:8px;padding:16px 24px 0}
+.sw-date-bar__nav{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
+.sw-date-bar__track{display:flex;gap:8px;overflow-x:auto;flex:1;padding-bottom:4px}
+.sw-date-bar__day{min-width:88px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;text-align:center}
+.sw-date-bar__day--active{border-color:var(--accent);background:var(--accent-soft)}
+.sw-date-bar__dow{display:block;font-size:11px;color:var(--muted)}
+.sw-date-bar__date{display:block;font-size:13px;font-weight:600;margin:2px 0}
+.sw-date-bar__price{display:block;font-size:12px;color:var(--accent);font-weight:600}
 .sw-main{padding:20px 0 48px}
-.sw-results__layout{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+.sw-breadcrumbs{font-size:13px;margin-bottom:12px}
+.sw-breadcrumbs__list{display:flex;gap:6px;flex-wrap:wrap}
+.sw-statusbar{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;font-size:14px}
+.sw-smoke-status{font-size:12px;color:var(--muted);margin-top:4px}
+.sw-active-filters{display:flex;gap:8px;flex-wrap:wrap}
+.sw-chip{display:inline-flex;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:500}
+.sw-promo-banner{background:linear-gradient(90deg,#e8f0fe,#fef7e0);border:1px solid #fde293;border-radius:12px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sw-results__layout{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
 @media(max-width:900px){.sw-results__layout{grid-template-columns:1fr}}
-.sw-filters{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
-.sw-filters__title{font-size:15px;font-weight:600;margin-bottom:12px}
+.sw-filters{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;position:sticky;top:72px}
+.sw-filters__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sw-filters__title{font-size:16px;font-weight:600}
 .sw-filter-group{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.sw-filter-check{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px;color:var(--muted)}
+.sw-filter-group__toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;padding:0;font-weight:600;font-size:14px;cursor:pointer;color:var(--text)}
+.sw-filter-check{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px;color:var(--text)}
 .sw-filter-check__count{margin-left:auto;color:var(--muted);font-size:12px}
-.sw-result-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
-.sw-result-card--promo{border-color:#f59e0b;background:linear-gradient(135deg,#1c1917,#151d2e)}
-.sw-result-card__inner{padding:16px;display:grid;gap:14px}
-.sw-result-card__inner{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
-.sw-airline-logo{width:40px;height:40px;border-radius:8px;background:#334155}
+.sw-filter-subhead{font-size:12px;color:var(--muted);margin-bottom:8px}
+.sw-range-slider{position:relative;height:28px;margin:8px 0}
+.sw-range-slider__track{position:absolute;top:50%;left:0;right:0;height:4px;background:var(--line);border-radius:999px;transform:translateY(-50%)}
+.sw-range-slider__fill{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:999px}
+.sw-range-slider__input{position:absolute;width:100%;top:0;height:28px;opacity:0;cursor:pointer}
+.sw-range-slider__labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.sw-muted{font-size:12px;color:var(--muted);margin-top:8px}
+.sw-time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sw-time-btn{padding:8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:11px;cursor:pointer;text-align:center}
+.sw-time-btn--active{border-color:var(--accent);background:var(--accent-soft)}
+.sw-sponsored-label{font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.05em}
+.sw-sponsored-card{margin-top:8px;padding:10px;border:1px dashed var(--line);border-radius:8px;font-size:12px}
+.sw-sort-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.sw-sort-bar__count{font-size:14px;color:var(--muted)}
+.sw-sort-bar__select{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.sw-result-card{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:box-shadow .15s}
+.sw-result-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.sw-result-card--highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.sw-result-card--promo{border-color:#f9ab00;background:#fffbf0}
+.sw-result-card--partner{border-style:dashed;background:var(--panel)}
+.sw-result-card__inner{padding:16px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.sw-airline-logo{width:32px;height:32px;border-radius:50%;background:#dadce0;flex-shrink:0}
+.sw-airline-logo--sw{background:linear-gradient(135deg,#38bdf8,#6366f1)}
+.sw-airline-logo--ua{background:#0039a6}
+.sw-airline-logo--dl{background:#003366}
+.sw-airline-logo--aa{background:#0078d2}
+.sw-airline-logo--b6{background:#003087}
+.sw-airline-info{display:flex;flex-direction:column;gap:2px;min-width:140px}
+.sw-airline-name,.sw-flight-number{font-size:13px}
+.sw-flight-number{color:var(--muted)}
+.sw-meta-note{font-size:11px;color:#b06000}
+.sw-emissions{font-size:11px;color:var(--muted)}
+.sw-emissions--low{color:#137333}
+.sw-emissions--high{color:#c5221f}
+.sw-result-card__times{display:flex;align-items:center;gap:12px;flex:1;min-width:260px}
+.sw-time-block{text-align:center}
+.sw-time-block__time{font-size:18px;font-weight:600;display:block}
+.sw-time-block__airport{font-size:12px;color:var(--muted)}
+.sw-flight-path{flex:1;text-align:center;position:relative;min-width:100px}
+.sw-flight-path__line{height:2px;background:var(--line);margin:8px 0;position:relative}
+.sw-flight-path__line::after{content:'';position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left-color:var(--muted)}
+.sw-flight-path__duration,.sw-flight-path__stops{display:block;font-size:12px;color:var(--muted)}
+.sw-flight-path__stop-marker{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:2px}
 .sw-result-card__fares{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
-.sw-fare-btn{display:flex;flex-direction:column;align-items:flex-start;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:#0f172a;color:var(--text);min-width:100px}
+.sw-fare-btn{display:flex;flex-direction:column;align-items:flex-start;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--text);min-width:96px;cursor:pointer}
 .sw-fare-btn--economy{border-color:var(--accent)}
-.sw-fare-btn__price{font-size:18px;font-weight:700}
+.sw-fare-btn.is-selected{background:var(--accent-soft);border-color:var(--accent)}
+.sw-fare-btn__price{font-size:18px;font-weight:700;color:var(--accent)}
+.sw-fare-btn__class{font-size:12px;font-weight:600}
 .sw-fare-btn__basis{font-size:11px;color:var(--muted)}
-.sw-sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
-.sw-promo-banner{background:linear-gradient(90deg,#1e3a5f,#312e81);border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sw-result-card__details-toggle{width:100%;padding:10px 16px;border:none;border-top:1px solid var(--line);background:var(--panel);text-align:left;font-size:13px;color:var(--accent);cursor:pointer}
+.sw-result-card__details{padding:14px 16px;border-top:1px solid var(--line);background:#fff}
+.sw-flight-details__row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-bottom:1px solid var(--line)}
+.sw-fare-table{width:100%;margin-top:12px;font-size:12px;border-collapse:collapse}
+.sw-fare-table th,.sw-fare-table td{border:1px solid var(--line);padding:8px;text-align:center}
+.sw-promo-badge,.sw-partner-badge{font-size:11px;font-weight:700;color:#b06000;margin-bottom:6px}
+.sw-promo-text{font-size:14px}
+.sw-link{color:var(--accent)}
+.sw-pagination{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
+.sw-pagination__btn{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;font-size:13px}
+.sw-pagination__btn--active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.sw-pagination__btn:disabled{opacity:.4;cursor:not-allowed}
+.sw-cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:14px 20px;z-index:80;box-shadow:0 -4px 20px rgba(0,0,0,.08)}
+.sw-cookie-banner__inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+.sw-cookie-banner__actions{display:flex;gap:8px}
+.sw-modal[aria-hidden="false"]{display:flex}
+.sw-modal{display:none;position:fixed;inset:0;z-index:90;align-items:center;justify-content:center;padding:20px}
+.sw-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.sw-modal__panel{position:relative;background:#fff;border-radius:16px;padding:24px;max-width:440px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.sw-modal__body{margin-top:10px;color:var(--muted)}
+.sw-modal__actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.sw-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(12px);background:#323232;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:100}
+.sw-toast.is-show{opacity:1;transform:translateX(-50%) translateY(0)}
+.sw-footer{border-top:1px solid var(--line);padding:32px 0;margin-top:32px;background:var(--panel)}
+.sw-footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+.sw-footer__col h4{font-size:13px;margin-bottom:8px}
+.sw-footer__col a{display:block;font-size:13px;color:var(--muted);padding:4px 0}
+.sw-footer__bottom{font-size:12px;color:var(--muted)}
 
 .sw-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
-.sw-btn--primary{background:#0ea5e9;border-color:#0ea5e9;color:#fff}
+.sw-btn--primary{background:#1a73e8;border-color:#1a73e8;color:#fff}
 .sw-btn--ghost,.sw-btn--link{background:transparent;border-color:transparent;color:inherit}
 .sw-btn--outline{background:transparent;border-color:currentColor}
 .sw-btn--sm{padding:6px 10px;font-size:12px}
 .sw-btn--full{width:100%}
 .sw-btn:disabled{opacity:.45;cursor:not-allowed}
 
-</style></head><body><div class="sw-root sw-theme-dark" data-page="flight-booking" id="__next"><div class="sw-layout__wrapper sw-layout__wrapper--full"><div class="sw-tracking" style="position:absolute;width:1px;height:1px;overflow:hidden"><img src="/pixel.gif?evt=pageview&amp;sid=x8291" alt=""><img src="/pixel.gif?evt=search&amp;q=JFK-LAX" alt=""><script data-sw-analytics="true">window.__SW_TRACK={sid:"x8291",funnel:"search"};</script><iframe src="about:blank" title="sw-chat-frame" class="sw-chat-iframe" style="display:none"></iframe></div><header class="sw-hdr sw-hdr--sticky sw-hdr--transparent" role="banner"><div class="sw-hdr__inner sw-container sw-container--fluid"><div class="sw-hdr__logo-wrap"><a href="/" class="sw-hdr__logo" aria-label="SkyWing Home"><div class="sw-hdr__logo-img-wrap"><div class="sw-hdr__logo-img"></div></div><span class="sw-hdr__logo-text">SkyWing<sup>®</sup></span></a></div><nav class="sw-hdr__nav sw-hdr__nav--main" aria-label="Main navigation"><ul class="sw-hdr__nav-list"><li class="sw-hdr__nav-item sw-hdr__nav-item--has-mega"><a href="/flights" class="sw-hdr__nav-link" data-mega-trigger="flights">Flights</a><div class="sw-mega sw-mega--flights" role="menu" aria-hidden="true"><div class="sw-mega__inner sw-container"><div class="sw-mega__col"><h3 class="sw-mega__heading">Book</h3><a href="/flights/search">Search Flights</a><a href="/flights/deals">Flight Deals</a><a href="/flights/status">Flight Status</a><a href="/flights/charters">Charters</a><a href="/flights/groups">Group Travel</a><a href="/flights/international">International Flights</a></div><div class="sw-mega__col"><h3 class="sw-mega__heading">Manage</h3><a href="/manage/booking">My Booking</a><a href="/manage/checkin">Check-in</a><a href="/manage/seats">Seat Selection</a><a href="/manage/bags">Baggage</a><a href="/manage/upgrade">Upgrade Offers</a><a href="/manage/receipts">Travel Receipts</a></div><div class="sw-mega__col"><h3 class="sw-mega__heading">Plan</h3><a href="/travel-info/airports">Airport Guides</a><a href="/travel-info/cabins">Cabin Experience</a><a href="/travel-info/pets">Traveling with Pets</a><a href="/travel-info/minors">Unaccompanied Minors</a><a href="/travel-info/inflight">Inflight Wi‑Fi</a><a href="/travel-info/covid">Entry Requirements</a></div><div class="sw-mega__col sw-mega__col--promo"><div class="sw-mega__promo-card"><img src="/promo-spring.jpg" alt="Spring promotion"><span class="sw-mega__promo-text">Spring Sale: 30% OFF select coast-to-coast routes</span><a href="/deals/spring" class="sw-mega__promo-cta">Book Now</a></div></div></div></div></li><li class="sw-hdr__nav-item"><a href="/hotels" class="sw-hdr__nav-link">Hotels</a></li><li class="sw-hdr__nav-item"><a href="/cars" class="sw-hdr__nav-link">Car Rental</a></li><li class="sw-hdr__nav-item"><a href="/vacations" class="sw-hdr__nav-link">Vacations</a></li><li class="sw-hdr__nav-item"><a href="/loyalty" class="sw-hdr__nav-link">SkyMiles™</a></li></ul></nav><div class="sw-hdr__right"><div class="sw-hdr__currency-wrap"><button class="sw-hdr__currency-btn sw-btn sw-btn--ghost sw-btn--sm" aria-expanded="false"><span class="sw-hdr__currency-flag">🇺🇸</span><span>USD</span></button></div><div class="sw-hdr__lang-wrap"><button class="sw-hdr__lang-btn sw-btn sw-btn--ghost sw-btn--sm" aria-expanded="false">EN</button></div><div class="sw-hdr__auth-wrap"><button class="sw-hdr__login-btn sw-btn sw-btn--ghost sw-btn--sm">Log In</button><button class="sw-hdr__signup-btn sw-btn sw-btn--primary sw-btn--sm">Sign Up</button></div></div></div></header><div class="sw-search-bar sw-search-bar--sticky sw-search-bar--collapsed" role="search"><div class="sw-search-bar__inner sw-container"><div class="sw-search-bar__summary" data-wci-role="display" data-wci-id="search-summary" data-wci-desc="Current search: JFK → LAX, Mar 15–22, 2 Adults" data-wci-state="{&quot;route&quot;:&quot;JFK→LAX&quot;,&quot;dates&quot;:&quot;Mar 15–22&quot;,&quot;passengers&quot;:2,&quot;resultsCount&quot;:40}" data-wci-priority="2"><span class="sw-search-bar__route">JFK → LAX</span><span class="sw-search-bar__sep">·</span><span class="sw-search-bar__date">Mar 15 – Mar 22</span><span class="sw-search-bar__sep">·</span><span class="sw-search-bar__pax">2 Adults</span><span class="sw-search-bar__sep">·</span><span class="sw-search-bar__cabin">Economy</span></div><div class="sw-search-bar__actions"><button class="sw-search-bar__modify-btn sw-btn sw-btn--ghost" data-decoy="modify-search-btn" data-wci-role="action" data-wci-id="modify-search-btn" data-wci-desc="Modify the current flight search parameters" data-wci-action="click" data-wci-priority="3" data-wci-state="{&quot;disabled&quot;:false}">Modify Search</button></div></div></div><main class="sw-main sw-main--results" role="main"><div class="sw-results sw-container" data-wci-role="landmark" data-wci-id="flight-search-results" data-wci-desc="Flight search results for JFK → LAX, Mar 15–22, 2 adults. 40 results shown."><nav class="sw-breadcrumbs" aria-label="Breadcrumb"><ol class="sw-breadcrumbs__list"><li><a href="/">Home</a></li><li><a href="/flights">Flights</a></li><li aria-current="page">JFK → LAX</li></ol></nav><section class="sw-statusbar" aria-live="polite"><div><div>Showing <strong id="resultCount">40</strong> flights · <span id="selectionStatus">No fare selected</span></div><div class="sw-smoke-status" id="flight-booking-smoke-status">Smoke status: waiting for primary selection</div></div><div class="sw-active-filters" id="activeFilters"><span class="sw-chip">Nonstop</span><span class="sw-chip">Economy</span><span class="sw-chip">JFK → LAX</span></div></section><div class="sw-promo-banner"><div><strong>Limited time:</strong> Book by midnight for bonus SkyMiles on nonstop economy fares.</div><button class="sw-btn sw-btn--outline sw-btn--sm" id="promoDismissBtn">Dismiss</button></div><div class="sw-results__layout"><aside class="sw-filters sw-filters--desktop" role="complementary" data-wci-role="landmark" data-wci-id="flight-filters" data-wci-desc="Filter controls — narrow results by stops, price, airline, departure time" data-wci-priority="3"><div class="sw-filters__header"><h2 class="sw-filters__title">Filters</h2><button class="sw-filters__reset-btn sw-btn sw-btn--link" data-decoy="reset-filters-btn" id="resetFiltersReal" data-wci-role="action" data-wci-id="reset-filters-btn" data-wci-desc="Reset all filters to defaults" data-wci-action="click" data-wci-scope="flight-filters" data-wci-priority="5">Reset All</button></div><div class="sw-filter-group sw-filter-group--stops" data-wci-role="form" data-wci-id="filter-stops" data-wci-desc="Filter by number of stops" data-wci-action="check" data-wci-options="[&quot;Nonstop (12)&quot;,&quot;1 Stop (23)&quot;,&quot;2+ Stops (5)&quot;]" data-wci-state="{&quot;selected&quot;:[&quot;Nonstop&quot;,&quot;1 Stop&quot;]}" data-wci-scope="flight-filters" data-wci-priority="3"><button class="sw-filter-group__toggle" aria-expanded="true"><span>Stops</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 4l4 4 4-4"></path></svg></button><div class="sw-filter-group__body"><label class="sw-filter-check"><input type="checkbox" name="stops" value="0" checked=""><span class="sw-filter-check__label">Nonstop</span><span class="sw-filter-check__count">(12)</span></label><label class="sw-filter-check"><input type="checkbox" name="stops" value="1" checked=""><span class="sw-filter-check__label">1 Stop</span><span class="sw-filter-check__count">(23)</span></label><label class="sw-filter-check"><input type="checkbox" name="stops" value="2"><span class="sw-filter-check__label">2+ Stops</span><span class="sw-filter-check__count">(5)</span></label></div></div><div class="sw-filter-group sw-filter-group--price" data-wci-role="form" data-wci-id="filter-price" data-wci-desc="Filter by price range ($100–$2,000)" data-wci-action="fill" data-wci-state="{&quot;min&quot;:200,&quot;max&quot;:1400,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-filters" data-wci-priority="3"><button class="sw-filter-group__toggle" aria-expanded="true"><span>Price Range</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 4l4 4 4-4"></path></svg></button><div class="sw-filter-group__body"><div class="sw-range-slider"><div class="sw-range-slider__track"><div class="sw-range-slider__fill" id="priceFill" style="left:10%;right:30%"></div></div><input type="range" min="100" max="2000" value="200" class="sw-range-slider__input sw-range-slider__input--min" id="priceMin"><input type="range" min="100" max="2000" value="1400" class="sw-range-slider__input sw-range-slider__input--max" id="priceMax"></div><div class="sw-range-slider__labels"><span id="priceMinLabel">$200</span><span id="priceMaxLabel">$1,400</span></div><p class="sw-muted" id="priceHelp">Cheapest matching nonstop economy result is highlighted.</p></div></div><div class="sw-filter-group sw-filter-group--airlines" data-wci-role="form" data-wci-id="filter-airlines" data-wci-desc="Filter by airline" data-wci-action="check" data-wci-options="[&quot;SkyWing (8)&quot;,&quot;United (6)&quot;,&quot;Delta (5)&quot;,&quot;American (4)&quot;,&quot;JetBlue (3)&quot;,&quot;Spirit (2)&quot;]" data-wci-state="{&quot;selected&quot;:[&quot;SkyWing&quot;,&quot;United&quot;,&quot;Delta&quot;,&quot;American&quot;]}" data-wci-scope="flight-filters" data-wci-priority="4"><button class="sw-filter-group__toggle" aria-expanded="false"><span>Airlines</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button><div class="sw-filter-group__body sw-hidden-section" hidden=""><label class="sw-filter-check"><input type="checkbox" name="airline" value="SW" checked=""><span>SkyWing</span><span class="sw-filter-check__count">(8)</span></label><label class="sw-filter-check"><input type="checkbox" name="airline" value="UA" checked=""><span>United</span><span class="sw-filter-check__count">(6)</span></label><label class="sw-filter-check"><input type="checkbox" name="airline" value="DL" checked=""><span>Delta</span><span class="sw-filter-check__count">(5)</span></label><label class="sw-filter-check"><input type="checkbox" name="airline" value="AA" checked=""><span>American</span><span class="sw-filter-check__count">(4)</span></label><label class="sw-filter-check"><input type="checkbox" name="airline" value="B6"><span>JetBlue</span><span class="sw-filter-check__count">(3)</span></label><label class="sw-filter-check"><input type="checkbox" name="airline" value="NK"><span>Spirit</span><span class="sw-filter-check__count">(2)</span></label></div></div><div class="sw-filter-group sw-filter-group--times"><button class="sw-filter-group__toggle" aria-expanded="false"><span>Departure Time</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button><div class="sw-filter-group__body sw-hidden-section" hidden=""><div class="sw-time-grid"><button class="sw-time-btn sw-time-btn--active" data-time="morning">🌅 Morning<br><small>6am–12pm</small></button><button class="sw-time-btn" data-time="afternoon">☀️ Afternoon<br><small>12pm–6pm</small></button><button class="sw-time-btn" data-time="evening">🌆 Evening<br><small>6pm–12am</small></button></div></div></div><div class="sw-filter-group sw-filter-group--bags"><button class="sw-filter-group__toggle" aria-expanded="false"><span>Benefits</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button><div class="sw-filter-group__body sw-hidden-section" hidden=""><label class="sw-filter-check"><input type="checkbox" name="benefits" value="wifi"><span>Wi‑Fi onboard</span></label><label class="sw-filter-check"><input type="checkbox" name="benefits" value="refund"><span>Refundable</span></label><label class="sw-filter-check"><input type="checkbox" name="benefits" value="bag"><span>Checked bag included</span></label></div></div><div class="sw-filter-group sw-filter-group--sponsored" data-ad-unit="sidebar-native"><div class="sw-filter-group__body sw-sponsored-filter"><span class="sw-sponsored-label">Sponsored</span><div class="sw-sponsored-card"><img src="/ad-lounge.jpg" alt="Lounge pass"><p>SkyWing Lounge Pass — $49</p><a href="/ads/lounge-pass" class="sw-btn sw-btn--sm sw-btn--primary" data-tracking="ad-lounge-sidebar">Add to Trip</a></div></div></div></aside><div class="sw-results__list-wrap"><div class="sw-sort-bar"><div class="sw-sort-bar__left"><span class="sw-sort-bar__count" id="sortCount">40 flights found</span></div><div class="sw-sort-bar__right"><label class="sw-sort-bar__label" for="sortSelect">Sort by:</label><select class="sw-sort-bar__select" name="sort" id="sortSelect" data-wci-role="form" data-wci-id="sort-select" data-wci-desc="Sort results by: Best, Price, Duration, Departure" data-wci-action="select" data-wci-options="[&quot;Best&quot;,&quot;Price (Low→High)&quot;,&quot;Price (High→Low)&quot;,&quot;Duration&quot;,&quot;Departure Time&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Best&quot;}" data-wci-priority="3"><option value="best" selected="">Best</option><option value="price_asc">Price (Low → High)</option><option value="price_desc">Price (High → Low)</option><option value="duration">Duration</option><option value="departure">Departure Time</option></select></div></div><div class="sw-result-card sw-result-card--promo" data-ad-unit="inline-promo" role="article"><div class="sw-result-card__inner"><div class="sw-promo-badge">✨ SkyMiles Exclusive</div><div class="sw-result-card__content"><p class="sw-promo-text">Earn <strong>3x SkyMiles</strong> on this route! <a href="/loyalty/earn" class="sw-link">Learn more</a></p><div class="sw-meta-note">Promotional placement — not a flight result</div></div></div></div><div class="sw-result-card sw-result-card--highlight" data-flight-id="SW1042" data-airline="SW" data-stops="0" data-economy-price="329" role="article" data-wci-role="landmark" data-wci-id="flight-result-SW1042" data-wci-desc="SkyWing SW 1042 — JFK 08:00→LAX 11:30, Nonstop, 5h 30m" data-wci-state="{&quot;flightId&quot;:&quot;SW1042&quot;,&quot;airline&quot;:&quot;SkyWing&quot;,&quot;departure&quot;:&quot;08:00&quot;,&quot;arrival&quot;:&quot;11:30&quot;,&quot;duration&quot;:&quot;5h 30m&quot;,&quot;stops&quot;:0,&quot;aircraft&quot;:&quot;Boeing 787-9&quot;}"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--sw"></div><div class="sw-airline-info"><span class="sw-airline-name">SkyWing</span><span class="sw-flight-number">SW 1042</span><span class="sw-meta-note">Best nonstop economy value</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">08:00</span><span class="sw-time-block__airport">JFK</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">5h 30m</span><span class="sw-flight-path__stops">Nonstop</span></div><div class="sw-time-block"><span class="sw-time-block__time">11:30</span><span class="sw-time-block__airport">LAX</span></div></div><div class="sw-result-card__fares"><button class="sw-fare-btn sw-fare-btn--economy" id="select-SW1042-economy" data-fare="economy" data-price="329" data-wci-role="action" data-wci-id="select-SW1042-economy" data-wci-desc="Select Economy fare for SW 1042 — $329/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:329,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$329</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1249" data-wci-role="action" data-wci-id="select-SW1042-business" data-wci-desc="Select Business fare for SW 1042 — $1,249/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1249,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,249</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2899" data-wci-role="action" data-wci-id="select-SW1042-first" data-wci-desc="Select First Class fare for SW 1042 — $2,899/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2899,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,899</span><span class="sw-fare-btn__basis">per person</span></button></div></div><button class="sw-result-card__details-toggle" aria-expanded="false">Flight details &amp; fare comparison</button><div class="sw-result-card__details" hidden=""><div class="sw-flight-details"><div class="sw-flight-details__row"><span>Aircraft:</span><span>Boeing 787-9 Dreamliner</span></div><div class="sw-flight-details__row"><span>Wi‑Fi:</span><span>Available (paid)</span></div><div class="sw-flight-details__row"><span>Meal:</span><span>Complimentary snack box</span></div><div class="sw-flight-details__row"><span>Legroom:</span><span>31" (Economy)</span></div><div class="sw-flight-details__row"><span>Entertainment:</span><span>Personal screen</span></div><div class="sw-flight-details__row"><span>Power:</span><span>USB-A, USB-C, AC outlet</span></div></div><div class="sw-fare-comparison"><table class="sw-fare-table"><thead><tr><th></th><th>Economy</th><th>Business</th><th>First</th></tr></thead><tbody><tr><td>Baggage</td><td>1 carry-on</td><td>2 checked</td><td>3 checked</td></tr><tr><td>Changes</td><td>$75 fee</td><td>Free</td><td>Free</td></tr><tr><td>Seat select</td><td>Paid</td><td>Free</td><td>Free</td></tr><tr><td>Lounge</td><td>No</td><td>Yes</td><td>Yes</td></tr></tbody></table></div></div></div><div class="sw-result-card" data-flight-id="AA233" data-airline="AA" data-stops="0" data-economy-price="341" role="article"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo"></div><div class="sw-airline-info"><span class="sw-airline-name">American</span><span class="sw-flight-number">AA 233</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">07:20</span><span class="sw-time-block__airport">JFK</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">5h 48m</span><span class="sw-flight-path__stops">Nonstop</span></div><div class="sw-time-block"><span class="sw-time-block__time">10:08</span><span class="sw-time-block__airport">LAX</span></div></div><div class="sw-result-card__fares"><button class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="341"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$341</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn" data-fare="business" data-price="1179"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,179</span><span class="sw-fare-btn__basis">per person</span></button></div></div><button class="sw-result-card__details-toggle" aria-expanded="false">Flight details</button><div class="sw-result-card__details" hidden=""><div class="sw-flight-details"><div class="sw-flight-details__row"><span>Aircraft:</span><span>Airbus A321neo</span></div><div class="sw-flight-details__row"><span>Seat power:</span><span>USB-C</span></div></div></div></div><div class="sw-result-card" data-flight-id="UA447" data-airline="UA" data-stops="1" data-economy-price="287" role="article" data-wci-role="landmark" data-wci-id="flight-result-UA447" data-wci-desc="United UA 447 — JFK 10:15→LAX 15:20, 1 Stop (ORD), 8h 05m" data-wci-state="{&quot;flightId&quot;:&quot;UA447&quot;,&quot;airline&quot;:&quot;United&quot;,&quot;departure&quot;:&quot;10:15&quot;,&quot;arrival&quot;:&quot;15:20&quot;,&quot;duration&quot;:&quot;8h 05m&quot;,&quot;stops&quot;:1,&quot;stopCity&quot;:&quot;ORD&quot;}"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--ua"></div><div class="sw-airline-info"><span class="sw-airline-name">United</span><span class="sw-flight-number">UA 447</span><span class="sw-meta-note">Lowest price, but not nonstop</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">10:15</span><span class="sw-time-block__airport">JFK</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><div class="sw-flight-path__stop-marker">ORD</div><span class="sw-flight-path__duration">8h 05m</span><span class="sw-flight-path__stops">1 Stop (ORD)</span></div><div class="sw-time-block"><span class="sw-time-block__time">15:20</span><span class="sw-time-block__airport">LAX</span></div></div><div class="sw-result-card__fares"><button class="sw-fare-btn sw-fare-btn--economy" id="select-UA447-economy" data-decoy="select-UA447-economy" data-fare="economy" data-price="287" data-wci-role="action" data-wci-id="select-UA447-economy" data-wci-desc="Select Economy fare for UA 447 — $287/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:287,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-UA447" data-wci-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$287</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="989" data-wci-role="action" data-wci-id="select-UA447-business" data-wci-desc="Select Business fare for UA 447 — $989/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:989,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-UA447" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$989</span><span class="sw-fare-btn__basis">per person</span></button></div></div></div><div class="sw-result-card" data-flight-id="DL892" data-airline="DL" data-stops="0" data-economy-price="312" role="article" data-wci-role="landmark" data-wci-id="flight-result-DL892" data-wci-desc="Delta DL 892 — JFK 14:30→LAX 17:15, 1 Stop (ATL), 7h 10m" data-wci-state="{&quot;flightId&quot;:&quot;DL892&quot;,&quot;airline&quot;:&quot;Delta&quot;,&quot;departure&quot;:&quot;14:30&quot;,&quot;arrival&quot;:&quot;17:15&quot;,&quot;duration&quot;:&quot;7h 10m&quot;,&quot;stops&quot;:1,&quot;stopCity&quot;:&quot;ATL&quot;}"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--dl"></div><div class="sw-airline-info"><span class="sw-airline-name">Delta</span><span class="sw-flight-number">DL 892</span><span class="sw-meta-note">Saver fare excludes seat selection</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">14:30</span><span class="sw-time-block__airport">JFK</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">5h 45m</span><span class="sw-flight-path__stops">Nonstop</span></div><div class="sw-time-block"><span class="sw-time-block__time">17:15</span><span class="sw-time-block__airport">LAX</span></div></div><div class="sw-result-card__fares"><button class="sw-fare-btn sw-fare-btn--economy" id="select-DL892-economy" data-decoy="select-DL892-economy" data-fare="economy" data-price="312" data-wci-role="action" data-wci-id="select-DL892-economy" data-wci-desc="Select Economy fare for DL 892 — $312/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:312,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-DL892" data-wci-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$312</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1149" data-wci-role="action" data-wci-id="select-DL892-business" data-wci-desc="Select Business fare for DL 892 — $1,149/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1149,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-DL892" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,149</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2599" data-wci-role="action" data-wci-id="select-DL892-first" data-wci-desc="Select First Class fare for DL 892 — $2,599/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2599,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-DL892" data-wci-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,599</span><span class="sw-fare-btn__basis">per person</span></button></div></div><button class="sw-result-card__details-toggle" aria-expanded="false">Flight details</button><div class="sw-result-card__details" hidden=""><div class="sw-flight-details"><div class="sw-flight-details__row"><span>Carry-on:</span><span>Included</span></div><div class="sw-flight-details__row"><span>Seat selection:</span><span>Available for fee</span></div></div></div></div><div class="sw-result-card sw-result-card--partner" data-ad-unit="partner-inline" role="article"><div class="sw-result-card__inner"><div class="sw-partner-badge">Partner Offer</div><div class="sw-result-card__content"><p>Save 15% on LAX airport parking with ParkFly. <a href="/partners/parkfly" data-tracking="partner-parkfly">Reserve Now →</a></p><div class="sw-meta-note">Sponsored placement</div></div></div></div><div class="sw-result-card" data-flight-id="SW1188" data-airline="SW" data-stops="0" data-economy-price="358" role="article"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo sw-airline-logo--sw"></div><div class="sw-airline-info"><span class="sw-airline-name">SkyWing</span><span class="sw-flight-number">SW 1188</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">18:40</span><span class="sw-time-block__airport">JFK</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">5h 39m</span><span class="sw-flight-path__stops">Nonstop</span></div><div class="sw-time-block"><span class="sw-time-block__time">21:19</span><span class="sw-time-block__airport">LAX</span></div></div><div class="sw-result-card__fares"><button class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="358"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$358</span><span class="sw-fare-btn__basis">per person</span></button><button class="sw-fare-btn" data-fare="business" data-price="1299"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,299</span><span class="sw-fare-btn__basis">per person</span></button></div></div></div><nav class="sw-pagination" aria-label="Search results pages"><button class="sw-pagination__btn sw-pagination__btn--prev" disabled="">← Previous</button><button class="sw-pagination__btn sw-pagination__btn--num sw-pagination__btn--active">1</button><button class="sw-pagination__btn sw-pagination__btn--num">2</button><button class="sw-pagination__btn sw-pagination__btn--num">3</button><span class="sw-pagination__ellipsis">…</span><button class="sw-pagination__btn sw-pagination__btn--num">8</button><button class="sw-pagination__btn sw-pagination__btn--next">Next →</button></nav></div></div></div></main><div class="sw-cookie-banner" role="dialog" aria-label="Cookie consent" id="cookieBanner"><div class="sw-cookie-banner__inner"><p>We use cookies to improve your experience, personalize offers, and analyze traffic. <a href="/privacy">Learn more</a></p><div class="sw-cookie-banner__actions"><button class="sw-btn sw-btn--ghost sw-btn--sm" id="cookieManageBtn">Manage</button><button class="sw-btn sw-btn--primary sw-btn--sm" id="cookieAcceptBtn">Accept All</button></div></div></div><div class="sw-modal" id="selectionModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="selectionModalTitle"><div class="sw-modal__panel"><h2 id="selectionModalTitle">Fare selected</h2><p id="selectionModalBody" style="margin-top:10px;color:#cbd5e1">Your selected fare will appear here.</p><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap"><button class="sw-btn sw-btn--ghost" id="closeModalBtn">Close</button><button class="sw-btn sw-btn--primary" id="continueBtn">Continue to traveler details</button></div></div></div><div class="sw-toast" id="toast">Updated</div><footer class="sw-footer" role="contentinfo"><div class="sw-footer__inner sw-container"><div class="sw-footer__cols"><div class="sw-footer__col"><h4>Company</h4><a href="/about">About Us</a><a href="/careers">Careers</a><a href="/press">Press</a><a href="/investors">Investors</a></div><div class="sw-footer__col"><h4>Help</h4><a href="/help">Help Center</a><a href="/contact">Contact Us</a><a href="/faq">FAQ</a><a href="/accessibility">Accessibility</a></div><div class="sw-footer__col"><h4>Legal</h4><a href="/terms">Terms of Service</a><a href="/privacy">Privacy Policy</a><a href="/cookies">Cookie Policy</a></div><div class="sw-footer__col"><h4>Social</h4><a href="https://twitter.com">Twitter</a><a href="https://facebook.com">Facebook</a><a href="https://instagram.com">Instagram</a></div></div><div class="sw-footer__bottom"><span>© 2026 SkyWing Airlines, Inc. All rights reserved.</span></div></div></footer></div></div><script>(()=>{const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const toast=$('#toast'),cookieBanner=$('#cookieBanner'),modal=$('#selectionModal'),body=$('#selectionModalBody'),status=$('#selectionStatus'),count=$('#resultCount'),sortCount=$('#sortCount'),priceMin=$('#priceMin'),priceMax=$('#priceMax'),priceMinLabel=$('#priceMinLabel'),priceMaxLabel=$('#priceMaxLabel'),priceFill=$('#priceFill'),smoke=$('#flight-booking-smoke-status');window.__scenarioSmoke=window.__scenarioSmoke||{lastAction:'',updatedAt:0};let selected=null;const fmt=n=>'$'+Number(n).toLocaleString('en-US');const showToast=t=>{toast.textContent=t;toast.classList.add('is-show');clearTimeout(showToast._t);showToast._t=setTimeout(()=>toast.classList.remove('is-show'),1800)};const openModal=t=>{body.textContent=t;modal.setAttribute('aria-hidden','false')};const closeModal=()=>modal.setAttribute('aria-hidden','true');const setSmoke=txt=>{smoke.textContent=txt;window.__scenarioSmoke={lastAction:txt,updatedAt:Date.now()}};const syncPrice=()=>{let a=+priceMin.value,b=+priceMax.value;if(a>b){[a,b]=[b,a];priceMin.value=a;priceMax.value=b}priceMinLabel.textContent=fmt(a);priceMaxLabel.textContent=fmt(b);const minPct=((a-100)/(2000-100))*100,maxPct=((b-100)/(2000-100))*100;priceFill.style.left=minPct+'%';priceFill.style.right=(100-maxPct)+'%';highlightCheapest();};const getAirlines=()=>$$('input[name="airline"]:checked').map(i=>i.value);const getStops=()=>$$('input[name="stops"]:checked').map(i=>i.value);const highlightCheapest=()=>{const min=+priceMin.value,max=+priceMax.value,airlines=getAirlines(),stops=getStops();let cheapest=null;$$('[data-flight-id]').forEach(card=>{card.classList.remove('sw-result-card--highlight');const price=+(card.dataset.economyPrice||99999),air=card.dataset.airline,stop=card.dataset.stops;const ok=price>=min&&price<=max&&(!air||airlines.length===0||airlines.includes(air))&&(!stop||stops.length===0||stops.includes(stop));if(ok&&stop==='0'){if(!cheapest||price<+(cheapest.dataset.economyPrice||99999))cheapest=card;}});if(cheapest)cheapest.classList.add('sw-result-card--highlight');};$$('.sw-filter-group__toggle').forEach(btn=>btn.addEventListener('click',()=>{const panel=btn.nextElementSibling;const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(panel)panel.hidden=expanded;}));$$('.sw-time-btn').forEach(btn=>btn.addEventListener('click',()=>{$$('.sw-time-btn').forEach(b=>b.classList.remove('sw-time-btn--active'));btn.classList.add('sw-time-btn--active');showToast('Departure time set: '+btn.dataset.time)}));priceMin.addEventListener('input',syncPrice);priceMax.addEventListener('input',syncPrice);$$('input[name="airline"],input[name="stops"],input[name="benefits"]').forEach(el=>el.addEventListener('change',()=>{highlightCheapest();showToast('Filters updated')}));syncPrice();$('#cookieAcceptBtn').addEventListener('click',()=>{cookieBanner.remove();showToast('Cookies accepted')});$('#cookieManageBtn').addEventListener('click',()=>openModal('Cookie controls are available in site settings.'));$('#closeModalBtn').addEventListener('click',closeModal);$('#continueBtn').addEventListener('click',()=>{closeModal();showToast('Proceeding to traveler details')});$('#promoDismissBtn').addEventListener('click',e=>{e.currentTarget.closest('.sw-promo-banner').remove();showToast('Promo dismissed')});$('#sortSelect').addEventListener('change',e=>{sortCount.textContent='40 flights found · sorted by '+e.target.selectedOptions[0].textContent;showToast('Sort applied: '+e.target.value)});$$('.sw-result-card__details-toggle').forEach(btn=>btn.addEventListener('click',()=>{const details=btn.nextElementSibling;const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(details)details.hidden=expanded;}));const fareBtns=$$('.sw-fare-btn');fareBtns.forEach(btn=>btn.addEventListener('click',()=>{$$('.sw-fare-btn').forEach(b=>b.classList.remove('is-selected'));btn.classList.add('is-selected');const card=btn.closest('.sw-result-card');selected=(card?.dataset.flightId||'')+' '+btn.dataset.fare;status.textContent='Selected '+selected+' for '+fmt(btn.dataset.price);openModal('Selected '+btn.dataset.fare+' fare on flight '+(card?.dataset.flightId||'unknown')+' for '+fmt(btn.dataset.price)+'.');showToast('Fare selected')}));$('#resetFiltersReal').addEventListener('click',()=>{$$('input[type="checkbox"]').forEach(cb=>{if(cb.name==='benefits'||cb.value==='2')cb.checked=false;else cb.checked=true});priceMin.value=200;priceMax.value=1400;syncPrice();status.textContent='Filters reset';showToast('Filters reset')});$('button[data-decoy="modify-search-btn"]').addEventListener('click',()=>openModal('Modify search is currently unavailable in this benchmark view.'));$('button[data-decoy="reset-filters-btn"]').addEventListener('click',()=>showToast('Decoy reset filter button'));$('button[data-decoy="select-UA447-economy"]').addEventListener('click',()=>openModal('This lower price is a decoy because the itinerary has 1 stop in ORD.'));$('button[data-decoy="select-DL892-economy"]').addEventListener('click',()=>openModal('This is a decoy action for benchmark purposes.'));const primary=$('[data-flight-id="SW1042"] button.sw-fare-btn--economy[data-price="329"]');if(primary){primary.addEventListener('click',()=>{const msg='Smoke status: primary selected SW1042 economy $329';setSmoke(msg)})}const flightsItem=document.querySelector('.sw-hdr__nav-item--has-mega');const flightsLink=document.querySelector('[data-mega-trigger="flights"]');if(flightsItem&&flightsLink){flightsLink.addEventListener('mouseenter',()=>flightsItem.classList.add('is-open'));flightsLink.addEventListener('click',e=>{e.preventDefault();flightsItem.classList.toggle('is-open')});flightsItem.addEventListener('mouseleave',()=>flightsItem.classList.remove('is-open'))}document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();flightsItem&&flightsItem.classList.remove('is-open')}})})();</script></body></html>
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flights — JFK to LAX | SkyWing Travel</title>
+</head>
+<body>
+<div class="sw-root sw-theme-light" data-page="flight-booking" id="__next" data-current-route="/flights/results">
+  <div class="sw-layout__wrapper sw-layout__wrapper--full">
+
+    <div class="sw-tracking" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+      <img src="/pixel.gif?evt=pageview&amp;sid=x8291" alt="">
+      <img src="/pixel.gif?evt=search&amp;q=JFK-LAX" alt="">
+      <script data-sw-analytics="true">window.__SW_TRACK={sid:"x8291",funnel:"search"};</script>
+      <iframe src="about:blank" title="sw-chat-frame" class="sw-chat-iframe" style="display:none"></iframe>
+    </div>
+
+    <header class="sw-hdr sw-hdr--sticky" role="banner">
+      <div class="sw-hdr__inner sw-container sw-container--fluid">
+        <div class="sw-hdr__logo-wrap">
+          <a href="#/" class="sw-hdr__logo" aria-label="SkyWing Flights Home" data-route="/">
+            <div class="sw-hdr__logo-img"></div>
+            <span class="sw-hdr__logo-text">Flights</span>
+          </a>
+        </div>
+        <nav class="sw-hdr__nav sw-hdr__nav--main" aria-label="Main navigation">
+          <ul class="sw-hdr__nav-list">
+            <li class="sw-hdr__nav-item sw-hdr__nav-item--has-mega">
+              <a href="/flights" class="sw-hdr__nav-link" data-mega-trigger="flights">Travel</a>
+              <div class="sw-mega sw-mega--flights" role="menu" aria-hidden="true">
+                <div class="sw-mega__inner sw-container">
+                  <div class="sw-mega__col">
+                    <h3 class="sw-mega__heading">Book</h3>
+                    <a href="/flights/search">Search Flights</a>
+                    <a href="/flights/deals">Flight Deals</a>
+                    <a href="/flights/status">Flight Status</a>
+                    <a href="/flights/charters">Charters</a>
+                    <a href="/flights/groups">Group Travel</a>
+                    <a href="/flights/international">International Flights</a>
+                  </div>
+                  <div class="sw-mega__col">
+                    <h3 class="sw-mega__heading">Manage</h3>
+                    <a href="/manage/booking">My Booking</a>
+                    <a href="/manage/checkin">Check-in</a>
+                    <a href="/manage/seats">Seat Selection</a>
+                    <a href="/manage/bags">Baggage</a>
+                    <a href="/manage/upgrade">Upgrade Offers</a>
+                    <a href="/manage/receipts">Travel Receipts</a>
+                  </div>
+                  <div class="sw-mega__col">
+                    <h3 class="sw-mega__heading">Plan</h3>
+                    <a href="/travel-info/airports">Airport Guides</a>
+                    <a href="/travel-info/cabins">Cabin Experience</a>
+                    <a href="/travel-info/pets">Traveling with Pets</a>
+                    <a href="/travel-info/minors">Unaccompanied Minors</a>
+                    <a href="/travel-info/inflight">Inflight Wi‑Fi</a>
+                    <a href="/travel-info/covid">Entry Requirements</a>
+                  </div>
+                  <div class="sw-mega__col sw-mega__col--promo">
+                    <div class="sw-mega__promo-card">
+                      <img src="/promo-spring.jpg" alt="Spring promotion">
+                      <span class="sw-mega__promo-text">Spring Sale: 30% OFF select coast-to-coast routes</span>
+                      <a href="/deals/spring" class="sw-mega__promo-cta">Book Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="sw-hdr__nav-item"><a href="#/hotels" class="sw-hdr__nav-link" data-route="/hotels">Hotels</a></li>
+            <li class="sw-hdr__nav-item"><a href="#/rentals" class="sw-hdr__nav-link" data-route="/rentals">Vacation rentals</a></li>
+            <li class="sw-hdr__nav-item"><a href="#/explore" class="sw-hdr__nav-link" data-route="/explore">Explore</a></li>
+          </ul>
+        </nav>
+        <div class="sw-hdr__right">
+          <button class="sw-hdr__lang-btn sw-btn sw-btn--ghost sw-btn--sm" id="langBtn" type="button" aria-expanded="false">EN · USD</button>
+          <button class="sw-hdr__login-btn sw-btn sw-btn--ghost sw-btn--sm" id="signInBtn" type="button" data-route="/signin">Sign in</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="sw-search-panel" id="searchPanel" aria-label="Flight search">
+      <div class="sw-container">
+        <div class="sw-search-panel__collapsed" id="searchCollapsed">
+          <div class="sw-search-bar__summary" data-wci-role="display" data-wci-id="search-summary" data-wci-desc="Current search: JFK → LAX, Mar 15–22, 2 Adults" data-wci-state="{&quot;route&quot;:&quot;JFK→LAX&quot;,&quot;dates&quot;:&quot;Mar 15–22&quot;,&quot;passengers&quot;:2,&quot;resultsCount&quot;:40}" data-wci-priority="2">
+            <span class="sw-search-bar__route" id="summaryRoute">JFK → LAX</span>
+            <span class="sw-search-bar__sep">·</span>
+            <span class="sw-search-bar__date" id="summaryDates">Mar 15 – Mar 22</span>
+            <span class="sw-search-bar__sep">·</span>
+            <span class="sw-search-bar__pax" id="summaryPax">2 Adults</span>
+            <span class="sw-search-bar__sep">·</span>
+            <span class="sw-search-bar__cabin" id="summaryCabin">Economy</span>
+          </div>
+          <button class="sw-btn sw-btn--outline sw-btn--sm" id="expandSearchBtn" type="button">Edit search</button>
+          <button class="sw-search-bar__modify-btn sw-btn sw-btn--link sw-btn--sm" data-decoy="modify-search-btn" type="button" data-wci-role="action" data-wci-id="modify-search-btn" data-wci-desc="Modify the current flight search parameters" data-wci-action="click" data-wci-priority="3" data-wci-state="{&quot;disabled&quot;:false}">Modify Search</button>
+        </div>
+
+        <form class="sw-search-form sw-hidden" id="searchForm" autocomplete="off" data-wci-role="landmark" data-wci-id="flight-search-form" data-wci-desc="Flight search form — origin, destination, dates, passengers, cabin class" data-wci-priority="2">
+          <div class="sw-search-form__trip">
+            <label class="sw-trip-type"><input type="radio" name="tripType" value="roundtrip" checked=""> Round trip</label>
+            <label class="sw-trip-type"><input type="radio" name="tripType" value="oneway"> One way</label>
+            <label class="sw-trip-type"><input type="radio" name="tripType" value="multicity"> Multi-city</label>
+          </div>
+          <div class="sw-search-form__grid">
+            <div class="sw-field sw-field--airport">
+              <label for="searchOrigin">From</label>
+              <input type="text" id="searchOrigin" name="origin" value="New York (JFK)" data-code="JFK" data-country="United States" data-country-code="US" placeholder="Country, city or airport" aria-autocomplete="list" aria-controls="originSuggestions" data-wci-role="form" data-wci-id="search-origin" data-wci-desc="Departure airport or city" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;JFK&quot;,&quot;label&quot;:&quot;New York (JFK)&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+              <span class="sw-field__code" id="originCode">JFK</span>
+              <ul class="sw-suggest sw-hidden" id="originSuggestions" role="listbox"></ul>
+            </div>
+            <button type="button" class="sw-swap-btn" id="swapAirportsBtn" aria-label="Swap origin and destination">⇄</button>
+            <div class="sw-field sw-field--airport">
+              <label for="searchDestination">To</label>
+              <input type="text" id="searchDestination" name="destination" value="Los Angeles (LAX)" data-code="LAX" data-country="United States" data-country-code="US" placeholder="Country, city or airport" aria-autocomplete="list" aria-controls="destSuggestions" data-wci-role="form" data-wci-id="search-destination" data-wci-desc="Arrival airport or city" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;LAX&quot;,&quot;label&quot;:&quot;Los Angeles (LAX)&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+              <span class="sw-field__code" id="destCode">LAX</span>
+              <ul class="sw-suggest sw-hidden" id="destSuggestions" role="listbox"></ul>
+            </div>
+            <div class="sw-field">
+              <label for="searchDepart">Departure</label>
+              <input type="date" id="searchDepart" name="depart" value="2026-03-15" data-wci-role="form" data-wci-id="search-depart-date" data-wci-desc="Outbound departure date" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;2026-03-15&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+            </div>
+            <div class="sw-field" id="returnFieldWrap">
+              <label for="searchReturn">Return</label>
+              <input type="date" id="searchReturn" name="return" value="2026-03-22" data-wci-role="form" data-wci-id="search-return-date" data-wci-desc="Return date (round trip)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;2026-03-22&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+            </div>
+            <div class="sw-field">
+              <label for="searchPassengers">Passengers</label>
+              <select id="searchPassengers" name="passengers" data-wci-role="form" data-wci-id="search-passengers" data-wci-desc="Number of passengers" data-wci-action="select" data-wci-options="[&quot;1 Adult&quot;,&quot;2 Adults&quot;,&quot;3 Adults&quot;,&quot;4 Adults&quot;]" data-wci-state="{&quot;selected&quot;:&quot;2 Adults&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+                <option value="1">1 Adult</option>
+                <option value="2" selected="">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+            </div>
+            <div class="sw-field">
+              <label for="searchCabin">Class</label>
+              <select id="searchCabin" name="cabin" data-wci-role="form" data-wci-id="search-cabin" data-wci-desc="Cabin class for search" data-wci-action="select" data-wci-options="[&quot;Economy&quot;,&quot;Premium economy&quot;,&quot;Business&quot;,&quot;First&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Economy&quot;}" data-wci-scope="flight-search-form" data-wci-priority="0">
+                <option value="economy" selected="">Economy</option>
+                <option value="premium">Premium economy</option>
+                <option value="business">Business</option>
+                <option value="first">First</option>
+              </select>
+            </div>
+          </div>
+          <div class="sw-search-form__actions">
+            <button type="button" class="sw-btn sw-btn--ghost" id="cancelSearchBtn">Cancel</button>
+            <button type="submit" class="sw-btn sw-btn--primary" id="searchSubmitBtn" data-wci-role="action" data-wci-id="search-submit-btn" data-wci-desc="Run flight search with current parameters" data-wci-action="click" data-wci-scope="flight-search-form" data-wci-priority="1">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div class="sw-page sw-page--home sw-hidden" data-route="/" id="pageHome">
+      <section class="sw-hero sw-container">
+        <h1 class="sw-hero__title">Flights</h1>
+        <p class="sw-hero__sub">Search flights from any country to any country — compare fares, emissions, and airlines.</p>
+        <div class="sw-hero__actions">
+          <button type="button" class="sw-btn sw-btn--primary" id="heroSearchBtn">Start a search</button>
+          <button type="button" class="sw-btn sw-btn--outline" data-route="/explore">Explore destinations</button>
+        </div>
+        <div class="sw-hero__cards">
+          <button type="button" class="sw-hero-card" data-quick-route="JFK,LAX"><span class="sw-hero-card__route">New York → Los Angeles</span><span class="sw-hero-card__price">from $329</span></button>
+          <button type="button" class="sw-hero-card" data-quick-route="LHR,CDG"><span class="sw-hero-card__route">London → Paris</span><span class="sw-hero-card__price">from €89</span></button>
+          <button type="button" class="sw-hero-card" data-quick-route="NRT,SIN"><span class="sw-hero-card__route">Tokyo → Singapore</span><span class="sw-hero-card__price">from ¥42,000</span></button>
+        </div>
+      </section>
+    </div>
+
+    <div class="sw-page" data-route="/flights/results" id="pageResults">
+    <div class="sw-date-bar sw-container" id="datePriceBar" aria-label="Date price graph">
+      <button type="button" class="sw-date-bar__nav" id="dateBarPrev" aria-label="Previous dates">‹</button>
+      <div class="sw-date-bar__track" id="dateBarTrack"></div>
+      <button type="button" class="sw-date-bar__nav" id="dateBarNext" aria-label="Next dates">›</button>
+    </div>
+
+    <main class="sw-main sw-main--results" role="main">
+      <div class="sw-results sw-container" data-page-section="results" data-wci-role="landmark" data-wci-id="flight-search-results" data-wci-desc="Flight search results for JFK → LAX, Mar 15–22, 2 adults. 40 results shown.">
+        <nav class="sw-breadcrumbs" aria-label="Breadcrumb">
+          <ol class="sw-breadcrumbs__list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/flights">Flights</a></li>
+            <li aria-current="page" id="breadcrumbRoute">JFK → LAX</li>
+          </ol>
+        </nav>
+
+        <section class="sw-statusbar" aria-live="polite">
+          <div>
+            <div>Showing <strong id="resultCount">6</strong> flights · <span id="selectionStatus">No fare selected</span></div>
+            <div class="sw-smoke-status" id="flight-booking-smoke-status">Smoke status: waiting for primary selection</div>
+          </div>
+          <div class="sw-active-filters" id="activeFilters">
+            <span class="sw-chip">Nonstop</span>
+            <span class="sw-chip" id="chipCabin">Economy</span>
+            <span class="sw-chip" id="chipRoute">JFK → LAX</span>
+          </div>
+        </section>
+
+        <div class="sw-promo-banner">
+          <div><strong>Limited time:</strong> Book by midnight for bonus SkyMiles on nonstop economy fares.</div>
+          <button class="sw-btn sw-btn--outline sw-btn--sm" id="promoDismissBtn" type="button">Dismiss</button>
+        </div>
+
+        <div class="sw-results__layout">
+          <aside class="sw-filters sw-filters--desktop" role="complementary" data-wci-role="landmark" data-wci-id="flight-filters" data-wci-desc="Filter controls — narrow results by stops, price, airline, departure time" data-wci-priority="3">
+            <div class="sw-filters__header">
+              <h2 class="sw-filters__title">Filters</h2>
+              <button class="sw-filters__reset-btn sw-btn sw-btn--link" data-decoy="reset-filters-btn" id="resetFiltersReal" type="button" data-wci-role="action" data-wci-id="reset-filters-btn" data-wci-desc="Reset all filters to defaults" data-wci-action="click" data-wci-scope="flight-filters" data-wci-priority="5">Reset All</button>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--stops" data-wci-role="form" data-wci-id="filter-stops" data-wci-desc="Filter by number of stops" data-wci-action="check" data-wci-options="[&quot;Nonstop (12)&quot;,&quot;1 Stop (23)&quot;,&quot;2+ Stops (5)&quot;]" data-wci-state="{&quot;selected&quot;:[&quot;Nonstop&quot;,&quot;1 Stop&quot;]}" data-wci-scope="flight-filters" data-wci-priority="3">
+              <button class="sw-filter-group__toggle" type="button" aria-expanded="true"><span>Stops</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 4l4 4 4-4"></path></svg></button>
+              <div class="sw-filter-group__body">
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="0" checked=""><span class="sw-filter-check__label">Nonstop</span><span class="sw-filter-check__count" data-count-stops="0">(4)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="1" checked=""><span class="sw-filter-check__label">1 Stop</span><span class="sw-filter-check__count" data-count-stops="1">(1)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="stops" value="2"><span class="sw-filter-check__label">2+ Stops</span><span class="sw-filter-check__count" data-count-stops="2">(0)</span></label>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--price" data-wci-role="form" data-wci-id="filter-price" data-wci-desc="Filter by price range ($100–$2,000)" data-wci-action="fill" data-wci-state="{&quot;min&quot;:200,&quot;max&quot;:1400,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-filters" data-wci-priority="3">
+              <button class="sw-filter-group__toggle" type="button" aria-expanded="true"><span>Price</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 4l4 4 4-4"></path></svg></button>
+              <div class="sw-filter-group__body">
+                <div class="sw-range-slider">
+                  <div class="sw-range-slider__track"><div class="sw-range-slider__fill" id="priceFill" style="left:0%;right:20%"></div></div>
+                  <input type="range" min="100" max="2000" value="250" class="sw-range-slider__input sw-range-slider__input--min" id="priceMin">
+                  <input type="range" min="100" max="2000" value="1600" class="sw-range-slider__input sw-range-slider__input--max" id="priceMax">
+                </div>
+                <div class="sw-range-slider__labels"><span id="priceMinLabel">$250</span><span id="priceMaxLabel">$1,600</span></div>
+                <p class="sw-muted" id="priceHelp">Cheapest matching nonstop economy is highlighted.</p>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--airlines" data-wci-role="form" data-wci-id="filter-airlines" data-wci-desc="Filter by airline" data-wci-action="check" data-wci-options="[&quot;SkyWing (8)&quot;,&quot;United (6)&quot;,&quot;Delta (5)&quot;,&quot;American (4)&quot;,&quot;JetBlue (3)&quot;,&quot;Spirit (2)&quot;]" data-wci-state="{&quot;selected&quot;:[&quot;SkyWing&quot;,&quot;United&quot;,&quot;Delta&quot;,&quot;American&quot;]}" data-wci-scope="flight-filters" data-wci-priority="4">
+              <button class="sw-filter-group__toggle" type="button" aria-expanded="false"><span>Airlines</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button>
+              <div class="sw-filter-group__body sw-hidden-section" hidden="">
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="SW" checked=""><span>SkyWing</span><span class="sw-filter-check__count">(2)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="UA" checked=""><span>United</span><span class="sw-filter-check__count">(1)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="DL" checked=""><span>Delta</span><span class="sw-filter-check__count">(1)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="AA" checked=""><span>American</span><span class="sw-filter-check__count">(1)</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="airline" value="B6"><span>JetBlue</span><span class="sw-filter-check__count">(1)</span></label>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--times">
+              <button class="sw-filter-group__toggle" type="button" aria-expanded="false"><span>Times</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button>
+              <div class="sw-filter-group__body sw-hidden-section" hidden="">
+                <p class="sw-filter-subhead">Take-off from JFK</p>
+                <div class="sw-time-grid">
+                  <button type="button" class="sw-time-btn sw-time-btn--active" data-time="morning">🌅 Morning<br><small>6am–12pm</small></button>
+                  <button type="button" class="sw-time-btn" data-time="afternoon">☀️ Afternoon<br><small>12pm–6pm</small></button>
+                  <button type="button" class="sw-time-btn" data-time="evening">🌆 Evening<br><small>6pm–12am</small></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--bags">
+              <button class="sw-filter-group__toggle" type="button" aria-expanded="false"><span>Emissions</span><svg class="sw-icon" viewBox="0 0 12 12" width="12" height="12"><path fill="currentColor" d="M2 8l4-4 4 4"></path></svg></button>
+              <div class="sw-filter-group__body sw-hidden-section" hidden="">
+                <label class="sw-filter-check"><input type="checkbox" name="benefits" value="low-emissions"><span>Less emissions only</span></label>
+                <label class="sw-filter-check"><input type="checkbox" name="benefits" value="bag"><span>Checked bag included</span></label>
+              </div>
+            </div>
+
+            <div class="sw-filter-group sw-filter-group--sponsored" data-ad-unit="sidebar-native">
+              <div class="sw-filter-group__body sw-sponsored-filter">
+                <span class="sw-sponsored-label">Sponsored</span>
+                <div class="sw-sponsored-card">
+                  <img src="/ad-lounge.jpg" alt="Lounge pass">
+                  <p>SkyWing Lounge Pass — $49</p>
+                  <a href="/ads/lounge-pass" class="sw-btn sw-btn--sm sw-btn--primary" data-tracking="ad-lounge-sidebar">Add to Trip</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="sw-results__list-wrap">
+            <div class="sw-sort-bar">
+              <div class="sw-sort-bar__left"><span class="sw-sort-bar__count" id="sortCount">6 flights found</span></div>
+              <div class="sw-sort-bar__right">
+                <label class="sw-sort-bar__label" for="sortSelect">Sort by:</label>
+                <select class="sw-sort-bar__select" name="sort" id="sortSelect" data-wci-role="form" data-wci-id="sort-select" data-wci-desc="Sort results by: Best, Price, Duration, Departure" data-wci-action="select" data-wci-options="[&quot;Best&quot;,&quot;Price (Low→High)&quot;,&quot;Price (High→Low)&quot;,&quot;Duration&quot;,&quot;Departure Time&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Best&quot;}" data-wci-priority="3">
+                  <option value="best" selected="">Best flights</option>
+                  <option value="price_asc">Cheapest</option>
+                  <option value="price_desc">Most expensive</option>
+                  <option value="duration">Fastest</option>
+                  <option value="departure">Departure time</option>
+                  <option value="emissions">Emissions</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sw-result-card sw-result-card--promo" data-ad-unit="inline-promo" role="article">
+              <div class="sw-result-card__inner">
+                <div class="sw-promo-badge">✨ SkyMiles Exclusive</div>
+                <div class="sw-result-card__content">
+                  <p class="sw-promo-text">Earn <strong>3x SkyMiles</strong> on this route! <a href="/loyalty/earn" class="sw-link">Learn more</a></p>
+                  <div class="sw-meta-note">Promotional placement — not a flight result</div>
+                </div>
+              </div>
+            </div>
+
+            <div id="flightResultsList">
+              <div class="sw-result-card sw-result-card--highlight" data-flight-id="SW1042" data-airline="SW" data-stops="0" data-economy-price="329" data-premium-price="489" data-business-price="1249" data-first-price="2899" data-departure-minutes="480" data-duration-minutes="330" data-emissions="medium" data-route-key="JFK-LAX" role="article" data-wci-role="landmark" data-wci-id="flight-result-SW1042" data-wci-desc="SkyWing SW 1042 — JFK 08:00→LAX 11:30, Nonstop, 5h 30m" data-wci-state="{&quot;flightId&quot;:&quot;SW1042&quot;,&quot;airline&quot;:&quot;SkyWing&quot;,&quot;departure&quot;:&quot;08:00&quot;,&quot;arrival&quot;:&quot;11:30&quot;,&quot;duration&quot;:&quot;5h 30m&quot;,&quot;stops&quot;:0,&quot;aircraft&quot;:&quot;Boeing 787-9&quot;}">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--sw"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">SkyWing</span>
+                      <span class="sw-flight-number">SW 1042</span>
+                      <span class="sw-meta-note">Best nonstop economy value</span>
+                      <span class="sw-emissions sw-emissions--avg">Avg emissions · 412 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">08:00</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <span class="sw-flight-path__duration">5h 30m</span>
+                      <span class="sw-flight-path__stops">Nonstop</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">11:30</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" id="select-SW1042-economy" data-fare="economy" data-price="329" data-wci-role="action" data-wci-id="select-SW1042-economy" data-wci-desc="Select Economy fare for SW 1042 — $329/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:329,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$329</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--premium sw-hidden" data-fare="premium" data-price="489"><span class="sw-fare-btn__class">Premium</span><span class="sw-fare-btn__price">$489</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1249" data-wci-role="action" data-wci-id="select-SW1042-business" data-wci-desc="Select Business fare for SW 1042 — $1,249/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1249,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,249</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2899" data-wci-role="action" data-wci-id="select-SW1042-first" data-wci-desc="Select First Class fare for SW 1042 — $2,899/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2899,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-SW1042" data-wci-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,899</span><span class="sw-fare-btn__basis">round trip</span></button>
+                  </div>
+                </div>
+                <button type="button" class="sw-result-card__details-toggle" aria-expanded="false">Flight details &amp; fare comparison</button>
+                <div class="sw-result-card__details" hidden="">
+                  <div class="sw-flight-details">
+                    <div class="sw-flight-details__row"><span>Aircraft:</span><span>Boeing 787-9 Dreamliner</span></div>
+                    <div class="sw-flight-details__row"><span>Wi‑Fi:</span><span>Available (paid)</span></div>
+                    <div class="sw-flight-details__row"><span>Meal:</span><span>Complimentary snack box</span></div>
+                    <div class="sw-flight-details__row"><span>Legroom:</span><span>31" (Economy)</span></div>
+                  </div>
+                  <div class="sw-fare-comparison">
+                    <table class="sw-fare-table">
+                      <thead><tr><th></th><th>Economy</th><th>Business</th><th>First</th></tr></thead>
+                      <tbody>
+                        <tr><td>Baggage</td><td>1 carry-on</td><td>2 checked</td><td>3 checked</td></tr>
+                        <tr><td>Changes</td><td>$75 fee</td><td>Free</td><td>Free</td></tr>
+                        <tr><td>Seat select</td><td>Paid</td><td>Free</td><td>Free</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sw-result-card" data-flight-id="DL892" data-airline="DL" data-stops="0" data-economy-price="312" data-departure-minutes="870" data-duration-minutes="345" data-emissions="medium" role="article" data-wci-role="landmark" data-wci-id="flight-result-DL892" data-wci-desc="Delta DL 892 — JFK 14:30→LAX 17:15, Nonstop, Basic Economy decoy at $312" data-wci-state="{&quot;flightId&quot;:&quot;DL892&quot;,&quot;airline&quot;:&quot;Delta&quot;,&quot;departure&quot;:&quot;14:30&quot;,&quot;arrival&quot;:&quot;17:15&quot;,&quot;duration&quot;:&quot;5h 45m&quot;,&quot;stops&quot;:0,&quot;fareType&quot;:&quot;basic-economy&quot;,&quot;restricted&quot;:true}">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--dl"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">Delta</span>
+                      <span class="sw-flight-number">DL 892</span>
+                      <span class="sw-meta-note">Basic Economy — no carry-on, no changes</span>
+                      <span class="sw-emissions sw-emissions--avg">Avg emissions · 418 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">14:30</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <span class="sw-flight-path__duration">5h 45m</span>
+                      <span class="sw-flight-path__stops">Nonstop</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">17:15</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" id="select-DL892-economy" data-decoy="select-DL892-economy" data-fare="economy" data-price="312" data-wci-role="action" data-wci-id="select-DL892-economy" data-wci-desc="Select Basic Economy for DL 892 — $312 (restricted; not standard Economy)" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;basic-economy&quot;,&quot;price&quot;:312,&quot;currency&quot;:&quot;USD&quot;,&quot;restricted&quot;:true}" data-wci-scope="flight-result-DL892" data-wci-priority="1"><span class="sw-fare-btn__class">Basic Econ</span><span class="sw-fare-btn__price">$312</span><span class="sw-fare-btn__basis">restricted</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="1149" data-wci-role="action" data-wci-id="select-DL892-business" data-wci-desc="Select Business fare for DL 892 — $1,149/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:1149,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-DL892" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,149</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--first" data-fare="first" data-price="2599" data-wci-role="action" data-wci-id="select-DL892-first" data-wci-desc="Select First Class fare for DL 892 — $2,599/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;first&quot;,&quot;price&quot;:2599,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-DL892" data-wci-priority="2"><span class="sw-fare-btn__class">First</span><span class="sw-fare-btn__price">$2,599</span><span class="sw-fare-btn__basis">round trip</span></button>
+                  </div>
+                </div>
+                <button type="button" class="sw-result-card__details-toggle" aria-expanded="false">Flight details</button>
+                <div class="sw-result-card__details" hidden="">
+                  <div class="sw-flight-details">
+                    <div class="sw-flight-details__row"><span>Fare type:</span><span>Basic Economy (not standard Economy)</span></div>
+                    <div class="sw-flight-details__row"><span>Seat selection:</span><span>Assigned at check-in</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sw-result-card" data-flight-id="AA233" data-airline="AA" data-stops="0" data-economy-price="341" data-departure-minutes="440" data-duration-minutes="348" data-emissions="high" role="article">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--aa"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">American</span>
+                      <span class="sw-flight-number">AA 233</span>
+                      <span class="sw-emissions sw-emissions--high">+12% emissions · 462 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">07:20</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <span class="sw-flight-path__duration">5h 48m</span>
+                      <span class="sw-flight-path__stops">Nonstop</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">10:08</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="341"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$341</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn" data-fare="business" data-price="1179"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,179</span><span class="sw-fare-btn__basis">round trip</span></button>
+                  </div>
+                </div>
+                <button type="button" class="sw-result-card__details-toggle" aria-expanded="false">Flight details</button>
+                <div class="sw-result-card__details" hidden=""><div class="sw-flight-details"><div class="sw-flight-details__row"><span>Aircraft:</span><span>Airbus A321neo</span></div></div></div>
+              </div>
+
+              <div class="sw-result-card" data-flight-id="B6555" data-airline="B6" data-stops="0" data-economy-price="335" data-departure-minutes="630" data-duration-minutes="336" data-emissions="low" role="article">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--b6"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">JetBlue</span>
+                      <span class="sw-flight-number">B6 555</span>
+                      <span class="sw-emissions sw-emissions--low">-8% emissions · 379 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">10:30</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <span class="sw-flight-path__duration">5h 36m</span>
+                      <span class="sw-flight-path__stops">Nonstop</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">13:06</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="335"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$335</span><span class="sw-fare-btn__basis">round trip</span></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sw-result-card" data-flight-id="UA447" data-airline="UA" data-stops="1" data-economy-price="287" data-departure-minutes="615" data-duration-minutes="485" data-emissions="medium" role="article" data-wci-role="landmark" data-wci-id="flight-result-UA447" data-wci-desc="United UA 447 — JFK 10:15→LAX 15:20, 1 Stop (ORD), 8h 05m" data-wci-state="{&quot;flightId&quot;:&quot;UA447&quot;,&quot;airline&quot;:&quot;United&quot;,&quot;departure&quot;:&quot;10:15&quot;,&quot;arrival&quot;:&quot;15:20&quot;,&quot;duration&quot;:&quot;8h 05m&quot;,&quot;stops&quot;:1,&quot;stopCity&quot;:&quot;ORD&quot;}">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--ua"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">United</span>
+                      <span class="sw-flight-number">UA 447</span>
+                      <span class="sw-meta-note">Lowest price, but not nonstop</span>
+                      <span class="sw-emissions sw-emissions--avg">Avg emissions · 521 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">10:15</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <div class="sw-flight-path__stop-marker">ORD</div>
+                      <span class="sw-flight-path__duration">8h 05m</span>
+                      <span class="sw-flight-path__stops">1 stop · ORD</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">15:20</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" id="select-UA447-economy" data-decoy="select-UA447-economy" data-fare="economy" data-price="287" data-wci-role="action" data-wci-id="select-UA447-economy" data-wci-desc="Select Economy fare for UA 447 — $287/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;economy&quot;,&quot;price&quot;:287,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-UA447" data-wci-priority="1"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$287</span><span class="sw-fare-btn__basis">1 stop</span></button>
+                    <button type="button" class="sw-fare-btn sw-fare-btn--business" data-fare="business" data-price="989" data-wci-role="action" data-wci-id="select-UA447-business" data-wci-desc="Select Business fare for UA 447 — $989/person" data-wci-action="click" data-wci-state="{&quot;fare&quot;:&quot;business&quot;,&quot;price&quot;:989,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="flight-result-UA447" data-wci-priority="2"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$989</span><span class="sw-fare-btn__basis">1 stop</span></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sw-result-card" data-flight-id="SW1188" data-airline="SW" data-stops="0" data-economy-price="358" data-departure-minutes="1120" data-duration-minutes="339" data-emissions="medium" role="article">
+                <div class="sw-result-card__inner">
+                  <div class="sw-result-card__airline">
+                    <div class="sw-airline-logo sw-airline-logo--sw"></div>
+                    <div class="sw-airline-info">
+                      <span class="sw-airline-name">SkyWing</span>
+                      <span class="sw-flight-number">SW 1188</span>
+                      <span class="sw-emissions sw-emissions--avg">Avg emissions · 415 kg CO₂e</span>
+                    </div>
+                  </div>
+                  <div class="sw-result-card__times">
+                    <div class="sw-time-block"><span class="sw-time-block__time">18:40</span><span class="sw-time-block__airport">JFK</span></div>
+                    <div class="sw-flight-path">
+                      <div class="sw-flight-path__line"></div>
+                      <span class="sw-flight-path__duration">5h 39m</span>
+                      <span class="sw-flight-path__stops">Nonstop</span>
+                    </div>
+                    <div class="sw-time-block"><span class="sw-time-block__time">21:19</span><span class="sw-time-block__airport">LAX</span></div>
+                  </div>
+                  <div class="sw-result-card__fares">
+                    <button type="button" class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="358"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">$358</span><span class="sw-fare-btn__basis">round trip</span></button>
+                    <button type="button" class="sw-fare-btn" data-fare="business" data-price="1299"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">$1,299</span><span class="sw-fare-btn__basis">round trip</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sw-result-card sw-result-card--partner" data-ad-unit="partner-inline" role="article">
+              <div class="sw-result-card__inner">
+                <div class="sw-partner-badge">Partner Offer</div>
+                <div class="sw-result-card__content">
+                  <p>Save 15% on LAX airport parking with ParkFly. <a href="/partners/parkfly" data-tracking="partner-parkfly">Reserve Now →</a></p>
+                  <div class="sw-meta-note">Sponsored placement</div>
+                </div>
+              </div>
+            </div>
+
+            <nav class="sw-pagination" aria-label="Search results pages">
+              <button class="sw-pagination__btn sw-pagination__btn--prev" disabled="" type="button">← Previous</button>
+              <button class="sw-pagination__btn sw-pagination__btn--num sw-pagination__btn--active" type="button">1</button>
+              <button class="sw-pagination__btn sw-pagination__btn--num" type="button">2</button>
+              <button class="sw-pagination__btn sw-pagination__btn--next" type="button">Next →</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+    </div>
+
+    <div class="sw-page sw-hidden" data-route="/hotels" id="pageHotels">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>Hotels</h1><p>Search stays near your destination. Sample listings for benchmark demo.</p><div class="sw-subpage-grid"><article class="sw-subpage-card"><h3>Marriott Downtown LA</h3><p>From $189/night · Free cancellation</p><button type="button" class="sw-btn sw-btn--primary sw-btn--sm">View deal</button></article><article class="sw-subpage-card"><h3>The Line Hotel</h3><p>From $142/night · Trending</p><button type="button" class="sw-btn sw-btn--outline sw-btn--sm">View deal</button></article></div><button type="button" class="sw-btn sw-btn--ghost" data-route="/flights/results">← Back to flights</button></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/rentals" id="pageRentals">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>Vacation rentals</h1><p>Homes and apartments worldwide.</p><div class="sw-subpage-grid"><article class="sw-subpage-card"><h3>Beach house · Malibu</h3><p>$312/night · 3 bedrooms</p><button type="button" class="sw-btn sw-btn--primary sw-btn--sm">Check availability</button></article><article class="sw-subpage-card"><h3>Loft · Downtown LA</h3><p>$178/night · 1 bedroom</p><button type="button" class="sw-btn sw-btn--outline sw-btn--sm">Check availability</button></article></div></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/explore" id="pageExplore">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>Explore</h1><p>Popular destinations from your region.</p><div class="sw-subpage-grid"><button type="button" class="sw-subpage-card sw-subpage-card--click" data-quick-route="JFK,LAX"><h3>Los Angeles</h3><p>United States · Beaches &amp; studios</p></button><button type="button" class="sw-subpage-card sw-subpage-card--click" data-quick-route="JFK,LHR"><h3>London</h3><p>United Kingdom · History &amp; culture</p></button><button type="button" class="sw-subpage-card sw-subpage-card--click" data-quick-route="SFO,NRT"><h3>Tokyo</h3><p>Japan · Food &amp; nightlife</p></button></div></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/deals" id="pageDeals">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>Flight deals</h1><p>Limited-time fares updated daily.</p><ul class="sw-deals-list"><li><strong>Spring Sale</strong> — 30% off coast-to-coast nonstop routes</li><li><strong>Europe flash sale</strong> — London to Paris from €89 round trip</li><li><strong>Asia explorer</strong> — Tokyo to Singapore from ¥42,000</li></ul><button type="button" class="sw-btn sw-btn--primary" data-route="/flights/results">Search all flights</button></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/manage/booking" id="pageManage">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>My bookings</h1><p>No active reservations in this demo session.</p><p class="sw-muted">Sign in to view upcoming trips, check-in, and seat selection.</p><button type="button" class="sw-btn sw-btn--primary" data-route="/signin">Sign in</button></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/signin" id="pageSignin">
+      <main class="sw-main sw-container"><div class="sw-subpage sw-subpage--narrow"><h1>Sign in</h1><form id="signInForm" class="sw-signin-form"><div class="sw-field"><label for="signInEmail">Email</label><input type="email" id="signInEmail" placeholder="you@example.com" required=""></div><div class="sw-field"><label for="signInPass">Password</label><input type="password" id="signInPass" placeholder="••••••••" required=""></div><button type="submit" class="sw-btn sw-btn--primary sw-btn--full">Sign in</button></form></div></main>
+    </div>
+    <div class="sw-page sw-hidden" data-route="/help" id="pageHelp">
+      <main class="sw-main sw-container"><div class="sw-subpage"><h1>Help Center</h1><p>Browse topics: baggage, changes, refunds, and accessibility.</p><button type="button" class="sw-btn sw-btn--outline" data-route="/flights/results">Return to flights</button></div></main>
+    </div>
+
+    <div class="sw-cookie-banner" role="dialog" aria-label="Cookie consent" id="cookieBanner">
+      <div class="sw-cookie-banner__inner">
+        <p>We use cookies to improve your experience, personalize offers, and analyze traffic. <a href="/privacy">Learn more</a></p>
+        <div class="sw-cookie-banner__actions">
+          <button class="sw-btn sw-btn--ghost sw-btn--sm" id="cookieManageBtn" type="button">Manage</button>
+          <button class="sw-btn sw-btn--primary sw-btn--sm" id="cookieAcceptBtn" type="button">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sw-modal" id="selectionModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="selectionModalTitle">
+      <div class="sw-modal__backdrop"></div>
+      <div class="sw-modal__panel">
+        <h2 id="selectionModalTitle">Fare selected</h2>
+        <p id="selectionModalBody" class="sw-modal__body">Your selected fare will appear here.</p>
+        <div class="sw-modal__actions">
+          <button class="sw-btn sw-btn--ghost" id="closeModalBtn" type="button">Close</button>
+          <button class="sw-btn sw-btn--primary" id="continueBtn" type="button">Continue to traveler details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sw-toast" id="toast">Updated</div>
+
+    <footer class="sw-footer" role="contentinfo">
+      <div class="sw-footer__inner sw-container">
+        <div class="sw-footer__cols">
+          <div class="sw-footer__col"><h4>Explore</h4><a href="#/explore" data-route="/explore">Destinations</a><a href="#/deals" data-route="/deals">Deals</a></div>
+          <div class="sw-footer__col"><h4>Help</h4><a href="#/help" data-route="/help">Help Center</a><a href="#/help" data-route="/help">FAQ</a></div>
+          <div class="sw-footer__col"><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
+        </div>
+        <div class="sw-footer__bottom"><span>© 2026 SkyWing Travel LLC · Prices are sample data for benchmark scenarios</span></div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>const ROUTES={
+  '/':'Flights','/flights/results':'Flight results','/hotels':'Hotels','/rentals':'Vacation rentals',
+  '/explore':'Explore','/deals':'Flight deals','/manage/booking':'My bookings','/signin':'Sign in','/help':'Help Center'
+};
+const PLACES=[
+  {code:'US',country:'United States',countryCode:'US',city:'',label:'United States',type:'country',airport:'JFK'},
+  {code:'JFK',country:'United States',countryCode:'US',city:'New York',label:'New York (JFK — John F. Kennedy)',type:'airport'},
+  {code:'LGA',country:'United States',countryCode:'US',city:'New York',label:'New York (LGA — LaGuardia)',type:'airport'},
+  {code:'LAX',country:'United States',countryCode:'US',city:'Los Angeles',label:'Los Angeles (LAX)',type:'airport'},
+  {code:'SFO',country:'United States',countryCode:'US',city:'San Francisco',label:'San Francisco (SFO)',type:'airport'},
+  {code:'ORD',country:'United States',countryCode:'US',city:'Chicago',label:"Chicago (ORD — O'Hare)",type:'airport'},
+  {code:'MIA',country:'United States',countryCode:'US',city:'Miami',label:'Miami (MIA)',type:'airport'},
+  {code:'GB',country:'United Kingdom',countryCode:'GB',city:'',label:'United Kingdom',type:'country',airport:'LHR'},
+  {code:'LHR',country:'United Kingdom',countryCode:'GB',city:'London',label:'London (LHR — Heathrow)',type:'airport'},
+  {code:'LGW',country:'United Kingdom',countryCode:'GB',city:'London',label:'London (LGW — Gatwick)',type:'airport'},
+  {code:'FR',country:'France',countryCode:'FR',city:'',label:'France',type:'country',airport:'CDG'},
+  {code:'CDG',country:'France',countryCode:'FR',city:'Paris',label:'Paris (CDG — Charles de Gaulle)',type:'airport'},
+  {code:'ORY',country:'France',countryCode:'FR',city:'Paris',label:'Paris (ORY — Orly)',type:'airport'},
+  {code:'DE',country:'Germany',countryCode:'DE',city:'',label:'Germany',type:'country',airport:'FRA'},
+  {code:'FRA',country:'Germany',countryCode:'DE',city:'Frankfurt',label:'Frankfurt (FRA)',type:'airport'},
+  {code:'JP',country:'Japan',countryCode:'JP',city:'',label:'Japan',type:'country',airport:'NRT'},
+  {code:'NRT',country:'Japan',countryCode:'JP',city:'Tokyo',label:'Tokyo (NRT — Narita)',type:'airport'},
+  {code:'HND',country:'Japan',countryCode:'JP',city:'Tokyo',label:'Tokyo (HND — Haneda)',type:'airport'},
+  {code:'SG',country:'Singapore',countryCode:'SG',city:'',label:'Singapore',type:'country',airport:'SIN'},
+  {code:'SIN',country:'Singapore',countryCode:'SG',city:'Singapore',label:'Singapore (SIN — Changi)',type:'airport'},
+  {code:'AU',country:'Australia',countryCode:'AU',city:'',label:'Australia',type:'country',airport:'SYD'},
+  {code:'SYD',country:'Australia',countryCode:'AU',city:'Sydney',label:'Sydney (SYD)',type:'airport'},
+  {code:'CA',country:'Canada',countryCode:'CA',city:'',label:'Canada',type:'country',airport:'YYZ'},
+  {code:'YYZ',country:'Canada',countryCode:'CA',city:'Toronto',label:'Toronto (YYZ — Pearson)',type:'airport'},
+  {code:'MX',country:'Mexico',countryCode:'MX',city:'',label:'Mexico',type:'country',airport:'MEX'},
+  {code:'MEX',country:'Mexico',countryCode:'MX',city:'Mexico City',label:'Mexico City (MEX)',type:'airport'},
+  {code:'BR',country:'Brazil',countryCode:'BR',city:'',label:'Brazil',type:'country',airport:'GRU'},
+  {code:'GRU',country:'Brazil',countryCode:'BR',city:'São Paulo',label:'São Paulo (GRU)',type:'airport'}
+];
+const CABIN_MAP={economy:'economy',premium:'premium',business:'business',first:'first'};
+const CABIN_LABELS={economy:'Economy',premium:'Premium economy',business:'Business',first:'First'};
+const state={cabin:'economy',routeKey:'JFK-LAX'};
+let benchmarkResultsHtml='';
+const $=s=>document.querySelector(s);
+const $$=(s,root)=>Array.from((root||document).querySelectorAll(s));
+const fmt=n=>'$'+Number(n).toLocaleString('en-US');
+const root=$('#__next');
+const toast=$('#toast'),cookieBanner=$('#cookieBanner'),modal=$('#selectionModal'),body=$('#selectionModalBody'),status=$('#selectionStatus'),count=$('#resultCount'),sortCount=$('#sortCount'),priceMin=$('#priceMin'),priceMax=$('#priceMax'),priceMinLabel=$('#priceMinLabel'),priceMaxLabel=$('#priceMaxLabel'),priceFill=$('#priceFill'),smoke=$('#flight-booking-smoke-status');
+window.__scenarioSmoke=window.__scenarioSmoke||{lastAction:'',updatedAt:0};
+let selected=null;
+const showToast=t=>{if(!toast)return;toast.textContent=t;toast.classList.add('is-show');clearTimeout(showToast._t);showToast._t=setTimeout(()=>toast.classList.remove('is-show'),1800)};
+const openModal=(title,text)=>{if(!body||!modal)return;if(typeof title==='string'&&!text){body.textContent=title}else{body.textContent=text||'';const h=$('#selectionModalTitle');if(h&&title)h.textContent=title}modal.setAttribute('aria-hidden','false')};
+const closeModal=()=>modal&&modal.setAttribute('aria-hidden','true');
+const setSmoke=txt=>{if(smoke)smoke.textContent=txt;window.__scenarioSmoke={lastAction:txt,updatedAt:Date.now(),route:root?.dataset.currentRoute}};
+function placeByCode(code){return PLACES.find(p=>p.code===code)}
+function resolveAirportCode(code){
+  const p=placeByCode(code);if(!p)return code;
+  if(p.type==='country'&&p.airport)return p.airport;
+  return p.type==='airport'?p.code:code;
+}
+function getRouteKey(){return resolveAirportCode($('#searchOrigin')?.dataset.code||'JFK')+'-'+resolveAirportCode($('#searchDestination')?.dataset.code||'LAX')}
+function syncSummary(){
+  const o=resolveAirportCode($('#searchOrigin')?.dataset.code||'JFK'),d=resolveAirportCode($('#searchDestination')?.dataset.code||'LAX');
+  const oCountry=$('#searchOrigin')?.dataset.country||'',dCountry=$('#searchDestination')?.dataset.country||'';
+  const route=o+' → '+d;
+  $$('#summaryRoute,#breadcrumbRoute,#chipRoute').forEach(el=>{if(el)el.textContent=route});
+  const dep=$('#searchDepart')?.value,dRet=$('#searchReturn')?.value;
+  if(dep){const fmtD=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});const dates=$('input[name="tripType"]:checked')?.value==='oneway'?fmtD(dep):fmtD(dep)+' – '+fmtD(dRet);const el=$('#summaryDates');if(el)el.textContent=dates}
+  const pax=$('#searchPassengers');if(pax){const n=+pax.value;const el=$('#summaryPax');if(el)el.textContent=n+(n===1?' Adult':' Adults')}
+  const cab=$('#searchCabin');if(cab){state.cabin=cab.value;const el=$('#summaryCabin'),chip=$('#chipCabin');const label=CABIN_LABELS[state.cabin]||'Economy';if(el)el.textContent=label;if(chip)chip.textContent=label}
+  state.routeKey=getRouteKey();
+  document.title='Flights — '+o+' to '+d+' | SkyWing Travel';
+}
+function renderDateBar(){
+  const track=$('#dateBarTrack');if(!track)return;
+  track.innerHTML='';
+  const selected=$('#searchDepart')?.value||'2026-03-15';
+  const base=state.routeKey==='JFK-LAX'?329:420;
+  for(let i=-3;i<=4;i++){
+    const dt=new Date(selected+'T12:00:00');dt.setDate(dt.getDate()+i);
+    const date=dt.toISOString().slice(0,10);
+    const price=base+Math.abs(i)*7+Math.floor(Math.random()*8);
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='sw-date-bar__day'+(date===selected?' sw-date-bar__day--active':'');
+    btn.dataset.date=date;
+    btn.innerHTML='<span class="sw-date-bar__dow">'+dt.toLocaleDateString('en-US',{weekday:'short'})+'</span><span class="sw-date-bar__date">'+dt.toLocaleDateString('en-US',{month:'short',day:'numeric'})+'</span><span class="sw-date-bar__price">'+fmt(price)+'</span>';
+    btn.addEventListener('click',()=>{$('#searchDepart').value=date;syncSummary();renderDateBar();showToast('Departure date updated');applyFilters()});
+    track.appendChild(btn);
+  }
+}
+function showSuggestions(input,listEl,excludeCode){
+  if(!input||!listEl)return;
+  const q=(input.value||'').toLowerCase().trim();
+  const matches=PLACES.filter(p=>{
+    if(p.code===excludeCode)return false;
+    if(!q)return true;
+    return p.label.toLowerCase().includes(q)||p.code.toLowerCase().includes(q)||(p.city&&p.city.toLowerCase().includes(q))||p.country.toLowerCase().includes(q);
+  }).slice(0,8);
+  listEl.innerHTML=matches.map(p=>{
+    const tag=p.type==='country'?'Country':p.type==='airport'?'Airport':'City';
+    const sub=p.type==='country'?p.country:(p.city?p.city+', '+p.country:p.country);
+    return '<li role="option" data-code="'+p.code+'" data-label="'+p.label+'" data-country="'+p.country+'" data-country-code="'+p.countryCode+'" data-type="'+p.type+'"><span class="sw-suggest__tag">'+tag+'</span><strong>'+p.label+'</strong><span class="sw-suggest__sub">'+sub+'</span></li>';
+  }).join('');
+  listEl.classList.toggle('sw-hidden',matches.length===0);
+}
+function pickPlace(input,codeEl,suggestEl,li){
+  if(!input||!li)return;
+  let code=li.dataset.code,label=li.dataset.label,country=li.dataset.country,countryCode=li.dataset.countryCode;
+  if(li.dataset.type==='country'){const c=placeByCode(code);code=c?.airport||code;const ap=placeByCode(code);label=ap?ap.label:label}
+  input.value=label;
+  input.dataset.code=code;
+  input.dataset.country=country;
+  input.dataset.countryCode=countryCode;
+  if(codeEl)codeEl.textContent=code;
+  if(suggestEl)suggestEl.classList.add('sw-hidden');
+  syncSummary();
+}
+function getCabinPrice(card,cabin){
+  if(cabin==='economy')return+(card.dataset.economyPrice||99999);
+  if(cabin==='premium')return+(card.dataset.premiumPrice||Math.round(+(card.dataset.economyPrice||0)*1.45)||99999);
+  if(cabin==='business')return+(card.dataset.businessPrice||99999);
+  if(cabin==='first')return+(card.dataset.firstPrice||99999);
+  return 99999;
+}
+function applyCabinClass(){
+  const cabin=state.cabin||'economy';
+  $$('#flightResultsList [data-flight-id]').forEach(card=>{
+    $$('.sw-fare-btn',card).forEach(btn=>{
+      const fare=btn.dataset.fare;
+      let show=false;
+      if(cabin==='economy')show=fare==='economy';
+      else if(cabin==='premium')show=fare==='premium'||(fare==='economy'&&!card.querySelector('[data-fare="premium"]'));
+      else show=fare===cabin;
+      btn.classList.toggle('sw-hidden',!show);
+      btn.classList.toggle('sw-fare-btn--active-cabin',show&&fare===cabin);
+    });
+  });
+  const help=$('#priceHelp');if(help)help.textContent='Cheapest matching nonstop '+CABIN_LABELS[cabin].toLowerCase()+' is highlighted.';
+  applyFilters();
+}
+function getAirlines(){return $$('input[name="airline"]:checked').map(i=>i.value)}
+function getStops(){return $$('input[name="stops"]:checked').map(i=>i.value)}
+function applyFilters(){
+  const min=+priceMin.value,max=+priceMax.value,airlines=getAirlines(),stops=getStops(),cabin=state.cabin;
+  let visible=0;
+  $$('#flightResultsList [data-flight-id]').forEach(card=>{
+    const price=getCabinPrice(card,cabin),air=card.dataset.airline,stop=card.dataset.stops;
+    const ok=price>=min&&price<=max&&airlines.includes(air)&&stops.includes(stop);
+    card.classList.toggle('sw-hidden',!ok);
+    if(ok)visible++;
+  });
+  if(count)count.textContent=String(visible);
+  if(sortCount)sortCount.textContent=visible+' flights found';
+  highlightCheapest();
+}
+function highlightCheapest(){
+  const min=+priceMin.value,max=+priceMax.value,airlines=getAirlines(),stops=getStops(),cabin=state.cabin;
+  let cheapest=null;
+  $$('#flightResultsList [data-flight-id]').forEach(card=>{
+    card.classList.remove('sw-result-card--highlight');
+    if(card.classList.contains('sw-hidden'))return;
+    const price=getCabinPrice(card,cabin),air=card.dataset.airline,stop=card.dataset.stops;
+    const ok=price>=min&&price<=max&&airlines.includes(air)&&stops.includes(stop);
+    if(ok&&stop==='0'){if(!cheapest||price<getCabinPrice(cheapest,cabin))cheapest=card}
+  });
+  if(cheapest)cheapest.classList.add('sw-result-card--highlight');
+}
+function syncPrice(){
+  let a=+priceMin.value,b=+priceMax.value;
+  if(a>b){[a,b]=[b,a];priceMin.value=a;priceMax.value=b}
+  priceMinLabel.textContent=fmt(a);priceMaxLabel.textContent=fmt(b);
+  const minPct=((a-100)/(2000-100))*100,maxPct=((b-100)/(2000-100))*100;
+  priceFill.style.left=minPct+'%';priceFill.style.right=(100-maxPct)+'%';
+  applyFilters();
+}
+function sortResults(mode){
+  const list=$('#flightResultsList');if(!list)return;
+  const cabin=state.cabin;
+  const cards=$$('[data-flight-id]',list);
+  const key={
+    price_asc:c=>getCabinPrice(c,cabin),
+    price_desc:c=>-getCabinPrice(c,cabin),
+    duration:c=>+(c.dataset.durationMinutes||99999),
+    departure:c=>+(c.dataset.departureMinutes||99999),
+    emissions:c=>c.dataset.emissions==='low'?0:c.dataset.emissions==='medium'?1:2,
+    best:c=>getCabinPrice(c,cabin)*0.7+(+(c.dataset.durationMinutes||999))*0.3
+  }[mode]||(()=>0);
+  cards.sort((a,b)=>key(a)-key(b)).forEach(c=>list.appendChild(c));
+}
+function toggleSearch(open){
+  const form=$('#searchForm'),collapsed=$('#searchCollapsed');
+  if(!form||!collapsed)return;
+  form.classList.toggle('sw-hidden',!open);
+  collapsed.classList.toggle('sw-hidden',open);
+}
+function generateRouteFlights(origin,dest){
+  const airlines=[['SW','SkyWing'],['UA','United'],['DL','Delta'],['BA','British Airways'],['AF','Air France'],['JL','Japan Airlines']];
+  let html='';
+  for(let i=0;i<4;i++){
+    const [code,name]=airlines[i%airlines.length];
+    const stops=i===2?1:0;
+    const econ=280+i*45+Math.floor(Math.random()*30);
+    const prem=Math.round(econ*1.45);
+    const biz=Math.round(econ*3.2);
+    const depH=6+i*3,arrH=depH+(stops?4:5);
+    html+='<div class="sw-result-card" data-flight-id="'+code+(1000+i)+'" data-airline="'+code+'" data-stops="'+stops+'" data-economy-price="'+econ+'" data-premium-price="'+prem+'" data-business-price="'+biz+'" data-first-price="'+Math.round(biz*2.2)+'" data-departure-minutes="'+(depH*60)+'" data-duration-minutes="'+(stops?420:330)+'" data-emissions="medium" data-route-key="'+origin+'-'+dest+'" role="article"><div class="sw-result-card__inner"><div class="sw-result-card__airline"><div class="sw-airline-logo"></div><div class="sw-airline-info"><span class="sw-airline-name">'+name+'</span><span class="sw-flight-number">'+code+' '+(1000+i)+'</span></div></div><div class="sw-result-card__times"><div class="sw-time-block"><span class="sw-time-block__time">'+String(depH).padStart(2,'0')+':00</span><span class="sw-time-block__airport">'+origin+'</span></div><div class="sw-flight-path"><div class="sw-flight-path__line"></div><span class="sw-flight-path__duration">'+(stops?'7h 00m':'5h 30m')+'</span><span class="sw-flight-path__stops">'+(stops?'1 stop':'Nonstop')+'</span></div><div class="sw-time-block"><span class="sw-time-block__time">'+String(arrH).padStart(2,'0')+':30</span><span class="sw-time-block__airport">'+dest+'</span></div></div><div class="sw-result-card__fares"><button type="button" class="sw-fare-btn sw-fare-btn--economy" data-fare="economy" data-price="'+econ+'"><span class="sw-fare-btn__class">Economy</span><span class="sw-fare-btn__price">'+fmt(econ)+'</span></button><button type="button" class="sw-fare-btn sw-fare-btn--premium sw-hidden" data-fare="premium" data-price="'+prem+'"><span class="sw-fare-btn__class">Premium</span><span class="sw-fare-btn__price">'+fmt(prem)+'</span></button><button type="button" class="sw-fare-btn" data-fare="business" data-price="'+biz+'"><span class="sw-fare-btn__class">Business</span><span class="sw-fare-btn__price">'+fmt(biz)+'</span></button></div></div></div>';
+  }
+  return html;
+}
+function loadResultsForRoute(){
+  const list=$('#flightResultsList');if(!list)return;
+  const key=getRouteKey();
+  if(key==='JFK-LAX'&&benchmarkResultsHtml){list.innerHTML=benchmarkResultsHtml}
+  else{list.innerHTML=generateRouteFlights(key.split('-')[0],key.split('-')[1]);showToast('Showing sample results for '+key.replace('-',' → '))}
+  state.routeKey=key;
+  bindInteractive();
+  applyCabinClass();
+  sortResults($('#sortSelect')?.value||'best');
+}
+function navigate(route,opts){
+  if(!ROUTES[route])route='/flights/results';
+  $$('.sw-page').forEach(p=>p.classList.toggle('sw-hidden',p.getAttribute('data-route')!==route));
+  const panel=$('#searchPanel'),dateBar=$('#datePriceBar');
+  const isFlights=route==='/'||route==='/flights/results';
+  if(panel)panel.classList.toggle('sw-hidden',!isFlights);
+  if(dateBar)dateBar.classList.toggle('sw-hidden',route!=='/flights/results');
+  if(route==='/')toggleSearch(true);
+  if(route==='/flights/results')toggleSearch(false);
+  root.dataset.currentRoute=route;
+  if(opts?.push!==false&&location.hash!=='#'+route)location.hash=route;
+  document.title=(ROUTES[route]||'Flights')+' | SkyWing Travel';
+  setSmoke('navigated to '+route);
+}
+function setQuickRoute(origin,dest){
+  const o=placeByCode(origin),d=placeByCode(dest);
+  if(o){$('#searchOrigin').value=o.label;$('#searchOrigin').dataset.code=o.code;$('#searchOrigin').dataset.country=o.country;$('#searchOrigin').dataset.countryCode=o.countryCode;$('#originCode').textContent=o.code}
+  if(d){$('#searchDestination').value=d.label;$('#searchDestination').dataset.code=d.code;$('#searchDestination').dataset.country=d.country;$('#searchDestination').dataset.countryCode=d.countryCode;$('#destCode').textContent=d.code}
+  syncSummary();
+  navigate('/flights/results');
+  loadResultsForRoute();
+  renderDateBar();
+}
+function bindInteractive(){
+  $$('.sw-filter-group__toggle').forEach(btn=>{btn.onclick=()=>{const panel=btn.nextElementSibling;const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(panel)panel.hidden=expanded}});
+  $$('.sw-time-btn').forEach(btn=>{btn.onclick=()=>{$$('.sw-time-btn').forEach(b=>b.classList.remove('sw-time-btn--active'));btn.classList.add('sw-time-btn--active');showToast('Departure time: '+btn.dataset.time)}});
+  $$('.sw-result-card__details-toggle').forEach(btn=>{btn.onclick=()=>{const details=btn.nextElementSibling;const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(details)details.hidden=expanded}});
+  $$('.sw-fare-btn').forEach(btn=>{btn.onclick=()=>{if(btn.dataset.decoy)return;$$('.sw-fare-btn').forEach(b=>b.classList.remove('is-selected'));btn.classList.add('is-selected');const card=btn.closest('.sw-result-card');selected=(card?.dataset.flightId||'')+' '+btn.dataset.fare;if(status)status.textContent='Selected '+selected+' for '+fmt(btn.dataset.price);openModal('Fare selected','Selected '+btn.dataset.fare+' fare on flight '+(card?.dataset.flightId||'unknown')+' for '+fmt(btn.dataset.price)+'.');showToast('Fare selected')}});
+}
+function initStaticHandlers(){
+  $('#flightResultsList')?.addEventListener('click',e=>{
+    const decoy=e.target.closest('[data-decoy]');
+    if(decoy){
+      if(decoy.dataset.decoy==='select-UA447-economy')openModal('Fare selected','This lower price is a decoy because the itinerary has 1 stop in ORD.');
+      else if(decoy.dataset.decoy==='select-DL892-economy')openModal('Fare selected','Basic Economy is restricted and does not qualify as standard Economy for this task.');
+      return;
+    }
+    const btn=e.target.closest('.sw-fare-btn');
+    if(btn&&btn.id==='select-SW1042-economy')setSmoke('Smoke status: primary selected SW1042 economy $329');
+  });
+  priceMin?.addEventListener('input',syncPrice);priceMax?.addEventListener('input',syncPrice);
+  $$('input[name="airline"],input[name="stops"],input[name="benefits"]').forEach(el=>el.addEventListener('change',()=>{applyFilters();showToast('Filters updated')}));
+  $('#cookieAcceptBtn')?.addEventListener('click',()=>{cookieBanner?.remove();showToast('Cookies accepted')});
+  $('#cookieManageBtn')?.addEventListener('click',()=>openModal('Cookie preferences','Cookie controls are available in site settings.'));
+  $('#closeModalBtn')?.addEventListener('click',closeModal);
+  $('#continueBtn')?.addEventListener('click',()=>{closeModal();showToast('Proceeding to traveler details')});
+  $('#promoDismissBtn')?.addEventListener('click',e=>{e.currentTarget.closest('.sw-promo-banner')?.remove();showToast('Promo dismissed')});
+  $('#sortSelect')?.addEventListener('change',e=>{sortResults(e.target.value);showToast('Sorted by '+e.target.selectedOptions[0].textContent)});
+  $('#resetFiltersReal')?.addEventListener('click',()=>{$$('input[type="checkbox"]').forEach(cb=>{if(cb.name==='benefits'||cb.value==='2')cb.checked=false;else cb.checked=true});priceMin.value=250;priceMax.value=1600;syncPrice();if(status)status.textContent='Filters reset';showToast('Filters reset')});
+  $('button[data-decoy="modify-search-btn"]')?.addEventListener('click',()=>openModal('Modify search','Modify search is currently unavailable in this benchmark view.'));
+  $('button[data-decoy="reset-filters-btn"]')?.addEventListener('click',()=>showToast('Decoy reset filter button'));
+  const flightsItem=document.querySelector('.sw-hdr__nav-item--has-mega');
+  const flightsLink=document.querySelector('[data-mega-trigger="flights"]');
+  if(flightsItem&&flightsLink){flightsLink.addEventListener('mouseenter',()=>flightsItem.classList.add('is-open'));flightsLink.addEventListener('click',e=>{e.preventDefault();flightsItem.classList.toggle('is-open')});flightsItem.addEventListener('mouseleave',()=>flightsItem.classList.remove('is-open'))}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();flightsItem&&flightsItem.classList.remove('is-open');$$('.sw-suggest').forEach(s=>s.classList.add('sw-hidden'))}});
+  $('#expandSearchBtn')?.addEventListener('click',()=>toggleSearch(true));
+  $('#cancelSearchBtn')?.addEventListener('click',()=>toggleSearch(false));
+  $('#heroSearchBtn')?.addEventListener('click',()=>{navigate('/');toggleSearch(true)});
+  $('#swapAirportsBtn')?.addEventListener('click',()=>{const o=$('#searchOrigin'),d=$('#searchDestination'),oc=$('#originCode'),dc=$('#destCode');if(!o||!d)return;const tV=o.value,tC=o.dataset.code,tCo=o.dataset.country,tCc=o.dataset.countryCode;o.value=d.value;o.dataset.code=d.dataset.code;o.dataset.country=d.dataset.country;o.dataset.countryCode=d.dataset.countryCode;d.value=tV;d.dataset.code=tC;d.dataset.country=tCo;d.dataset.countryCode=tCc;if(oc)oc.textContent=o.dataset.code;if(dc)dc.textContent=d.dataset.code;syncSummary();showToast('Origin and destination swapped')});
+  $$('input[name="tripType"]').forEach(r=>r.addEventListener('change',()=>{$('#returnFieldWrap')?.classList.toggle('sw-hidden',r.value==='oneway'&&r.checked);syncSummary()}));
+  $('#searchCabin')?.addEventListener('change',()=>{syncSummary();applyCabinClass();showToast('Cabin class: '+CABIN_LABELS[state.cabin])});
+  $('#searchPassengers')?.addEventListener('change',syncSummary);
+  $('#searchOrigin')?.addEventListener('input',()=>showSuggestions($('#searchOrigin'),$('#originSuggestions'),$('#searchDestination')?.dataset.code));
+  $('#searchDestination')?.addEventListener('input',()=>showSuggestions($('#searchDestination'),$('#destSuggestions'),$('#searchOrigin')?.dataset.code));
+  $('#searchOrigin')?.addEventListener('focus',()=>showSuggestions($('#searchOrigin'),$('#originSuggestions'),$('#searchDestination')?.dataset.code));
+  $('#searchDestination')?.addEventListener('focus',()=>showSuggestions($('#searchDestination'),$('#destSuggestions'),$('#searchOrigin')?.dataset.code));
+  $('#originSuggestions')?.addEventListener('click',e=>{const li=e.target.closest('[data-code]');if(li)pickPlace($('#searchOrigin'),$('#originCode'),$('#originSuggestions'),li)});
+  $('#destSuggestions')?.addEventListener('click',e=>{const li=e.target.closest('[data-code]');if(li)pickPlace($('#searchDestination'),$('#destCode'),$('#destSuggestions'),li)});
+  $('#searchForm')?.addEventListener('submit',e=>{e.preventDefault();toggleSearch(false);syncSummary();navigate('/flights/results');loadResultsForRoute();renderDateBar();showToast('Search updated');setSmoke('search submitted '+getRouteKey().replace('-','→'))});
+  $$('[data-route]').forEach(el=>el.addEventListener('click',e=>{const route=el.getAttribute('data-route');if(!route||el.tagName==='INPUT')return;if(el.tagName==='A'||el.tagName==='BUTTON')e.preventDefault();navigate(route);if(route==='/flights/results')loadResultsForRoute()}));
+  $$('[data-quick-route]').forEach(el=>el.addEventListener('click',()=>{const [o,d]=el.dataset.quickRoute.split(',');setQuickRoute(o,d)}));
+  $$('.sw-mega a,.sw-footer a').forEach(a=>a.addEventListener('click',e=>{if(a.hasAttribute('data-route'))return;e.preventDefault();const href=a.getAttribute('href')||'';if(href.includes('deals'))navigate('/deals');else if(href.includes('manage'))navigate('/manage/booking');else if(href.includes('help')||href.includes('faq'))navigate('/help');else if(href.includes('privacy'))openModal('Privacy','Privacy policy content would open here.');else showToast('Demo link: '+a.textContent.trim())}));
+  $('#langBtn')?.addEventListener('click',()=>openModal('Language & region','Choose language and currency. Current: English (US), USD.'));
+  $('#signInForm')?.addEventListener('submit',e=>{e.preventDefault();showToast('Signed in (demo)');navigate('/flights/results')});
+  $$('.sw-pagination__btn').forEach(btn=>btn.addEventListener('click',()=>{if(!btn.disabled)showToast('Pagination is demo-only on page '+btn.textContent.trim())}));
+  window.addEventListener('hashchange',()=>{const route=location.hash.slice(1)||'/flights/results';if(ROUTES[route])navigate(route,{push:false})});
+}
+benchmarkResultsHtml=$('#flightResultsList')?.innerHTML||'';
+initStaticHandlers();
+bindInteractive();
+syncSummary();
+renderDateBar();
+if(priceMin&&priceMax)syncPrice();
+applyCabinClass();
+sortResults('best');
+const startRoute=location.hash.slice(1);
+navigate(ROUTES[startRoute]?startRoute:'/flights/results',{push:false});
+</script>
+
+</body></html>

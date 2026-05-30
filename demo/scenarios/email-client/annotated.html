@@ -1,111 +1,168 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>InboxPro Mail</title><style>
+<!DOCTYPE html><html lang="en"><head><style data-wci-legacy-styles="1">
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0}
-img,svg{max-width:100%;vertical-align:middle}
-button{cursor:pointer}
-a{color:inherit}
-ul,ol{margin:0;padding:0}
-table{border-collapse:collapse}
-:root{--bg:#f1f5f9;--panel:#fff;--line:#e2e8f0;--muted:#64748b;--text:#0f172a;--accent:hsl(262 72% 46%);--accent2:hsl(262 72% 38%);--success:#166534;--successBg:#dcfce7;--warn:#92400e;--warnBg:#fef3c7;--danger:#991b1b;--dangerBg:#fee2e2}
-.ip-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:100vh}
-.ip-skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-.ip-skip:focus{left:16px;top:12px;width:auto;height:auto;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;z-index:1000}
-.ip-hdr{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.04);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
-.ip-brand{display:flex;align-items:center;gap:10px;min-width:220px}
-.ip-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:0 6px 18px rgba(124,58,237,.24)}
-.ip-brand h1{font-size:16px;line-height:1.1;margin:0}
-.ip-brand p{margin:0;color:var(--muted);font-size:12px}
-.ip-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
-.ip-nav a{color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
-.ip-nav a:hover{background:#f1f5f9;color:#0f172a}
-.ip-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.ip-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:600;border:1px solid #dbeafe}
-.ip-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid var(--line)}
-.ip-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
-.ip-subnav a:hover{background:#f8fafc;color:#334155}
-.ip-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
-.ip-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid var(--line)}
-@media(max-width:980px){.ip-page-wrap{grid-template-columns:1fr}}
-.ip-page-main{padding:20px 24px 32px;min-height:42vh}
-.ip-page-main h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
-.ip-page-main h2,.ip-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.ip-page-main p{margin:0 0 10px;color:#475569;max-width:72ch}
-.ip-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.ip-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.ip-page-main select,.ip-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
-.ip-page-main input:focus,.ip-page-main select:focus,.ip-page-main textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
-.ip-page-main table{width:100%;margin:12px 0;font-size:13px}
-.ip-page-main th,.ip-page-main td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.ip-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.ip-page-main tr:hover td{background:#fafafa}
-.ip-panel{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.ip-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s,transform .08s}
-.ip-btn:hover{background:#f8fafc}
-.ip-btn:active{transform:translateY(1px)}
-.ip-btn--primary{background:var(--accent);color:#fff;border-color:var(--accent2)}
-.ip-btn--primary:hover{filter:brightness(1.05)}
-.ip-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.ip-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
-.ip-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
-.ip-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
-.ip-btn:disabled{opacity:.5;cursor:not-allowed}
-.ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
-.ip-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.ip-rail{padding:16px;margin:16px;background:hsl(262 60% 96%);border:1px solid hsl(262 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5}
-@media(min-width:981px){.ip-rail{border-left:1px solid var(--line);border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
-.ip-rail strong{display:block;margin-bottom:8px}
-.ip-rail a{color:#b45309;font-weight:500}
-.ip-ftr{padding:16px 20px;border-top:1px solid var(--line);font-size:12px;color:#64748b;background:#fff}
-.ip-ftr a{color:#475569;margin-right:8px}
-.ip-filler{padding:12px 20px;border-top:1px dashed var(--line);background:#fafafa}
-.ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
-.ip-ab{display:none!important}
-.ip-layout{display:grid;gap:16px;align-items:start}
-.ip-row{display:flex;gap:12px;overflow-x:auto;padding:8px 0}
-.ip-inbox tr.unread td{font-weight:600;background:#eff6ff}
-.ip-inbox tr.is-selected td{outline:2px solid #c4b5fd;outline-offset:-2px}
-.ip-inbox tr.is-archived td{background:#f8fafc;color:#94a3b8;text-decoration:line-through}
-.ip-list{width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.ip-chip{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#e2e8f0;color:#334155;margin-right:6px}
-.ip-chip--unread{background:#dbeafe;color:#1d4ed8}
-.ip-chip--secure{background:#dcfce7;color:#166534}
-.ip-chip--archived{background:#e2e8f0;color:#475569}
-.ip-thread-preview{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}
-.ip-thread-preview h2{margin-top:0}
-.ip-thread-meta{display:grid;gap:4px;font-size:13px;color:#334155}
-.ip-muted{color:var(--muted)}
-.ip-frame{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(230px,300px);min-height:55vh;gap:0}
-@media(max-width:1100px){.ip-frame{grid-template-columns:1fr}.ip-frame>aside:first-child,.ip-pane{border-left:none!important;border-right:none!important}}
-.ip-frame>aside:first-child{padding:14px;border-right:1px solid var(--line);background:#f8fafc;border-radius:12px 0 0 12px}
-.ip-pane{border-left:1px solid var(--line);padding:16px;background:#fafafa;border-radius:0 12px 12px 0}
-.ip-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center;background:#f8fafc;border-radius:8px 8px 0 0;padding:10px;border:1px solid var(--line);border-bottom:none}
-.ip-toolbar-note{padding:10px 12px;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;background:#fff;font-size:12px;color:#64748b}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+
+:root{--gm-bg:#f6f8fc;--gm-panel:#fff;--gm-line:#e0e0e0;--gm-muted:#5f6368;--gm-text:#202124;--gm-accent:#1a73e8;--gm-accent-hover:#1765cc;--gm-red:#d93025;--gm-sidebar:#f6f8fc;--gm-unread:#202124;--gm-read:#5f6368}
+.gm-app,.ip-app{background:var(--gm-bg);color:var(--gm-text);min-height:100vh;font-family:"Google Sans",Roboto,Arial,sans-serif}
+.gm-skip,.ip-skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.gm-skip:focus,.ip-skip:focus{left:16px;top:12px;width:auto;height:auto;padding:8px 12px;background:#fff;border:1px solid var(--gm-line);border-radius:8px;z-index:1000}
+.gm-muted,.ip-muted{color:var(--gm-muted);font-size:12px}
+.gm-topbar{display:flex;align-items:center;gap:12px;padding:8px 16px;background:var(--gm-panel);border-bottom:1px solid var(--gm-line);flex-wrap:wrap}
+.gm-topbar__left,.gm-topbar__right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gm-topbar__right{margin-left:auto}
+.gm-brand{display:flex;align-items:center;gap:10px}
+.gm-logo{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ea4335,#fbbc04,#34a853,#4285f4);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+.gm-brand__text{font-size:18px;color:var(--gm-muted);font-weight:400}
+.gm-search{flex:1;display:flex;align-items:center;gap:4px;background:#eaf1fb;border-radius:24px;padding:4px 12px;max-width:720px;min-width:200px;position:relative}
+.gm-search input{flex:1;border:none;background:transparent;padding:10px 8px;font-size:14px;outline:none;color:var(--gm-text)}
+.gm-search__panel{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--gm-line);border-radius:8px;padding:12px;margin-top:4px;box-shadow:0 4px 16px rgba(0,0,0,.12);display:grid;gap:8px;z-index:50}
+.gm-search__panel.hidden{display:none!important}
+.gm-icon-btn{background:none;border:none;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;color:var(--gm-muted);font-size:16px}
+.gm-icon-btn:hover{background:rgba(60,64,67,.08)}
+.gm-icon-btn:disabled{opacity:.4;cursor:not-allowed}
+.gm-badge{display:inline-flex;padding:4px 10px;border-radius:999px;background:#e8f0fe;color:#1967d2;font-size:12px;font-weight:600}
+.gm-avatar{width:32px;height:32px;border-radius:50%;background:#1a73e8;color:#fff;border:none;font-size:11px;font-weight:700;cursor:pointer}
+.ip-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:8px 16px;background:#fff;border-bottom:1px solid #f1f3f4}
+.gm-shell{display:grid;grid-template-columns:256px minmax(0,1fr) 56px;min-height:calc(100vh - 120px)}
+@media(max-width:1100px){.gm-shell{grid-template-columns:220px 1fr}.gm-rail{display:none}}
+@media(max-width:800px){.gm-shell{grid-template-columns:1fr}.gm-sidebar{position:fixed;left:0;top:0;bottom:0;z-index:100;transform:translateX(-100%);transition:transform .2s;box-shadow:4px 0 24px rgba(0,0,0,.15)}.gm-sidebar:not(.gm-sidebar--collapsed){transform:translateX(0)}}
+.gm-sidebar{background:var(--gm-sidebar);padding:8px 8px 16px;display:flex;flex-direction:column;gap:8px;border-right:1px solid var(--gm-line);overflow-y:auto}
+.gm-compose{width:100%;justify-content:flex-start;padding:12px 24px;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.12);margin:8px 8px 12px;font-size:14px;font-weight:500}
+.gm-compose__icon{font-size:18px;margin-right:8px}
+.gm-nav{display:flex;flex-direction:column;gap:2px}
+.gm-nav__item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:8px 12px 8px 20px;border:none;background:none;border-radius:0 16px 16px 0;font-size:14px;color:var(--gm-text);cursor:pointer}
+.gm-nav__item:hover{background:#e8eaed}
+.gm-nav__item--active{background:#d3e3fd;font-weight:600;color:#001d35}
+.gm-nav__count{margin-left:auto;background:#d3e3fd;color:#001d35;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px}
+.gm-labels{padding:12px 8px 0;border-top:1px solid var(--gm-line);margin-top:8px}
+.gm-labels__title{font-size:11px;font-weight:600;color:var(--gm-muted);padding:8px 12px;text-transform:uppercase;letter-spacing:.04em}
+.gm-label{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:6px 12px 6px 20px;border:none;background:none;font-size:13px;color:var(--gm-text);cursor:pointer;border-radius:0 16px 16px 0}
+.gm-label:hover{background:#e8eaed}
+.gm-label__dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.gm-label__dot--green{background:#188038}.gm-label__dot--red{background:#d93025}.gm-label__dot--blue{background:#1a73e8}.gm-label__dot--yellow{background:#f9ab00}
+.gm-label--add{color:var(--gm-muted)}
+.gm-sidebar__footer{margin-top:auto;padding:12px}
+.gm-storage__bar{height:4px;background:#e0e0e0;border-radius:999px;overflow:hidden;margin-bottom:6px}
+.gm-storage__fill{height:100%;background:var(--gm-accent)}
+.gm-main{padding:12px 16px 32px;min-width:0;overflow-x:auto}
+.gm-status-bar,.ip-status-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--gm-line);border-radius:8px;margin-bottom:12px;font-size:13px}
+#email-client-smoke-status{display:inline-flex;padding:6px 10px;border-radius:999px;background:#e8f0fe;color:#1967d2;font-weight:600;font-size:12px}
+.gm-kpi,.ip-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+@media(max-width:720px){.gm-kpi,.ip-kpi{grid-template-columns:repeat(2,1fr)}}
+.gm-kpi .ip-panel,.ip-kpi .ip-panel{margin:0;padding:12px;background:#fff;border:1px solid var(--gm-line);border-radius:8px}
+.gm-kpi strong,.ip-kpi strong{display:block;font-size:20px}
+.gm-tabs{display:flex;gap:0;border-bottom:1px solid var(--gm-line);margin-bottom:0;background:#fff;border-radius:8px 8px 0 0;padding:0 8px}
+.gm-tab{padding:12px 20px;border:none;background:none;font-size:14px;color:var(--gm-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.gm-tab--active{color:var(--gm-accent);border-bottom-color:var(--gm-accent);font-weight:600}
+.gm-toolbar{display:flex;align-items:center;gap:4px;padding:8px 12px;background:#fff;border:1px solid var(--gm-line);border-top:none;flex-wrap:wrap}
+.gm-toolbar__spacer{flex:1}
+.gm-check{display:flex;align-items:center;padding:4px}
+.gm-help{padding:6px 12px;font-size:12px;color:var(--gm-muted);background:#fff;border-left:1px solid var(--gm-line);border-right:1px solid var(--gm-line)}
+.gm-split{display:grid;grid-template-columns:minmax(280px,42%) minmax(0,1fr);border:1px solid var(--gm-line);border-top:none;background:#fff;min-height:280px}
+@media(max-width:900px){.gm-split{grid-template-columns:1fr}}
+.gm-list-pane{overflow-y:auto;border-right:1px solid var(--gm-line);max-height:360px}
+.gm-list{width:100%;border:none;border-radius:0}
+.gm-list thead{display:none}
+.gm-list tbody tr{display:grid;grid-template-columns:36px 36px minmax(100px,140px) minmax(0,1fr) auto 72px;align-items:center;padding:4px 8px;border-bottom:1px solid #f1f3f4;cursor:pointer;font-size:13px}
+.gm-list tbody tr:hover{background:#f2f6fc;box-shadow:inset 1px 0 0 #dadce0,inset -1px 0 0 #dadce0}
+.gm-list tbody tr.unread .gm-row__from,.gm-list tbody tr.unread .gm-subject{font-weight:700;color:var(--gm-unread)}
+.gm-list tbody tr.is-selected{background:#c2dbff}
+.gm-list tbody tr.is-archived{opacity:.55}
+.gm-list tbody tr.is-archived .gm-subject{text-decoration:line-through}
+.gm-list tbody tr.hidden{display:none!important}
+.gm-list td{padding:0;border:none;background:transparent!important}
+.gm-row__check,.gm-row__star{display:flex;align-items:center;justify-content:center}
+.gm-star-btn{background:none;border:none;font-size:16px;color:#dadce0;cursor:pointer;padding:4px;line-height:1}
+.gm-star-btn--on{color:#f4b400}
+.gm-row__from{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}
+.gm-row__subject{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--gm-read)}
+.gm-subject{color:inherit}
+.gm-snippet{color:var(--gm-muted);font-weight:400}
+.gm-row__tags{display:flex;gap:4px;flex-wrap:wrap}
+.gm-row__date{text-align:right;color:var(--gm-muted);font-size:12px;padding-right:4px}
+.gm-read-pane{padding:16px 20px;overflow-y:auto;max-height:360px}
+.gm-read__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.gm-read__header h2{font-size:20px;font-weight:400;margin:0;flex:1}
+.gm-read__actions{display:flex;gap:4px;flex-wrap:wrap}
+.gm-read__from{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.gm-read__avatar{width:40px;height:40px;border-radius:50%;background:#1a73e8;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0}
+.gm-read__body{font-size:14px;line-height:1.6;color:var(--gm-text);margin-bottom:16px}
+.gm-read__body p{margin:0 0 12px}
+.gm-banner{margin-top:12px}
+.gm-thread-panel,.ip-frame{display:grid;grid-template-columns:180px minmax(0,1fr) minmax(200px,240px);gap:0;margin-top:16px;border:1px solid var(--gm-line);border-radius:8px;overflow:hidden;background:#fff}
+@media(max-width:1000px){.gm-thread-panel,.ip-frame{grid-template-columns:1fr}}
+.gm-thread-aside{padding:14px;background:#f8f9fa;border-right:1px solid var(--gm-line);font-size:13px}
+.gm-thread-aside h2{font-size:13px;font-weight:600;margin:12px 0 8px;color:var(--gm-muted)}
+.gm-thread-list li{padding:4px 0;color:var(--gm-text)}
+.gm-thread-detail{padding:16px!important;margin:0!important;border:none!important;border-radius:0!important;box-shadow:none!important}
+.gm-thread-tools,.ip-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:10px;background:#f8f9fa;border:1px solid var(--gm-line);border-radius:8px}
+.ip-toolbar-note{padding:8px 0;font-size:12px;color:var(--gm-muted)}
+.gm-checklist select,.gm-checklist input[type=text]{display:block;width:100%;max-width:480px;margin-top:4px;padding:8px 10px;border:1px solid var(--gm-line);border-radius:4px}
+.gm-context,.ip-pane{padding:16px;background:#fafafa;border-left:1px solid var(--gm-line);font-size:13px}
+.gm-context-card{padding:12px!important;margin:12px 0 0!important}
+.gm-rail{border-left:1px solid var(--gm-line);padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:8px;background:#fff}
+.gm-rail__app{width:40px;height:40px;border:none;background:none;border-radius:50%;cursor:pointer;font-size:18px}
+.gm-rail__app:hover{background:#f1f3f4}
+.gm-rail__promo{display:none}
+@media(min-width:1200px){.gm-rail__promo{display:block;padding:12px;font-size:12px;margin-top:16px;background:#fff8e1;border-radius:8px;width:200px;position:fixed;right:64px;bottom:24px}}
+.ip-chip{display:inline-flex;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e8eaed;color:#3c4043;margin-right:4px}
+.ip-chip--unread{background:#d3e3fd;color:#001d35}
+.ip-chip--secure{background:#ceead6;color:#137333}
+.ip-chip--archived{background:#e8eaed;color:#5f6368}
+.ip-panel{border:1px solid var(--gm-line);border-radius:8px;padding:14px;background:#fff;margin:10px 0}
 .ip-stack{display:grid;gap:12px}
-.ip-status-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:16px}
-.ip-status-msg{font-size:13px;color:#334155}
-#email-client-smoke-status{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#ede9fe;color:#5b21b6;font-weight:600;font-size:12px}
-.ip-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-@media(max-width:720px){.ip-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
- .ip-kpi .ip-panel{margin:0}
-.ip-kpi strong{display:block;font-size:20px;color:#0f172a}
-.ip-kpi span{font-size:12px;color:#64748b}
-.ip-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;align-items:center;justify-content:center;z-index:150;padding:16px}
-.ip-modal-backdrop.is-open{display:flex}
-.ip-modal{width:min(100%,520px);background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;box-shadow:0 24px 48px rgba(15,23,42,.28)}
-.ip-modal h3{margin:0 0 8px}
-.ip-modal p{margin:0 0 12px}
-.ip-form-row{display:grid;gap:6px;margin:10px 0}
-.ip-help{font-size:12px;color:#64748b}
-.ip-error{font-size:12px;color:var(--danger);min-height:16px}
-.ip-banner{padding:10px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#eff6ff;color:#1e3a8a;font-size:13px}
-.ip-banner--success{border-color:#bbf7d0;background:var(--successBg);color:var(--success)}
-.ip-banner--warn{border-color:#fde68a;background:var(--warnBg);color:var(--warn)}
+.ip-cookie{position:fixed;bottom:0;left:0;right:0;background:#202124;color:#fff;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200}
+.ip-cookie p{flex:1;margin:0;font-size:13px}
+.ip-ab{display:none!important}
+.ip-filler{padding:12px 20px;border-top:1px dashed var(--gm-line);background:#fafafa}
+.ip-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:80px;overflow:hidden;opacity:.6}
+.gm-footer,.ip-ftr{padding:16px 20px;border-top:1px solid var(--gm-line);font-size:12px;color:var(--gm-muted);background:#fff}
+.gm-modal-backdrop,.ip-modal-backdrop{position:fixed;inset:0;background:rgba(32,33,36,.5);display:none;align-items:center;justify-content:center;z-index:150;padding:16px}
+.gm-modal-backdrop.is-open,.ip-modal-backdrop.is-open{display:flex}
+.gm-modal,.ip-modal{width:min(100%,560px);background:#fff;border-radius:8px;padding:20px;box-shadow:0 24px 48px rgba(0,0,0,.2)}
+.gm-modal__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.gm-modal__header h3{margin:0;font-size:16px;font-weight:500}
+.gm-modal__footer{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.gm-form-row{display:grid;gap:6px;margin:10px 0}
+.gm-form-row input,.gm-form-row textarea{width:100%;padding:10px;border:1px solid var(--gm-line);border-radius:4px}
+.gm-snooze-options{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.ip-help{font-size:12px;color:var(--gm-muted)}
+.ip-error{font-size:12px;color:var(--gm-red);min-height:16px}
+.ip-banner{padding:10px 12px;border-radius:8px;border:1px solid #d2e3fc;background:#e8f0fe;color:#174ea6;font-size:13px}
+.ip-banner--warn{border-color:#fde68a;background:#fef7e0;color:#92400e}
 .hidden{display:none!important}
-</style></head><body>
-<a class="ip-skip" href="#email_client-page">Skip to email list</a>
-<div class="ip-app" data-page="email-client" id="email_client-page" role="main" aria-label="InboxPro Mail application" data-wci-id="email_client-page" data-wci-role="landmark" data-wci-desc="InboxPro Mail application root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="ip-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
-    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
+
+.ip-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.ip-btn--primary{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.ip-btn--ghost,.ip-btn--link{background:transparent;border-color:transparent;color:inherit}
+.ip-btn--outline{background:transparent;border-color:currentColor}
+.ip-btn--sm{padding:6px 10px;font-size:12px}
+.ip-btn--full{width:100%}
+.ip-btn:disabled{opacity:.45;cursor:not-allowed}
+
+.ip-btn--primary{background:var(--gm-accent);border-color:var(--gm-accent)}
+.ip-btn--primary:hover{background:var(--gm-accent-hover)}
+.ip-btn--decoy{background:#fef7e0;border-color:#fde68a;color:#713f12}
+.ip-btn--ghost:hover{background:#f1f3f4}
+.ip-btn--muted{background:#e8eaed;color:#3c4043}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InboxPro Mail</title>
+</head>
+<body>
+<a class="gm-skip" href="#email_client-page">Skip to inbox</a>
+
+<div class="gm-app ip-app" data-page="email-client" id="email_client-page" role="main" aria-label="InboxPro Mail" data-wci-id="email_client-page" data-wci-role="landmark" data-wci-desc="InboxPro Mail application root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+  <div class="gm-cookie ip-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, and ads.</p>
     <button type="button" class="ip-btn ip-btn--muted" data-cookie-action="reject">Reject non-essential</button>
     <button type="button" class="ip-btn ip-btn--primary" data-cookie-action="accept">Accept all</button>
     <button type="button" class="ip-btn ip-btn--ghost" data-cookie-action="customize">Customize</button>
@@ -113,32 +170,34 @@ table{border-collapse:collapse}
 
   <div class="ip-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
     <button type="button" class="ip-btn ip-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="ip-btn">Continue as guest — express</button>
   </div>
 
-  <header class="ip-hdr">
-    <div class="ip-brand" aria-label="InboxPro Mail branding">
-      <div class="ip-logo" aria-hidden="true">IP</div>
-      <div>
-        <h1>InboxPro Mail</h1>
-        <p>Fast triage for support, finance, and team mail</p>
+  <header class="gm-topbar">
+    <div class="gm-topbar__left">
+      <button type="button" class="gm-icon-btn" id="menu-toggle" aria-label="Main menu">☰</button>
+      <div class="gm-brand" aria-label="InboxPro Mail">
+        <div class="gm-logo">M</div>
+        <span class="gm-brand__text">InboxPro Mail</span>
       </div>
     </div>
-    <nav class="ip-nav" aria-label="Global">
-      <a href="#">Home</a><a href="#">Help</a><a href="#">Blog</a><a href="#">Account</a>
-    </nav>
-    <div class="ip-hdr-promo">
-      <span class="ip-badge" id="header-new-count">3 new</span>
+    <div class="gm-search" role="search">
+      <button type="button" class="gm-icon-btn gm-search__toggle" id="search-options-btn" aria-label="Search options">⚙</button>
+      <input id="mail-search" type="search" placeholder="Search mail" aria-label="Search mail">
+      <button type="button" class="gm-icon-btn" id="search-btn" aria-label="Search">🔍</button>
+      <div class="gm-search__panel hidden" id="search-options-panel">
+        <label><input type="checkbox" id="search-unread"> Unread only</label>
+        <label><input type="checkbox" id="search-attachments"> Has attachment</label>
+        <label><input type="checkbox" id="search-starred"> Starred</label>
+      </div>
+    </div>
+    <div class="gm-topbar__right">
+      <span class="gm-badge" id="header-new-count">3 new</span>
+      <button type="button" class="gm-icon-btn" id="help-btn" aria-label="Help">?</button>
+      <button type="button" class="gm-icon-btn" id="settings-btn" aria-label="Settings">⚙</button>
+      <button type="button" class="gm-avatar" aria-label="Account">AR</button>
       <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional action not related to archiving the billing thread" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-      <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-nav">Learn More</button>
     </div>
   </header>
-
-  <nav class="ip-subnav" aria-label="Secondary">
-    <a href="#inbox">Overview</a><a href="#reports">Reports</a><a href="#settings">Settings</a><a href="#billing">Billing</a><a href="#support">Support</a>
-    <button type="button" class="ip-btn ip-btn--ghost">Submit</button>
-    <button type="button" class="ip-btn ip-btn--ghost">Continue</button>
-  </nav>
 
   <div class="ip-dup-row" aria-label="Quick actions">
     <button type="button" class="ip-btn ip-btn--ghost">Submit</button>
@@ -151,155 +210,180 @@ table{border-collapse:collapse}
     <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo">Archive billing thread</button>
     <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav">Archive billing@acme.com</button>
     <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Extra decoy archive-themed control unrelated to the real thread tool action" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-state="{&quot;ready&quot;:true}">Archive acme billing</button>
-    <span class="ip-muted" style="align-self:center;font-size:12px">Duplicates shown for keyboard testing and search noise.</span>
+    <span class="gm-muted">Keyword decoys for search noise.</span>
   </div>
 
-  <div class="ip-page-wrap">
-    <div class="ip-page-main">
-      <section class="ip-status-bar" aria-label="Mailbox status">
-        <div class="ip-status-msg">Finance priority inbox is active. Select an unread billing conversation to review archive tools.</div>
-        <div id="email-client-smoke-status" data-smoke-status="">Idle · no archive action yet</div>
-      </section>
+  <div class="gm-shell">
+    <aside class="gm-sidebar" id="gm-sidebar" aria-label="Folders and labels">
+      <button type="button" class="gm-compose ip-btn ip-btn--primary" id="compose-btn">
+        <span class="gm-compose__icon">✎</span> Compose
+      </button>
+      <nav class="gm-nav">
+        <button type="button" class="gm-nav__item gm-nav__item--active" data-folder="inbox">
+          <span>📥</span> Inbox <span class="gm-nav__count" id="sidebar-inbox-count">3</span>
+        </button>
+        <button type="button" class="gm-nav__item" data-folder="starred"><span>⭐</span> Starred</button>
+        <button type="button" class="gm-nav__item" data-folder="snoozed"><span>🕐</span> Snoozed</button>
+        <button type="button" class="gm-nav__item" data-folder="sent"><span>📤</span> Sent</button>
+        <button type="button" class="gm-nav__item" data-folder="drafts"><span>📝</span> Drafts <span class="gm-nav__count">2</span></button>
+        <button type="button" class="gm-nav__item" data-folder="archive"><span>📦</span> Archive</button>
+        <button type="button" class="gm-nav__item" data-folder="spam"><span>⚠</span> Spam</button>
+        <button type="button" class="gm-nav__item" data-folder="trash"><span>🗑</span> Trash</button>
+      </nav>
+      <div class="gm-labels">
+        <div class="gm-labels__title">Labels</div>
+        <button type="button" class="gm-label" data-label="finance"><span class="gm-label__dot gm-label__dot--green"></span> Finance</button>
+        <button type="button" class="gm-label" data-label="billing"><span class="gm-label__dot gm-label__dot--red"></span> Billing</button>
+        <button type="button" class="gm-label" data-label="team"><span class="gm-label__dot gm-label__dot--blue"></span> Team</button>
+        <button type="button" class="gm-label" data-label="travel"><span class="gm-label__dot gm-label__dot--yellow"></span> Travel</button>
+        <button type="button" class="gm-label gm-label--add" id="add-label-btn">+ Create label</button>
+      </div>
+      <div class="gm-sidebar__footer">
+        <div class="gm-storage">
+          <div class="gm-storage__bar"><div class="gm-storage__fill" style="width:62%"></div></div>
+          <span class="gm-muted">7.4 GB of 15 GB used</span>
+        </div>
+      </div>
+    </aside>
 
-      <section class="ip-kpi" aria-label="Mailbox counters">
-        <div class="ip-panel"><strong id="kpi-total">12</strong><span>Total conversations</span></div>
+    <div class="gm-main">
+      <div class="gm-status-bar ip-status-bar" aria-label="Mailbox status">
+        <div class="ip-status-msg">Finance priority inbox active. Select the unread billing@acme.com thread to review archive tools.</div>
+        <div id="email-client-smoke-status" data-smoke-status="">Idle · no archive action yet</div>
+      </div>
+
+      <div class="gm-kpi ip-kpi" aria-label="Mailbox counters">
+        <div class="ip-panel"><strong id="kpi-total">12</strong><span>Conversations</span></div>
         <div class="ip-panel"><strong id="kpi-unread">3</strong><span>Unread</span></div>
         <div class="ip-panel"><strong id="kpi-finance">2</strong><span>Finance priority</span></div>
         <div class="ip-panel"><strong id="kpi-archived">18</strong><span>Archived today</span></div>
-      </section>
-
-      <div class="ip-mailbox">
-        <div>
-          <h1 id="inbox">Inbox</h1>
-          <div class="ip-mailbox__meta"><span id="mailbox-count-text">12 conversations · 3 unread · Smart filter: finance priority</span></div>
-        </div>
-        <div>
-          <button type="button" class="ip-btn ip-btn--ghost" id="refresh-mail">Refresh</button>
-          <button type="button" class="ip-btn ip-btn--ghost" id="mark-all-read">Mark all read</button>
-        </div>
       </div>
 
-      <div class="ip-search" role="search">
-        <label class="ip-skip" for="mail-search">Search mail</label>
-        <input id="mail-search" type="search" placeholder="Search sender, subject, tag, or thread" aria-label="Search mail">
-        <button type="button" class="ip-btn ip-btn--ghost" id="search-btn">Search</button>
+      <div class="gm-tabs" role="tablist" aria-label="Inbox categories">
+        <button type="button" class="gm-tab gm-tab--active" data-category="primary" role="tab">Primary</button>
+        <button type="button" class="gm-tab" data-category="promotions" role="tab">Promotions</button>
+        <button type="button" class="gm-tab" data-category="social" role="tab">Social</button>
+        <button type="button" class="gm-tab" data-category="updates" role="tab">Updates</button>
       </div>
-      <div class="ip-help" id="search-feedback">Tip: try “acme”, “invoice”, or “unread”.</div>
 
-      <div class="ip-layout">
-        <section class="ip-panel" aria-label="Mailbox folders">
-          <div class="ip-row" aria-label="Folders">
-            <button type="button" class="ip-btn ip-btn--primary">Inbox</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Starred</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Sent</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Archive</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Spam</button>
-          </div>
-          <div class="ip-banner" id="selection-banner">Selected thread: billing@acme.com · unread finance reminder.</div>
-        </section>
+      <div class="gm-toolbar" id="list-toolbar">
+        <label class="gm-check"><input type="checkbox" id="select-all"> <span class="gm-skip">Select all</span></label>
+        <button type="button" class="gm-icon-btn" id="refresh-mail" title="Refresh">↻</button>
+        <button type="button" class="gm-icon-btn" id="bulk-archive" title="Archive" disabled="">📦</button>
+        <button type="button" class="gm-icon-btn" id="bulk-delete" title="Delete" disabled="">🗑</button>
+        <button type="button" class="gm-icon-btn" id="mark-all-read" title="Mark all read">✉</button>
+        <button type="button" class="gm-icon-btn" id="bulk-snooze" title="Snooze" disabled="">🕐</button>
+        <button type="button" class="gm-icon-btn" id="bulk-label" title="Label" disabled="">🏷</button>
+        <span class="gm-toolbar__spacer"></span>
+        <span class="gm-muted" id="mailbox-count-text">1–6 of 12</span>
+        <button type="button" class="gm-icon-btn" id="prev-page" title="Newer">◀</button>
+        <button type="button" class="gm-icon-btn" id="next-page" title="Older">▶</button>
+      </div>
+      <div class="gm-help" id="search-feedback">Tip: try “acme”, “invoice”, or “unread”.</div>
 
-        <section class="ip-panel" aria-label="Mail list">
-          <table class="ip-inbox ip-list" role="grid" aria-label="Conversation list" id="conversation-table">
-            <thead>
-              <tr>
-                <th scope="col">From</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Preview</th>
-                <th scope="col">Tags</th>
-                <th scope="col">Date</th>
-              </tr>
-            </thead>
+      <div class="gm-split">
+        <section class="gm-list-pane" aria-label="Mail list">
+          <table class="ip-inbox ip-list gm-list" role="grid" aria-label="Conversation list" id="conversation-table">
+            <thead class="gm-skip"><tr><th>From</th><th>Subject</th><th>Preview</th><th>Tags</th><th>Date</th></tr></thead>
             <tbody>
-              <tr data-thread="digest" data-domain="digest.com" data-category="digest" data-unread="false" tabindex="0">
-                <td>news@digest.com</td>
-                <td>Weekly roundup</td>
-                <td>Five updates you may have missed</td>
-                <td><span class="ip-chip">Digest</span></td>
-                <td>08:14</td>
+              <tr data-thread="digest" data-domain="digest.com" data-category="digest" data-unread="false" data-tab="promotions" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__from">news@digest.com</td>
+                <td class="gm-row__subject"><span class="gm-subject">Weekly roundup</span> <span class="gm-snippet">— Five updates you may have missed</span></td>
+                <td class="gm-row__tags"><span class="ip-chip">Digest</span></td>
+                <td class="gm-row__date">08:14</td>
               </tr>
-              <tr class="unread is-selected" data-thread="billing-acme" data-domain="acme.com" data-category="billing" data-unread="true" aria-selected="true" tabindex="0">
-                <td>billing@acme.com</td>
-                <td>Invoice #992 due today</td>
-                <td>Payment reminder for enterprise plan</td>
-                <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
-                <td>09:21</td>
+              <tr class="unread is-selected" data-thread="billing-acme" data-domain="acme.com" data-category="billing" data-unread="true" data-tab="primary" aria-selected="true" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__from">billing@acme.com</td>
+                <td class="gm-row__subject"><span class="gm-subject">Invoice #992 due today</span> <span class="gm-snippet">— Payment reminder for enterprise plan</span></td>
+                <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
+                <td class="gm-row__date">09:21</td>
               </tr>
-              <tr data-thread="social" data-domain="social.io" data-category="social" data-unread="false" tabindex="0">
-                <td>noreply@social.io</td>
-                <td>3 new mentions</td>
-                <td>Social notifications and reactions</td>
-                <td><span class="ip-chip">Social</span></td>
-                <td>09:40</td>
+              <tr data-thread="social" data-domain="social.io" data-category="social" data-unread="false" data-tab="social" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn gm-star-btn--on" aria-label="Unstar">★</button></td>
+                <td class="gm-row__from">noreply@social.io</td>
+                <td class="gm-row__subject"><span class="gm-subject">3 new mentions</span> <span class="gm-snippet">— Social notifications and reactions</span></td>
+                <td class="gm-row__tags"><span class="ip-chip">Social</span></td>
+                <td class="gm-row__date">09:40</td>
               </tr>
-              <tr data-thread="support" data-domain="helpdesk.net" data-category="support" data-unread="false" tabindex="0">
-                <td>support@helpdesk.net</td>
-                <td>Ticket update</td>
-                <td>We updated your case #1184</td>
-                <td><span class="ip-chip">Support</span></td>
-                <td>10:02</td>
+              <tr data-thread="support" data-domain="helpdesk.net" data-category="support" data-unread="false" data-tab="updates" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__from">support@helpdesk.net</td>
+                <td class="gm-row__subject"><span class="gm-subject">Ticket update</span> <span class="gm-snippet">— We updated your case #1184</span></td>
+                <td class="gm-row__tags"><span class="ip-chip">Support</span></td>
+                <td class="gm-row__date">10:02</td>
               </tr>
-              <tr class="unread" data-thread="billing-contoso" data-domain="contoso.com" data-category="billing" data-unread="true" tabindex="0">
-                <td>billing@contoso.com</td>
-                <td>Card on file failed</td>
-                <td>Retry scheduled for tomorrow morning</td>
-                <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
-                <td>10:14</td>
+              <tr class="unread" data-thread="billing-contoso" data-domain="contoso.com" data-category="billing" data-unread="true" data-tab="primary" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__from">billing@contoso.com</td>
+                <td class="gm-row__subject"><span class="gm-subject">Card on file failed</span> <span class="gm-snippet">— Retry scheduled for tomorrow morning</span></td>
+                <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
+                <td class="gm-row__date">10:14</td>
               </tr>
-              <tr class="unread" data-thread="digest-acme" data-domain="acme.com" data-category="digest" data-unread="true" tabindex="0">
-                <td>digest@acme.com</td>
-                <td>Monthly product digest</td>
-                <td>Feature highlights and release notes</td>
-                <td><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip">Digest</span></td>
-                <td>11:03</td>
+              <tr class="unread" data-thread="digest-acme" data-domain="acme.com" data-category="digest" data-unread="true" data-tab="promotions" tabindex="0">
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__from">digest@acme.com</td>
+                <td class="gm-row__subject"><span class="gm-subject">Monthly product digest</span> <span class="gm-snippet">— Feature highlights and release notes</span></td>
+                <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip">Digest</span></td>
+                <td class="gm-row__date">11:03</td>
               </tr>
             </tbody>
           </table>
         </section>
 
-        <section class="ip-panel ip-thread-preview" aria-label="Selected message preview" id="thread-preview">
-          <h2>Selected thread</h2>
-          <div class="ip-thread-meta">
-            <div><strong>Sender:</strong> <span id="preview-sender">billing@acme.com</span></div>
-            <div><strong>Domain:</strong> <span id="preview-domain">acme.com</span></div>
-            <div><strong>Status:</strong> <span id="preview-status">Unread, finance priority</span></div>
-            <div><strong>Subject:</strong> <span id="preview-subject">Invoice #992 due today</span></div>
+        <section class="gm-read-pane ip-thread-preview" aria-label="Selected message preview" id="thread-preview">
+          <div class="gm-read__header">
+            <h2 id="preview-subject">Invoice #992 due today</h2>
+            <div class="gm-read__actions">
+              <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
+              <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
+              <button type="button" class="ip-btn ip-btn--ghost" id="toggle-read">Mark unread</button>
+              <button type="button" class="ip-btn ip-btn--ghost" id="snooze-btn">Snooze</button>
+            </div>
           </div>
-          <p id="preview-body">Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.</p>
-          <div class="ip-toolbar-note">Preview updates as you select rows from the list. The active row controls thread tools below.</div>
-          <div class="ip-card__actions">
-            <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
-            <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
-            <button type="button" class="ip-btn ip-btn--ghost" id="toggle-read">Mark unread</button>
+          <div class="ip-thread-meta gm-read__meta">
+            <div class="gm-read__from">
+              <div class="gm-read__avatar">BA</div>
+              <div>
+                <strong id="preview-sender">billing@acme.com</strong>
+                <span class="gm-muted">&lt;<span id="preview-domain">acme.com</span>&gt;</span>
+                <div class="gm-muted" id="preview-status">Unread, finance priority · Today 9:21 AM</div>
+              </div>
+            </div>
           </div>
+          <div class="gm-read__body">
+            <p id="preview-body">Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.</p>
+          </div>
+          <div class="gm-banner ip-banner" id="selection-banner">Selected thread: billing@acme.com · unread finance reminder.</div>
         </section>
       </div>
 
-      <div class="ip-frame" style="margin-top:16px">
-        <aside aria-label="Folders and filters">
+      <div class="gm-thread-panel ip-frame">
+        <aside class="gm-thread-aside" aria-label="Folders and filters">
           <h2>Folders</h2>
-          <ul>
-            <li>Inbox</li>
-            <li>Archive</li>
-            <li>Important</li>
-            <li>Drafts</li>
-            <li>Spam</li>
+          <ul class="gm-thread-list">
+            <li>Inbox</li><li>Archive</li><li>Important</li><li>Drafts</li><li>Spam</li>
           </ul>
           <h2>Filters</h2>
-          <ul>
-            <li>Unread only</li>
-            <li>Finance</li>
-            <li>Mentions</li>
-            <li>Attachments</li>
+          <ul class="gm-thread-list">
+            <li>Unread only</li><li>Finance</li><li>Mentions</li><li>Attachments</li>
           </ul>
-          <div class="ip-banner ip-banner--warn" style="margin-top:12px">Note: sender domain alone is not enough. Avoid digest and social notifications when archiving.</div>
+          <div class="ip-banner ip-banner--warn">Sender domain alone is not enough. Avoid digest and social notifications when archiving.</div>
         </aside>
 
         <main aria-label="Conversation details">
-          <article class="ip-panel">
+          <article class="ip-panel gm-thread-detail">
             <h2>Thread details</h2>
             <p><strong id="details-sender">billing@acme.com</strong> from <strong id="details-domain">acme.com</strong> is the active unread conversation. This is the thread to archive.</p>
-            <p class="ip-muted" id="details-note">Avoid digest and social notifications; they are separate rows with similar action wording.</p>
-            <div class="ip-toolbar" data-action-bar="thread-tools" aria-label="Thread tools">
+            <p class="gm-muted" id="details-note">Avoid digest and social notifications; they are separate rows with similar action wording.</p>
+            <div class="ip-toolbar gm-thread-tools" data-action-bar="thread-tools" aria-label="Thread tools">
               <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
               <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
               <button type="button" class="ip-btn ip-btn--primary" id="archive-billing-thread" data-wci-id="archive-billing-thread" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary Confirm button in thread tools used to archive the selected billing thread" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="email_client-page">Confirm</button>
@@ -309,7 +393,7 @@ table{border-collapse:collapse}
             <div class="ip-toolbar-note" id="tools-feedback">Primary confirm archives the currently selected thread after a quick reason check.</div>
           </article>
 
-          <article class="ip-panel ip-stack" aria-label="Archive checklist">
+          <article class="ip-panel ip-stack gm-checklist" aria-label="Archive checklist">
             <h3>Archive checklist</h3>
             <label for="archive-reason">Reason for archive</label>
             <select id="archive-reason" aria-describedby="archive-reason-help archive-reason-error">
@@ -324,15 +408,15 @@ table{border-collapse:collapse}
           </article>
         </main>
 
-        <aside class="ip-pane" aria-label="Context panel">
+        <aside class="ip-pane gm-context" aria-label="Context panel">
           <h2>Message</h2>
           <p id="context-message">Invoice attached. Please confirm receipt and archive this thread after review.</p>
-          <div class="ip-panel" style="padding:12px;margin:12px 0 0">
+          <div class="ip-panel gm-context-card">
             <div><strong>Thread ID:</strong> <span id="context-thread-id">billing-acme</span></div>
             <div><strong>State:</strong> <span id="context-state">unread</span></div>
             <div><strong>Channel:</strong> <span id="context-channel">billing</span></div>
           </div>
-          <div class="ip-panel" style="padding:12px;margin:12px 0 0">
+          <div class="ip-panel gm-context-card">
             <div><strong>Assignee:</strong> Finance Ops Queue</div>
             <div><strong>SLA:</strong> Respond within 4 business hours</div>
             <div><strong>Retention:</strong> 18 months</div>
@@ -341,31 +425,59 @@ table{border-collapse:collapse}
       </div>
     </div>
 
-    <aside class="ip-rail ip-rail--ads" aria-label="Sponsored content">
-      <strong>Sponsored</strong>
-      <p>Upgrade to InboxPro Teams for shared labels, priority routing, and invoice previews.</p>
-      <a href="#">See plans</a>
-      <div style="margin-top:14px">
-        <strong>Tips</strong>
-        <p>Use sender domain, unread state, and folder tags to identify the billing thread quickly.</p>
-      </div>
-      <div style="margin-top:14px">
-        <strong>Activity</strong>
-        <p id="rail-activity">No archive changes recorded in this session.</p>
+    <aside class="gm-rail" aria-label="Google apps">
+      <button type="button" class="gm-rail__app" title="Calendar">📅</button>
+      <button type="button" class="gm-rail__app" title="Keep">📌</button>
+      <button type="button" class="gm-rail__app" title="Tasks">✓</button>
+      <button type="button" class="gm-rail__app" title="Contacts">👤</button>
+      <div class="gm-rail__promo ip-rail">
+        <strong>Sponsored</strong>
+        <p>Upgrade to InboxPro Teams for shared labels and invoice previews.</p>
+        <a href="#">See plans</a>
+        <p class="gm-muted" id="rail-activity">No archive changes recorded in this session.</p>
       </div>
     </aside>
   </div>
 
   <div class="ip-filler" aria-hidden="true">
     <div class="ip-filler-inner">
-      <a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Action 2</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/12" class="ip-btn ip-btn--ghost">Link 13</a><button type="button" class="ip-btn ip-btn--ghost">Action 14</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/16" class="ip-btn ip-btn--ghost">Link 17</a><button type="button" class="ip-btn ip-btn--ghost">Action 18</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/20" class="ip-btn ip-btn--ghost">Link 21</a><button type="button" class="ip-btn ip-btn--ghost">Action 22</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/24" class="ip-btn ip-btn--ghost">Link 25</a><button type="button" class="ip-btn ip-btn--ghost">Action 26</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/28" class="ip-btn ip-btn--ghost">Link 29</a><button type="button" class="ip-btn ip-btn--ghost">Action 30</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/32" class="ip-btn ip-btn--ghost">Link 33</a><button type="button" class="ip-btn ip-btn--ghost">Action 34</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/36" class="ip-btn ip-btn--ghost">Link 37</a><button type="button" class="ip-btn ip-btn--ghost">Action 38</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/40" class="ip-btn ip-btn--ghost">Link 41</a><button type="button" class="ip-btn ip-btn--ghost">Action 42</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button>
+      <a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button>
     </div>
   </div>
 
   <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
 
-  <div class="ip-modal-backdrop" id="archive-modal-backdrop" aria-hidden="true">
-    <div class="ip-modal" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title" aria-describedby="archive-modal-copy">
+  <div class="gm-modal-backdrop ip-modal-backdrop" id="compose-backdrop" aria-hidden="true">
+    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="compose-title">
+      <div class="gm-modal__header">
+        <h3 id="compose-title">New Message</h3>
+        <button type="button" class="gm-icon-btn" id="close-compose">×</button>
+      </div>
+      <div class="gm-form-row"><label for="compose-to">To</label><input id="compose-to" type="email" placeholder="Recipients"></div>
+      <div class="gm-form-row"><label for="compose-subject">Subject</label><input id="compose-subject" type="text" placeholder="Subject"></div>
+      <div class="gm-form-row"><label for="compose-body">Body</label><textarea id="compose-body" rows="8" placeholder="Write your message…"></textarea></div>
+      <div class="gm-modal__footer">
+        <button type="button" class="ip-btn ip-btn--primary" id="send-compose">Send</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="save-draft">Save draft</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="discard-compose">Discard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm-modal-backdrop ip-modal-backdrop" id="snooze-backdrop" aria-hidden="true">
+    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="snooze-title">
+      <h3 id="snooze-title">Snooze until</h3>
+      <div class="gm-snooze-options">
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="later">Later today</button>
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="tomorrow">Tomorrow</button>
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="week">Next week</button>
+      </div>
+      <button type="button" class="ip-btn ip-btn--ghost" id="cancel-snooze">Cancel</button>
+    </div>
+  </div>
+
+  <div class="gm-modal-backdrop ip-modal-backdrop" id="archive-modal-backdrop" aria-hidden="true">
+    <div class="ip-modal gm-modal" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title">
       <h3 id="archive-modal-title">Archive thread</h3>
       <p id="archive-modal-copy">You're about to archive the selected conversation.</p>
       <div class="ip-form-row">
@@ -373,22 +485,19 @@ table{border-collapse:collapse}
         <input id="archive-confirm-input" type="text" autocomplete="off" placeholder="ARCHIVE">
         <div class="ip-error" id="archive-confirm-error" aria-live="polite"></div>
       </div>
-      <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:8px">
+      <div class="gm-modal__footer">
         <button type="button" class="ip-btn ip-btn--ghost" id="cancel-archive-modal">Cancel</button>
         <button type="button" class="ip-btn ip-btn--primary" id="confirm-archive-modal">Archive now</button>
       </div>
     </div>
   </div>
 
-  <footer class="ip-ftr">
+  <footer class="gm-footer ip-ftr">
     <small>© Demo InboxPro Mail</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
-    <span> · Sponsored content may appear in feeds.</span>
   </footer>
-
-  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 </div>
-<script>
-(function(){
+
+<script>(function(){
   const rows = Array.from(document.querySelectorAll('#conversation-table tbody tr'));
   const smoke = document.getElementById('email-client-smoke-status');
   const selectionBanner = document.getElementById('selection-banner');
@@ -403,6 +512,8 @@ table{border-collapse:collapse}
   const confirmModalBtn = document.getElementById('confirm-archive-modal');
   const cancelModalBtn = document.getElementById('cancel-archive-modal');
   const archiveBtn = document.getElementById('archive-billing-thread');
+  const composeBackdrop = document.getElementById('compose-backdrop');
+  const snoozeBackdrop = document.getElementById('snooze-backdrop');
   const preview = {
     sender: document.getElementById('preview-sender'),
     domain: document.getElementById('preview-domain'),
@@ -423,9 +534,17 @@ table{border-collapse:collapse}
   const unreadKpi = document.getElementById('kpi-unread');
   const archivedKpi = document.getElementById('kpi-archived');
   const headerNewCount = document.getElementById('header-new-count');
+  const sidebarInboxCount = document.getElementById('sidebar-inbox-count');
   const toggleReadBtn = document.getElementById('toggle-read');
+  const selectAll = document.getElementById('select-all');
+  const bulkArchive = document.getElementById('bulk-archive');
+  const bulkDelete = document.getElementById('bulk-delete');
+  const bulkSnooze = document.getElementById('bulk-snooze');
+  const bulkLabel = document.getElementById('bulk-label');
   let selectedRow = document.querySelector('#conversation-table tbody tr[aria-selected="true"]') || rows[0];
   let archivedToday = 18;
+  let activeCategory = 'primary';
+  let activeFolder = 'inbox';
   const threadBodies = {
     digest: 'Your weekly digest is ready. Here are the highlights, trends, and articles selected for your workspace.',
     'billing-acme': 'Hi team, your invoice for the monthly enterprise subscription is attached. The current balance is past due and will be reprocessed automatically by Friday unless archived or paid.',
@@ -435,26 +554,50 @@ table{border-collapse:collapse}
     'digest-acme': 'Monthly product digest from Acme. Highlights, release notes, and optional upgrades are included below.'
   };
 
+  function setSmoke(action){
+    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+  }
+
   function getRowData(row){
     const cells = row.querySelectorAll('td');
+    const fromCell = row.querySelector('.gm-row__from') || cells[2];
+    const subjectCell = row.querySelector('.gm-row__subject') || cells[3];
+    const subjectEl = subjectCell?.querySelector('.gm-subject');
+    const snippetEl = subjectCell?.querySelector('.gm-snippet');
+    const tagsCell = row.querySelector('.gm-row__tags') || cells[4];
+    const dateCell = row.querySelector('.gm-row__date') || cells[5];
     return {
-      sender: cells[0].textContent.trim(),
-      subject: cells[1].textContent.trim(),
-      preview: cells[2].textContent.trim(),
-      tags: cells[3].textContent.trim(),
-      date: cells[4].textContent.trim(),
+      sender: fromCell?.textContent.trim() || '',
+      subject: subjectEl?.textContent.trim() || subjectCell?.textContent.trim() || '',
+      preview: snippetEl?.textContent.replace(/^—\s*/,'').trim() || '',
+      tags: tagsCell?.textContent.trim() || '',
+      date: dateCell?.textContent.trim() || '',
       domain: row.dataset.domain || '',
       thread: row.dataset.thread || '',
       unread: row.dataset.unread === 'true',
-      category: row.dataset.category || ''
+      category: row.dataset.category || '',
+      tab: row.dataset.tab || 'primary',
+      starred: !!row.querySelector('.gm-star-btn--on')
     };
   }
 
+  function visibleRows(){
+    return rows.filter(r => !r.classList.contains('hidden') && !r.classList.contains('gm-snoozed'));
+  }
+
   function updateCounts(){
-    const unread = rows.filter(r => r.dataset.unread === 'true' && !r.classList.contains('is-archived')).length;
+    const unread = rows.filter(r => r.dataset.unread === 'true' && !r.classList.contains('is-archived') && !r.classList.contains('gm-snoozed')).length;
     unreadKpi.textContent = String(unread);
     headerNewCount.textContent = unread + ' new';
-    mailboxCountText.textContent = '12 conversations · ' + unread + ' unread · Smart filter: finance priority';
+    if(sidebarInboxCount) sidebarInboxCount.textContent = String(unread);
+    const vis = visibleRows().length;
+    mailboxCountText.textContent = vis ? '1–' + vis + ' of ' + rows.filter(r => !r.classList.contains('is-archived')).length : '0 of 0';
+  }
+
+  function updateBulkToolbar(){
+    const checked = rows.filter(r => r.querySelector('.row-check:checked'));
+    const enabled = checked.length > 0;
+    [bulkArchive, bulkDelete, bulkSnooze, bulkLabel].forEach(btn => { if(btn) btn.disabled = !enabled; });
   }
 
   function selectRow(row){
@@ -468,7 +611,7 @@ table{border-collapse:collapse}
     preview.subject.textContent = data.subject;
     preview.body.textContent = threadBodies[data.thread] || data.preview;
     const statusText = row.classList.contains('is-archived') ? 'Archived' : (data.unread ? 'Unread' : 'Read') + (data.category === 'billing' ? ', finance priority' : ', standard routing');
-    preview.status.textContent = statusText;
+    preview.status.textContent = statusText + ' · Today ' + data.date;
     detailsSender.textContent = data.sender;
     detailsDomain.textContent = data.domain;
     contextThreadId.textContent = data.thread;
@@ -485,28 +628,113 @@ table{border-collapse:collapse}
       : 'Primary confirm archives the currently selected thread after a quick reason check.';
   }
 
+  function applyCategoryFilter(){
+    rows.forEach(r => {
+      const matchTab = activeCategory === 'primary' ? (r.dataset.tab === 'primary' || r.dataset.category === 'billing') : r.dataset.tab === activeCategory;
+      const matchFolder = activeFolder === 'inbox' ? !r.classList.contains('is-archived') && !r.classList.contains('gm-snoozed')
+        : activeFolder === 'starred' ? r.querySelector('.gm-star-btn--on')
+        : activeFolder === 'archive' ? r.classList.contains('is-archived')
+        : activeFolder === 'snoozed' ? r.classList.contains('gm-snoozed')
+        : true;
+      r.classList.toggle('hidden', !(matchTab && matchFolder));
+    });
+    updateCounts();
+  }
+
   rows.forEach(row => {
-    row.addEventListener('click', () => selectRow(row));
+    row.addEventListener('click', e => {
+      if(e.target.closest('.row-check') || e.target.closest('.gm-star-btn')) return;
+      selectRow(row);
+    });
     row.addEventListener('keydown', e => {
       if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); selectRow(row); }
+    });
+    const starBtn = row.querySelector('.gm-star-btn');
+    if(starBtn){
+      starBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const on = starBtn.classList.toggle('gm-star-btn--on');
+        starBtn.textContent = on ? '★' : '☆';
+        starBtn.setAttribute('aria-label', on ? 'Unstar' : 'Star');
+        setSmoke('toggle-star-' + row.dataset.thread);
+        smoke.textContent = on ? 'Starred thread' : 'Unstarred thread';
+      });
+    }
+    const check = row.querySelector('.row-check');
+    if(check){
+      check.addEventListener('change', e => { e.stopPropagation(); updateBulkToolbar(); });
+    }
+  });
+
+  if(selectAll){
+    selectAll.addEventListener('change', function(){
+      visibleRows().forEach(r => {
+        const c = r.querySelector('.row-check');
+        if(c) c.checked = selectAll.checked;
+      });
+      updateBulkToolbar();
+    });
+  }
+
+  document.querySelectorAll('.gm-tab').forEach(tab => {
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.gm-tab').forEach(t => t.classList.remove('gm-tab--active'));
+      tab.classList.add('gm-tab--active');
+      activeCategory = tab.dataset.category;
+      applyCategoryFilter();
+      searchFeedback.textContent = 'Showing ' + tab.textContent.trim() + ' tab.';
+      setSmoke('tab-' + activeCategory);
+    });
+  });
+
+  document.querySelectorAll('.gm-nav__item').forEach(item => {
+    item.addEventListener('click', function(){
+      document.querySelectorAll('.gm-nav__item').forEach(i => i.classList.remove('gm-nav__item--active'));
+      item.classList.add('gm-nav__item--active');
+      activeFolder = item.dataset.folder;
+      applyCategoryFilter();
+      setSmoke('folder-' + activeFolder);
+      smoke.textContent = 'Viewing ' + item.textContent.trim().split('\n')[0];
+    });
+  });
+
+  document.querySelectorAll('.gm-label').forEach(label => {
+    label.addEventListener('click', function(){
+      const name = label.dataset.label;
+      if(!name) return;
+      const q = name === 'billing' ? 'billing' : name;
+      searchInput.value = q;
+      document.getElementById('search-btn').click();
+      setSmoke('label-' + name);
     });
   });
 
   document.getElementById('search-btn').addEventListener('click', function(){
     const q = searchInput.value.trim().toLowerCase();
-    if(!q){
+    const unreadOnly = document.getElementById('search-unread')?.checked;
+    const starredOnly = document.getElementById('search-starred')?.checked;
+    if(!q && !unreadOnly && !starredOnly){
       rows.forEach(r => r.classList.remove('hidden'));
+      applyCategoryFilter();
       searchFeedback.textContent = 'Showing all conversations.';
       return;
     }
     let visible = 0;
     rows.forEach(r => {
       const hay = r.textContent.toLowerCase() + ' ' + (r.dataset.domain || '') + ' ' + (r.dataset.category || '');
-      const match = hay.indexOf(q) > -1;
+      let match = !q || hay.indexOf(q) > -1;
+      if(unreadOnly) match = match && r.dataset.unread === 'true';
+      if(starredOnly) match = match && r.querySelector('.gm-star-btn--on');
       r.classList.toggle('hidden', !match);
       if(match) visible++;
     });
-    searchFeedback.textContent = 'Search for “' + q + '” returned ' + visible + ' result' + (visible === 1 ? '' : 's') + '.';
+    searchFeedback.textContent = 'Search returned ' + visible + ' result' + (visible === 1 ? '' : 's') + '.';
+    updateCounts();
+    setSmoke('search');
+  });
+
+  document.getElementById('search-options-btn')?.addEventListener('click', function(){
+    document.getElementById('search-options-panel')?.classList.toggle('hidden');
   });
 
   reason.addEventListener('change', function(){
@@ -518,17 +746,18 @@ table{border-collapse:collapse}
     const unread = selectedRow.dataset.unread === 'true';
     selectedRow.dataset.unread = unread ? 'false' : 'true';
     selectedRow.classList.toggle('unread', !unread);
-    const tagsCell = selectedRow.querySelectorAll('td')[3];
+    const tagsCell = selectedRow.querySelector('.gm-row__tags');
     if(!unread){
-      if(tagsCell.textContent.indexOf('Unread') === -1){
+      if(tagsCell && tagsCell.textContent.indexOf('Unread') === -1){
         tagsCell.insertAdjacentHTML('afterbegin','<span class="ip-chip ip-chip--unread">Unread</span>');
       }
     } else {
-      const unreadChip = tagsCell.querySelector('.ip-chip--unread');
+      const unreadChip = tagsCell?.querySelector('.ip-chip--unread');
       if(unreadChip) unreadChip.remove();
     }
     updateCounts();
     selectRow(selectedRow);
+    setSmoke(unread ? 'mark-unread' : 'mark-read');
   });
 
   document.getElementById('mark-all-read').addEventListener('click', function(){
@@ -543,13 +772,68 @@ table{border-collapse:collapse}
     updateCounts();
     selectRow(selectedRow);
     smoke.textContent = 'Updated · all visible active threads marked read';
-    window.__scenarioSmoke = { lastAction: 'mark-all-read', updatedAt: Date.now() };
+    setSmoke('mark-all-read');
   });
 
   document.getElementById('refresh-mail').addEventListener('click', function(){
     smoke.textContent = 'Refreshed inbox preview';
-    railActivity.textContent = 'Mailbox refreshed at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'} ) + '.';
-    window.__scenarioSmoke = { lastAction: 'refresh-mail', updatedAt: Date.now() };
+    railActivity.textContent = 'Mailbox refreshed at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    setSmoke('refresh-mail');
+  });
+
+  document.getElementById('compose-btn').addEventListener('click', function(){
+    composeBackdrop.classList.add('is-open');
+    composeBackdrop.setAttribute('aria-hidden','false');
+    document.getElementById('compose-to').focus();
+    setSmoke('open-compose');
+  });
+
+  function closeCompose(){
+    composeBackdrop.classList.remove('is-open');
+    composeBackdrop.setAttribute('aria-hidden','true');
+  }
+
+  document.getElementById('close-compose').addEventListener('click', closeCompose);
+  document.getElementById('discard-compose').addEventListener('click', function(){ closeCompose(); setSmoke('discard-compose'); });
+  document.getElementById('save-draft').addEventListener('click', function(){
+    closeCompose();
+    smoke.textContent = 'Draft saved';
+    setSmoke('save-draft');
+  });
+  document.getElementById('send-compose').addEventListener('click', function(){
+    const to = document.getElementById('compose-to').value.trim();
+    if(!to){ smoke.textContent = 'Add a recipient before sending'; return; }
+    closeCompose();
+    smoke.textContent = 'Message sent to ' + to;
+    setSmoke('send-compose');
+  });
+
+  document.getElementById('snooze-btn').addEventListener('click', function(){
+    snoozeBackdrop.classList.add('is-open');
+    snoozeBackdrop.setAttribute('aria-hidden','false');
+    setSmoke('open-snooze');
+  });
+  document.getElementById('cancel-snooze').addEventListener('click', function(){
+    snoozeBackdrop.classList.remove('is-open');
+    snoozeBackdrop.setAttribute('aria-hidden','true');
+  });
+  document.querySelectorAll('.gm-snooze-opt').forEach(btn => {
+    btn.addEventListener('click', function(){
+      if(selectedRow){
+        selectedRow.classList.add('gm-snoozed');
+        selectedRow.classList.add('hidden');
+        smoke.textContent = 'Snoozed until ' + btn.textContent.trim();
+        setSmoke('snooze-' + btn.dataset.snooze);
+      }
+      snoozeBackdrop.classList.remove('is-open');
+      snoozeBackdrop.setAttribute('aria-hidden','true');
+      updateCounts();
+    });
+  });
+
+  document.getElementById('menu-toggle')?.addEventListener('click', function(){
+    document.getElementById('gm-sidebar')?.classList.toggle('gm-sidebar--collapsed');
+    setSmoke('toggle-sidebar');
   });
 
   function openModal(){
@@ -568,17 +852,17 @@ table{border-collapse:collapse}
   }
 
   archiveBtn.addEventListener('click', function(){
-    if(!selectedRow){ return; }
+    if(!selectedRow) return;
     if(!reason.value){
       reasonError.textContent = 'Choose an archive reason before confirming.';
       smoke.textContent = 'Validation required · choose archive reason';
-      window.__scenarioSmoke = { lastAction: 'archive-validation-reason', updatedAt: Date.now() };
+      setSmoke('archive-validation-reason');
       reason.focus();
       return;
     }
     openModal();
     smoke.textContent = 'Archive confirmation opened';
-    window.__scenarioSmoke = { lastAction: 'open-archive-confirmation', updatedAt: Date.now() };
+    setSmoke('open-archive-confirmation');
   });
 
   confirmModalBtn.addEventListener('click', function(){
@@ -586,7 +870,7 @@ table{border-collapse:collapse}
     if(typed !== 'ARCHIVE'){
       archiveInputError.textContent = 'Type ARCHIVE exactly to continue.';
       smoke.textContent = 'Validation required · type ARCHIVE';
-      window.__scenarioSmoke = { lastAction: 'archive-validation-keyword', updatedAt: Date.now() };
+      setSmoke('archive-validation-keyword');
       archiveInput.focus();
       return;
     }
@@ -594,10 +878,10 @@ table{border-collapse:collapse}
       selectedRow.classList.remove('unread');
       selectedRow.classList.add('is-archived');
       selectedRow.dataset.unread = 'false';
-      const tagsCell = selectedRow.querySelectorAll('td')[3];
-      const unreadChip = tagsCell.querySelector('.ip-chip--unread');
+      const tagsCell = selectedRow.querySelector('.gm-row__tags');
+      const unreadChip = tagsCell?.querySelector('.ip-chip--unread');
       if(unreadChip) unreadChip.remove();
-      if(!tagsCell.querySelector('.ip-chip--archived')){
+      if(tagsCell && !tagsCell.querySelector('.ip-chip--archived')){
         tagsCell.insertAdjacentHTML('beforeend','<span class="ip-chip ip-chip--archived">Archived</span>');
       }
       archivedToday += 1;
@@ -608,10 +892,10 @@ table{border-collapse:collapse}
       toolsFeedback.textContent = 'Archived successfully: ' + data.sender + '.';
       railActivity.textContent = 'Last archive: ' + data.thread + ' at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) + '.';
       smoke.textContent = 'Archived thread: ' + data.thread;
-      window.__scenarioSmoke = { lastAction: 'archive-' + data.thread, updatedAt: Date.now() };
+      setSmoke('archive-' + data.thread);
     } else {
       smoke.textContent = 'Archive action completed';
-      window.__scenarioSmoke = { lastAction: 'archive-complete', updatedAt: Date.now() };
+      setSmoke('archive-complete');
     }
     closeModal();
   });
@@ -619,24 +903,25 @@ table{border-collapse:collapse}
   cancelModalBtn.addEventListener('click', function(){
     closeModal();
     smoke.textContent = 'Archive cancelled';
-    window.__scenarioSmoke = { lastAction: 'cancel-archive', updatedAt: Date.now() };
+    setSmoke('cancel-archive');
   });
 
   modalBackdrop.addEventListener('click', function(e){
-    if(e.target === modalBackdrop){ closeModal(); }
+    if(e.target === modalBackdrop) closeModal();
   });
 
   document.querySelectorAll('[data-cookie-action]').forEach(btn => {
     btn.addEventListener('click', function(){
       document.getElementById('cookie-banner').style.display = 'none';
       smoke.textContent = 'Cookie preferences saved';
-      window.__scenarioSmoke = { lastAction: 'cookie-' + btn.dataset.cookieAction, updatedAt: Date.now() };
+      setSmoke('cookie-' + btn.dataset.cookieAction);
     });
   });
 
   updateCounts();
+  applyCategoryFilter();
   selectRow(selectedRow);
-  window.__scenarioSmoke = { lastAction: 'initial-load', updatedAt: Date.now() };
-})();
-</script>
+  setSmoke('initial-load');
+})();</script>
+
 </body></html>

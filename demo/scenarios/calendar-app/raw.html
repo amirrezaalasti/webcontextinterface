@@ -55,11 +55,11 @@ table{border-collapse:collapse}
 .cs-filters,.cs-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}.cs-filters h2,.cs-frame aside h2{font-size:14px;margin:0 0 10px}
 .cs-card__actions,.cs-slot__actions,.cs-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
 .cs-panel{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff}
-.cs-week{display:grid;grid-template-columns:74px repeat(7,1fr);gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden}.cs-week-head,.cs-hour{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:700;padding:10px 8px}.cs-hour{min-height:54px;display:flex;align-items:flex-start}.cs-cell{background:#fff;padding:8px;min-height:54px;border:0;font-size:12px;position:relative}.cs-cell:hover{background:#fcfcfd}.cs-event{display:block;background:#ede9fe;color:#4c1d95;border:1px solid #ddd6fe;border-radius:8px;padding:7px 8px;font-size:12px;line-height:1.25;margin-top:2px}.cs-event strong{display:block}.cs-event small{color:#6b21a8;display:block;margin-top:2px}
+.cs-week{display:grid;grid-template-columns:74px repeat(7,1fr);gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden}.cs-week-head,.cs-hour{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:700;padding:10px 8px}.cs-hour{min-height:54px;display:flex;align-items:flex-start}.cs-cell{background:#fff;padding:8px;min-height:54px;border:0;font-size:12px;position:relative}.cs-cell:hover{background:#fcfcfd}.cs-cell-add{position:absolute;inset:4px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .15s ease,background .15s ease;z-index:2;border-radius:6px}.cs-cell:hover .cs-cell-add,.cs-cell:focus-within .cs-cell-add{opacity:1;pointer-events:auto;background:rgba(255,255,255,.88)}.cs-cell--busy:hover .cs-cell-add{align-items:flex-end;justify-content:flex-end;background:transparent;inset:auto;top:4px;right:4px;left:auto;bottom:auto}.cs-cell-add .cs-grid-add{margin:0;padding:4px 10px;font-size:12px;min-height:28px}.cs-event{display:block;background:#ede9fe;color:#4c1d95;border:1px solid #ddd6fe;border-radius:8px;padding:7px 8px;font-size:12px;line-height:1.25;margin-top:2px;position:relative;z-index:1}.cs-event strong{display:block}.cs-event small{color:#6b21a8;display:block;margin-top:2px}
 .cs-modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:49}
 .cs-modal-backdrop.is-open{display:block}
 .cs-modal{display:none;border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.cs-modal.is-open,.cs-page-main [role=dialog]{position:fixed;inset:8% 50% auto 50%;transform:translateX(-50%);z-index:60;max-width:720px;width:min(92vw,720px);display:block;max-height:84vh;overflow:auto}
+.cs-modal.is-open{position:fixed;inset:8% 50% auto 50%;transform:translateX(-50%);z-index:60;max-width:720px;width:min(92vw,720px);display:block;max-height:84vh;overflow:auto}
 .cs-statusbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:#475569;font-size:12px;margin-top:14px}.cs-kpi{padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}.cs-side-list{display:grid;gap:8px}.cs-side-item{padding:10px 12px;border-radius:10px;background:#fff;border:1px solid #e2e8f0}.cs-side-item strong{display:block;margin-bottom:2px}.cs-side-item span{color:#64748b;font-size:12px}
 .cs-inline-note{font-size:12px;color:#64748b}
 .cs-error{font-size:12px;color:var(--danger);margin-top:6px;display:none}
@@ -72,7 +72,7 @@ table{border-collapse:collapse}
 .cs-list-clean li{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;background:#fff;border:1px solid #e2e8f0;border-radius:8px}
 .cs-smoke{margin-top:12px;padding:10px 12px;border-radius:10px;border:1px solid #e2e8f0;background:#f8fafc;color:#334155;font-size:13px}
 .cs-tiny{font-size:11px;color:#64748b}
-</style></head><body><div class="cs-app" data-page="calendar-app" id="calendar_app-page"><div class="cs-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner"><p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p><button type="button" class="cs-btn cs-btn--muted" data-cookie-action="reject">Reject non-essential</button><button type="button" class="cs-btn cs-btn--primary" data-cookie-action="accept">Accept all</button><button type="button" class="cs-btn cs-btn--ghost" data-cookie-action="customize">Customize</button></div><div class="cs-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true"><button type="button" class="cs-btn cs-btn--primary">COMPLETE ORDER NOW</button><button type="button" class="cs-btn">Continue as guest — express</button></div><header class="cs-hdr"><div class="cs-brand"><div class="cs-brand-badge">C</div><div><div>CalSync</div><small style="color:#64748b;font-weight:500">Team scheduling workspace</small></div></div><nav class="cs-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav><div class="cs-hdr-promo"><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">Claim Offer</button><button type="button" class="cs-btn cs-btn--ghost" data-decoy="decoy-nav">Learn More</button></div></header><nav class="cs-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button></nav><div class="cs-dup-row" aria-label="Quick actions"><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><button type="button" class="cs-btn cs-btn--ghost">Save changes</button><button type="button" class="cs-btn cs-btn--ghost">Confirm</button></div><div class="cs-dup-row"><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">Create weekday 9am standup</button><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-nav">Create standup series 9am</button></div><div class="cs-page-wrap"><div class="cs-page-main"><main role="main" class="cs-cal" style="padding:16px"><h1>Week of May 19</h1><div class="cs-meta"><span class="cs-badge">Timezone: America/Los_Angeles</span><span class="cs-badge">Work week: Mon–Fri</span><span class="cs-badge cs-badge--ok" id="series-state-badge">Series not created</span><span class="cs-badge cs-badge--warn" id="modal-state-badge">Builder ready</span></div><p>Plan the week, compare availability, and create a repeating weekday standup series for the team. Grid cells are available for one-off events, while the series builder opens a modal for recurring schedules.</p><div class="cs-toolbar"><button type="button" class="cs-btn cs-btn--ghost">Today</button><button type="button" class="cs-btn cs-btn--ghost">Previous week</button><button type="button" class="cs-btn cs-btn--ghost">Next week</button><button type="button" class="cs-btn cs-btn--muted">Import calendar</button></div><div class="cs-layout" style="margin-top:12px"><section><div class="cs-week" aria-label="Weekly calendar"><div class="cs-week-head"></div><div class="cs-week-head">Mon</div><div class="cs-week-head">Tue</div><div class="cs-week-head">Wed</div><div class="cs-week-head">Thu</div><div class="cs-week-head">Fri</div><div class="cs-week-head">Sat</div><div class="cs-week-head">Sun</div><div class="cs-hour">9am</div><div class="cs-cell"><div class="cs-event"><strong>Focus block</strong><small>09:30–10:00</small></div></div><div class="cs-cell"><button type="button" class="cs-btn cs-btn--ghost cs-grid-add">+ Add</button></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-hour">10am</div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"><div class="cs-event"><strong>Design review</strong><small>10:00–10:45</small></div></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-hour">11am</div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"><div class="cs-event"><strong>Ops office hours</strong><small>11:00–11:30</small></div></div><div class="cs-cell"></div><div class="cs-cell"></div></div><div class="cs-inline-note" id="grid-feedback">Tip: + Add creates a single event only. Use the recurring series section below for weekday repeats.</div></section><aside class="cs-filters"><h2>Availability snapshot</h2><ul class="cs-list-clean"><li><span>Amanda</span><strong>Free 09:00</strong></li><li><span>Ravi</span><strong>Free 09:00</strong></li><li><span>Priya</span><strong>Conflict Wed</strong></li><li><span>Jules</span><strong>Free 09:00</strong></li></ul><div class="cs-statusbar"><div class="cs-kpi">Attendees checked: <strong id="attendee-count">4</strong></div><div class="cs-kpi">Weekday sessions: <strong id="weekday-count">5</strong></div></div></aside></div><section class="cs-panel" style="margin-top:16px"><h2>Recurring series</h2><p>Build a weekday standup at 09:00 with participants, conferencing, and reminder defaults. This is the series flow, not the grid-cell shortcut.</p><div class="cs-card__actions"><button type="button" class="cs-btn cs-btn--primary" data-series="weekday-standup-09" id="create-standup-series">Create weekday standup series</button><button type="button" class="cs-btn cs-btn--ghost" id="open-builder-secondary">Preview conflicts</button><button type="button" class="cs-btn cs-btn--ghost" id="save-draft-btn">Save draft</button></div><table><thead><tr><th>Day</th><th>Start</th><th>End</th><th>Notes</th></tr></thead><tbody><tr><td>Mon</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Tue</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Wed</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Thu</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Fri</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr></tbody></table><div class="cs-smoke" id="calendar-app-smoke-status" data-smoke-status>Idle: waiting for recurring series action.</div></section><section class="cs-panel"><h2>Schedule assistant</h2><p>Selected rule: repeat every weekday, starting 09:00, 15 minutes, until further notice.</p><form class="cs-grid" action="#" id="quick-settings-form"><label>Meeting title<input type="text" value="Standup" id="quick-title"/></label><label>Location<input type="text" value="Google Meet" id="quick-location"/></label><label><span>Reminder</span><select id="quick-reminder"><option>10 minutes before</option><option selected>5 minutes before</option><option>None</option></select></label></form><div class="cs-statusbar"><div class="cs-kpi">Busy slots: <strong id="busy-slots">2</strong></div><div class="cs-kpi">Available attendees: <strong id="available-attendees">8/9</strong></div><div class="cs-kpi">Next free window: <strong id="next-window">11:00</strong></div></div></section></main><div class="cs-modal-backdrop is-open" id="modal-backdrop"></div><div class="cs-modal is-open" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-modal-title"><h2 id="event-modal-title">New recurring event</h2><p>Create a series instead of a one-off cell event. Use the series builder to set weekday repeats and 09:00 start time.</p><form id="series-builder-form"><div class="cs-split"><div><label>Title<input type="text" placeholder="Title" value="Standup" id="series-title"/></label><div class="cs-error" id="title-error">Please enter a meeting title.</div><label>Repeat<select id="series-repeat"><option selected>Weekdays</option><option>Daily</option><option>Weekly</option></select></label><label>Start time<select id="series-time"><option>08:30</option><option selected>09:00</option><option>09:30</option><option>10:00</option></select></label><label>Duration<select id="series-duration"><option>10 minutes</option><option selected>15 minutes</option><option>30 minutes</option></select></label></div><div><fieldset><legend>Days</legend><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Monday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Tuesday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Wednesday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Thursday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Friday</span></label></fieldset><label>Video link<input type="text" id="series-location" value="Google Meet"/></label><label>Participants<input type="text" id="series-participants" value="amanda@calsync.io, ravi@calsync.io, priya@calsync.io"/></label><div class="cs-error" id="participant-error">Add at least one participant email or name.</div></div></div><div class="cs-preview" style="margin-top:12px"><strong>Series preview</strong><p id="series-preview" style="margin-top:8px">Standup • Weekdays • 09:00 • 15 minutes • Google Meet</p><div class="cs-tiny">This flow creates a recurring weekday series rather than a one-off event on the visible grid.</div></div><div class="cs-toolbar"><button type="button" class="cs-btn cs-btn--ghost" id="cancel-modal-btn">Cancel</button><button type="button" class="cs-btn cs-btn--muted" id="validate-modal-btn">Check details</button><button type="button" class="cs-btn cs-btn--primary" id="open-series-confirm">Open series builder</button></div></form></div></div><aside class="cs-rail cs-rail--ads" aria-label="Sponsored"><div><strong>Sponsored</strong></div><a href="/ads/1">Partner offer — limited time</a><br/><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">View deal</button><div class="cs-side-list" style="margin-top:14px"><div class="cs-side-item"><strong>Team availability</strong><span>3 conflicts this week</span></div><div class="cs-side-item"><strong>Room 204</strong><span>Free at 09:00 on weekdays</span></div><div class="cs-side-item"><strong>Series drafts</strong><span id="draft-count">1 unsaved draft</span></div><div class="cs-side-item"><strong>Confirmation status</strong><span id="series-created-copy">Awaiting creation</span></div></div></aside></div><div class="cs-filler" aria-hidden="true"><div class="cs-filler-inner"><a href="/misc/0" class="cs-btn cs-btn--ghost">Link 1</a><button type="button" class="cs-btn cs-btn--ghost">Action 2</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/4" class="cs-btn cs-btn--ghost">Link 5</a><button type="button" class="cs-btn cs-btn--ghost">Action 6</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/8" class="cs-btn cs-btn--ghost">Link 9</a><button type="button" class="cs-btn cs-btn--ghost">Action 10</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/12" class="cs-btn cs-btn--ghost">Link 13</a><button type="button" class="cs-btn cs-btn--ghost">Action 14</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/16" class="cs-btn cs-btn--ghost">Link 17</a><button type="button" class="cs-btn cs-btn--ghost">Action 18</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/20" class="cs-btn cs-btn--ghost">Link 21</a><button type="button" class="cs-btn cs-btn--ghost">Action 22</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/24" class="cs-btn cs-btn--ghost">Link 25</a><button type="button" class="cs-btn cs-btn--ghost">Action 26</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/28" class="cs-btn cs-btn--ghost">Link 29</a><button type="button" class="cs-btn cs-btn--ghost">Action 30</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/32" class="cs-btn cs-btn--ghost">Link 33</a><button type="button" class="cs-btn cs-btn--ghost">Action 34</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/36" class="cs-btn cs-btn--ghost">Link 37</a><button type="button" class="cs-btn cs-btn--ghost">Action 38</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/40" class="cs-btn cs-btn--ghost">Link 41</a><button type="button" class="cs-btn cs-btn--ghost">Action 42</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button></div></div><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="cs-ftr"><small>© Demo CalSync</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""/></div></div><script>
+</style></head><body><div class="cs-app" data-page="calendar-app" id="calendar_app-page"><div class="cs-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner"><p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p><button type="button" class="cs-btn cs-btn--muted" data-cookie-action="reject">Reject non-essential</button><button type="button" class="cs-btn cs-btn--primary" data-cookie-action="accept">Accept all</button><button type="button" class="cs-btn cs-btn--ghost" data-cookie-action="customize">Customize</button></div><div class="cs-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true"><button type="button" class="cs-btn cs-btn--primary">COMPLETE ORDER NOW</button><button type="button" class="cs-btn">Continue as guest — express</button></div><header class="cs-hdr"><div class="cs-brand"><div class="cs-brand-badge">C</div><div><div>CalSync</div><small style="color:#64748b;font-weight:500">Team scheduling workspace</small></div></div><nav class="cs-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav><div class="cs-hdr-promo"><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">Claim Offer</button><button type="button" class="cs-btn cs-btn--ghost" data-decoy="decoy-nav">Learn More</button></div></header><nav class="cs-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button></nav><div class="cs-dup-row" aria-label="Quick actions"><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><button type="button" class="cs-btn cs-btn--ghost">Save changes</button><button type="button" class="cs-btn cs-btn--ghost">Confirm</button></div><div class="cs-dup-row"><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">Create weekday 9am standup</button><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-nav">Create standup series 9am</button></div><div class="cs-page-wrap"><div class="cs-page-main"><main role="main" class="cs-cal" style="padding:16px"><h1>Week of May 19</h1><div class="cs-meta"><span class="cs-badge">Timezone: America/Los_Angeles</span><span class="cs-badge">Work week: Mon–Fri</span><span class="cs-badge cs-badge--warn" id="series-state-badge">Series not created</span><span class="cs-badge" id="modal-state-badge">Builder closed</span></div><p>Plan the week, compare availability, and create a repeating weekday standup series for the team. Grid cells are available for one-off events, while the series builder opens a modal for recurring schedules.</p><div class="cs-toolbar"><button type="button" class="cs-btn cs-btn--ghost">Today</button><button type="button" class="cs-btn cs-btn--ghost">Previous week</button><button type="button" class="cs-btn cs-btn--ghost">Next week</button><button type="button" class="cs-btn cs-btn--muted">Import calendar</button></div><div class="cs-layout" style="margin-top:12px"><section><div class="cs-week" aria-label="Weekly calendar"><div class="cs-week-head"></div><div class="cs-week-head">Mon</div><div class="cs-week-head">Tue</div><div class="cs-week-head">Wed</div><div class="cs-week-head">Thu</div><div class="cs-week-head">Fri</div><div class="cs-week-head">Sat</div><div class="cs-week-head">Sun</div><div class="cs-hour">9am</div><div class="cs-cell"><div class="cs-event"><strong>Focus block</strong><small>09:30–10:00</small></div></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-hour">10am</div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"><div class="cs-event"><strong>Design review</strong><small>10:00–10:45</small></div></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-hour">11am</div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"></div><div class="cs-cell"><div class="cs-event"><strong>Ops office hours</strong><small>11:00–11:30</small></div></div><div class="cs-cell"></div><div class="cs-cell"></div></div><div class="cs-inline-note" id="grid-feedback">Tip: hover any slot to reveal + Add for a one-off event. Use the recurring series section below for weekday repeats.</div></section><aside class="cs-filters"><h2>Availability snapshot</h2><ul class="cs-list-clean"><li><span>Amanda</span><strong>Free 09:00</strong></li><li><span>Ravi</span><strong>Free 09:00</strong></li><li><span>Priya</span><strong>Conflict Wed</strong></li><li><span>Jules</span><strong>Free 09:00</strong></li></ul><div class="cs-statusbar"><div class="cs-kpi">Attendees checked: <strong id="attendee-count">4</strong></div><div class="cs-kpi">Weekday sessions: <strong id="weekday-count">5</strong></div></div></aside></div><section class="cs-panel" style="margin-top:16px"><h2>Recurring series</h2><p>Build a weekday standup at 09:00 with participants, conferencing, and reminder defaults. This is the series flow, not the grid-cell shortcut.</p><div class="cs-card__actions"><button type="button" class="cs-btn cs-btn--primary" data-series="weekday-standup-09" id="create-standup-series">Create weekday standup series</button><button type="button" class="cs-btn cs-btn--ghost" id="open-builder-secondary">Preview conflicts</button><button type="button" class="cs-btn cs-btn--ghost" id="save-draft-btn">Save draft</button></div><table><thead><tr><th>Day</th><th>Start</th><th>End</th><th>Notes</th></tr></thead><tbody><tr><td>Mon</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Tue</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Wed</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Thu</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr><tr><td>Fri</td><td>09:00</td><td>09:15</td><td>Daily sync</td></tr></tbody></table><div class="cs-smoke" id="calendar-app-smoke-status" data-smoke-status>Idle: waiting for recurring series action.</div></section><section class="cs-panel"><h2>Schedule assistant</h2><p>Selected rule: repeat every weekday, starting 09:00, 15 minutes, until further notice.</p><form class="cs-grid" action="#" id="quick-settings-form"><label>Meeting title<input type="text" value="Standup" id="quick-title"/></label><label>Location<input type="text" value="Google Meet" id="quick-location"/></label><label><span>Reminder</span><select id="quick-reminder"><option>10 minutes before</option><option selected>5 minutes before</option><option>None</option></select></label></form><div class="cs-statusbar"><div class="cs-kpi">Busy slots: <strong id="busy-slots">2</strong></div><div class="cs-kpi">Available attendees: <strong id="available-attendees">8/9</strong></div><div class="cs-kpi">Next free window: <strong id="next-window">11:00</strong></div></div></section></main><div class="cs-modal-backdrop" id="modal-backdrop"></div><div class="cs-modal" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-modal-title"><h2 id="event-modal-title">New recurring event</h2><p>Create a series instead of a one-off cell event. Use the series builder to set weekday repeats and 09:00 start time.</p><form id="series-builder-form"><div class="cs-split"><div><label>Title<input type="text" placeholder="Title" value="Standup" id="series-title"/></label><div class="cs-error" id="title-error">Please enter a meeting title.</div><label>Repeat<select id="series-repeat"><option selected>Weekdays</option><option>Daily</option><option>Weekly</option></select></label><label>Start time<select id="series-time"><option>08:30</option><option selected>09:00</option><option>09:30</option><option>10:00</option></select></label><label>Duration<select id="series-duration"><option>10 minutes</option><option selected>15 minutes</option><option>30 minutes</option></select></label></div><div><fieldset><legend>Days</legend><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Monday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Tuesday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Wednesday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Thursday</span></label><label class="cs-checkline"><input type="checkbox" checked disabled/> <span>Friday</span></label></fieldset><label>Video link<input type="text" id="series-location" value="Google Meet"/></label><label>Participants<input type="text" id="series-participants" value="amanda@calsync.io, ravi@calsync.io, priya@calsync.io"/></label><div class="cs-error" id="participant-error">Add at least one participant email or name.</div></div></div><div class="cs-preview" style="margin-top:12px"><strong>Series preview</strong><p id="series-preview" style="margin-top:8px">Standup • Weekdays • 09:00 • 15 minutes • Google Meet</p><div class="cs-tiny">This flow creates a recurring weekday series rather than a one-off event on the visible grid.</div></div><div class="cs-toolbar"><button type="button" class="cs-btn cs-btn--ghost" id="cancel-modal-btn">Cancel</button><button type="button" class="cs-btn cs-btn--muted" id="validate-modal-btn">Check details</button><button type="button" class="cs-btn cs-btn--primary" id="open-series-confirm">Create series from builder</button></div></form></div><div class="cs-modal-backdrop" id="oneoff-backdrop"></div><div class="cs-modal" id="oneoff-modal" role="dialog" aria-modal="true" aria-labelledby="oneoff-modal-title"><h2 id="oneoff-modal-title">Add one-off event</h2><p>This adds a single grid-cell event only. For a recurring weekday standup at 09:00, use the series section below.</p><form id="oneoff-form"><label>Title<input type="text" id="oneoff-title" value="Team sync"/></label><label>Start<select id="oneoff-start"><option>08:30</option><option selected>09:00</option><option>09:30</option><option>10:00</option></select></label><label>Duration<select id="oneoff-duration"><option>15 minutes</option><option selected>30 minutes</option><option>45 minutes</option><option>60 minutes</option></select></label><div class="cs-preview" style="margin-top:12px"><strong>One-off preview</strong><p id="oneoff-preview" style="margin-top:8px">Team sync · Tue 9am · 09:00 · 30 minutes</p></div><div class="cs-toolbar"><button type="button" class="cs-btn cs-btn--ghost" id="oneoff-cancel">Cancel</button><button type="button" class="cs-btn cs-btn--primary" id="oneoff-confirm">Add to calendar</button></div></form></div></div><aside class="cs-rail cs-rail--ads" aria-label="Sponsored"><div><strong>Sponsored</strong></div><a href="/ads/1">Partner offer — limited time</a><br/><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-promo">View deal</button><div class="cs-side-list" style="margin-top:14px"><div class="cs-side-item"><strong>Team availability</strong><span>3 conflicts this week</span></div><div class="cs-side-item"><strong>Room 204</strong><span>Free at 09:00 on weekdays</span></div><div class="cs-side-item"><strong>Series drafts</strong><span id="draft-count">1 unsaved draft</span></div><div class="cs-side-item"><strong>Confirmation status</strong><span id="series-created-copy">Awaiting creation</span></div></div></aside></div><div class="cs-filler" aria-hidden="true"><div class="cs-filler-inner"><a href="/misc/0" class="cs-btn cs-btn--ghost">Link 1</a><button type="button" class="cs-btn cs-btn--ghost">Action 2</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/4" class="cs-btn cs-btn--ghost">Link 5</a><button type="button" class="cs-btn cs-btn--ghost">Action 6</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/8" class="cs-btn cs-btn--ghost">Link 9</a><button type="button" class="cs-btn cs-btn--ghost">Action 10</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/12" class="cs-btn cs-btn--ghost">Link 13</a><button type="button" class="cs-btn cs-btn--ghost">Action 14</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/16" class="cs-btn cs-btn--ghost">Link 17</a><button type="button" class="cs-btn cs-btn--ghost">Action 18</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/20" class="cs-btn cs-btn--ghost">Link 21</a><button type="button" class="cs-btn cs-btn--ghost">Action 22</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/24" class="cs-btn cs-btn--ghost">Link 25</a><button type="button" class="cs-btn cs-btn--ghost">Action 26</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/28" class="cs-btn cs-btn--ghost">Link 29</a><button type="button" class="cs-btn cs-btn--ghost">Action 30</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/32" class="cs-btn cs-btn--ghost">Link 33</a><button type="button" class="cs-btn cs-btn--ghost">Action 34</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/36" class="cs-btn cs-btn--ghost">Link 37</a><button type="button" class="cs-btn cs-btn--ghost">Action 38</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button><a href="/misc/40" class="cs-btn cs-btn--ghost">Link 41</a><button type="button" class="cs-btn cs-btn--ghost">Action 42</button><button type="button" class="cs-btn cs-btn--ghost">Submit</button><button type="button" class="cs-btn cs-btn--ghost">Continue</button></div></div><button type="button" class="cs-btn cs-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="cs-ftr"><small>© Demo CalSync</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""/></div></div><script>
 (function(){
   const smoke = document.getElementById('calendar-app-smoke-status');
   const primary = document.querySelector('button[data-series="weekday-standup-09"]');
@@ -98,7 +98,65 @@ table{border-collapse:collapse}
   const draftCount = document.getElementById('draft-count');
   const gridFeedback = document.getElementById('grid-feedback');
   const cookieBanner = document.getElementById('cookie-banner');
+  const oneoffModal = document.getElementById('oneoff-modal');
+  const oneoffBackdrop = document.getElementById('oneoff-backdrop');
+  const oneoffTitle = document.getElementById('oneoff-title');
+  const oneoffStart = document.getElementById('oneoff-start');
+  const oneoffDuration = document.getElementById('oneoff-duration');
+  const oneoffPreview = document.getElementById('oneoff-preview');
+  const oneoffCancel = document.getElementById('oneoff-cancel');
+  const oneoffConfirm = document.getElementById('oneoff-confirm');
+  const busySlots = document.getElementById('busy-slots');
   let drafts = 1;
+  let activeAddCell = null;
+  let activeAddDay = 'Tue';
+  let activeAddHour = '9am';
+
+  function escapeHtml(text){
+    return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function updateOneoffPreview(){
+    oneoffPreview.textContent = (oneoffTitle.value.trim() || 'Untitled') + ' · ' + activeAddDay + ' ' + activeAddHour + ' · ' + oneoffStart.value + ' · ' + oneoffDuration.value;
+  }
+
+  function openOneoffModal(cell, day, hour){
+    activeAddCell = cell;
+    activeAddDay = day;
+    activeAddHour = hour;
+    document.getElementById('oneoff-modal-title').textContent = 'Add one-off event · ' + day + ' ' + hour;
+    oneoffModal.classList.add('is-open');
+    oneoffBackdrop.classList.add('is-open');
+    modalStateBadge.textContent = 'One-off add open';
+    updateOneoffPreview();
+  }
+
+  function closeOneoffModal(){
+    oneoffModal.classList.remove('is-open');
+    oneoffBackdrop.classList.remove('is-open');
+    activeAddCell = null;
+    if(!modal.classList.contains('is-open')) modalStateBadge.textContent = 'Builder closed';
+  }
+
+  function confirmOneoffEvent(){
+    if(!activeAddCell) return;
+    const title = oneoffTitle.value.trim() || 'Untitled';
+    const start = oneoffStart.value;
+    const duration = oneoffDuration.value;
+    const cell = activeAddCell;
+    const event = document.createElement('div');
+    event.className = 'cs-event';
+    event.innerHTML = '<strong>' + escapeHtml(title) + '</strong><small>' + escapeHtml(start) + ' · ' + escapeHtml(duration) + '</small>';
+    const addWrap = cell.querySelector('.cs-cell-add');
+    if(addWrap) cell.insertBefore(event, addWrap);
+    else cell.appendChild(event);
+    cell.classList.add('cs-cell--busy');
+    closeOneoffModal();
+    gridFeedback.textContent = 'One-off event added to ' + activeAddDay + ' at ' + activeAddHour + '. Use the recurring series section for weekday standups at 09:00.';
+    smoke.textContent = 'One-off event added to grid cell (not a recurring series).';
+    window.__scenarioSmoke = { lastAction: 'oneoff-grid-event-added', updatedAt: Date.now() };
+    busySlots.textContent = String(Number(busySlots.textContent || 0) + 1);
+  }
 
   function updatePreview(){
     preview.textContent = (titleInput.value.trim() || 'Untitled') + ' • ' + repeatInput.value + ' • ' + timeInput.value + ' • ' + durationInput.value + ' • ' + (locationInput.value.trim() || 'No location');
@@ -132,15 +190,77 @@ table{border-collapse:collapse}
   function closeModal(){
     modal.classList.remove('is-open');
     backdrop.classList.remove('is-open');
-    modalStateBadge.textContent = 'Builder dismissed';
+    modalStateBadge.textContent = 'Builder closed';
   }
 
-  document.querySelectorAll('.cs-grid-add').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      gridFeedback.textContent = 'A grid cell shortcut would create a one-off event only. Use the recurring series flow for a weekday 09:00 standup.';
-      smoke.textContent = 'One-off add shortcut selected; recurring series not yet created.';
+  function createSeries(){
+    const ok = validateForm();
+    if(!ok){
+      openModal();
+      smoke.textContent = 'Cannot create series: fix builder details first.';
+      window.__scenarioSmoke = { lastAction: 'series-create-blocked-validation', updatedAt: Date.now() };
+      return false;
+    }
+    const timestamp = Date.now();
+    closeModal();
+    seriesStateBadge.textContent = 'Series created';
+    seriesStateBadge.classList.remove('cs-badge--warn');
+    seriesStateBadge.classList.add('cs-badge--ok');
+    createdCopy.textContent = 'Weekday standup confirmed at 09:00';
+    smoke.textContent = 'Created recurring weekday standup series at 09:00.';
+    window.__scenarioSmoke = { lastAction: 'created-weekday-standup-series-09:00', updatedAt: timestamp };
+    return true;
+  }
+
+  function initGridSlots(){
+    const week = document.querySelector('.cs-week');
+    if(!week) return;
+    const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const hours = ['9am','10am','11am'];
+    const cells = week.querySelectorAll('.cs-cell');
+    let idx = 0;
+    hours.forEach(function(hour){
+      days.forEach(function(day){
+        const cell = cells[idx++];
+        if(!cell) return;
+        cell.setAttribute('data-day', day);
+        cell.setAttribute('data-hour', hour);
+        if(cell.querySelector('.cs-event')) cell.classList.add('cs-cell--busy');
+        if(cell.querySelector('.cs-cell-add')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'cs-cell-add';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cs-btn cs-btn--ghost cs-grid-add';
+        btn.setAttribute('aria-label', 'Add one-off event for ' + day + ' at ' + hour);
+        btn.textContent = '+ Add';
+        wrap.appendChild(btn);
+        cell.appendChild(wrap);
+      });
     });
+  }
+
+  initGridSlots();
+  document.querySelector('.cs-week').addEventListener('click', function(e){
+    const btn = e.target.closest('.cs-grid-add');
+    if(!btn) return;
+    e.stopPropagation();
+    const cell = btn.closest('.cs-cell');
+    if(!cell) return;
+    openOneoffModal(cell, cell.getAttribute('data-day') || 'Tue', cell.getAttribute('data-hour') || '9am');
   });
+
+  [oneoffTitle, oneoffStart, oneoffDuration].forEach(function(el){
+    el.addEventListener('input', updateOneoffPreview);
+    el.addEventListener('change', updateOneoffPreview);
+  });
+
+  oneoffCancel.addEventListener('click', closeOneoffModal);
+  oneoffConfirm.addEventListener('click', confirmOneoffEvent);
+  oneoffBackdrop.addEventListener('click', closeOneoffModal);
+  oneoffModal.addEventListener('click', function(e){ e.stopPropagation(); });
+  document.getElementById('oneoff-form').addEventListener('submit', function(e){ e.preventDefault(); confirmOneoffEvent(); });
+  document.getElementById('series-builder-form').addEventListener('submit', function(e){ e.preventDefault(); });
 
   [titleInput, repeatInput, timeInput, durationInput, locationInput, participantsInput].forEach(function(el){
     el.addEventListener('input', updatePreview);
@@ -153,10 +273,7 @@ table{border-collapse:collapse}
   });
 
   openConfirmBtn.addEventListener('click', function(){
-    if(validateForm()){
-      smoke.textContent = 'Series builder is ready to create a recurring weekday series.';
-      modalStateBadge.textContent = 'Builder ready';
-    }
+    createSeries();
   });
 
   cancelBtn.addEventListener('click', function(){
@@ -164,8 +281,15 @@ table{border-collapse:collapse}
     smoke.textContent = 'Recurring event modal closed without creating a series.';
   });
 
+  modal.addEventListener('click', function(e){ e.stopPropagation(); });
   backdrop.addEventListener('click', closeModal);
   openSecondary.addEventListener('click', openModal);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    if(oneoffModal.classList.contains('is-open')) closeOneoffModal();
+    else if(modal.classList.contains('is-open')) closeModal();
+  });
 
   saveDraftBtn.addEventListener('click', function(){
     drafts += 1;
@@ -174,27 +298,25 @@ table{border-collapse:collapse}
   });
 
   primary.addEventListener('click', function(){
-    const ok = validateForm();
-    if(!modal.classList.contains('is-open')) openModal();
-    if(!ok){
-      smoke.textContent = 'Cannot create series: fix builder details first.';
-      window.__scenarioSmoke = { lastAction: 'series-create-blocked-validation', updatedAt: Date.now() };
-      return;
-    }
-    const timestamp = Date.now();
-    closeModal();
-    seriesStateBadge.textContent = 'Series created';
-    seriesStateBadge.classList.remove('cs-badge--warn');
-    seriesStateBadge.classList.add('cs-badge--ok');
-    createdCopy.textContent = 'Weekday standup confirmed at 09:00';
-    smoke.textContent = 'Created recurring weekday standup series at 09:00.';
-    window.__scenarioSmoke = { lastAction: 'created-weekday-standup-series-09:00', updatedAt: timestamp };
+    createSeries();
+  });
+
+  document.querySelectorAll('[data-decoy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      smoke.textContent = 'Decoy action ignored — use the recurring series section for weekday standups.';
+      window.__scenarioSmoke = { lastAction: 'decoy-click-' + (btn.getAttribute('data-decoy') || 'unknown'), updatedAt: Date.now() };
+    });
   });
 
   document.querySelectorAll('[data-cookie-action]').forEach(function(btn){
     btn.addEventListener('click', function(){
-      cookieBanner.style.display = 'none';
-      smoke.textContent = 'Cookie preference updated. Recurring series flow still available.';
+      const action = btn.getAttribute('data-cookie-action');
+      if(action === 'customize'){
+        smoke.textContent = 'Cookie preferences panel unavailable in demo; recurring series flow still available.';
+      } else {
+        cookieBanner.style.display = 'none';
+        smoke.textContent = 'Cookie preference updated. Recurring series flow still available.';
+      }
     });
   });
 

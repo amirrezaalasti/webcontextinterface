@@ -3,30 +3,66 @@
   "title": "DevConsole",
   "icon": "🔑",
   "difficulty": "Very Hard",
-  "description": "Keys table.",
+  "description": "Enterprise API key console: seven-row environment table with production primary, read replica, and legacy rows; tabbed views (Active, Pending, Expired, Service accounts); search and environment filters; bulk-selection toolbar with decoy rotate actions; rotation readiness form (reason + three acknowledgments); MFA step-up modal; confirmation dialog; scope/permission matrix; IP allowlist; activity timeline; cookie banner and sponsored rail traps.",
   "challenges": [
-    "Reveal"
+    "Seven key rows — production primary vs read replica vs legacy vs staging/QA/partner/development",
+    "Rotate buttons on wrong rows (legacy production, QA, partner sandbox, expired canary)",
+    "Staging Reveal is tempting but wrong for production rotation goal",
+    "Header and toolbar decoys: Emergency rotation, Rotate all production, Rotate selected, Bulk rotate",
+    "Production Rotate key disabled until 12+ char reason and three checkboxes checked",
+    "MFA step-up modal blocks rotation until 6-digit code entered",
+    "Tab panels hide the keys table — Service accounts tab has Rotate production token decoy",
+    "Pending rotation tab has Force rotate pending production decoy",
+    "Search/filter pills can hide the production row from view",
+    "Bulk checkbox bar adds Rotate selected keys decoy when rows selected",
+    "Cookie banner and keyword-trap dup rows with Rotate production API key text",
+    "Sponsored rail Auto-rotate production partner button",
+    "Permission matrix and IP allowlist add domain noise without actionable CTAs"
   ],
   "task": {
-    "goal": "Rotate the production API key row (not staging reveal).",
+    "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens).",
     "standardSteps": [
       {
         "action": "scan",
         "target": "full DOM",
         "outcome": "confused",
-        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+        "note": "Cookie banner, 4 KPI cards, tab bar, sidebar, alert banner, permission matrix, IP allowlist, ads rail — 200+ interactive elements"
       },
       {
         "action": "click",
         "target": "decoy element",
         "outcome": "fail",
-        "note": "Clicks promotional or nav decoy"
+        "note": "Clicks Emergency key rotation, Rotate all production, or dup-row keyword trap"
+      },
+      {
+        "action": "click",
+        "target": "staging Reveal button",
+        "outcome": "fail",
+        "note": "Reveals staging secret — wrong environment for production rotation goal"
+      },
+      {
+        "action": "click",
+        "target": "tr[data-key=\"production-legacy\"] button",
+        "outcome": "fail",
+        "note": "Legacy production row looks similar but is deprecated — not the primary key"
+      },
+      {
+        "action": "click",
+        "target": "tr[data-key=\"production-replica\"] button",
+        "outcome": "fail",
+        "note": "Read replica row has disabled Rotate — agent may misidentify as production"
+      },
+      {
+        "action": "scan",
+        "target": "rotation readiness form",
+        "outcome": "confused",
+        "note": "Must fill reason (12+ chars) and three acknowledgments before Rotate key enables"
       },
       {
         "action": "click",
         "target": "tr[data-key=\"production\"] button[data-rotate=\"production\"]",
         "outcome": "success",
-        "note": "Finds correct primary CTA in page-specific structure"
+        "note": "Finds primary production row Rotate key — may still hit MFA modal first in live flow"
       }
     ],
     "agentdomSteps": [
@@ -34,13 +70,25 @@
         "action": "read",
         "target": "api_keys-page",
         "outcome": "success",
-        "note": "Structured page landmark with typed actions"
+        "note": "Landmark scopes table display node and rotation form — state shows 7 active keys"
+      },
+      {
+        "action": "read",
+        "target": "keys-table",
+        "outcome": "success",
+        "note": "Structured row list distinguishes production primary from replica and legacy"
+      },
+      {
+        "action": "filter",
+        "target": "action nodes by environment and priority",
+        "outcome": "success",
+        "note": "rotate-prod-api-key is priority 1 with precondition; staging-reveal-btn and decoy ids are lower priority traps"
       },
       {
         "action": "click",
         "target": "rotate-prod-api-key",
         "outcome": "success",
-        "note": "Direct WCI node click on annotated overlay"
+        "note": "Direct WCI node click on primary production row — typed state confirms tier=primary"
       }
     ]
   },
@@ -48,15 +96,20 @@
     "wciNodeId": "rotate-prod-api-key",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
-      "decoy-extra"
+      "decoy-extra",
+      "decoy-emergency-rotate",
+      "decoy-rotate-all-prod",
+      "decoy-rotate-selected",
+      "staging-reveal-btn"
     ],
     "rawSelectors": [
-      "tr[data-key=\"production\"] button[data-rotate=\"production\"]"
+      "tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+      "#rotate-prod-api-key"
     ]
   },
   "tasks": {
     "singleShot": {
-      "goal": "Rotate the production API key row (not staging reveal).",
+      "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens).",
       "groundTruthSelector": "tr[data-key=\"production\"] button[data-rotate=\"production\"]",
       "groundTruthNodeId": "rotate-prod-api-key"
     },
@@ -64,55 +117,64 @@
       {
         "id": "api-keys.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Rotate the production API key row (not staging reveal). Complete with explicit verification and no decoy interactions.",
+        "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production). Complete with explicit verification and no decoy interactions.",
         "difficulty": "Very Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Stay on Active keys tab (not Service accounts or Expired)",
+          "Avoid decoy controls (promo/nav/emergency/bulk rotate)",
+          "Do not use staging Reveal as the final action"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: tr[data-key=\"production\"] button[data-rotate=\"production\"]",
           "Primary WCI action id: rotate-prod-api-key",
-          "No decoy ids triggered: decoy-extra"
+          "No decoy ids triggered: decoy-extra, decoy-emergency-rotate, decoy-rotate-all-prod, decoy-rotate-selected, staging-reveal-btn"
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state — dismiss cookie banner, confirm Active keys tab",
             "type": "observe"
           },
           {
-            "step": "Narrow candidate controls using constraints in goal text",
+            "step": "Scan seven-row table — identify production primary row (chip=primary), reject replica and legacy rows",
             "type": "reason"
           },
           {
-            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "step": "Reject header/toolbar/rail decoys with rotate in label",
             "type": "guardrail"
+          },
+          {
+            "step": "Complete rotation readiness form if Rotate key is disabled",
+            "type": "act"
           },
           {
             "step": "Execute final action at tr[data-key=\"production\"] button[data-rotate=\"production\"]",
             "type": "act"
           },
           {
-            "step": "Confirm expected transition or state change",
+            "step": "Confirm smoke status or modal shows production rotation initiated",
             "type": "verify"
           }
         ],
         "wciFlow": [
           {
-            "step": "Read page landmark node and scope context",
+            "step": "Read api_keys-page landmark and keys-table display state",
             "type": "read"
           },
           {
-            "step": "Filter actionable nodes by preconditions/state",
+            "step": "Filter actionable nodes — rotate-prod-api-key priority 1, reject decoy ids",
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id rotate-prod-api-key",
+            "step": "Validate rotation-form-section preconditions if state.enabled is false",
+            "type": "reason"
+          },
+          {
+            "step": "Invoke rotate-prod-api-key",
             "type": "act"
           },
           {
-            "step": "Verify ActionResult confirms state transition",
+            "step": "Verify ActionResult confirms production tier primary rotation",
             "type": "verify"
           }
         ]
@@ -120,25 +182,26 @@
       {
         "id": "api-keys.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Rotate the production API key row (not staging reveal). First validate key constraints (reveal) then execute and verify.",
+        "goal": "Rotate the primary production API key row. First validate environment constraints (reject staging reveal and legacy rows) then execute and verify.",
         "difficulty": "Very Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Stay on Active keys tab",
+          "Avoid decoy controls and bulk rotate traps",
+          "Fill rotation form before clicking disabled Rotate key"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: tr[data-key=\"production\"] button[data-rotate=\"production\"]",
           "Primary WCI action id: rotate-prod-api-key",
-          "No decoy ids triggered: decoy-extra"
+          "No decoy ids triggered: decoy-extra, decoy-emergency-rotate, decoy-rotate-all-prod, decoy-rotate-selected, staging-reveal-btn"
         ],
         "standardFlow": [
           {
-            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "step": "Inspect keys table — compare Environment column and chip labels",
             "type": "observe"
           },
           {
-            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "step": "Validate entity is primary production (not replica, legacy, staging, or service account)",
             "type": "reason"
           },
           {
@@ -152,11 +215,11 @@
         ],
         "wciFlow": [
           {
-            "step": "Read scoped context and typed state from WCI nodes",
+            "step": "Read keys-table state.rows and rotate-prod-api-key state.tier",
             "type": "read"
           },
           {
-            "step": "Validate node preconditions",
+            "step": "Validate node preconditions and reject staging-reveal-btn",
             "type": "reason"
           },
           {
@@ -165,6 +228,63 @@
           },
           {
             "step": "Verify ActionResult metadata",
+            "type": "verify"
+          }
+        ]
+      },
+      {
+        "id": "api-keys.multi-step.full-flow",
+        "title": "End-to-end Rotation Workflow",
+        "goal": "Complete the full production rotation workflow: fill readiness form, pass MFA, open confirmation modal, and confirm rotation.",
+        "difficulty": "Extreme",
+        "prerequisites": [
+          "Dismiss cookie banner",
+          "Complete rotation reason (12+ chars) and all three acknowledgments",
+          "Enter MFA code when prompted",
+          "Confirm in rotation modal"
+        ],
+        "completionCriteria": [
+          "Rotation form validated",
+          "MFA step-up completed",
+          "confirm-rotation clicked or production_api_key_rotated smoke signal fired"
+        ],
+        "standardFlow": [
+          {
+            "step": "Fill rotation-reason textarea with valid reason",
+            "type": "act"
+          },
+          {
+            "step": "Check all three acknowledgment boxes",
+            "type": "act"
+          },
+          {
+            "step": "Click Validate readiness",
+            "type": "act"
+          },
+          {
+            "step": "Click primary production Rotate key",
+            "type": "act"
+          },
+          {
+            "step": "Complete MFA modal with 6-digit code",
+            "type": "act"
+          },
+          {
+            "step": "Confirm rotation in modal dialog",
+            "type": "verify"
+          }
+        ],
+        "wciFlow": [
+          {
+            "step": "Fill rotation-reason via WCI bridge",
+            "type": "act"
+          },
+          {
+            "step": "Click validate-rotation then rotate-prod-api-key",
+            "type": "act"
+          },
+          {
+            "step": "Click confirm-rotation in modal",
             "type": "verify"
           }
         ]

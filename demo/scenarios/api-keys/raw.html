@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DevConsole — API Keys</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DevConsole — API Keys &amp; Service Credentials</title><style>
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -77,8 +77,9 @@ body{background:#f1f5f9}
 .dc-breadcrumbs span::after{content:"/";margin-left:8px;color:#94a3b8}
 .dc-breadcrumbs span:last-child::after{content:"";margin:0}
 .dc-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px;background:linear-gradient(135deg,#ecfdf5,#f8fafc);border:1px solid #d1fae5;border-radius:12px;margin-bottom:14px}
-.dc-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 16px}
-@media(max-width:700px){.dc-kpis{grid-template-columns:1fr}}
+.dc-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 16px}
+@media(max-width:900px){.dc-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.dc-kpis{grid-template-columns:1fr}}
 .dc-kpi{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#fff}
 .dc-kpi .v{font-size:20px;font-weight:700;color:#0f172a}
 .dc-kpi .l{font-size:12px;color:#64748b}
@@ -86,60 +87,110 @@ body{background:#f1f5f9}
 .dc-badge--ok{background:#dcfce7;color:#166534}
 .dc-badge--warn{background:#fef3c7;color:#92400e}
 .dc-badge--danger{background:#fee2e2;color:#991b1b}
+.dc-badge--muted{background:#f1f5f9;color:#475569}
 .dc-statusline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
 .dc-help{font-size:12px;color:#64748b}
 .dc-note{font-size:12px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px}
 .dc-muted{color:#64748b}
-.dc-secret{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0f172a;color:#e2e8f0;padding:4px 6px;border-radius:6px;display:inline-block}
+.dc-secret{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0f172a;color:#e2e8f0;padding:4px 6px;border-radius:6px;display:inline-block;font-size:12px}
 .dc-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .dc-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;display:none}
 .dc-overlay.is-open{display:block}
 .dc-modal h3{margin-top:0}
 .dc-modal__actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
 .dc-callout{border-left:4px solid #22c55e;padding:12px 14px;background:#f0fdf4;border-radius:8px;margin:12px 0}
+.dc-alert{border-left:4px solid #f59e0b;padding:12px 14px;background:#fffbeb;border-radius:8px;margin:0 0 14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.dc-tabs{display:flex;gap:4px;border-bottom:1px solid #e2e8f0;margin-bottom:12px;flex-wrap:wrap}
+.dc-tabs button{background:transparent;border:none;border-bottom:2px solid transparent;padding:10px 14px;font-size:13px;font-weight:500;color:#64748b;border-radius:6px 6px 0 0}
+.dc-tabs button[aria-selected="true"]{color:#0f172a;border-bottom-color:hsl(142 72% 46%);background:#f8fafc}
+.dc-pills{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.dc-pill{padding:5px 10px;border-radius:999px;border:1px solid #cbd5e1;background:#fff;font-size:12px;color:#475569}
+.dc-pill[aria-pressed="true"]{background:#ecfdf5;border-color:#86efac;color:#166534}
+.dc-bulk{display:none;align-items:center;gap:10px;padding:10px 12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;margin-bottom:10px;flex-wrap:wrap}
+.dc-bulk.is-visible{display:flex}
+.dc-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.dc-grid-2{grid-template-columns:1fr}}
+.dc-svc{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:12px;border:1px solid #e2e8f0;border-radius:8px;margin:8px 0;background:#fafafa}
+.dc-svc strong{display:block;margin-bottom:4px}
+.dc-timeline{border-left:2px solid #e2e8f0;margin-left:8px;padding-left:16px}
+.dc-timeline li{position:relative;margin-bottom:12px;font-size:13px;color:#475569}
+.dc-timeline li::before{content:"";position:absolute;left:-21px;top:6px;width:8px;height:8px;border-radius:50%;background:#22c55e;border:2px solid #fff}
+.dc-row-hidden{display:none}
+.dc-chip{font-size:11px;padding:2px 6px;border-radius:4px;background:#e2e8f0;color:#334155;margin-left:4px}
+.dc-chip--prod{background:#fee2e2;color:#991b1b}
+.dc-chip--stg{background:#dbeafe;color:#1e40af}
+.dc-search{max-width:220px!important;display:inline-block!important;margin:0!important}
+.dc-panel[hidden]{display:none!important}
+.dc-mfa{position:fixed;inset:20% 30%;z-index:70;background:#fff;border-radius:12px;padding:24px;border:1px solid #e2e8f0;box-shadow:0 24px 48px rgba(15,23,42,.2);display:none}
+.dc-mfa.is-open{display:block}
 </style></head><body>
-<div class="dc-app" data-page="api-keys" id="api_keys-page"><div class="dc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="dc-app" data-page="api-keys" id="api_keys-page">
+<div class="dc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
   <button type="button" class="dc-btn dc-btn--muted" id="cookie-reject">Reject non-essential</button>
   <button type="button" class="dc-btn dc-btn--primary" id="cookie-accept">Accept all</button>
   <button type="button" class="dc-btn dc-btn--ghost" id="cookie-customize">Customize</button>
-</div><div class="dc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+</div>
+<div class="dc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
   <button type="button" class="dc-btn dc-btn--primary">COMPLETE ORDER NOW</button>
   <button type="button" class="dc-btn">Continue as guest — express</button>
-</div><header class="dc-hdr">
-  <div class="dc-brand"><div class="dc-logo" aria-hidden="true">D</div><div><strong>DevConsole</strong><div class="dc-help">Workspace: Acme Platform</div></div></div>
+</div>
+<header class="dc-hdr">
+  <div class="dc-brand"><div class="dc-logo" aria-hidden="true">D</div><div><strong>DevConsole</strong><div class="dc-help">Workspace: Acme Platform · Org: acme-prod-001</div></div></div>
   <nav class="dc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="#" aria-current="page">Developer</a></nav>
-  <div class="dc-hdr-promo"><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="dc-btn dc-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="dc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
+  <div class="dc-hdr-promo">
+    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-emergency-rotate">Emergency key rotation</button>
+    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
+    <button type="button" class="dc-btn dc-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+  </div>
+</header>
+<nav class="dc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
   <button type="button" class="dc-btn dc-btn--ghost">Submit</button>
   <button type="button" class="dc-btn dc-btn--ghost">Continue</button>
-</nav><div class="dc-dup-row" aria-label="Quick actions">
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate all keys</button>
+</nav>
+<div class="dc-dup-row" aria-label="Quick actions">
   <button type="button" class="dc-btn dc-btn--ghost">Submit</button>
   <button type="button" class="dc-btn dc-btn--ghost">Continue</button>
   <button type="button" class="dc-btn dc-btn--ghost">Save changes</button>
   <button type="button" class="dc-btn dc-btn--ghost">Confirm</button>
-</div><div class="dc-dup-row"><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate production API key</button><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate prod key</button></div><div class="dc-page-wrap"><div class="dc-page-main">
-  <div class="dc-breadcrumbs" aria-label="Breadcrumbs"><span>Developer</span><span>Security</span><span>API keys</span></div>
+  <button type="button" class="dc-btn dc-btn--ghost">Export audit</button>
+</div>
+<div class="dc-dup-row">
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate production API key</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate prod key</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Bulk rotate production</button>
+</div>
+<div class="dc-page-wrap"><div class="dc-page-main">
+  <div class="dc-breadcrumbs" aria-label="Breadcrumbs"><span>Developer</span><span>Security</span><span>Credentials</span><span>API keys</span></div>
+
+  <div class="dc-alert" role="alert" id="rotation-alert">
+    <div><strong>Production key rotation due in 29 days.</strong> Policy requires rotation every 90 days. Complete the readiness form before initiating production rotation.</div>
+    <button type="button" class="dc-btn dc-btn--ghost" id="dismiss-alert">Dismiss</button>
+  </div>
+
   <div class="dc-hero">
     <div>
-      <h1>API keys</h1>
-      <p>Manage environment-specific keys, review recent rotations, and control reveal access for operators. Rotating the production key will invalidate the current secret immediately after a brief propagation period.</p>
+      <h1>API keys &amp; credentials</h1>
+      <p>Manage environment-specific keys across regions, review scoped permissions, inspect service-account tokens, and control reveal access for operators. Production rotation invalidates the current secret after a brief propagation window — staging and development keys follow separate policies.</p>
       <div class="dc-statusline">
         <span class="dc-badge dc-badge--ok">Live sync healthy</span>
         <span class="dc-badge dc-badge--warn">1 pending review</span>
         <span class="dc-badge dc-badge--ok">MFA enforced</span>
+        <span class="dc-badge dc-badge--muted">CLI v2.14 connected</span>
       </div>
     </div>
-    <div class="dc-note" style="max-width:260px">
-      <strong>Rotation policy</strong><br/>Production keys must be rotated every 90 days. Last production rotation was 61 days ago.
+    <div class="dc-note" style="max-width:280px">
+      <strong>Rotation policy</strong><br/>Production keys must be rotated every 90 days. Last production rotation was 61 days ago.<br/><br/>
+      <strong>Reveal policy</strong><br/>Only non-production keys may be revealed in-dashboard. Production secrets require HSM-backed CLI export.
     </div>
   </div>
 
   <div class="dc-kpis" aria-label="Key metrics">
-    <div class="dc-kpi"><div class="v" id="active-key-count">3</div><div class="l">Active keys</div></div>
+    <div class="dc-kpi"><div class="v" id="active-key-count">7</div><div class="l">Active keys</div></div>
     <div class="dc-kpi"><div class="v" id="rotation-count">12</div><div class="l">Rotations this quarter</div></div>
     <div class="dc-kpi"><div class="v" id="reveal-count">0</div><div class="l">Secrets revealed this session</div></div>
+    <div class="dc-kpi"><div class="v" id="svc-account-count">3</div><div class="l">Service accounts</div></div>
   </div>
 
   <div class="dc-layout">
@@ -149,48 +200,150 @@ body{background:#f1f5f9}
       <a href="#">Audit log</a>
       <a href="#">Service accounts</a>
       <a href="#">Policies</a>
+      <a href="#">IP allowlists</a>
+      <a href="#">Rate limits</a>
     </aside>
     <main role="main">
-      <section class="dc-card" aria-labelledby="keys-table-heading">
-        <div class="dc-inline" style="justify-content:space-between">
+      <div class="dc-tabs" role="tablist" aria-label="Credential views">
+        <button type="button" role="tab" id="tab-active" aria-selected="true" aria-controls="panel-active">Active keys</button>
+        <button type="button" role="tab" id="tab-pending" aria-selected="false" aria-controls="panel-pending">Pending rotation</button>
+        <button type="button" role="tab" id="tab-expired" aria-selected="false" aria-controls="panel-expired">Expired</button>
+        <button type="button" role="tab" id="tab-service" aria-selected="false" aria-controls="panel-service">Service accounts</button>
+      </div>
+
+      <div id="panel-active" class="dc-panel" role="tabpanel" aria-labelledby="tab-active">
+      <section class="dc-card" aria-labelledby="keys-table-heading" id="keys-section">
+        <div class="dc-inline" style="justify-content:space-between;margin-bottom:8px">
           <div>
             <h2 id="keys-table-heading">Environment keys</h2>
-            <p class="dc-muted">Use reveal for non-production inspection. Production rotation requires a reason and acknowledgment.</p>
+            <p class="dc-muted">Use reveal for non-production inspection only. Production rotation requires a documented reason and both acknowledgments below.</p>
           </div>
           <div>
             <span id="api-keys-smoke-status" class="dc-badge dc-badge--warn">Smoke status: waiting for action</span>
           </div>
         </div>
+
+        <div class="dc-toolbar dc-inline" style="justify-content:space-between;margin-bottom:8px">
+          <div class="dc-inline">
+            <input type="search" class="dc-search" id="key-search" placeholder="Filter by name or ID…" aria-label="Search keys"/>
+            <div class="dc-pills" role="group" aria-label="Environment filter">
+              <button type="button" class="dc-pill" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="dc-pill" data-filter="production" aria-pressed="false">Production</button>
+              <button type="button" class="dc-pill" data-filter="non-production" aria-pressed="false">Non-production</button>
+            </div>
+          </div>
+          <div class="dc-inline">
+            <button type="button" class="dc-btn dc-btn--ghost" id="refresh-keys">Refresh</button>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-rotate-selected">Rotate selected</button>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" id="decoy-rotate-all-prod">Rotate all production keys</button>
+          </div>
+        </div>
+
+        <div class="dc-bulk" id="bulk-bar" aria-live="polite">
+          <span id="bulk-count">0 keys selected</span>
+          <button type="button" class="dc-btn dc-btn--muted">Copy IDs</button>
+          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate selected keys</button>
+          <button type="button" class="dc-btn dc-btn--ghost" id="clear-selection">Clear</button>
+        </div>
+
         <table aria-label="API keys table" id="keys-table">
-          <thead><tr><th>Environment</th><th>Public ID</th><th>Status</th><th>Last used</th><th>Secret preview</th><th>Actions</th></tr></thead>
+          <thead><tr>
+            <th><input type="checkbox" id="select-all-keys" aria-label="Select all visible keys"/></th>
+            <th>Environment</th><th>Public ID</th><th>Region</th><th>Status</th><th>Last used</th><th>Scopes</th><th>Secret preview</th><th>Actions</th>
+          </tr></thead>
           <tbody>
-            <tr data-key="staging">
-              <td><strong>Staging</strong><div class="dc-help">Sandbox traffic only</div></td>
+            <tr data-key="staging" data-env="non-production">
+              <td><input type="checkbox" class="key-select" aria-label="Select staging key"/></td>
+              <td><strong>Staging</strong><span class="dc-chip dc-chip--stg">sandbox</span><div class="dc-help">Sandbox traffic only</div></td>
               <td>key_stg_83D91</td>
+              <td>us-east-1</td>
               <td><span class="dc-badge dc-badge--ok">Active</span></td>
               <td>4 minutes ago</td>
+              <td><span class="dc-help">read, write:test</span></td>
               <td><span class="dc-secret" id="staging-secret-preview">••••••••••••</span></td>
               <td>
                 <button type="button" class="dc-btn dc-btn--ghost" id="staging-reveal-btn">Reveal</button>
                 <button type="button" class="dc-btn">Copy ID</button>
               </td>
             </tr>
-            <tr data-key="production">
-              <td><strong>Production</strong><div class="dc-help">Customer-facing workloads</div></td>
+            <tr data-key="production-replica" data-env="production">
+              <td><input type="checkbox" class="key-select" aria-label="Select production read replica key"/></td>
+              <td><strong>Production (read replica)</strong><span class="dc-chip dc-chip--prod">prod</span><div class="dc-help">Read-only analytics mirror — not rotatable here</div></td>
+              <td>key_prod_rep_9X2LM</td>
+              <td>eu-west-1</td>
+              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td>2 minutes ago</td>
+              <td><span class="dc-help">read:analytics</span></td>
+              <td><span class="dc-secret">Not revealable</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost" disabled title="Read replica keys are managed via CLI">Rotate</button>
+                <button type="button" class="dc-btn">View audit</button>
+              </td>
+            </tr>
+            <tr data-key="production" data-env="production">
+              <td><input type="checkbox" class="key-select" aria-label="Select production key"/></td>
+              <td><strong>Production</strong><span class="dc-chip dc-chip--prod">primary</span><div class="dc-help">Customer-facing workloads — primary signing key</div></td>
               <td id="prod-public-id">key_prod_A72KF</td>
+              <td>us-east-1</td>
               <td><span class="dc-badge dc-badge--danger" id="prod-badge">Due in 29 days</span></td>
               <td id="prod-last-used">18 seconds ago</td>
+              <td><span class="dc-help">read, write, admin:billing</span></td>
               <td><span class="dc-secret" id="prod-secret-preview">Not revealable</span></td>
               <td>
                 <button type="button" class="dc-btn dc-btn--primary" data-rotate="production" id="rotate-prod-api-key">Rotate key</button>
                 <button type="button" class="dc-btn">View audit</button>
               </td>
             </tr>
-            <tr data-key="development">
-              <td><strong>Development</strong><div class="dc-help">Internal local apps</div></td>
-              <td>key_dev_17PQ2</td>
+            <tr data-key="production-legacy" data-env="production">
+              <td><input type="checkbox" class="key-select" aria-label="Select legacy production key"/></td>
+              <td><strong>Production (legacy)</strong><span class="dc-chip dc-chip--prod">deprecated</span><div class="dc-help">Sunset 2026-06-01 — do not rotate; schedule deletion</div></td>
+              <td>key_prod_LEGACY01</td>
+              <td>us-east-1</td>
+              <td><span class="dc-badge dc-badge--warn">Deprecated</span></td>
+              <td>14 days ago</td>
+              <td><span class="dc-help">read (legacy)</span></td>
+              <td><span class="dc-secret">Retired preview</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost" data-rotate="production-legacy">Rotate</button>
+                <button type="button" class="dc-btn dc-btn--danger">Schedule delete</button>
+              </td>
+            </tr>
+            <tr data-key="qa-mirror" data-env="non-production">
+              <td><input type="checkbox" class="key-select" aria-label="Select QA mirror key"/></td>
+              <td><strong>QA mirror</strong><div class="dc-help">Pre-prod parity testing</div></td>
+              <td>key_qa_44B88</td>
+              <td>us-west-2</td>
+              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td>22 minutes ago</td>
+              <td><span class="dc-help">read, write:test</span></td>
+              <td><span class="dc-secret">qa_••••_mirror</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost">Rotate</button>
+                <button type="button" class="dc-btn">Copy ID</button>
+              </td>
+            </tr>
+            <tr data-key="partner-sandbox" data-env="non-production">
+              <td><input type="checkbox" class="key-select" aria-label="Select partner sandbox key"/></td>
+              <td><strong>Partner sandbox</strong><div class="dc-help">External integrator testing</div></td>
+              <td>key_ptnr_22C77</td>
+              <td>us-east-1</td>
               <td><span class="dc-badge dc-badge--ok">Active</span></td>
               <td>1 hour ago</td>
+              <td><span class="dc-help">read:partner</span></td>
+              <td><span class="dc-secret">ptnr_••••_sb</span></td>
+              <td>
+                <button type="button" class="dc-btn dc-btn--ghost">Reveal</button>
+                <button type="button" class="dc-btn">Rotate</button>
+              </td>
+            </tr>
+            <tr data-key="development" data-env="non-production">
+              <td><input type="checkbox" class="key-select" aria-label="Select development key"/></td>
+              <td><strong>Development</strong><div class="dc-help">Internal local apps</div></td>
+              <td>key_dev_17PQ2</td>
+              <td>local</td>
+              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td>1 hour ago</td>
+              <td><span class="dc-help">read, write:dev</span></td>
               <td><span class="dc-secret">dev_••••_preview</span></td>
               <td>
                 <button type="button" class="dc-btn dc-btn--ghost">Rotate</button>
@@ -199,56 +352,164 @@ body{background:#f1f5f9}
             </tr>
           </tbody>
         </table>
-        <div class="dc-callout">Tip: staging secrets can be revealed for debugging, but production secrets cannot be revealed from the dashboard.</div>
+        <div class="dc-callout">Tip: staging secrets can be revealed for debugging, but production secrets cannot be revealed from the dashboard. The primary production row is labeled <em>primary</em> — read replicas and legacy keys have separate lifecycle rules.</div>
       </section>
 
-      <section class="dc-card">
-        <h2>Confirm production rotation</h2>
-        <p>Provide a brief reason before production rotation is enabled. This mirrors the operational policy enforced by the CLI workflow.</p>
+      <section class="dc-card" id="rotation-form-section">
+        <h2>Confirm production rotation readiness</h2>
+        <p>Provide a brief reason before the primary production <strong>Rotate key</strong> action is enabled. This mirrors the operational policy enforced by the CLI workflow and SOC2 control AC-07.</p>
         <form id="rotation-form" novalidate>
-          <label for="rotation-reason">Rotation reason</label>
-          <textarea id="rotation-reason" placeholder="Example: rotating due to quarterly policy and contractor offboarding"></textarea>
+          <label for="rotation-reason">Rotation reason <span class="dc-help">(required, min 12 characters)</span></label>
+          <textarea id="rotation-reason" rows="3" placeholder="Example: rotating due to quarterly policy and contractor offboarding"></textarea>
           <div id="rotation-reason-msg" class="dc-help" aria-live="polite">Enter at least 12 characters.</div>
+          <div class="dc-grid-2" style="margin-top:12px">
+            <div>
+              <label for="rotation-ticket">Change ticket ID</label>
+              <input type="text" id="rotation-ticket" placeholder="CHG-48291"/>
+            </div>
+            <div>
+              <label for="rotation-owner">On-call owner</label>
+              <select id="rotation-owner">
+                <option value="">Select owner…</option>
+                <option value="platform-oncall">platform-oncall</option>
+                <option value="security-oncall">security-oncall</option>
+                <option value="sre-primary">sre-primary</option>
+              </select>
+            </div>
+          </div>
           <fieldset>
             <legend>Required acknowledgments</legend>
-            <label><input type="checkbox" id="ack-invalidate"/> I understand the current production secret will stop working after propagation.</label>
-            <label><input type="checkbox" id="ack-deploy"/> I have updated the deployment checklist and incident contacts.</label>
+            <label><input type="checkbox" id="ack-invalidate"/> I understand the current production secret will stop working after propagation (~90 seconds).</label>
+            <label><input type="checkbox" id="ack-deploy"/> I have updated the deployment checklist, downstream service owners, and incident contacts.</label>
+            <label><input type="checkbox" id="ack-cli"/> I confirm the new secret will be distributed via the approved secrets manager (not email or chat).</label>
           </fieldset>
           <div class="dc-toolbar">
             <button type="button" class="dc-btn dc-btn--muted" id="validate-rotation">Validate readiness</button>
-            <span id="rotation-form-status" class="dc-help">Form incomplete.</span>
+            <button type="button" class="dc-btn dc-btn--ghost" id="reset-rotation-form">Reset form</button>
+            <span id="rotation-form-status" class="dc-help">Form incomplete — production rotation disabled.</span>
           </div>
         </form>
       </section>
 
       <section class="dc-card">
-        <h2>Recent activity</h2>
-        <ul>
-          <li>08:12 UTC — staging key revealed by dana.s</li>
-          <li>Yesterday — development key rotated by automation</li>
-          <li>3 days ago — production access reviewed by security-admin</li>
-        </ul>
+        <h2>Scope &amp; permission matrix</h2>
+        <p class="dc-muted">Effective scopes per environment tier. Production primary key carries billing admin — verify scope before rotation.</p>
+        <table aria-label="Permission matrix">
+          <thead><tr><th>Scope</th><th>Staging</th><th>Production</th><th>Development</th></tr></thead>
+          <tbody>
+            <tr><td><code>read</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td><code>write</code></td><td>test only</td><td>✓</td><td>dev only</td></tr>
+            <tr><td><code>admin:billing</code></td><td>—</td><td>✓ primary only</td><td>—</td></tr>
+            <tr><td><code>reveal:secret</code></td><td>✓</td><td>CLI only</td><td>✓</td></tr>
+          </tbody>
+        </table>
       </section>
+      </div><!-- panel-active -->
+
+      <div id="panel-pending" class="dc-panel" role="tabpanel" aria-labelledby="tab-pending" hidden>
+        <section class="dc-card">
+          <h2>Pending rotation queue</h2>
+          <p class="dc-muted">Keys scheduled for automated rotation. Manual production rotation is handled on the Active keys tab.</p>
+          <ul>
+            <li><strong>Partner sandbox</strong> — scheduled 2026-06-15 (automation)</li>
+            <li><strong>Development</strong> — scheduled 2026-06-22 (automation)</li>
+          </ul>
+          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Force rotate pending production</button>
+        </section>
+      </div>
+
+      <div id="panel-expired" class="dc-panel" role="tabpanel" aria-labelledby="tab-expired" hidden>
+        <section class="dc-card">
+          <h2>Expired keys</h2>
+          <table><thead><tr><th>Environment</th><th>Public ID</th><th>Expired</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>Staging (old)</td><td>key_stg_OLD99</td><td>2026-01-12</td><td><button type="button" class="dc-btn dc-btn--ghost">Revoke</button></td></tr>
+            <tr><td>Production (canary)</td><td>key_prod_CANARY</td><td>2026-02-03</td><td><button type="button" class="dc-btn dc-btn--ghost">Rotate</button></td></tr>
+          </tbody></table>
+        </section>
+      </div>
+
+      <div id="panel-service" class="dc-panel" role="tabpanel" aria-labelledby="tab-service" hidden>
+        <section class="dc-card">
+          <h2>Service account credentials</h2>
+          <p class="dc-muted">Long-lived tokens for automation. These are not environment API keys — use the Active keys tab for production rotation.</p>
+          <div class="dc-svc">
+            <div><strong>ci-deploy-bot</strong><div class="dc-help">Scopes: deploy:staging · Last used 3m ago</div></div>
+            <button type="button" class="dc-btn dc-btn--ghost">Rotate token</button>
+          </div>
+          <div class="dc-svc">
+            <div><strong>prod-metrics-scraper</strong><div class="dc-help">Scopes: read:metrics · Last used 12s ago</div></div>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate production token</button>
+          </div>
+          <div class="dc-svc">
+            <div><strong>partner-webhook-signer</strong><div class="dc-help">Scopes: sign:webhooks · Last used 2h ago</div></div>
+            <button type="button" class="dc-btn dc-btn--ghost">Rotate token</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="dc-grid-2">
+        <section class="dc-card">
+          <h2>Recent activity</h2>
+          <ul class="dc-timeline" id="activity-log">
+            <li>08:12 UTC — staging key revealed by dana.s</li>
+            <li>Yesterday — development key rotated by automation</li>
+            <li>3 days ago — production access reviewed by security-admin</li>
+            <li>5 days ago — production read replica key created in eu-west-1</li>
+            <li>1 week ago — legacy production key marked deprecated</li>
+          </ul>
+        </section>
+        <section class="dc-card">
+          <h2>IP allowlist (production)</h2>
+          <p class="dc-muted">Requests from non-allowlisted IPs are rejected even with a valid key.</p>
+          <ul>
+            <li><code>203.0.113.0/24</code> — primary egress</li>
+            <li><code>198.51.100.42/32</code> — CI runner pool</li>
+            <li><code>192.0.2.88/32</code> — break-glass bastion</li>
+          </ul>
+          <button type="button" class="dc-btn dc-btn--ghost">Edit allowlist</button>
+        </section>
+      </div>
     </main>
   </div>
-</div><aside class="dc-rail dc-rail--ads" aria-label="Sponsored">
+</div>
+<aside class="dc-rail dc-rail--ads" aria-label="Sponsored">
   <div><strong>Sponsored</strong></div>
-  <p>Secure your runtime edge with partner secrets scanning for build pipelines.</p>
+  <p>Secure your runtime edge with partner secrets scanning for build pipelines. Auto-rotate production keys with one click.</p>
   <a href="/ads/1">Partner offer — limited time</a><br/>
   <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Auto-rotate production</button>
 </aside></div>
+
 <div class="dc-overlay" id="modal-overlay"></div>
 <div class="dc-modal" id="rotation-modal" aria-hidden="true" style="display:none">
   <h3>Rotate production API key</h3>
-  <p>This will create a new production secret and mark the current key for retirement. Continue only if downstream services are ready.</p>
+  <p>This will create a new production secret and mark the current primary key for retirement. Continue only if downstream services and the secrets manager are ready.</p>
   <div class="dc-note"><strong>Reason:</strong> <span id="modal-reason-preview">—</span></div>
+  <div class="dc-note" style="margin-top:8px"><strong>Ticket:</strong> <span id="modal-ticket-preview">—</span> · <strong>Owner:</strong> <span id="modal-owner-preview">—</span></div>
   <div class="dc-modal__actions">
     <button type="button" class="dc-btn dc-btn--ghost" id="cancel-rotation">Cancel</button>
     <button type="button" class="dc-btn dc-btn--danger" id="confirm-rotation">Confirm rotation</button>
   </div>
 </div>
-<div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost">Action 2</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost">Action 6</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost">Action 10</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost">Action 14</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost">Action 18</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost">Action 22</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost">Action 26</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost">Action 30</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost">Action 34</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost">Action 38</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost">Action 42</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button></div></div><button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button><footer class="dc-ftr"><small>© Demo DevConsole</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
+
+<div class="dc-overlay" id="mfa-overlay"></div>
+<div class="dc-mfa" id="mfa-modal" aria-hidden="true" role="dialog" aria-labelledby="mfa-title">
+  <h3 id="mfa-title">Verify identity</h3>
+  <p class="dc-muted">Production credential changes require step-up authentication. Enter the 6-digit code from your authenticator app.</p>
+  <label for="mfa-code">Authentication code</label>
+  <input type="text" id="mfa-code" inputmode="numeric" maxlength="6" placeholder="000000"/>
+  <div class="dc-modal__actions">
+    <button type="button" class="dc-btn dc-btn--ghost" id="mfa-cancel">Cancel</button>
+    <button type="button" class="dc-btn dc-btn--primary" id="mfa-verify">Verify</button>
+  </div>
+</div>
+
+<div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost">Action 2</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost">Action 6</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost">Action 10</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost">Action 14</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost">Action 18</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost">Action 22</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost">Action 26</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost">Action 30</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost">Action 34</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost">Action 38</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost">Action 42</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button></div></div>
+<button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+<footer class="dc-ftr"><small>© Demo DevConsole</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <span> · Sponsored content may appear in feeds.</span></footer>
+<div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt="" /></div></div>
 <script>
 (function(){
   var smoke = document.getElementById('api-keys-smoke-status');
@@ -256,7 +517,11 @@ body{background:#f1f5f9}
   var reasonMsg = document.getElementById('rotation-reason-msg');
   var ackInvalidate = document.getElementById('ack-invalidate');
   var ackDeploy = document.getElementById('ack-deploy');
+  var ackCli = document.getElementById('ack-cli');
+  var ticket = document.getElementById('rotation-ticket');
+  var owner = document.getElementById('rotation-owner');
   var validateBtn = document.getElementById('validate-rotation');
+  var resetBtn = document.getElementById('reset-rotation-form');
   var rotateBtn = document.querySelector('tr[data-key="production"] button[data-rotate="production"]');
   var formStatus = document.getElementById('rotation-form-status');
   var modal = document.getElementById('rotation-modal');
@@ -264,6 +529,8 @@ body{background:#f1f5f9}
   var confirmBtn = document.getElementById('confirm-rotation');
   var cancelBtn = document.getElementById('cancel-rotation');
   var modalReasonPreview = document.getElementById('modal-reason-preview');
+  var modalTicketPreview = document.getElementById('modal-ticket-preview');
+  var modalOwnerPreview = document.getElementById('modal-owner-preview');
   var stagingRevealBtn = document.getElementById('staging-reveal-btn');
   var stagingPreview = document.getElementById('staging-secret-preview');
   var revealCount = document.getElementById('reveal-count');
@@ -273,11 +540,28 @@ body{background:#f1f5f9}
   var prodLastUsed = document.getElementById('prod-last-used');
   var cookieBanner = document.getElementById('cookie-banner');
   var cookieBtns = ['cookie-reject','cookie-accept','cookie-customize'].map(function(id){ return document.getElementById(id); });
+  var keySearch = document.getElementById('key-search');
+  var filterPills = document.querySelectorAll('.dc-pill[data-filter]');
+  var selectAll = document.getElementById('select-all-keys');
+  var keySelects = document.querySelectorAll('.key-select');
+  var bulkBar = document.getElementById('bulk-bar');
+  var bulkCount = document.getElementById('bulk-count');
+  var clearSelection = document.getElementById('clear-selection');
+  var tabs = document.querySelectorAll('[role="tab"]');
+  var panels = document.querySelectorAll('.dc-panel');
+  var mfaModal = document.getElementById('mfa-modal');
+  var mfaOverlay = document.getElementById('mfa-overlay');
+  var mfaCancel = document.getElementById('mfa-cancel');
+  var mfaVerify = document.getElementById('mfa-verify');
+  var mfaCode = document.getElementById('mfa-code');
+  var mfaVerified = false;
+  var dismissAlert = document.getElementById('dismiss-alert');
+  var rotationAlert = document.getElementById('rotation-alert');
 
   window.__scenarioSmoke = window.__scenarioSmoke || { lastAction: '', updatedAt: 0 };
 
   function isReady(){
-    return reason.value.trim().length >= 12 && ackInvalidate.checked && ackDeploy.checked;
+    return reason.value.trim().length >= 12 && ackInvalidate.checked && ackDeploy.checked && ackCli.checked;
   }
 
   function updateFormState(){
@@ -290,16 +574,18 @@ body{background:#f1f5f9}
       reasonMsg.textContent = 'Reason length looks good.';
     }
     if(isReady()){
-      formStatus.textContent = 'Form validated. Production rotation is enabled.';
+      formStatus.textContent = 'Form validated. Primary production rotation is enabled.';
       rotateBtn.disabled = false;
     } else {
-      formStatus.textContent = 'Form incomplete.';
+      formStatus.textContent = 'Form incomplete — production rotation disabled.';
       rotateBtn.disabled = true;
     }
   }
 
   function openModal(){
     modalReasonPreview.textContent = reason.value.trim() || '—';
+    modalTicketPreview.textContent = ticket.value.trim() || '—';
+    modalOwnerPreview.textContent = owner.options[owner.selectedIndex] ? owner.options[owner.selectedIndex].text : '—';
     modal.style.display = 'block';
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden','false');
@@ -313,10 +599,89 @@ body{background:#f1f5f9}
     overlay.classList.remove('is-open');
   }
 
+  function openMfa(){
+    mfaModal.classList.add('is-open');
+    mfaModal.setAttribute('aria-hidden','false');
+    mfaOverlay.classList.add('is-open');
+  }
+
+  function closeMfa(){
+    mfaModal.classList.remove('is-open');
+    mfaModal.setAttribute('aria-hidden','true');
+    mfaOverlay.classList.remove('is-open');
+  }
+
+  function applyFilters(){
+    var q = (keySearch.value || '').toLowerCase();
+    var envFilter = document.querySelector('.dc-pill[aria-pressed="true"]');
+    var env = envFilter ? envFilter.getAttribute('data-filter') : 'all';
+    document.querySelectorAll('#keys-table tbody tr').forEach(function(row){
+      var text = row.textContent.toLowerCase();
+      var rowEnv = row.getAttribute('data-env') || '';
+      var matchSearch = !q || text.indexOf(q) !== -1;
+      var matchEnv = env === 'all' || rowEnv === env || (env === 'non-production' && rowEnv === 'non-production');
+      row.classList.toggle('dc-row-hidden', !(matchSearch && matchEnv));
+    });
+  }
+
+  function updateBulk(){
+    var selected = document.querySelectorAll('.key-select:checked').length;
+    bulkCount.textContent = selected + ' key' + (selected === 1 ? '' : 's') + ' selected';
+    bulkBar.classList.toggle('is-visible', selected > 0);
+  }
+
   reason.addEventListener('input', updateFormState);
   ackInvalidate.addEventListener('change', updateFormState);
   ackDeploy.addEventListener('change', updateFormState);
+  ackCli.addEventListener('change', updateFormState);
   validateBtn.addEventListener('click', updateFormState);
+
+  resetBtn.addEventListener('click', function(){
+    reason.value = '';
+    ticket.value = '';
+    owner.selectedIndex = 0;
+    ackInvalidate.checked = false;
+    ackDeploy.checked = false;
+    ackCli.checked = false;
+    updateFormState();
+    smoke.textContent = 'Smoke status: rotation form reset';
+  });
+
+  keySearch.addEventListener('input', applyFilters);
+  filterPills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      filterPills.forEach(function(p){ p.setAttribute('aria-pressed','false'); });
+      pill.setAttribute('aria-pressed','true');
+      applyFilters();
+    });
+  });
+
+  selectAll.addEventListener('change', function(){
+    document.querySelectorAll('#keys-table tbody tr:not(.dc-row-hidden) .key-select').forEach(function(cb){
+      cb.checked = selectAll.checked;
+    });
+    updateBulk();
+  });
+
+  keySelects.forEach(function(cb){
+    cb.addEventListener('change', updateBulk);
+  });
+
+  clearSelection.addEventListener('click', function(){
+    keySelects.forEach(function(cb){ cb.checked = false; });
+    selectAll.checked = false;
+    updateBulk();
+  });
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      panels.forEach(function(p){ p.hidden = true; });
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      if(panel) panel.hidden = false;
+    });
+  });
 
   stagingRevealBtn.addEventListener('click', function(){
     var currentlyHidden = stagingPreview.textContent.indexOf('••••') !== -1;
@@ -324,7 +689,7 @@ body{background:#f1f5f9}
       stagingPreview.textContent = 'stg_9f3d_7c1b_4a88';
       stagingRevealBtn.textContent = 'Hide';
       revealCount.textContent = String(Number(revealCount.textContent || '0') + 1);
-      smoke.textContent = 'Smoke status: staging secret revealed';
+      smoke.textContent = 'Smoke status: staging secret revealed (wrong action for production rotation goal)';
     } else {
       stagingPreview.textContent = '••••••••••••';
       stagingRevealBtn.textContent = 'Reveal';
@@ -335,12 +700,27 @@ body{background:#f1f5f9}
   rotateBtn.addEventListener('click', function(){
     if(!isReady()){
       smoke.textContent = 'Smoke status: complete the production rotation form first';
-      formStatus.textContent = 'Add a valid reason and both acknowledgments.';
+      formStatus.textContent = 'Add a valid reason and all three acknowledgments.';
       updateFormState();
+      return;
+    }
+    if(!mfaVerified){
+      openMfa();
+      smoke.textContent = 'Smoke status: MFA step-up required before rotation';
       return;
     }
     openModal();
     smoke.textContent = 'Smoke status: production rotation confirmation opened';
+  });
+
+  mfaCancel.addEventListener('click', closeMfa);
+  mfaOverlay.addEventListener('click', closeMfa);
+  mfaVerify.addEventListener('click', function(){
+    if((mfaCode.value || '').length >= 6){
+      mfaVerified = true;
+      closeMfa();
+      smoke.textContent = 'Smoke status: MFA verified — retry rotation';
+    }
   });
 
   confirmBtn.addEventListener('click', function(){
@@ -370,6 +750,12 @@ body{background:#f1f5f9}
       cookieBanner.style.display = 'none';
     });
   });
+
+  if(dismissAlert){
+    dismissAlert.addEventListener('click', function(){
+      rotationAlert.style.display = 'none';
+    });
+  }
 
   updateFormState();
 })();

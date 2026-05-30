@@ -3,14 +3,16 @@
   "title": "NovaPay Banking",
   "icon": "🏦",
   "difficulty": "Extreme",
-  "description": "Banking dashboard with multi-account summaries, transfer form with validation, transaction tables, session warnings, chat widgets, and promotional banners.",
+  "description": "Multi-page NovaPay banking app with dashboard, accounts, transfers, bill pay, cards, investments, and settings. Includes multi-account summaries, quick transfer with validation, full transfer wizard decoy page, transaction tables, session warnings, chat widget, and promotional banners.",
   "challenges": [
+    "Seven-page SPA — sidebar Transfer nav opens a separate wizard, not dashboard Quick Transfer",
     "Session timeout overlay hidden in DOM",
     "Transfer form with dynamic validation and disabled submit",
-    "Multiple similar \"Transfer\" buttons across different accounts",
+    "Multiple similar \"Transfer\" buttons across accounts and pages",
     "Transaction table with nested icon/description elements",
     "Chat widget and notification toasts as interactive distractions",
-    "Promotional credit card ad disguised as dashboard content"
+    "Promotional credit card ad disguised as dashboard content",
+    "Bill pay, cards, and investments pages add realistic navigation noise"
   ],
   "task": {
     "goal": "Transfer $500 from Checking to Savings account",

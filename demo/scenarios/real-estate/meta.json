@@ -3,9 +3,12 @@
   "title": "HomeNest Listings",
   "icon": "🏠",
   "difficulty": "Hard",
-  "description": "Map + listing cards.",
+  "description": "Zillow-style map search with header search, filters sidebar, listing photo cards, mortgage calculator, tour scheduling modal, and Confirm vs Tour/Save decoys.",
   "challenges": [
-    "Tour vs Confirm"
+    "Tour vs Confirm on target card",
+    "Oak Street Save vs Evergreen Confirm",
+    "Keyword save decoys in dup rows",
+    "Optional note gate before save"
   ],
   "task": {
     "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom).",
@@ -14,19 +17,19 @@
         "action": "scan",
         "target": "full DOM",
         "outcome": "confused",
-        "note": "Many decoy buttons, ads, and domain-specific layout noise"
+        "note": "Map, filters, four listing cards, mortgage widget, and duplicate Confirm/Save labels"
       },
       {
         "action": "click",
         "target": "decoy element",
         "outcome": "fail",
-        "note": "Clicks promotional or nav decoy"
+        "note": "Clicks promotional dup-row save traps or Tour on wrong listing"
       },
       {
         "action": "click",
         "target": "[data-listing=\"evergreen-742\"] .hn-btn--primary",
         "outcome": "success",
-        "note": "Finds correct primary CTA in page-specific structure"
+        "note": "Confirm on the 3BR Evergreen Terrace card (id save-listing-742)"
       }
     ],
     "agentdomSteps": [
@@ -34,13 +37,13 @@
         "action": "read",
         "target": "real_estate-page",
         "outcome": "success",
-        "note": "Structured page landmark with typed actions"
+        "note": "Structured page landmark with listing state and filter context"
       },
       {
         "action": "click",
         "target": "save-listing-742",
         "outcome": "success",
-        "note": "Direct WCI node click on annotated overlay"
+        "note": "Direct WCI node click — Confirm save for evergreen-742"
       }
     ]
   },
@@ -52,7 +55,8 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "[data-listing=\"evergreen-742\"] .hn-btn--primary"
+      "[data-listing=\"evergreen-742\"] .hn-btn--primary",
+      "#save-listing-742"
     ]
   },
   "tasks": {
@@ -68,9 +72,10 @@
         "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Complete with explicit verification and no decoy interactions.",
         "difficulty": "Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Stay on map search results (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/dup-row save traps)",
+          "Use Confirm on Evergreen card, not Tour or generic Save"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
@@ -79,33 +84,33 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe map, filters, and listing cards; note bed count and address constraints",
             "type": "observe"
           },
           {
-            "step": "Narrow candidate controls using constraints in goal text",
+            "step": "Narrow to 3BR Evergreen Terrace 742; reject Oak Street 2BR and keyword dup-row traps",
             "type": "reason"
           },
           {
-            "step": "Reject promotional/nav decoys and unrelated duplicate CTAs",
+            "step": "Reject Tour and secondary Save on non-target listings",
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "step": "Execute Confirm at [data-listing=\"evergreen-742\"] .hn-btn--primary",
             "type": "act"
           },
           {
-            "step": "Confirm expected transition or state change",
+            "step": "Confirm shortlist status shows saved for 742 Evergreen Terrace",
             "type": "verify"
           }
         ],
         "wciFlow": [
           {
-            "step": "Read page landmark node and scope context",
+            "step": "Read page landmark and filter listing nodes by beds/address",
             "type": "read"
           },
           {
-            "step": "Filter actionable nodes by preconditions/state",
+            "step": "Filter actionable nodes — require save-listing-742 preconditions",
             "type": "reason"
           },
           {
@@ -113,7 +118,7 @@
             "type": "act"
           },
           {
-            "step": "Verify ActionResult confirms state transition",
+            "step": "Verify ActionResult confirms saved state for evergreen-742",
             "type": "verify"
           }
         ]
@@ -121,12 +126,12 @@
       {
         "id": "real-estate.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate key constraints (tour vs confirm) then execute and verify.",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate bed count and address, then execute Confirm and verify.",
         "difficulty": "Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Stay on map search results (avoid external navigation)",
+          "Avoid decoy controls (promo/nav/dup-row save traps)"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: [data-listing=\"evergreen-742\"] .hn-btn--primary",
@@ -135,29 +140,29 @@
         ],
         "standardFlow": [
           {
-            "step": "Inspect candidate entities/rows/cards relevant to the goal",
+            "step": "Inspect listing cards for beds, address, and CTA labels (Tour vs Confirm vs Save)",
             "type": "observe"
           },
           {
-            "step": "Validate entity constraints (id/price/time/tier) before acting",
+            "step": "Validate 3 beds and Evergreen Terrace 742 before acting",
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "step": "Click Confirm on evergreen-742 card",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check listing-742-status and saved shortlist table",
             "type": "verify"
           }
         ],
         "wciFlow": [
           {
-            "step": "Read scoped context and typed state from WCI nodes",
+            "step": "Read scoped context and save-listing-742 state JSON",
             "type": "read"
           },
           {
-            "step": "Validate node preconditions",
+            "step": "Validate node preconditions (beds=3, address match)",
             "type": "reason"
           },
           {
@@ -165,7 +170,7 @@
             "type": "act"
           },
           {
-            "step": "Verify ActionResult metadata",
+            "step": "Verify ActionResult metadata shows saved:true",
             "type": "verify"
           }
         ]

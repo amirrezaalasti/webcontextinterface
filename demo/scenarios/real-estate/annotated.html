@@ -1,158 +1,506 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HomeNest Listings</title><style>
+<!DOCTYPE html><html lang="en"><head><style data-wci-legacy-styles="1">
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0}
-img,svg{max-width:100%;vertical-align:middle}
-button{cursor:pointer}
-a{color:inherit}
-ul,ol{margin:0;padding:0}
-table{border-collapse:collapse}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
+img{max-width:100%;height:auto}
+svg{display:inline-block;vertical-align:middle}
+button,input,select,textarea{font:inherit}
+a{text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
 
 .hn-app{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45;color:#0f172a;background:#f1f5f9;min-height:100vh}
+.hn-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .hn-hdr{background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.hn-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:12px}
-.hn-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#0f172a}
+.hn-hdr--sticky{position:sticky;top:0;z-index:40}
+.hn-hdr__row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:12px 20px}
+.hn-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#0f172a;flex-shrink:0}
 .hn-brand-badge{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#c026d3,#7c3aed);color:#fff;font-size:16px}
-.hn-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
-.hn-nav a{margin-right:0;color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
+.hn-brand-text{font-size:17px}
+.hn-search-bar{display:flex;flex:1;min-width:220px;max-width:520px;gap:8px;align-items:center}
+.hn-search-bar input{flex:1;padding:10px 12px;border:1px solid #cbd5e1;border-radius:999px;font-size:14px}
+.hn-nav{display:flex;flex-wrap:wrap;align-items:center;gap:2px}
+.hn-nav a{color:#475569;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:13px;font-weight:500}
 .hn-nav a:hover{background:#f1f5f9;color:#0f172a}
-.hn-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.hn-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0}
-.hn-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;font-size:12px;border-radius:4px}
+.hn-hdr-promo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-left:auto}
+.hn-hdr__account{border-radius:999px}
+.hn-subnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 20px;background:#fff;border-bottom:1px solid #e2e8f0;font-size:12px}
+.hn-subnav a{color:#64748b;text-decoration:none;padding:6px 10px;border-radius:4px}
 .hn-subnav a:hover{background:#f8fafc;color:#334155}
+.hn-subnav__sep{color:#cbd5e1}
+.hn-subnav__crumb{margin-left:4px}
 .hn-dup-row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px;background:#fafafa;border-bottom:1px solid #f1f5f9}
 .hn-page-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,300px);gap:0;align-items:start;background:#fff;border-top:1px solid #e2e8f0}
 @media(max-width:900px){.hn-page-wrap{grid-template-columns:1fr}}
 .hn-page-main{padding:20px 24px 32px;min-height:42vh}
-.hn-page-main>h1,.hn-page-main [role=main]>h1,.hn-page-main main>h1{font-size:22px;font-weight:700;margin:0 0 16px;color:#0f172a}
-.hn-page-main h2,.hn-page-main h3{margin:12px 0 8px;font-weight:600;color:#1e293b}
-.hn-page-main p{margin:0 0 10px;color:#475569;max-width:65ch}
-.hn-page-main label{display:block;margin:10px 0 6px;font-size:13px;font-weight:500;color:#334155}
-.hn-page-main input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.hn-page-main select,.hn-page-main textarea{display:block;width:100%;max-width:480px;margin-top:4px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;color:#0f172a}
-.hn-page-main input:focus,.hn-page-main select:focus,.hn-page-main textarea:focus{outline:2px solid hsl(291 72% 46%);outline-offset:1px;border-color:hsl(291 72% 46%)}
-.hn-page-main fieldset{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:12px 0;background:#f8fafc}
-.hn-page-main legend{font-weight:600;padding:0 6px;font-size:13px}
-.hn-page-main table{width:100%;margin:12px 0;font-size:13px}
-.hn-page-main th,.hn-page-main td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
-.hn-page-main th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:600}
-.hn-page-main tr:hover td{background:#fafafa}
-.hn-page-main article,.hn-page-main .hn-card,.hn-page-main .hn-resto,.hn-page-main .hn-slot,.hn-page-main .hn-tile{border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.hn-page-main ul:not([class]){list-style:none;padding:0}
-.hn-page-main ul:not([class]) li{padding:8px 10px;border-radius:6px;margin:4px 0}
-.hn-page-main ul:not([class]) li:hover{background:#f8fafc}
-.hn-page-main dialog,.hn-page-main .hn-modal{border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
-.hn-page-main .hn-modal.is-open,.hn-page-main [role=dialog]{position:fixed;inset:12% 50% auto auto;transform:translateX(50%);z-index:60;max-width:560px;width:min(92vw,560px);margin:auto}
-.hn-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;cursor:pointer;margin:4px 4px 4px 0;font-size:13px;font-weight:500;border-radius:8px;transition:background .12s,border-color .12s}
-.hn-btn:hover{background:#f8fafc}
-.hn-btn--primary{background:hsl(291 72% 46%);color:#fff;border-color:hsl(291 72% 38%)}
-.hn-btn--primary:hover{filter:brightness(1.05)}
-.hn-btn--ghost{background:transparent;border-color:transparent;color:#475569}
-.hn-btn--ghost:hover{background:#f1f5f9;color:#0f172a}
-.hn-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
-.hn-btn--muted{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
-.hn-btn:disabled{opacity:.5;cursor:not-allowed}
-.hn-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
-.hn-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
-.hn-rail{padding:16px;margin:16px;background:hsl(291 60% 96%);border:1px solid hsl(291 35% 88%);border-radius:12px;font-size:13px;color:#334155;line-height:1.5;position:sticky;top:16px}
-@media(min-width:901px){.hn-rail{border-left:1px solid #e2e8f0;border-radius:0;margin:16px 16px 16px 0;background:#fffbeb}}
-.hn-rail--ads strong{display:block;margin-bottom:8px;color:#92400e}
-.hn-rail a{color:#b45309;font-weight:500}
-.hn-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
-.hn-ftr a{color:#475569;margin-right:8px}
-.hn-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
-.hn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:100px;overflow:hidden;opacity:.7}
-.hn-ab{display:none!important}
-.hn-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;align-items:start}
-@media(max-width:980px){.hn-layout{grid-template-columns:1fr}}
-.hn-filters,.hn-frame aside:first-child{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
-.hn-filters h2,.hn-frame aside h2{font-size:14px;margin:0 0 10px}
-.hn-card__actions,.hn-slot__actions,.hn-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
-.hn-toolbar{background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
-.hn-grid{display:grid;gap:14px}
-.hn-listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media(max-width:760px){.hn-listings{grid-template-columns:1fr}}
 .hn-hero{border-radius:14px;background:linear-gradient(135deg,#faf5ff,#eef2ff);border:1px solid #e9d5ff;padding:18px;margin-bottom:16px}
-.hn-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.hn-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;min-width:120px}
-.hn-map{border:1px solid #cbd5e1;border-radius:12px;background:linear-gradient(180deg,#dbeafe,#e2e8f0);height:250px;position:relative;overflow:hidden}
+.hn-hero__top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-start}
+.hn-hero h1{font-size:22px;font-weight:700;margin:0 0 8px}
+.hn-hero p{margin:0;color:#475569;max-width:60ch}
+.hn-hero__actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hn-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hn-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;min-width:110px}
+.hn-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:980px){.hn-layout{grid-template-columns:1fr}}
+.hn-filters{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.hn-filters h2{font-size:14px;margin:0 0 10px}
+.hn-filters label{display:block;margin:10px 0 4px;font-size:13px;font-weight:500;color:#334155}
+.hn-filters input:not([type=checkbox]):not([type=radio]),.hn-filters select,.hn-filters textarea{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px}
+.hn-filters fieldset{border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff}
+.hn-filters legend{font-weight:600;font-size:12px;padding:0 4px}
+.hn-filters table{width:100%;margin-top:12px;font-size:12px}
+.hn-filters th,.hn-filters td{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left}
+.hn-results{min-width:0}
+.hn-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:10px}
+.hn-statusbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin:10px 0}
+.hn-statusbox{padding:10px 12px;border:1px solid #d8b4fe;background:#faf5ff;border-radius:10px;flex:1;min-width:200px}
+.hn-map-wrap{position:relative;margin-bottom:12px}
+.hn-map-tools{position:absolute;top:10px;right:10px;z-index:2;display:flex;gap:4px;flex-wrap:wrap}
+.hn-map{border:1px solid #cbd5e1;border-radius:12px;background:linear-gradient(180deg,#dbeafe,#e2e8f0);height:280px;position:relative;overflow:hidden}
+.hn-map--hidden{display:none}
 .hn-map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);background-size:40px 40px}
-.hn-pin{position:absolute;padding:6px 8px;border-radius:999px;background:#fff;border:1px solid #cbd5e1;font-size:12px;box-shadow:0 4px 10px rgba(15,23,42,.08)}
+.hn-pin{position:absolute;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #cbd5e1;font-size:12px;box-shadow:0 4px 10px rgba(15,23,42,.08);cursor:pointer}
 .hn-pin.is-featured{background:#4c1d95;color:#fff;border-color:#4c1d95}
-.hn-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em}
-.hn-badge--ok{background:#dcfce7;color:#166534}
-.hn-badge--warn{background:#fef3c7;color:#92400e}
-.hn-badge--info{background:#e0e7ff;color:#4338ca}
+.hn-pin.is-active{outline:3px solid #c084fc;outline-offset:2px}
+.hn-detail{border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:14px;background:#fff}
+.hn-detail__hdr{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px}
+.hn-detail__copy{margin:0 0 10px;color:#475569}
+.hn-detail__stats{display:flex;flex-wrap:wrap;gap:8px}
+.hn-listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.hn-listings--solo .hn-card{max-width:100%}
+@media(max-width:760px){.hn-listings{grid-template-columns:1fr}}
+.hn-card{border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04);cursor:pointer}
+.hn-card.is-selected{border-color:#c084fc;box-shadow:0 0 0 2px rgba(192,132,252,.2)}
+.hn-card--featured .hn-card__media{border-bottom:2px solid #7c3aed}
+.hn-card__media{height:140px;background:linear-gradient(135deg,#e2e8f0,#cbd5e1)}
+.hn-card__media--featured{background:linear-gradient(135deg,#ddd6fe,#c4b5fd)}
+.hn-card__body{padding:14px}
+.hn-card__actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.hn-card__blurb{margin:6px 0;color:#475569;font-size:13px}
+.hn-agent-strip{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px;margin-top:16px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}
+.hn-agent-strip__avatar{width:48px;height:48px;border-radius:50%;background:#7c3aed;color:#fff;display:grid;place-items:center;font-weight:700}
+.hn-agent-strip p{margin:4px 0 0}
+.hn-rail{padding:16px;margin:16px;background:#fff;border-left:1px solid #e2e8f0;position:sticky;top:72px}
+.hn-rail-card label{display:block;margin:8px 0 4px;font-size:12px;font-weight:500}
+.hn-rail-card input{width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px}
+.hn-mortgage-out{font-weight:700;margin-top:10px;color:#4c1d95}
+.hn-rail-divider{border:none;border-top:1px solid #f1f5f9;margin:14px 0}
+.hn-checklist{padding-left:18px;margin:8px 0;font-size:13px;color:#475569}
+.hn-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;margin-top:8px}
+.hn-dl dt{color:#64748b}
+.hn-compare-tray{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#0f172a;color:#f8fafc;padding:12px 18px;border-radius:999px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:80;opacity:0;pointer-events:none;transition:opacity .2s}
+.hn-compare-tray.is-visible{opacity:1;pointer-events:auto}
 .hn-meta{display:flex;flex-wrap:wrap;gap:8px;color:#64748b;font-size:12px}
 .hn-price{font-size:22px;font-weight:800;color:#0f172a}
 .hn-address{font-weight:700;color:#1e293b}
 .hn-muted{color:#64748b}
-.hn-statusbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 14px}
-.hn-statusbox{padding:10px 12px;border:1px solid #d8b4fe;background:#faf5ff;border-radius:10px;min-height:44px}
- .hn-checkrow{display:flex;align-items:center;gap:8px;margin-top:8px}
+.hn-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700}
+.hn-badge--ok{background:#dcfce7;color:#166534}
+.hn-badge--warn{background:#fef3c7;color:#92400e}
+.hn-badge--info{background:#e0e7ff;color:#4338ca}
+.hn-checkrow{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px}
 .hn-error{color:#b91c1c;font-size:12px;min-height:18px}
 .hn-success{color:#166534;font-size:12px;min-height:18px}
+.hn-statusbar .hn-statusbar{flex:1}
+.hn-select{padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.hn-select--inline{font-size:13px}
+.hn-cookie{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#f8fafc;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;z-index:200}
+.hn-cookie p{flex:1;margin:0;font-size:13px;min-width:200px}
+.hn-ab{display:none!important}
+.hn-ftr{padding:16px 20px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;background:#fff}
+.hn-ftr a{color:#475569;margin-right:8px}
+.hn-filler{padding:12px 20px;border-top:1px dashed #e2e8f0;background:#fafafa}
+.hn-filler-inner{display:flex;flex-wrap:wrap;gap:4px;max-height:80px;overflow:hidden;opacity:.7}
 .hn-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:55;display:none}
 .hn-overlay.is-open{display:block}
-.hn-modal{display:none}
+.hn-modal{display:none;position:fixed;inset:12% auto auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px);border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;box-shadow:0 20px 40px rgba(15,23,42,.15)}
 .hn-modal.is-open{display:block}
+.hn-modal label{display:block;margin:10px 0 4px;font-size:13px;font-weight:500}
+.hn-modal input,.hn-modal select{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px}
 .hn-modal__hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
 .hn-modal__title{font-size:18px;font-weight:700;margin:0}
-.hn-modal__foot{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hn-modal__foot{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
 .hn-favorite{border-color:#c084fc;box-shadow:0 0 0 2px rgba(192,132,252,.15)}
-</style></head><body>
-<div class="hn-app" data-page="real-estate" id="real_estate-page" data-wci-id="real_estate-page" data-wci-role="landmark" data-wci-desc="HomeNest real estate page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="hn-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
-  <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="hn-btn hn-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="hn-btn hn-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="hn-btn hn-btn--ghost" data-cookie="customize">Customize</button>
-</div><div class="hn-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="hn-btn hn-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="hn-btn">Continue as guest — express</button>
-</div><header class="hn-hdr">
-  <div class="hn-brand" aria-label="HomeNest brand"><span class="hn-brand-badge">H</span><span>HomeNest Listings</span></div>
-  <nav class="hn-nav" aria-label="Global"><a href="#">Buy</a><a href="#">Rent</a><a href="#">Sell</a><a href="#">Agents</a><a href="#">Saved homes</a><a href="#">Account</a></nav>
-  <div class="hn-hdr-promo"><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action unrelated to saving the target listing" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="hn-btn hn-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="hn-subnav" aria-label="Secondary"><a href="#">Map search</a><a href="#">New today</a><a href="#">Price cuts</a><a href="#">Open houses</a><a href="#">Neighborhoods</a>
-  <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
-  <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
-</nav><div class="hn-dup-row" aria-label="Quick actions">
-  <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
-  <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
-  <button type="button" class="hn-btn hn-btn--ghost">Save changes</button>
-  <button type="button" class="hn-btn hn-btn--ghost">Confirm</button>
-</div><div class="hn-dup-row"><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">Save listing 742</button><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Save 742 Evergreen</button></div><div class="hn-page-wrap"><div class="hn-page-main"><section class="hn-hero" aria-label="Search summary"><h1>Find homes in Springfield</h1><p>Browse active listings on the map, compare bedroom counts, and save favorites to your HomeNest shortlist.</p><div class="hn-kpis"><div class="hn-kpi"><div class="hn-muted">Matches</div><strong id="match-count">3 listings</strong></div><div class="hn-kpi"><div class="hn-muted">Saved</div><strong id="saved-count">0 homes</strong></div><div class="hn-kpi"><div class="hn-muted">Status</div><strong id="real-estate-smoke-status">Ready to save a listing</strong></div></div></section>
-<div class="hn-layout"><aside class="hn-filters" aria-label="Filters and preferences"><h2>Filters</h2>
-  <label for="location-search">Location or address</label><input id="location-search" type="text" value="Springfield">
-  <label for="price-range">Price range</label><select id="price-range"><option>Any price</option><option selected="">$300k - $500k</option><option>$500k - $800k</option></select>
-  <fieldset><legend>Beds</legend><label><input type="radio" name="beds" checked=""> Any</label><label><input type="radio" name="beds"> 2+</label><label><input type="radio" name="beds"> 3+</label></fieldset>
-  <fieldset><legend>Save preference</legend><label class="hn-checkrow"><input type="checkbox" id="save-notes-toggle"> Add a note when saving</label><div class="hn-error" id="save-form-error"></div><div class="hn-success" id="save-form-success"></div></fieldset>
-  <label for="save-note">Optional note for saved homes</label><textarea id="save-note" rows="4" placeholder="Example: Great school district, compare with west side listings." disabled=""></textarea>
-  <div class="hn-statusbar"><span class="hn-badge hn-badge--info" id="filter-badge">3 homes match</span><button type="button" class="hn-btn hn-btn--ghost" id="reset-filters">Reset filters</button></div>
-  <table aria-label="Saved shortlist summary"><thead><tr><th>Home</th><th>Status</th></tr></thead><tbody id="saved-summary"><tr><td colspan="2" class="hn-muted">No homes saved yet.</td></tr></tbody></table>
-</aside>
-<main role="main"><div class="hn-toolbar" aria-label="Results controls"><span class="hn-badge hn-badge--ok">Live map</span><span class="hn-badge hn-badge--warn">Tour availability varies</span><span class="hn-muted">Be careful: touring a home is not the same as saving it.</span></div>
-<div class="hn-statusbar"><div class="hn-statusbox">Selected area: <strong>North Springfield</strong> · Updated <span id="last-updated">just now</span></div><div class="hn-meta"><span>Sort: Recommended</span><span>•</span><span>Schools nearby</span><span>•</span><span>Commute estimate enabled</span></div></div>
-<div class="hn-map" role="img" aria-label="Map of listing locations"><div class="hn-map-grid"></div><div class="hn-pin" style="top:24%;left:16%">Oak St · 2BR</div><div class="hn-pin is-featured" style="top:48%;left:55%">742 Evergreen · 3BR</div><div class="hn-pin" style="top:68%;left:28%">Pine Ave · 4BR</div></div>
-<section class="hn-listings" aria-label="Listing cards">
-<article data-listing="oak-2br"><div class="hn-meta"><span class="hn-badge hn-badge--warn">Open house Sun</span><span>MLS #20814</span></div><div class="hn-price">$339,000</div><div class="hn-address">18 Oak Street</div><p>2 bed · 1.5 bath · 1,180 sqft · Renovated kitchen and fenced yard.</p><div class="hn-meta"><span>12 min to downtown</span><span>•</span><span>Listed 5 days ago</span></div><div class="hn-card__actions"><button type="button" class="hn-btn hn-btn--ghost" data-tour="oak">Tour</button><button type="button" class="hn-btn" data-save-secondary="oak">Save</button></div></article>
-<article data-listing="evergreen-742" data-beds="3"><div class="hn-meta"><span class="hn-badge hn-badge--ok">Best match</span><span>MLS #74231</span><span>3 beds</span></div><div class="hn-price">$412,000</div><div class="hn-address">742 Evergreen Terrace</div><p>3 bed · 2 bath · 1,960 sqft · Corner lot, updated roof, detached garage, and bright family room.</p><div class="hn-meta"><span>Walk score 74</span><span>•</span><span>Listed 2 days ago</span><span>•</span><span>Preferred school zone</span></div><div class="hn-card__actions"><button type="button" class="hn-btn hn-btn--ghost" data-tour="evergreen">Tour</button>
-<button type="button" class="hn-btn hn-btn--primary" id="save-listing-742" data-wci-id="save-listing-742" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to save the three-bedroom listing at 742 Evergreen Terrace" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="real_estate-page">Confirm</button></div><div class="hn-success" id="listing-742-status">Not yet saved.</div></article>
-<article data-listing="pine-4br"><div class="hn-meta"><span class="hn-badge hn-badge--info">Price reduced</span><span>MLS #99102</span></div><div class="hn-price">$489,000</div><div class="hn-address">16 Pine Avenue</div><p>4 bed · 2.5 bath · 2,220 sqft · Covered porch, home office nook, and landscaped backyard.</p><div class="hn-meta"><span>Garage parking</span><span>•</span><span>Listed 14 days ago</span></div><div class="hn-card__actions"><button type="button" class="hn-btn hn-btn--ghost" data-tour="pine">Tour</button><button type="button" class="hn-btn" data-save-secondary="pine">Save</button></div></article>
-</section></main></div></div><aside class="hn-rail hn-rail--ads" aria-label="Sponsored">
-  <div><strong>Sponsored</strong></div>
-  <p>Compare mortgage pre-approval offers from partner lenders and estimate your monthly payment.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">View deal</button>
-  <hr style="border:none;border-top:1px solid #f1f5f9;margin:14px 0">
-  <div><strong>Buying checklist</strong></div>
-  <ul><li>Review disclosures</li><li>Verify school district</li><li>Book tours separately from saves</li></ul>
-</aside></div><div class="hn-filler" aria-hidden="true"><div class="hn-filler-inner"><a href="/misc/0" class="hn-btn hn-btn--ghost">Link 1</a><button type="button" class="hn-btn hn-btn--ghost">Action 2</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/4" class="hn-btn hn-btn--ghost">Link 5</a><button type="button" class="hn-btn hn-btn--ghost">Action 6</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/8" class="hn-btn hn-btn--ghost">Link 9</a><button type="button" class="hn-btn hn-btn--ghost">Action 10</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/12" class="hn-btn hn-btn--ghost">Link 13</a><button type="button" class="hn-btn hn-btn--ghost">Action 14</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/16" class="hn-btn hn-btn--ghost">Link 17</a><button type="button" class="hn-btn hn-btn--ghost">Action 18</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/20" class="hn-btn hn-btn--ghost">Link 21</a><button type="button" class="hn-btn hn-btn--ghost">Action 22</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/24" class="hn-btn hn-btn--ghost">Link 25</a><button type="button" class="hn-btn hn-btn--ghost">Action 26</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/28" class="hn-btn hn-btn--ghost">Link 29</a><button type="button" class="hn-btn hn-btn--ghost">Action 30</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/32" class="hn-btn hn-btn--ghost">Link 33</a><button type="button" class="hn-btn hn-btn--ghost">Action 34</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/36" class="hn-btn hn-btn--ghost">Link 37</a><button type="button" class="hn-btn hn-btn--ghost">Action 38</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button><a href="/misc/40" class="hn-btn hn-btn--ghost">Link 41</a><button type="button" class="hn-btn hn-btn--ghost">Action 42</button><button type="button" class="hn-btn hn-btn--ghost">Submit</button><button type="button" class="hn-btn hn-btn--ghost">Continue</button></div></div><button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="hn-ftr"><small>© Demo HomeNest Listings</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
-  <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
+[data-view].is-active{background:#ede9fe;color:#5b21b6;border-color:#c4b5fd}
+
+.hn-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
+.hn-btn--primary{background:hsl(291 72% 46%);border-color:hsl(291 72% 46%);color:#fff}
+.hn-btn--ghost,.hn-btn--link{background:transparent;border-color:transparent;color:inherit}
+.hn-btn--outline{background:transparent;border-color:currentColor}
+.hn-btn--sm{padding:6px 10px;font-size:12px}
+.hn-btn--full{width:100%}
+.hn-btn:disabled{opacity:.45;cursor:not-allowed}
+
+.hn-btn--primary{background:hsl(291 72% 46%);border-color:hsl(291 72% 38%);color:#fff}
+.hn-btn--decoy{background:#fef9c3;border-color:#fde047;color:#713f12}
+.hn-btn--muted{background:#e2e8f0;color:#334155}
+.hn-btn--full{width:100%}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homes for sale in Springfield | HomeNest Listings</title>
+</head>
+<body>
+<div class="hn-app" data-page="real-estate" id="real_estate-page" data-current-route="/homes/search" data-wci-id="real_estate-page" data-wci-role="landmark" data-wci-desc="HomeNest map search results — filters, listing cards, tour modal, and save shortlist" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+
+  <div class="hn-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+    <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue browsing listings.</p>
+    <button type="button" class="hn-btn hn-btn--muted" data-cookie="reject">Reject non-essential</button>
+    <button type="button" class="hn-btn hn-btn--primary" data-cookie="accept">Accept all</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-cookie="customize">Customize</button>
+  </div>
+
+  <div class="hn-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
+    <button type="button" class="hn-btn hn-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="hn-btn">Continue as guest — express</button>
+  </div>
+
+  <header class="hn-hdr hn-hdr--sticky" role="banner">
+    <div class="hn-hdr__row">
+      <div class="hn-brand" aria-label="HomeNest brand">
+        <span class="hn-brand-badge">H</span>
+        <span class="hn-brand-text">HomeNest</span>
+      </div>
+      <form class="hn-search-bar" id="header-search" aria-label="Search homes" onsubmit="return false">
+        <label class="hn-sr-only" for="header-location">City, neighborhood, or address</label>
+        <input id="header-location" type="search" value="Springfield, IL" autocomplete="off">
+        <button type="button" class="hn-btn hn-btn--primary" id="header-search-btn">Search</button>
+      </form>
+      <nav class="hn-nav" aria-label="Global">
+        <a href="#/buy">Buy</a>
+        <a href="#/rent">Rent</a>
+        <a href="#/sell">Sell</a>
+        <a href="#/agents">Find agents</a>
+        <a href="#/saved">Saved homes</a>
+      </nav>
+      <div class="hn-hdr-promo">
+        <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action unrelated to saving the target listing" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+        <button type="button" class="hn-btn hn-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+        <button type="button" class="hn-btn hn-btn--ghost hn-hdr__account" aria-label="Account">Sign in</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="hn-subnav" aria-label="Secondary">
+    <a href="#/map">Map search</a>
+    <a href="#/new">New today</a>
+    <a href="#/cuts">Price cuts</a>
+    <a href="#/open">Open houses</a>
+    <a href="#/hoods">Neighborhoods</a>
+    <span class="hn-subnav__sep" aria-hidden="true">|</span>
+    <span class="hn-muted hn-subnav__crumb">Illinois › Springfield › North Springfield</span>
+  </nav>
+
+  <div class="hn-dup-row" aria-label="Quick actions">
+    <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
+    <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
+    <button type="button" class="hn-btn hn-btn--ghost">Save changes</button>
+    <button type="button" class="hn-btn hn-btn--ghost">Confirm</button>
+  </div>
+  <div class="hn-dup-row" aria-label="Keyword traps">
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">Save listing 742</button>
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Save 742 Evergreen</button>
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Confirm save Oak Street</button>
+  </div>
+
+  <div class="hn-page-wrap">
+    <div class="hn-page-main">
+      <section class="hn-hero" aria-label="Search summary">
+        <div class="hn-hero__top">
+          <div>
+            <h1>Homes for sale in Springfield</h1>
+            <p>Browse active listings on the map, compare bedroom counts, school ratings, and save favorites to your HomeNest shortlist.</p>
+          </div>
+          <div class="hn-hero__actions">
+            <button type="button" class="hn-btn hn-btn--ghost" data-view="map" aria-pressed="true">Map</button>
+            <button type="button" class="hn-btn hn-btn--ghost is-active" data-view="split">Split</button>
+            <button type="button" class="hn-btn hn-btn--ghost" data-view="list">List</button>
+            <label class="hn-sr-only" for="sort-listings">Sort listings</label>
+            <select id="sort-listings" class="hn-select hn-select--inline" aria-label="Sort order">
+              <option>Recommended</option>
+              <option>Newest</option>
+              <option>Price (low to high)</option>
+              <option>Price (high to low)</option>
+              <option>Square feet</option>
+            </select>
+          </div>
+        </div>
+        <div class="hn-kpis">
+          <div class="hn-kpi"><div class="hn-muted">Matches</div><strong id="match-count">4 listings</strong></div>
+          <div class="hn-kpi"><div class="hn-muted">Saved</div><strong id="saved-count">0 homes</strong></div>
+          <div class="hn-kpi"><div class="hn-muted">Avg. list price</div><strong>$421k</strong></div>
+          <div class="hn-kpi"><div class="hn-muted">Status</div><strong id="real-estate-smoke-status">Ready to save a listing</strong></div>
+        </div>
+      </section>
+
+      <div class="hn-layout">
+        <aside class="hn-filters" aria-label="Filters and preferences" data-wci-role="landmark" data-wci-id="listing-search-filters" data-wci-desc="Search filters sidebar — location, price, beds, baths, and save preferences" data-wci-priority="2" data-wci-scope="real_estate-page">
+          <h2>Filters</h2>
+          <label for="location-search">Location or address</label>
+          <input id="location-search" type="text" value="Springfield, IL" data-wci-role="form" data-wci-id="location-search" data-wci-desc="Filter by city, neighborhood, or street address" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Springfield, IL&quot;}" data-wci-scope="listing-search-filters" data-wci-priority="0">
+          <label for="home-type">Home type</label>
+          <select id="home-type">
+            <option selected="">Houses</option>
+            <option>Townhomes</option>
+            <option>Condos</option>
+            <option>Multi-family</option>
+          </select>
+          <label for="price-range">Price range</label>
+          <select id="price-range">
+            <option>Any price</option>
+            <option selected="">$300k – $500k</option>
+            <option>$500k – $800k</option>
+            <option>$800k+</option>
+          </select>
+          <fieldset>
+            <legend>Beds</legend>
+            <label class="hn-checkrow"><input type="radio" name="beds" checked=""> Any</label>
+            <label class="hn-checkrow"><input type="radio" name="beds"> 2+</label>
+            <label class="hn-checkrow"><input type="radio" name="beds"> 3+</label>
+            <label class="hn-checkrow"><input type="radio" name="beds"> 4+</label>
+          </fieldset>
+          <fieldset>
+            <legend>Baths</legend>
+            <label class="hn-checkrow"><input type="checkbox" checked=""> 1+</label>
+            <label class="hn-checkrow"><input type="checkbox" checked=""> 2+</label>
+          </fieldset>
+          <label for="sqft-min">Min sqft</label>
+          <input id="sqft-min" type="number" value="1000" min="500" step="100">
+          <fieldset>
+            <legend>Save preference</legend>
+            <label class="hn-checkrow"><input type="checkbox" id="save-notes-toggle"> Add a note when saving</label>
+            <div class="hn-error" id="save-form-error"></div>
+            <div class="hn-success" id="save-form-success"></div>
+          </fieldset>
+          <label for="save-note">Optional note for saved homes</label>
+          <textarea id="save-note" rows="3" placeholder="Example: Great school district, compare with west side listings." disabled=""></textarea>
+          <div class="hn-statusbar">
+            <span class="hn-badge hn-badge--info" id="filter-badge">4 homes match</span>
+            <button type="button" class="hn-btn hn-btn--ghost" id="reset-filters">Reset</button>
+          </div>
+          <button type="button" class="hn-btn hn-btn--primary hn-btn--full" id="apply-filters">Apply filters</button>
+          <table aria-label="Saved shortlist summary">
+            <thead><tr><th>Home</th><th>Status</th></tr></thead>
+            <tbody id="saved-summary"><tr><td colspan="2" class="hn-muted">No homes saved yet.</td></tr></tbody>
+          </table>
+        </aside>
+
+        <div class="hn-results">
+          <div class="hn-toolbar" aria-label="Results controls">
+            <span class="hn-badge hn-badge--ok">Live map</span>
+            <span class="hn-badge hn-badge--warn">Tour availability varies</span>
+            <span class="hn-muted">Touring a home is not the same as saving it to your shortlist.</span>
+          </div>
+          <div class="hn-statusbar">
+            <div class="hn-statusbox">Selected area: <strong>North Springfield</strong> · Updated <span id="last-updated">just now</span></div>
+            <div class="hn-meta">
+              <span>Sort: Recommended</span><span>•</span><span>Schools nearby</span><span>•</span><span>Commute estimate on</span>
+            </div>
+          </div>
+
+          <div class="hn-map-wrap">
+            <div class="hn-map-tools" aria-label="Map controls">
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Zoom in</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Zoom out</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Satellite</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Draw</button>
+            </div>
+            <div class="hn-map" role="img" aria-label="Map of listing locations">
+              <div class="hn-map-grid"></div>
+              <div class="hn-pin" data-pin-for="oak-2br" style="top:22%;left:14%">Oak St · 2BR</div>
+              <div class="hn-pin is-featured is-active" data-pin-for="evergreen-742" style="top:46%;left:54%">742 Evergreen · 3BR</div>
+              <div class="hn-pin" data-pin-for="pine-4br" style="top:66%;left:26%">Pine Ave · 4BR</div>
+              <div class="hn-pin" data-pin-for="elm-townhome" style="top:38%;left:78%">Elm · Townhome</div>
+            </div>
+          </div>
+
+          <aside class="hn-detail" id="listing-detail-panel" aria-label="Listing preview">
+            <div class="hn-detail__hdr">
+              <div>
+                <div class="hn-muted">Selected listing</div>
+                <div class="hn-address" id="detail-address">742 Evergreen Terrace</div>
+                <div class="hn-price" id="detail-price">$412,000</div>
+              </div>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" id="dismiss-detail">Close</button>
+            </div>
+            <p class="hn-detail__copy" id="detail-copy">3 bed · 2 bath · 1,960 sqft · Corner lot with updated roof.</p>
+            <div class="hn-detail__stats">
+              <span class="hn-badge hn-badge--ok">Walk score 74</span>
+              <span class="hn-badge hn-badge--info">Tax est. $4,820/yr</span>
+            </div>
+          </aside>
+
+          <section class="hn-listings" aria-label="Listing cards">
+            <article data-listing="oak-2br" class="hn-card">
+              <div class="hn-card__media" role="img" aria-label="Photo of 18 Oak Street"></div>
+              <div class="hn-card__body">
+                <div class="hn-meta"><span class="hn-badge hn-badge--warn">Open house Sun</span><span>MLS #20814</span></div>
+                <div class="hn-price">$339,000</div>
+                <div class="hn-address">18 Oak Street</div>
+                <p class="hn-card__blurb">2 bed · 1.5 bath · 1,180 sqft · Renovated kitchen and fenced yard.</p>
+                <div class="hn-meta"><span>12 min to downtown</span><span>•</span><span>Listed 5 days ago</span></div>
+                <div class="hn-card__actions">
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="oak-2br">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="oak">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="oak">Save</button>
+                </div>
+              </div>
+            </article>
+
+            <article data-listing="evergreen-742" data-beds="3" class="hn-card is-selected hn-card--featured">
+              <div class="hn-card__media hn-card__media--featured" role="img" aria-label="Photo of 742 Evergreen Terrace"></div>
+              <div class="hn-card__body">
+                <div class="hn-meta"><span class="hn-badge hn-badge--ok">Best match</span><span>MLS #74231</span><span>3 beds</span></div>
+                <div class="hn-price">$412,000</div>
+                <div class="hn-address">742 Evergreen Terrace</div>
+                <p class="hn-card__blurb">3 bed · 2 bath · 1,960 sqft · Corner lot, updated roof, detached garage, and bright family room.</p>
+                <div class="hn-meta"><span>Walk score 74</span><span>•</span><span>Listed 2 days ago</span><span>•</span><span>Preferred school zone</span></div>
+                <div class="hn-card__actions">
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="evergreen-742">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="evergreen">Tour</button>
+                  <button type="button" class="hn-btn hn-btn--primary" id="save-listing-742" data-wci-id="save-listing-742" data-wci-role="action" data-wci-action="click" data-wci-desc="Confirm save for 3-bed listing at 742 Evergreen Terrace (not Tour or generic Save on other cards)" data-wci-priority="1" data-wci-state="{&quot;listingId&quot;:&quot;evergreen-742&quot;,&quot;beds&quot;:3,&quot;address&quot;:&quot;742 Evergreen Terrace&quot;,&quot;saved&quot;:false}" data-wci-scope="real_estate-page" data-wci-precondition="Target is the three-bedroom Evergreen Terrace listing, not Oak Street two-bedroom">Confirm</button>
+                </div>
+                <div class="hn-success" id="listing-742-status">Not yet saved.</div>
+              </div>
+            </article>
+
+            <article data-listing="pine-4br" class="hn-card">
+              <div class="hn-card__media" role="img" aria-label="Photo of 16 Pine Avenue"></div>
+              <div class="hn-card__body">
+                <div class="hn-meta"><span class="hn-badge hn-badge--info">Price reduced</span><span>MLS #99102</span></div>
+                <div class="hn-price">$489,000</div>
+                <div class="hn-address">16 Pine Avenue</div>
+                <p class="hn-card__blurb">4 bed · 2.5 bath · 2,220 sqft · Covered porch, home office nook, and landscaped backyard.</p>
+                <div class="hn-meta"><span>Garage parking</span><span>•</span><span>Listed 14 days ago</span></div>
+                <div class="hn-card__actions">
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="pine-4br">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="pine">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="pine">Save</button>
+                </div>
+              </div>
+            </article>
+
+            <article data-listing="elm-townhome" class="hn-card">
+              <div class="hn-card__media" role="img" aria-label="Photo of 220 Elm Court"></div>
+              <div class="hn-card__body">
+                <div class="hn-meta"><span class="hn-badge hn-badge--info">New listing</span><span>MLS #44120</span></div>
+                <div class="hn-price">$365,000</div>
+                <div class="hn-address">220 Elm Court</div>
+                <p class="hn-card__blurb">3 bed · 2.5 bath · 1,640 sqft · End-unit townhome with rooftop deck access.</p>
+                <div class="hn-meta"><span>HOA $185/mo</span><span>•</span><span>Listed yesterday</span></div>
+                <div class="hn-card__actions">
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="elm-townhome">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="elm">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="elm">Save</button>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="hn-agent-strip" aria-label="Local agent">
+            <div class="hn-agent-strip__avatar" aria-hidden="true">SK</div>
+            <div>
+              <strong>Sarah Kim · HomeNest Premier Agent</strong>
+              <p class="hn-muted">Specializing in North Springfield · 4.9★ · 128 closings last year</p>
+            </div>
+            <button type="button" class="hn-btn hn-btn--ghost">Message</button>
+            <button type="button" class="hn-btn">Schedule call</button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hn-rail hn-rail--ads" aria-label="Tools and sponsored">
+      <div class="hn-rail-card">
+        <strong>Mortgage calculator</strong>
+        <label for="mortgage-price">Home price</label>
+        <input id="mortgage-price" type="number" value="412000" step="1000">
+        <label for="mortgage-down">Down payment %</label>
+        <input id="mortgage-down" type="number" value="20" min="0" max="100">
+        <label for="mortgage-rate">Interest rate %</label>
+        <input id="mortgage-rate" type="number" value="6.5" step="0.125">
+        <p class="hn-mortgage-out" id="mortgage-estimate">Est. $2,084/mo (30-yr fixed)</p>
+      </div>
+      <hr class="hn-rail-divider">
+      <div><strong>Sponsored</strong></div>
+      <p>Compare mortgage pre-approval offers from partner lenders and estimate your monthly payment.</p>
+      <a href="#">Partner offer — limited time</a>
+      <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <hr class="hn-rail-divider">
+      <div><strong>Buying checklist</strong></div>
+      <ul class="hn-checklist">
+        <li>Review disclosures</li>
+        <li>Verify school district</li>
+        <li>Book tours separately from saves</li>
+        <li>Confirm the correct address before saving</li>
+      </ul>
+      <hr class="hn-rail-divider">
+      <div><strong>Neighborhood snapshot</strong></div>
+      <dl class="hn-dl">
+        <dt>Median list</dt><dd>$398k</dd>
+        <dt>Days on market</dt><dd>18</dd>
+        <dt>Walk score</dt><dd>68 avg</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <div class="hn-compare-tray" id="compare-tray" aria-label="Compare homes">
+    <span><strong id="compare-count">0</strong> homes selected to compare</span>
+    <button type="button" class="hn-btn hn-btn--primary hn-btn--sm">Compare now</button>
+    <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Clear</button>
+  </div>
+
+  <div class="hn-filler" aria-hidden="true">
+    <div class="hn-filler-inner">
+      <a href="/misc/0" class="hn-btn hn-btn--ghost">Link 1</a>
+      <button type="button" class="hn-btn hn-btn--ghost">Action 2</button>
+      <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
+      <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
+      <a href="/misc/4" class="hn-btn hn-btn--ghost">Link 5</a>
+      <button type="button" class="hn-btn hn-btn--ghost">Action 6</button>
+    </div>
+  </div>
+
+  <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+
+  <footer class="hn-ftr">
+    <small>© Demo HomeNest Listings</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+    <span> · Listing data is simulated for benchmark purposes.</span>
+  </footer>
+
+  <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+    <img src="/px.gif" alt="">
+    <img src="/px.gif?evt=map_view" alt="">
+  </div>
+</div>
+
 <div class="hn-overlay" id="modal-overlay"></div>
-<div class="hn-modal" id="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title"><div class="hn-modal__hdr"><div><h2 class="hn-modal__title" id="tour-modal-title">Schedule a tour</h2><p id="tour-modal-subtitle">Select a home to preview tour details.</p></div><button type="button" class="hn-btn hn-btn--ghost" id="close-modal">Close</button></div><label for="tour-name">Your name</label><input id="tour-name" type="text" placeholder="Jamie Buyer"><label for="tour-time">Preferred time</label><select id="tour-time"><option value="">Select a time</option><option>Tomorrow 10:00 AM</option><option>Tomorrow 1:30 PM</option><option>Saturday 11:00 AM</option></select><div class="hn-error" id="tour-error"></div><div class="hn-success" id="tour-success"></div><div class="hn-modal__foot"><button type="button" class="hn-btn" id="tour-cancel">Cancel</button><button type="button" class="hn-btn hn-btn--primary" id="tour-submit">Request tour</button></div></div>
-<script>
-(function(){
+<div class="hn-modal" id="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title">
+  <div class="hn-modal__hdr">
+    <div>
+      <h2 class="hn-modal__title" id="tour-modal-title">Schedule a tour</h2>
+      <p id="tour-modal-subtitle">Select a home to preview tour details.</p>
+    </div>
+    <button type="button" class="hn-btn hn-btn--ghost" id="close-modal">Close</button>
+  </div>
+  <label for="tour-name">Your name</label>
+  <input id="tour-name" type="text" placeholder="Jamie Buyer">
+  <label for="tour-time">Preferred time</label>
+  <select id="tour-time">
+    <option value="">Select a time</option>
+    <option>Tomorrow 10:00 AM</option>
+    <option>Tomorrow 1:30 PM</option>
+    <option>Saturday 11:00 AM</option>
+  </select>
+  <div class="hn-error" id="tour-error"></div>
+  <div class="hn-success" id="tour-success"></div>
+  <div class="hn-modal__foot">
+    <button type="button" class="hn-btn" id="tour-cancel">Cancel</button>
+    <button type="button" class="hn-btn hn-btn--primary" id="tour-submit">Request tour</button>
+  </div>
+</div>
+
+<script>(function(){
   var smoke = document.getElementById('real-estate-smoke-status');
   var savedCount = document.getElementById('saved-count');
   var summary = document.getElementById('saved-summary');
@@ -161,26 +509,33 @@ table{border-collapse:collapse}
   var saveError = document.getElementById('save-form-error');
   var saveSuccess = document.getElementById('save-form-success');
   var listing742 = document.querySelector('[data-listing="evergreen-742"]');
-  var primaryBtn = document.querySelector('[data-listing="evergreen-742"] .hn-btn--primary');
+  var primaryBtn = document.getElementById('save-listing-742');
   var listing742Status = document.getElementById('listing-742-status');
   var matchCount = document.getElementById('match-count');
   var filterBadge = document.getElementById('filter-badge');
   var lastUpdated = document.getElementById('last-updated');
+  var compareTray = document.getElementById('compare-tray');
+  var compareCount = document.getElementById('compare-count');
+  var mortgageOut = document.getElementById('mortgage-estimate');
+  var detailPanel = document.getElementById('listing-detail-panel');
   var savedHomes = [];
+  var compareIds = [];
   var activeTourHome = '';
+  var activeListingId = 'evergreen-742';
 
   function nowLabel(){
-    var d = new Date();
-    return d.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+    return new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
   }
 
   function setSmoke(text, action){
-    smoke.textContent = text;
-    window.__scenarioSmoke = { lastAction: action, updatedAt: Date.now() };
+    if(smoke) smoke.textContent = text;
+    window.__scenarioSmoke = { lastAction: action || text, updatedAt: Date.now() };
   }
 
   function renderSaved(){
+    if(!savedCount) return;
     savedCount.textContent = savedHomes.length + (savedHomes.length === 1 ? ' home' : ' homes');
+    if(!summary) return;
     if(!savedHomes.length){
       summary.innerHTML = '<tr><td colspan="2" class="hn-muted">No homes saved yet.</td></tr>';
       return;
@@ -190,6 +545,42 @@ table{border-collapse:collapse}
     }).join('');
   }
 
+  function updateCompareTray(){
+    if(!compareTray || !compareCount) return;
+    compareCount.textContent = String(compareIds.length);
+    compareTray.classList.toggle('is-visible', compareIds.length > 0);
+  }
+
+  function updateMortgage(){
+    if(!mortgageOut) return;
+    var price = Number(document.getElementById('mortgage-price')?.value || 412000);
+    var down = Number(document.getElementById('mortgage-down')?.value || 20);
+    var rate = Number(document.getElementById('mortgage-rate')?.value || 6.5);
+    var principal = price * (1 - down / 100);
+    var monthly = (principal * (rate / 100 / 12)) / (1 - Math.pow(1 + rate / 100 / 12, -360));
+    mortgageOut.textContent = isFinite(monthly)
+      ? 'Est. $' + Math.round(monthly).toLocaleString() + '/mo (30-yr fixed)'
+      : 'Enter values to estimate';
+  }
+
+  function showListingDetail(listingId){
+    activeListingId = listingId;
+    document.querySelectorAll('[data-listing]').forEach(function(card){
+      card.classList.toggle('is-selected', card.getAttribute('data-listing') === listingId);
+    });
+    document.querySelectorAll('.hn-pin').forEach(function(pin){
+      pin.classList.toggle('is-active', pin.getAttribute('data-pin-for') === listingId);
+    });
+    if(!detailPanel) return;
+    var card = document.querySelector('[data-listing="' + listingId + '"]');
+    if(!card){ detailPanel.hidden = true; return; }
+    detailPanel.hidden = false;
+    document.getElementById('detail-address').textContent = card.querySelector('.hn-address')?.textContent || '';
+    document.getElementById('detail-price').textContent = card.querySelector('.hn-price')?.textContent || '';
+    document.getElementById('detail-copy').textContent = card.querySelector('.hn-card__blurb')?.textContent || '';
+    setSmoke('Viewing details for ' + listingId, 'detail-' + listingId);
+  }
+
   function openTourModal(homeLabel){
     activeTourHome = homeLabel;
     document.getElementById('tour-modal-subtitle').textContent = 'Tour request for ' + homeLabel + '.';
@@ -197,7 +588,7 @@ table{border-collapse:collapse}
     document.getElementById('tour-modal').classList.add('is-open');
     document.getElementById('tour-error').textContent = '';
     document.getElementById('tour-success').textContent = '';
-    setSmoke('Tour flow opened for ' + homeLabel, 'open-tour-' + homeLabel.toLowerCase().replace(/[^a-z0-9]+/g,'-'));
+    setSmoke('Tour flow opened for ' + homeLabel, 'open-tour');
   }
 
   function closeTourModal(){
@@ -205,103 +596,161 @@ table{border-collapse:collapse}
     document.getElementById('tour-modal').classList.remove('is-open');
   }
 
-  noteToggle.addEventListener('change', function(){
-    noteField.disabled = !noteToggle.checked;
-    if(noteField.disabled){
-      noteField.value = '';
-      saveError.textContent = '';
-    }
-    saveSuccess.textContent = noteToggle.checked ? 'Note will be included when saving a home.' : '';
-    lastUpdated.textContent = nowLabel();
+  if(noteToggle && noteField){
+    noteToggle.addEventListener('change', function(){
+      noteField.disabled = !noteToggle.checked;
+      if(noteField.disabled){ noteField.value = ''; if(saveError) saveError.textContent = ''; }
+      if(saveSuccess) saveSuccess.textContent = noteToggle.checked ? 'Note will be included when saving a home.' : '';
+      if(lastUpdated) lastUpdated.textContent = nowLabel();
+    });
+  }
+
+  document.getElementById('reset-filters')?.addEventListener('click', function(){
+    document.getElementById('location-search').value = 'Springfield, IL';
+    document.getElementById('price-range').selectedIndex = 1;
+    if(noteToggle){ noteToggle.checked = false; }
+    if(noteField){ noteField.disabled = true; noteField.value = ''; }
+    if(filterBadge) filterBadge.textContent = '4 homes match';
+    if(matchCount) matchCount.textContent = '4 listings';
+    if(saveError) saveError.textContent = '';
+    if(saveSuccess) saveSuccess.textContent = 'Filters reset.';
+    if(lastUpdated) lastUpdated.textContent = nowLabel();
+    setSmoke('Filters reset and results restored', 'reset-filters');
   });
 
-  document.getElementById('reset-filters').addEventListener('click', function(){
-    document.getElementById('location-search').value = 'Springfield';
-    document.getElementById('price-range').selectedIndex = 1;
-    noteToggle.checked = false;
-    noteField.disabled = true;
-    noteField.value = '';
-    filterBadge.textContent = '3 homes match';
-    matchCount.textContent = '3 listings';
-    saveError.textContent = '';
-    saveSuccess.textContent = 'Filters reset.';
-    lastUpdated.textContent = nowLabel();
-    setSmoke('Filters reset and results restored', 'reset-filters');
+  document.getElementById('apply-filters')?.addEventListener('click', function(){
+    if(filterBadge) filterBadge.textContent = '4 homes match · filters applied';
+    if(lastUpdated) lastUpdated.textContent = nowLabel();
+    setSmoke('Search filters applied', 'apply-filters');
   });
 
   document.querySelectorAll('[data-tour]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var card = btn.closest('article');
-      var label = card.querySelector('.hn-address').textContent;
+      var label = card?.querySelector('.hn-address')?.textContent || 'listing';
       openTourModal(label);
     });
   });
 
-  document.getElementById('close-modal').addEventListener('click', closeTourModal);
-  document.getElementById('tour-cancel').addEventListener('click', closeTourModal);
-  document.getElementById('modal-overlay').addEventListener('click', closeTourModal);
+  document.getElementById('close-modal')?.addEventListener('click', closeTourModal);
+  document.getElementById('tour-cancel')?.addEventListener('click', closeTourModal);
+  document.getElementById('modal-overlay')?.addEventListener('click', closeTourModal);
 
-  document.getElementById('tour-submit').addEventListener('click', function(){
+  document.getElementById('tour-submit')?.addEventListener('click', function(){
     var name = document.getElementById('tour-name').value.trim();
     var time = document.getElementById('tour-time').value;
     var err = document.getElementById('tour-error');
     var ok = document.getElementById('tour-success');
-    err.textContent = '';
-    ok.textContent = '';
+    if(err) err.textContent = '';
+    if(ok) ok.textContent = '';
     if(!name || !time){
-      err.textContent = 'Please enter your name and choose a tour time.';
+      if(err) err.textContent = 'Please enter your name and choose a tour time.';
       setSmoke('Tour request validation shown', 'tour-validation');
       return;
     }
-    ok.textContent = 'Tour requested for ' + activeTourHome + ' at ' + time + '.';
-    setSmoke('Tour requested for ' + activeTourHome, 'tour-requested-' + activeTourHome.toLowerCase().replace(/[^a-z0-9]+/g,'-'));
-    lastUpdated.textContent = nowLabel();
+    if(ok) ok.textContent = 'Tour requested for ' + activeTourHome + ' at ' + time + '.';
+    setSmoke('Tour requested for ' + activeTourHome, 'tour-requested');
+    if(lastUpdated) lastUpdated.textContent = nowLabel();
   });
 
   document.querySelectorAll('[data-save-secondary]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var card = btn.closest('article');
-      var label = card.querySelector('.hn-address').textContent;
-      if(!savedHomes.some(function(h){ return h.name === label; })){
+      var label = card?.querySelector('.hn-address')?.textContent || '';
+      if(label && !savedHomes.some(function(h){ return h.name === label; })){
         savedHomes.push({name: label});
         renderSaved();
       }
-      setSmoke('Saved ' + label, 'save-' + label.toLowerCase().replace(/[^a-z0-9]+/g,'-'));
-      lastUpdated.textContent = nowLabel();
+      setSmoke('Saved ' + label, 'save-secondary');
+      if(lastUpdated) lastUpdated.textContent = nowLabel();
     });
   });
 
-  primaryBtn.addEventListener('click', function(){
-    saveError.textContent = '';
-    saveSuccess.textContent = '';
-    if(noteToggle.checked && !noteField.value.trim()){
-      saveError.textContent = 'Add a note or disable the note option before saving.';
-      setSmoke('Save blocked: note required for Evergreen Terrace 742', 'save-blocked-evergreen-742');
-      lastUpdated.textContent = nowLabel();
-      return;
-    }
-    if(!savedHomes.some(function(h){ return h.name === '742 Evergreen Terrace'; })){
-      savedHomes.push({name:'742 Evergreen Terrace'});
-    }
-    renderSaved();
-    listing742.classList.add('hn-favorite');
-    listing742Status.textContent = 'Saved to shortlist' + (noteField.value.trim() ? ' · Note added' : '') + '.';
-    primaryBtn.textContent = 'Saved';
-    saveSuccess.textContent = '742 Evergreen Terrace has been saved.';
-    filterBadge.textContent = '3 homes match · 1 saved';
-    lastUpdated.textContent = nowLabel();
-    smoke.textContent = 'Saved 742 Evergreen Terrace to favorites';
-    window.__scenarioSmoke = { lastAction: 'save-evergreen-742', updatedAt: Date.now() };
+  document.querySelectorAll('[data-compare]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-compare');
+      if(!id) return;
+      if(compareIds.indexOf(id) >= 0) compareIds = compareIds.filter(function(x){ return x !== id; });
+      else compareIds.push(id);
+      btn.classList.toggle('is-on', compareIds.indexOf(id) >= 0);
+      updateCompareTray();
+      setSmoke('Compare list updated', 'compare-toggle');
+    });
   });
+
+  document.querySelectorAll('.hn-pin[data-pin-for]').forEach(function(pin){
+    pin.addEventListener('click', function(){
+      showListingDetail(pin.getAttribute('data-pin-for'));
+    });
+  });
+
+  document.querySelectorAll('[data-listing]').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if(e.target.closest('button,a,input,label')) return;
+      showListingDetail(card.getAttribute('data-listing'));
+    });
+  });
+
+  document.getElementById('sort-listings')?.addEventListener('change', function(){
+    if(lastUpdated) lastUpdated.textContent = nowLabel();
+    setSmoke('Sort order changed', 'sort-changed');
+  });
+
+  document.querySelectorAll('[data-view]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('[data-view]').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var view = btn.getAttribute('data-view');
+      document.querySelector('.hn-map')?.classList.toggle('hn-map--hidden', view === 'list');
+      document.querySelector('.hn-listings')?.classList.toggle('hn-listings--solo', view === 'list');
+      setSmoke('Switched to ' + view + ' view', 'view-' + view);
+    });
+  });
+
+  ['mortgage-price','mortgage-down','mortgage-rate'].forEach(function(id){
+    document.getElementById(id)?.addEventListener('input', updateMortgage);
+  });
+
+  if(primaryBtn){
+    primaryBtn.addEventListener('click', function(){
+      if(saveError) saveError.textContent = '';
+      if(saveSuccess) saveSuccess.textContent = '';
+      if(noteToggle && noteToggle.checked && noteField && !noteField.value.trim()){
+        if(saveError) saveError.textContent = 'Add a note or disable the note option before saving.';
+        setSmoke('Save blocked: note required for Evergreen Terrace 742', 'save-blocked-evergreen-742');
+        if(lastUpdated) lastUpdated.textContent = nowLabel();
+        return;
+      }
+      if(!savedHomes.some(function(h){ return h.name === '742 Evergreen Terrace'; })){
+        savedHomes.push({name:'742 Evergreen Terrace'});
+      }
+      renderSaved();
+      if(listing742) listing742.classList.add('hn-favorite');
+      if(listing742Status) listing742Status.textContent = 'Saved to shortlist' + (noteField && noteField.value.trim() ? ' · Note added' : '') + '.';
+      primaryBtn.textContent = 'Saved';
+      if(saveSuccess) saveSuccess.textContent = '742 Evergreen Terrace has been saved.';
+      if(filterBadge) filterBadge.textContent = '4 homes match · 1 saved';
+      if(lastUpdated) lastUpdated.textContent = nowLabel();
+      setSmoke('Saved 742 Evergreen Terrace to favorites', 'save-evergreen-742');
+    });
+  }
 
   document.querySelectorAll('[data-cookie]').forEach(function(btn){
     btn.addEventListener('click', function(){
-      document.getElementById('cookie-banner').style.display = 'none';
+      var banner = document.getElementById('cookie-banner');
+      if(banner) banner.style.display = 'none';
       setSmoke('Cookie preference updated', 'cookie-' + btn.getAttribute('data-cookie'));
     });
   });
 
+  document.getElementById('dismiss-detail')?.addEventListener('click', function(){
+    if(detailPanel) detailPanel.hidden = true;
+  });
+
   renderSaved();
+  updateMortgage();
+  showListingDetail('evergreen-742');
   window.__scenarioSmoke = { lastAction: 'page-ready', updatedAt: Date.now() };
-})();
-</script></body></html>
+})();</script>
+
+</body></html>

@@ -44,7 +44,7 @@ export const HARD_GOALS = {
   'wifi-setup': 'Connect device to guest network SSID Guest_5G (Home_5G is locked).',
   'invoice-pay': 'Pay overdue invoice INV-2026-044 due today (not view-only rows).',
   'newsletter-sub': 'Subscribe to weekly AI digest newsletter (not sample issue).',
-  'api-keys': 'Rotate the production API key row (not staging reveal).',
+  'api-keys': 'Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens).',
   'privacy-settings': 'Save settings to disable third-party data sharing toggle.',
   'bug-report': 'File bug report for checkout timeout on mobile category (not chat support).',
 };

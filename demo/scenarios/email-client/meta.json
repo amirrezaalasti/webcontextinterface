@@ -3,7 +3,7 @@
   "title": "InboxPro Mail",
   "icon": "📧",
   "difficulty": "Extreme",
-  "description": "Email client table layout with generic toolbar Confirm for archive action.",
+  "description": "Gmail-style inbox with categories, compose, labels, and generic toolbar Confirm for archive action.",
   "challenges": [
     "billing-acme row vs toolbar",
     "Reply/Forward duplicates",

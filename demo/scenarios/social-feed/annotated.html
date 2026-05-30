@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style data-wci-legacy-styles="1">
+<!DOCTYPE html><html lang="en"><head><style data-wci-legacy-styles="1">
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.45}
@@ -9,45 +9,215 @@ a{text-decoration:none}
 ul,ol{margin:0;padding:0;list-style:none}
 h1,h2,h3,h4,p{margin:0}
 
-.cb-app{background:#000;color:#e7e9ea;min-height:100vh}
-.cb-layout{display:grid;grid-template-columns:72px minmax(0,600px) minmax(260px,1fr);max-width:1280px;margin:0 auto;min-height:100vh}
+.cb-app{background:#000;color:#e7e9ea;min-height:100vh;display:flex;flex-direction:column}
+.cb-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 16px;border-bottom:1px solid #2f3336;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:50;max-width:1280px;margin:0 auto;width:100%}
+.cb-topbar__brand{display:flex;align-items:center;gap:12px}
+.cb-topbar__search{flex:1;max-width:420px}
+.cb-topbar__actions{display:flex;align-items:center;gap:8px}
+.cb-layout{display:grid;grid-template-columns:72px minmax(0,600px) minmax(260px,1fr);max-width:1280px;margin:0 auto;min-height:calc(100vh - 57px);flex:1;width:100%}
+@media(min-width:1100px){.cb-layout{grid-template-columns:240px minmax(0,600px) minmax(280px,1fr)}}
 @media(max-width:1000px){.cb-layout{grid-template-columns:72px 1fr}}
-.cb-sidebar--left{border-right:1px solid #2f3336;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.cb-sidebar--right{border-left:1px solid #2f3336;padding:16px;display:none}
+.cb-sidebar--left{border-right:1px solid #2f3336;padding:12px 8px;display:flex;flex-direction:column;align-items:stretch;gap:8px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+@media(min-width:1100px){.cb-sidebar--left{padding:12px 16px;align-items:stretch}}
+.cb-sidebar--right{border-left:1px solid #2f3336;padding:16px;display:none;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
 @media(min-width:1000px){.cb-sidebar--right{display:block}}
-.cb-sidebar__nav-item a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:999px;color:#e7e9ea;font-size:15px}
+.cb-sidebar__logo{display:flex;justify-content:center;margin-bottom:8px}
+@media(min-width:1100px){.cb-sidebar__logo{justify-content:flex-start}}
+.cb-sidebar__nav{display:flex;flex-direction:column;gap:2px;flex:1}
+.cb-sidebar__nav-item a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:999px;color:#e7e9ea;font-size:15px;position:relative;transition:background .15s}
+.cb-sidebar__nav-item a:hover{background:rgba(231,233,234,.08)}
 .cb-sidebar__nav-item--active a{font-weight:700;background:rgba(231,233,234,.1)}
-.cb-sidebar__nav svg{width:26px;height:26px;stroke:currentColor;fill:none}
-.cb-logo-icon{width:40px;height:40px;border-radius:12px;background:#1d9bf0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
-.cb-main{border-right:1px solid #2f3336;min-height:100vh}
-.cb-stories{border-bottom:1px solid #2f3336;padding:12px 16px;overflow-x:auto}
+.cb-sidebar__nav span:not(.cb-badge){display:none}
+@media(min-width:1100px){.cb-sidebar__nav span:not(.cb-badge){display:inline}}
+.cb-sidebar__nav svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.cb-sidebar__footer{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#71767b}
+.cb-sidebar__footer a{color:#71767b}
+.cb-sidebar__footer a:hover{color:#1d9bf0}
+.cb-logo-icon{width:40px;height:40px;border-radius:12px;background:#1d9bf0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.cb-main{border-right:1px solid #2f3336;min-height:100%;overflow-x:hidden}
+.cb-page{display:block}
+.cb-page.cb-hidden{display:none!important}
+.cb-page-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #2f3336;position:sticky;top:0;background:#000;z-index:10}
+.cb-page-header__title{font-size:20px;font-weight:800}
+.cb-panel{display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(29,155,240,.08);border-bottom:1px solid #2f3336;font-size:13px}
+.cb-panel__dot{width:8px;height:8px;border-radius:50%;background:#00ba7c;animation:cbPulse 2s infinite}
+.cb-panel__text{color:#71767b}
+.cb-feed-toolbar{display:flex;justify-content:space-between;padding:10px 16px;font-size:13px;color:#71767b;border-bottom:1px solid #2f3336}
+.cb-stories{border-bottom:1px solid #2f3336;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
+.cb-stories::-webkit-scrollbar{display:none}
 .cb-stories__scroll{display:flex;gap:14px}
-.cb-story{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:#e7e9ea;font-size:11px;cursor:pointer}
-.cb-story__avatar{width:56px;height:56px;border-radius:50%;border:2px solid #1d9bf0;background:#16181c;display:flex;align-items:center;justify-content:center}
+.cb-story{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:#e7e9ea;font-size:11px;cursor:pointer;min-width:64px;transition:transform .15s}
+.cb-story:hover{transform:scale(1.04)}
+.cb-story__avatar{width:56px;height:56px;border-radius:50%;border:2px solid #2f3336;background:#16181c;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cb-story__avatar img{width:100%;height:100%;object-fit:cover}
+.cb-story__avatar--unseen{border-color:#1d9bf0}
+.cb-story__avatar--seen{border-color:#536471}
+.cb-story__avatar--add{border-style:dashed;font-size:22px;color:#1d9bf0}
+.cb-story__name{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cb-compose{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #2f3336}
+.cb-compose__avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.cb-compose__avatar img{width:100%;height:100%;object-fit:cover}
+.cb-compose__input-wrap{flex:1;min-width:0}
 .cb-compose__input{width:100%;min-height:56px;border:none;background:transparent;color:#e7e9ea;resize:none;font-size:18px}
 .cb-compose__input:focus{outline:none}
-.cb-compose__actions{display:flex;align-items:center;gap:8px;margin-top:8px}
-.cb-post{padding:14px 16px;border-bottom:1px solid #2f3336}
+.cb-compose__input::placeholder{color:#536471}
+.cb-compose__meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#71767b;margin-top:4px}
+.cb-compose__error{color:#f4212e}
+.cb-compose__actions{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.cb-compose__tools{display:flex;gap:4px}
+.cb-post{padding:14px 16px;border-bottom:1px solid #2f3336;transition:background .15s}
+.cb-post:hover{background:rgba(255,255,255,.015)}
 .cb-post--sponsored{background:rgba(29,155,240,.06)}
-.cb-post__header{display:flex;gap:10px;margin-bottom:8px}
-.cb-post__avatar{width:40px;height:40px;border-radius:50%;background:#333}
+.cb-post--compact{padding:12px 16px}
+.cb-post__header{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.cb-post__meta{flex:1;min-width:0;line-height:1.35}
+.cb-post__avatar{width:40px;height:40px;border-radius:50%;background:#333;overflow:hidden;flex-shrink:0}
+.cb-post__avatar--sm{width:32px;height:32px}
+.cb-post__avatar img{width:100%;height:100%;object-fit:cover}
 .cb-post__author{font-weight:700;color:#e7e9ea}
+.cb-post__author:hover{text-decoration:underline}
 .cb-post__handle,.cb-post__time,.cb-post__sep{color:#71767b;font-size:14px}
-.cb-post__body p{margin-bottom:8px;font-size:15px}
-.cb-post__actions{display:flex;justify-content:space-between;max-width:360px;margin-top:8px}
-.cb-post__action-btn{display:flex;align-items:center;gap:6px;background:none;border:none;color:#71767b;font-size:13px;padding:6px;cursor:pointer}
-.cb-post__action-btn:hover{color:#1d9bf0}
+.cb-post__label{color:#1d9bf0;font-size:12px;font-weight:600}
+.cb-post__menu-btn{margin-left:auto;background:none;border:none;color:#71767b;font-size:18px;cursor:pointer;padding:4px 8px;border-radius:999px}
+.cb-post__menu-btn:hover{background:rgba(231,233,234,.1);color:#e7e9ea}
+.cb-post__body p{margin-bottom:8px;font-size:15px;line-height:1.45}
+.cb-post__media{margin-top:8px;border-radius:16px;overflow:hidden;border:1px solid #2f3336}
+.cb-post__img{width:100%;display:block;max-height:320px;object-fit:cover}
+.cb-post__link-preview{display:flex;border:1px solid #2f3336;border-radius:12px;overflow:hidden;background:#16181c}
+.cb-link-preview__img{width:120px;height:80px;object-fit:cover;flex-shrink:0;background:#333}
+.cb-link-preview__text{padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cb-link-preview__domain{font-size:12px;color:#71767b}
+.cb-link-preview__title{font-size:14px;font-weight:600;color:#e7e9ea;line-height:1.3}
+.cb-post__actions{display:flex;justify-content:space-between;max-width:400px;margin-top:8px}
+.cb-post__action-btn{display:flex;align-items:center;gap:6px;background:none;border:none;color:#71767b;font-size:13px;padding:6px 8px;cursor:pointer;transition:all .15s}
+.cb-post__action-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
 .cb-replies{margin-left:24px;border-left:2px solid #2f3336;padding-left:12px;margin-top:8px}
+.cb-reply{padding:8px 0}
+.cb-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#1d9bf0;color:#fff;font-size:11px;font-weight:700;margin-left:auto}
+.cb-badge--dot{min-width:8px;width:8px;height:8px;padding:0;border-radius:50%;position:absolute;top:8px;right:8px}
 .cb-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
-.cb-overlay__backdrop{position:absolute;inset:0;background:rgba(91,112,131,.4)}
-.cb-overlay__panel{position:relative;background:#000;border-radius:16px;padding:28px 32px;max-width:400px;text-align:center;border:1px solid #2f3336}
+.cb-overlay__backdrop{position:absolute;inset:0;background:rgba(91,112,131,.4);backdrop-filter:blur(2px)}
+.cb-overlay__panel{position:relative;background:#000;border-radius:16px;padding:28px 32px;max-width:400px;text-align:center;border:1px solid #2f3336;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.cb-overlay__icon{font-size:36px;margin-bottom:8px}
+.cb-overlay__text{color:#8b98a5;margin-top:8px;font-size:14px;line-height:1.45}
 .cb-overlay__actions{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap}
+.cb-note{font-size:12px;color:#71767b;margin-top:12px;padding:8px 12px;background:#16181c;border-radius:8px}
 .cb-hidden{display:none!important}
-.cb-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:300;background:#1d9bf0;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.4)}
-.cb-search-input{width:100%;padding:10px 14px;border-radius:999px;border:none;background:#202327;color:#e7e9ea}
-.cb-trending,.cb-suggestions{background:#16181c;border-radius:16px;padding:14px;margin-bottom:16px}
-.cb-sidebar__section-title{font-size:18px;font-weight:800;margin-bottom:12px}
+.cb-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:300;background:#1d9bf0;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.4);animation:cbFadeIn .2s ease-out}
+.cb-search-input{width:100%;padding:10px 14px;border-radius:999px;border:none;background:#202327;color:#e7e9ea;font-size:14px}
+.cb-search-input:focus{outline:2px solid #1d9bf0;outline-offset:1px}
+.cb-trending,.cb-suggestions,.cb-smoke-panel{background:#16181c;border-radius:16px;padding:14px;margin-bottom:16px;border:1px solid #2f3336}
+.cb-trending--inline{background:transparent;border:none;padding:0}
+.cb-trending__item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #2f3336;cursor:default}
+.cb-trending__item:last-child{border-bottom:none}
+.cb-trending__item--clickable{cursor:pointer;border-radius:8px;padding:10px;margin:0 -10px;border-bottom:none}
+.cb-trending__item--clickable:hover{background:rgba(231,233,234,.06)}
+.cb-trending__category{font-size:12px;color:#71767b}
+.cb-trending__topic{font-size:15px;font-weight:700;color:#e7e9ea}
+.cb-trending__count{font-size:12px;color:#71767b}
+.cb-suggest-user{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #2f3336}
+.cb-suggest-user:last-child{border-bottom:none}
+.cb-suggest-user__info{display:flex;align-items:center;gap:10px;min-width:0}
+.cb-suggest-user__avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#333}
+.cb-suggest-user__name{display:block;font-weight:700;font-size:14px}
+.cb-suggest-user__handle{display:block;font-size:12px;color:#71767b}
+.cb-smoke-status{font-size:13px;color:#e7e9ea;margin-bottom:8px}
+.cb-load-more{padding:16px}
+.cb-tabs{display:flex;gap:0;border-bottom:1px solid #2f3336}
+.cb-tab{padding:12px 16px;background:none;border:none;border-bottom:2px solid transparent;color:#71767b;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:-1px;transition:color .15s}
+.cb-tab:hover{color:#e7e9ea;background:rgba(231,233,234,.04)}
+.cb-tab--active{color:#e7e9ea;border-bottom-color:#1d9bf0}
+.cb-tabs--profile{margin:0 16px}
+.cb-explore-search{padding:12px 16px;border-bottom:1px solid #2f3336}
+.cb-explore-panel{padding:8px 16px 16px}
+.cb-news-card{background:#16181c;border:1px solid #2f3336;border-radius:12px;padding:14px;margin-bottom:12px;cursor:pointer;transition:background .15s}
+.cb-news-card:hover{background:#1a1f24}
+.cb-news-card__tag{font-size:11px;color:#1d9bf0;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.cb-news-card h3{font-size:15px;font-weight:700;margin:6px 0 4px;line-height:1.35}
+.cb-news-card p{font-size:13px;color:#71767b;line-height:1.4}
+.cb-empty-state{padding:32px 16px;text-align:center;color:#71767b;font-size:14px;line-height:1.6}
+.cb-messages-layout{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 120px)}
+@media(max-width:700px){.cb-messages-layout{grid-template-columns:1fr}}
+.cb-dm-list{border-right:1px solid #2f3336;overflow-y:auto}
+.cb-dm-item{display:flex;align-items:flex-start;gap:10px;width:100%;padding:12px 14px;background:none;border:none;border-bottom:1px solid #2f3336;color:#e7e9ea;text-align:left;cursor:pointer;position:relative;transition:background .15s}
+.cb-dm-item:hover,.cb-dm-item--active{background:rgba(231,233,234,.06)}
+.cb-dm-item__avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#333;flex-shrink:0}
+.cb-dm-item__body{flex:1;min-width:0}
+.cb-dm-item__top{display:flex;justify-content:space-between;gap:8px;margin-bottom:2px;font-size:13px}
+.cb-dm-item__top span{color:#71767b;font-size:12px;flex-shrink:0}
+.cb-dm-item__body p{font-size:13px;color:#71767b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0}
+.cb-dm-chat{display:flex;flex-direction:column;min-height:400px}
+.cb-dm-chat__header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #2f3336}
+.cb-dm-chat__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.cb-dm-chat__handle{display:block;font-size:12px;color:#71767b}
+.cb-dm-chat__messages{flex:1;padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:420px}
+.cb-dm-bubble{max-width:75%;padding:10px 14px;border-radius:18px;font-size:14px;line-height:1.4}
+.cb-dm-bubble--them{align-self:flex-start;background:#202327;border-bottom-left-radius:4px}
+.cb-dm-bubble--me{align-self:flex-end;background:#1d9bf0;color:#fff;border-bottom-right-radius:4px}
+.cb-dm-chat__composer{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #2f3336}
+.cb-dm-chat__input{flex:1;padding:10px 14px;border-radius:999px;border:1px solid #2f3336;background:#202327;color:#e7e9ea}
+.cb-dm-chat__input:focus{outline:none;border-color:#1d9bf0}
+.cb-notif-list{padding:0}
+.cb-notif-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-bottom:1px solid #2f3336;transition:background .15s}
+.cb-notif-item:hover{background:rgba(231,233,234,.04)}
+.cb-notif-item--unread{background:rgba(29,155,240,.06)}
+.cb-notif-item__icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.cb-notif-item__body{flex:1;min-width:0}
+.cb-notif-item__body p{font-size:14px;line-height:1.4;margin:0}
+.cb-notif-item__time{font-size:12px;color:#71767b;margin-top:4px;display:block}
+.cb-bookmarks-list{padding:0}
+.cb-profile-banner{height:160px;background:linear-gradient(135deg,#1d3a5f,#1d9bf0 50%,#7856ff)}
+.cb-profile-header{display:flex;justify-content:space-between;align-items:flex-end;padding:0 16px;margin-top:-36px;margin-bottom:12px}
+.cb-profile-header__avatar{width:96px;height:96px;border-radius:50%;border:4px solid #000;overflow:hidden;background:#333}
+.cb-profile-header__avatar img{width:100%;height:100%;object-fit:cover}
+.cb-profile-info{padding:0 16px 16px}
+.cb-profile-info__name{font-size:20px;font-weight:800}
+.cb-profile-info__handle{color:#71767b;font-size:14px;display:block;margin-top:2px}
+.cb-profile-info__bio{margin:12px 0;font-size:14px;line-height:1.45;max-width:480px}
+.cb-profile-stats{display:flex;gap:16px;font-size:14px;color:#71767b}
+.cb-profile-stats strong{color:#e7e9ea}
+.cb-profile-panel{padding:0 0 24px}
+.cb-post__action-btn--liked{color:#f91880!important}
+.cb-post__action-btn--liked svg{fill:#f91880!important}
+.cb-post__action-btn--reposted{color:#00ba7c!important}
+.cb-post__action-btn--reposted svg{stroke:#00ba7c!important}
+.cb-post__action-btn--bookmarked{color:#1d9bf0!important}
+.cb-post__action-btn--bookmarked svg{fill:#1d9bf0!important}
+.cb-post__action-btn--replied{color:#1d9bf0!important}
+.cb-post__action-btn:hover{border-radius:999px;background-color:rgba(231,233,234,.08)}
+.cb-post__action-btn:hover[aria-label="Like"]{color:#f91880;background-color:rgba(249,24,128,.1)}
+.cb-post__action-btn:hover[aria-label="Repost"]{color:#00ba7c;background-color:rgba(0,186,124,.1)}
+.cb-post__action-btn:hover[aria-label="Reply"]{color:#1d9bf0;background-color:rgba(29,155,240,.1)}
+.cb-reply-composer{display:flex;gap:12px;padding:12px 0;border-top:1px solid #2f3336;margin-top:8px;animation:cbFadeIn .2s ease-out}
+.cb-reply-composer__avatar{width:32px;height:32px;border-radius:50%;background:#333;overflow:hidden;flex-shrink:0}
+.cb-reply-composer__avatar img{width:100%;height:100%;object-fit:cover}
+.cb-reply-composer__input-wrap{flex-grow:1}
+.cb-reply-composer__input{width:100%;min-height:40px;border:none;background:transparent;color:#e7e9ea;resize:none;font-size:14px}
+.cb-reply-composer__input:focus{outline:none}
+.cb-reply-composer__actions{display:flex;justify-content:flex-end;align-items:center;margin-top:8px}
+.cb-repost-menu{position:absolute;bottom:100%;left:0;z-index:100;background:#000;border:1px solid #2f3336;border-radius:12px;padding:4px 0;min-width:150px;box-shadow:0 4px 12px rgba(0,0,0,.5);margin-bottom:4px;animation:cbFadeIn .15s ease-out}
+.cb-repost-menu__item{width:100%;padding:8px 16px;background:none;border:none;color:#e7e9ea;text-align:left;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:8px}
+.cb-repost-menu__item:hover{background:rgba(231,233,234,.1)}
+.cb-post__quoted{border:1px solid #2f3336;border-radius:12px;padding:12px;margin-top:8px;background:#000;transition:background-color .2s;cursor:pointer}
+.cb-post__quoted:hover{background:rgba(255,255,255,.03)}
+.cb-post__quoted .cb-post__header{margin-bottom:4px}
+.cb-post__quoted .cb-post__avatar{width:20px;height:20px}
+.cb-post__quoted .cb-post__author{font-size:13px}
+.cb-post__quoted .cb-post__body p{font-size:13px;margin-bottom:0}
+.cb-modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:cbFadeIn .2s ease-out}
+.cb-modal__backdrop{position:absolute;inset:0;background:rgba(91,112,131,.4);backdrop-filter:blur(2px)}
+.cb-modal__panel{position:relative;background:#000;border:1px solid #2f3336;border-radius:16px;padding:16px;width:90%;max-width:500px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.cb-modal__close{position:absolute;top:12px;right:12px;background:none;border:none;color:#71767b;cursor:pointer;font-size:18px}
+.cb-modal__close:hover{color:#e7e9ea}
+.cb-modal__composer{display:flex;gap:12px;margin-top:24px}
+.cb-modal__avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0}
+.cb-modal__input-wrap{flex-grow:1}
+.cb-modal__input{width:100%;min-height:80px;border:none;background:transparent;color:#e7e9ea;resize:none;font-size:16px}
+.cb-modal__input:focus{outline:none}
+.cb-modal__footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;border-top:1px solid #2f3336;padding-top:12px}
+.cb-modal__count-wrap{color:#71767b;font-size:13px}
+@keyframes cbFadeIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+@keyframes cbPulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 .cb-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:500;cursor:pointer}
 .cb-btn--primary{background:#1d9bf0;border-color:#1d9bf0;color:#fff}
@@ -58,4 +228,984 @@ h1,h2,h3,h4,p{margin:0}
 .cb-btn:disabled{opacity:.45;cursor:not-allowed}
 
 .cb-btn--ghost{color:#e7e9ea}
-</style><title>ChatterBox — Feed</title></head><body><div class="cb-app" id="cb-root" data-page="social-feed" data-uid="u_12345" data-theme="dark" data-feed-type="algorithmic"><div class="cb-topbar"><div class="cb-topbar__brand"><div class="cb-logo-icon">CB</div><div><div><strong>ChatterBox</strong></div><div class="cb-panel__text">Home · For you</div></div></div><div class="cb-topbar__search"><input type="search" class="cb-search-input" placeholder="Search ChatterBox" aria-label="Search ChatterBox"></div><div><button class="cb-btn cb-btn--ghost" id="top-login-btn">Log in</button></div></div><div class="cb-overlay cb-overlay--notif" role="dialog" aria-modal="true" aria-labelledby="notif-title"><div class="cb-overlay__backdrop"></div><div class="cb-overlay__panel"><div class="cb-overlay__icon" style="font-size:36px;margin-bottom:8px">🔔</div><h2 id="notif-title">Turn on notifications?</h2><p style="color:#8b98a5;margin-top:8px">Don't miss updates from people you follow, trending topics, and live replies from your network.</p><div class="cb-note">This prompt blocks the feed until you choose an option.</div><div class="cb-overlay__actions"><button class="cb-btn cb-btn--primary" id="enable-notifs">Enable Notifications</button><button class="cb-btn cb-btn--ghost" id="dismiss-notifs">Not Now</button></div></div></div><div class="cb-layout"><nav class="cb-sidebar cb-sidebar--left" role="navigation" aria-label="Primary" data-wci-role="nav" data-wci-id="feed-nav" data-wci-desc="Main navigation — Home, Explore, Messages (4 unread), Notifications (12), Bookmarks, Profile" data-wci-action="navigate" data-wci-state="{&quot;active&quot;:&quot;Home&quot;,&quot;unreadMessages&quot;:4,&quot;unreadNotifications&quot;:12}" data-wci-priority="2"><a href="/" class="cb-sidebar__logo"><div class="cb-logo-icon">CB</div></a><ul class="cb-sidebar__nav"><li class="cb-sidebar__nav-item cb-sidebar__nav-item--active"><a href="/feed"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></a></li><li class="cb-sidebar__nav-item"><a href="/explore"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span>Explore</span></a></li><li class="cb-sidebar__nav-item"><a href="/messages"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>Messages</span><span class="cb-badge">4</span></a></li><li class="cb-sidebar__nav-item"><a href="/notifications"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path></svg><span>Notifications</span><span class="cb-badge">12</span></a></li><li class="cb-sidebar__nav-item"><a href="/bookmarks"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span>Bookmarks</span></a></li><li class="cb-sidebar__nav-item"><a href="/profile"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a></li></ul><button class="cb-btn cb-btn--primary cb-btn--full cb-btn--compose" id="open-compose-sidebar">+ Post</button></nav><main class="cb-main" role="main" data-wci-role="landmark" data-wci-id="social-feed" data-wci-desc="ChatterBox social media feed — view posts, compose, interact"><div class="cb-panel"><div class="cb-panel__dot"></div><div><strong>Live</strong> <span class="cb-panel__text">Popular conversations, stories, and replies are updating now.</span></div></div><div class="cb-feed-toolbar"><span>For you · 248 new posts</span><span id="feed-filter-status">Ranking: Balanced</span></div><div class="cb-stories" role="region" aria-label="Stories"><div class="cb-stories__scroll"><button class="cb-story cb-story--add"><div class="cb-story__avatar cb-story__avatar--add">+</div><span class="cb-story__name">Your story</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar1.jpg" alt=""></div><span class="cb-story__name">alice_dev</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar2.jpg" alt=""></div><span class="cb-story__name">bob_codes</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar3.jpg" alt=""></div><span class="cb-story__name">carol_ml</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar4.jpg" alt=""></div><span class="cb-story__name">dave_ux</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar5.jpg" alt=""></div><span class="cb-story__name">eve_data</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar8.jpg" alt=""></div><span class="cb-story__name">sam_ui</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar9.jpg" alt=""></div><span class="cb-story__name">nina_pm</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar10.jpg" alt=""></div><span class="cb-story__name">nia_forge</span></button><button class="cb-story"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar11.jpg" alt=""></div><span class="cb-story__name">maya_ops</span></button></div></div><section class="cb-compose" aria-label="Create post" data-wci-role="landmark" data-wci-id="compose-post" data-wci-desc="Compose a new post" data-wci-scope="social-feed"><div class="cb-compose__avatar"><img src="/me.jpg" alt=""></div><div class="cb-compose__input-wrap"><textarea class="cb-compose__input" id="compose-input" placeholder="What's happening?" aria-label="Compose post" maxlength="280" data-wci-role="form" data-wci-id="compose-input" data-wci-desc="Write your post content" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;,&quot;charCount&quot;:0,&quot;maxChars&quot;:280}" data-wci-scope="compose-post" data-wci-priority="1"></textarea><div class="cb-compose__meta"><div class="cb-compose__error" id="compose-error">Write something to enable posting.</div><div><span id="compose-count">0</span>/280</div></div><div class="cb-compose__actions"><div class="cb-compose__tools"><button class="cb-compose__media-btn cb-btn cb-btn--ghost" title="Add image" type="button" data-wci-role="action" data-wci-id="attach-media-btn" data-wci-desc="Attach an image to the post" data-wci-action="click" data-wci-scope="compose-post" data-wci-priority="3">🖼️</button><button class="cb-compose__gif-btn cb-btn cb-btn--ghost" title="Add GIF" type="button">GIF</button><button class="cb-compose__emoji-btn cb-btn cb-btn--ghost" title="Emoji" type="button">😊</button><button class="cb-compose__poll-btn cb-btn cb-btn--ghost" title="Create poll" type="button">📊</button></div><button class="cb-btn cb-btn--primary cb-btn--sm" id="compose-submit" type="button" disabled="" data-wci-role="action" data-wci-id="post-btn" data-wci-desc="Publish the post" data-wci-action="click" data-wci-state="{&quot;disabled&quot;:true}" data-wci-precondition="Post content must not be empty" data-wci-scope="compose-post" data-wci-priority="1">Post</button></div></div></section><article class="cb-post cb-post--sponsored" data-ad-id="ad_9281"><div class="cb-post__header"><div class="cb-post__avatar"><img src="/brand1.jpg" alt=""></div><div class="cb-post__meta"><a href="/brand/techgear" class="cb-post__author">TechGear Pro</a><span class="cb-post__handle">@techgearpro</span><span class="cb-post__sep">·</span><span class="cb-post__time">32m</span><span class="cb-post__sep">·</span><span class="cb-post__label">Promoted</span></div><button class="cb-post__menu-btn" aria-label="More options">⋯</button></div><div class="cb-post__body"><p>🎧 Our new AirMax Ultra headphones are here! 40-hour battery, ANC, spatial audio. Use code LAUNCH20 for 20% off.</p><div class="cb-post__media"><img src="/ad-headphones.jpg" alt="Product ad" class="cb-post__img"></div></div><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>42</span></button><button class="cb-post__action-btn" aria-label="Repost"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>18</span></button><button class="cb-post__action-btn" aria-label="Like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>231</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button><button class="cb-post__action-btn" aria-label="Bookmark"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button></div></article><article class="cb-post" data-post-id="p_81924" data-wci-role="landmark" data-wci-id="post-p_81924" data-wci-desc="Post by @alice_dev (2h ago): 'Just shipped a new feature using AgentDOM annotations…'" data-wci-state="{&quot;author&quot;:&quot;alice_dev&quot;,&quot;time&quot;:&quot;2h&quot;,&quot;replies&quot;:89,&quot;reposts&quot;:34,&quot;likes&quot;:567}" data-wci-scope="social-feed"><div class="cb-post__header"><div class="cb-post__avatar"><img src="/avatar1.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/alice_dev" class="cb-post__author">Alice Chen</a><span class="cb-post__handle">@alice_dev</span><span class="cb-post__sep">·</span><span class="cb-post__time">2h</span></div><button class="cb-post__menu-btn" aria-label="More options">⋯</button></div><div class="cb-post__body"><p>Just shipped a new feature using AgentDOM annotations. The LLM agent completed the entire checkout flow in 3 steps instead of 15. 🚀</p><p>Thread below 👇</p></div><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply" data-wci-role="action" data-wci-id="reply-p_81924" data-wci-desc="Reply to this post" data-wci-action="click" data-wci-scope="post-p_81924" data-wci-priority="1"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>89</span></button><button class="cb-post__action-btn cb-post__action-btn--repost" aria-label="Repost" data-wci-role="action" data-wci-id="repost-p_81924" data-wci-desc="Repost this post" data-wci-action="click" data-wci-state="{&quot;reposted&quot;:false}" data-wci-scope="post-p_81924" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>34</span></button><button class="cb-post__action-btn" aria-label="Like" data-wci-role="action" data-wci-id="like-p_81924" data-wci-desc="Like this post" data-wci-action="click" data-wci-state="{&quot;liked&quot;:false,&quot;count&quot;:567}" data-wci-scope="post-p_81924" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>567</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button><button class="cb-post__action-btn" aria-label="Bookmark" data-wci-role="action" data-wci-id="bookmark-p_81924" data-wci-desc="Bookmark this post" data-wci-action="click" data-wci-state="{&quot;bookmarked&quot;:false}" data-wci-scope="post-p_81924" data-wci-priority="3"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button></div><div class="cb-replies"><article class="cb-reply" data-reply-id="r_1001"><div class="cb-reply__content"><div class="cb-post__header"><div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar2.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/bob_codes" class="cb-post__author">Bob Smith</a><span class="cb-post__handle">@bob_codes</span><span class="cb-post__sep">·</span><span class="cb-post__time">1h</span></div></div><p>That's incredible. What was the token reduction?</p><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>5</span></button><button class="cb-post__action-btn" aria-label="Like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>12</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button></div></div></article><article class="cb-reply" data-reply-id="r_1002"><div class="cb-reply__content"><div class="cb-post__header"><div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar1.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/alice_dev" class="cb-post__author">Alice Chen</a><span class="cb-post__handle">@alice_dev</span><span class="cb-post__sep">·</span><span class="cb-post__time">45m</span></div></div><p>~94% reduction on the checkout page. From 14K tokens to about 850.</p><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>3</span></button><button class="cb-post__action-btn" aria-label="Like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>28</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button></div></div></article><article class="cb-reply" data-reply-id="r_1003"><div class="cb-reply__content"><div class="cb-post__header"><div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar10.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/nia_forge" class="cb-post__author">Nia Forge</a><span class="cb-post__handle">@nia_forge</span><span class="cb-post__sep">·</span><span class="cb-post__time">30m</span></div></div><p>I’d love a breakdown of the annotation format you used. Was it DOM-native?</p><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>1</span></button><button class="cb-post__action-btn" aria-label="Like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>9</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button></div><div class="cb-replies"><article class="cb-reply" data-reply-id="r_1003_1"><div class="cb-reply__content"><div class="cb-post__header"><div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar1.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/alice_dev" class="cb-post__author">Alice Chen</a><span class="cb-post__handle">@alice_dev</span><span class="cb-post__sep">·</span><span class="cb-post__time">12m</span></div></div><p>Yes — DOM-native. We used semantic annotations plus stable action IDs, which made it much easier for the agent.</p><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>2</span></button><button class="cb-post__action-btn" aria-label="Like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>17</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button></div></div></article></div></div></article></div></article><article class="cb-post" data-post-id="p_81925" data-wci-role="landmark" data-wci-id="post-p_81925" data-wci-desc="Post by @carol_ml (4h ago): 'New paper on multi-modal web agents…'" data-wci-state="{&quot;author&quot;:&quot;carol_ml&quot;,&quot;time&quot;:&quot;4h&quot;,&quot;replies&quot;:156,&quot;reposts&quot;:89,&quot;likes&quot;:892}" data-wci-scope="social-feed"><div class="cb-post__header"><div class="cb-post__avatar"><img src="/avatar3.jpg" alt=""></div><div class="cb-post__meta"><a href="/user/carol_ml" class="cb-post__author">Carol Zhang</a><span class="cb-post__handle">@carol_ml</span><span class="cb-post__sep">·</span><span class="cb-post__time">4h</span></div><button class="cb-post__menu-btn" aria-label="More options">⋯</button></div><div class="cb-post__body"><p>New paper on multi-modal web agents. Key finding: structured markup &gt; raw screenshots for form-filling tasks. Not even close.</p><div class="cb-post__media"><div class="cb-post__link-preview"><img src="/paper-preview.jpg" alt="Paper preview" class="cb-link-preview__img"><div class="cb-link-preview__text"><span class="cb-link-preview__domain">arxiv.org</span><span class="cb-link-preview__title">Structured vs. Unstructured Web Affordances for LLM Agents</span></div></div></div></div><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply" data-wci-role="action" data-wci-id="reply-p_81925" data-wci-desc="Reply to this post" data-wci-action="click" data-wci-scope="post-p_81925" data-wci-priority="1"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>156</span></button><button class="cb-post__action-btn" aria-label="Repost" data-wci-role="action" data-wci-id="repost-p_81925" data-wci-desc="Repost this post" data-wci-action="click" data-wci-state="{&quot;reposted&quot;:false}" data-wci-scope="post-p_81925" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>89</span></button><button class="cb-post__action-btn" aria-label="Like" data-wci-role="action" data-wci-id="like-p_81925" data-wci-desc="Like this post" data-wci-action="click" data-wci-state="{&quot;liked&quot;:false,&quot;count&quot;:892}" data-wci-scope="post-p_81925" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>892</span></button><button class="cb-post__action-btn" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button><button class="cb-post__action-btn" aria-label="Bookmark"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button></div></article><div class="cb-load-more"><button class="cb-btn cb-btn--ghost cb-btn--full" id="load-more-posts" data-wci-role="action" data-wci-id="load-more-btn" data-wci-desc="Load more posts in the feed" data-wci-action="click" data-wci-scope="social-feed" data-wci-priority="3">Show more posts</button></div></main><aside class="cb-sidebar cb-sidebar--right"><div class="cb-smoke-panel"><h3 class="cb-sidebar__section-title">Scenario status</h3><div id="social-feed-smoke-status" class="cb-smoke-status">Idle — no primary action yet.</div><div class="cb-note">Expected action: like Alice's AgentDOM post.</div></div><div class="cb-trending"><h3 class="cb-sidebar__section-title">Trending</h3><div class="cb-trending__item"><span class="cb-trending__category">Technology · Trending</span><span class="cb-trending__topic">#WebAgents</span><span class="cb-trending__count">12.5K posts</span></div><div class="cb-trending__item"><span class="cb-trending__category">AI · Trending</span><span class="cb-trending__topic">#LLMTools</span><span class="cb-trending__count">8.2K posts</span></div><div class="cb-trending__item"><span class="cb-trending__category">Dev · Trending</span><span class="cb-trending__topic">#AgentDOM</span><span class="cb-trending__count">3.1K posts</span></div><div class="cb-trending__item"><span class="cb-trending__category">Startups</span><span class="cb-trending__topic">#BrowserAutomation</span><span class="cb-trending__count">1.4K posts</span></div></div><div class="cb-suggestions"><h3 class="cb-sidebar__section-title">Who to follow</h3><div class="cb-suggest-user"><div class="cb-suggest-user__info"><img src="/avatar6.jpg" alt="" class="cb-suggest-user__avatar"><div><span class="cb-suggest-user__name">Frank AI</span><span class="cb-suggest-user__handle">@frank_ai</span></div></div><button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button></div><div class="cb-suggest-user"><div class="cb-suggest-user__info"><img src="/avatar7.jpg" alt="" class="cb-suggest-user__avatar"><div><span class="cb-suggest-user__name">Grace Web</span><span class="cb-suggest-user__handle">@grace_web</span></div></div><button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button></div><div class="cb-suggest-user"><div class="cb-suggest-user__info"><img src="/avatar11.jpg" alt="" class="cb-suggest-user__avatar"><div><span class="cb-suggest-user__name">Maya Ops</span><span class="cb-suggest-user__handle">@maya_ops</span></div></div><button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button></div></div><div class="cb-sidebar__footer"><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><span>© 2026 ChatterBox</span></div></aside></div><div data-decoy="like-p_81925" class="cb-hidden"><button class="cb-post__action-btn" aria-label="Like decoy"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>892</span></button></div><div id="cb-toast" class="cb-toast cb-hidden" aria-live="polite"></div><script>window.__scenarioSmoke=window.__scenarioSmoke||{lastAction:"",updatedAt:0};(function(){const overlay=document.querySelector('.cb-overlay--notif');const toast=document.getElementById('cb-toast');const smoke=document.getElementById('social-feed-smoke-status');const composeInput=document.getElementById('compose-input');const composeSubmit=document.getElementById('compose-submit');const composeCount=document.getElementById('compose-count');const composeError=document.getElementById('compose-error');function showToast(msg){toast.textContent=msg;toast.classList.remove('cb-hidden');clearTimeout(window.__cbToastTimer);window.__cbToastTimer=setTimeout(()=>toast.classList.add('cb-hidden'),1800)}function dismissOverlay(mode){if(!overlay)return;overlay.classList.add('cb-hidden');overlay.setAttribute('aria-hidden','true');showToast(mode==='enable'?'Notifications enabled':'Notification prompt dismissed')}function updateCompose(){const len=composeInput.value.trim().length;composeCount.textContent=composeInput.value.length;const valid=len>0&&composeInput.value.length<=280;composeSubmit.disabled=!valid;composeError.textContent=len===0?'Write something to enable posting.':(composeInput.value.length>280?'Post exceeds the 280 character limit.':'Ready to post.')}if(composeInput){composeInput.addEventListener('input',updateCompose);updateCompose()}document.addEventListener('click',function(e){const b=e.target.closest('button');if(!b)return;if(b.id==='dismiss-notifs'){dismissOverlay('dismiss')}if(b.id==='enable-notifs'){dismissOverlay('enable')}if(b.id==='compose-submit'&&!b.disabled){showToast('Draft posted to your timeline');composeInput.value='';updateCompose()}if(b.matches('.cb-suggest-user .cb-btn')){const followed=b.getAttribute('data-following')==='true';b.setAttribute('data-following',String(!followed));b.textContent=followed?'Follow':'Following';b.classList.toggle('cb-btn--primary',!followed);b.classList.toggle('cb-btn--outline',followed);showToast(followed?'Unfollowed user':'Now following user')}if(b.id==='load-more-posts'){b.disabled=true;b.textContent='No more posts right now';showToast('You are caught up')}if(b.matches('article[data-post-id] .cb-post__action-btn, article[data-ad-id] .cb-post__action-btn, .cb-reply .cb-post__action-btn')){const label=b.getAttribute('aria-label')||'';const count=b.querySelector('span');if(label==='Like'&&count&&!b.matches('article[data-post-id="p_81924"] .cb-post__actions > button:nth-child(3)')){const current=parseInt(count.textContent,10)||0;const liked=b.classList.toggle('cb-post__action-btn--liked');count.textContent=String(liked?current+1:Math.max(0,current-1))}if((label==='Reply'||label==='Repost'||label==='Share'||label==='Bookmark')&&!b.matches('article[data-post-id="p_81924"] .cb-post__actions > button:nth-child(3)')){b.classList.toggle('cb-post__action-btn--active');showToast(label+' clicked')}}if(b.matches('article[data-post-id="p_81924"] .cb-post__actions > button:nth-child(3), article[data-post-id="p_81924"] .cb-post__actions button:nth-child(3)')){const span=b.querySelector('span');const liked=b.classList.toggle('cb-post__action-btn--liked');span.textContent=liked?'568':'567';const actionText=liked?'Liked @alice_dev AgentDOM post':'Unliked @alice_dev AgentDOM post';smoke.textContent=actionText+' at '+new Date().toLocaleTimeString();window.__scenarioSmoke={lastAction:actionText,updatedAt:Date.now()};showToast(actionText)}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay&&!overlay.classList.contains('cb-hidden'))dismissOverlay('dismiss')})})();</script></div></body></html>
+.cb-btn--compose{margin-top:8px;font-weight:700;padding:12px}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatterBox — Feed</title>
+</head>
+<body>
+<div class="cb-app" id="cb-root" data-page="social-feed" data-current-route="/feed" data-uid="u_12345" data-theme="dark" data-feed-type="algorithmic">
+
+  <header class="cb-topbar">
+    <div class="cb-topbar__brand">
+      <div class="cb-logo-icon">CB</div>
+      <div>
+        <div><strong>ChatterBox</strong></div>
+        <div class="cb-panel__text" id="topbar-subtitle">Home · For you</div>
+      </div>
+    </div>
+    <div class="cb-topbar__search">
+      <input type="search" class="cb-search-input" id="global-search" placeholder="Search ChatterBox" aria-label="Search ChatterBox">
+    </div>
+    <div class="cb-topbar__actions">
+      <button class="cb-btn cb-btn--ghost" id="top-login-btn" type="button">Log in</button>
+    </div>
+  </header>
+
+  <div class="cb-overlay cb-overlay--notif" role="dialog" aria-modal="true" aria-labelledby="notif-title">
+    <div class="cb-overlay__backdrop"></div>
+    <div class="cb-overlay__panel">
+      <div class="cb-overlay__icon">🔔</div>
+      <h2 id="notif-title">Turn on notifications?</h2>
+      <p class="cb-overlay__text">Don't miss updates from people you follow, trending topics, and live replies from your network.</p>
+      <div class="cb-note">This prompt blocks the feed until you choose an option.</div>
+      <div class="cb-overlay__actions">
+        <button class="cb-btn cb-btn--primary" id="enable-notifs" type="button">Enable Notifications</button>
+        <button class="cb-btn cb-btn--ghost" id="dismiss-notifs" type="button">Not Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cb-layout">
+    <nav class="cb-sidebar cb-sidebar--left" role="navigation" aria-label="Primary" data-wci-role="nav" data-wci-id="feed-nav" data-wci-desc="Main navigation — Home, Explore, Messages (4 unread), Notifications (12), Bookmarks, Profile" data-wci-action="navigate" data-wci-state="{&quot;active&quot;:&quot;Home&quot;,&quot;unreadMessages&quot;:4,&quot;unreadNotifications&quot;:12}" data-wci-priority="2">
+      <a href="#/feed" class="cb-sidebar__logo" data-route="/feed" aria-label="ChatterBox home">
+        <div class="cb-logo-icon">CB</div>
+      </a>
+      <ul class="cb-sidebar__nav">
+        <li class="cb-sidebar__nav-item cb-sidebar__nav-item--active" data-nav="/feed">
+          <a href="#/feed" data-route="/feed">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="cb-sidebar__nav-item" data-nav="/explore">
+          <a href="#/explore" data-route="/explore">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Explore</span>
+          </a>
+        </li>
+        <li class="cb-sidebar__nav-item" data-nav="/messages">
+          <a href="#/messages" data-route="/messages">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>Messages</span>
+            <span class="cb-badge" id="msg-badge">4</span>
+          </a>
+        </li>
+        <li class="cb-sidebar__nav-item" data-nav="/notifications">
+          <a href="#/notifications" data-route="/notifications">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path></svg>
+            <span>Notifications</span>
+            <span class="cb-badge" id="notif-badge">12</span>
+          </a>
+        </li>
+        <li class="cb-sidebar__nav-item" data-nav="/bookmarks">
+          <a href="#/bookmarks" data-route="/bookmarks">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <span>Bookmarks</span>
+          </a>
+        </li>
+        <li class="cb-sidebar__nav-item" data-nav="/profile">
+          <a href="#/profile" data-route="/profile">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+          </a>
+        </li>
+      </ul>
+      <button class="cb-btn cb-btn--primary cb-btn--full cb-btn--compose" id="open-compose-sidebar" type="button">+ Post</button>
+    </nav>
+
+    <main class="cb-main" role="main" data-wci-role="landmark" data-wci-id="social-feed" data-wci-desc="ChatterBox social media feed — view posts, compose, interact">
+      <!-- Feed -->
+      <section class="cb-page" data-route="/feed">
+        <div class="cb-panel">
+          <div class="cb-panel__dot"></div>
+          <div><strong>Live</strong> <span class="cb-panel__text">Popular conversations, stories, and replies are updating now.</span></div>
+        </div>
+        <div class="cb-feed-toolbar">
+          <span>For you · 248 new posts</span>
+          <span id="feed-filter-status">Ranking: Balanced</span>
+        </div>
+        <div class="cb-stories" role="region" aria-label="Stories">
+          <div class="cb-stories__scroll">
+            <button class="cb-story cb-story--add" type="button"><div class="cb-story__avatar cb-story__avatar--add">+</div><span class="cb-story__name">Your story</span></button>
+            <button class="cb-story" type="button" data-story="alice_dev"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar1.jpg" alt=""></div><span class="cb-story__name">alice_dev</span></button>
+            <button class="cb-story" type="button" data-story="bob_codes"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar2.jpg" alt=""></div><span class="cb-story__name">bob_codes</span></button>
+            <button class="cb-story" type="button" data-story="carol_ml"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar3.jpg" alt=""></div><span class="cb-story__name">carol_ml</span></button>
+            <button class="cb-story" type="button" data-story="dave_ux"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar4.jpg" alt=""></div><span class="cb-story__name">dave_ux</span></button>
+            <button class="cb-story" type="button" data-story="eve_data"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar5.jpg" alt=""></div><span class="cb-story__name">eve_data</span></button>
+            <button class="cb-story" type="button" data-story="sam_ui"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar8.jpg" alt=""></div><span class="cb-story__name">sam_ui</span></button>
+            <button class="cb-story" type="button" data-story="nina_pm"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar9.jpg" alt=""></div><span class="cb-story__name">nina_pm</span></button>
+            <button class="cb-story" type="button" data-story="nia_forge"><div class="cb-story__avatar cb-story__avatar--unseen"><img src="/avatar10.jpg" alt=""></div><span class="cb-story__name">nia_forge</span></button>
+            <button class="cb-story" type="button" data-story="maya_ops"><div class="cb-story__avatar cb-story__avatar--seen"><img src="/avatar11.jpg" alt=""></div><span class="cb-story__name">maya_ops</span></button>
+          </div>
+        </div>
+
+        <section class="cb-compose" aria-label="Create post" data-wci-role="landmark" data-wci-id="compose-post" data-wci-desc="Compose a new post" data-wci-scope="social-feed">
+          <div class="cb-compose__avatar"><img src="/me.jpg" alt=""></div>
+          <div class="cb-compose__input-wrap">
+            <textarea class="cb-compose__input" id="compose-input" placeholder="What's happening?" aria-label="Compose post" maxlength="280" data-wci-role="form" data-wci-id="compose-input" data-wci-desc="Write your post content" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;,&quot;charCount&quot;:0,&quot;maxChars&quot;:280}" data-wci-scope="compose-post" data-wci-priority="1"></textarea>
+            <div class="cb-compose__meta">
+              <div class="cb-compose__error" id="compose-error">Write something to enable posting.</div>
+              <div><span id="compose-count">0</span>/280</div>
+            </div>
+            <div class="cb-compose__actions">
+              <div class="cb-compose__tools">
+                <button class="cb-compose__media-btn cb-btn cb-btn--ghost" title="Add image" type="button" data-wci-role="action" data-wci-id="attach-media-btn" data-wci-desc="Attach an image to the post" data-wci-action="click" data-wci-scope="compose-post" data-wci-priority="3">🖼️</button>
+                <button class="cb-compose__gif-btn cb-btn cb-btn--ghost" title="Add GIF" type="button">GIF</button>
+                <button class="cb-compose__emoji-btn cb-btn cb-btn--ghost" title="Emoji" type="button">😊</button>
+                <button class="cb-compose__poll-btn cb-btn cb-btn--ghost" title="Create poll" type="button">📊</button>
+              </div>
+              <button class="cb-btn cb-btn--primary cb-btn--sm" id="compose-submit" type="button" disabled="" data-wci-role="action" data-wci-id="post-btn" data-wci-desc="Publish the post" data-wci-action="click" data-wci-state="{&quot;disabled&quot;:true}" data-wci-precondition="Post content must not be empty" data-wci-scope="compose-post" data-wci-priority="1">Post</button>
+            </div>
+          </div>
+        </section>
+
+        <article class="cb-post cb-post--sponsored" data-ad-id="ad_9281">
+          <div class="cb-post__header">
+            <div class="cb-post__avatar"><img src="/brand1.jpg" alt=""></div>
+            <div class="cb-post__meta">
+              <a href="#/profile" class="cb-post__author" data-route="/profile">TechGear Pro</a>
+              <span class="cb-post__handle">@techgearpro</span>
+              <span class="cb-post__sep">·</span>
+              <span class="cb-post__time">32m</span>
+              <span class="cb-post__sep">·</span>
+              <span class="cb-post__label">Promoted</span>
+            </div>
+            <button class="cb-post__menu-btn" aria-label="More options" type="button">⋯</button>
+          </div>
+          <div class="cb-post__body">
+            <p>🎧 Our new AirMax Ultra headphones are here! 40-hour battery, ANC, spatial audio. Use code LAUNCH20 for 20% off.</p>
+            <div class="cb-post__media"><img src="/ad-headphones.jpg" alt="Product ad" class="cb-post__img"></div>
+          </div>
+          <div class="cb-post__actions">
+            <button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>42</span></button>
+            <button class="cb-post__action-btn" aria-label="Repost" type="button"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>18</span></button>
+            <button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>231</span></button>
+            <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+            <button class="cb-post__action-btn" aria-label="Bookmark" type="button"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+          </div>
+        </article>
+
+        <article class="cb-post" data-post-id="p_81924" data-wci-role="landmark" data-wci-id="post-p_81924" data-wci-desc="Post by @alice_dev (2h ago): 'Just shipped a new feature using AgentDOM annotations…'" data-wci-state="{&quot;author&quot;:&quot;alice_dev&quot;,&quot;time&quot;:&quot;2h&quot;,&quot;replies&quot;:89,&quot;reposts&quot;:34,&quot;likes&quot;:567}" data-wci-scope="social-feed">
+          <div class="cb-post__header">
+            <div class="cb-post__avatar"><img src="/avatar1.jpg" alt=""></div>
+            <div class="cb-post__meta">
+              <a href="#/profile" class="cb-post__author" data-route="/profile">Alice Chen</a>
+              <span class="cb-post__handle">@alice_dev</span>
+              <span class="cb-post__sep">·</span>
+              <span class="cb-post__time">2h</span>
+            </div>
+            <button class="cb-post__menu-btn" aria-label="More options" type="button">⋯</button>
+          </div>
+          <div class="cb-post__body">
+            <p>Just shipped a new feature using AgentDOM annotations. The LLM agent completed the entire checkout flow in 3 steps instead of 15. 🚀</p>
+            <p>Thread below 👇</p>
+          </div>
+          <div class="cb-post__actions">
+            <button class="cb-post__action-btn" aria-label="Reply" type="button" data-wci-role="action" data-wci-id="reply-p_81924" data-wci-desc="Reply to this post" data-wci-action="click" data-wci-scope="post-p_81924" data-wci-priority="1"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>89</span></button>
+            <button class="cb-post__action-btn cb-post__action-btn--repost" aria-label="Repost" type="button" data-wci-role="action" data-wci-id="repost-p_81924" data-wci-desc="Repost this post" data-wci-action="click" data-wci-state="{&quot;reposted&quot;:false}" data-wci-scope="post-p_81924" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>34</span></button>
+            <button class="cb-post__action-btn" aria-label="Like" type="button" data-wci-role="action" data-wci-id="like-p_81924" data-wci-desc="Like this post" data-wci-action="click" data-wci-state="{&quot;liked&quot;:false,&quot;count&quot;:567}" data-wci-scope="post-p_81924" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>567</span></button>
+            <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+            <button class="cb-post__action-btn" aria-label="Bookmark" type="button" data-wci-role="action" data-wci-id="bookmark-p_81924" data-wci-desc="Bookmark this post" data-wci-action="click" data-wci-state="{&quot;bookmarked&quot;:false}" data-wci-scope="post-p_81924" data-wci-priority="3"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+          </div>
+          <div class="cb-replies">
+            <article class="cb-reply" data-reply-id="r_1001">
+              <div class="cb-reply__content">
+                <div class="cb-post__header">
+                  <div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar2.jpg" alt=""></div>
+                  <div class="cb-post__meta"><a href="#" class="cb-post__author">Bob Smith</a><span class="cb-post__handle">@bob_codes</span><span class="cb-post__sep">·</span><span class="cb-post__time">1h</span></div>
+                </div>
+                <p>That's incredible. What was the token reduction?</p>
+                <div class="cb-post__actions">
+                  <button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>5</span></button>
+                  <button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>12</span></button>
+                  <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="cb-reply" data-reply-id="r_1002">
+              <div class="cb-reply__content">
+                <div class="cb-post__header">
+                  <div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar1.jpg" alt=""></div>
+                  <div class="cb-post__meta"><a href="#" class="cb-post__author">Alice Chen</a><span class="cb-post__handle">@alice_dev</span><span class="cb-post__sep">·</span><span class="cb-post__time">45m</span></div>
+                </div>
+                <p>~94% reduction on the checkout page. From 14K tokens to about 850.</p>
+                <div class="cb-post__actions">
+                  <button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>3</span></button>
+                  <button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>28</span></button>
+                  <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="cb-reply" data-reply-id="r_1003">
+              <div class="cb-reply__content">
+                <div class="cb-post__header">
+                  <div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar10.jpg" alt=""></div>
+                  <div class="cb-post__meta"><a href="#" class="cb-post__author">Nia Forge</a><span class="cb-post__handle">@nia_forge</span><span class="cb-post__sep">·</span><span class="cb-post__time">30m</span></div>
+                </div>
+                <p>I'd love a breakdown of the annotation format you used. Was it DOM-native?</p>
+                <div class="cb-post__actions">
+                  <button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>1</span></button>
+                  <button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>9</span></button>
+                  <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+                </div>
+                <div class="cb-replies">
+                  <article class="cb-reply" data-reply-id="r_1003_1">
+                    <div class="cb-reply__content">
+                      <div class="cb-post__header">
+                        <div class="cb-post__avatar cb-post__avatar--sm"><img src="/avatar1.jpg" alt=""></div>
+                        <div class="cb-post__meta"><a href="#" class="cb-post__author">Alice Chen</a><span class="cb-post__handle">@alice_dev</span><span class="cb-post__sep">·</span><span class="cb-post__time">12m</span></div>
+                      </div>
+                      <p>Yes — DOM-native. We used semantic annotations plus stable action IDs, which made it much easier for the agent.</p>
+                      <div class="cb-post__actions">
+                        <button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>2</span></button>
+                        <button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>17</span></button>
+                        <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+
+        <article class="cb-post" data-post-id="p_81925" data-wci-role="landmark" data-wci-id="post-p_81925" data-wci-desc="Post by @carol_ml (4h ago): 'New paper on multi-modal web agents…'" data-wci-state="{&quot;author&quot;:&quot;carol_ml&quot;,&quot;time&quot;:&quot;4h&quot;,&quot;replies&quot;:156,&quot;reposts&quot;:89,&quot;likes&quot;:892}" data-wci-scope="social-feed">
+          <div class="cb-post__header">
+            <div class="cb-post__avatar"><img src="/avatar3.jpg" alt=""></div>
+            <div class="cb-post__meta">
+              <a href="#" class="cb-post__author">Carol Zhang</a>
+              <span class="cb-post__handle">@carol_ml</span>
+              <span class="cb-post__sep">·</span>
+              <span class="cb-post__time">4h</span>
+            </div>
+            <button class="cb-post__menu-btn" aria-label="More options" type="button">⋯</button>
+          </div>
+          <div class="cb-post__body">
+            <p>New paper on multi-modal web agents. Key finding: structured markup &gt; raw screenshots for form-filling tasks. Not even close.</p>
+            <div class="cb-post__media">
+              <div class="cb-post__link-preview">
+                <img src="/paper-preview.jpg" alt="Paper preview" class="cb-link-preview__img">
+                <div class="cb-link-preview__text">
+                  <span class="cb-link-preview__domain">arxiv.org</span>
+                  <span class="cb-link-preview__title">Structured vs. Unstructured Web Affordances for LLM Agents</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-post__actions">
+            <button class="cb-post__action-btn" aria-label="Reply" type="button" data-wci-role="action" data-wci-id="reply-p_81925" data-wci-desc="Reply to this post" data-wci-action="click" data-wci-scope="post-p_81925" data-wci-priority="1"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>156</span></button>
+            <button class="cb-post__action-btn" aria-label="Repost" type="button" data-wci-role="action" data-wci-id="repost-p_81925" data-wci-desc="Repost this post" data-wci-action="click" data-wci-state="{&quot;reposted&quot;:false}" data-wci-scope="post-p_81925" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>89</span></button>
+            <button class="cb-post__action-btn" aria-label="Like" type="button" data-wci-role="action" data-wci-id="like-p_81925" data-wci-desc="Like this post" data-wci-action="click" data-wci-state="{&quot;liked&quot;:false,&quot;count&quot;:892}" data-wci-scope="post-p_81925" data-wci-priority="2"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>892</span></button>
+            <button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+            <button class="cb-post__action-btn" aria-label="Bookmark" type="button"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+          </div>
+        </article>
+
+        <div class="cb-load-more">
+          <button class="cb-btn cb-btn--ghost cb-btn--full" id="load-more-posts" type="button" data-wci-role="action" data-wci-id="load-more-btn" data-wci-desc="Load more posts in the feed" data-wci-action="click" data-wci-scope="social-feed" data-wci-priority="3">Show more posts</button>
+        </div>
+      </section>
+
+      <!-- Explore -->
+      <section class="cb-page cb-hidden" data-route="/explore">
+        <div class="cb-page-header">
+          <h1 class="cb-page-header__title">Explore</h1>
+          <div class="cb-tabs" role="tablist">
+            <button class="cb-tab cb-tab--active" type="button" data-explore-tab="trending">Trending</button>
+            <button class="cb-tab" type="button" data-explore-tab="news">News</button>
+            <button class="cb-tab" type="button" data-explore-tab="sports">Sports</button>
+          </div>
+        </div>
+        <div class="cb-explore-search">
+          <input type="search" class="cb-search-input" id="explore-search" placeholder="Search topics, people, or posts">
+        </div>
+        <div class="cb-explore-panel" data-explore-panel="trending">
+          <div class="cb-trending cb-trending--inline">
+            <div class="cb-trending__item cb-trending__item--clickable" data-topic="#AgentDOM">
+              <span class="cb-trending__category">Dev · Trending</span>
+              <span class="cb-trending__topic">#AgentDOM</span>
+              <span class="cb-trending__count">3.1K posts</span>
+            </div>
+            <div class="cb-trending__item cb-trending__item--clickable" data-topic="#WebAgents">
+              <span class="cb-trending__category">Technology · Trending</span>
+              <span class="cb-trending__topic">#WebAgents</span>
+              <span class="cb-trending__count">12.5K posts</span>
+            </div>
+            <div class="cb-trending__item cb-trending__item--clickable" data-topic="#LLMTools">
+              <span class="cb-trending__category">AI · Trending</span>
+              <span class="cb-trending__topic">#LLMTools</span>
+              <span class="cb-trending__count">8.2K posts</span>
+            </div>
+            <div class="cb-trending__item cb-trending__item--clickable" data-topic="#BrowserAutomation">
+              <span class="cb-trending__category">Startups</span>
+              <span class="cb-trending__topic">#BrowserAutomation</span>
+              <span class="cb-trending__count">1.4K posts</span>
+            </div>
+          </div>
+        </div>
+        <div class="cb-explore-panel cb-hidden" data-explore-panel="news">
+          <article class="cb-news-card">
+            <span class="cb-news-card__tag">Tech</span>
+            <h3>Structured web markup beats screenshots for agent tasks</h3>
+            <p>New benchmark shows DOM annotations reduce token use by up to 94%.</p>
+          </article>
+          <article class="cb-news-card">
+            <span class="cb-news-card__tag">AI</span>
+            <h3>Open standard for agent-readable HTML gains traction</h3>
+            <p>WCI layers let sites expose typed actions without custom APIs.</p>
+          </article>
+        </div>
+        <div class="cb-explore-panel cb-hidden" data-explore-panel="sports">
+          <p class="cb-empty-state">No sports trends in your region right now.</p>
+        </div>
+      </section>
+
+      <!-- Messages -->
+      <section class="cb-page cb-hidden" data-route="/messages">
+        <div class="cb-page-header">
+          <h1 class="cb-page-header__title">Messages</h1>
+          <button class="cb-btn cb-btn--primary cb-btn--sm" id="new-dm-btn" type="button">New message</button>
+        </div>
+        <div class="cb-messages-layout">
+          <div class="cb-dm-list" id="dm-list">
+            <button class="cb-dm-item cb-dm-item--active" type="button" data-dm="alice_dev">
+              <img src="/avatar1.jpg" alt="" class="cb-dm-item__avatar">
+              <div class="cb-dm-item__body">
+                <div class="cb-dm-item__top"><strong>Alice Chen</strong><span>2m</span></div>
+                <p>Did you see the AgentDOM post? 🔥</p>
+              </div>
+              <span class="cb-badge cb-badge--dot">1</span>
+            </button>
+            <button class="cb-dm-item" type="button" data-dm="bob_codes">
+              <img src="/avatar2.jpg" alt="" class="cb-dm-item__avatar">
+              <div class="cb-dm-item__body">
+                <div class="cb-dm-item__top"><strong>Bob Smith</strong><span>1h</span></div>
+                <p>Token numbers look wild — 850 vs 14K</p>
+              </div>
+            </button>
+            <button class="cb-dm-item" type="button" data-dm="carol_ml">
+              <img src="/avatar3.jpg" alt="" class="cb-dm-item__avatar">
+              <div class="cb-dm-item__body">
+                <div class="cb-dm-item__top"><strong>Carol Zhang</strong><span>3h</span></div>
+                <p>Sharing the arxiv link shortly</p>
+              </div>
+            </button>
+            <button class="cb-dm-item" type="button" data-dm="frank_ai">
+              <img src="/avatar6.jpg" alt="" class="cb-dm-item__avatar">
+              <div class="cb-dm-item__body">
+                <div class="cb-dm-item__top"><strong>Frank AI</strong><span>Yesterday</span></div>
+                <p>Let's sync on the eval harness</p>
+              </div>
+            </button>
+          </div>
+          <div class="cb-dm-chat" id="dm-chat">
+            <div class="cb-dm-chat__header">
+              <img src="/avatar1.jpg" alt="" class="cb-dm-chat__avatar">
+              <div><strong id="dm-chat-name">Alice Chen</strong><span class="cb-dm-chat__handle">@alice_dev</span></div>
+            </div>
+            <div class="cb-dm-chat__messages" id="dm-messages">
+              <div class="cb-dm-bubble cb-dm-bubble--them">Hey! Just shipped the AgentDOM integration 🚀</div>
+              <div class="cb-dm-bubble cb-dm-bubble--me">Nice — saw your post in the feed</div>
+              <div class="cb-dm-bubble cb-dm-bubble--them">Did you see the AgentDOM post? 🔥</div>
+            </div>
+            <div class="cb-dm-chat__composer">
+              <input type="text" class="cb-dm-chat__input" id="dm-input" placeholder="Start a new message" maxlength="500">
+              <button class="cb-btn cb-btn--primary cb-btn--sm" id="dm-send" type="button">Send</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notifications -->
+      <section class="cb-page cb-hidden" data-route="/notifications">
+        <div class="cb-page-header">
+          <h1 class="cb-page-header__title">Notifications</h1>
+          <button class="cb-btn cb-btn--ghost cb-btn--sm" id="mark-all-read" type="button">Mark all read</button>
+        </div>
+        <div class="cb-notif-list" id="notif-list">
+          <div class="cb-notif-item cb-notif-item--unread">
+            <div class="cb-notif-item__icon">❤️</div>
+            <div class="cb-notif-item__body">
+              <p><strong>@bob_codes</strong> liked your reply</p>
+              <span class="cb-notif-item__time">5m ago</span>
+            </div>
+          </div>
+          <div class="cb-notif-item cb-notif-item--unread">
+            <div class="cb-notif-item__icon">🔁</div>
+            <div class="cb-notif-item__body">
+              <p><strong>@carol_ml</strong> reposted your bookmark</p>
+              <span class="cb-notif-item__time">22m ago</span>
+            </div>
+          </div>
+          <div class="cb-notif-item cb-notif-item--unread">
+            <div class="cb-notif-item__icon">👤</div>
+            <div class="cb-notif-item__body">
+              <p><strong>Frank AI</strong> followed you</p>
+              <span class="cb-notif-item__time">1h ago</span>
+            </div>
+            <button class="cb-btn cb-btn--outline cb-btn--sm cb-notif-follow-btn" type="button">Follow back</button>
+          </div>
+          <div class="cb-notif-item">
+            <div class="cb-notif-item__icon">💬</div>
+            <div class="cb-notif-item__body">
+              <p><strong>@alice_dev</strong> mentioned you in a thread about AgentDOM</p>
+              <span class="cb-notif-item__time">2h ago</span>
+            </div>
+          </div>
+          <div class="cb-notif-item">
+            <div class="cb-notif-item__icon">📈</div>
+            <div class="cb-notif-item__body">
+              <p><strong>#AgentDOM</strong> is trending in your network</p>
+              <span class="cb-notif-item__time">3h ago</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bookmarks -->
+      <section class="cb-page cb-hidden" data-route="/bookmarks">
+        <div class="cb-page-header">
+          <h1 class="cb-page-header__title">Bookmarks</h1>
+        </div>
+        <div id="bookmarks-empty" class="cb-empty-state">
+          <p>No bookmarks yet.</p>
+          <p class="cb-panel__text">Save posts from your feed — they'll appear here.</p>
+          <button class="cb-btn cb-btn--primary cb-btn--sm" type="button" data-route="/feed">Go to feed</button>
+        </div>
+        <div id="bookmarks-list" class="cb-bookmarks-list cb-hidden"></div>
+      </section>
+
+      <!-- Profile -->
+      <section class="cb-page cb-hidden" data-route="/profile">
+        <div class="cb-profile-banner"></div>
+        <div class="cb-profile-header">
+          <div class="cb-profile-header__avatar"><img src="/me.jpg" alt=""></div>
+          <div class="cb-profile-header__actions">
+            <button class="cb-btn cb-btn--outline cb-btn--sm" id="edit-profile-btn" type="button">Edit profile</button>
+          </div>
+        </div>
+        <div class="cb-profile-info">
+          <h1 class="cb-profile-info__name">Me</h1>
+          <span class="cb-profile-info__handle">@me</span>
+          <p class="cb-profile-info__bio">Building agent-friendly web experiences. Benchmarking WCI scenarios.</p>
+          <div class="cb-profile-stats">
+            <span><strong>128</strong> Following</span>
+            <span><strong>1.2K</strong> Followers</span>
+            <span><strong>342</strong> Posts</span>
+          </div>
+        </div>
+        <div class="cb-tabs cb-tabs--profile">
+          <button class="cb-tab cb-tab--active" type="button" data-profile-tab="posts">Posts</button>
+          <button class="cb-tab" type="button" data-profile-tab="replies">Replies</button>
+          <button class="cb-tab" type="button" data-profile-tab="media">Media</button>
+          <button class="cb-tab" type="button" data-profile-tab="likes">Likes</button>
+        </div>
+        <div class="cb-profile-panel" data-profile-panel="posts">
+          <article class="cb-post cb-post--compact">
+            <div class="cb-post__header">
+              <div class="cb-post__meta"><span class="cb-post__time">May 28</span></div>
+            </div>
+            <div class="cb-post__body"><p>Running evals on the new social-feed scenario — nested replies are brutal for raw DOM agents.</p></div>
+          </article>
+          <article class="cb-post cb-post--compact">
+            <div class="cb-post__header">
+              <div class="cb-post__meta"><span class="cb-post__time">May 25</span></div>
+            </div>
+            <div class="cb-post__body"><p>Shipped WCI distiller v0.3 with scope filtering 🎉</p></div>
+          </article>
+        </div>
+        <div class="cb-profile-panel cb-hidden" data-profile-panel="replies">
+          <p class="cb-empty-state">Your replies will show up here.</p>
+        </div>
+        <div class="cb-profile-panel cb-hidden" data-profile-panel="media">
+          <p class="cb-empty-state">No media posts yet.</p>
+        </div>
+        <div class="cb-profile-panel cb-hidden" data-profile-panel="likes">
+          <p class="cb-empty-state">Posts you like are private unless you change settings.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cb-sidebar cb-sidebar--right">
+      <div class="cb-smoke-panel">
+        <h3 class="cb-sidebar__section-title">Scenario status</h3>
+        <div id="social-feed-smoke-status" class="cb-smoke-status">Idle — no primary action yet.</div>
+        <div class="cb-note">Expected action: like Alice's AgentDOM post.</div>
+      </div>
+      <div class="cb-trending">
+        <h3 class="cb-sidebar__section-title">Trending</h3>
+        <div class="cb-trending__item cb-trending__item--clickable" data-topic="#WebAgents">
+          <span class="cb-trending__category">Technology · Trending</span>
+          <span class="cb-trending__topic">#WebAgents</span>
+          <span class="cb-trending__count">12.5K posts</span>
+        </div>
+        <div class="cb-trending__item cb-trending__item--clickable" data-topic="#LLMTools">
+          <span class="cb-trending__category">AI · Trending</span>
+          <span class="cb-trending__topic">#LLMTools</span>
+          <span class="cb-trending__count">8.2K posts</span>
+        </div>
+        <div class="cb-trending__item cb-trending__item--clickable" data-topic="#AgentDOM">
+          <span class="cb-trending__category">Dev · Trending</span>
+          <span class="cb-trending__topic">#AgentDOM</span>
+          <span class="cb-trending__count">3.1K posts</span>
+        </div>
+        <div class="cb-trending__item cb-trending__item--clickable" data-topic="#BrowserAutomation">
+          <span class="cb-trending__category">Startups</span>
+          <span class="cb-trending__topic">#BrowserAutomation</span>
+          <span class="cb-trending__count">1.4K posts</span>
+        </div>
+      </div>
+      <div class="cb-suggestions">
+        <h3 class="cb-sidebar__section-title">Who to follow</h3>
+        <div class="cb-suggest-user">
+          <div class="cb-suggest-user__info">
+            <img src="/avatar6.jpg" alt="" class="cb-suggest-user__avatar">
+            <div><span class="cb-suggest-user__name">Frank AI</span><span class="cb-suggest-user__handle">@frank_ai</span></div>
+          </div>
+          <button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button>
+        </div>
+        <div class="cb-suggest-user">
+          <div class="cb-suggest-user__info">
+            <img src="/avatar7.jpg" alt="" class="cb-suggest-user__avatar">
+            <div><span class="cb-suggest-user__name">Grace Web</span><span class="cb-suggest-user__handle">@grace_web</span></div>
+          </div>
+          <button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button>
+        </div>
+        <div class="cb-suggest-user">
+          <div class="cb-suggest-user__info">
+            <img src="/avatar11.jpg" alt="" class="cb-suggest-user__avatar">
+            <div><span class="cb-suggest-user__name">Maya Ops</span><span class="cb-suggest-user__handle">@maya_ops</span></div>
+          </div>
+          <button class="cb-btn cb-btn--outline cb-btn--sm" type="button">Follow</button>
+        </div>
+      </div>
+      <div class="cb-sidebar__footer">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <span>© 2026 ChatterBox</span>
+      </div>
+    </aside>
+  </div>
+
+  <div data-decoy="like-p_81925" class="cb-hidden">
+    <button class="cb-post__action-btn" aria-label="Like decoy" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>892</span></button>
+  </div>
+
+  <div id="cb-toast" class="cb-toast cb-hidden" aria-live="polite"></div>
+</div>
+
+<script>window.__scenarioSmoke=window.__scenarioSmoke||{lastAction:"",updatedAt:0};
+(function(){
+const ROUTE_TITLES={
+  '/feed':'Home · For you','/explore':'Explore · Trending','/messages':'Messages',
+  '/notifications':'Notifications','/bookmarks':'Bookmarks','/profile':'Profile'
+};
+const DM_THREADS={
+  alice_dev:{name:'Alice Chen',handle:'@alice_dev',avatar:'/avatar1.jpg',msgs:[
+    {from:'them',text:'Hey! Just shipped the AgentDOM integration 🚀'},
+    {from:'me',text:'Nice — saw your post in the feed'},
+    {from:'them',text:'Did you see the AgentDOM post? 🔥'}
+  ]},
+  bob_codes:{name:'Bob Smith',handle:'@bob_codes',avatar:'/avatar2.jpg',msgs:[
+    {from:'them',text:'Token numbers look wild — 850 vs 14K'}
+  ]},
+  carol_ml:{name:'Carol Zhang',handle:'@carol_ml',avatar:'/avatar3.jpg',msgs:[
+    {from:'them',text:'Sharing the arxiv link shortly'}
+  ]},
+  frank_ai:{name:'Frank AI',handle:'@frank_ai',avatar:'/avatar6.jpg',msgs:[
+    {from:'them',text:"Let's sync on the eval harness"}
+  ]}
+};
+const state={bookmarks:[],unreadNotifs:12,unreadMsgs:4,activeDm:'alice_dev',overlayDismissed:false};
+const isAnnotated=document.querySelector('[data-wci-id]')!==null;
+const root=document.getElementById('cb-root');
+const overlay=document.querySelector('.cb-overlay--notif');
+const toast=document.getElementById('cb-toast');
+const smoke=document.getElementById('social-feed-smoke-status');
+const composeInput=document.getElementById('compose-input');
+const composeSubmit=document.getElementById('compose-submit');
+const composeCount=document.getElementById('compose-count');
+const composeError=document.getElementById('compose-error');
+const subtitle=document.getElementById('topbar-subtitle');
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+
+function showToast(msg){
+  if(!toast)return;
+  toast.textContent=msg;
+  toast.classList.remove('cb-hidden');
+  clearTimeout(window.__cbToastTimer);
+  window.__cbToastTimer=setTimeout(()=>toast.classList.add('cb-hidden'),1800);
+}
+function dismissOverlay(mode){
+  if(!overlay||state.overlayDismissed)return;
+  overlay.classList.add('cb-hidden');
+  overlay.setAttribute('aria-hidden','true');
+  state.overlayDismissed=true;
+  showToast(mode==='enable'?'Notifications enabled':'Notification prompt dismissed');
+}
+function updateCompose(){
+  if(!composeInput)return;
+  const len=composeInput.value.trim().length;
+  composeCount.textContent=composeInput.value.length;
+  const valid=len>0&&composeInput.value.length<=280;
+  composeSubmit.disabled=!valid;
+  composeError.textContent=len===0?'Write something to enable posting.':(composeInput.value.length>280?'Post exceeds the 280 character limit.':'Ready to post.');
+  if(isAnnotated&&composeInput.dataset.wciId){
+    composeInput.dataset.wciState=JSON.stringify({value:composeInput.value,charCount:composeInput.value.length,maxChars:280});
+    if(composeSubmit.dataset.wciId)composeSubmit.dataset.wciState=JSON.stringify({disabled:!valid});
+  }
+}
+function annotate(el,id,role,desc,action,st,scope,priority,precondition){
+  if(!isAnnotated||!el)return;
+  el.setAttribute('data-wci-id',id);
+  el.setAttribute('data-wci-role',role);
+  el.setAttribute('data-wci-desc',desc);
+  if(action)el.setAttribute('data-wci-action',action);
+  if(st)el.setAttribute('data-wci-state',typeof st==='string'?st:JSON.stringify(st));
+  if(scope)el.setAttribute('data-wci-scope',scope);
+  if(priority)el.setAttribute('data-wci-priority',String(priority));
+  if(precondition)el.setAttribute('data-wci-precondition',precondition);
+}
+function notifyWciState(el){
+  if(!isAnnotated||!el||!el.dataset.wciId)return;
+  let st={};
+  try{st=JSON.parse(el.dataset.wciState||'{}')}catch(e){}
+  document.dispatchEvent(new CustomEvent('wci:state-change',{detail:{nodeId:el.dataset.wciId,action:el.dataset.wciAction||'click',stateAfter:st}}));
+}
+function setNavActive(route){
+  $$('.cb-sidebar__nav-item').forEach(li=>li.classList.toggle('cb-sidebar__nav-item--active',li.getAttribute('data-nav')===route));
+}
+function navigate(route,opts){
+  if(!ROUTE_TITLES[route])route='/feed';
+  $$('.cb-page').forEach(p=>p.classList.toggle('cb-hidden',p.getAttribute('data-route')!==route));
+  setNavActive(route);
+  if(subtitle)subtitle.textContent=ROUTE_TITLES[route];
+  if(root)root.dataset.currentRoute=route;
+  if(opts?.push!==false)location.hash=route;
+  if(route==='/bookmarks')renderBookmarks();
+  if(route==='/feed'&&!state.overlayDismissed&&overlay)overlay.classList.remove('cb-hidden');
+  window.__scenarioSmoke=Object.assign(window.__scenarioSmoke||{},{lastAction:'navigated to '+route,currentRoute:route,updatedAt:Date.now()});
+}
+function renderDmThread(id){
+  const t=DM_THREADS[id];if(!t)return;
+  state.activeDm=id;
+  const nameEl=$('#dm-chat-name');if(nameEl)nameEl.textContent=t.name;
+  const handleEl=$('.cb-dm-chat__handle');if(handleEl)handleEl.textContent=t.handle;
+  const av=$('.cb-dm-chat__avatar');if(av)av.src=t.avatar;
+  const box=$('#dm-messages');
+  if(box)box.innerHTML=t.msgs.map(m=>'<div class="cb-dm-bubble cb-dm-bubble--'+m.from+'">'+m.text+'</div>').join('');
+  $$('.cb-dm-item').forEach(b=>b.classList.toggle('cb-dm-item--active',b.getAttribute('data-dm')===id));
+}
+function renderBookmarks(){
+  const list=$('#bookmarks-list');
+  const empty=$('#bookmarks-empty');
+  if(!list||!empty)return;
+  if(!state.bookmarks.length){
+    list.classList.add('cb-hidden');
+    empty.classList.remove('cb-hidden');
+    return;
+  }
+  empty.classList.add('cb-hidden');
+  list.classList.remove('cb-hidden');
+  list.innerHTML=state.bookmarks.map(b=>'<article class="cb-post cb-post--compact"><div class="cb-post__header"><div class="cb-post__meta"><strong>'+b.author+'</strong><span class="cb-post__handle">'+b.handle+'</span></div></div><div class="cb-post__body"><p>'+b.text+'</p></div></article>').join('');
+}
+function addBookmark(post){
+  const author=post.querySelector('.cb-post__author')?.textContent||'Unknown';
+  const handle=post.querySelector('.cb-post__handle')?.textContent||'';
+  const text=post.querySelector('.cb-post__body p')?.textContent||'Saved post';
+  const id=post.getAttribute('data-post-id')||post.getAttribute('data-ad-id')||String(Date.now());
+  if(state.bookmarks.some(b=>b.id===id))return;
+  state.bookmarks.unshift({id,author,handle,text});
+}
+function createPostElement(postId,author,handle,avatar,text,quotedPostHtml=''){
+  const article=document.createElement('article');
+  article.className='cb-post';
+  article.setAttribute('data-post-id',postId);
+  annotate(article,'post-'+postId,'landmark',"Post by "+handle+": '"+text.slice(0,40)+"'",null,{author,handle,replies:0,reposts:0,likes:0},'social-feed');
+  article.innerHTML='<div class="cb-post__header"><div class="cb-post__avatar"><img src="'+avatar+'" alt=""></div><div class="cb-post__meta"><a href="#" class="cb-post__author">'+author+'</a><span class="cb-post__handle">'+handle+'</span><span class="cb-post__sep">·</span><span class="cb-post__time">Just now</span></div><button class="cb-post__menu-btn" aria-label="More options" type="button">⋯</button></div><div class="cb-post__body"><p>'+text+'</p>'+quotedPostHtml+'</div><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>0</span></button><button class="cb-post__action-btn" aria-label="Repost" type="button"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"></path></svg><span>0</span></button><button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>0</span></button><button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button><button class="cb-post__action-btn" aria-label="Bookmark" type="button"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button></div>';
+  const rpl=article.querySelector('[aria-label="Reply"]');annotate(rpl,'reply-'+postId,'action','Reply to this post','click',null,'post-'+postId,1);
+  const rep=article.querySelector('[aria-label="Repost"]');annotate(rep,'repost-'+postId,'action','Repost this post','click',{reposted:false},'post-'+postId,2);
+  const lk=article.querySelector('[aria-label="Like"]');annotate(lk,'like-'+postId,'action','Like this post','click',{liked:false,count:0},'post-'+postId,2);
+  const bm=article.querySelector('[aria-label="Bookmark"]');annotate(bm,'bookmark-'+postId,'action','Bookmark this post','click',{bookmarked:false},'post-'+postId,3);
+  return article;
+}
+function handleMainPostCreate(){
+  const text=composeInput.value.trim();if(!text)return;
+  const postId='p_'+Date.now();
+  const newPost=createPostElement(postId,'Me','@me','/me.jpg',text);
+  const composeSection=document.querySelector('.cb-compose');
+  composeSection.parentNode.insertBefore(newPost,composeSection.nextSibling);
+  composeInput.value='';updateCompose();
+  showToast('Post published to your timeline');
+  notifyWciState(newPost);
+}
+function focusCompose(){
+  navigate('/feed',{push:false});
+  if(composeInput){composeInput.focus();composeInput.scrollIntoView({behavior:'smooth',block:'center'})}
+}
+
+if(composeInput){composeInput.addEventListener('input',updateCompose);updateCompose()}
+
+$$('a[data-route],button[data-route]').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault();navigate(el.getAttribute('data-route'))});
+});
+window.addEventListener('hashchange',()=>{
+  const r=location.hash.replace(/^#/,'')||'/feed';
+  navigate(r,{push:false});
+});
+
+$('#open-compose-sidebar')?.addEventListener('click',focusCompose);
+$('#global-search')?.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.value.trim()){
+    navigate('/explore');
+    const ex=$('#explore-search');if(ex){ex.value=e.target.value;showToast('Searching for "'+e.target.value.trim()+'"')}
+  }
+});
+$('#explore-search')?.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.value.trim())showToast('Showing results for "'+e.target.value.trim()+'"');
+});
+$$('[data-explore-tab]').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('[data-explore-tab]').forEach(t=>t.classList.toggle('cb-tab--active',t===tab));
+    $$('[data-explore-panel]').forEach(p=>p.classList.toggle('cb-hidden',p.getAttribute('data-explore-panel')!==tab.getAttribute('data-explore-tab')));
+  });
+});
+$$('[data-profile-tab]').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('[data-profile-tab]').forEach(t=>t.classList.toggle('cb-tab--active',t===tab));
+    $$('[data-profile-panel]').forEach(p=>p.classList.toggle('cb-hidden',p.getAttribute('data-profile-panel')!==tab.getAttribute('data-profile-tab')));
+  });
+});
+$$('.cb-trending__item--clickable').forEach(item=>{
+  item.addEventListener('click',()=>{
+    navigate('/explore');
+    showToast('Showing posts for '+item.getAttribute('data-topic'));
+  });
+});
+$$('.cb-dm-item').forEach(item=>{
+  item.addEventListener('click',()=>renderDmThread(item.getAttribute('data-dm')));
+});
+$('#dm-send')?.addEventListener('click',()=>{
+  const input=$('#dm-input');const text=input?.value.trim();if(!text||!state.activeDm)return;
+  const t=DM_THREADS[state.activeDm];if(!t)return;
+  t.msgs.push({from:'me',text});
+  input.value='';
+  renderDmThread(state.activeDm);
+  showToast('Message sent');
+});
+$('#dm-input')?.addEventListener('keydown',e=>{if(e.key==='Enter'){$('#dm-send')?.click()}});
+$('#mark-all-read')?.addEventListener('click',()=>{
+  $$('.cb-notif-item--unread').forEach(n=>n.classList.remove('cb-notif-item--unread'));
+  state.unreadNotifs=0;
+  const badge=$('#notif-badge');if(badge)badge.textContent='0';
+  showToast('All notifications marked as read');
+});
+$$('.cb-notif-follow-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const following=btn.getAttribute('data-following')==='true';
+    btn.setAttribute('data-following',String(!following));
+    btn.textContent=following?'Follow back':'Following';
+    btn.classList.toggle('cb-btn--primary',!following);
+    btn.classList.toggle('cb-btn--outline',following);
+    showToast(following?'Unfollowed':'Now following Frank AI');
+  });
+});
+$$('.cb-story').forEach(story=>{
+  story.addEventListener('click',()=>{
+    const name=story.getAttribute('data-story')||'user';
+    if(story.classList.contains('cb-story--add'))showToast('Story composer opened');
+    else showToast('Viewing '+name+"'s story");
+  });
+});
+$('#edit-profile-btn')?.addEventListener('click',()=>showToast('Profile editor opened'));
+$('#new-dm-btn')?.addEventListener('click',()=>showToast('New message composer opened'));
+$('#top-login-btn')?.addEventListener('click',()=>showToast('Login modal would open here'));
+
+document.addEventListener('click',function(e){
+  const openMenu=document.querySelector('.cb-repost-menu');
+  if(openMenu&&!e.target.closest('[aria-label="Repost"]'))openMenu.remove();
+  const b=e.target.closest('button');
+  if(!b)return;
+  if(b.id==='dismiss-notifs')dismissOverlay('dismiss');
+  if(b.id==='enable-notifs')dismissOverlay('enable');
+  if(b.id==='compose-submit'&&!b.disabled){handleMainPostCreate();return}
+  if(b.matches('.cb-suggest-user .cb-btn')){
+    const followed=b.getAttribute('data-following')==='true';
+    b.setAttribute('data-following',String(!followed));
+    b.textContent=followed?'Follow':'Following';
+    b.classList.toggle('cb-btn--primary',!followed);
+    b.classList.toggle('cb-btn--outline',followed);
+    showToast(followed?'Unfollowed user':'Now following user');
+    if(isAnnotated){b.dataset.wciState=JSON.stringify({following:!followed});notifyWciState(b)}
+    return;
+  }
+  if(b.id==='load-more-posts'){b.disabled=true;b.textContent='No more posts right now';showToast('You are caught up');return}
+  if(b.matches('.cb-post__action-btn[aria-label="Reply"]')){
+    const post=b.closest('article.cb-post, .cb-reply');if(!post)return;
+    let composer=post.querySelector('.cb-reply-composer');
+    if(composer){composer.remove();b.classList.remove('cb-post__action-btn--replied')}
+    else{
+      b.classList.add('cb-post__action-btn--replied');
+      composer=document.createElement('div');
+      composer.className='cb-reply-composer';
+      composer.innerHTML='<div class="cb-reply-composer__avatar"><img src="/me.jpg" alt=""></div><div class="cb-reply-composer__input-wrap"><textarea class="cb-reply-composer__input" placeholder="Post your reply" maxlength="280"></textarea><div class="cb-reply-composer__actions"><button class="cb-btn cb-btn--primary cb-btn--sm cb-reply-composer__submit" disabled type="button">Reply</button></div></div>';
+      const ta=composer.querySelector('textarea');
+      const submitBtn=composer.querySelector('.cb-reply-composer__submit');
+      ta.addEventListener('input',()=>{submitBtn.disabled=ta.value.trim().length===0});
+      const wciPostId=post.getAttribute('data-post-id')||post.getAttribute('data-reply-id');
+      annotate(composer,'reply-comp-'+wciPostId,'form','Compose a reply comment',null,null,'post-'+wciPostId);
+      annotate(ta,'reply-input-'+wciPostId,'form','Write your reply comment text','fill',null,'reply-comp-'+wciPostId);
+      annotate(submitBtn,'reply-submit-'+wciPostId,'action','Publish reply comment','click',null,'reply-comp-'+wciPostId);
+      const body=post.querySelector('.cb-post__body')||post.querySelector('.cb-reply__content');
+      body.appendChild(composer);ta.focus();
+    }
+    return;
+  }
+  if(b.matches('.cb-reply-composer__submit')){
+    const composer=b.closest('.cb-reply-composer');
+    const post=b.closest('article.cb-post, .cb-reply');
+    if(!composer||!post)return;
+    const ta=composer.querySelector('textarea');
+    const text=ta.value.trim();if(!text)return;
+    let repliesWrap=post.querySelector('.cb-replies');
+    if(!repliesWrap){repliesWrap=document.createElement('div');repliesWrap.className='cb-replies';post.appendChild(repliesWrap)}
+    const replyId='r_'+Date.now();
+    const replyEl=document.createElement('article');
+    replyEl.className='cb-reply';
+    replyEl.setAttribute('data-reply-id',replyId);
+    annotate(replyEl,'reply-'+replyId,'landmark',"Reply comment: '"+text.slice(0,30)+"'",null,{author:'Me',text},'post-'+(post.getAttribute('data-post-id')||post.getAttribute('data-reply-id')));
+    replyEl.innerHTML='<div class="cb-reply__content"><div class="cb-post__header"><div class="cb-post__avatar cb-post__avatar--sm"><img src="/me.jpg" alt=""></div><div class="cb-post__meta"><a href="#" class="cb-post__author">Me</a><span class="cb-post__handle">@me</span><span class="cb-post__sep">·</span><span class="cb-post__time">Just now</span></div></div><p>'+text+'</p><div class="cb-post__actions"><button class="cb-post__action-btn" aria-label="Reply" type="button"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>0</span></button><button class="cb-post__action-btn" aria-label="Like" type="button"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>0</span></button><button class="cb-post__action-btn" aria-label="Share" type="button"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg></button></div></div>';
+    const lk=replyEl.querySelector('[aria-label="Like"]');annotate(lk,'like-'+replyId,'action','Like comment','click',{liked:false,count:0},'reply-'+replyId,2);
+    repliesWrap.appendChild(replyEl);
+    const parentReplyBtn=post.querySelector('.cb-post__actions > [aria-label="Reply"]');
+    if(parentReplyBtn){const replySpan=parentReplyBtn.querySelector('span');if(replySpan){const currentCount=parseInt(replySpan.textContent,10)||0;replySpan.textContent=String(currentCount+1)}}
+    composer.remove();
+    const parentReplyToggle=post.querySelector('.cb-post__actions > [aria-label="Reply"]');
+    if(parentReplyToggle)parentReplyToggle.classList.remove('cb-post__action-btn--replied');
+    showToast('Reply posted');notifyWciState(replyEl);
+    return;
+  }
+  if(b.matches('.cb-post__action-btn[aria-label="Repost"]')){
+    const post=b.closest('article.cb-post');if(!post)return;
+    const existingMenu=b.parentNode.querySelector('.cb-repost-menu');
+    if(existingMenu){existingMenu.remove();return}
+    const menuWrap=document.createElement('div');
+    menuWrap.className='cb-repost-menu';
+    menuWrap.innerHTML='<button class="cb-repost-menu__item cb-repost-menu__item-simple" type="button"><span>🔁</span> Repost</button><button class="cb-repost-menu__item cb-repost-menu__item-quote" type="button"><span>✍️</span> Quote Post</button>';
+    const pid=post.getAttribute('data-post-id');
+    annotate(menuWrap,'repost-menu-'+pid,'nav','Repost options menu',null,null,'post-'+pid);
+    annotate(menuWrap.querySelectorAll('.cb-repost-menu__item')[0],'repost-simple-'+pid,'action','Repost immediately','click',null,'repost-menu-'+pid);
+    annotate(menuWrap.querySelectorAll('.cb-repost-menu__item')[1],'repost-quote-'+pid,'action','Write a quote repost','click',null,'repost-menu-'+pid);
+    b.parentNode.appendChild(menuWrap);
+    return;
+  }
+  if(b.matches('.cb-repost-menu__item-simple')){
+    const post=b.closest('article.cb-post');
+    const repostBtn=post?.querySelector('.cb-post__actions > [aria-label="Repost"]');
+    if(!post||!repostBtn)return;
+    const author=post.querySelector('.cb-post__author').textContent;
+    const handle=post.querySelector('.cb-post__handle').textContent;
+    const avatar=post.querySelector('.cb-post__avatar img').src;
+    const text=post.querySelector('.cb-post__body p').textContent;
+    const quotedHtml='<div class="cb-post__quoted"><div class="cb-post__header"><div class="cb-post__avatar"><img src="'+avatar+'" alt=""></div><div class="cb-post__meta"><span class="cb-post__author">'+author+'</span><span class="cb-post__handle">'+handle+'</span></div></div><div class="cb-post__body"><p>'+text+'</p></div></div>';
+    const newPost=createPostElement('p_rep_'+Date.now(),'Me','@me','/me.jpg','🔁 Reposted this',quotedHtml);
+    document.querySelector('.cb-compose').parentNode.insertBefore(newPost,document.querySelector('.cb-compose').nextSibling);
+    const repSpan=repostBtn.querySelector('span');if(repSpan){const c=parseInt(repSpan.textContent,10)||0;repSpan.textContent=String(c+1)}
+    repostBtn.classList.add('cb-post__action-btn--reposted');
+    b.closest('.cb-repost-menu')?.remove();
+    showToast('Reposted successfully');notifyWciState(newPost);
+    return;
+  }
+  if(b.matches('.cb-repost-menu__item-quote')){
+    const post=b.closest('article.cb-post');if(!post)return;
+    const author=post.querySelector('.cb-post__author').textContent;
+    const handle=post.querySelector('.cb-post__handle').textContent;
+    const avatar=post.querySelector('.cb-post__avatar img').src;
+    const text=post.querySelector('.cb-post__body p').textContent;
+    const modal=document.createElement('div');
+    modal.className='cb-modal';
+    modal.innerHTML='<div class="cb-modal__backdrop"></div><div class="cb-modal__panel"><button class="cb-modal__close" type="button">✕</button><div class="cb-modal__composer"><img src="/me.jpg" alt="" class="cb-modal__avatar"><div class="cb-modal__input-wrap"><textarea class="cb-modal__input" placeholder="Add a comment..." maxlength="280"></textarea><div class="cb-post__quoted"><div class="cb-post__header"><div class="cb-post__avatar"><img src="'+avatar+'" alt=""></div><div class="cb-post__meta"><span class="cb-post__author">'+author+'</span><span class="cb-post__handle">'+handle+'</span></div></div><div class="cb-post__body"><p>'+text+'</p></div></div></div></div><div class="cb-modal__footer"><span class="cb-modal__count-wrap"><span class="cb-modal__count">0</span>/280</span><button class="cb-btn cb-btn--primary cb-btn--sm cb-modal__submit" disabled type="button">Post</button></div></div>';
+    annotate(modal,'quote-modal','landmark','Quote post composition dialog',null,null,'social-feed');
+    const close=modal.querySelector('.cb-modal__close');
+    const ta=modal.querySelector('.cb-modal__input');
+    const submitBtn=modal.querySelector('.cb-modal__submit');
+    const count=modal.querySelector('.cb-modal__count');
+    annotate(close,'quote-modal-close','action','Cancel quote post','click',null,'quote-modal');
+    annotate(ta,'quote-modal-input','form','Quote post commentary text','fill',null,'quote-modal');
+    annotate(submitBtn,'quote-modal-submit','action','Publish quote post','click',null,'quote-modal');
+    ta.addEventListener('input',()=>{const len=ta.value.trim().length;count.textContent=String(ta.value.length);submitBtn.disabled=len===0||ta.value.length>280});
+    submitBtn.addEventListener('click',()=>{
+      const quoteText=ta.value.trim();if(!quoteText)return;
+      const quotedHtml='<div class="cb-post__quoted"><div class="cb-post__header"><div class="cb-post__avatar"><img src="'+avatar+'" alt=""></div><div class="cb-post__meta"><span class="cb-post__author">'+author+'</span><span class="cb-post__handle">'+handle+'</span></div></div><div class="cb-post__body"><p>'+text+'</p></div></div>';
+      const newPost=createPostElement('p_rep_'+Date.now(),'Me','@me','/me.jpg',quoteText,quotedHtml);
+      document.querySelector('.cb-compose').parentNode.insertBefore(newPost,document.querySelector('.cb-compose').nextSibling);
+      const repostBtn=post.querySelector('.cb-post__actions > [aria-label="Repost"]');
+      if(repostBtn){const repSpan=repostBtn.querySelector('span');if(repSpan){const c=parseInt(repSpan.textContent,10)||0;repSpan.textContent=String(c+1)}repostBtn.classList.add('cb-post__action-btn--reposted')}
+      modal.remove();showToast('Quote post published');notifyWciState(newPost);
+    });
+    close.addEventListener('click',()=>modal.remove());
+    modal.querySelector('.cb-modal__backdrop').addEventListener('click',()=>modal.remove());
+    document.body.appendChild(modal);ta.focus();
+    b.closest('.cb-repost-menu')?.remove();
+    return;
+  }
+  if(b.matches('article[data-post-id] .cb-post__action-btn, article[data-ad-id] .cb-post__action-btn, .cb-reply .cb-post__action-btn')){
+    const label=b.getAttribute('aria-label')||'';
+    const countEl=b.querySelector('span');
+    if(b.matches('article[data-post-id="p_81924"] .cb-post__actions > button:nth-child(3), article[data-post-id="p_81924"] .cb-post__actions button:nth-child(3)')){
+      const span=b.querySelector('span');
+      const liked=b.classList.toggle('cb-post__action-btn--liked');
+      span.textContent=liked?'568':'567';
+      const actionText=liked?'Liked @alice_dev AgentDOM post':'Unliked @alice_dev AgentDOM post';
+      if(smoke)smoke.textContent=actionText+' at '+new Date().toLocaleTimeString();
+      window.__scenarioSmoke={lastAction:actionText,updatedAt:Date.now()};
+      showToast(actionText);
+      if(isAnnotated){
+        const postEl=b.closest('article.cb-post');
+        b.dataset.wciState=JSON.stringify({liked,count:liked?568:567});
+        if(postEl){postEl.dataset.wciState=JSON.stringify({author:'alice_dev',time:'2h',replies:89,reposts:34,likes:liked?568:567});notifyWciState(postEl)}
+        notifyWciState(b);
+      }
+      return;
+    }
+    if(label==='Like'&&countEl){
+      const current=parseInt(countEl.textContent,10)||0;
+      const liked=b.classList.toggle('cb-post__action-btn--liked');
+      countEl.textContent=String(liked?current+1:Math.max(0,current-1));
+      if(isAnnotated){b.dataset.wciState=JSON.stringify({liked,count:parseInt(countEl.textContent,10)});notifyWciState(b)}
+      return;
+    }
+    if(label==='Bookmark'){
+      const active=b.classList.toggle('cb-post__action-btn--bookmarked');
+      const postEl=b.closest('article.cb-post');
+      if(active&&postEl)addBookmark(postEl);
+      else if(!active&&postEl){
+        const id=postEl.getAttribute('data-post-id')||postEl.getAttribute('data-ad-id');
+        state.bookmarks=state.bookmarks.filter(x=>x.id!==id);
+      }
+      showToast(active?'Saved to Bookmarks':'Removed from Bookmarks');
+      if(isAnnotated){b.dataset.wciState=JSON.stringify({bookmarked:active});notifyWciState(b)}
+      return;
+    }
+    if(label==='Share'){b.classList.toggle('cb-post__action-btn--active');showToast('Link copied to clipboard');return}
+  }
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    if(overlay&&!overlay.classList.contains('cb-hidden'))dismissOverlay('dismiss');
+    document.querySelector('.cb-modal')?.remove();
+  }
+});
+
+renderDmThread('alice_dev');
+const initial=location.hash.replace(/^#/,'')||'/feed';
+navigate(initial,{push:false});
+window.__scenarioSmoke=Object.assign(window.__scenarioSmoke||{},{lastAction:'page ready',currentRoute:initial,updatedAt:Date.now()});
+})();</script>
+
+</body></html>

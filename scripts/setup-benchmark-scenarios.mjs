@@ -125,7 +125,7 @@ const GENERATED_SPECS = [
   { id: 'wifi-setup', title: 'NetConfig', icon: '📶', wciId: 'connect-guest-5g', decoys: ['decoy-extra'] },
   { id: 'invoice-pay', title: 'BillFlow', icon: '🧾', wciId: 'pay-inv-2026-044', decoys: ['decoy-nav', 'decoy-extra'] },
   { id: 'newsletter-sub', title: 'PostBrief', icon: '📰', wciId: 'subscribe-ai-digest', decoys: ['decoy-promo', 'decoy-extra'] },
-  { id: 'api-keys', title: 'DevConsole', icon: '🔑', wciId: 'rotate-prod-api-key', decoys: ['decoy-extra'] },
+  { id: 'api-keys', title: 'DevConsole', icon: '🔑', wciId: 'rotate-prod-api-key', decoys: ['decoy-extra', 'decoy-emergency-rotate', 'decoy-rotate-all-prod', 'decoy-rotate-selected', 'staging-reveal-btn'] },
   { id: 'privacy-settings', title: 'PrivacyDesk', icon: '🔒', wciId: 'disable-third-party-share', decoys: ['decoy-nav', 'decoy-extra'] },
   { id: 'bug-report', title: 'IssueTrack', icon: '🐛', wciId: 'file-checkout-timeout-bug', decoys: ['decoy-promo', 'decoy-extra'] },
 ].map((s) => ({ ...s, goal: HARD_GOALS[s.id] }));

@@ -1,13 +1,16 @@
 {
   "id": "flight-booking",
-  "title": "SkyWing Airlines",
+  "title": "SkyWing Flights",
   "icon": "✈️",
   "difficulty": "Extreme",
-  "description": "Flight search results with nested fare cards, filter sidebar with decoy ads, promotional banners disguised as results, mega-menu navigation, cookie consent overlays.",
+  "description": "Google Flights–style search and results: expandable search form with airport autocomplete, date price bar, filter sidebar, emissions labels, sponsored placements mixed with real fares, mega-menu navigation, and cookie consent.",
   "challenges": [
+    "Expandable search form hidden behind collapsed summary bar",
+    "Basic Economy decoy priced below standard Economy nonstop fares",
     "Sponsored results disguised as real flight cards",
     "Mega-menu with dozens of nested navigation links",
-    "Filter sidebar with range sliders and hidden sections",
+    "Filter sidebar with range sliders and collapsed sections",
+    "Date price bar with clickable alternatives",
     "Tracking pixels and analytics scripts in DOM",
     "Cookie consent overlay blocking interactions",
     "Fare comparison tables hidden behind toggle buttons"
@@ -69,13 +72,13 @@
         "action": "read",
         "target": "flight-search-results scope",
         "outcome": "success",
-        "note": "Gets 3 flight results with prices in structured JSON"
+        "note": "Gets structured flight results with stops, prices, and emissions"
       },
       {
         "action": "compare",
         "target": "fare data in state",
         "outcome": "success",
-        "note": "Identifies SW1042 Economy $329 as cheapest nonstop"
+        "note": "Identifies SW1042 standard Economy $329 as cheapest nonstop (DL892 Basic Economy is restricted)"
       },
       {
         "action": "click",
