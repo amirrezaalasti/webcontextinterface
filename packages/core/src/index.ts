@@ -14,12 +14,18 @@ export {
 export type { DistillerFormat, DistillerOptions } from '@webcontextinterface/distiller';
 
 export { WciBridge, dispatchAction } from '@webcontextinterface/bridge';
+export {
+  resolveScopeId,
+  enforcePolicyForDispatch,
+  checkPolicyBeforeDispatch,
+} from '@webcontextinterface/bridge';
 export type {
   ActionRequest,
   ActionResult,
   SideEffect,
   ActionError,
   StateChangeHandler,
+  WciBridgeOptions,
 } from '@webcontextinterface/bridge';
 
 export {

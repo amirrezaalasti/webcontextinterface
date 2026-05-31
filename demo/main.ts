@@ -462,6 +462,7 @@ domSnapshotInput?.addEventListener('keydown', (e) => {
   if (!contextPanel) return;
   try {
     const ctx = await WciContextLoader.load(window.location.origin);
+    bridge.setPolicy(ctx.policy);
     const parts: string[] = [];
     if (ctx.narrative) parts.push('=== wci.md ===\n\n' + ctx.narrative);
     if (ctx.manifest)  parts.push('=== wci.json ===\n\n' + JSON.stringify(ctx.manifest, null, 2));

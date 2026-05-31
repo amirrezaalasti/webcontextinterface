@@ -91,7 +91,7 @@ Before touching a page, agents can load site policy:
 2. Well-known URIs (`/.well-known/wci/*`)
 3. Root fallbacks (`/wci.txt`, `/wci.json`, `/wci.md`)
 
-`PolicyEngine` enforces allow/deny scopes, auth requirements, and human-confirmation scopes.
+`PolicyEngine` enforces allow/deny scopes, auth requirements, and human-confirmation scopes. Attach it to `WciBridge` via `setPolicy` so every dispatch is validated before DOM mutation.
 
 ## Typical agent loop
 

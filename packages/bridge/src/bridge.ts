@@ -2,6 +2,7 @@
 // WCI Bridge — WciBridge class
 // ─────────────────────────────────────────────────────────────────────────────
 
+import type { PolicyEngine } from '@webcontextinterface/context';
 import type { ActionRequest, ActionResult } from './result';
 import { dispatchAction } from './dispatcher';
 
@@ -11,13 +12,20 @@ export type StateChangeHandler = (payload: {
   stateAfter: Record<string, unknown>;
 }) => void;
 
+export interface WciBridgeOptions {
+  /** When set, wci.txt rules are enforced before every dispatch (scope, auth, human confirm). */
+  policy?: PolicyEngine;
+}
+
 export class WciBridge {
   private root: Element;
   private history: ActionResult[] = [];
   private stateChangeHandlers: StateChangeHandler[] = [];
+  private policy?: PolicyEngine;
 
-  constructor(root: Element = document.body) {
+  constructor(root: Element = document.body, options: WciBridgeOptions = {}) {
     this.root = root;
+    this.policy = options.policy;
 
     // Subscribe to wci:state-change events from the DOM
     document.addEventListener('wci:state-change', ((e: CustomEvent) => {
@@ -25,9 +33,18 @@ export class WciBridge {
     }) as EventListener);
   }
 
+  /** Attach or replace the site PolicyEngine (e.g. from WciContextLoader). */
+  setPolicy(policy: PolicyEngine | undefined): void {
+    this.policy = policy;
+  }
+
+  getPolicy(): PolicyEngine | undefined {
+    return this.policy;
+  }
+
   /** Dispatch an action and return a typed ActionResult */
   async dispatch(req: ActionRequest): Promise<ActionResult> {
-    const result = await dispatchAction(req, this.root);
+    const result = await dispatchAction(req, this.root, this.policy);
     this.history.push(result);
     return result;
   }

@@ -3,6 +3,8 @@
 // Translates an ActionRequest into real DOM interactions and captures results.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import type { PolicyEngine } from '@webcontextinterface/context';
+import { enforcePolicyForDispatch } from './policy-guard';
 import { ActionRequest, ActionResult, SideEffect } from './result';
 
 /** Snapshot the current data-wci-state of an element */
@@ -43,7 +45,8 @@ function collectSideEffects(
 
 export async function dispatchAction(
   req: ActionRequest,
-  root: Element = document.body
+  root: Element = document.body,
+  policy?: PolicyEngine
 ): Promise<ActionResult> {
   const timestamp = new Date().toISOString();
   const target = root.querySelector<HTMLElement>(`[data-wci-id="${req.nodeId}"]`);
@@ -57,6 +60,11 @@ export async function dispatchAction(
         hint: 'Verify the node ID from the distilled view. The page may have navigated.',
       },
     };
+  }
+
+  if (policy) {
+    const blocked = enforcePolicyForDispatch(policy, req, target);
+    if (blocked) return blocked;
   }
 
   // Check precondition

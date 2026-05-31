@@ -146,8 +146,11 @@ const view = distiller.distilJSON(document);
 
 ```typescript
 import { WciBridge } from '@webcontextinterface/bridge';
+import { WciContextLoader } from '@webcontextinterface/context';
 
+const ctx = await WciContextLoader.load('https://your-site.com');
 const bridge = new WciBridge();
+bridge.setPolicy(ctx.policy);
 const result = await bridge.fill('email-input', 'user@example.com');
 await bridge.click('submit-btn');
 ```
@@ -155,9 +158,9 @@ await bridge.click('submit-btn');
 ### 4. Site context
 
 ```typescript
-import { WciContextLoader } from '@webcontextinterface/context';
-
 const ctx = await WciContextLoader.load('https://your-site.com');
+// Policy is enforced on bridge.dispatch when set via bridge.setPolicy(ctx.policy).
+// assertScopeAllowed is optional for pre-flight checks on planned scopes:
 ctx.policy.assertScopeAllowed('checkout');
 ```
 

@@ -36,7 +36,8 @@
     "scenarios:regenerate": "node scripts/setup-benchmark-scenarios.mjs",
     "scenarios:restyle": "node scripts/setup-benchmark-scenarios.mjs && node scripts/inject-legacy-styles.mjs",
     "scenarios:rebuild-annotations": "node scripts/rebuild-scenario-annotations.mjs",
-    "publish:packages": "node scripts/publish-packages.mjs"
+    "publish:packages": "node scripts/publish-packages.mjs",
+    "publish:packages:dry-run": "node scripts/publish-packages.mjs --dry-run"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
@@ -52,6 +53,6 @@
     "vitepress": "^1.6.3"
   },
   "dependencies": {
-    "@webcontextinterface/core": "^1.0.0"
+    "@webcontextinterface/core": "^1.1.0"
   }
 }

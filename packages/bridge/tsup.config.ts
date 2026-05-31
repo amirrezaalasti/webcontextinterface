@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ['@webcontextinterface/spec'],
+  external: ['@webcontextinterface/spec', '@webcontextinterface/context'],
 });

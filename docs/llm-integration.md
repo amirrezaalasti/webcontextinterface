@@ -45,7 +45,7 @@ Handler:
 
 ```typescript
 async function handleToolCall(args: ActionRequest) {
-  ctx.policy.assertScopeAllowed(inferScope(args.nodeId)); // from manifest or node.scope
+  // Policy enforced inside bridge.dispatch when bridge.setPolicy(ctx.policy) is set.
   return bridge.dispatch(args);
 }
 ```
@@ -70,7 +70,9 @@ const messages = [
 |--------------|----------------|
 | `NODE_NOT_FOUND` | Re-distil; page may have navigated |
 | `PRECONDITION_UNMET` | Complete prerequisite fields first |
-| `SCOPE_DENIED` | Stop; inform user (from PolicyEngine) |
+| `SCOPE_DENIED` | Stop; inform user (policy enforced by bridge) |
+| `AUTH_REQUIRED` | Run auth flow for scope, then retry |
+| `HUMAN_CONFIRMATION_REQUIRED` | Ask user, then retry |
 | `UNKNOWN_ERROR` | Try alternate action or ask user |
 
 ## Rate limits

@@ -65,8 +65,11 @@ const json = distiller.distilJSON(document);
 
 ```typescript
 import { WciBridge } from '@webcontextinterface/bridge';
+import { WciContextLoader } from '@webcontextinterface/context';
 
+const ctx = await WciContextLoader.load(window.location.origin);
 const bridge = new WciBridge(document.getElementById('registration-form')!);
+bridge.setPolicy(ctx.policy);
 
 const fillResult = await bridge.fill('email-input', 'user@example.com');
 if (!fillResult.success) {
@@ -89,7 +92,7 @@ Place these at your site root (see [Site policy](./site-policy.md)):
 import { WciContextLoader } from '@webcontextinterface/context';
 
 const ctx = await WciContextLoader.load('https://your-site.com');
-ctx.policy.assertScopeAllowed('checkout');
+bridge.setPolicy(ctx.policy);
 const systemPrompt = ctx.narrative ?? '';
 ```
 

@@ -6,8 +6,11 @@ The Bridge executes agent-chosen actions on live DOM and returns a typed **`Acti
 
 ```typescript
 import { WciBridge } from '@webcontextinterface/bridge';
+import { WciContextLoader } from '@webcontextinterface/context';
 
+const ctx = await WciContextLoader.load(window.location.origin);
 const bridge = new WciBridge(rootElement);
+bridge.setPolicy(ctx.policy);
 
 // Low-level
 await bridge.dispatch({ nodeId: 'email-input', action: 'fill', value: 'a@b.com' });
@@ -80,8 +83,17 @@ The `action` should match the target node's `data-wci-action` when possible.
 | Code | When |
 |------|------|
 | `NODE_NOT_FOUND` | No `[data-wci-id]` match in root |
+| `SCOPE_DENIED` | Target scope is denied or not on the allow list (`wci.txt`) |
+| `AUTH_REQUIRED` | Scope requires authentication before dispatch |
+| `HUMAN_CONFIRMATION_REQUIRED` | Scope requires explicit user approval |
 | `PRECONDITION_UNMET` | `data-wci-precondition` set and element `disabled` |
 | `UNKNOWN_ERROR` | Unsupported action for element type, missing form, etc. |
+
+## Policy enforcement
+
+When a `PolicyEngine` is attached (`bridge.setPolicy(ctx.policy)` or `new WciBridge(root, { policy })`), every `dispatch` / `fill` / `click` / etc. validates the target node's scope (from `data-wci-scope` or enclosing landmark) **before** mutating the DOM. Violations return `success: false` with the codes above.
+
+Use `PolicyEngine.assertScopeAllowed(scopeId)` separately when you need to reject a planned action before building an `ActionRequest` (e.g. from manifest scope metadata).
 
 ## Low-level dispatcher
 
@@ -92,7 +104,8 @@ import { dispatchAction } from '@webcontextinterface/bridge';
 
 const result = await dispatchAction(
   { nodeId: 'submit-btn', action: 'click' },
-  document.body
+  document.body,
+  ctx.policy
 );
 ```
 

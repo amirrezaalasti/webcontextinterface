@@ -24,6 +24,7 @@ export interface ActionError {
     | 'PRECONDITION_UNMET'
     | 'VALIDATION_FAILED'
     | 'AUTH_REQUIRED'
+    | 'HUMAN_CONFIRMATION_REQUIRED'
     | 'RATE_LIMITED'
     | 'UNKNOWN_ERROR';
   message: string;

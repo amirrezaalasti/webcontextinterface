@@ -1,6 +1,6 @@
 {
   "name": "@webcontextinterface/spec",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WCI specification types and DOM attribute reader",
   "license": "MIT",
   "type": "module",

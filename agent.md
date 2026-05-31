@@ -159,8 +159,8 @@ The **only** feedback channel agents should trust after an action: success/failu
 1. Load site context → build system prompt from `wci.md` + policy.
 2. Distil current scope → user/tool message with `WciView`.
 3. LLM chooses `{ nodeId, action, value }`.
-4. `PolicyEngine.assertScopeAllowed(scope)` (if applicable).
-5. `WciBridge.dispatch()` → `ActionResult`.
+4. `WciBridge.dispatch()` → `ActionResult` (when a `PolicyEngine` is attached via `setPolicy` or constructor options, scope/auth/human-confirmation rules from `wci.txt` are enforced before DOM mutation).
+5. On policy failure, handle `ActionResult.error` (`SCOPE_DENIED`, `AUTH_REQUIRED`, `HUMAN_CONFIRMATION_REQUIRED`).
 6. Append result to history; re-distil or read `sideEffects` → next turn.
 
 **Size target:** each npm layer is designed to stay under **~8 KB gzipped** when used alone; use only the packages you need.
@@ -564,7 +564,7 @@ Loads three files in parallel with fallbacks (see [Appendix C](#appendix-c--disc
                                                       ▼
 ┌──────────────┐     ┌─────────────────┐     ┌──────────────────┐
 │ Re-distil or │◄────│ ActionResult    │◄────│ LLM → dispatch   │
-│ sideEffects  │     │ (WciBridge)     │     │ (policy check)   │
+│ sideEffects  │     │ (WciBridge)     │     │ (LLM → dispatch) │
 └──────────────┘     └─────────────────┘     └──────────────────┘
 ```
 
@@ -573,6 +573,7 @@ Loads three files in parallel with fallbacks (see [Appendix C](#appendix-c--disc
 ```typescript
 const ctx = await WciContextLoader.load(origin);
 const bridge = new WciBridge(scopeRoot);
+bridge.setPolicy(ctx.policy);
 const distiller = new WciDistiller({ scope: 'registration-form', siteContext: summaryFrom(ctx) });
 
 let lastResult: ActionResult | null = null;
@@ -580,7 +581,6 @@ let lastResult: ActionResult | null = null;
 while (!taskDone) {
   const view = distiller.distilJSON(document);
   const plan = await llm.plan({ system: ctx.narrative, view, lastResult });
-  ctx.policy.assertScopeAllowed(plan.scope);
   lastResult = await bridge.dispatch(plan.action);
   if (!lastResult.success) handleError(lastResult.error);
 }
