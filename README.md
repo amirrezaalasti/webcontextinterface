@@ -7,11 +7,11 @@
   <a href="https://webcontextinterface.vercel.app/"><img src="https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1" alt="Documentation" /></a>
   <a href="https://doi.org/10.5281/zenodo.20434088"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20434088.svg" alt="Evaluation dataset (Zenodo)" /></a>
   <br />
-  <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec/v1.1.0?label=spec&color=6366f1&logo=npm" alt="npm @webcontextinterface/spec 1.1.0" /></a>
-  <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller/v1.1.0?label=distiller&color=6366f1&logo=npm" alt="npm @webcontextinterface/distiller 1.1.0" /></a>
-  <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/v/@webcontextinterface/bridge/v1.1.0?label=bridge&color=6366f1&logo=npm" alt="npm @webcontextinterface/bridge 1.1.0" /></a>
-  <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/v/@webcontextinterface/context/v1.1.0?label=context&color=6366f1&logo=npm" alt="npm @webcontextinterface/context 1.1.0" /></a>
-  <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/v/@webcontextinterface/core/v1.1.0?label=core&color=6366f1&logo=npm" alt="npm @webcontextinterface/core 1.1.0" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec?label=spec&color=6366f1&logo=npm" alt="npm @webcontextinterface/spec" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller?label=distiller&color=6366f1&logo=npm" alt="npm @webcontextinterface/distiller" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/v/@webcontextinterface/bridge?label=bridge&color=6366f1&logo=npm" alt="npm @webcontextinterface/bridge" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/v/@webcontextinterface/context?label=context&color=6366f1&logo=npm" alt="npm @webcontextinterface/context" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/v/@webcontextinterface/core?label=core&color=6366f1&logo=npm" alt="npm @webcontextinterface/core" /></a>
   <br />
   <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/dm/@webcontextinterface/spec?label=spec" alt="npm downloads/month @webcontextinterface/spec" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/dm/@webcontextinterface/distiller?label=distiller" alt="npm downloads/month @webcontextinterface/distiller" /></a>
