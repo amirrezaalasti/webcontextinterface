@@ -130,9 +130,9 @@
 }
 
 .scenarios-filter-chip.is-active {
-  background: hsl(var(--hue-primary) 60% 50% / 0.2);
+  background: hsl(var(--hue-primary) 60% 95%);
   border-color: var(--clr-primary);
-  color: var(--clr-primary);
+  color: var(--clr-primary-d);
 }
 
 .scenarios-sidebar__count {
@@ -178,8 +178,8 @@
 }
 
 .scenarios-list__btn.is-active {
-  background: hsl(var(--hue-primary) 60% 50% / 0.12);
-  border-color: hsl(var(--hue-primary) 60% 50% / 0.35);
+  background: hsl(var(--hue-primary) 60% 97%);
+  border-color: hsl(var(--hue-primary) 45% 80%);
 }
 
 .scenarios-list__icon {
@@ -234,28 +234,28 @@
 }
 
 .scenarios-main__tier--handmade {
-  background: hsl(280 50% 40% / 0.25);
-  color: hsl(280 70% 75%);
+  background: hsl(280 55% 94%);
+  color: hsl(280 55% 38%);
 }
 
 .scenarios-main__tier--synthetic {
-  background: hsl(var(--hue-accent) 50% 35% / 0.25);
+  background: hsl(var(--hue-accent) 55% 94%);
   color: var(--clr-accent);
 }
 
 .scenarios-main__difficulty--easy {
-  background: hsl(150 50% 35% / 0.25);
-  color: hsl(150 60% 65%);
+  background: hsl(150 55% 92%);
+  color: hsl(150 55% 32%);
 }
 
 .scenarios-main__difficulty--medium {
-  background: hsl(40 50% 35% / 0.25);
-  color: var(--clr-warn);
+  background: hsl(40 90% 92%);
+  color: hsl(32 85% 32%);
 }
 
 .scenarios-main__difficulty--hard {
-  background: hsl(0 50% 40% / 0.25);
-  color: hsl(0 70% 70%);
+  background: hsl(0 80% 95%);
+  color: hsl(0 65% 42%);
 }
 
 .scenarios-list__section {
@@ -269,7 +269,7 @@
 }
 
 .scenarios-list__section--handmade {
-  color: hsl(280 60% 70%);
+  color: hsl(280 55% 42%);
   text-transform: none;
   letter-spacing: normal;
   font-size: 0.6875rem;
@@ -281,18 +281,18 @@
 }
 
 .scenarios-list__difficulty--easy {
-  color: hsl(150 60% 65%);
-  background: hsl(150 40% 20% / 0.4);
+  color: hsl(150 55% 32%);
+  background: hsl(150 55% 92%);
 }
 
 .scenarios-list__difficulty--medium {
-  color: var(--clr-warn);
-  background: hsl(40 50% 18% / 0.4);
+  color: hsl(32 85% 32%);
+  background: hsl(40 90% 92%);
 }
 
 .scenarios-list__difficulty--hard {
-  color: hsl(0 75% 70%);
-  background: hsl(0 50% 20% / 0.4);
+  color: hsl(0 65% 42%);
+  background: hsl(0 80% 95%);
 }
 
 .scenarios-filter-row + .scenarios-filter-row {

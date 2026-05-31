@@ -566,6 +566,8 @@ function buildLeaderboardRow(
       ${pctCell(approaches.wciFull.successRate)}
       ${pctCell(approaches.wciGrounding.successRate, true)}
       ${tokenCell(approaches.rawHtml.avgTokens)}
+      ${tokenCell(approaches.domOutline.avgTokens)}
+      ${tokenCell(approaches.candidates.avgTokens)}
       ${tokenCell(approaches.wciFull.avgTokens)}
       ${tokenCell(approaches.wciGrounding.avgTokens, true)}
     `;
@@ -588,6 +590,8 @@ function buildLeaderboardRow(
     ${pctCell(wciFull?.successRate ?? 0)}
     ${pctCell(wciRate, true)}
     ${tokenCell(stats.standard.avgTokens)}
+    <td class="text-center leaderboard-metric">—</td>
+    <td class="text-center leaderboard-metric">—</td>
     ${tokenCell(wciFull?.avgTokens ?? 0)}
     ${tokenCell(wci?.avgTokens ?? 0, true)}
   `;
@@ -596,8 +600,10 @@ function buildLeaderboardRow(
 
 function chartMetrics(stats: LeaderboardEntry): {
   raw: ApproachBlock;
+  dom: ApproachBlock;
+  candidates: ApproachBlock;
   wci: ApproachBlock;
-  full?: ApproachBlock;
+  full: ApproachBlock;
 } | null {
   if (!stats.standard) return null;
   const approaches = stats.approaches;
@@ -605,15 +611,20 @@ function chartMetrics(stats: LeaderboardEntry): {
   if (approaches) {
     return {
       raw: approaches.rawHtml,
+      dom: approaches.domOutline,
+      candidates: approaches.candidates,
       wci: approaches.wciGrounding,
       full: approaches.wciFull,
     };
   }
   if (!wci) return null;
+  const std = { successRate: stats.standard.successRate, avgTokens: stats.standard.avgTokens };
   return {
-    raw: { successRate: stats.standard.successRate, avgTokens: stats.standard.avgTokens },
+    raw: std,
+    dom: std,
+    candidates: std,
     wci,
-    full: stats.wciFull,
+    full: stats.wciFull ?? wci,
   };
 }
 
@@ -628,7 +639,7 @@ function chartBarLine(
   tag: string,
   value: number,
   max: number,
-  variant: 'std' | 'wci' | 'full',
+  variant: 'std' | 'dom' | 'cand' | 'wci' | 'full',
   suffix: string
 ): string {
   const pct = max > 0 ? Math.max(2, Math.round((value / max) * 100)) : 0;
@@ -679,12 +690,32 @@ function renderEvalCharts(data: EvalResultsFile): void {
       if (!metrics) return 0;
       return Math.max(
         metrics.raw.avgTokens,
+        metrics.dom.avgTokens,
+        metrics.candidates.avgTokens,
         metrics.wci.avgTokens,
-        metrics.full?.avgTokens ?? 0
+        metrics.full.avgTokens
       );
     }),
     1
   );
+
+  const successBars = (metrics: NonNullable<ReturnType<typeof chartMetrics>>) =>
+    [
+      chartBarLine('Raw', metrics.raw.successRate, 100, 'std', '%'),
+      chartBarLine('DOM', metrics.dom.successRate, 100, 'dom', '%'),
+      chartBarLine('Cand', metrics.candidates.successRate, 100, 'cand', '%'),
+      chartBarLine('Full', metrics.full.successRate, 100, 'full', '%'),
+      chartBarLine('WCI', metrics.wci.successRate, 100, 'wci', '%'),
+    ].join('');
+
+  const tokenBars = (metrics: NonNullable<ReturnType<typeof chartMetrics>>) =>
+    [
+      chartBarLine('Raw', metrics.raw.avgTokens, maxTokens, 'std', ''),
+      chartBarLine('DOM', metrics.dom.avgTokens, maxTokens, 'dom', ''),
+      chartBarLine('Cand', metrics.candidates.avgTokens, maxTokens, 'cand', ''),
+      chartBarLine('Full', metrics.full.avgTokens, maxTokens, 'full', ''),
+      chartBarLine('WCI', metrics.wci.avgTokens, maxTokens, 'wci', ''),
+    ].join('');
 
   chartSuccess.innerHTML = order
     .map((m) => {
@@ -694,9 +725,7 @@ function renderEvalCharts(data: EvalResultsFile): void {
         <div class="eval-chart-row">
           <span class="eval-chart-label">${m.name}</span>
           <div class="eval-chart-bars">
-            ${chartBarLine('Raw', metrics.raw.successRate, 100, 'std', '%')}
-            ${chartBarLine('WCI', metrics.wci.successRate, 100, 'wci', '%')}
-            ${metrics.full ? chartBarLine('Full', metrics.full.successRate, 100, 'full', '%') : ''}
+            ${successBars(metrics)}
           </div>
         </div>`;
     })
@@ -710,9 +739,7 @@ function renderEvalCharts(data: EvalResultsFile): void {
         <div class="eval-chart-row">
           <span class="eval-chart-label">${m.name}</span>
           <div class="eval-chart-bars">
-            ${chartBarLine('Raw', metrics.raw.avgTokens, maxTokens, 'std', '')}
-            ${chartBarLine('WCI', metrics.wci.avgTokens, maxTokens, 'wci', '')}
-            ${metrics.full ? chartBarLine('Full', metrics.full.avgTokens, maxTokens, 'full', '') : ''}
+            ${tokenBars(metrics)}
           </div>
         </div>`;
     })

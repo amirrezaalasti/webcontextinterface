@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Syntax highlighting -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
   <link rel="icon" type="image/png" href="./logo.png" />
@@ -32,8 +32,8 @@
   <div class="header-inner">
     <a href="#" class="logo" aria-label="WCI — Web Context Interface">
       <img src="./logo.png" alt="" class="logo-img" width="36" height="36" decoding="async" />
-      <img src="./logo-web-theme.png" alt="WCI — Web Context Interface" class="logo-img logo-img--titled" decoding="async" />
-      <span class="version-badge">v1.0</span>
+      <img src="./logo-with-title.png" alt="WCI — Web Context Interface" class="logo-img logo-img--titled" decoding="async" />
+      <span class="version-badge">v1.1</span>
     </a>
     <nav class="header-nav">
       <a href="#demo">Live Demo</a>
@@ -57,7 +57,7 @@
   <div class="hero-glow hero-glow-2"></div>
   <div class="hero-content">
     <img
-      src="./logo-web-theme.png"
+      src="./logo-with-title.png"
       alt="WCI — Web Context Interface"
       class="hero-logo"
       width="320"
@@ -456,7 +456,7 @@
       <div class="eval-charts__header">
         <h3 class="eval-charts__title">📈 Benchmark Results</h3>
         <p class="eval-charts__subtitle" id="eval-charts-meta">
-          Multi-step grounding on 50 scenarios — raw HTML vs WCI approaches.
+          Multi-step grounding on 50 scenarios — all five evaluation approaches.
         </p>
       </div>
       <div class="eval-charts__grid">
@@ -464,8 +464,10 @@
           <figcaption class="eval-chart-panel__title">Success rate (%)</figcaption>
           <div class="eval-chart-legend eval-chart-legend--inline">
             <span><i class="eval-swatch eval-swatch--std"></i> Raw HTML</span>
-            <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
+            <span><i class="eval-swatch eval-swatch--dom"></i> DOM outline</span>
+            <span><i class="eval-swatch eval-swatch--cand"></i> Interactive candidates</span>
             <span><i class="eval-swatch eval-swatch--full"></i> WCI full</span>
+            <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
           </div>
           <div class="eval-chart" id="chart-success" role="img" aria-label="Success rate by model"></div>
         </figure>
@@ -473,6 +475,9 @@
           <figcaption class="eval-chart-panel__title">Tokens per step (est.)</figcaption>
           <div class="eval-chart-legend eval-chart-legend--inline">
             <span><i class="eval-swatch eval-swatch--std"></i> Raw HTML</span>
+            <span><i class="eval-swatch eval-swatch--dom"></i> DOM outline</span>
+            <span><i class="eval-swatch eval-swatch--cand"></i> Interactive candidates</span>
+            <span><i class="eval-swatch eval-swatch--full"></i> WCI full</span>
             <span><i class="eval-swatch eval-swatch--wci"></i> WCI grounding</span>
           </div>
           <div class="eval-chart" id="chart-tokens" role="img" aria-label="Token usage by model"></div>
@@ -497,7 +502,7 @@
             <tr class="leaderboard-table__group-row">
               <th rowspan="2">Model</th>
               <th colspan="5" class="text-center">Success rate (%)</th>
-              <th colspan="3" class="text-center">Tokens per step (est.)</th>
+              <th colspan="5" class="text-center">Tokens per step (est.)</th>
             </tr>
             <tr>
               <th class="text-center">Raw HTML</th>
@@ -506,13 +511,15 @@
               <th class="text-center">WCI full</th>
               <th class="text-center leaderboard-th--highlight">WCI grounding</th>
               <th class="text-center">Raw HTML</th>
+              <th class="text-center">DOM outline</th>
+              <th class="text-center">Candidates</th>
               <th class="text-center">WCI full</th>
               <th class="text-center leaderboard-th--highlight">WCI grounding</th>
             </tr>
           </thead>
           <tbody id="leaderboard-body">
             <tr class="leaderboard-row leaderboard-row--placeholder" id="leaderboard-placeholder">
-              <td colspan="9" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
+              <td colspan="11" class="text-center" style="padding:1.5rem;color:var(--text-muted,#888)">
                 Loading benchmark results…
               </td>
             </tr>
