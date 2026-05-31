@@ -13,7 +13,7 @@
     "Every post has 4–5 identical icon buttons (reply, repost, like, share, bookmark)"
   ],
   "task": {
-    "goal": "Like the post by @alice_dev about AgentDOM Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Like the post by @alice_dev about AgentDOM Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "dismiss",
@@ -95,7 +95,7 @@
       {
         "id": "social-feed.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Like the post by @alice_dev about AgentDOM Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Like the post by @alice_dev about AgentDOM Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -160,7 +160,7 @@
       {
         "id": "social-feed.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Like the post by @alice_dev about AgentDOM Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Like the post by @alice_dev about AgentDOM Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

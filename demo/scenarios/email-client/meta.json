@@ -10,7 +10,7 @@
     "Keyword archive decoys"
   ],
   "task": {
-    "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -68,7 +68,7 @@
       {
         "id": "email-client.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -124,7 +124,7 @@
       {
         "id": "email-client.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). First validate key constraints (billing-acme row vs toolbar) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). First validate key constraints (billing-acme row vs toolbar) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

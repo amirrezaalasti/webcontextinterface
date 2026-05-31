@@ -8,7 +8,7 @@
     "VIP"
   ],
   "task": {
-    "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "concert-tickets.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "concert-tickets.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). First validate key constraints (vip) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Purchase two general admission tickets for Neon Pulse tour (not VIP). First validate key constraints (vip) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

@@ -8,7 +8,7 @@
     "Boost"
   ],
   "task": {
-    "goal": "Send intro message to profile handle river_kayak (not profile boost). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Send intro message to profile handle river_kayak (not profile boost). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "dating-profile.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Send intro message to profile handle river_kayak (not profile boost). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Send intro message to profile handle river_kayak (not profile boost). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "dating-profile.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Send intro message to profile handle river_kayak (not profile boost). First validate key constraints (boost) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Send intro message to profile handle river_kayak (not profile boost). First validate key constraints (boost) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

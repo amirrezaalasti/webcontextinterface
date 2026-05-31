@@ -8,7 +8,7 @@
     "Draft vs confirm"
   ],
   "task": {
-    "goal": "Submit the high-priority ticket about login outage (not draft or low priority). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Submit the high-priority ticket about login outage (not draft or low priority). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "support-ticket.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "support-ticket.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). First validate key constraints (draft vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit the high-priority ticket about login outage (not draft or low priority). First validate key constraints (draft vs confirm) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

@@ -8,7 +8,7 @@
     "Promo ride"
   ],
   "task": {
-    "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "ride-share.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "ride-share.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). First validate key constraints (promo ride) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer). First validate key constraints (promo ride) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

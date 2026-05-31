@@ -8,7 +8,7 @@
     "Current plan"
   ],
   "task": {
-    "goal": "Switch from monthly to the featured annual membership plan. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Switch from monthly to the featured annual membership plan. Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "gym-membership.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Switch from monthly to the featured annual membership plan. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Switch from monthly to the featured annual membership plan. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -120,7 +120,7 @@
       {
         "id": "gym-membership.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Switch from monthly to the featured annual membership plan. First validate key constraints (current plan) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Switch from monthly to the featured annual membership plan. First validate key constraints (current plan) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

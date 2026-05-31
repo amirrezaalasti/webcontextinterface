@@ -15,7 +15,7 @@
     "Bill pay, cards, and investments pages add realistic navigation noise"
   ],
   "task": {
-    "goal": "Transfer $500 from Checking to Savings account Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Transfer $500 from Checking to Savings account Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -134,7 +134,7 @@
       {
         "id": "banking.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -230,7 +230,7 @@
       {
         "id": "banking.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

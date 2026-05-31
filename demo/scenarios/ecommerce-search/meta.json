@@ -8,7 +8,7 @@
     "Flash sale"
   ],
   "task": {
-    "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "ecommerce-search.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "ecommerce-search.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. First validate key constraints (flash sale) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. First validate key constraints (flash sale) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

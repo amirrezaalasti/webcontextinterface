@@ -10,7 +10,7 @@
     "Keyword trap decoys matching employer names"
   ],
   "task": {
-    "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -75,7 +75,7 @@
       {
         "id": "job-board.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -131,7 +131,7 @@
       {
         "id": "job-board.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). First validate key constraints (multiple confirm/apply buttons) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). First validate key constraints (multiple confirm/apply buttons) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

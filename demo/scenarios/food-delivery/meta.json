@@ -10,7 +10,7 @@
     "Cart + cookie noise"
   ],
   "task": {
-    "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -60,7 +60,7 @@
   },
   "tasks": {
     "singleShot": {
-      "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+      "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Scored final_action: the one control that completes this goal .",
       "groundTruthSelector": "#add-teriyaki-checkout",
       "groundTruthNodeId": "add-teriyaki-checkout"
     },
@@ -68,7 +68,7 @@
       {
         "id": "food-delivery.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -124,7 +124,7 @@
       {
         "id": "food-delivery.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). First validate key constraints (price/item attributes) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart (not other restaurants). First validate key constraints (price/item attributes) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

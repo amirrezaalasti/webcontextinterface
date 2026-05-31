@@ -8,7 +8,7 @@
     "Share"
   ],
   "task": {
-    "goal": "Add organic avocados line item to shared family list. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Add organic avocados line item to shared family list. Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "grocery-list.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "grocery-list.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

@@ -20,7 +20,7 @@
     "Permission matrix and IP allowlist add domain noise without actionable CTAs"
   ],
   "task": {
-    "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -117,7 +117,7 @@
       {
         "id": "api-keys.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -182,7 +182,7 @@
       {
         "id": "api-keys.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Rotate the primary production API key row. First validate environment constraints (reject staging reveal and legacy rows) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Rotate the primary production API key row. First validate environment constraints (reject staging reveal and legacy rows) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -235,7 +235,7 @@
       {
         "id": "api-keys.multi-step.full-flow",
         "title": "End-to-end Rotation Workflow",
-        "goal": "Complete the full production rotation workflow: fill readiness form, pass MFA, open confirmation modal, and confirm rotation. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Complete the full production rotation workflow: fill readiness form, pass MFA, open confirmation modal, and confirm rotation. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss cookie banner",

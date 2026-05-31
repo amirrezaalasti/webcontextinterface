@@ -8,7 +8,7 @@
     "Expedite"
   ],
   "task": {
-    "goal": "Upload passport scan on B-1 documents step (not expedited paid option). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Upload passport scan on B-1 documents step (not expedited paid option). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "visa-application.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "visa-application.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). First validate key constraints (expedite) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Upload passport scan on B-1 documents step (not expedited paid option). First validate key constraints (expedite) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

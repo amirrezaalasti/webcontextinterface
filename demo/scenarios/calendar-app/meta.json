@@ -10,7 +10,7 @@
     "Keyword traps"
   ],
   "task": {
-    "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -67,7 +67,7 @@
       {
         "id": "calendar-app.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -123,7 +123,7 @@
       {
         "id": "calendar-app.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). First validate key constraints (+ add cells vs series confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Create a recurring weekday standup series at 09:00 (not a one-off grid cell event). First validate key constraints (+ add cells vs series confirm) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

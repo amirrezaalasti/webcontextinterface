@@ -49,4 +49,4 @@ export function focusTokensFromText(parts: string[]): Set<string> {
 
 /** Standard suffix so models know which control is scored. */
 export const SCORED_FINAL_ACTION_SUFFIX =
-  'Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).';
+  'Scored final_action: the one control that completes this goal .';

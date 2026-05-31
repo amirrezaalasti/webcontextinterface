@@ -10,7 +10,7 @@
     "Large cookie/filler chrome"
   ],
   "task": {
-    "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -68,7 +68,7 @@
       {
         "id": "healthcare-portal.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -124,7 +124,7 @@
       {
         "id": "healthcare-portal.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). First validate key constraints (generic confirm on correct slot) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options). First validate key constraints (generic confirm on correct slot) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

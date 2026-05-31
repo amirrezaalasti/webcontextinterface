@@ -8,7 +8,7 @@
     "12A taken"
   ],
   "task": {
-    "goal": "Select window seat 14A on flight AA882 (12A is already taken). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Select window seat 14A on flight AA882 (12A is already taken). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "flight-checkin.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Select window seat 14A on flight AA882 (12A is already taken). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Select window seat 14A on flight AA882 (12A is already taken). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "flight-checkin.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Select window seat 14A on flight AA882 (12A is already taken). First validate key constraints (12a taken) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Select window seat 14A on flight AA882 (12A is already taken). First validate key constraints (12a taken) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

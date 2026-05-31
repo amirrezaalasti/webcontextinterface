@@ -8,7 +8,7 @@
     "Chat"
   ],
   "task": {
-    "goal": "File bug report for checkout timeout on mobile category (not chat support). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "File bug report for checkout timeout on mobile category (not chat support). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "bug-report.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "bug-report.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

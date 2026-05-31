@@ -8,7 +8,7 @@
     "Taken spots"
   ],
   "task": {
-    "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -66,7 +66,7 @@
       {
         "id": "parking-reservation.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -122,7 +122,7 @@
       {
         "id": "parking-reservation.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). First validate key constraints (taken spots) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). First validate key constraints (taken spots) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

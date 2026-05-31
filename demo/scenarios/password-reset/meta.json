@@ -11,7 +11,7 @@
     "Identity verification gate"
   ],
   "task": {
-    "goal": "Send password reset link to user@corp.com (not disable account). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Send password reset link to user@corp.com (not disable account). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -69,7 +69,7 @@
       {
         "id": "password-reset.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Send password reset link to user@corp.com (not disable account). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Send password reset link to user@corp.com (not disable account). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -125,7 +125,7 @@
       {
         "id": "password-reset.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Send password reset link to user@corp.com (not disable account). First validate disable-vs-reset constraints then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Send password reset link to user@corp.com (not disable account). First validate disable-vs-reset constraints then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",

@@ -8,7 +8,7 @@
     "Skip"
   ],
   "task": {
-    "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "survey-form.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "survey-form.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). First validate key constraints (skip) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). First validate key constraints (skip) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

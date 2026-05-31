@@ -13,7 +13,7 @@
     "Trust badges and decorative SVGs add noise"
   ],
   "task": {
-    "goal": "Complete shipping step with Express shipping and continue to payment Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Complete shipping step with Express shipping and continue to payment Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -111,7 +111,7 @@
       {
         "id": "checkout.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Complete shipping step with Express shipping and continue to payment Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Complete shipping step with Express shipping and continue to payment Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -190,7 +190,7 @@
       {
         "id": "checkout.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Complete shipping step with Express shipping and continue to payment Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Complete shipping step with Express shipping and continue to payment Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

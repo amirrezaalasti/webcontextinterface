@@ -16,7 +16,7 @@
     "Sortable column headers and six KPI cards with SVG icons"
   ],
   "task": {
-    "goal": "Find the deal with the highest probability and export the dashboard Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Find the deal with the highest probability and export the dashboard Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -103,7 +103,7 @@
       {
         "id": "admin-dashboard.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -173,7 +173,7 @@
       {
         "id": "admin-dashboard.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

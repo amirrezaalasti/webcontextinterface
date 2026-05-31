@@ -8,7 +8,7 @@
     "Alert traps"
   ],
   "task": {
-    "goal": "Turn on precipitation alerts for San Francisco (not other cities). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Turn on precipitation alerts for San Francisco (not other cities). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "weather-app.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Turn on precipitation alerts for San Francisco (not other cities). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Turn on precipitation alerts for San Francisco (not other cities). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -120,7 +120,7 @@
       {
         "id": "weather-app.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Turn on precipitation alerts for San Francisco (not other cities). First validate key constraints (alert traps) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Turn on precipitation alerts for San Francisco (not other cities). First validate key constraints (alert traps) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

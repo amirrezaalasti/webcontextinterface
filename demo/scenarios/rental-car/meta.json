@@ -8,7 +8,7 @@
     "Select"
   ],
   "task": {
-    "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "rental-car.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -120,7 +120,7 @@
       {
         "id": "rental-car.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). First validate key constraints (select) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Reserve compact vehicle pickup LAX on Friday (not economy select-only). First validate key constraints (select) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

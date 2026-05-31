@@ -8,7 +8,7 @@
     "Waiver"
   ],
   "task": {
-    "goal": "Submit STEM scholarship application form (not fee waiver). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Submit STEM scholarship application form (not fee waiver). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "scholarship-apply.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit STEM scholarship application form (not fee waiver). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit STEM scholarship application form (not fee waiver). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "scholarship-apply.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit STEM scholarship application form (not fee waiver). First validate key constraints (waiver) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Submit STEM scholarship application form (not fee waiver). First validate key constraints (waiver) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

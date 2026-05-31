@@ -8,7 +8,7 @@
     "Module 3 done"
   ],
   "task": {
-    "goal": "Mark module four as completed while it is still in progress (not earlier modules). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Mark module four as completed while it is still in progress (not earlier modules). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "lms-course.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Mark module four as completed while it is still in progress (not earlier modules). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -120,7 +120,7 @@
       {
         "id": "lms-course.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Mark module four as completed while it is still in progress (not earlier modules). First validate key constraints (module 3 done) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Mark module four as completed while it is still in progress (not earlier modules). First validate key constraints (module 3 done) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

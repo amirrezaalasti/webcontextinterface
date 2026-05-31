@@ -10,7 +10,7 @@
     "Publish keyword traps"
   ],
   "task": {
-    "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -68,7 +68,7 @@
       {
         "id": "wiki-edit.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -124,7 +124,7 @@
       {
         "id": "wiki-edit.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). First validate key constraints (toolbar noise) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Publish pending edits to the Web Context Interface article (not history or formatting tools). First validate key constraints (toolbar noise) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",

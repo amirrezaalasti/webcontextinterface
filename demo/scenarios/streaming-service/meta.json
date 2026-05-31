@@ -10,7 +10,7 @@
     "Dark theme + filler"
   ],
   "task": {
-    "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -67,7 +67,7 @@
       {
         "id": "streaming-service.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -123,7 +123,7 @@
       {
         "id": "streaming-service.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

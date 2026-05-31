@@ -8,7 +8,7 @@
     "Select vs Confirm"
   ],
   "task": {
-    "goal": "Book two nights at the downtown Marriott property (not airport inn). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Book two nights at the downtown Marriott property (not airport inn). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "hotel-booking.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Book two nights at the downtown Marriott property (not airport inn). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "hotel-booking.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Book two nights at the downtown Marriott property (not airport inn). First validate key constraints (select vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). First validate key constraints (select vs confirm) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",

@@ -8,7 +8,7 @@
     "Sample"
   ],
   "task": {
-    "goal": "Subscribe to weekly AI digest newsletter (not sample issue). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Subscribe to weekly AI digest newsletter (not sample issue). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "newsletter-sub.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -121,7 +121,7 @@
       {
         "id": "newsletter-sub.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). First validate key constraints (sample) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Subscribe to weekly AI digest newsletter (not sample issue). First validate key constraints (sample) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",

@@ -9,7 +9,7 @@
     "Keyword quote traps"
   ],
   "task": {
-    "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+    "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). Scored final_action: the one control that completes this goal .",
     "standardSteps": [
       {
         "action": "scan",
@@ -67,7 +67,7 @@
       {
         "id": "insurance-quote.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -123,7 +123,7 @@
       {
         "id": "insurance-quote.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). First validate key constraints (liability vs full) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
+        "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow). First validate key constraints (liability vs full) then execute and verify. Scored final_action: the one control that completes this goal .",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
