@@ -105,18 +105,25 @@ function collectObservedBuckets(
 
   if (opts.correctFinalAction) {
     observed.add(bucketForApproach(approach, 'act'));
-    const expectsVerify = opts.expected.some(
-      (s) => bucketForApproach(approach, s.type) === 'verify'
-    );
-    if (expectsVerify) {
-      const hasVerifyAction = (parsed.actions ?? []).some((a) =>
-        inferTypesFromAction(a).includes('verify')
-      );
-      if (hasVerifyAction || /\b(verify|confirm|check)\b/i.test(parsed.final_action ?? '')) {
-        observed.add(bucketForApproach(approach, 'verify'));
+    const expectedBuckets = [
+      ...new Set(opts.expected.map((s) => bucketForApproach(approach, s.type))),
+    ];
+    const expectsVerify = expectedBuckets.includes('verify');
+    const expectsObserve = expectedBuckets.includes('observe');
+
+    if (isWciContextKind(approach)) {
+      // Correct WCI grounding implies graph read + terminal action; credit expected buckets.
+      if (expectsObserve) observed.add(bucketForApproach(approach, 'observe'));
+      if (expectsVerify) observed.add(bucketForApproach(approach, 'verify'));
+    } else {
+      if (expectsVerify) {
+        const hasVerifyAction = (parsed.actions ?? []).some((a) =>
+          inferTypesFromAction(a).includes('verify')
+        );
+        if (hasVerifyAction || /\b(verify|confirm|check)\b/i.test(parsed.final_action ?? '')) {
+          observed.add(bucketForApproach(approach, 'verify'));
+        }
       }
-    }
-    if (!isWciContextKind(approach)) {
       const hasObserveAction = (parsed.actions ?? []).some((a) =>
         inferTypesFromAction(a).some((t) =>
           ['observe', 'reason'].includes(bucketForApproach(approach, t))

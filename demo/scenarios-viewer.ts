@@ -20,14 +20,17 @@ interface ScenarioListItem extends ScenarioMeta {
   searchText: string;
 }
 
-/** Five hand-authored legacy pages (rich DOM, preserved on disk). */
+/** Five hand-authored pages (rich DOM, preserved on disk). */
 const HANDMADE_SCENARIOS = new Set([
   'flight-booking',
   'banking',
   'checkout',
-  'social-feed',
   'admin-dashboard',
+  'social-feed',
 ]);
+
+const HANDMADE_SCENARIO_NAMES =
+  'flight booking, banking, checkout, dashboard, social media';
 
 type DisplayDifficulty = ScenarioListItem['displayDifficulty'];
 type ScenarioTier = ScenarioListItem['tier'];
@@ -710,7 +713,7 @@ function renderList(filter = ''): void {
 
   let html = '';
   if (showSections && handmade.length) {
-    html += `<li class="scenarios-list__section scenarios-list__section--handmade">Handmade · ${handmade.length}</li>`;
+    html += `<li class="scenarios-list__section scenarios-list__section--handmade">Handmade · ${handmade.length} — ${HANDMADE_SCENARIO_NAMES}</li>`;
     html += handmade.map(renderScenarioButton).join('');
   } else if (!showSections) {
     html += visible.filter((s) => s.tier === 'handmade').map(renderScenarioButton).join('');

@@ -140,6 +140,13 @@
   color: var(--clr-text-3);
 }
 
+.scenarios-sidebar__tier-hint {
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--clr-text-3);
+  margin: 0;
+}
+
 .scenarios-list {
   flex: 1;
   overflow-y: auto;
@@ -263,6 +270,10 @@
 
 .scenarios-list__section--handmade {
   color: hsl(280 60% 70%);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.6875rem;
+  line-height: 1.35;
 }
 
 .scenarios-list__section--synthetic {

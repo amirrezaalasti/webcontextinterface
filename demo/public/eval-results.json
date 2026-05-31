@@ -2,6 +2,8 @@
   "generatedAt": "2026-05-31T07:11:48.518Z",
   "sourceReport": "eval-multistep-report-gpt5.json",
   "methodology": "multistep",
+  "passRule": "unified",
+  "minCoverage": 0.6,
   "modelOrder": [
     {
       "id": "gpt5",
@@ -11,6 +13,8 @@
   ],
   "gpt5": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 31,
       "avgTokens": 2387

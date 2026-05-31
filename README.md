@@ -217,19 +217,12 @@ WIA_framework/
 
 **Official evaluation dataset (Zenodo):** [10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — [Evaluation Dataset for WCI](https://zenodo.org/records/20434088) (CC BY 4.0). Download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) for all **50 single-shot grounding scenarios** with five representations each (raw HTML, DOM outline, interactive candidates, WCI full, WCI grounding).
 
-The same scenario tree ships in-repo under [`demo/scenarios/`](./demo/scenarios/) (5 legacy + 45 generated layouts). The published harness scores **multi-step task grounding** (`meta.tasks.multiStep`, primary task) across those five context formats via OpenRouter.
+The same scenario tree ships in-repo under [`demo/scenarios/`](./demo/scenarios/) — **5 handmade** scenarios (flight booking, banking, checkout, dashboard, social media) plus **45 synthetic** layouts. The published harness scores **multi-step task grounding** (`meta.tasks.multiStep`, primary task) across those five context formats via OpenRouter.
 
 - **Methodology, commands, and comparison tables:** [`evals/README.md`](./evals/README.md)
-- **WebArena suite bootstrap + WCI roadmap:** [`evals/WEBARENA_BENCHMARK_SUITE.md`](./evals/WEBARENA_BENCHMARK_SUITE.md)
-- **How WCI applies to WebArena + testing layers:** [`evals/WEBARENA_WCI_APPLICATION.md`](./evals/WEBARENA_WCI_APPLICATION.md)
-- **Live WebArena baseline vs WCI (OpenRouter models):** `npm run benchmark:import-tasks` then `npm run eval:webarena:benchmark` — see [`evals/webarena/RUN.md`](./evals/webarena/RUN.md)
-- **Multi-step WebArena agent:** `npm run eval:webarena:agent`
-- **Local WebArena + Docker helper:** [`evals/webarena/scripts/local.sh`](./evals/webarena/scripts/local.sh) (`npm run benchmark:local -- help`)
 - **Archived run artifacts:** [`demo/public/README.md`](./demo/public/README.md) (`eval-results-gpt5nano.json`, `eval-multistep-report-gemini35flash.json`, …)
 
 ```bash
-npm run benchmark:wci:init
-npm run benchmark:status
 npm run eval:verify
 npm run eval:multistep -- --models=gpt5Nano --scenarios=flight-booking,banking
 npm run eval:merge-leaderboard   # update demo/public/eval-results-all.json from multistep reports

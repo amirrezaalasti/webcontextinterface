@@ -784,7 +784,6 @@ Served from `demo/public/`:
 - Zenodo DOI + pinned release for citations
 - Server-side distiller endpoint in manifest
 - W3C Community Group / CG report
-- Benchmark suite with WCI-annotated WebArena tasks
 - Datasheet for datasets ([Gebru et al.](https://doi.org/10.1145/3458723)) style agent resource doc
 
 ---

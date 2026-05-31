@@ -1,6 +1,9 @@
 {
-  "generatedAt": "2026-05-31T09:16:38.381Z",
+  "generatedAt": "2026-05-31T09:30:27.646Z",
   "methodology": "multistep",
+  "passRule": "unified",
+  "passRuleNote": "All approaches pass when correctFinalAction && !hitDecoy && flowCoverage >= minCoverage. flowCoverage recomputed from archived rawResponse with current flow-coverage.ts (no API re-run).",
+  "minCoverage": 0.6,
   "mergedFrom": [
     "gpt5",
     "gpt5Nano",
@@ -43,6 +46,8 @@
   ],
   "gpt5": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 31,
       "avgTokens": 2387
@@ -84,6 +89,8 @@
   },
   "gpt5Nano": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 15,
       "avgTokens": 2306
@@ -125,6 +132,8 @@
   },
   "gptoss20B": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 1,
       "avgTokens": 2334
@@ -166,6 +175,8 @@
   },
   "gemini35Flash": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 1,
       "avgTokens": 3043
@@ -207,6 +218,8 @@
   },
   "qwen25_7b": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 0,
       "avgTokens": 2258
@@ -248,6 +261,8 @@
   },
   "llama31_8b": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 13,
       "avgTokens": 2185

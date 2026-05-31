@@ -68,6 +68,8 @@ The official **50-scenario** grounding benchmark is published on Zenodo (CC BY 4
 
 Each scenario includes raw HTML, DOM outline, interactive candidates, WCI full, and WCI grounding representations. The in-repo copy lives under [`demo/scenarios/`](https://github.com/amirrezaalasti/webcontextinterface/tree/main/demo/scenarios); methodology and commands are in [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md).
 
+**Handmade (5)** — rich, hand-authored DOM preserved on disk: flight booking, banking, checkout, dashboard, and social media (`flight-booking`, `banking`, `checkout`, `admin-dashboard`, `social-feed`). The other **45** scenarios are synthetic layouts generated from domain templates.
+
 ## NotebookLM
 
 A [shared NotebookLM notebook](https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738) is a good way to introduce WCI — audio overviews, briefings, and Q&A grounded in the paper, specification, and benchmark materials. Viewers need a Google account to open the notebook.

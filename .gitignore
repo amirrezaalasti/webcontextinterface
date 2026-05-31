@@ -29,7 +29,3 @@ paper/*.synctex.gz
 .vercel
 shopping_final_0712
 shopping_final_0712.tar
-webarena/
-evals/webarena/data/tasks-catalog.json
-evals/webarena/data/ground-truth-batch-100.json
-evals/webarena/reports/*.json

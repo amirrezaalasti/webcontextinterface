@@ -1,6 +1,6 @@
 {
   "id": "checkout",
-  "title": "VelvetCart Checkout",
+  "title": "Checkout",
   "icon": "🛒",
   "difficulty": "Very Hard",
   "description": "Multi-step checkout with hidden A/B test variants, address books, shipping options, promo codes, gift wrapping, upsell widgets, and trust badges.",

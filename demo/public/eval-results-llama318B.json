@@ -2,6 +2,8 @@
   "generatedAt": "2026-05-31T08:52:31.682Z",
   "sourceReport": "eval-multistep-report-llama318B.json",
   "methodology": "multistep",
+  "passRule": "unified",
+  "minCoverage": 0.6,
   "modelOrder": [
     {
       "id": "llama31_8b",
@@ -11,6 +13,8 @@
   ],
   "llama31_8b": {
     "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.6,
     "standard": {
       "successRate": 13,
       "avgTokens": 2185

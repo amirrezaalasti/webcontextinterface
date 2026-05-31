@@ -1,6 +1,6 @@
 {
   "id": "banking",
-  "title": "NovaPay Banking",
+  "title": "Banking",
   "icon": "🏦",
   "difficulty": "Extreme",
   "description": "Multi-page NovaPay banking app with dashboard, accounts, transfers, bill pay, cards, investments, and settings. Includes multi-account summaries, quick transfer with validation, full transfer wizard decoy page, transaction tables, session warnings, chat widget, and promotional banners.",

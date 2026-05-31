@@ -1,6 +1,6 @@
 {
   "id": "flight-booking",
-  "title": "SkyWing Flights",
+  "title": "Flight Booking",
   "icon": "✈️",
   "difficulty": "Extreme",
   "description": "Google Flights–style search and results: expandable search form with airport autocomplete, date price bar, filter sidebar, emissions labels, sponsored placements mixed with real fares, mega-menu navigation, and cookie consent.",

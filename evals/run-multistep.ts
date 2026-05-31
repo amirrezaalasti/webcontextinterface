@@ -307,10 +307,8 @@ async function evaluateTaskRun(
   const flowCoverage = scoreFlowCoverage(flow, parsed, approach, {
     correctFinalAction,
   });
-  // WCI: pass on correct grounding id (flow JSON is advisory; avoids 0.33 coverage false fails)
-  const passed = isWciContextKind(approach)
-    ? correctFinalAction && !hitDecoy
-    : correctFinalAction && flowCoverage >= minCoverage;
+  const passed =
+    correctFinalAction && !hitDecoy && flowCoverage >= minCoverage;
 
   return {
     scenarioId: s.id,
@@ -507,7 +505,7 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         methodology:
-          'Multi-step evaluation over tasks.multiStep (primary task only). WCI pass = correct final_action node id and no decoy/competitor. Baselines pass = correct final action plus flow coverage (minCoverage). WCI prompt = v2 pipe rows; flow metadata sanitized; competitors marked x.',
+          'Multi-step evaluation over tasks.multiStep (primary task only). Pass = correct final_action, no decoy/competitor, flow coverage >= minCoverage (all approaches). WCI prompt = v2 pipe rows; flow metadata sanitized; competitors marked x.',
         minCoverage: args.minCoverage,
         approaches: args.approaches,
         scenarioCount: scenarios.length,

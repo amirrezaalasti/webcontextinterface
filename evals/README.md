@@ -2,13 +2,11 @@
 
 Element-grounding benchmark: pick the correct control for a task using **OpenRouter** models (not proprietary agent SDKs).
 
-**WebArena + WCI:** live benchmark integration, Docker bootstrap, and run commands — [`webarena/RUN.md`](./webarena/RUN.md) (overview: [`webarena/README.md`](./webarena/README.md)).
-
 **Published runs:** [`demo/public/`](../demo/public/README.md) — per-model `eval-results-*.json` (leaderboard) and `eval-multistep-report-*.json` (audit trail) with comparison tables below.
 
 ## Approaches (5 per scenario)
 
-**Published leaderboard** scores **multi-step task grounding** (`eval:multistep`): each scenario’s primary `meta.tasks.multiStep` task asks for a short action plan plus a **`final_action`** (WCI node id or CSS selector). WCI pass = correct final action and no decoy; baselines also require minimum **flow coverage** (`--min-coverage`, default `0.6`). See [Published results](#published-results-50-scenarios-may-2026) below.
+**Published leaderboard** scores **multi-step task grounding** (`eval:multistep`): each scenario’s primary `meta.tasks.multiStep` task asks for a short JSON action plan plus a **`final_action`** (WCI node id or CSS selector). **All five approaches** use the same pass rule: correct `final_action`, no decoy/competitor trap, and flow coverage ≥ `--min-coverage` (default `0.6`). See [Pass rules](#pass-rules-unified) and [Published results](#published-results-50-scenarios-may-2026).
 
 A separate **single-shot** harness (`eval:benchmark`) still exists for one-control picking on `meta.goal`; it is not published on the demo site. Playwright validation uses verified ground truth in `demo/scenarios/` (see `evals/lib/ground-truth.ts`).
 
@@ -18,16 +16,18 @@ A separate **single-shot** harness (`eval:benchmark`) still exists for one-contr
 | **`dom-outline`** | Shallow tree (~100 lines) from raw HTML; interactive nodes marked `[interactive]` | One **CSS selector** | Same Playwright validation as raw-html |
 | **`interactive-candidates`** | Numbered list of up to 50 controls scraped from raw HTML (Mind2Web-style) | Candidate **index** `[n]` or a CSS selector | Index resolved to a DOM node, then validated like raw-html |
 | **`wci-full`** | JSON from `annotated.html`: **all** WCI nodes (landmarks, forms, displays, actions), parent `scope_context` merged onto children (e.g. flight `stops` on fare buttons). **No** eval state patches — page state is whatever the annotated file contains | One WCI node **`id`** string | Exact match to `wciNodeId` (or acceptable alternates); decoy ids tracked separately |
-| **`wci-grounding`** | JSON from `annotated.html`: **actionable nodes only** (click/select/fill), disabled nodes omitted, same scope merge, plus **eval snapshot patches** on a few multi-step legacy scenarios (e.g. banking amount filled, checkout express selected) so the scored step is the final action | One WCI node **`id`** string | Same node-id scoring as `wci-full` |
+| **`wci-grounding`** | JSON from `annotated.html`: **actionable nodes only** (click/select/fill), disabled nodes omitted, same scope merge, plus **eval snapshot patches** on a few multi-step handmade scenarios (e.g. banking amount filled, checkout express selected) so the scored step is the final action | One WCI node **`id`** string | Same node-id scoring as `wci-full` |
 
 ### How to read the comparison
 
-**Standard baselines** (`raw-html`, `dom-outline`, `interactive-candidates`) simulate agents that **do not** use WCI: they search messy DOM or lists with no `data-wci-*` layer. They share the same goals and the same underlying `raw.html` per scenario.
+**This benchmark is not a “fair fight” between equal inputs.** It measures whether **good WCI annotations** make element grounding more reliable and cheaper than agents working from raw or derived DOM alone. The gap between `standard` and `wci-grounding` is the **benefit of the annotation layer** — that is the product thesis, not a scoring bug.
 
-**WCI paths** assume an **annotation pass** already ran (`annotated.html` = same DOM as `raw.html` + `data-wci-*` overlays). The distiller/eval builder turns that into JSON; the model never sees raw tag soup for WCI conditions.
+**Standard baselines** (`raw-html`, `dom-outline`, `interactive-candidates`) simulate agents that **do not** use WCI: they search messy DOM or scraped candidate lists with no `data-wci-*` layer. They share the same **goal text** and the same underlying `raw.html` per scenario, but not the same observation space or pass mechanics (see [Limitations](#limitations-and-scope)).
+
+**WCI paths** assume an **annotation pass** already ran (`annotated.html` = same DOM as `raw.html` + `data-wci-*` overlays). The distiller/eval builder turns that into compact JSON or pipe rows; the model never sees raw tag soup for WCI conditions.
 
 - **`wci-grounding`** is the **headline WCI score** — what you ship to an agent: small actionable menu, typed `state` / `precondition`, decision-point state where needed. Leaderboard column **“WCI Grounding”** uses this.
-- **`wci-full`** is an **ablation** on the same annotations: full graph, no actionable filter, no snapshot patches. Models can answer with landmark ids (`quick-transfer`) or mid-flow controls; expect **lower** accuracy than grounding, especially on legacy banking/checkout/flight. Reported as **`wciFull`** in `eval-results.json`.
+- **`wci-full`** is an **ablation** on the same annotations: full graph, no actionable filter, no snapshot patches. Models can answer with landmark ids (`quick-transfer`) or mid-flow controls; expect **lower** accuracy than grounding, especially on handmade flight booking / banking / checkout. Reported as **`wciFull`** in `eval-results.json`.
 
 **`standard`** in the leaderboard is the average success rate across the three non-WCI approaches (not a separate API call).
 
@@ -44,32 +44,15 @@ Configured in `evals/lib/llm.ts`:
 | `gpt5Nano` | `openai/gpt-5-nano` |
 | `gpt5Mini` | `openai/gpt-5-mini` |
 | `gpt5` | `openai/gpt-5` |
-| `gemini3Flash` | `google/gemini-3-flash-preview` |
 | `gemini35Flash` | `google/gemini-3.5-flash` |
-| `gemini2FlashLite` | `google/gemini-2.0-flash-lite-001` |
-| `qwen35Flash` | `qwen/qwen3.5-flash-02-23` |
 | `qwen25_7b` | `qwen/qwen-2.5-7b-instruct` |
 | `llama31_8b` | `meta-llama/llama-3.1-8b-instruct` |
-| `deepseekV3` | `deepseek/deepseek-chat-v3-0324` |
 
 ## Commands
 
 ```bash
 npm install
 npx playwright install chromium
-
-# bootstrap WebArena-facing benchmark scaffolding and WCI site drafts
-npm run benchmark:wci:init
-npm run benchmark:status
-npm run eval:webarena:compare
-npm run eval:webarena:compare -- --site=shopping
-npm run eval:webarena:compare -- --runtime=hook --site=shopping
-export SHOPPING=http://127.0.0.1:7770
-npm run eval:webarena:annotate -- --site=shopping --verify
-
-# Live WebArena: baseline vs WCI × OpenRouter models (requires SHOPPING + OPENROUTER_API_KEY)
-npm run eval:webarena:benchmark -- --site=shopping
-npm run eval:webarena:benchmark -- --models=gpt5Nano,gemini35Flash --approaches=raw-html,wci-grounding
 
 npm run eval:verify
 npm run eval:heuristic          # no API key
@@ -92,17 +75,12 @@ npm run eval:multistep -- --scenarios=job-board,banking --approaches=wci-groundi
 # Subset of scenarios (50 available — see demo/scenarios/README.md)
 npm run eval:benchmark -- --scenarios=flight-booking,banking,checkout
 npm run eval:heuristic -- --scenarios=job-board,healthcare-portal
+
+# Rebuild leaderboard from archived multistep reports (no API re-run)
+npm run eval:merge-leaderboard
 ```
 
-WebArena-specific bootstrap and phased WCI integration plan: [`webarena/docs/benchmark-suite.md`](./webarena/docs/benchmark-suite.md).
-
-Minimal WebArena adapter compare runner:
-
-- default mock dry-run: `npm run eval:webarena:compare`
-- sample subset: `npm run eval:webarena:compare -- --tasks=shopping.search-wireless-headphones`
-- integration-stub mode: `npm run eval:webarena:compare -- --runtime=hook`
-
-Full run ≈ **10 models × 50 scenarios × 5 approaches = 2,500** API calls. Use `--models=`, `--approaches=`, and `--scenarios=` to limit spend. Five **legacy** scenarios have the largest hand-authored DOM; the other **45** use distinct layouts with noise/decoys and constraint-based goals (see `demo/scenarios/README.md`).
+Full run ≈ **10 models × 50 scenarios × 5 approaches = 2,500** API calls. Use `--models=`, `--approaches=`, and `--scenarios=` to limit spend. Five **handmade** scenarios (flight booking, banking, checkout, dashboard, social media) have the largest hand-authored DOM; the other **45** synthetic layouts use distinct templates with noise/decoys and constraint-based goals (see `demo/scenarios/README.md`).
 
 **Reasoning:** every request sends `reasoning: { effort: "low" }` with `max_tokens: 1000`.
 
@@ -148,11 +126,17 @@ flowchart LR
 **Single-shot report (`eval:benchmark`) does not measure full trajectories.**
 For multi-step task scoring over `meta.tasks.multiStep` (primary task only), run `eval:multistep` — same five approaches as single-shot (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`).
 
-**Pass rules (differs from single-shot):**
+### Pass rules (unified)
 
-- **WCI** (`wci-grounding`, `wci-full`): correct `final_action` node id; no decoy id and no `data-wci-competitor` trap. Flow coverage is reported but not required for pass.
-- **Baselines**: correct final action **and** minimum flow-type coverage (`--min-coverage`, default `0.6`). Coverage no longer auto-credits observe/verify from a correct final action alone.
-- **Prompt discipline:** `wciFlow` / `standardFlow` steps are sanitized (no ground-truth ids in distill ranking). Pipe rows mark competitors with `x`. Goals include an explicit scored-`final_action` rule.
+All approaches (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`) pass when **all** of the following hold:
+
+1. **Correct `final_action`** — WCI node id matches `wciNodeId` (or an acceptable alternate); baseline CSS selector or candidate index resolves to the same element as ground truth in Playwright.
+2. **No decoy** — WCI must not pick a `decoyNodeIds` entry or a `data-wci-competitor="true"` trap; baselines have no competitor-id layer but can still pick wrong controls.
+3. **Flow coverage ≥ `minCoverage`** (default **0.6**) — see [Flow coverage](#flow-coverage) below.
+
+**Prompt discipline:** `wciFlow` / `standardFlow` steps are sanitized before prompts (no ground-truth ids or selectors in flow text). Pipe rows mark competitor traps with `x`. Goals include an explicit scored-`final_action` suffix. Completion criteria that leak answers are filtered (`evals/lib/multistep-prompt.ts`).
+
+**Leaderboard merge:** `npm run eval:merge-leaderboard` recomputes pass rates and coverage from archived `eval-multistep-report-*.json` task rows (`rawResponse` + current `evals/lib/flow-coverage.ts`) — no API re-run required when scoring logic changes.
 
 **Tokens:** Multistep uses **task-focused v2 pipe rows** (`evals/lib/wci-eval-distill.ts`): compact encoding (no repeated JSON keys per node), but **full desc (≤120)** and **state (≤96 chars)** where needed. Node count is **budget-based** (~2.4k / 3.2k chars for the WCI block), always including priority 1–2 controls — not a hard 12-node cap.
 
@@ -175,7 +159,23 @@ Pipe row order: `id|a|d|p|s|r` — skip empty segments. `a`: `c` click, `f` fill
 
 **Benchmark discipline (priority):** `scripts/lib/priority-competitors.mjs` runs on rebuild. Each scenario marks the ground-truth node with `data-wci-primary="true"` and adds 1–2 `data-wci-competitor="true"` nodes at **priority 1** so models cannot pass by always picking the first p=1 row. Prompt row order is shuffled per scenario id. Verify with `node scripts/verify-wci-ground-truth.mjs`. Eval state patches (`evals/lib/eval-snapshot.ts`) enable decisive actions (e.g. `review-transfer-btn`, `upload-iceland-album` when the raw page keeps them disabled).
 
-**Flow coverage** (`evals/lib/flow-coverage.ts`): diagnostic score in `[0, 1]`, not used for WCI pass. Uses the better of (1) **type overlap** — infer `observe`/`act`/`verify` from step text, credit `final_action` as terminal `act`, impute `observe`+`verify` when WCI final id is correct — and (2) **step overlap** — keyword match against expected flow steps. Avoids false **0.33** when the model returns one correct `act` but omits explicit `observe`/`verify` labels.
+### Flow coverage
+
+Implemented in `evals/lib/flow-coverage.ts`. Score in `[0, 1]` used for **pass** on all approaches. Computed as the better of:
+
+1. **Type overlap** — unique flow-type buckets in the expected flow (`observe`, `act`, `verify`, …) vs buckets inferred from the model’s plan (explicit action types + keyword signals in step text) plus credits for `final_action`.
+2. **Step overlap** — fraction of expected flow steps matched by keyword/type overlap against plan actions.
+
+**Imputation when `final_action` is correct:**
+
+| Approach | `act` | `observe` | `verify` |
+|----------|-------|-----------|----------|
+| **WCI** | credited | credited if expected in `wciFlow` | credited if expected in `wciFlow` |
+| **Baselines** | credited | credited only if plan explicitly labels observe/reason | credited only if plan labels verify or uses verify/confirm language |
+
+Rationale: a correct WCI node id implies the model read the annotated graph; a correct baseline selector implies DOM search but the harness still expects explicit observe/verify labels in the JSON plan when those buckets appear in `standardFlow`. WCI and baselines are scored against **different reference flows** (`wciFlow` vs `standardFlow`) — see [Limitations](#limitations-and-scope).
+
+This avoids false **0.33** failures when a model returns one correct `act` plus `final_action` but omits explicit observe/verify labels on WCI paths.
 
 ---
 
@@ -194,8 +194,8 @@ Six archived OpenRouter **multi-step** runs on the full scenario set (primary `t
 | **Qwen 2.5 7B** | 0% | **84%** | 86% | +84 pp | 2,258 | **546** |
 | **Llama 3.1 8B** | 13% | **82%** | 78% | +69 pp | 2,185 | **807** |
 
-¹ **Standard** = average **pass rate** of `raw-html`, `dom-outline`, and `interactive-candidates` (baselines require correct final action + flow coverage).  
-² Token figures from `eval-results-*.json` (harness estimate / usage), not billing-grade.
+¹ **Standard** = average **pass rate** of `raw-html`, `dom-outline`, and `interactive-candidates` under the **same unified pass rule** as WCI.  
+² Token figures from `eval-results-*.json` (harness estimate / usage), not billing-grade. Leaderboard rows include `"passRule": "unified"` and `"minCoverage": 0.6`.
 
 ### Per-approach pass rate (%)
 
@@ -236,62 +236,130 @@ From `eval-multistep-report-*.json` → `models[].summary[].avgTokens`. Same 50 
 
 ### Analysis
 
-**Multi-step is strictly harder than single-shot.** Pass rates still drop vs one-shot grounding on the same pages: e.g. **GPT-5** **94%** WCI grounding (multi-step) vs **100%** (single-shot archived runs). Models must return a structured plan, correct **`final_action`**, and (for baselines) sufficient **flow coverage**.
+**Multi-step is strictly harder than single-shot.** Pass rates can drop vs one-shot grounding on the same pages: e.g. **GPT-5** **94%** WCI grounding (multi-step) vs **100%** (single-shot archived runs). Models must return a structured plan and correct **`final_action`**, not just one control id.
 
 **WCI grounding still leads.** **Gemini 3.5 Flash** tops the published set at **96%** multi-step pass; **GPT-5** is **94%**. Baselines stay near zero on `raw-html` / `dom-outline` (0–18%) except **`interactive-candidates`** on stronger models (**GPT-5** **74%**).
 
-**Frontier vs small models:** **GPT-5 Nano** reaches **86%** WCI grounding multi-step in the latest run (v2 prompts + competitor traps) — closer to frontier models than earlier published snapshots, but still trails **GPT-5** / **Gemini** on baselines.
+**Frontier vs small models:** On WCI grounding, **GPT-5 Nano** (**86%**), **Qwen 2.5 7B** (**84%**), and **Llama 3.1 8B** (**82%**) trail frontier models but remain far above their own baseline scores — structured context helps across model sizes.
 
-**Tokens:** Multi-step prompts are larger (action plans + flow text). WCI compact rows (`wci-eval-distill`) still keep grounding calls ~**546–790** tokens vs **4,100–5,900** for raw-html on the same tasks.
+**Tokens:** Multi-step prompts are larger (action plans + flow text). WCI compact rows (`wci-eval-distill`) still keep grounding calls ~**546–807** tokens vs **4,100–5,900** for raw-html on the same tasks.
 
 Inspect per-scenario failures in `demo/public/eval-multistep-report-*.json` (`flowCoverage`, `validationError`, `parsedFinalAction`).
 
 ---
 
-## Limitations of this evaluation
+## Limitations and scope
 
-These numbers are useful for comparing **context formats on a fixed grounding task**, but they are **not** a complete measure of “agent success on the real web.” Treat the following as scope boundaries, not minor footnotes.
+These numbers are useful for comparing **context formats on a fixed grounding task** and for arguing that **WCI annotations help agents**. They are **not** a complete measure of autonomous agent success on the open web. Read this section before citing the leaderboard.
+
+### What this benchmark is designed to answer
+
+| Question | Supported by published results? |
+|----------|--------------------------------|
+| Do models pick the right control more often when given WCI grounding JSON vs raw DOM? | **Yes** — primary use of `wci-grounding` vs `standard`. |
+| Is WCI grounding more token-efficient than raw HTML on the same tasks? | **Yes** — ~5–8× fewer tokens per call in published runs. |
+| Does actionable-only distillation (`wci-grounding`) beat full-graph WCI (`wci-full`)? | **Partially** — compare those two columns; effect varies by model. |
+| Which OpenRouter models ground best on **this** annotated fixture set? | **Yes** — compare models on the same WCI input. |
+| Would WCI beat Browser Use / computer-use / full agent stacks on production sites? | **No** — different task definitions, loops, and tooling. |
+| Is WCI “free” — no annotation effort required? | **No** — annotation cost and quality are out of scope. |
+
+**Legitimate headline claim:** *On 50 synthetic scenarios with verified WCI annotations, structured grounding is ~3× more reliable and ~5–8× cheaper in tokens than unannotated DOM baselines (GPT-5: 94% vs 31% standard, 764 vs 4,336 tokens).*
+
+**Do not claim:** *WCI and raw HTML received the same information and WCI still won.* They did not — that asymmetry is intentional (see below).
+
+---
 
 ### What the harness does *not* measure
 
 | Gap | Why it matters |
 |-----|----------------|
-| **Live agent trajectories** | Published multi-step runs score one LLM plan + `final_action` per task (no observe → act → observe loop, backtracking, or recovery). `eval:benchmark` single-shot is even narrower (one control pick). |
-| **Live browsing** | Static `raw.html` / `annotated.html` files in `demo/scenarios/`, loaded in Playwright — not dynamic SPAs, network delays, auth, or post-click DOM updates. |
-| **Annotation cost / quality** | WCI paths assume `data-wci-*` is already correct and complete. The benchmark does not score mis-annotation, drift, or pages without annotations. |
-| **Tooling ecosystems** | Models answer via OpenRouter chat only — not Browser Use, Playwright agents, computer-use APIs, or site-specific SDKs. |
-| **End-user outcomes** | Success = “picked the element Playwright agrees is correct,” not task completion (payment succeeded, form submitted, etc.). |
+| **Live agent trajectories** | Multi-step runs score **one** LLM JSON plan + `final_action` per task — no observe → act → observe loop, tool calls, backtracking, or recovery after a wrong click. Single-shot (`eval:benchmark`) is narrower still (one control pick). |
+| **Live browsing** | Static `raw.html` / `annotated.html` in `demo/scenarios/`, loaded in headless Chromium — not dynamic SPAs, network latency, auth sessions, CAPTCHAs, or post-click DOM updates. |
+| **Annotation cost, drift, or errors** | WCI paths assume `data-wci-*` is already **correct and complete**. The benchmark does not score mis-annotation, stale labels, partial coverage, or pages with no annotation pass. |
+| **Distillation / Bridge runtime** | Eval uses offline JSON or pipe rows built from HTML — not the live `@webcontextinterface/bridge` observe cycle or distiller package in production. |
+| **Tooling ecosystems** | Models answer via OpenRouter chat completions only — not Browser Use, Playwright agents, computer-use APIs, MCP browser tools, or site-specific SDKs. |
+| **End-user outcomes** | Success = Playwright agrees the chosen element matches ground truth — not “payment cleared,” “form submitted to backend,” or user satisfaction. |
+| **Accessibility-tree or screenshot baselines** | No ax-tree or vision-only condition is implemented; `dom-outline` is a shallow tag skeleton, not a browser accessibility snapshot. |
+| **Multi-action task completion** | Each scenario has one scored control (`final_action`). Real workflows often need long chains; `eval-snapshot.ts` only patches state on a few handmade flows so the scored step is reachable. |
+
+---
 
 ### Task and dataset design
 
-- **Synthetic scenarios** — Fifty fictional UIs (five large legacy pages + forty-five generated layouts). They are adversarial by design (noise, decoys, constraint-based goals) but still **offline fixtures**, not production traffic or public benchmarks like WebArena/Mind2Web pages at scale.
-- **Single ground-truth step** — `meta.json` / `ground-truth.ts` define one target control per scenario. Real tasks often require several actions; `eval-snapshot.ts` only patches state for a few legacy flows so the *scored* step is the final button, which **helps** WCI grounding but is not how an agent always arrives there.
-- **Heterogeneous difficulty** — Legacy scenarios (e.g. `flight-booking`, `banking`) differ sharply from generated ones; a single aggregate % blends unlike DOM sizes and failure modes.
-- **Iterative benchmark tuning** — Goals, noise, and selectors were hardened so raw baselines stay hard while WCI stays solvable. Reported gaps partly reflect **this suite’s design**, not a universal law for all websites.
+- **Synthetic fixtures** — Fifty fictional UIs: five large **handmade** pages (flight booking, banking, checkout, admin dashboard, social feed) plus **45 generated** layouts with distinct templates. Adversarial by design (noise shell, keyword traps, constraint-based goals, generic button labels). Still **offline fixtures**, not production traffic or large public corpora (WebArena, Mind2Web, etc.) at scale.
+- **Primary multi-step task only** — `eval:multistep` runs `*.multi-step.primary` from each `meta.json`. Recovery, validation, and alternate task variants in `multi-step.generated.json` are catalogued but not scored on the public leaderboard.
+- **Single scored control per scenario** — `ground-truth.ts` / `meta.json` define one target node or selector. Several prerequisite actions may be implied; eval patches (below) collapse some of that for WCI on handmade flows.
+- **Heterogeneous difficulty** — Handmade scenarios have larger DOMs and richer state than generated ones. A single aggregate % blends unlike sizes and failure modes; inspect per-scenario rows in reports for breakdowns.
+- **Iterative suite tuning** — Goals, noise, decoys, and selectors were hardened so **unannotated baselines stay hard** while **WCI stays solvable** with good annotations. The WCI − standard gap partly reflects **this suite’s design goals**, not a universal law for all websites.
+- **Legacy raw HTML id leaks (handmade 5 only)** — Some handmade `raw.html` files expose semantic `id`s that match WCI node ids (e.g. `select-SW1042-economy`, `review-transfer-btn`). Generated scenarios avoid goal-leaking ids. This can **inflate** raw-html / candidate scores on those five pages relative to generated ones.
 
-### Fairness of “standard” vs WCI
+---
 
-- **Asymmetric information** — Baselines see raw or derived DOM; WCI sees curated JSON with `desc`, `state`, `scope_context`, and (for grounding) an actionable-only filter. Higher WCI accuracy is expected; the fair claim is **efficiency + reliability given annotations exist**, not “same bits in, same bits out.”
-- **`standard` is a blended metric** — Averaging `raw-html`, `dom-outline`, and `interactive-candidates` hides that some models score well on raw HTML (e.g. Gemini 88%) while outline/candidates stay near zero. Compare **per-approach tables**, not only the headline `standard` column.
-- **`wci-full` ablation** — Still uses annotations without production filtering; it is not an unannotated baseline.
+### WCI vs baselines: intentional asymmetry (not a bug)
 
-### Scoring and validation
+The benchmark **by design** gives WCI paths advantages that reflect the product value proposition. These are scope boundaries, not hidden cheating — but they mean **`standard` is a lower bound**, not a peer competitor with equal inputs.
 
-- **Playwright-only check for baselines** — CSS selectors must parse and match ground-truth locators in Chromium. Model outputs using unsupported pseudo-selectors (e.g. `:has-text()` from legacy admin/banking) count as failures even when a human would understand the intent (`validationError` in `eval-multistep-report-*.json`).
-- **Exact node id for WCI** — No partial credit for semantically close ids unless listed in `acceptableNodeIds`. Typos and alias resolution depend on `evals/lib/scorers.ts` heuristics.
-- **No human eval** — Labels are author-defined; there is no inter-annotator agreement or crowd verification on the 50 goals.
+| Dimension | Baselines | WCI (`wci-grounding`) | Interpretation |
+|-----------|-----------|------------------------|----------------|
+| **Input** | Raw HTML (12k cap multistep), 55-line outline, or 40 candidates | Task-focused pipe rows (~2.4k char budget), priority 1–2 nodes, disabled filtered | WCI = curated actionable menu |
+| **Structure** | Tags, classes, visible text | `id`, `action`, `desc`, `state`, `precondition`, `scope_context` | Annotation carries semantics |
+| **Trap marking** | Generic “avoid decoys” prompt rule | `data-wci-competitor` → `x` in pipe + system prompt | Explicit trap labels |
+| **Eval state patches** | None — raw DOM as-is (disabled buttons stay disabled) | `eval-snapshot.ts` pre-fills forms / enables decisive controls on banking, checkout, photo-upload | WCI scored at decision point after implied prerequisites |
+| **Reference flow for coverage** | `standardFlow` (often longer, includes error/recovery steps) | `wciFlow` (shorter observe → act → verify narrative) | Coverage denominators differ |
+| **Coverage imputation** | Observe/verify credited only when explicit in plan | Observe + verify credited when `final_action` is correct and expected in `wciFlow` | See [Flow coverage](#flow-coverage) |
 
-### Model and runtime
+**Fair comparison:** model A vs model B on the **same** approach (e.g. both `wci-grounding`).
 
-- **Single provider stack** — OpenRouter, temperature `0`, `reasoning: { effort: "low" }`, `max_tokens: 1000` (see `evals/lib/llm.ts`). Other settings or hosts can change rankings.
-- **Token figures are approximate** — Per-call `avgTokens` mixes harness `ceil(chars/4)` estimates and API usage when returned; they guide **relative** cost between approaches, not invoice accuracy.
-- **Model roster changes** — Published snapshots in `demo/public/` are point-in-time; new models or API versions are not automatically comparable to archived JSON.
+**Motivating comparison:** `wci-grounding` vs `standard` — *how much do annotations help?*
+
+---
+
+### Scoring and validation caveats
+
+- **Unified pass rule** — All approaches require correct `final_action`, no decoy (WCI), and flow coverage ≥ `minCoverage`. Archived leaderboard JSON is built with `"passRule": "unified"` via `scripts/build-eval-leaderboard.ts`, which **recomputes** coverage from stored `rawResponse` using the current scorer.
+- **Playwright-only baseline validation** — CSS selectors must parse in Chromium and match ground-truth locators. Unsupported pseudo-selectors (e.g. Playwright `:has-text()` in model output for handmade banking/dashboard) fail with `validationError` even when intent is clear.
+- **Exact WCI node id** — No partial credit unless listed in `acceptableNodeIds`. Parsing tolerates fenced JSON and common alias patterns (`evals/lib/scorers.ts`).
+- **Single-shot WCI JSON leaks `primary: true`** — `eval:benchmark` (not the public leaderboard) serializes `data-wci-primary` into full JSON; multistep pipe format does not. Do not compare single-shot WCI numbers to multistep without noting this.
+- **Heuristic mode peeks at ground truth** — `--heuristic-only` WCI baseline adds score when `node.id === gtId`; use for harness sanity checks only, not as an LLM competitor.
+- **No human evaluation** — Labels are author-defined. No inter-annotator agreement or crowd verification on goals or selectors.
+- **`standard` is a blended metric** — Averages three baselines with different strengths (e.g. GPT-5 **74%** on candidates vs **2%** on raw-html). Always read **per-approach tables**, not only the headline `standard` column.
+- **`wci-full` is an ablation, not an unannotated baseline** — Full annotation graph without actionable filter or eval patches; useful for ablation, not “DOM without WCI.”
+
+---
+
+### Model, provider, and reproducibility
+
+- **Single provider stack** — OpenRouter, temperature `0`, `reasoning: { effort: "low" }`, `max_tokens: 1000` (`evals/lib/llm.ts`). Other hosts, temperatures, or reasoning settings can change rankings.
+- **Token figures are approximate** — `avgTokens` mixes `ceil(chars/4)` estimates and API usage when returned. Use for **relative** cost between approaches on the same harness, not invoicing.
+- **Point-in-time snapshots** — Published JSON in `demo/public/` reflects specific model slugs (e.g. `openai/gpt-5.4`, `google/gemini-3.5-flash`) at run time. New API versions are not automatically comparable to archived reports.
+- **Rescoring without re-run** — After changes to `flow-coverage.ts` or pass rules, run `npm run eval:merge-leaderboard` to rebuild `eval-results-*.json` from archived `eval-multistep-report-*.json`. Task-level `passed` / `flowCoverage` in old reports may be stale until re-merged.
+
+---
 
 ### How to use these results responsibly
 
-- Use **`wci-grounding` vs baselines** to argue that structured context helps **one-shot control selection** on annotated pages.
-- Do **not** claim the benchmark proves full autonomous agents beat commercial browser automation products without matching their task definitions and observation spaces.
-- Prefer **subset runs** (`--scenarios=`, `--approaches=`) when adding scenarios or models, and archive reports under `demo/public/eval-multistep-report-<model>.json` for reproducibility.
+**Do**
+
+- Argue that **verified WCI annotations** improve grounding reliability and reduce tokens on this fixture set.
+- Compare **models on the same approach** (especially `wci-grounding`).
+- Use **`wci-full` vs `wci-grounding`** to show distillation/filtering value.
+- Inspect **`eval-multistep-report-*.json`** for per-scenario failures (`flowCoverage`, `validationError`, `parsedFinalAction`, `rawResponse`).
+- Archive reports as `eval-multistep-report-<model>.json` and merge with `npm run eval:merge-leaderboard` for reproducibility.
+
+**Do not**
+
+- Claim the benchmark proves full **autonomous agents** beat commercial browser automation without matching their observation space and task loops.
+- Claim **equal inputs** between WCI and baselines.
+- Treat **`standard`** as a tuned competitor — it is an **unannotated lower bound**.
+- Extrapolate to **production web** without acknowledging static fixtures, single-step scoring, and annotation assumptions.
+
+---
+
+### Related docs
+
+- Scenario design and regeneration: [`demo/scenarios/README.md`](../demo/scenarios/README.md)
+- Published artifact layout: [`demo/public/README.md`](../demo/public/README.md)
+- WCI attribute spec: [`agent.md`](../agent.md) (repo root)
 
 ---
 

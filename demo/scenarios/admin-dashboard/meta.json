@@ -1,6 +1,6 @@
 {
   "id": "admin-dashboard",
-  "title": "QuantumCRM Admin",
+  "title": "Dashboard",
   "icon": "📊",
   "difficulty": "Very Hard",
   "description": "Full-width CRM command center: six KPI cards, revenue chart and pipeline funnel, eight-row deals table with filters and bulk actions, activity sidebar, export modal, keyboard shortcuts, and a decoy pipeline CSV export.",
