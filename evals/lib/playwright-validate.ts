@@ -68,11 +68,14 @@ export async function validateCssSelector(
       const gtCount = await gtLoc.count();
       if (gtCount === 0) continue;
 
-      // Same element if first nodes are equal
+      // Match if predicted element is any ground-truth node for this selector
       const same = await pred.first().evaluate(
         (predEl, gtSelector) => {
-          const gtEl = document.querySelector(gtSelector);
-          return gtEl !== null && predEl === gtEl;
+          const nodes = document.querySelectorAll(gtSelector);
+          for (let i = 0; i < nodes.length; i++) {
+            if (predEl === nodes[i]) return true;
+          }
+          return false;
         },
         sel
       );

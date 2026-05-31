@@ -104,37 +104,37 @@ table{border-collapse:collapse}
 .gh-modal{display:none;position:fixed;inset:12% auto auto 50%;transform:translateX(-50%);z-index:60;max-width:560px;width:min(92vw,560px)}
 .gh-modal.is-open{display:block}
 </style></head><body>
-<div class="gh-app" data-page="charity-donate" data-wci-id="charity_donate-page" data-wci-role="landmark" data-wci-desc="Charity donation page root for GiveHope clean water campaign" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="gh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="gh-app" data-page="charity-donate" data-wci-role="landmark" data-wci-id="charity_donate-page" data-wci-desc="GiveHope — Donation hero." data-wci-priority="2"><div class="gh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="gh-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="gh-btn gh-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="gh-btn gh-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="gh-btn gh-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="gh-btn gh-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-cookie">Reject non-essential</button>
+  <button type="button" class="gh-btn gh-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-cookie">Accept all</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-cookie">Customize</button>
 </div><div class="gh-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="gh-btn gh-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="gh-btn">Continue as guest — express</button>
-</div><header class="gh-hdr">
-  <div class="gh-brand" aria-label="GiveHope brand"><span class="gh-brand-badge">❤</span><span>GiveHope</span></div>
-  <nav class="gh-nav" aria-label="Global"><a href="#">Campaigns</a><a href="#">Impact</a><a href="#">Emergency Relief</a><a href="#">Help</a><a href="#">Account</a></nav>
-  <div class="gh-hdr-promo"><span class="gh-status" id="charity-donate-smoke-status">Ready to donate</span><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="gh-btn gh-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="gh-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#stories">Stories</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#support">Support</a>
-  <button type="button" class="gh-btn gh-btn--ghost">Submit</button>
-  <button type="button" class="gh-btn gh-btn--ghost">Continue</button>
+  <button type="button" class="gh-btn gh-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="gh-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue as guest — express</button>
+</div><header class="gh-hdr" data-wci-role="landmark" data-wci-id="gh-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <div class="gh-brand" aria-label="GiveHope brand"><span class="gh-brand-badge" data-wci-role="display" data-wci-id="gh-brand-badge" data-wci-desc="Display value: ❤" data-wci-state="{&quot;value&quot;:&quot;❤&quot;}" data-wci-priority="4" data-wci-scope="gh-hdr">❤</span><span>GiveHope</span></div>
+  <nav class="gh-nav" aria-label="Global" data-wci-role="nav" data-wci-id="gh-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="campaigns" data-wci-desc="Navigate to: Campaigns" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-nav">Campaigns</a><a href="#" data-wci-role="nav" data-wci-id="impact" data-wci-desc="Navigate to: Impact" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-nav">Impact</a><a href="#" data-wci-role="nav" data-wci-id="emergency-relief" data-wci-desc="Navigate to: Emergency Relief" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-nav">Emergency Relief</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-nav">Help</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-nav">Account</a></nav>
+  <div class="gh-hdr-promo"><span class="gh-status" id="charity-donate-smoke-status" data-wci-role="display" data-wci-id="charity-donate-smoke-status" data-wci-desc="Display value: Ready to donate" data-wci-state="{&quot;value&quot;:&quot;Ready to donate&quot;}" data-wci-priority="4" data-wci-scope="gh-hdr">Ready to donate</span><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-hdr">Claim Offer</button>
+    <button type="button" class="gh-btn gh-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-hdr">Learn More</button></div>
+</header><nav class="gh-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="gh-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#overview" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-subnav">Overview</a><a href="#stories" data-wci-role="nav" data-wci-id="stories" data-wci-desc="Navigate to: Stories" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-subnav">Stories</a><a href="#how" data-wci-role="nav" data-wci-id="how-it-works" data-wci-desc="Navigate to: How it works" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-subnav">How it works</a><a href="#faq" data-wci-role="nav" data-wci-id="faq" data-wci-desc="Navigate to: FAQ" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-subnav">FAQ</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-subnav">Support</a>
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-subnav">Submit</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-subnav">Continue</button>
 </nav><div class="gh-dup-row" aria-label="Quick actions">
-  <button type="button" class="gh-btn gh-btn--ghost">Submit</button>
-  <button type="button" class="gh-btn gh-btn--ghost">Continue</button>
-  <button type="button" class="gh-btn gh-btn--ghost">Save changes</button>
-  <button type="button" class="gh-btn gh-btn--ghost">Confirm</button>
-</div><div class="gh-dup-row"><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">Donate $25 monthly clean water</button><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-nav">Donate water fund $25</button></div><div class="gh-page-wrap"><div class="gh-page-main"><main id="overview" role="main" class="gh-wizard">
-  <section class="gh-hero gh-card">
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Save changes</button>
+  <button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Confirm</button>
+</div><div class="gh-dup-row"><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="donate-25-monthly-clean-water" data-wci-desc="Click to: Donate $25 monthly clean water — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="charity_donate-page" data-wci-competitor="true">Donate $25 monthly clean water</button><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="donate-water-fund-25" data-wci-desc="Click to: Donate water fund $25 — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="charity_donate-page" data-wci-competitor="true">Donate water fund $25</button></div><div class="gh-page-wrap"><div class="gh-page-main"><main id="overview" role="main" class="gh-wizard" data-wci-role="landmark" data-wci-id="gh-wizard" data-wci-desc="Section for: Bring clean water closer to home" data-wci-priority="3">
+  <section class="gh-hero gh-card" data-wci-role="landmark" data-wci-id="gh-hero" data-wci-desc="Section for: Bring clean water closer to home" data-wci-priority="3">
     <div>
-      <span class="gh-badge">Monthly giving matched through Friday</span>
+      <span class="gh-badge" data-wci-role="display" data-wci-id="gh-badge" data-wci-desc="Display value: Monthly giving matched through Friday" data-wci-state="{&quot;value&quot;:&quot;Monthly giving matched through Friday&quot;}" data-wci-priority="4" data-wci-scope="gh-hero">Monthly giving matched through Friday</span>
       <h1>Bring clean water closer to home</h1>
       <p>Your recurring support helps fund durable wells, local water committees, pump repairs, and hygiene education in communities facing seasonal shortages.</p>
       <div class="gh-stat-grid">
         <div class="gh-stat"><div class="gh-small">Families reached this quarter</div><strong>4,860</strong></div>
-        <div class="gh-stat"><div class="gh-small">Current campaign goal</div><strong>$120,000</strong></div>
-        <div class="gh-stat"><div class="gh-small">Raised so far</div><strong id="raised-so-far">$74,430</strong></div>
+        <div class="gh-stat"><div class="gh-small">Current campaign goal</div><strong data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $120,000" data-wci-state="{&quot;value&quot;:&quot;$120,000&quot;}" data-wci-priority="4" data-wci-scope="gh-hero">$120,000</strong></div>
+        <div class="gh-stat"><div class="gh-small">Raised so far</div><strong id="raised-so-far" data-wci-role="display" data-wci-id="raised-so-far" data-wci-desc="Display value: $74,430" data-wci-state="{&quot;value&quot;:&quot;$74,430&quot;}" data-wci-priority="4" data-wci-scope="gh-hero">$74,430</strong></div>
       </div>
     </div>
     <div class="gh-panel" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#fff">
@@ -146,18 +146,18 @@ table{border-collapse:collapse}
   </section>
 
   <div class="gh-donate-layout">
-    <section class="gh-panel" aria-labelledby="donation-title">
+    <section class="gh-panel" aria-labelledby="donation-title" data-wci-role="landmark" data-wci-id="gh-panel" data-wci-desc="Section for: Support the Clean Water Fund" data-wci-priority="3">
       <div class="gh-steps" aria-label="Donation steps"><div class="gh-step is-active">1. Choose amount</div><div class="gh-step">2. Review</div><div class="gh-step">3. Complete</div></div>
       <h2 id="donation-title">Support the Clean Water Fund</h2>
       <p>Select a giving amount, choose your frequency, and review your impact summary before continuing.</p>
-      <form id="donation-form" novalidate="">
+      <form id="donation-form" novalidate="" data-wci-role="landmark" data-wci-id="donation-form" data-wci-desc="Landmark zone: donation-form" data-wci-priority="3">
         <fieldset>
           <legend>Choose an amount</legend>
           <div class="gh-amounts" role="group" aria-label="Preset donation amounts">
-            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="10" aria-pressed="false">$10</button>
-            <button type="button" class="gh-btn gh-amount-btn is-selected" data-amount-option="25" aria-pressed="true">$25</button>
-            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="50" aria-pressed="false">$50</button>
-            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="100" aria-pressed="false">$100</button>
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="10" aria-pressed="false" data-wci-role="action" data-wci-id="10" data-wci-desc="Click to: $10" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">$10</button>
+            <button type="button" class="gh-btn gh-amount-btn is-selected" data-amount-option="25" aria-pressed="true" data-wci-role="action" data-wci-id="25" data-wci-desc="Click to: $25" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">$25</button>
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="50" aria-pressed="false" data-wci-role="action" data-wci-id="50" data-wci-desc="Click to: $50" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">$50</button>
+            <button type="button" class="gh-btn gh-amount-btn" data-amount-option="100" aria-pressed="false" data-wci-role="action" data-wci-id="100" data-wci-desc="Click to: $100" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">$100</button>
           </div>
           <div class="gh-inline-note">Preset amounts are available for this campaign. The highlighted amount will be used in your summary.</div>
         </fieldset>
@@ -165,8 +165,8 @@ table{border-collapse:collapse}
         <fieldset>
           <legend>Frequency</legend>
           <div class="gh-frequency" role="group" aria-label="Donation frequency">
-            <button type="button" class="gh-pill is-selected" data-frequency="monthly" aria-pressed="true">Monthly</button>
-            <button type="button" class="gh-pill" data-frequency="one-time" aria-pressed="false">One-time</button>
+            <button type="button" class="gh-pill is-selected" data-frequency="monthly" aria-pressed="true" data-wci-role="action" data-wci-id="monthly" data-wci-desc="Click to: Monthly" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">Monthly</button>
+            <button type="button" class="gh-pill" data-frequency="one-time" aria-pressed="false" data-wci-role="action" data-wci-id="one-time" data-wci-desc="Click to: One-time" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">One-time</button>
           </div>
           <div class="gh-inline-note" id="frequency-note">Monthly gifts help maintain long-term water access.</div>
         </fieldset>
@@ -174,55 +174,55 @@ table{border-collapse:collapse}
         <fieldset>
           <legend>Your details</legend>
           <label for="donor-name">Full name
-            <input id="donor-name" name="donorName" type="text" placeholder="e.g., Maya Johnson" autocomplete="name">
+            <input id="donor-name" name="donorName" type="text" placeholder="e.g., Maya Johnson" autocomplete="name" data-wci-role="form" data-wci-id="donor-name" data-wci-desc="Field for: Full name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="donation-form">
           </label>
           <label for="donor-email">Email address
-            <input id="donor-email" name="donorEmail" type="email" placeholder="you@example.org" autocomplete="email">
+            <input id="donor-email" name="donorEmail" type="email" placeholder="you@example.org" autocomplete="email" data-wci-role="form" data-wci-id="donor-email" data-wci-desc="Field for: Email address" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="donation-form">
           </label>
-          <label><input id="dedicate-gift" type="checkbox"> Dedicate this monthly gift in honor of someone</label>
+          <label><input id="dedicate-gift" type="checkbox" data-wci-role="form" data-wci-id="dedicate-gift" data-wci-desc="Field for: Dedicate this monthly gift in honor of someone" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="donation-form"> Dedicate this monthly gift in honor of someone</label>
           <div id="dedication-wrap" hidden="">
             <label for="dedication-name">Honoree name
-              <input id="dedication-name" type="text" placeholder="Who is this gift for?">
+              <input id="dedication-name" type="text" placeholder="Who is this gift for?" data-wci-role="form" data-wci-id="dedication-name" data-wci-desc="Field for: Honoree name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="donation-form">
             </label>
           </div>
           <div id="validation-message" class="gh-small" aria-live="polite">Enter your name and email to continue.</div>
         </fieldset>
 
         <div class="gh-card__actions">
-          <button type="button" class="gh-btn gh-btn--primary" data-fund="water" data-amt="25" data-wci-id="donate-water-fund" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to donate twenty-five dollars monthly to the clean water fund campaign" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="charity_donate-page">Confirm monthly $25 donation</button>
-          <button type="button" class="gh-btn gh-btn--ghost" id="preview-impact">Preview impact</button>
+          <button type="button" class="gh-btn gh-btn--primary" data-fund="water" data-amt="25" data-wci-role="action" data-wci-id="donate-water-fund" data-wci-desc="Donate twenty-five dollars monthly to the clean water fund campaign." data-wci-action="click" data-wci-priority="1" data-wci-scope="donation-form" data-wci-primary="true">Confirm monthly $25 donation</button>
+          <button type="button" class="gh-btn gh-btn--ghost" id="preview-impact" data-wci-role="action" data-wci-id="preview-impact" data-wci-desc="Click to: Preview impact" data-wci-action="click" data-wci-priority="3" data-wci-scope="donation-form">Preview impact</button>
         </div>
       </form>
     </section>
 
-    <aside class="gh-summary" aria-labelledby="summary-title">
+    <aside class="gh-summary" aria-labelledby="summary-title" data-wci-role="landmark" data-wci-id="gh-summary" data-wci-desc="Section for: Donation summary" data-wci-priority="3">
       <h3 id="summary-title" style="margin-top:0">Donation summary</h3>
       <div class="gh-summary-row"><span>Fund</span><strong>Clean Water Fund</strong></div>
-      <div class="gh-summary-row"><span>Amount</span><strong id="summary-amount">$25</strong></div>
+      <div class="gh-summary-row"><span>Amount</span><strong id="summary-amount" data-wci-role="display" data-wci-id="summary-amount" data-wci-desc="Display value: $25" data-wci-state="{&quot;value&quot;:&quot;$25&quot;}" data-wci-priority="4" data-wci-scope="gh-summary">$25</strong></div>
       <div class="gh-summary-row"><span>Frequency</span><strong id="summary-frequency">Monthly</strong></div>
-      <div class="gh-summary-row"><span>Estimated annual support</span><strong id="summary-annual">$300</strong></div>
+      <div class="gh-summary-row"><span>Estimated annual support</span><strong id="summary-annual" data-wci-role="display" data-wci-id="summary-annual" data-wci-desc="Display value: $300" data-wci-state="{&quot;value&quot;:&quot;$300&quot;}" data-wci-priority="4" data-wci-scope="gh-summary">$300</strong></div>
       <div class="gh-summary-row"><span>Projected impact</span><strong id="summary-impact">Pump repairs for 1 village block</strong></div>
       <p class="gh-small" id="summary-note">You are currently set to a monthly recurring donation.</p>
-      <div class="gh-status is-live" id="selection-badge">Selected: $25 monthly</div>
+      <div class="gh-status is-live" id="selection-badge" data-wci-role="display" data-wci-id="selection-badge" data-wci-desc="Display value: Selected: $25 monthly" data-wci-state="{&quot;value&quot;:&quot;Selected: $25 monthly&quot;}" data-wci-priority="4" data-wci-scope="gh-summary">Selected: $25 monthly</div>
     </aside>
   </div>
 
-  <section id="stories" class="gh-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px">
-    <article>
+  <section id="stories" class="gh-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px" data-wci-role="landmark" data-wci-id="gh-grid" data-wci-desc="Section for: Community-led maintenance" data-wci-priority="3">
+    <article data-wci-role="landmark" data-wci-id="article" data-wci-desc="Section for: Community-led maintenance" data-wci-priority="3">
       <h3>Community-led maintenance</h3>
       <p>GiveHope equips local water committees with spare parts and training so repairs happen in days, not months.</p>
     </article>
-    <article>
+    <article data-wci-role="landmark" data-wci-id="article-2" data-wci-desc="Section for: Safe storage and hygiene" data-wci-priority="3">
       <h3>Safe storage and hygiene</h3>
       <p>Alongside infrastructure work, families receive practical guidance on water handling, handwashing, and sanitation.</p>
     </article>
-    <article>
+    <article data-wci-role="landmark" data-wci-id="article-3" data-wci-desc="Section for: Transparent reporting" data-wci-priority="3">
       <h3>Transparent reporting</h3>
       <p>Monthly supporters receive field updates, milestone reports, and campaign progress summaries throughout the year.</p>
     </article>
   </section>
 
-  <section id="how" class="gh-card">
+  <section id="how" class="gh-card" data-wci-role="landmark" data-wci-id="gh-card" data-wci-desc="Section for: What your donation supports" data-wci-priority="3">
     <h2>What your donation supports</h2>
     <ul class="gh-checklist">
       <li><span>Preventive pump inspections</span><span class="gh-check">Included</span></li>
@@ -231,7 +231,7 @@ table{border-collapse:collapse}
     </ul>
   </section>
 
-  <section id="faq" class="gh-card">
+  <section id="faq" class="gh-card" data-wci-role="landmark" data-wci-id="gh-card-2" data-wci-desc="Section for: Frequently asked questions" data-wci-priority="3">
     <h2>Frequently asked questions</h2>
     <table>
       <thead><tr><th>Question</th><th>Answer</th></tr></thead>
@@ -242,25 +242,25 @@ table{border-collapse:collapse}
       </tbody>
     </table>
   </section>
-</main></div><aside class="gh-rail gh-rail--ads" aria-label="Sponsored">
+</main></div><aside class="gh-rail gh-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="gh-rail" data-wci-desc="Section for: Campaign snapshot" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>See how employer matching can double recurring gifts for water access campaigns.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-rail">Partner offer — limited time</a><br>
+  <button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
   <h3 style="margin:0 0 8px;color:#92400e">Campaign snapshot</h3>
-  <p class="gh-small">Average monthly gift: <strong>$29</strong></p>
+  <p class="gh-small">Average monthly gift: <strong data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $29" data-wci-state="{&quot;value&quot;:&quot;$29&quot;}" data-wci-priority="4" data-wci-scope="gh-rail">$29</strong></p>
   <p class="gh-small">New recurring donors today: <strong id="donor-count">148</strong></p>
   <p class="gh-small">Processing status: <strong id="side-status">Idle</strong></p>
-</aside></div><div class="gh-filler" aria-hidden="true"><div class="gh-filler-inner"><a href="/misc/0" class="gh-btn gh-btn--ghost">Link 1</a><button type="button" class="gh-btn gh-btn--ghost">Action 2</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/4" class="gh-btn gh-btn--ghost">Link 5</a><button type="button" class="gh-btn gh-btn--ghost">Action 6</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/8" class="gh-btn gh-btn--ghost">Link 9</a><button type="button" class="gh-btn gh-btn--ghost">Action 10</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/12" class="gh-btn gh-btn--ghost">Link 13</a><button type="button" class="gh-btn gh-btn--ghost">Action 14</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/16" class="gh-btn gh-btn--ghost">Link 17</a><button type="button" class="gh-btn gh-btn--ghost">Action 18</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/20" class="gh-btn gh-btn--ghost">Link 21</a><button type="button" class="gh-btn gh-btn--ghost">Action 22</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/24" class="gh-btn gh-btn--ghost">Link 25</a><button type="button" class="gh-btn gh-btn--ghost">Action 26</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/28" class="gh-btn gh-btn--ghost">Link 29</a><button type="button" class="gh-btn gh-btn--ghost">Action 30</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/32" class="gh-btn gh-btn--ghost">Link 33</a><button type="button" class="gh-btn gh-btn--ghost">Action 34</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/36" class="gh-btn gh-btn--ghost">Link 37</a><button type="button" class="gh-btn gh-btn--ghost">Action 38</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button><a href="/misc/40" class="gh-btn gh-btn--ghost">Link 41</a><button type="button" class="gh-btn gh-btn--ghost">Action 42</button><button type="button" class="gh-btn gh-btn--ghost">Submit</button><button type="button" class="gh-btn gh-btn--ghost">Continue</button></div></div><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promo node that should not be used" data-wci-priority="1" data-wci-scope="charity_donate-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="gh-ftr"><small>© Demo GiveHope</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+</aside></div><div class="gh-filler" aria-hidden="true"><div class="gh-filler-inner"><a href="/misc/0" class="gh-btn gh-btn--ghost">Link 1</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 2</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/4" class="gh-btn gh-btn--ghost">Link 5</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 6</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/8" class="gh-btn gh-btn--ghost">Link 9</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 10</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/12" class="gh-btn gh-btn--ghost">Link 13</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 14</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/16" class="gh-btn gh-btn--ghost">Link 17</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 18</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/20" class="gh-btn gh-btn--ghost">Link 21</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 22</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/24" class="gh-btn gh-btn--ghost">Link 25</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 26</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/28" class="gh-btn gh-btn--ghost">Link 29</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 30</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/32" class="gh-btn gh-btn--ghost">Link 33</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 34</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/36" class="gh-btn gh-btn--ghost">Link 37</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 38</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button><a href="/misc/40" class="gh-btn gh-btn--ghost">Link 41</a><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Action 42</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Submit</button><button type="button" class="gh-btn gh-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="charity_donate-page">Continue</button></div></div><button type="button" class="gh-btn gh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="charity_donate-page">Hidden promo</button><footer class="gh-ftr" data-wci-role="landmark" data-wci-id="gh-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo GiveHope</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gh-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="gh-modal-backdrop" id="modal-backdrop"></div>
-<div class="gh-modal" id="impact-modal" aria-modal="true" role="dialog" aria-labelledby="impact-modal-title">
+<div class="gh-modal" id="impact-modal" aria-modal="true" role="dialog" aria-labelledby="impact-modal-title" data-wci-role="landmark" data-wci-id="gh-modal" data-wci-desc="Section for: Donation preview" data-wci-priority="3">
   <h2 id="impact-modal-title" style="margin-top:0">Donation preview</h2>
   <p id="impact-preview-text">A $25 monthly gift helps keep water systems running with timely repair kits and technician visits.</p>
   <div class="gh-card__actions">
-    <button type="button" class="gh-btn gh-btn--primary" id="close-modal">Close</button>
+    <button type="button" class="gh-btn gh-btn--primary" id="close-modal" data-wci-role="action" data-wci-id="close-modal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="gh-modal">Close</button>
   </div>
 </div>
 </div>

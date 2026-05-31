@@ -84,9 +84,10 @@ npm run eval:benchmark -- --models=gpt5Nano,gpt5Mini,gemini3Flash
 # WCI ablation only (10 calls per model)
 npm run eval:benchmark -- --approaches=wci-full,wci-grounding --models=gpt5Nano
 
-# Multi-step task benchmark (reads meta.tasks.multiStep)
-npm run eval:multistep -- --models=gpt5Nano --mode=both --min-coverage=0.6
-npm run eval:multistep -- --scenarios=job-board,banking --mode=wci
+# Multi-step task benchmark (reads meta.tasks.multiStep — same five approaches as eval:benchmark)
+npm run eval:multistep -- --heuristic-only
+npm run eval:multistep -- --models=gpt5Nano --min-coverage=0.6
+npm run eval:multistep -- --scenarios=job-board,banking --approaches=wci-grounding,raw-html
 
 # Subset of scenarios (50 available — see demo/scenarios/README.md)
 npm run eval:benchmark -- --scenarios=flight-booking,banking,checkout
@@ -143,10 +144,36 @@ flowchart LR
 6. **Logs** (optional) — `evals/logs/<run-id>/<modelId>/<scenario>__<approach>.json` with prompts and responses.
 
 **Single-shot report (`eval:benchmark`) does not measure full trajectories.**
-For multi-step task scoring over `meta.tasks.multiStep`, run `eval:multistep` which requires:
+For multi-step task scoring over `meta.tasks.multiStep` (primary task only), run `eval:multistep` — same five approaches as single-shot (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`).
 
-- correct final action (ground-truth selector/id), and
-- minimum flow-type coverage (`--min-coverage`, default `0.6`) against expected step types.
+**Pass rules (differs from single-shot):**
+
+- **WCI** (`wci-grounding`, `wci-full`): correct `final_action` node id and no decoy. Flow-type coverage is reported but not required for pass.
+- **Baselines**: correct final action **and** minimum flow-type coverage (`--min-coverage`, default `0.6`).
+
+**Tokens:** Multistep uses **task-focused v2 pipe rows** (`evals/lib/wci-eval-distill.ts`): compact encoding (no repeated JSON keys per node), but **full desc (≤120)** and **state (≤96 chars)** where needed. Node count is **budget-based** (~2.4k / 3.2k chars for the WCI block), always including priority 1–2 controls — not a hard 12-node cap.
+
+```json
+{"v":2,"g":"g","N":["export-btn|c|1","deals-table|2|top:Foxtrot|D"]}
+```
+
+Pipe row order: `id|a|d|p|s|r` — skip empty segments. `a`: `c` click, `f` fill, … `s`: `k:v` state (`!=disabled`).
+
+| agent.md attribute | In pipe row | Notes |
+|--------------------|-------------|--------|
+| `data-wci-id` | 1st | always |
+| `data-wci-action` | `a` | abbreviated verb |
+| `data-wci-desc` | `d` | omitted if redundant with id |
+| `data-wci-priority` | `p` | only ≤2 |
+| `data-wci-state` | `s` | compact `k:v` |
+| `data-wci-role` | `r` | `wci-full` only |
+| precondition, options, scope, … | — | omitted |
+
+Single-shot `eval:benchmark` still uses full `buildWciGroundingJson` / `buildWciFullJson` for published leaderboard numbers.
+
+**Benchmark discipline (priority):** `scripts/lib/priority-competitors.mjs` runs on rebuild. Each scenario marks the ground-truth node with `data-wci-primary="true"` and adds 1–2 `data-wci-competitor="true"` nodes at **priority 1** so models cannot pass by always picking the first p=1 row. Prompt row order is shuffled per scenario id. Verify with `node scripts/verify-wci-ground-truth.mjs`. Eval state patches (`evals/lib/eval-snapshot.ts`) enable decisive actions (e.g. `review-transfer-btn`, `upload-iceland-album` when the raw page keeps them disabled).
+
+**Flow coverage** (`evals/lib/flow-coverage.ts`): diagnostic score in `[0, 1]`, not used for WCI pass. Uses the better of (1) **type overlap** — infer `observe`/`act`/`verify` from step text, credit `final_action` as terminal `act`, impute `observe`+`verify` when WCI final id is correct — and (2) **step overlap** — keyword match against expected flow steps. Avoids false **0.33** when the model returns one correct `act` but omits explicit `observe`/`verify` labels.
 
 ---
 
@@ -215,7 +242,16 @@ Harness estimate: `ceil(prompt_chars / 4)` from `buildEvalContext`, or OpenRoute
 
 **Qwen 2.5 7B** sits between small and frontier models: **70%** raw-html, **90%** WCI grounding (5 missed scenarios), ~**454** tokens on grounding — strong efficiency, slightly below GPT-5/Gemini on accuracy.
 
-**Legacy vs generated (GPT-5 Nano, raw-html):** On the five rich legacy pages (`flight-booking` … `admin-dashboard`), raw-html succeeds **1/5**; on the 45 generated layouts **28/45**. Legacy DOM is larger and more adversarial; generated pages are noisy but often expose a unique `data-*` anchor the model can find.
+**Handmade vs synthetic (GPT-5 Nano, raw-html):** The suite splits into two tiers:
+
+| Tier | Count | Scenarios | GPT-5 Nano raw-html |
+|------|-------|-----------|---------------------|
+| **Handmade** | 5 | `flight-booking`, `banking`, `checkout`, `social-feed`, `admin-dashboard` | **1/5** |
+| **Synthetic** | 45 | Generated layouts (job-board, tax-filing, …) | **28/45** |
+
+Handmade pages have larger, adversarial DOMs preserved from the original benchmark. Synthetic pages add noise and decoys but often expose a unique structural `data-*` anchor the model can find.
+
+**Difficulty (UI labels):** Each scenario’s `meta.json` uses `Hard` / `Very Hard` / `Extreme`; the scenario browser maps these to **Easy** / **Medium** / **Hard** for filtering. All five handmade scenarios are rated **Hard** (Extreme in meta).
 
 **WCI full vs grounding:** The ablation loses 0–2 scenarios per model (e.g. Gemini grounding 98% vs full 96%). Failures are usually **landmark or mid-flow ids** on full graph without snapshot patches — expected from `wci-full` design.
 

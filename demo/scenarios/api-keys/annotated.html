@@ -124,49 +124,49 @@ body{background:#f1f5f9}
 .dc-mfa{position:fixed;inset:20% 30%;z-index:70;background:#fff;border-radius:12px;padding:24px;border:1px solid #e2e8f0;box-shadow:0 24px 48px rgba(15,23,42,.2);display:none}
 .dc-mfa.is-open{display:block}
 </style></head><body>
-<div class="dc-app" data-page="api-keys" id="api_keys-page" data-wci-id="api_keys-page" data-wci-role="landmark" data-wci-desc="DevConsole API keys &amp; credentials — seven environment rows, rotation readiness form, MFA step-up, tabbed views" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;activeKeys&quot;:7,&quot;productionRotationDueDays&quot;:29,&quot;mfaRequired&quot;:true}">
-<div class="dc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="dc-app" data-page="api-keys" id="api_keys-page" data-wci-role="landmark" data-wci-id="api_keys-page" data-wci-desc="DevConsole — Enterprise API key console: seven-row environment table with production primary, read replica, and legacy rows; tabbed views (Active, Pending, Expired, Service accounts); search and environment filters; bulk-selection toolbar with decoy rotate actions; rotation readiness form (reason + three acknowledgments); MFA step-up modal; confirmation dialog; scope/permission matrix; IP allowlist; activity timeline; cookie banner and sponsored rail traps." data-wci-priority="2">
+<div class="dc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="dc-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="dc-btn dc-btn--muted" id="cookie-reject">Reject non-essential</button>
-  <button type="button" class="dc-btn dc-btn--primary" id="cookie-accept">Accept all</button>
-  <button type="button" class="dc-btn dc-btn--ghost" id="cookie-customize">Customize</button>
+  <button type="button" class="dc-btn dc-btn--muted" id="cookie-reject" data-wci-role="action" data-wci-id="cookie-reject" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-cookie">Reject non-essential</button>
+  <button type="button" class="dc-btn dc-btn--primary" id="cookie-accept" data-wci-role="action" data-wci-id="cookie-accept" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-cookie">Accept all</button>
+  <button type="button" class="dc-btn dc-btn--ghost" id="cookie-customize" data-wci-role="action" data-wci-id="cookie-customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-cookie">Customize</button>
 </div>
 <div class="dc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="dc-btn dc-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="dc-btn">Continue as guest — express</button>
+  <button type="button" class="dc-btn dc-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue as guest — express</button>
 </div>
-<header class="dc-hdr">
+<header class="dc-hdr" data-wci-role="landmark" data-wci-id="dc-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
   <div class="dc-brand"><div class="dc-logo" aria-hidden="true">D</div><div><strong>DevConsole</strong><div class="dc-help">Workspace: Acme Platform · Org: acme-prod-001</div></div></div>
-  <nav class="dc-nav" aria-label="Global"><a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="#" aria-current="page">Developer</a></nav>
+  <nav class="dc-nav" aria-label="Global" data-wci-role="nav" data-wci-id="dc-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-nav">Home</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-nav">Account</a><a href="#" aria-current="page" data-wci-role="nav" data-wci-id="developer" data-wci-desc="Navigate to: Developer" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-nav">Developer</a></nav>
   <div class="dc-hdr-promo">
-    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-emergency-rotate" data-wci-id="decoy-emergency-rotate" data-wci-role="action" data-wci-desc="Decoy emergency key rotation in header — not the dashboard production row action" data-wci-action="click" data-wci-priority="5" data-wci-scope="api_keys-page">Emergency key rotation</button>
-    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="dc-btn dc-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-emergency-rotate" data-wci-role="action" data-wci-id="decoy-emergency-rotate" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="dc-hdr">Emergency key rotation</button>
+    <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-hdr">Claim Offer</button>
+    <button type="button" class="dc-btn dc-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-hdr">Learn More</button>
   </div>
 </header>
-<nav class="dc-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Reports</a><a href="#">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-  <button type="button" class="dc-btn dc-btn--ghost">Submit</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Continue</button>
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate all keys</button>
+<nav class="dc-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="dc-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="reports" data-wci-desc="Navigate to: Reports" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-subnav">Reports</a><a href="#" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-subnav">Settings</a><a href="#" data-wci-role="nav" data-wci-id="billing" data-wci-desc="Navigate to: Billing" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-subnav">Billing</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-subnav">Support</a>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-subnav">Submit</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-subnav">Continue</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="rotate-all-keys" data-wci-desc="Click to: Rotate all keys" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-subnav">Rotate all keys</button>
 </nav>
 <div class="dc-dup-row" aria-label="Quick actions">
-  <button type="button" class="dc-btn dc-btn--ghost">Submit</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Continue</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Save changes</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Confirm</button>
-  <button type="button" class="dc-btn dc-btn--ghost">Export audit</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Save changes</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Confirm</button>
+  <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="export-audit" data-wci-desc="Click to: Export audit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Export audit</button>
 </div>
 <div class="dc-dup-row">
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate production API key</button>
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate prod key</button>
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Bulk rotate production</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="rotate-production-api-key" data-wci-desc="Click to: Rotate production API key — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="api_keys-page" data-wci-competitor="true">Rotate production API key</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="rotate-prod-key" data-wci-desc="Click to: Rotate prod key" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Rotate prod key</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="bulk-rotate-production" data-wci-desc="Click to: Bulk rotate production" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Bulk rotate production</button>
 </div>
 <div class="dc-page-wrap"><div class="dc-page-main">
   <div class="dc-breadcrumbs" aria-label="Breadcrumbs"><span>Developer</span><span>Security</span><span>Credentials</span><span>API keys</span></div>
 
   <div class="dc-alert" role="alert" id="rotation-alert">
     <div><strong>Production key rotation due in 29 days.</strong> Policy requires rotation every 90 days. Complete the readiness form before initiating production rotation.</div>
-    <button type="button" class="dc-btn dc-btn--ghost" id="dismiss-alert">Dismiss</button>
+    <button type="button" class="dc-btn dc-btn--ghost" id="dismiss-alert" data-wci-role="action" data-wci-id="dismiss-alert" data-wci-desc="Click to: Dismiss" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Dismiss</button>
   </div>
 
   <div class="dc-hero">
@@ -174,10 +174,10 @@ body{background:#f1f5f9}
       <h1>API keys &amp; credentials</h1>
       <p>Manage environment-specific keys across regions, review scoped permissions, inspect service-account tokens, and control reveal access for operators. Production rotation invalidates the current secret after a brief propagation window — staging and development keys follow separate policies.</p>
       <div class="dc-statusline">
-        <span class="dc-badge dc-badge--ok">Live sync healthy</span>
-        <span class="dc-badge dc-badge--warn">1 pending review</span>
-        <span class="dc-badge dc-badge--ok">MFA enforced</span>
-        <span class="dc-badge dc-badge--muted">CLI v2.14 connected</span>
+        <span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge" data-wci-desc="Display value: Live sync healthy" data-wci-state="{&quot;value&quot;:&quot;Live sync healthy&quot;}" data-wci-priority="4" data-wci-scope="api_keys-page">Live sync healthy</span>
+        <span class="dc-badge dc-badge--warn" data-wci-role="display" data-wci-id="dc-badge-2" data-wci-desc="Display value: 1 pending review" data-wci-state="{&quot;value&quot;:&quot;1 pending review&quot;}" data-wci-priority="4" data-wci-scope="api_keys-page">1 pending review</span>
+        <span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-3" data-wci-desc="Display value: MFA enforced" data-wci-state="{&quot;value&quot;:&quot;MFA enforced&quot;}" data-wci-priority="4" data-wci-scope="api_keys-page">MFA enforced</span>
+        <span class="dc-badge dc-badge--muted" data-wci-role="display" data-wci-id="dc-badge-4" data-wci-desc="Display value: CLI v2.14 connected" data-wci-state="{&quot;value&quot;:&quot;CLI v2.14 connected&quot;}" data-wci-priority="4" data-wci-scope="api_keys-page">CLI v2.14 connected</span>
       </div>
     </div>
     <div class="dc-note" style="max-width:280px">
@@ -194,160 +194,160 @@ body{background:#f1f5f9}
   </div>
 
   <div class="dc-layout">
-    <aside class="dc-sidebar" aria-label="Section navigation">
-      <a href="#" aria-current="page">Keys</a>
-      <a href="#">Webhooks</a>
-      <a href="#">Audit log</a>
-      <a href="#">Service accounts</a>
-      <a href="#">Policies</a>
-      <a href="#">IP allowlists</a>
-      <a href="#">Rate limits</a>
+    <aside class="dc-sidebar" aria-label="Section navigation" data-wci-role="landmark" data-wci-id="dc-sidebar" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
+      <a href="#" aria-current="page" data-wci-role="nav" data-wci-id="keys" data-wci-desc="Navigate to: Keys" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Keys</a>
+      <a href="#" data-wci-role="nav" data-wci-id="webhooks" data-wci-desc="Navigate to: Webhooks" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Webhooks</a>
+      <a href="#" data-wci-role="nav" data-wci-id="audit-log" data-wci-desc="Navigate to: Audit log" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Audit log</a>
+      <a href="#" data-wci-role="nav" data-wci-id="service-accounts" data-wci-desc="Navigate to: Service accounts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Service accounts</a>
+      <a href="#" data-wci-role="nav" data-wci-id="policies" data-wci-desc="Navigate to: Policies" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Policies</a>
+      <a href="#" data-wci-role="nav" data-wci-id="ip-allowlists" data-wci-desc="Navigate to: IP allowlists" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">IP allowlists</a>
+      <a href="#" data-wci-role="nav" data-wci-id="rate-limits" data-wci-desc="Navigate to: Rate limits" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-sidebar">Rate limits</a>
     </aside>
-    <main role="main">
+    <main role="main" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Environment keys" data-wci-priority="3">
       <div class="dc-tabs" role="tablist" aria-label="Credential views">
-        <button type="button" role="tab" id="tab-active" aria-selected="true" aria-controls="panel-active">Active keys</button>
-        <button type="button" role="tab" id="tab-pending" aria-selected="false" aria-controls="panel-pending">Pending rotation</button>
-        <button type="button" role="tab" id="tab-expired" aria-selected="false" aria-controls="panel-expired">Expired</button>
-        <button type="button" role="tab" id="tab-service" aria-selected="false" aria-controls="panel-service">Service accounts</button>
+        <button type="button" role="tab" id="tab-active" aria-selected="true" aria-controls="panel-active" data-wci-role="action" data-wci-id="tab-active" data-wci-desc="Click to: Active keys" data-wci-action="click" data-wci-priority="3" data-wci-scope="main">Active keys</button>
+        <button type="button" role="tab" id="tab-pending" aria-selected="false" aria-controls="panel-pending" data-wci-role="action" data-wci-id="tab-pending" data-wci-desc="Click to: Pending rotation" data-wci-action="click" data-wci-priority="3" data-wci-scope="main">Pending rotation</button>
+        <button type="button" role="tab" id="tab-expired" aria-selected="false" aria-controls="panel-expired" data-wci-role="action" data-wci-id="tab-expired" data-wci-desc="Click to: Expired" data-wci-action="click" data-wci-priority="3" data-wci-scope="main">Expired</button>
+        <button type="button" role="tab" id="tab-service" aria-selected="false" aria-controls="panel-service" data-wci-role="action" data-wci-id="tab-service" data-wci-desc="Click to: Service accounts — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="main" data-wci-competitor="true">Service accounts</button>
       </div>
 
       <div id="panel-active" class="dc-panel" role="tabpanel" aria-labelledby="tab-active">
-      <section class="dc-card" aria-labelledby="keys-table-heading" id="keys-section">
+      <section class="dc-card" aria-labelledby="keys-table-heading" id="keys-section" data-wci-role="landmark" data-wci-id="dc-card" data-wci-desc="Section for: Environment keys" data-wci-priority="3">
         <div class="dc-inline" style="justify-content:space-between;margin-bottom:8px">
           <div>
             <h2 id="keys-table-heading">Environment keys</h2>
             <p class="dc-muted">Use reveal for non-production inspection only. Production rotation requires a documented reason and both acknowledgments below.</p>
           </div>
           <div>
-            <span id="api-keys-smoke-status" class="dc-badge dc-badge--warn">Smoke status: waiting for action</span>
+            <span id="api-keys-smoke-status" class="dc-badge dc-badge--warn" data-wci-role="display" data-wci-id="api-keys-smoke-status" data-wci-desc="Display value: Smoke status: waiting for action" data-wci-state="{&quot;value&quot;:&quot;Smoke status: waiting for action&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Smoke status: waiting for action</span>
           </div>
         </div>
 
         <div class="dc-toolbar dc-inline" style="justify-content:space-between;margin-bottom:8px">
           <div class="dc-inline">
-            <input type="search" class="dc-search" id="key-search" placeholder="Filter by name or ID…" aria-label="Search keys">
+            <input type="search" class="dc-search" id="key-search" placeholder="Filter by name or ID…" aria-label="Search keys" data-wci-role="form" data-wci-id="key-search" data-wci-desc="Input field for: Filter by name or ID…" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="dc-card">
             <div class="dc-pills" role="group" aria-label="Environment filter">
-              <button type="button" class="dc-pill" data-filter="all" aria-pressed="true">All</button>
-              <button type="button" class="dc-pill" data-filter="production" aria-pressed="false">Production</button>
-              <button type="button" class="dc-pill" data-filter="non-production" aria-pressed="false">Non-production</button>
+              <button type="button" class="dc-pill" data-filter="all" aria-pressed="true" data-wci-role="action" data-wci-id="all" data-wci-desc="Click to: All" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">All</button>
+              <button type="button" class="dc-pill" data-filter="production" aria-pressed="false" data-wci-role="action" data-wci-id="production" data-wci-desc="Click to: Production" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Production</button>
+              <button type="button" class="dc-pill" data-filter="non-production" aria-pressed="false" data-wci-role="action" data-wci-id="non-production" data-wci-desc="Click to: Non-production" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Non-production</button>
             </div>
           </div>
           <div class="dc-inline">
-            <button type="button" class="dc-btn dc-btn--ghost" id="refresh-keys">Refresh</button>
-            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-rotate-selected" data-wci-id="decoy-rotate-selected" data-wci-role="action" data-wci-desc="Decoy rotate selected keys toolbar action" data-wci-action="click" data-wci-priority="5" data-wci-scope="api_keys-page">Rotate selected</button>
-            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" id="decoy-rotate-all-prod" data-wci-id="decoy-rotate-all-prod" data-wci-role="action" data-wci-desc="Decoy bulk rotate all production keys — not the single primary row rotation" data-wci-action="click" data-wci-priority="5" data-wci-scope="api_keys-page">Rotate all production keys</button>
+            <button type="button" class="dc-btn dc-btn--ghost" id="refresh-keys" data-wci-role="action" data-wci-id="refresh-keys" data-wci-desc="Click to: Refresh" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Refresh</button>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" id="decoy-rotate-selected" data-wci-role="action" data-wci-id="decoy-rotate-selected" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="dc-card">Rotate selected</button>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" id="decoy-rotate-all-prod" data-wci-role="action" data-wci-id="decoy-rotate-all-prod" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="dc-card">Rotate all production keys</button>
           </div>
         </div>
 
         <div class="dc-bulk" id="bulk-bar" aria-live="polite">
           <span id="bulk-count">0 keys selected</span>
-          <button type="button" class="dc-btn dc-btn--muted">Copy IDs</button>
-          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Rotate selected keys</button>
-          <button type="button" class="dc-btn dc-btn--ghost" id="clear-selection">Clear</button>
+          <button type="button" class="dc-btn dc-btn--muted" data-wci-role="action" data-wci-id="copy-ids" data-wci-desc="Click to: Copy IDs" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Copy IDs</button>
+          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="rotate-selected-keys" data-wci-desc="Click to: Rotate selected keys" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate selected keys</button>
+          <button type="button" class="dc-btn dc-btn--ghost" id="clear-selection" data-wci-role="action" data-wci-id="clear-selection" data-wci-desc="Click to: Clear" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Clear</button>
         </div>
 
-        <table aria-label="API keys table" id="keys-table" data-wci-id="keys-table" data-wci-role="display" data-wci-desc="Environment keys table — production primary row is data-key=production with primary chip; distinguish from read replica and legacy production rows" data-wci-scope="api_keys-page" data-wci-state="{&quot;rows&quot;:[&quot;staging&quot;,&quot;production-replica&quot;,&quot;production&quot;,&quot;production-legacy&quot;,&quot;qa-mirror&quot;,&quot;partner-sandbox&quot;,&quot;development&quot;]}">
+        <table aria-label="API keys table" id="keys-table">
           <thead><tr>
-            <th><input type="checkbox" id="select-all-keys" aria-label="Select all visible keys"></th>
+            <th><input type="checkbox" id="select-all-keys" aria-label="Select all visible keys" data-wci-role="form" data-wci-id="select-all-keys" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></th>
             <th>Environment</th><th>Public ID</th><th>Region</th><th>Status</th><th>Last used</th><th>Scopes</th><th>Secret preview</th><th>Actions</th>
           </tr></thead>
           <tbody>
             <tr data-key="staging" data-env="non-production">
-              <td><input type="checkbox" class="key-select" aria-label="Select staging key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select staging key" data-wci-role="form" data-wci-id="input-checkbox" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>Staging</strong><span class="dc-chip dc-chip--stg">sandbox</span><div class="dc-help">Sandbox traffic only</div></td>
               <td>key_stg_83D91</td>
               <td>us-east-1</td>
-              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td><span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-5" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Active</span></td>
               <td>4 minutes ago</td>
               <td><span class="dc-help">read, write:test</span></td>
               <td><span class="dc-secret" id="staging-secret-preview">••••••••••••</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost" id="staging-reveal-btn" data-wci-id="staging-reveal-btn" data-wci-role="action" data-wci-desc="Reveal staging secret — wrong action when goal is production rotation" data-wci-action="click" data-wci-priority="4" data-wci-scope="api_keys-page" data-wci-state="{&quot;environment&quot;:&quot;staging&quot;}">Reveal</button>
-                <button type="button" class="dc-btn">Copy ID</button>
+                <button type="button" class="dc-btn dc-btn--ghost" id="staging-reveal-btn" data-wci-role="action" data-wci-id="staging-reveal-btn" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="dc-card">Reveal</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="copy-id" data-wci-desc="Click to: Copy ID" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Copy ID</button>
               </td>
             </tr>
             <tr data-key="production-replica" data-env="production">
-              <td><input type="checkbox" class="key-select" aria-label="Select production read replica key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select production read replica key" data-wci-role="form" data-wci-id="input-checkbox-2" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>Production (read replica)</strong><span class="dc-chip dc-chip--prod">prod</span><div class="dc-help">Read-only analytics mirror — not rotatable here</div></td>
               <td>key_prod_rep_9X2LM</td>
               <td>eu-west-1</td>
-              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td><span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-6" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Active</span></td>
               <td>2 minutes ago</td>
               <td><span class="dc-help">read:analytics</span></td>
               <td><span class="dc-secret">Not revealable</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost" disabled="" title="Read replica keys are managed via CLI">Rotate</button>
-                <button type="button" class="dc-btn">View audit</button>
+                <button type="button" class="dc-btn dc-btn--ghost" disabled="" title="Read replica keys are managed via CLI" data-wci-role="action" data-wci-id="rotate" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="view-audit" data-wci-desc="Click to: View audit" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">View audit</button>
               </td>
             </tr>
-            <tr data-key="production" data-env="production">
-              <td><input type="checkbox" class="key-select" aria-label="Select production key"></td>
+            <tr data-key="production" data-env="production" data-wci-role="landmark" data-wci-id="rotate-prod-api-key-scope" data-wci-desc="Target scope for rotate-prod-api-key" data-wci-state="{&quot;key&quot;:&quot;production&quot;,&quot;env&quot;:&quot;production&quot;}" data-wci-priority="2">
+              <td><input type="checkbox" class="key-select" aria-label="Select production key" data-wci-role="form" data-wci-id="input-checkbox-3" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rotate-prod-api-key-scope"></td>
               <td><strong>Production</strong><span class="dc-chip dc-chip--prod">primary</span><div class="dc-help">Customer-facing workloads — primary signing key</div></td>
               <td id="prod-public-id">key_prod_A72KF</td>
               <td>us-east-1</td>
-              <td><span class="dc-badge dc-badge--danger" id="prod-badge">Due in 29 days</span></td>
+              <td><span class="dc-badge dc-badge--danger" id="prod-badge" data-wci-role="display" data-wci-id="prod-badge" data-wci-desc="Display value: Due in 29 days" data-wci-state="{&quot;value&quot;:&quot;Due in 29 days&quot;}" data-wci-priority="4" data-wci-scope="rotate-prod-api-key-scope">Due in 29 days</span></td>
               <td id="prod-last-used">18 seconds ago</td>
               <td><span class="dc-help">read, write, admin:billing</span></td>
               <td><span class="dc-secret" id="prod-secret-preview">Not revealable</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--primary" data-rotate="production" id="rotate-prod-api-key" data-wci-id="rotate-prod-api-key" data-wci-role="action" data-wci-desc="Rotate the primary production API key (not staging reveal, not read replica, not legacy, not service account token)" data-wci-action="click" data-wci-priority="1" data-wci-precondition="Rotation form validated and MFA step-up complete" data-wci-scope="api_keys-page" data-wci-state="{&quot;enabled&quot;:false,&quot;environment&quot;:&quot;production&quot;,&quot;tier&quot;:&quot;primary&quot;}">Rotate key</button>
-                <button type="button" class="dc-btn">View audit</button>
+                <button type="button" class="dc-btn dc-btn--primary" data-rotate="production" id="rotate-prod-api-key" data-wci-role="action" data-wci-id="rotate-prod-api-key" data-wci-desc="Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens)." data-wci-action="click" data-wci-priority="1" data-wci-scope="rotate-prod-api-key-scope" data-wci-primary="true">Rotate key</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="view-audit-2" data-wci-desc="Click to: View audit" data-wci-action="click" data-wci-priority="3" data-wci-scope="rotate-prod-api-key-scope">View audit</button>
               </td>
             </tr>
             <tr data-key="production-legacy" data-env="production">
-              <td><input type="checkbox" class="key-select" aria-label="Select legacy production key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select legacy production key" data-wci-role="form" data-wci-id="input-checkbox-4" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>Production (legacy)</strong><span class="dc-chip dc-chip--prod">deprecated</span><div class="dc-help">Sunset 2026-06-01 — do not rotate; schedule deletion</div></td>
               <td>key_prod_LEGACY01</td>
               <td>us-east-1</td>
-              <td><span class="dc-badge dc-badge--warn">Deprecated</span></td>
+              <td><span class="dc-badge dc-badge--warn" data-wci-role="display" data-wci-id="dc-badge-7" data-wci-desc="Display value: Deprecated" data-wci-state="{&quot;value&quot;:&quot;Deprecated&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Deprecated</span></td>
               <td>14 days ago</td>
               <td><span class="dc-help">read (legacy)</span></td>
               <td><span class="dc-secret">Retired preview</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost" data-rotate="production-legacy">Rotate</button>
-                <button type="button" class="dc-btn dc-btn--danger">Schedule delete</button>
+                <button type="button" class="dc-btn dc-btn--ghost" data-rotate="production-legacy" data-wci-role="action" data-wci-id="rotate-2" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate</button>
+                <button type="button" class="dc-btn dc-btn--danger" data-wci-role="action" data-wci-id="schedule-delete" data-wci-desc="Click to: Schedule delete" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Schedule delete</button>
               </td>
             </tr>
             <tr data-key="qa-mirror" data-env="non-production">
-              <td><input type="checkbox" class="key-select" aria-label="Select QA mirror key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select QA mirror key" data-wci-role="form" data-wci-id="input-checkbox-5" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>QA mirror</strong><div class="dc-help">Pre-prod parity testing</div></td>
               <td>key_qa_44B88</td>
               <td>us-west-2</td>
-              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td><span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-8" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Active</span></td>
               <td>22 minutes ago</td>
               <td><span class="dc-help">read, write:test</span></td>
               <td><span class="dc-secret">qa_••••_mirror</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost">Rotate</button>
-                <button type="button" class="dc-btn">Copy ID</button>
+                <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="rotate-3" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="copy-id-2" data-wci-desc="Click to: Copy ID" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Copy ID</button>
               </td>
             </tr>
             <tr data-key="partner-sandbox" data-env="non-production">
-              <td><input type="checkbox" class="key-select" aria-label="Select partner sandbox key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select partner sandbox key" data-wci-role="form" data-wci-id="input-checkbox-6" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>Partner sandbox</strong><div class="dc-help">External integrator testing</div></td>
               <td>key_ptnr_22C77</td>
               <td>us-east-1</td>
-              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td><span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-9" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Active</span></td>
               <td>1 hour ago</td>
               <td><span class="dc-help">read:partner</span></td>
               <td><span class="dc-secret">ptnr_••••_sb</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost">Reveal</button>
-                <button type="button" class="dc-btn">Rotate</button>
+                <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="reveal" data-wci-desc="Click to: Reveal" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Reveal</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="rotate-4" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate</button>
               </td>
             </tr>
             <tr data-key="development" data-env="non-production">
-              <td><input type="checkbox" class="key-select" aria-label="Select development key"></td>
+              <td><input type="checkbox" class="key-select" aria-label="Select development key" data-wci-role="form" data-wci-id="input-checkbox-7" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="dc-card"></td>
               <td><strong>Development</strong><div class="dc-help">Internal local apps</div></td>
               <td>key_dev_17PQ2</td>
               <td>local</td>
-              <td><span class="dc-badge dc-badge--ok">Active</span></td>
+              <td><span class="dc-badge dc-badge--ok" data-wci-role="display" data-wci-id="dc-badge-10" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="dc-card">Active</span></td>
               <td>1 hour ago</td>
               <td><span class="dc-help">read, write:dev</span></td>
               <td><span class="dc-secret">dev_••••_preview</span></td>
               <td>
-                <button type="button" class="dc-btn dc-btn--ghost">Rotate</button>
-                <button type="button" class="dc-btn">Disable</button>
+                <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="rotate-5" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Rotate</button>
+                <button type="button" class="dc-btn" data-wci-role="action" data-wci-id="disable" data-wci-desc="Click to: Disable" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card">Disable</button>
               </td>
             </tr>
           </tbody>
@@ -355,21 +355,21 @@ body{background:#f1f5f9}
         <div class="dc-callout">Tip: staging secrets can be revealed for debugging, but production secrets cannot be revealed from the dashboard. The primary production row is labeled <em>primary</em> — read replicas and legacy keys have separate lifecycle rules.</div>
       </section>
 
-      <section class="dc-card" id="rotation-form-section" data-wci-id="rotation-form-section" data-wci-role="landmark" data-wci-desc="Production rotation readiness form — reason (12+ chars), three acknowledgments required before Rotate key enables" data-wci-scope="api_keys-page" data-wci-priority="2">
+      <section class="dc-card" id="rotation-form-section" data-wci-role="landmark" data-wci-id="dc-card-2" data-wci-desc="Section for: Confirm production rotation readiness" data-wci-priority="3">
         <h2>Confirm production rotation readiness</h2>
         <p>Provide a brief reason before the primary production <strong>Rotate key</strong> action is enabled. This mirrors the operational policy enforced by the CLI workflow and SOC2 control AC-07.</p>
-        <form id="rotation-form" novalidate="">
+        <form id="rotation-form" novalidate="" data-wci-role="landmark" data-wci-id="rotation-form" data-wci-desc="Landmark zone: rotation-form" data-wci-priority="3">
           <label for="rotation-reason">Rotation reason <span class="dc-help">(required, min 12 characters)</span></label>
-          <textarea id="rotation-reason" rows="3" placeholder="Example: rotating due to quarterly policy and contractor offboarding" data-wci-id="rotation-reason" data-wci-role="form" data-wci-desc="Rotation reason — minimum 12 characters required" data-wci-action="fill" data-wci-required="true" data-wci-scope="rotation-form-section" data-wci-state="{&quot;value&quot;:&quot;&quot;,&quot;minLength&quot;:12}"></textarea>
+          <textarea id="rotation-reason" rows="3" placeholder="Example: rotating due to quarterly policy and contractor offboarding" data-wci-role="form" data-wci-id="rotation-reason" data-wci-desc="Text area for: Rotation reason (required, min 12 characters)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="rotation-form"></textarea>
           <div id="rotation-reason-msg" class="dc-help" aria-live="polite">Enter at least 12 characters.</div>
           <div class="dc-grid-2" style="margin-top:12px">
             <div>
               <label for="rotation-ticket">Change ticket ID</label>
-              <input type="text" id="rotation-ticket" placeholder="CHG-48291">
+              <input type="text" id="rotation-ticket" placeholder="CHG-48291" data-wci-role="form" data-wci-id="rotation-ticket" data-wci-desc="Field for: Change ticket ID" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="rotation-form">
             </div>
             <div>
               <label for="rotation-owner">On-call owner</label>
-              <select id="rotation-owner">
+              <select id="rotation-owner" data-wci-role="form" data-wci-id="rotation-owner" data-wci-desc="Dropdown to select: On-call owner" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select owner…&quot;}" data-wci-options="[&quot;Select owner…&quot;,&quot;platform-oncall&quot;,&quot;security-oncall&quot;,&quot;sre-primary&quot;]" data-wci-priority="3" data-wci-scope="rotation-form">
                 <option value="">Select owner…</option>
                 <option value="platform-oncall">platform-oncall</option>
                 <option value="security-oncall">security-oncall</option>
@@ -379,19 +379,19 @@ body{background:#f1f5f9}
           </div>
           <fieldset>
             <legend>Required acknowledgments</legend>
-            <label><input type="checkbox" id="ack-invalidate"> I understand the current production secret will stop working after propagation (~90 seconds).</label>
-            <label><input type="checkbox" id="ack-deploy"> I have updated the deployment checklist, downstream service owners, and incident contacts.</label>
-            <label><input type="checkbox" id="ack-cli"> I confirm the new secret will be distributed via the approved secrets manager (not email or chat).</label>
+            <label><input type="checkbox" id="ack-invalidate" data-wci-role="form" data-wci-id="ack-invalidate" data-wci-desc="Field for: I understand the current production secret will stop working after propagation (~90 seconds)." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rotation-form"> I understand the current production secret will stop working after propagation (~90 seconds).</label>
+            <label><input type="checkbox" id="ack-deploy" data-wci-role="form" data-wci-id="ack-deploy" data-wci-desc="Field for: I have updated the deployment checklist, downstream service owners, and incident contacts." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rotation-form"> I have updated the deployment checklist, downstream service owners, and incident contacts.</label>
+            <label><input type="checkbox" id="ack-cli" data-wci-role="form" data-wci-id="ack-cli" data-wci-desc="Field for: I confirm the new secret will be distributed via the approved secrets manager (not email or chat)." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rotation-form"> I confirm the new secret will be distributed via the approved secrets manager (not email or chat).</label>
           </fieldset>
           <div class="dc-toolbar">
-            <button type="button" class="dc-btn dc-btn--muted" id="validate-rotation" data-wci-id="validate-rotation" data-wci-role="action" data-wci-desc="Validate rotation readiness form and enable production Rotate key" data-wci-action="click" data-wci-scope="rotation-form-section" data-wci-priority="3">Validate readiness</button>
-            <button type="button" class="dc-btn dc-btn--ghost" id="reset-rotation-form">Reset form</button>
+            <button type="button" class="dc-btn dc-btn--muted" id="validate-rotation" data-wci-role="action" data-wci-id="validate-rotation" data-wci-desc="Click to: Validate readiness" data-wci-action="click" data-wci-priority="3" data-wci-scope="rotation-form">Validate readiness</button>
+            <button type="button" class="dc-btn dc-btn--ghost" id="reset-rotation-form" data-wci-role="action" data-wci-id="reset-rotation-form" data-wci-desc="Click to: Reset form" data-wci-action="click" data-wci-priority="3" data-wci-scope="rotation-form">Reset form</button>
             <span id="rotation-form-status" class="dc-help">Form incomplete — production rotation disabled.</span>
           </div>
         </form>
       </section>
 
-      <section class="dc-card">
+      <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-3" data-wci-desc="Section for: Scope &amp; permission matrix" data-wci-priority="3">
         <h2>Scope &amp; permission matrix</h2>
         <p class="dc-muted">Effective scopes per environment tier. Production primary key carries billing admin — verify scope before rotation.</p>
         <table aria-label="Permission matrix">
@@ -407,49 +407,49 @@ body{background:#f1f5f9}
       </div><!-- panel-active -->
 
       <div id="panel-pending" class="dc-panel" role="tabpanel" aria-labelledby="tab-pending" hidden="">
-        <section class="dc-card">
+        <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-4" data-wci-desc="Section for: Pending rotation queue" data-wci-priority="3">
           <h2>Pending rotation queue</h2>
           <p class="dc-muted">Keys scheduled for automated rotation. Manual production rotation is handled on the Active keys tab.</p>
           <ul>
             <li><strong>Partner sandbox</strong> — scheduled 2026-06-15 (automation)</li>
             <li><strong>Development</strong> — scheduled 2026-06-22 (automation)</li>
           </ul>
-          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Force rotate pending production</button>
+          <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="force-rotate-pending-production" data-wci-desc="Click to: Force rotate pending production" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-4">Force rotate pending production</button>
         </section>
       </div>
 
       <div id="panel-expired" class="dc-panel" role="tabpanel" aria-labelledby="tab-expired" hidden="">
-        <section class="dc-card">
+        <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-5" data-wci-desc="Section for: Expired keys" data-wci-priority="3">
           <h2>Expired keys</h2>
           <table><thead><tr><th>Environment</th><th>Public ID</th><th>Expired</th><th>Actions</th></tr></thead>
           <tbody>
-            <tr><td>Staging (old)</td><td>key_stg_OLD99</td><td>2026-01-12</td><td><button type="button" class="dc-btn dc-btn--ghost">Revoke</button></td></tr>
-            <tr><td>Production (canary)</td><td>key_prod_CANARY</td><td>2026-02-03</td><td><button type="button" class="dc-btn dc-btn--ghost">Rotate</button></td></tr>
+            <tr><td>Staging (old)</td><td>key_stg_OLD99</td><td>2026-01-12</td><td><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="revoke" data-wci-desc="Click to: Revoke" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-5">Revoke</button></td></tr>
+            <tr><td>Production (canary)</td><td>key_prod_CANARY</td><td>2026-02-03</td><td><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="rotate-6" data-wci-desc="Click to: Rotate" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-5">Rotate</button></td></tr>
           </tbody></table>
         </section>
       </div>
 
       <div id="panel-service" class="dc-panel" role="tabpanel" aria-labelledby="tab-service" hidden="">
-        <section class="dc-card">
+        <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-6" data-wci-desc="Section for: Service account credentials" data-wci-priority="3">
           <h2>Service account credentials</h2>
           <p class="dc-muted">Long-lived tokens for automation. These are not environment API keys — use the Active keys tab for production rotation.</p>
           <div class="dc-svc">
             <div><strong>ci-deploy-bot</strong><div class="dc-help">Scopes: deploy:staging · Last used 3m ago</div></div>
-            <button type="button" class="dc-btn dc-btn--ghost">Rotate token</button>
+            <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="rotate-token" data-wci-desc="Click to: Rotate token" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-6">Rotate token</button>
           </div>
           <div class="dc-svc">
             <div><strong>prod-metrics-scraper</strong><div class="dc-help">Scopes: read:metrics · Last used 12s ago</div></div>
-            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav">Rotate production token</button>
+            <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="rotate-production-token" data-wci-desc="Click to: Rotate production token" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-6">Rotate production token</button>
           </div>
           <div class="dc-svc">
             <div><strong>partner-webhook-signer</strong><div class="dc-help">Scopes: sign:webhooks · Last used 2h ago</div></div>
-            <button type="button" class="dc-btn dc-btn--ghost">Rotate token</button>
+            <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="rotate-token-2" data-wci-desc="Click to: Rotate token" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-6">Rotate token</button>
           </div>
         </section>
       </div>
 
       <div class="dc-grid-2">
-        <section class="dc-card">
+        <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-7" data-wci-desc="Section for: Recent activity" data-wci-priority="3">
           <h2>Recent activity</h2>
           <ul class="dc-timeline" id="activity-log">
             <li>08:12 UTC — staging key revealed by dana.s</li>
@@ -459,7 +459,7 @@ body{background:#f1f5f9}
             <li>1 week ago — legacy production key marked deprecated</li>
           </ul>
         </section>
-        <section class="dc-card">
+        <section class="dc-card" data-wci-role="landmark" data-wci-id="dc-card-8" data-wci-desc="Section for: IP allowlist (production)" data-wci-priority="3">
           <h2>IP allowlist (production)</h2>
           <p class="dc-muted">Requests from non-allowlisted IPs are rejected even with a valid key.</p>
           <ul>
@@ -467,18 +467,18 @@ body{background:#f1f5f9}
             <li><code>198.51.100.42/32</code> — CI runner pool</li>
             <li><code>192.0.2.88/32</code> — break-glass bastion</li>
           </ul>
-          <button type="button" class="dc-btn dc-btn--ghost">Edit allowlist</button>
+          <button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="edit-allowlist" data-wci-desc="Click to: Edit allowlist" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-card-8">Edit allowlist</button>
         </section>
       </div>
     </main>
   </div>
 </div>
-<aside class="dc-rail dc-rail--ads" aria-label="Sponsored">
+<aside class="dc-rail dc-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="dc-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Secure your runtime edge with partner secrets scanning for build pipelines. Auto-rotate production keys with one click.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">View deal</button>
-  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo">Auto-rotate production</button>
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-rail">Partner offer — limited time</a><br>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-rail">View deal</button>
+  <button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="auto-rotate-production" data-wci-desc="Click to: Auto-rotate production" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-rail">Auto-rotate production</button>
 </aside></div>
 
 <div class="dc-overlay" id="modal-overlay"></div>
@@ -488,26 +488,26 @@ body{background:#f1f5f9}
   <div class="dc-note"><strong>Reason:</strong> <span id="modal-reason-preview">—</span></div>
   <div class="dc-note" style="margin-top:8px"><strong>Ticket:</strong> <span id="modal-ticket-preview">—</span> · <strong>Owner:</strong> <span id="modal-owner-preview">—</span></div>
   <div class="dc-modal__actions">
-    <button type="button" class="dc-btn dc-btn--ghost" id="cancel-rotation">Cancel</button>
-    <button type="button" class="dc-btn dc-btn--danger" id="confirm-rotation" data-wci-id="confirm-rotation" data-wci-role="action" data-wci-desc="Confirm production key rotation in modal dialog" data-wci-action="click" data-wci-priority="2" data-wci-scope="api_keys-page" data-wci-precondition="Rotation modal open after form validation">Confirm rotation</button>
+    <button type="button" class="dc-btn dc-btn--ghost" id="cancel-rotation" data-wci-role="action" data-wci-id="cancel-rotation" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Cancel</button>
+    <button type="button" class="dc-btn dc-btn--danger" id="confirm-rotation" data-wci-role="action" data-wci-id="confirm-rotation" data-wci-desc="Click to: Confirm rotation" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Confirm rotation</button>
   </div>
 </div>
 
 <div class="dc-overlay" id="mfa-overlay"></div>
-<div class="dc-mfa" id="mfa-modal" aria-hidden="true" role="dialog" aria-labelledby="mfa-title">
+<div class="dc-mfa" id="mfa-modal" aria-hidden="true" role="dialog" aria-labelledby="mfa-title" data-wci-role="landmark" data-wci-id="dc-mfa" data-wci-desc="Section for: Verify identity" data-wci-priority="3">
   <h3 id="mfa-title">Verify identity</h3>
   <p class="dc-muted">Production credential changes require step-up authentication. Enter the 6-digit code from your authenticator app.</p>
   <label for="mfa-code">Authentication code</label>
-  <input type="text" id="mfa-code" inputmode="numeric" maxlength="6" placeholder="000000">
+  <input type="text" id="mfa-code" inputmode="numeric" maxlength="6" placeholder="000000" data-wci-role="form" data-wci-id="mfa-code" data-wci-desc="Field for: Authentication code" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="dc-mfa">
   <div class="dc-modal__actions">
-    <button type="button" class="dc-btn dc-btn--ghost" id="mfa-cancel">Cancel</button>
-    <button type="button" class="dc-btn dc-btn--primary" id="mfa-verify">Verify</button>
+    <button type="button" class="dc-btn dc-btn--ghost" id="mfa-cancel" data-wci-role="action" data-wci-id="mfa-cancel" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-mfa">Cancel</button>
+    <button type="button" class="dc-btn dc-btn--primary" id="mfa-verify" data-wci-role="action" data-wci-id="mfa-verify" data-wci-desc="Click to: Verify" data-wci-action="click" data-wci-priority="3" data-wci-scope="dc-mfa">Verify</button>
   </div>
 </div>
 
-<div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost">Action 2</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost">Action 6</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost">Action 10</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost">Action 14</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost">Action 18</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost">Action 22</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost">Action 26</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost">Action 30</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost">Action 34</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost">Action 38</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost">Action 42</button><button type="button" class="dc-btn dc-btn--ghost">Submit</button><button type="button" class="dc-btn dc-btn--ghost">Continue</button></div></div>
-<button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-desc="Hidden extra decoy control" data-wci-action="click" data-wci-priority="5" data-wci-scope="api_keys-page" data-wci-hidden="true">Hidden promo</button>
-<footer class="dc-ftr"><small>© Demo DevConsole</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+<div class="dc-filler" aria-hidden="true"><div class="dc-filler-inner"><a href="/misc/0" class="dc-btn dc-btn--ghost">Link 1</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 2</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/4" class="dc-btn dc-btn--ghost">Link 5</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 6</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/8" class="dc-btn dc-btn--ghost">Link 9</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 10</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/12" class="dc-btn dc-btn--ghost">Link 13</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 14</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/16" class="dc-btn dc-btn--ghost">Link 17</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 18</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/20" class="dc-btn dc-btn--ghost">Link 21</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 22</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/24" class="dc-btn dc-btn--ghost">Link 25</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 26</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/28" class="dc-btn dc-btn--ghost">Link 29</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 30</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/32" class="dc-btn dc-btn--ghost">Link 33</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 34</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/36" class="dc-btn dc-btn--ghost">Link 37</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 38</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button><a href="/misc/40" class="dc-btn dc-btn--ghost">Link 41</a><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Action 42</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Submit</button><button type="button" class="dc-btn dc-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="api_keys-page">Continue</button></div></div>
+<button type="button" class="dc-btn dc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="api_keys-page">Hidden promo</button>
+<footer class="dc-ftr" data-wci-role="landmark" data-wci-id="dc-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo DevConsole</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="dc-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer>
 <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
 <script>

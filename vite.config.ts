@@ -25,5 +25,11 @@ export default defineConfig({
   build: {
     outDir: '../dist/demo',
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'demo/index.html'),
+        scenarios: resolve(__dirname, 'demo/scenarios.html'),
+      },
+    },
   },
 });

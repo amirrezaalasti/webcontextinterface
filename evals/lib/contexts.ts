@@ -71,13 +71,21 @@ export interface WciDistillNode {
   state: Record<string, unknown>;
   scope_context?: Record<string, unknown>;
   priority: number;
+  /** Ground-truth primary action (benchmark discipline). */
+  primary?: boolean;
+  /** Plausible wrong alternative at same priority band. */
+  competitor?: boolean;
 }
 
-function parseAnnotatedNodes(html: string): { pageTitle: string; nodes: WciDistillNode[] } {
+export function parseAnnotatedNodesForEval(
+  html: string,
+  opts?: { skipHidden?: boolean }
+): { pageTitle: string; nodes: WciDistillNode[] } {
   const doc = new JSDOM(html).window.document;
   const nodes: WciDistillNode[] = [];
 
   doc.querySelectorAll('[data-wci-id]').forEach((el) => {
+    if (opts?.skipHidden && el.getAttribute('data-wci-hidden') === 'true') return;
     const htmlEl = el as HTMLElement;
     let state: Record<string, unknown> = {};
     try {
@@ -108,13 +116,19 @@ function parseAnnotatedNodes(html: string): { pageTitle: string; nodes: WciDisti
       ...(scope ? { scope } : {}),
       state,
       priority: parseInt(htmlEl.getAttribute('data-wci-priority') ?? '3', 10),
+      ...(htmlEl.getAttribute('data-wci-primary') === 'true' ? { primary: true } : {}),
+      ...(htmlEl.getAttribute('data-wci-competitor') === 'true' ? { competitor: true } : {}),
     });
   });
 
   return { pageTitle: doc.title || '(untitled)', nodes };
 }
 
-/** Merge parent landmark state (stops, flightId, etc.) into scoped child nodes. */
+function parseAnnotatedNodes(html: string): { pageTitle: string; nodes: WciDistillNode[] } {
+  return parseAnnotatedNodesForEval(html);
+}
+
+/** Merge parent landmark state (stops, flightId, card attrs, etc.) into scoped child nodes. */
 function mergeScopeContext(nodes: WciDistillNode[]): void {
   const byId = new Map(nodes.map((n) => [n.id, n]));
   for (const node of nodes) {
@@ -122,14 +136,6 @@ function mergeScopeContext(nodes: WciDistillNode[]): void {
     const parent = byId.get(node.scope);
     if (!parent?.state || Object.keys(parent.state).length === 0) continue;
     node.scope_context = parent.state;
-    if (node.action === 'click' && node.state.fare === 'economy') {
-      node.state = {
-        ...node.state,
-        ...(parent.state.flightId !== undefined ? { flightId: parent.state.flightId } : {}),
-        ...(parent.state.stops !== undefined ? { stops: parent.state.stops } : {}),
-        ...(parent.state.airline !== undefined ? { airline: parent.state.airline } : {}),
-      };
-    }
   }
 }
 
@@ -215,25 +221,49 @@ export function isWciContextKind(kind: string): kind is WciContextKind | 'wci-di
   return kind === 'wci-full' || kind === 'wci-grounding' || kind === 'wci-distilled';
 }
 
-/** Numbered interactive candidate list (accessibility-style, no LLM) */
-export function buildInteractiveCandidates(html: string, max = 40): string {
+/** Collect distinguishing data-* attrs from element and shallow ancestors. */
+function collectDataContext(el: Element, max = 4): string[] {
+  const pairs: string[] = [];
+  let node: Element | null = el;
+  for (let depth = 0; node && depth < 3 && pairs.length < max; depth++) {
+    for (const attr of node.attributes) {
+      if (!attr.name.startsWith('data-')) continue;
+      if (
+        attr.name.startsWith('data-wci-') ||
+        attr.name === 'data-decoy' ||
+        attr.name === 'data-page' ||
+        attr.name === 'data-experiment'
+      ) {
+        continue;
+      }
+      const pair = `${attr.name}="${attr.value.slice(0, 48)}"`;
+      if (!pairs.includes(pair)) pairs.push(pair);
+    }
+    node = node.parentElement;
+  }
+  return pairs.slice(0, max);
+}
+
+/** Numbered interactive candidate list (Mind2Web-style, no semantic id leak). */
+export function buildInteractiveCandidates(html: string, max = 60): string {
   const doc = new JSDOM(html).window.document;
   const candidates: string[] = [];
   const selector =
     'a[href], button, input:not([type="hidden"]), select, textarea, [role="button"], [onclick]';
 
-  doc.querySelectorAll(selector).forEach((el, index) => {
+  doc.querySelectorAll(selector).forEach((el) => {
     if (candidates.length >= max) return;
     const tag = el.tagName.toLowerCase();
-    const id = el.id ? `#${el.id}` : '';
     const cls = (el.className || '').toString().trim().split(/\s+/).slice(0, 2).join('.');
-    const text = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+    const text = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40);
     const name = el.getAttribute('name');
     const type = el.getAttribute('type');
     const href = el.getAttribute('href');
+    const dataCtx = collectDataContext(el);
     const parts = [
-      `[${index}] <${tag}${id}${cls ? '.' + cls : ''}>`,
+      `[${candidates.length}] <${tag}${cls ? '.' + cls : ''}>`,
       text && `"${text}"`,
+      ...dataCtx,
       name && `name=${name}`,
       type && `type=${type}`,
       href && `href=${href.slice(0, 40)}`,
@@ -298,14 +328,15 @@ export function buildEvalContext(
       };
     }
     case 'interactive-candidates': {
-      const list = buildInteractiveCandidates(scenario.rawHtml, 50);
-      const content = `GOAL: ${goal}\n\nINTERACTIVE CANDIDATES:\n${list}`;
+      const list = buildInteractiveCandidates(scenario.rawHtml, 60);
+      const content = `GOAL: ${goal}\n\nINTERACTIVE CANDIDATES (numbered [0..n], no element ids — use data-* context and labels):\n${list}`;
       return {
         kind,
         content,
         tokenEstimate: estimateTokens(content),
         systemPrompt:
-          'You are a Mind2Web-style agent. Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation.',
+          'You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. ' +
+          'Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation.',
         userPromptPrefix: '',
       };
     }

@@ -13,7 +13,7 @@ export interface ModelConfig {
 
 export const EVAL_MODELS: ModelConfig[] = [
   { id: 'gpt5Nano', name: 'GPT-5 Nano', model: 'openai/gpt-5-nano', inputPricePer1M: 0.05 },
-  { id: 'gpt5', name: 'GPT-5', model: 'openai/gpt-5', inputPricePer1M: 1.25 },
+  { id: 'gpt5', name: 'GPT-5', model: 'openai/gpt-5.4', inputPricePer1M: 1.25 },
   { id: 'gemini35Flash', name: 'Gemini 3.5 Flash', model: 'google/gemini-3.5-flash', inputPricePer1M: 0.2 },
   { id: 'qwen25_7b', name: 'Qwen 2.5 7B', model: 'qwen/qwen-2.5-7b-instruct', inputPricePer1M: 0.04 },
   { id: 'llama31_8b', name: 'Llama 3.1 8B', model: 'meta-llama/llama-3.1-8b-instruct', inputPricePer1M: 0.03 },

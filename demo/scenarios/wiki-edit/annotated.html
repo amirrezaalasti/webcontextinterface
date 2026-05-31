@@ -100,55 +100,55 @@ table{border-collapse:collapse}
 .code-pill{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:2px 6px}
 .hidden{display:none!important}
 </style></head><body>
-<div class="ow-app" data-page="wiki-edit" id="wiki_edit-page" data-wci-id="wiki_edit-page" data-wci-role="landmark" data-wci-desc="OpenWiki edit page root for the wiki editor scenario" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="ow-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="ow-app" data-page="wiki-edit" id="wiki_edit-page" data-wci-role="landmark" data-wci-id="wiki_edit-page" data-wci-desc="OpenWiki — Wiki split editor with article slug on publish confirm." data-wci-priority="2">
+  <div class="ow-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="ow-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-    <button type="button" class="ow-btn ow-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-    <button type="button" class="ow-btn ow-btn--primary" data-cookie-action="accept">Accept all</button>
-    <button type="button" class="ow-btn ow-btn--ghost" data-cookie-action="customize">Customize</button>
+    <button type="button" class="ow-btn ow-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-cookie">Reject non-essential</button>
+    <button type="button" class="ow-btn ow-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-cookie">Accept all</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-cookie">Customize</button>
   </div>
 
   <div class="ow-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="ow-btn ow-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="ow-btn">Continue as guest — express</button>
+    <button type="button" class="ow-btn ow-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="ow-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Continue as guest — express</button>
   </div>
 
-  <header class="ow-hdr">
-    <nav class="ow-nav" aria-label="Global">
-      <a href="#">OpenWiki</a><a href="#">Explore</a><a href="#">Recent changes</a><a href="#">Help</a><a href="#">Account</a>
+  <header class="ow-hdr" data-wci-role="landmark" data-wci-id="ow-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+    <nav class="ow-nav" aria-label="Global" data-wci-role="nav" data-wci-id="ow-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="#" data-wci-role="nav" data-wci-id="openwiki" data-wci-desc="Navigate to: OpenWiki" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-nav">OpenWiki</a><a href="#" data-wci-role="nav" data-wci-id="explore" data-wci-desc="Navigate to: Explore" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-nav">Explore</a><a href="#" data-wci-role="nav" data-wci-id="recent-changes" data-wci-desc="Navigate to: Recent changes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-nav">Recent changes</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-nav">Help</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-nav">Account</a>
     </nav>
     <div class="ow-hdr-promo">
-      <span class="ow-badge ow-badge--warning">Pending edit queue: 3</span>
-      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-      <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation and history-related controls that should not be used for publishing" data-wci-priority="1" data-wci-scope="wiki_edit-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+      <span class="ow-badge ow-badge--warning" data-wci-role="display" data-wci-id="ow-badge" data-wci-desc="Display value: Pending edit queue: 3" data-wci-state="{&quot;value&quot;:&quot;Pending edit queue: 3&quot;}" data-wci-priority="4" data-wci-scope="ow-hdr">Pending edit queue: 3</span>
+      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-hdr">Claim Offer</button>
+      <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="ow-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="ow-subnav" aria-label="Secondary">
-    <a href="#">Article</a><a href="#">Talk</a><a href="#">Source</a><a href="#">Formatting help</a><a href="#">History</a>
-    <button type="button" class="ow-btn ow-btn--ghost">Submit</button>
-    <button type="button" class="ow-btn ow-btn--ghost">Continue</button>
+  <nav class="ow-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="ow-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#" data-wci-role="nav" data-wci-id="article" data-wci-desc="Navigate to: Article" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-subnav">Article</a><a href="#" data-wci-role="nav" data-wci-id="talk" data-wci-desc="Navigate to: Talk" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-subnav">Talk</a><a href="#" data-wci-role="nav" data-wci-id="source" data-wci-desc="Navigate to: Source" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-subnav">Source</a><a href="#" data-wci-role="nav" data-wci-id="formatting-help" data-wci-desc="Navigate to: Formatting help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-subnav">Formatting help</a><a href="#" data-wci-role="nav" data-wci-id="history" data-wci-desc="Navigate to: History" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-subnav">History</a>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-subnav">Submit</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-subnav">Continue</button>
   </nav>
 
   <div class="ow-dup-row" aria-label="Quick actions">
-    <button type="button" class="ow-btn ow-btn--ghost">Save draft</button>
-    <button type="button" class="ow-btn ow-btn--ghost">Preview</button>
-    <button type="button" class="ow-btn ow-btn--ghost">Formatting tips</button>
-    <button type="button" class="ow-btn ow-btn--ghost">Confirm</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="save-draft" data-wci-desc="Click to: Save draft" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Save draft</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="preview" data-wci-desc="Click to: Preview" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Preview</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="formatting-tips" data-wci-desc="Click to: Formatting tips" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Formatting tips</button>
+    <button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Confirm</button>
   </div>
 
   <div class="ow-dup-row">
-    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">Publish WCI article</button>
-    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-nav">Publish Web Context Interface changes</button>
+    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="publish-wci-article" data-wci-desc="Click to: Publish WCI article" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Publish WCI article</button>
+    <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="publish-web-context-interface-changes" data-wci-desc="Click to: Publish Web Context Interface changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Publish Web Context Interface changes</button>
   </div>
 
   <div class="ow-page-wrap">
-    <main class="ow-page-main" role="main">
+    <main class="ow-page-main" role="main" data-wci-role="landmark" data-wci-id="ow-page-main" data-wci-desc="Section for: Edit pending changes: Web Context Interface" data-wci-priority="3">
       <div class="ow-status-row">
         <div>
           <h1>Edit pending changes: Web Context Interface</h1>
           <div class="ow-meta">
-            <span class="ow-badge ow-badge--warning" id="queue-badge">Pending review</span>
+            <span class="ow-badge ow-badge--warning" id="queue-badge" data-wci-role="display" data-wci-id="queue-badge" data-wci-desc="Display value: Pending review" data-wci-state="{&quot;value&quot;:&quot;Pending review&quot;}" data-wci-priority="4" data-wci-scope="ow-page-main">Pending review</span>
             <span class="ow-badge ow-badge--muted">Slug: <span class="code-pill" id="slug-chip">web-context-interface</span></span>
             <span class="ow-badge ow-badge--muted">Section count: <span id="section-count">4</span></span>
           </div>
@@ -166,20 +166,20 @@ table{border-collapse:collapse}
         <div class="ow-stat"><span class="ow-note">Last reviewer</span><strong style="font-size:15px">M. Ortega</strong></div>
       </div>
 
-      <section class="ow-card">
+      <section class="ow-card" data-wci-role="landmark" data-wci-id="ow-card" data-wci-desc="Section for: Publish options" data-wci-priority="3">
         <h2>Publish options</h2>
         <label for="summary-input">Edit summary</label>
-        <input id="summary-input" type="text" maxlength="160" value="Clarify article scope and add implementation notes" aria-describedby="summary-help summary-error">
+        <input id="summary-input" type="text" maxlength="160" value="Clarify article scope and add implementation notes" aria-describedby="summary-help summary-error" data-wci-role="form" data-wci-id="summary-input" data-wci-desc="Field for: Edit summary" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Clarify article scope and add implementation notes&quot;}" data-wci-priority="3" data-wci-scope="ow-card">
         <div class="ow-input-help"><span id="summary-help">Required. Briefly explain what changed.</span> · <span>Characters: <span id="summary-count">49</span>/160</span></div>
-        <div class="ow-error" id="summary-error">Enter an edit summary before publishing.</div>
+        <div class="ow-error" id="summary-error" data-wci-role="display" data-wci-id="summary-error" data-wci-desc="Display value: Enter an edit summary before publishing." data-wci-state="{&quot;value&quot;:&quot;Enter an edit summary before publishing.&quot;}" data-wci-priority="4" data-wci-scope="ow-card">Enter an edit summary before publishing.</div>
 
         <label for="reviewer-input">Reviewer initials</label>
-        <input id="reviewer-input" type="text" maxlength="12" value="MO" aria-describedby="reviewer-error">
-        <div class="ow-error" id="reviewer-error">Reviewer initials are required.</div>
+        <input id="reviewer-input" type="text" maxlength="12" value="MO" aria-describedby="reviewer-error" data-wci-role="form" data-wci-id="reviewer-input" data-wci-desc="Field for: Reviewer initials" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;MO&quot;}" data-wci-priority="3" data-wci-scope="ow-card">
+        <div class="ow-error" id="reviewer-error" data-wci-role="display" data-wci-id="reviewer-error" data-wci-desc="Display value: Reviewer initials are required." data-wci-state="{&quot;value&quot;:&quot;Reviewer initials are required.&quot;}" data-wci-priority="4" data-wci-scope="ow-card">Reviewer initials are required.</div>
 
-        <label class="ow-check"><input id="minor-edit" type="checkbox"> Mark as minor copy edit</label>
-        <label class="ow-check"><input id="confirm-live" type="checkbox" checked=""> I understand this publishes the pending edits to the live article <span class="code-pill">web-context-interface</span></label>
-        <div class="ow-error" id="confirm-error">You must acknowledge live publishing before continuing.</div>
+        <label class="ow-check"><input id="minor-edit" type="checkbox" data-wci-role="form" data-wci-id="minor-edit" data-wci-desc="Field for: Mark as minor copy edit" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="ow-card"> Mark as minor copy edit</label>
+        <label class="ow-check"><input id="confirm-live" type="checkbox" checked="" data-wci-role="form" data-wci-id="confirm-live" data-wci-desc="Field for: I understand this publishes the pending edits to the live article web-context-interface — plausible alternati" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="1" data-wci-scope="ow-card" data-wci-competitor="true"> I understand this publishes the pending edits to the live article <span class="code-pill">web-context-interface</span></label>
+        <div class="ow-error" id="confirm-error" data-wci-role="display" data-wci-id="confirm-error" data-wci-desc="Display value: You must acknowledge live publishing before continuing." data-wci-state="{&quot;value&quot;:&quot;You must acknowledge live publishing before continuing.&quot;}" data-wci-priority="4" data-wci-scope="ow-card">You must acknowledge live publishing before continuing.</div>
 
         <div class="ow-preview" aria-live="polite">
           <strong>Publish preview</strong>
@@ -188,31 +188,31 @@ table{border-collapse:collapse}
       </section>
 
       <div class="ow-toolbar" role="toolbar" aria-label="Editor toolbar">
-        <button type="button" class="ow-btn ow-btn--ghost" data-tool="bold">Bold</button>
-        <button type="button" class="ow-btn ow-btn--ghost" data-tool="link">Link</button>
-        <button type="button" class="ow-btn ow-btn--ghost" data-tool="heading">Heading</button>
-        <button type="button" class="ow-btn ow-btn--ghost" data-tool="reference">Reference</button>
-        <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav">Show history</button>
-        <button type="button" class="ow-btn ow-btn--ghost" id="toggle-diff">Hide diff</button>
-        <button type="button" class="ow-btn ow-btn--ghost" id="open-preview">Open preview</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="bold" data-wci-role="action" data-wci-id="bold" data-wci-desc="Click to: Bold" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Bold</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="link" data-wci-role="action" data-wci-id="link" data-wci-desc="Click to: Link" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Link</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="heading" data-wci-role="action" data-wci-id="heading" data-wci-desc="Click to: Heading" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Heading</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-tool="reference" data-wci-role="action" data-wci-id="reference" data-wci-desc="Click to: Reference" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Reference</button>
+        <button type="button" class="ow-btn ow-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="show-history" data-wci-desc="Click to: Show history" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Show history</button>
+        <button type="button" class="ow-btn ow-btn--ghost" id="toggle-diff" data-wci-role="action" data-wci-id="toggle-diff" data-wci-desc="Click to: Hide diff" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Hide diff</button>
+        <button type="button" class="ow-btn ow-btn--ghost" id="open-preview" data-wci-role="action" data-wci-id="open-preview" data-wci-desc="Click to: Open preview" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-page-main">Open preview</button>
         <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span class="ow-note">Target slug: <span class="code-pill">web-context-interface</span></span>
-          <button type="button" id="publish-wci-edit" class="ow-btn ow-btn--primary" data-article="web-context-interface" data-action="publish" data-wci-id="publish-wci-edit" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary publish button for pending edits to the Web Context Interface article" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="wiki_edit-page">Publish pending edit</button>
+          <button type="button" id="publish-wci-edit" class="ow-btn ow-btn--primary" data-article="web-context-interface" data-action="publish" data-wci-role="action" data-wci-id="publish-wci-edit" data-wci-desc="Publish pending edits to the Web Context Interface article (not history or formatting tools)." data-wci-action="click" data-wci-priority="1" data-wci-scope="ow-page-main" data-wci-primary="true">Publish pending edit</button>
         </div>
       </div>
 
       <div class="ow-edit-layout" id="edit-layout">
-        <section class="ow-editor-pane" aria-label="Source editor">
+        <section class="ow-editor-pane" aria-label="Source editor" data-wci-role="landmark" data-wci-id="ow-editor-pane" data-wci-desc="Landmark zone for section" data-wci-priority="3">
           <div class="ow-pane-head">
             <div>
               <div class="ow-pane-title">Source</div>
               <div class="ow-pane-sub">Article markup for Web Context Interface</div>
             </div>
-            <span class="ow-badge ow-badge--muted">Draft revision #1843</span>
+            <span class="ow-badge ow-badge--muted" data-wci-role="display" data-wci-id="ow-badge-2" data-wci-desc="Display value: Draft revision #1843" data-wci-state="{&quot;value&quot;:&quot;Draft revision #1843&quot;}" data-wci-priority="4" data-wci-scope="ow-editor-pane">Draft revision #1843</span>
           </div>
           <div class="ow-editor-wrap">
             <label for="article-editor">Article source</label>
-            <textarea id="article-editor" class="ow-editor" rows="18">== Web Context Interface ==
+            <textarea id="article-editor" class="ow-editor" rows="18" data-wci-role="form" data-wci-id="article-editor" data-wci-desc="Text area for: Article source — plausible alternative (not primary for this goal)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;== Web Context Interface ==\nThe Web Context Interface (WCI) defines a structured way for applications to expose page metadata, active selection state, and user-facing context to cooperating tools.\n\n=== Overview ===\nWCI is commonly discussed in integration guides where an assistant, browser surface, or automation layer needs to identify the current article, route user actions, and preserve auditability.\n\n=== Implementation notes ===\n* Add stable article slugs for publish flows.\n* Include visible confirmation before sending live updates.\n* Preserve decoy controls in benchmark environments.\n\n=== See also ===\n* Context windowing\n* Web page state models&quot;}" data-wci-priority="1" data-wci-scope="ow-editor-pane" data-wci-competitor="true">== Web Context Interface ==
 The Web Context Interface (WCI) defines a structured way for applications to expose page metadata, active selection state, and user-facing context to cooperating tools.
 
 === Overview ===
@@ -230,13 +230,13 @@ WCI is commonly discussed in integration guides where an assistant, browser surf
           </div>
         </section>
 
-        <aside class="ow-diff-pane" aria-label="Diff summary" id="diff-pane">
+        <aside class="ow-diff-pane" aria-label="Diff summary" id="diff-pane" data-wci-role="landmark" data-wci-id="ow-diff-pane" data-wci-desc="Section for: Summary of changes" data-wci-priority="3">
           <div class="ow-pane-head">
             <div>
               <div class="ow-pane-title">Diff</div>
               <div class="ow-pane-sub">Pending changes vs published version</div>
             </div>
-            <span class="ow-badge ow-badge--warning">3 additions</span>
+            <span class="ow-badge ow-badge--warning" data-wci-role="display" data-wci-id="ow-badge-3" data-wci-desc="Display value: 3 additions" data-wci-state="{&quot;value&quot;:&quot;3 additions&quot;}" data-wci-priority="4" data-wci-scope="ow-diff-pane">3 additions</span>
           </div>
           <div class="ow-diff-body">
             <div class="ow-diff-box">
@@ -258,10 +258,10 @@ WCI is commonly discussed in integration guides where an assistant, browser surf
       </div>
     </main>
 
-    <aside class="ow-rail ow-rail--ads" aria-label="Sponsored and workflow details">
+    <aside class="ow-rail ow-rail--ads" aria-label="Sponsored and workflow details" data-wci-role="landmark" data-wci-id="ow-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
-      <a href="#">Partner offer — limited time</a><br>
-      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-rail">Partner offer — limited time</a><br>
+      <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-rail">View deal</button>
 
       <div class="ow-sidebar-section">
         <strong>Review checklist</strong>
@@ -283,14 +283,14 @@ WCI is commonly discussed in integration guides where an assistant, browser surf
 
   <div class="ow-filler" aria-hidden="true">
     <div class="ow-filler-inner">
-      <a href="#" class="ow-btn ow-btn--ghost">Link 1</a><button type="button" class="ow-btn ow-btn--ghost">Action 2</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 5</a><button type="button" class="ow-btn ow-btn--ghost">Action 6</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 9</a><button type="button" class="ow-btn ow-btn--ghost">Action 10</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button><a href="#" class="ow-btn ow-btn--ghost">Link 13</a><button type="button" class="ow-btn ow-btn--ghost">Action 14</button><button type="button" class="ow-btn ow-btn--ghost">Submit</button><button type="button" class="ow-btn ow-btn--ghost">Continue</button>
+      <a href="#" class="ow-btn ow-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="wiki_edit-page">Link 1</a><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Action 2</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Submit</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Continue</button><a href="#" class="ow-btn ow-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="wiki_edit-page">Link 5</a><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Action 6</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Submit</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Continue</button><a href="#" class="ow-btn ow-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="wiki_edit-page">Link 9</a><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Action 10</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Submit</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Continue</button><a href="#" class="ow-btn ow-btn--ghost" data-wci-role="nav" data-wci-id="link-13" data-wci-desc="Navigate to: Link 13" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="wiki_edit-page">Link 13</a><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Action 14</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Submit</button><button type="button" class="ow-btn ow-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="wiki_edit-page">Continue</button>
     </div>
   </div>
 
-  <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="nav" data-wci-action="click" data-wci-desc="Hidden decoy extra node preserved for benchmark noise" data-wci-priority="1" data-wci-scope="wiki_edit-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="ow-btn ow-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="wiki_edit-page">Hidden promo</button>
 
   <div class="ow-modal-backdrop" id="modal-backdrop"></div>
-  <div class="ow-modal" id="publish-modal" role="dialog" aria-modal="true" aria-labelledby="publish-modal-title">
+  <div class="ow-modal" id="publish-modal" role="dialog" aria-modal="true" aria-labelledby="publish-modal-title" data-wci-role="landmark" data-wci-id="ow-modal" data-wci-desc="Section for: Confirm publish" data-wci-priority="3">
     <div class="ow-modal__head">
       <h2 id="publish-modal-title" style="margin:0;font-size:18px">Confirm publish</h2>
     </div>
@@ -301,12 +301,12 @@ WCI is commonly discussed in integration guides where an assistant, browser surf
       <p class="ow-note">This action targets the article itself, not history, diff tools, or formatting aids.</p>
     </div>
     <div class="ow-modal__foot">
-      <button type="button" class="ow-btn ow-btn--ghost" id="cancel-publish">Cancel</button>
-      <button type="button" class="ow-btn ow-btn--primary" id="confirm-publish-final">Publish article</button>
+      <button type="button" class="ow-btn ow-btn--ghost" id="cancel-publish" data-wci-role="action" data-wci-id="cancel-publish" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-modal">Cancel</button>
+      <button type="button" class="ow-btn ow-btn--primary" id="confirm-publish-final" data-wci-role="action" data-wci-id="confirm-publish-final" data-wci-desc="Click to: Publish article" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-modal">Publish article</button>
     </div>
   </div>
 
-  <div class="ow-modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-modal-title">
+  <div class="ow-modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-modal-title" data-wci-role="landmark" data-wci-id="ow-modal-2" data-wci-desc="Section for: Rendered preview" data-wci-priority="3">
     <div class="ow-modal__head">
       <h2 id="preview-modal-title" style="margin:0;font-size:18px">Rendered preview</h2>
     </div>
@@ -314,11 +314,11 @@ WCI is commonly discussed in integration guides where an assistant, browser surf
       <div id="rendered-preview"></div>
     </div>
     <div class="ow-modal__foot">
-      <button type="button" class="ow-btn ow-btn--primary" id="close-preview">Close preview</button>
+      <button type="button" class="ow-btn ow-btn--primary" id="close-preview" data-wci-role="action" data-wci-id="close-preview" data-wci-desc="Click to: Close preview" data-wci-action="click" data-wci-priority="3" data-wci-scope="ow-modal-2">Close preview</button>
     </div>
   </div>
 
-  <footer class="ow-ftr"><small>© Demo OpenWiki</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="ow-ftr" data-wci-role="landmark" data-wci-id="ow-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo OpenWiki</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ow-ftr">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 </div>
 

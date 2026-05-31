@@ -205,15 +205,15 @@ h1,h2,h3,h4,p{margin:0}
 <body>
 <div id="app-root" class="np-app np-app--authenticated np-theme-dark" data-page="banking" data-current-route="/dashboard" data-session="s_8f2k1" data-csrf="tok_abc123" data-wci-role="landmark" data-wci-id="banking-dashboard" data-wci-desc="NovaPay banking dashboard — view accounts, transfer funds, review transactions">
 
-  <div class="np-session-warn np-overlay" role="dialog" aria-hidden="true" style="display:none">
+  <div class="np-session-warn np-overlay" role="dialog" aria-hidden="true" style="display:none" data-wci-role="landmark" data-wci-id="np-session-warn" data-wci-desc="Section for: Session Expiring" data-wci-priority="3">
     <div class="np-overlay__backdrop"></div>
     <div class="np-overlay__panel">
       <h2>Session Expiring</h2>
-      <p style="margin-top:8px">Your session will expire in <span class="np-countdown">4:59</span></p>
+      <p style="margin-top:8px">Your session will expire in <span class="np-countdown" data-wci-role="display" data-wci-id="np-countdown" data-wci-desc="Display value: 4:59" data-wci-state="{&quot;value&quot;:&quot;4:59&quot;}" data-wci-priority="4" data-wci-scope="np-session-warn">4:59</span></p>
       <p class="np-help-text" style="margin-top:8px">Unsaved transfer details may be lost if you do not stay signed in.</p>
       <div style="display:flex;gap:10px;margin-top:14px">
-        <button class="np-btn np-btn--primary" onclick="extendSession()">Stay Logged In</button>
-        <button class="np-btn np-btn--ghost" onclick="logout()">Log Out</button>
+        <button class="np-btn np-btn--primary" onclick="extendSession()" data-wci-role="action" data-wci-id="stay-logged-in" data-wci-desc="Click to: Stay Logged In" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-session-warn">Stay Logged In</button>
+        <button class="np-btn np-btn--ghost" onclick="logout()" data-wci-role="action" data-wci-id="log-out" data-wci-desc="Click to: Log Out" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-session-warn">Log Out</button>
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@ h1,h2,h3,h4,p{margin:0}
         <p class="np-toast__title">System Maintenance</p>
         <p class="np-toast__msg">Scheduled maintenance on May 25, 2:00 AM–4:00 AM EST</p>
       </div>
-      <button class="np-toast__close" aria-label="Dismiss">×</button>
+      <button class="np-toast__close" aria-label="Dismiss" data-wci-role="action" data-wci-id="button" data-wci-desc="Click to: ×" data-wci-action="click" data-wci-priority="3" data-wci-scope="banking-dashboard">×</button>
     </div>
     <div class="np-toast">
       <div class="np-toast__icon">🎁</div>
@@ -233,55 +233,55 @@ h1,h2,h3,h4,p{margin:0}
         <p class="np-toast__title">Cashback boost unlocked</p>
         <p class="np-toast__msg">Activate rotating offers in your Rewards Center.</p>
       </div>
-      <button class="np-toast__close" aria-label="Dismiss">×</button>
+      <button class="np-toast__close" aria-label="Dismiss" data-wci-role="action" data-wci-id="button-2" data-wci-desc="Click to: ×" data-wci-action="click" data-wci-priority="3" data-wci-scope="banking-dashboard">×</button>
     </div>
   </div>
 
   <div class="np-layout">
-    <nav class="np-sidebar" role="navigation" aria-label="Main menu" data-wci-role="nav" data-wci-id="sidebar-nav" data-wci-desc="Main navigation — Dashboard, Accounts, Transfer, Payments, Cards, Investments, Settings" data-wci-action="navigate" data-wci-state="{&quot;active&quot;:&quot;Dashboard&quot;}" data-wci-priority="2">
+    <nav class="np-sidebar" role="navigation" aria-label="Main menu" data-wci-role="nav" data-wci-id="sidebar-nav" data-wci-desc="Main navigation — Dashboard, Accounts, Transfer, Payments, Cards, Investments, Settings — plausible alternative (not pri" data-wci-action="navigate" data-wci-state="{&quot;active&quot;:&quot;Dashboard&quot;}" data-wci-priority="1" data-wci-competitor="true">
       <div class="np-sidebar__logo">
         <div class="np-logo-mark"></div>
         <span class="np-logo-text">NovaPay</span>
       </div>
       <ul class="np-sidebar__menu">
         <li class="np-sidebar__item np-sidebar__item--active" data-nav="/dashboard">
-          <a href="#/dashboard" class="np-sidebar__link" data-route="/dashboard">
+          <a href="#/dashboard" class="np-sidebar__link" data-route="/dashboard" data-wci-role="nav" data-wci-id="dashboard" data-wci-desc="Navigate to: Dashboard" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/accounts">
-          <a href="#/accounts" class="np-sidebar__link" data-route="/accounts">
+          <a href="#/accounts" class="np-sidebar__link" data-route="/accounts" data-wci-role="nav" data-wci-id="accounts" data-wci-desc="Navigate to: Accounts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
             <span>Accounts</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/transfer">
-          <a href="#/transfer" class="np-sidebar__link" data-route="/transfer">
+          <a href="#/transfer" class="np-sidebar__link" data-route="/transfer" data-wci-role="nav" data-wci-id="transfer" data-wci-desc="Navigate to: Transfer" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             <span>Transfer</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/payments">
-          <a href="#/payments" class="np-sidebar__link" data-route="/payments">
+          <a href="#/payments" class="np-sidebar__link" data-route="/payments" data-wci-role="nav" data-wci-id="payments" data-wci-desc="Navigate to: Payments" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect></svg>
             <span>Payments</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/cards">
-          <a href="#/cards" class="np-sidebar__link" data-route="/cards">
+          <a href="#/cards" class="np-sidebar__link" data-route="/cards" data-wci-role="nav" data-wci-id="cards" data-wci-desc="Navigate to: Cards" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
             <span>Cards</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/investments">
-          <a href="#/investments" class="np-sidebar__link" data-route="/investments">
+          <a href="#/investments" class="np-sidebar__link" data-route="/investments" data-wci-role="nav" data-wci-id="investments" data-wci-desc="Navigate to: Investments" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
             <span>Investments</span>
           </a>
         </li>
         <li class="np-sidebar__item" data-nav="/settings">
-          <a href="#/settings" class="np-sidebar__link" data-route="/settings">
+          <a href="#/settings" class="np-sidebar__link" data-route="/settings" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sidebar-nav">
             <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             <span>Settings</span>
           </a>
@@ -295,13 +295,13 @@ h1,h2,h3,h4,p{margin:0}
             <span class="np-sidebar__user-email">john@email.com</span>
           </div>
         </div>
-        <button class="np-sidebar__logout-btn" onclick="logout()" aria-label="Log out">
+        <button class="np-sidebar__logout-btn" onclick="logout()" aria-label="Log out" data-wci-role="action" data-wci-id="button-3" data-wci-desc="Click to: Log out" data-wci-action="click" data-wci-priority="3" data-wci-scope="sidebar-nav">
           <svg class="np-icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg>
         </button>
       </div>
     </nav>
 
-    <main class="np-main" role="main">
+    <main class="np-main" role="main" data-wci-role="landmark" data-wci-id="np-main" data-wci-desc="Section for: Dashboard" data-wci-priority="3">
       <div class="np-topbar">
         <div class="np-topbar__left">
           <h1 class="np-topbar__title" id="page-title">Dashboard</h1>
@@ -309,98 +309,98 @@ h1,h2,h3,h4,p{margin:0}
         </div>
         <div class="np-topbar__right">
           <div class="np-topbar__search-wrap">
-            <input type="search" class="np-topbar__search" id="global-search" placeholder="Search transactions...">
+            <input type="search" class="np-topbar__search" id="global-search" placeholder="Search transactions..." data-wci-role="form" data-wci-id="global-search" data-wci-desc="Input field for: Search transactions..." data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="np-main">
             <svg class="np-icon np-topbar__search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </div>
-          <button class="np-topbar__notif-btn" id="notif-btn" aria-label="Notifications">
+          <button class="np-topbar__notif-btn" id="notif-btn" aria-label="Notifications" data-wci-role="action" data-wci-id="notif-btn" data-wci-desc="Click to: 3" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-main">
             <svg class="np-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-            <span class="np-topbar__notif-badge">3</span>
+            <span class="np-topbar__notif-badge" data-wci-role="display" data-wci-id="np-topbar-notif-badge" data-wci-desc="Display value: 3" data-wci-state="{&quot;value&quot;:&quot;3&quot;}" data-wci-priority="4" data-wci-scope="np-main">3</span>
           </button>
-          <button class="np-topbar__help-btn" id="help-btn" aria-label="Help">?</button>
+          <button class="np-topbar__help-btn" id="help-btn" aria-label="Help" data-wci-role="action" data-wci-id="help-btn" data-wci-desc="Click to: ?" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-main">?</button>
         </div>
       </div>
 
-      <div id="banking-smoke-status" class="np-smoke-status" data-smoke-status="">Smoke status: idle</div>
+      <div id="banking-smoke-status" class="np-smoke-status" data-smoke-status="" data-wci-role="display" data-wci-id="banking-smoke-status" data-wci-desc="Display value: Smoke status: idle" data-wci-state="{&quot;value&quot;:&quot;Smoke status: idle&quot;}" data-wci-priority="4" data-wci-scope="np-main">Smoke status: idle</div>
 
       <!-- Dashboard -->
-      <section class="np-page" data-route="/dashboard">
+      <section class="np-page" data-route="/dashboard" data-wci-role="landmark" data-wci-id="np-page" data-wci-desc="Section for: Quick Transfer" data-wci-priority="3">
         <div class="np-banner-row">
-          <section class="np-insight-card" aria-label="Net cash position">
+          <section class="np-insight-card" aria-label="Net cash position" data-wci-role="landmark" data-wci-id="np-insight-card" data-wci-desc="Landmark zone for section" data-wci-priority="3">
             <div class="np-insight-card__meta">
               <span class="np-insight-card__label">Total Available Funds</span>
-              <span class="np-insight-card__value" id="net-worth-display">$58,066.71</span>
+              <span class="np-insight-card__value" id="net-worth-display" data-wci-role="display" data-wci-id="net-worth-display" data-wci-desc="Display value: $58,066.71" data-wci-state="{&quot;value&quot;:&quot;$58,066.71&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card">$58,066.71</span>
               <span class="np-insight-card__sub">Across deposit accounts as of 10:41 AM ET</span>
             </div>
             <div class="np-status">
-              <span class="np-badge np-badge--success">All systems normal</span>
-              <span class="np-badge np-badge--info">2 scheduled transfers</span>
+              <span class="np-badge np-badge--success" data-wci-role="display" data-wci-id="np-badge" data-wci-desc="Display value: All systems normal" data-wci-state="{&quot;value&quot;:&quot;All systems normal&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card">All systems normal</span>
+              <span class="np-badge np-badge--info" data-wci-role="display" data-wci-id="np-badge-2" data-wci-desc="Display value: 2 scheduled transfers" data-wci-state="{&quot;value&quot;:&quot;2 scheduled transfers&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card">2 scheduled transfers</span>
             </div>
           </section>
-          <aside class="np-insight-card" aria-label="Rewards summary">
+          <aside class="np-insight-card" aria-label="Rewards summary" data-wci-role="landmark" data-wci-id="np-insight-card-2" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
             <div class="np-insight-card__meta">
               <span class="np-insight-card__label">Rewards Cash</span>
-              <span class="np-insight-card__value">$214.28</span>
+              <span class="np-insight-card__value" data-wci-role="display" data-wci-id="np-insight-card-value" data-wci-desc="Display value: $214.28" data-wci-state="{&quot;value&quot;:&quot;$214.28&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card-2">$214.28</span>
               <span class="np-insight-card__sub">Available to redeem to checking instantly</span>
             </div>
-            <button class="np-btn np-btn--outline np-btn--sm" id="redeem-rewards-btn">Redeem</button>
+            <button class="np-btn np-btn--outline np-btn--sm" id="redeem-rewards-btn" data-wci-role="action" data-wci-id="redeem-rewards-btn" data-wci-desc="Click to: Redeem" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-insight-card-2">Redeem</button>
           </aside>
         </div>
 
         <div class="np-accounts-grid" data-wci-role="landmark" data-wci-id="account-summary" data-wci-desc="Account summary — checking, savings, and credit card balances">
-          <div class="np-account-card np-account-card--checking" data-wci-role="display" data-wci-id="checking-account" data-wci-desc="Checking account ••• 4821" data-wci-state="{&quot;type&quot;:&quot;checking&quot;,&quot;last4&quot;:&quot;4821&quot;,&quot;balance&quot;:12847.63,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="account-summary" data-wci-priority="1">
+          <div class="np-account-card np-account-card--checking" data-wci-role="display" data-wci-id="checking-account" data-wci-desc="Checking account ••• 4821" data-wci-state="{&quot;type&quot;:&quot;checking&quot;,&quot;last4&quot;:&quot;4821&quot;,&quot;balance&quot;:12847.63,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="account-summary" data-wci-priority="2">
             <div class="np-account-card__header">
-              <span class="np-account-card__type">Checking</span>
-              <span class="np-account-card__number">••• 4821</span>
+              <span class="np-account-card__type" data-wci-role="display" data-wci-id="np-account-card-type" data-wci-desc="Display value: Checking" data-wci-state="{&quot;value&quot;:&quot;Checking&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Checking</span>
+              <span class="np-account-card__number" data-wci-role="display" data-wci-id="np-account-card-number" data-wci-desc="Display value: ••• 4821" data-wci-state="{&quot;value&quot;:&quot;••• 4821&quot;}" data-wci-priority="4" data-wci-scope="account-summary">••• 4821</span>
             </div>
             <div class="np-account-card__balance">
-              <span class="np-account-card__balance-label">Available Balance</span>
-              <span class="np-account-card__balance-amount" id="checking-balance">$12,847.63</span>
+              <span class="np-account-card__balance-label" data-wci-role="display" data-wci-id="np-account-card-balance-label" data-wci-desc="Display value: Available Balance" data-wci-state="{&quot;value&quot;:&quot;Available Balance&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Available Balance</span>
+              <span class="np-account-card__balance-amount" id="checking-balance" data-wci-role="display" data-wci-id="checking-balance" data-wci-desc="Display value: $12,847.63" data-wci-state="{&quot;value&quot;:&quot;$12,847.63&quot;}" data-wci-priority="4" data-wci-scope="account-summary">$12,847.63</span>
             </div>
             <div class="np-account-card__meta">
               <span>Status: Active</span>
               <span>ACH Enabled</span>
             </div>
             <div class="np-account-card__actions" style="margin-top:14px">
-              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="checking">View</button>
-              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="checking">Transfer</button>
+              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="checking" data-wci-role="action" data-wci-id="view" data-wci-desc="Click to: View" data-wci-action="click" data-wci-priority="3" data-wci-scope="account-summary">View</button>
+              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="checking" data-wci-role="action" data-wci-id="transfer-2" data-wci-desc="Transfer from checking account card — opens alternate flow, not quick-transfer review" data-wci-action="click" data-wci-priority="1" data-wci-scope="account-summary" data-wci-competitor="true">Transfer</button>
             </div>
           </div>
 
-          <div class="np-account-card np-account-card--savings" data-wci-role="display" data-wci-id="savings-account" data-wci-desc="Savings account ••• 7293" data-wci-state="{&quot;type&quot;:&quot;savings&quot;,&quot;last4&quot;:&quot;7293&quot;,&quot;balance&quot;:45219.08,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="account-summary" data-wci-priority="1">
+          <div class="np-account-card np-account-card--savings" data-wci-role="display" data-wci-id="savings-account" data-wci-desc="Savings account ••• 7293" data-wci-state="{&quot;type&quot;:&quot;savings&quot;,&quot;last4&quot;:&quot;7293&quot;,&quot;balance&quot;:45219.08,&quot;currency&quot;:&quot;USD&quot;}" data-wci-scope="account-summary" data-wci-priority="2">
             <div class="np-account-card__header">
-              <span class="np-account-card__type">Savings</span>
-              <span class="np-account-card__number">••• 7293</span>
+              <span class="np-account-card__type" data-wci-role="display" data-wci-id="np-account-card-type-2" data-wci-desc="Display value: Savings" data-wci-state="{&quot;value&quot;:&quot;Savings&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Savings</span>
+              <span class="np-account-card__number" data-wci-role="display" data-wci-id="np-account-card-number-2" data-wci-desc="Display value: ••• 7293" data-wci-state="{&quot;value&quot;:&quot;••• 7293&quot;}" data-wci-priority="4" data-wci-scope="account-summary">••• 7293</span>
             </div>
             <div class="np-account-card__balance">
-              <span class="np-account-card__balance-label">Available Balance</span>
-              <span class="np-account-card__balance-amount" id="savings-balance">$45,219.08</span>
+              <span class="np-account-card__balance-label" data-wci-role="display" data-wci-id="np-account-card-balance-label-2" data-wci-desc="Display value: Available Balance" data-wci-state="{&quot;value&quot;:&quot;Available Balance&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Available Balance</span>
+              <span class="np-account-card__balance-amount" id="savings-balance" data-wci-role="display" data-wci-id="savings-balance" data-wci-desc="Display value: $45,219.08" data-wci-state="{&quot;value&quot;:&quot;$45,219.08&quot;}" data-wci-priority="4" data-wci-scope="account-summary">$45,219.08</span>
             </div>
             <div class="np-account-card__meta">
               <span>APY: 4.10%</span>
               <span>6 transfers left</span>
             </div>
             <div class="np-account-card__actions" style="margin-top:14px">
-              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="savings">View</button>
-              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="savings">Transfer</button>
+              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="savings" data-wci-role="action" data-wci-id="view-2" data-wci-desc="Click to: View" data-wci-action="click" data-wci-priority="3" data-wci-scope="account-summary">View</button>
+              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="savings" data-wci-role="action" data-wci-id="transfer-3" data-wci-desc="Transfer from savings account card — shortcut CTA, not Review Transfer on quick form" data-wci-action="click" data-wci-priority="1" data-wci-scope="account-summary" data-wci-competitor="true">Transfer</button>
             </div>
           </div>
 
-          <div class="np-account-card np-account-card--credit" data-wci-role="display" data-wci-id="credit-card-account" data-wci-desc="Credit card ••• 9156 — balance $2,341.50, min payment $45.00 due Jun 1" data-wci-state="{&quot;type&quot;:&quot;credit&quot;,&quot;last4&quot;:&quot;9156&quot;,&quot;balance&quot;:2341.50,&quot;availableCredit&quot;:17658.50,&quot;minPayment&quot;:45.00,&quot;dueDate&quot;:&quot;Jun 1&quot;}" data-wci-scope="account-summary" data-wci-priority="1">
+          <div class="np-account-card np-account-card--credit" data-wci-role="display" data-wci-id="credit-card-account" data-wci-desc="Credit card ••• 9156 — balance $2,341.50, min payment $45.00 due Jun 1" data-wci-state="{&quot;type&quot;:&quot;credit&quot;,&quot;last4&quot;:&quot;9156&quot;,&quot;balance&quot;:2341.50,&quot;availableCredit&quot;:17658.50,&quot;minPayment&quot;:45.00,&quot;dueDate&quot;:&quot;Jun 1&quot;}" data-wci-scope="account-summary" data-wci-priority="2">
             <div class="np-account-card__header">
-              <span class="np-account-card__type">Credit Card</span>
-              <span class="np-account-card__number">••• 9156</span>
+              <span class="np-account-card__type" data-wci-role="display" data-wci-id="np-account-card-type-3" data-wci-desc="Display value: Credit Card" data-wci-state="{&quot;value&quot;:&quot;Credit Card&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Credit Card</span>
+              <span class="np-account-card__number" data-wci-role="display" data-wci-id="np-account-card-number-3" data-wci-desc="Display value: ••• 9156" data-wci-state="{&quot;value&quot;:&quot;••• 9156&quot;}" data-wci-priority="4" data-wci-scope="account-summary">••• 9156</span>
             </div>
             <div class="np-account-card__balance">
-              <span class="np-account-card__balance-label">Current Balance</span>
-              <span class="np-account-card__balance-amount">$2,341.50</span>
+              <span class="np-account-card__balance-label" data-wci-role="display" data-wci-id="np-account-card-balance-label-3" data-wci-desc="Display value: Current Balance" data-wci-state="{&quot;value&quot;:&quot;Current Balance&quot;}" data-wci-priority="4" data-wci-scope="account-summary">Current Balance</span>
+              <span class="np-account-card__balance-amount" data-wci-role="display" data-wci-id="np-account-card-balance-amount" data-wci-desc="Display value: $2,341.50" data-wci-state="{&quot;value&quot;:&quot;$2,341.50&quot;}" data-wci-priority="4" data-wci-scope="account-summary">$2,341.50</span>
             </div>
             <div class="np-account-card__meta">
               <span>Available Credit: $17,658.50</span>
               <span>Min Payment Due: $45.00 by Jun 1</span>
             </div>
             <div class="np-account-card__actions" style="margin-top:14px">
-              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="credit">View</button>
-              <button class="np-btn np-btn--sm np-btn--danger" data-decoy="pay-credit-bill-btn" id="pay-credit-bill-btn" data-wci-role="action" data-wci-id="pay-credit-bill-btn" data-wci-desc="Pay credit card bill — $45.00 minimum due Jun 1" data-wci-action="click" data-wci-scope="account-summary" data-wci-priority="1" data-wci-precondition="Requires checking or savings account with sufficient balance">Pay Bill</button>
+              <button class="np-btn np-btn--sm np-btn--ghost np-view-account-btn" data-account="credit" data-wci-role="action" data-wci-id="view-3" data-wci-desc="Click to: View" data-wci-action="click" data-wci-priority="3" data-wci-scope="account-summary">View</button>
+              <button class="np-btn np-btn--sm np-btn--danger" data-decoy="pay-credit-bill-btn" id="pay-credit-bill-btn" data-wci-role="action" data-wci-id="pay-credit-bill-btn" data-wci-desc="Pay credit card bill — plausible banking action but not the $500 checking→savings transfer" data-wci-action="click" data-wci-scope="account-summary" data-wci-priority="1" data-wci-precondition="Requires checking or savings account with sufficient balance" data-wci-competitor="true">Pay Bill</button>
             </div>
           </div>
         </div>
@@ -413,14 +413,14 @@ h1,h2,h3,h4,p{margin:0}
                 <p class="np-help-text" style="margin-top:4px">Move funds instantly between eligible NovaPay accounts.</p>
               </div>
               <div class="np-status">
-                <span class="np-badge np-badge--warning" id="transfer-limit-badge">Daily transfer limit: $2,500</span>
-                <span class="np-badge" id="transfer-preview-badge">Preview not ready</span>
+                <span class="np-badge np-badge--warning" id="transfer-limit-badge" data-wci-role="display" data-wci-id="transfer-limit-badge" data-wci-desc="Display value: Daily transfer limit: $2,500" data-wci-state="{&quot;value&quot;:&quot;Daily transfer limit: $2,500&quot;}" data-wci-priority="4" data-wci-scope="quick-transfer">Daily transfer limit: $2,500</span>
+                <span class="np-badge" id="transfer-preview-badge" data-wci-role="display" data-wci-id="transfer-preview-badge" data-wci-desc="Display value: Preview not ready" data-wci-state="{&quot;value&quot;:&quot;Preview not ready&quot;}" data-wci-priority="4" data-wci-scope="quick-transfer">Preview not ready</span>
               </div>
             </div>
             <div class="np-quick-transfer__summary">
               <div class="np-mini-stat">
                 <div class="np-mini-stat__label">From Balance</div>
-                <div class="np-mini-stat__value" id="from-balance-mini">$12,847.63</div>
+                <div class="np-mini-stat__value" id="from-balance-mini" data-wci-role="display" data-wci-id="from-balance-mini" data-wci-desc="Display value: $12,847.63" data-wci-state="{&quot;value&quot;:&quot;$12,847.63&quot;}" data-wci-priority="4" data-wci-scope="quick-transfer">$12,847.63</div>
               </div>
               <div class="np-mini-stat">
                 <div class="np-mini-stat__label">Estimated Delivery</div>
@@ -431,17 +431,17 @@ h1,h2,h3,h4,p{margin:0}
                 <div class="np-mini-stat__value" id="transfer-count-mini">2 today</div>
               </div>
             </div>
-            <form class="np-quick-transfer__form" id="transfer-form" onsubmit="return false;">
+            <form class="np-quick-transfer__form" id="transfer-form" onsubmit="return false;" data-wci-role="landmark" data-wci-id="np-quick-transfer-form" data-wci-desc="Landmark zone: transfer-form" data-wci-priority="3">
               <div class="np-form-row">
                 <label for="xfer-from">From</label>
-                <select id="xfer-from" class="np-select" data-wci-role="form" data-wci-id="transfer-from" data-wci-desc="Source account for transfer" data-wci-action="select" data-wci-options="[&quot;Checking (••• 4821) — $12,847.63&quot;,&quot;Savings (••• 7293) — $45,219.08&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Checking (••• 4821)&quot;}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="1">
+                <select id="xfer-from" class="np-select" data-wci-role="form" data-wci-id="transfer-from" data-wci-desc="Source account — select Checking for this transfer" data-wci-action="select" data-wci-options="[&quot;Checking (••• 4821) — $12,847.63&quot;,&quot;Savings (••• 7293) — $45,219.08&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Checking (••• 4821)&quot;}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="2" data-wci-competitor="true">
                   <option value="checking" selected="">Checking (••• 4821) — $12,847.63</option>
                   <option value="savings">Savings (••• 7293) — $45,219.08</option>
                 </select>
               </div>
               <div class="np-form-row">
                 <label for="xfer-to">To</label>
-                <select id="xfer-to" class="np-select" data-wci-role="form" data-wci-id="transfer-to" data-wci-desc="Destination account for transfer" data-wci-action="select" data-wci-options="[&quot;Savings (••• 7293)&quot;,&quot;Checking (••• 4821)&quot;,&quot;External Account&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Savings (••• 7293)&quot;}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="1">
+                <select id="xfer-to" class="np-select" data-wci-role="form" data-wci-id="transfer-to" data-wci-desc="Destination account — select Savings for this transfer" data-wci-action="select" data-wci-options="[&quot;Savings (••• 7293)&quot;,&quot;Checking (••• 4821)&quot;,&quot;External Account&quot;]" data-wci-state="{&quot;selected&quot;:&quot;Savings (••• 7293)&quot;}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="2" data-wci-competitor="true">
                   <option value="savings" selected="">Savings (••• 7293)</option>
                   <option value="checking">Checking (••• 4821)</option>
                   <option value="external">External Account</option>
@@ -449,7 +449,7 @@ h1,h2,h3,h4,p{margin:0}
               </div>
               <div class="np-form-row">
                 <label for="xfer-amount">Amount</label>
-                <input id="xfer-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal" aria-describedby="amount-error amount-hint" data-wci-role="form" data-wci-id="transfer-amount" data-wci-desc="Transfer amount in USD" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;,&quot;valid&quot;:null}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="1">
+                <input id="xfer-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal" aria-describedby="amount-error amount-hint" data-wci-role="form" data-wci-id="transfer-amount" data-wci-desc="Transfer amount in USD — enter 500 for this task" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;,&quot;valid&quot;:null}" data-wci-required="true" data-wci-scope="quick-transfer" data-wci-priority="2">
                 <div class="np-form-error" id="amount-error"></div>
                 <div class="np-form-hint" id="amount-hint">Enter an amount between $1.00 and $2,500.00.</div>
               </div>
@@ -458,16 +458,16 @@ h1,h2,h3,h4,p{margin:0}
                 <input id="xfer-memo" type="text" class="np-input" placeholder="e.g., Monthly savings" data-wci-role="form" data-wci-id="transfer-memo" data-wci-desc="Optional memo for the transfer" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-scope="quick-transfer" data-wci-priority="3">
               </div>
               <div class="np-form-actions">
-                <button type="button" class="np-btn np-btn--ghost" id="transfer-cancel-btn">Cancel</button>
-                <button type="submit" class="np-btn np-btn--primary" id="review-transfer-btn" disabled="" data-wci-role="action" data-wci-id="review-transfer-btn" data-wci-desc="Review and confirm the transfer" data-wci-action="click" data-wci-state="{&quot;disabled&quot;:true}" data-wci-precondition="From account, to account, and amount must be filled. Amount must not exceed source balance." data-wci-scope="quick-transfer" data-wci-priority="1">Review Transfer</button>
+                <button type="button" class="np-btn np-btn--ghost" id="transfer-cancel-btn" data-wci-role="action" data-wci-id="transfer-cancel-btn" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-quick-transfer-form">Cancel</button>
+                <button type="submit" class="np-btn np-btn--primary" id="review-transfer-btn" disabled="" data-wci-role="action" data-wci-id="review-transfer-btn" data-wci-desc="Transfer $500 from Checking to Savings account — review and confirm quick transfer (enabled when form valid)" data-wci-action="click" data-wci-state="{&quot;disabled&quot;:false}" data-wci-precondition="From account, to account, and amount must be filled. Amount must not exceed source balance." data-wci-scope="quick-transfer" data-wci-priority="1" data-wci-primary="true">Review Transfer</button>
               </div>
             </form>
           </section>
 
-          <aside class="np-activity-panel">
+          <aside class="np-activity-panel" data-wci-role="landmark" data-wci-id="np-activity-panel" data-wci-desc="Section for: Account Alerts" data-wci-priority="3">
             <div class="np-activity-panel__header">
               <h2>Account Alerts</h2>
-              <span class="np-badge np-badge--info">Live</span>
+              <span class="np-badge np-badge--info" data-wci-role="display" data-wci-id="np-badge-3" data-wci-desc="Display value: Live" data-wci-state="{&quot;value&quot;:&quot;Live&quot;}" data-wci-priority="4" data-wci-scope="np-activity-panel">Live</span>
             </div>
             <div class="np-activity-list">
               <div class="np-activity-item">
@@ -499,7 +499,7 @@ h1,h2,h3,h4,p{margin:0}
           <div class="np-transactions__header">
             <h2>Recent Transactions</h2>
             <div class="np-transactions__filters">
-              <select class="np-select np-select--sm" id="txn-account-filter" data-wci-role="form" data-wci-id="txn-account-filter" data-wci-desc="Filter transactions by account" data-wci-action="select" data-wci-options="[&quot;All Accounts&quot;,&quot;Checking&quot;,&quot;Savings&quot;,&quot;Credit Card&quot;]" data-wci-scope="recent-transactions" data-wci-priority="3">
+              <select class="np-select np-select--sm" id="txn-account-filter" data-wci-role="form" data-wci-id="txn-account-filter" data-wci-desc="Filter transactions by account — plausible alternative (not primary for this goal)" data-wci-action="select" data-wci-options="[&quot;All Accounts&quot;,&quot;Checking&quot;,&quot;Savings&quot;,&quot;Credit Card&quot;]" data-wci-scope="recent-transactions" data-wci-priority="1" data-wci-competitor="true">
                 <option>All Accounts</option>
                 <option>Checking</option>
                 <option>Savings</option>
@@ -617,11 +617,11 @@ h1,h2,h3,h4,p{margin:0}
             </tbody>
           </table>
           <div class="np-transactions__footer">
-            <button class="np-btn np-btn--ghost" data-decoy="export-csv-btn" id="export-csv-btn" data-wci-role="action" data-wci-id="export-csv-btn" data-wci-desc="Export transactions as CSV file" data-wci-action="click" data-wci-scope="recent-transactions" data-wci-priority="4">Export CSV</button>
-            <nav class="np-pagination">
-              <button class="np-pagination__btn" disabled="">←</button>
+            <button class="np-btn np-btn--ghost" data-decoy="export-csv-btn" id="export-csv-btn" data-wci-role="action" data-wci-id="export-csv-btn" data-wci-desc="Export transactions as CSV file" data-wci-action="click" data-wci-scope="recent-transactions" data-wci-priority="5">Export CSV</button>
+            <nav class="np-pagination" data-wci-role="nav" data-wci-id="np-pagination" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+              <button class="np-pagination__btn" disabled="" data-wci-role="action" data-wci-id="button-4" data-wci-desc="Click to: ←" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-pagination">←</button>
               <span class="np-pagination__info">Page 1 of 12</span>
-              <button class="np-pagination__btn">→</button>
+              <button class="np-pagination__btn" data-wci-role="action" data-wci-id="button-5" data-wci-desc="Click to: →" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-pagination">→</button>
             </nav>
           </div>
         </section>
@@ -635,76 +635,76 @@ h1,h2,h3,h4,p{margin:0}
                 <p class="np-muted" style="margin-top:4px">Earn 5x points on travel and 2x on dining. Limited-time 0% APR intro offer.</p>
               </div>
             </div>
-            <button class="np-btn np-btn--sm np-btn--primary" data-route="/cards" data-tracking="promo-platinum">Apply →</button>
+            <button class="np-btn np-btn--sm np-btn--primary" data-route="/cards" data-tracking="promo-platinum" data-wci-role="action" data-wci-id="apply" data-wci-desc="Click to: Apply →" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page">Apply →</button>
           </div>
         </div>
       </section>
 
       <!-- Accounts -->
-      <section class="np-page np-hidden" data-route="/accounts">
+      <section class="np-page np-hidden" data-route="/accounts" data-wci-role="landmark" data-wci-id="np-page-2" data-wci-desc="Section for: Your Accounts" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Your Accounts</h2>
           <p class="np-help-text">View balances, statements, and activity across all NovaPay products.</p>
         </div>
 
         <div class="np-tabs" role="tablist">
-          <button class="np-tab np-tab--active" type="button" data-account-tab="all">All Accounts</button>
-          <button class="np-tab" type="button" data-account-tab="deposit">Deposit</button>
-          <button class="np-tab" type="button" data-account-tab="credit">Credit</button>
+          <button class="np-tab np-tab--active" type="button" data-account-tab="all" data-wci-role="action" data-wci-id="all-accounts" data-wci-desc="Click to: All Accounts" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-2">All Accounts</button>
+          <button class="np-tab" type="button" data-account-tab="deposit" data-wci-role="action" data-wci-id="deposit" data-wci-desc="Click to: Deposit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-2">Deposit</button>
+          <button class="np-tab" type="button" data-account-tab="credit" data-wci-role="action" data-wci-id="credit" data-wci-desc="Click to: Credit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-2">Credit</button>
         </div>
 
         <div class="np-accounts-detail-grid">
-          <article class="np-detail-card" data-account-type="deposit">
+          <article class="np-detail-card" data-account-type="deposit" data-wci-role="landmark" data-wci-id="np-detail-card" data-wci-desc="Section for: Checking" data-wci-priority="3">
             <div class="np-detail-card__header">
               <h2>Checking</h2>
-              <span class="np-badge np-badge--success">Active</span>
+              <span class="np-badge np-badge--success" data-wci-role="display" data-wci-id="np-badge-4" data-wci-desc="Display value: Active" data-wci-state="{&quot;value&quot;:&quot;Active&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card">Active</span>
             </div>
             <span class="np-detail-card__label">Available balance</span>
-            <span class="np-detail-card__amount" id="acct-checking-bal">$12,847.63</span>
+            <span class="np-detail-card__amount" id="acct-checking-bal" data-wci-role="display" data-wci-id="acct-checking-bal" data-wci-desc="Display value: $12,847.63" data-wci-state="{&quot;value&quot;:&quot;$12,847.63&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card">$12,847.63</span>
             <ul class="np-detail-card__meta">
               <li>Account ••• 4821</li>
               <li>Routing 021000021</li>
               <li>ACH &amp; wire enabled</li>
             </ul>
             <div class="np-detail-card__actions">
-              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn">Statement</button>
-              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="checking">Transfer</button>
+              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn" data-wci-role="action" data-wci-id="statement" data-wci-desc="Click to: Statement" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card">Statement</button>
+              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="checking" data-wci-role="action" data-wci-id="transfer-4" data-wci-desc="Click to: Transfer" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card">Transfer</button>
             </div>
           </article>
 
-          <article class="np-detail-card" data-account-type="deposit">
+          <article class="np-detail-card" data-account-type="deposit" data-wci-role="landmark" data-wci-id="np-detail-card-2" data-wci-desc="Section for: Savings" data-wci-priority="3">
             <div class="np-detail-card__header">
               <h2>Savings</h2>
-              <span class="np-badge np-badge--info">4.10% APY</span>
+              <span class="np-badge np-badge--info" data-wci-role="display" data-wci-id="np-badge-5" data-wci-desc="Display value: 4.10% APY" data-wci-state="{&quot;value&quot;:&quot;4.10% APY&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card-2">4.10% APY</span>
             </div>
             <span class="np-detail-card__label">Available balance</span>
-            <span class="np-detail-card__amount" id="acct-savings-bal">$45,219.08</span>
+            <span class="np-detail-card__amount" id="acct-savings-bal" data-wci-role="display" data-wci-id="acct-savings-bal" data-wci-desc="Display value: $45,219.08" data-wci-state="{&quot;value&quot;:&quot;$45,219.08&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card-2">$45,219.08</span>
             <ul class="np-detail-card__meta">
               <li>Account ••• 7293</li>
               <li>6 transfers remaining this month</li>
               <li>FDIC insured</li>
             </ul>
             <div class="np-detail-card__actions">
-              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn">Statement</button>
-              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="savings">Transfer</button>
+              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn" data-wci-role="action" data-wci-id="statement-2" data-wci-desc="Click to: Statement" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card-2">Statement</button>
+              <button class="np-btn np-btn--sm np-btn--primary np-account-transfer-btn" data-account="savings" data-wci-role="action" data-wci-id="transfer-5" data-wci-desc="Click to: Transfer" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card-2">Transfer</button>
             </div>
           </article>
 
-          <article class="np-detail-card" data-account-type="credit">
+          <article class="np-detail-card" data-account-type="credit" data-wci-role="landmark" data-wci-id="np-detail-card-3" data-wci-desc="Section for: Platinum Credit Card" data-wci-priority="3">
             <div class="np-detail-card__header">
               <h2>Platinum Credit Card</h2>
-              <span class="np-badge">••• 9156</span>
+              <span class="np-badge" data-wci-role="display" data-wci-id="np-badge-6" data-wci-desc="Display value: ••• 9156" data-wci-state="{&quot;value&quot;:&quot;••• 9156&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card-3">••• 9156</span>
             </div>
             <span class="np-detail-card__label">Current balance</span>
-            <span class="np-detail-card__amount">$2,341.50</span>
+            <span class="np-detail-card__amount" data-wci-role="display" data-wci-id="np-detail-card-amount" data-wci-desc="Display value: $2,341.50" data-wci-state="{&quot;value&quot;:&quot;$2,341.50&quot;}" data-wci-priority="4" data-wci-scope="np-detail-card-3">$2,341.50</span>
             <ul class="np-detail-card__meta">
               <li>Available credit: $17,658.50</li>
               <li>Minimum due: $45.00 by Jun 1</li>
               <li>Rewards: 12,450 pts</li>
             </ul>
             <div class="np-detail-card__actions">
-              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn">Statement</button>
-              <button class="np-btn np-btn--sm np-btn--danger" id="acct-pay-bill-btn">Pay Bill</button>
+              <button class="np-btn np-btn--sm np-btn--outline np-statement-btn" data-wci-role="action" data-wci-id="statement-3" data-wci-desc="Click to: Statement" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card-3">Statement</button>
+              <button class="np-btn np-btn--sm np-btn--danger" id="acct-pay-bill-btn" data-wci-role="action" data-wci-id="acct-pay-bill-btn" data-wci-desc="Click to: Pay Bill" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-detail-card-3">Pay Bill</button>
             </div>
           </article>
         </div>
@@ -714,7 +714,7 @@ h1,h2,h3,h4,p{margin:0}
             <h3 class="np-card__title">Recent Activity</h3>
             <div class="np-filter-row">
               <label for="acct-activity-filter">Filter by account</label>
-              <select id="acct-activity-filter" class="np-select np-select--sm">
+              <select id="acct-activity-filter" class="np-select np-select--sm" data-wci-role="form" data-wci-id="acct-activity-filter" data-wci-desc="Dropdown to select: Filter by account — plausible alternative (not primary for this goal)" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;All accounts&quot;}" data-wci-options="[&quot;All accounts&quot;,&quot;Checking&quot;,&quot;Savings&quot;,&quot;Credit Card&quot;]" data-wci-priority="1" data-wci-scope="np-page-2" data-wci-competitor="true">
                 <option value="all">All accounts</option>
                 <option value="checking">Checking</option>
                 <option value="savings">Savings</option>
@@ -729,7 +729,7 @@ h1,h2,h3,h4,p{margin:0}
       </section>
 
       <!-- Transfer -->
-      <section class="np-page np-hidden" data-route="/transfer">
+      <section class="np-page np-hidden" data-route="/transfer" data-wci-role="landmark" data-wci-id="np-page-3" data-wci-desc="Section for: Transfer Money" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Transfer Money</h2>
           <p class="np-help-text">Send money between your accounts or to external recipients.</p>
@@ -751,17 +751,17 @@ h1,h2,h3,h4,p{margin:0}
 
             <div class="np-card">
               <h3 class="np-card__title">New transfer</h3>
-              <form class="np-quick-transfer__form" onsubmit="return false;" style="margin-top:16px">
+              <form class="np-quick-transfer__form" onsubmit="return false;" style="margin-top:16px" data-wci-role="landmark" data-wci-id="np-quick-transfer-form-2" data-wci-desc="Landmark zone for form" data-wci-priority="3">
                 <div class="np-form-row">
                   <label for="full-xfer-from">From account</label>
-                  <select id="full-xfer-from" class="np-select">
+                  <select id="full-xfer-from" class="np-select" data-wci-role="form" data-wci-id="full-xfer-from" data-wci-desc="Dropdown to select: From account — plausible alternative (not primary for this goal)" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Checking (••• 4821)&quot;}" data-wci-options="[&quot;Checking (••• 4821)&quot;,&quot;Savings (••• 7293)&quot;]" data-wci-priority="1" data-wci-scope="np-quick-transfer-form-2" data-wci-competitor="true">
                     <option value="checking">Checking (••• 4821)</option>
                     <option value="savings">Savings (••• 7293)</option>
                   </select>
                 </div>
                 <div class="np-form-row">
                   <label for="full-xfer-to">To account</label>
-                  <select id="full-xfer-to" class="np-select">
+                  <select id="full-xfer-to" class="np-select" data-wci-role="form" data-wci-id="full-xfer-to" data-wci-desc="Dropdown to select: To account" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Savings (••• 7293)&quot;}" data-wci-options="[&quot;Savings (••• 7293)&quot;,&quot;Checking (••• 4821)&quot;,&quot;External linked account&quot;]" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-2">
                     <option value="savings">Savings (••• 7293)</option>
                     <option value="checking">Checking (••• 4821)</option>
                     <option value="external">External linked account</option>
@@ -769,50 +769,50 @@ h1,h2,h3,h4,p{margin:0}
                 </div>
                 <div class="np-form-row">
                   <label for="full-xfer-amount">Amount</label>
-                  <input id="full-xfer-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal">
+                  <input id="full-xfer-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal" data-wci-role="form" data-wci-id="full-xfer-amount" data-wci-desc="Field for: Amount" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-2">
                 </div>
                 <div class="np-form-row">
                   <label for="full-xfer-date">Delivery date</label>
-                  <input id="full-xfer-date" type="date" class="np-input" value="2026-05-22">
+                  <input id="full-xfer-date" type="date" class="np-input" value="2026-05-22" data-wci-role="form" data-wci-id="full-xfer-date" data-wci-desc="Field for: Delivery date" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;2026-05-22&quot;}" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-2">
                 </div>
                 <div class="np-form-actions">
-                  <button type="button" class="np-btn np-btn--ghost" id="full-xfer-cancel">Cancel</button>
-                  <button type="button" class="np-btn np-btn--primary" id="full-xfer-continue" disabled="">Continue</button>
+                  <button type="button" class="np-btn np-btn--ghost" id="full-xfer-cancel" data-wci-role="action" data-wci-id="full-xfer-cancel" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-2">Cancel</button>
+                  <button type="button" class="np-btn np-btn--primary" id="full-xfer-continue" disabled="" data-wci-role="action" data-wci-id="full-xfer-continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-2">Continue</button>
                 </div>
               </form>
             </div>
           </div>
 
-          <aside class="np-card np-transfer-sidebar">
+          <aside class="np-card np-transfer-sidebar" data-wci-role="landmark" data-wci-id="np-card" data-wci-desc="Section for: Scheduled transfers" data-wci-priority="3">
             <h3 class="np-card__title">Scheduled transfers</h3>
             <div class="np-scheduled-item">
               <div>
                 <strong>Checking → Savings</strong>
-                <div class="np-muted">$250.00 · May 28</div>
+                <div class="np-muted" data-wci-role="display" data-wci-id="np-muted" data-wci-desc="Display value: $250.00 · May 28" data-wci-state="{&quot;value&quot;:&quot;$250.00 · May 28&quot;}" data-wci-priority="4" data-wci-scope="np-card">$250.00 · May 28</div>
               </div>
-              <button class="np-btn np-btn--sm np-btn--ghost">Edit</button>
+              <button class="np-btn np-btn--sm np-btn--ghost" data-wci-role="action" data-wci-id="edit" data-wci-desc="Click to: Edit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-card">Edit</button>
             </div>
             <div class="np-scheduled-item">
               <div>
                 <strong>Savings → External</strong>
-                <div class="np-muted">$1,000.00 · Jun 1</div>
+                <div class="np-muted" data-wci-role="display" data-wci-id="np-muted-2" data-wci-desc="Display value: $1,000.00 · Jun 1" data-wci-state="{&quot;value&quot;:&quot;$1,000.00 · Jun 1&quot;}" data-wci-priority="4" data-wci-scope="np-card">$1,000.00 · Jun 1</div>
               </div>
-              <button class="np-btn np-btn--sm np-btn--ghost">Edit</button>
+              <button class="np-btn np-btn--sm np-btn--ghost" data-wci-role="action" data-wci-id="edit-2" data-wci-desc="Click to: Edit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-card">Edit</button>
             </div>
             <div class="np-scheduled-item">
               <div>
                 <strong>Checking → Rent</strong>
-                <div class="np-muted">$1,850.00 · Jun 5</div>
+                <div class="np-muted" data-wci-role="display" data-wci-id="np-muted-3" data-wci-desc="Display value: $1,850.00 · Jun 5" data-wci-state="{&quot;value&quot;:&quot;$1,850.00 · Jun 5&quot;}" data-wci-priority="4" data-wci-scope="np-card">$1,850.00 · Jun 5</div>
               </div>
-              <button class="np-btn np-btn--sm np-btn--ghost">Edit</button>
+              <button class="np-btn np-btn--sm np-btn--ghost" data-wci-role="action" data-wci-id="edit-3" data-wci-desc="Click to: Edit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-card">Edit</button>
             </div>
-            <button class="np-btn np-btn--outline np-btn--full" style="margin-top:12px" data-route="/dashboard">Use Quick Transfer</button>
+            <button class="np-btn np-btn--outline np-btn--full" style="margin-top:12px" data-route="/dashboard" data-wci-role="action" data-wci-id="use-quick-transfer" data-wci-desc="Click to: Use Quick Transfer" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-card">Use Quick Transfer</button>
           </aside>
         </div>
       </section>
 
       <!-- Payments -->
-      <section class="np-page np-hidden" data-route="/payments">
+      <section class="np-page np-hidden" data-route="/payments" data-wci-role="landmark" data-wci-id="np-page-4" data-wci-desc="Section for: Bill Pay" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Bill Pay</h2>
           <p class="np-help-text">Schedule one-time or recurring payments to payees.</p>
@@ -821,10 +821,10 @@ h1,h2,h3,h4,p{margin:0}
         <div class="np-content-grid np-content-grid--payments">
           <div class="np-card">
             <h3 class="np-card__title">Pay a bill</h3>
-            <form id="bill-pay-form" class="np-quick-transfer__form" style="margin-top:16px" onsubmit="return false;">
+            <form id="bill-pay-form" class="np-quick-transfer__form" style="margin-top:16px" onsubmit="return false;" data-wci-role="landmark" data-wci-id="np-quick-transfer-form-3" data-wci-desc="Landmark zone: bill-pay-form" data-wci-priority="3">
               <div class="np-form-row">
                 <label for="bill-payee">Payee</label>
-                <select id="bill-payee" class="np-select">
+                <select id="bill-payee" class="np-select" data-wci-role="form" data-wci-id="bill-payee" data-wci-desc="Dropdown to select: Payee" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select payee…&quot;}" data-wci-options="[&quot;Select payee…&quot;,&quot;City Electric Co.&quot;,&quot;FiberNet ISP&quot;,&quot;NovaPay Credit Card&quot;,&quot;SafeHome Insurance&quot;]" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-3">
                   <option value="">Select payee…</option>
                   <option value="electric">City Electric Co.</option>
                   <option value="internet">FiberNet ISP</option>
@@ -834,26 +834,26 @@ h1,h2,h3,h4,p{margin:0}
               </div>
               <div class="np-form-row">
                 <label for="bill-amount">Amount</label>
-                <input id="bill-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal">
+                <input id="bill-amount" type="text" class="np-input" placeholder="$0.00" inputmode="decimal" data-wci-role="form" data-wci-id="bill-amount" data-wci-desc="Field for: Amount" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-3">
               </div>
               <div class="np-form-row">
                 <label for="bill-date">Payment date</label>
-                <input id="bill-date" type="date" class="np-input" value="2026-05-25">
+                <input id="bill-date" type="date" class="np-input" value="2026-05-25" data-wci-role="form" data-wci-id="bill-date" data-wci-desc="Field for: Payment date" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;2026-05-25&quot;}" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-3">
               </div>
               <div class="np-form-row">
                 <label for="bill-from">Pay from</label>
-                <select id="bill-from" class="np-select">
+                <select id="bill-from" class="np-select" data-wci-role="form" data-wci-id="bill-from" data-wci-desc="Dropdown to select: Pay from" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Checking (••• 4821)&quot;}" data-wci-options="[&quot;Checking (••• 4821)&quot;,&quot;Savings (••• 7293)&quot;]" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-3">
                   <option value="checking">Checking (••• 4821)</option>
                   <option value="savings">Savings (••• 7293)</option>
                 </select>
               </div>
               <div class="np-form-actions">
-                <button type="submit" class="np-btn np-btn--primary" id="schedule-payment-btn" disabled="">Schedule Payment</button>
+                <button type="submit" class="np-btn np-btn--primary" id="schedule-payment-btn" disabled="" data-wci-role="action" data-wci-id="schedule-payment-btn" data-wci-desc="Click to: Schedule Payment" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-quick-transfer-form-3">Schedule Payment</button>
               </div>
             </form>
           </div>
 
-          <aside class="np-card">
+          <aside class="np-card" data-wci-role="landmark" data-wci-id="np-card-2" data-wci-desc="Section for: Upcoming payments" data-wci-priority="3">
             <h3 class="np-card__title">Upcoming payments</h3>
             <div class="np-upcoming-list">
               <div class="np-upcoming-item">
@@ -861,28 +861,28 @@ h1,h2,h3,h4,p{margin:0}
                   <strong>City Electric Co.</strong>
                   <span class="np-muted">May 28 · Checking</span>
                 </div>
-                <span>$142.18</span>
+                <span data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $142.18" data-wci-state="{&quot;value&quot;:&quot;$142.18&quot;}" data-wci-priority="4" data-wci-scope="np-card-2">$142.18</span>
               </div>
               <div class="np-upcoming-item">
                 <div>
                   <strong>NovaPay Credit Card</strong>
                   <span class="np-muted">Jun 1 · Checking</span>
                 </div>
-                <span>$45.00</span>
+                <span data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $45.00" data-wci-state="{&quot;value&quot;:&quot;$45.00&quot;}" data-wci-priority="4" data-wci-scope="np-card-2">$45.00</span>
               </div>
               <div class="np-upcoming-item">
                 <div>
                   <strong>FiberNet ISP</strong>
                   <span class="np-muted">Jun 3 · Checking</span>
                 </div>
-                <span>$79.99</span>
+                <span data-wci-role="display" data-wci-id="display-3" data-wci-desc="Display value: $79.99" data-wci-state="{&quot;value&quot;:&quot;$79.99&quot;}" data-wci-priority="4" data-wci-scope="np-card-2">$79.99</span>
               </div>
               <div class="np-upcoming-item">
                 <div>
                   <strong>SafeHome Insurance</strong>
                   <span class="np-muted">Jun 10 · Savings</span>
                 </div>
-                <span>$186.50</span>
+                <span data-wci-role="display" data-wci-id="display-4" data-wci-desc="Display value: $186.50" data-wci-state="{&quot;value&quot;:&quot;$186.50&quot;}" data-wci-priority="4" data-wci-scope="np-card-2">$186.50</span>
               </div>
             </div>
           </aside>
@@ -890,7 +890,7 @@ h1,h2,h3,h4,p{margin:0}
       </section>
 
       <!-- Cards -->
-      <section class="np-page np-hidden" data-route="/cards">
+      <section class="np-page np-hidden" data-route="/cards" data-wci-role="landmark" data-wci-id="np-page-5" data-wci-desc="Section for: Cards" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Cards</h2>
           <p class="np-help-text">Manage your NovaPay debit and credit cards.</p>
@@ -907,9 +907,9 @@ h1,h2,h3,h4,p{margin:0}
               </div>
             </div>
             <div class="np-card-actions-row">
-              <button class="np-btn np-btn--outline" id="lock-card-btn">Lock Card</button>
-              <button class="np-btn np-btn--primary" id="cards-pay-btn">Pay Bill</button>
-              <button class="np-btn np-btn--ghost">Replace card</button>
+              <button class="np-btn np-btn--outline" id="lock-card-btn" data-wci-role="action" data-wci-id="lock-card-btn" data-wci-desc="Click to: Lock Card" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-5">Lock Card</button>
+              <button class="np-btn np-btn--primary" id="cards-pay-btn" data-wci-role="action" data-wci-id="cards-pay-btn" data-wci-desc="Click to: Pay Bill" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-5">Pay Bill</button>
+              <button class="np-btn np-btn--ghost" data-wci-role="action" data-wci-id="replace-card" data-wci-desc="Click to: Replace card" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-5">Replace card</button>
             </div>
 
             <div class="np-card np-promo-inline" style="margin-top:20px">
@@ -921,7 +921,7 @@ h1,h2,h3,h4,p{margin:0}
           <div class="np-card">
             <div class="np-card__header">
               <h3 class="np-card__title">Card transactions</h3>
-              <select class="np-select np-select--sm">
+              <select class="np-select np-select--sm" data-wci-role="form" data-wci-id="select" data-wci-desc="Select dropdown options" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Last 30 days&quot;}" data-wci-options="[&quot;Last 30 days&quot;,&quot;Last 7 days&quot;]" data-wci-priority="3" data-wci-scope="np-page-5">
                 <option>Last 30 days</option>
                 <option>Last 7 days</option>
               </select>
@@ -962,28 +962,28 @@ h1,h2,h3,h4,p{margin:0}
       </section>
 
       <!-- Investments -->
-      <section class="np-page np-hidden" data-route="/investments">
+      <section class="np-page np-hidden" data-route="/investments" data-wci-role="landmark" data-wci-id="np-page-6" data-wci-desc="Section for: Investments" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Investments</h2>
           <p class="np-help-text">Track your portfolio performance and market exposure.</p>
         </div>
 
         <div class="np-banner-row" style="margin-bottom:24px">
-          <section class="np-insight-card">
+          <section class="np-insight-card" data-wci-role="landmark" data-wci-id="np-insight-card-3" data-wci-desc="Landmark zone for section" data-wci-priority="3">
             <div class="np-insight-card__meta">
               <span class="np-insight-card__label">Portfolio value</span>
-              <span class="np-insight-card__value">$128,442.18</span>
+              <span class="np-insight-card__value" data-wci-role="display" data-wci-id="np-insight-card-value-2" data-wci-desc="Display value: $128,442.18" data-wci-state="{&quot;value&quot;:&quot;$128,442.18&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card-3">$128,442.18</span>
               <span class="np-insight-card__sub">+$2,184.32 (+1.73%) today</span>
             </div>
-            <span class="np-badge np-badge--success">+12.4% YTD</span>
+            <span class="np-badge np-badge--success" data-wci-role="display" data-wci-id="np-badge-7" data-wci-desc="Display value: +12.4% YTD" data-wci-state="{&quot;value&quot;:&quot;+12.4% YTD&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card-3">+12.4% YTD</span>
           </section>
-          <aside class="np-insight-card">
+          <aside class="np-insight-card" data-wci-role="landmark" data-wci-id="np-insight-card-4" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
             <div class="np-insight-card__meta">
               <span class="np-insight-card__label">Cash available</span>
-              <span class="np-insight-card__value">$3,420.00</span>
+              <span class="np-insight-card__value" data-wci-role="display" data-wci-id="np-insight-card-value-3" data-wci-desc="Display value: $3,420.00" data-wci-state="{&quot;value&quot;:&quot;$3,420.00&quot;}" data-wci-priority="4" data-wci-scope="np-insight-card-4">$3,420.00</span>
               <span class="np-insight-card__sub">Settled buying power</span>
             </div>
-            <button class="np-btn np-btn--outline np-btn--sm">Deposit</button>
+            <button class="np-btn np-btn--outline np-btn--sm" data-wci-role="action" data-wci-id="deposit-2" data-wci-desc="Click to: Deposit" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-insight-card-4">Deposit</button>
           </aside>
         </div>
 
@@ -1005,35 +1005,35 @@ h1,h2,h3,h4,p{margin:0}
                   <td><strong>VTI</strong></td>
                   <td>Vanguard Total Stock</td>
                   <td>142.5</td>
-                  <td class="np-table__amount">$42,180.00</td>
+                  <td class="np-table__amount" data-wci-role="display" data-wci-id="np-table-amount" data-wci-desc="Display value: $42,180.00" data-wci-state="{&quot;value&quot;:&quot;$42,180.00&quot;}" data-wci-priority="4" data-wci-scope="np-page-6">$42,180.00</td>
                   <td class="np-table__amount np-table__amount--credit">+1.2%</td>
                 </tr>
                 <tr>
                   <td><strong>VOO</strong></td>
                   <td>Vanguard S&amp;P 500</td>
                   <td>68.0</td>
-                  <td class="np-table__amount">$38,920.50</td>
+                  <td class="np-table__amount" data-wci-role="display" data-wci-id="np-table-amount-2" data-wci-desc="Display value: $38,920.50" data-wci-state="{&quot;value&quot;:&quot;$38,920.50&quot;}" data-wci-priority="4" data-wci-scope="np-page-6">$38,920.50</td>
                   <td class="np-table__amount np-table__amount--credit">+1.8%</td>
                 </tr>
                 <tr>
                   <td><strong>BND</strong></td>
                   <td>Vanguard Total Bond</td>
                   <td>210.0</td>
-                  <td class="np-table__amount">$18,640.00</td>
+                  <td class="np-table__amount" data-wci-role="display" data-wci-id="np-table-amount-3" data-wci-desc="Display value: $18,640.00" data-wci-state="{&quot;value&quot;:&quot;$18,640.00&quot;}" data-wci-priority="4" data-wci-scope="np-page-6">$18,640.00</td>
                   <td class="np-table__amount">+0.1%</td>
                 </tr>
                 <tr>
                   <td><strong>QQQ</strong></td>
                   <td>Invesco QQQ Trust</td>
                   <td>52.3</td>
-                  <td class="np-table__amount">$28,701.68</td>
+                  <td class="np-table__amount" data-wci-role="display" data-wci-id="np-table-amount-4" data-wci-desc="Display value: $28,701.68" data-wci-state="{&quot;value&quot;:&quot;$28,701.68&quot;}" data-wci-priority="4" data-wci-scope="np-page-6">$28,701.68</td>
                   <td class="np-table__amount np-table__amount--credit">+2.4%</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <aside class="np-card">
+          <aside class="np-card" data-wci-role="landmark" data-wci-id="np-card-3" data-wci-desc="Section for: Market overview" data-wci-priority="3">
             <h3 class="np-card__title">Market overview</h3>
             <div class="np-market-bars" style="margin-top:16px">
               <div class="np-market-bar">
@@ -1062,37 +1062,37 @@ h1,h2,h3,h4,p{margin:0}
       </section>
 
       <!-- Settings -->
-      <section class="np-page np-hidden" data-route="/settings">
+      <section class="np-page np-hidden" data-route="/settings" data-wci-role="landmark" data-wci-id="np-page-7" data-wci-desc="Section for: Settings" data-wci-priority="3">
         <div class="np-page-intro">
           <h2>Settings</h2>
           <p class="np-help-text">Manage your profile, security, and app preferences.</p>
         </div>
 
         <div class="np-settings-layout">
-          <nav class="np-settings-nav" aria-label="Settings sections">
-            <button class="np-settings-nav__item np-settings-nav__item--active" type="button" data-settings-tab="profile">Profile</button>
-            <button class="np-settings-nav__item" type="button" data-settings-tab="security">Security</button>
-            <button class="np-settings-nav__item" type="button" data-settings-tab="notifications">Notifications</button>
-            <button class="np-settings-nav__item" type="button" data-settings-tab="preferences">Preferences</button>
+          <nav class="np-settings-nav" aria-label="Settings sections" data-wci-role="nav" data-wci-id="np-settings-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+            <button class="np-settings-nav__item np-settings-nav__item--active" type="button" data-settings-tab="profile" data-wci-role="action" data-wci-id="profile" data-wci-desc="Click to: Profile" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-settings-nav">Profile</button>
+            <button class="np-settings-nav__item" type="button" data-settings-tab="security" data-wci-role="action" data-wci-id="security" data-wci-desc="Click to: Security" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-settings-nav">Security</button>
+            <button class="np-settings-nav__item" type="button" data-settings-tab="notifications" data-wci-role="action" data-wci-id="notifications" data-wci-desc="Click to: Notifications" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-settings-nav">Notifications</button>
+            <button class="np-settings-nav__item" type="button" data-settings-tab="preferences" data-wci-role="action" data-wci-id="preferences" data-wci-desc="Click to: Preferences" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-settings-nav">Preferences</button>
           </nav>
 
           <div>
             <div class="np-settings-panel" id="settings-profile">
               <h3>Profile information</h3>
-              <form id="profile-form" class="np-settings-form" style="margin-top:16px" onsubmit="return false;">
+              <form id="profile-form" class="np-settings-form" style="margin-top:16px" onsubmit="return false;" data-wci-role="landmark" data-wci-id="np-settings-form" data-wci-desc="Landmark zone: profile-form" data-wci-priority="3">
                 <div class="np-form-row">
                   <label for="profile-name">Full name</label>
-                  <input id="profile-name" type="text" class="np-input" value="John Doe">
+                  <input id="profile-name" type="text" class="np-input" value="John Doe" data-wci-role="form" data-wci-id="profile-name" data-wci-desc="Field for: Full name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;John Doe&quot;}" data-wci-priority="3" data-wci-scope="np-settings-form">
                 </div>
                 <div class="np-form-row">
                   <label for="profile-email">Email</label>
-                  <input id="profile-email" type="email" class="np-input" value="john@email.com">
+                  <input id="profile-email" type="email" class="np-input" value="john@email.com" data-wci-role="form" data-wci-id="profile-email" data-wci-desc="Field for: Email" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;john@email.com&quot;}" data-wci-priority="3" data-wci-scope="np-settings-form">
                 </div>
                 <div class="np-form-row">
                   <label for="profile-phone">Phone</label>
-                  <input id="profile-phone" type="tel" class="np-input" value="(555) 123-4567">
+                  <input id="profile-phone" type="tel" class="np-input" value="(555) 123-4567" data-wci-role="form" data-wci-id="profile-phone" data-wci-desc="Field for: Phone" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;(555) 123-4567&quot;}" data-wci-priority="3" data-wci-scope="np-settings-form">
                 </div>
-                <button type="submit" class="np-btn np-btn--primary">Save Profile</button>
+                <button type="submit" class="np-btn np-btn--primary" data-wci-role="action" data-wci-id="save-profile" data-wci-desc="Click to: Save Profile" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-settings-form">Save Profile</button>
               </form>
             </div>
 
@@ -1104,7 +1104,7 @@ h1,h2,h3,h4,p{margin:0}
                   <p class="np-muted">Require a code at sign-in</p>
                 </div>
                 <label class="np-switch">
-                  <input type="checkbox" checked="">
+                  <input type="checkbox" checked="" data-wci-role="form" data-wci-id="input-checkbox" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="np-page-7">
                   <span class="np-switch__slider"></span>
                 </label>
               </div>
@@ -1114,11 +1114,11 @@ h1,h2,h3,h4,p{margin:0}
                   <p class="np-muted">Use Face ID or fingerprint on mobile</p>
                 </div>
                 <label class="np-switch">
-                  <input type="checkbox">
+                  <input type="checkbox" data-wci-role="form" data-wci-id="input-checkbox-2" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="np-page-7">
                   <span class="np-switch__slider"></span>
                 </label>
               </div>
-              <button class="np-btn np-btn--outline" style="margin-top:12px">Change password</button>
+              <button class="np-btn np-btn--outline" style="margin-top:12px" data-wci-role="action" data-wci-id="change-password" data-wci-desc="Click to: Change password" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-7">Change password</button>
             </div>
 
             <div class="np-settings-panel np-hidden" id="settings-notifications">
@@ -1129,7 +1129,7 @@ h1,h2,h3,h4,p{margin:0}
                   <p class="np-muted">Email when a purchase posts</p>
                 </div>
                 <label class="np-switch">
-                  <input type="checkbox" checked="">
+                  <input type="checkbox" checked="" data-wci-role="form" data-wci-id="input-checkbox-3" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="np-page-7">
                   <span class="np-switch__slider"></span>
                 </label>
               </div>
@@ -1139,7 +1139,7 @@ h1,h2,h3,h4,p{margin:0}
                   <p class="np-muted">Push when balance drops below threshold</p>
                 </div>
                 <label class="np-switch">
-                  <input type="checkbox" checked="">
+                  <input type="checkbox" checked="" data-wci-role="form" data-wci-id="input-checkbox-4" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="np-page-7">
                   <span class="np-switch__slider"></span>
                 </label>
               </div>
@@ -1149,7 +1149,7 @@ h1,h2,h3,h4,p{margin:0}
                   <p class="np-muted">Product news and offers</p>
                 </div>
                 <label class="np-switch">
-                  <input type="checkbox">
+                  <input type="checkbox" data-wci-role="form" data-wci-id="input-checkbox-5" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="np-page-7">
                   <span class="np-switch__slider"></span>
                 </label>
               </div>
@@ -1159,7 +1159,7 @@ h1,h2,h3,h4,p{margin:0}
               <h3>App preferences</h3>
               <div class="np-form-row" style="margin-top:16px">
                 <label for="pref-theme">Theme</label>
-                <select id="pref-theme" class="np-select">
+                <select id="pref-theme" class="np-select" data-wci-role="form" data-wci-id="pref-theme" data-wci-desc="Dropdown to select: Theme" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Dark&quot;}" data-wci-options="[&quot;Dark&quot;,&quot;Light&quot;,&quot;System&quot;]" data-wci-priority="3" data-wci-scope="np-page-7">
                   <option value="dark" selected="">Dark</option>
                   <option value="light">Light</option>
                   <option value="system">System</option>
@@ -1167,12 +1167,12 @@ h1,h2,h3,h4,p{margin:0}
               </div>
               <div class="np-form-row">
                 <label for="pref-currency">Default currency</label>
-                <select id="pref-currency" class="np-select">
+                <select id="pref-currency" class="np-select" data-wci-role="form" data-wci-id="pref-currency" data-wci-desc="Dropdown to select: Default currency" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;USD ($)&quot;}" data-wci-options="[&quot;USD ($)&quot;,&quot;EUR (€)&quot;]" data-wci-priority="3" data-wci-scope="np-page-7">
                   <option value="USD" selected="">USD ($)</option>
                   <option value="EUR">EUR (€)</option>
                 </select>
               </div>
-              <button type="button" class="np-btn np-btn--primary" id="save-prefs-btn">Save Preferences</button>
+              <button type="button" class="np-btn np-btn--primary" id="save-prefs-btn" data-wci-role="action" data-wci-id="save-prefs-btn" data-wci-desc="Click to: Save Preferences" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-page-7">Save Preferences</button>
             </div>
           </div>
         </div>
@@ -1181,7 +1181,7 @@ h1,h2,h3,h4,p{margin:0}
   </div>
 
   <div class="np-chat-widget" data-widget="chat">
-    <button class="np-chat-widget__trigger" aria-label="Open help chat" id="chat-trigger">
+    <button class="np-chat-widget__trigger" aria-label="Open help chat" id="chat-trigger" data-wci-role="action" data-wci-id="chat-trigger" data-wci-desc="Click to: Open help chat" data-wci-action="click" data-wci-priority="3" data-wci-scope="banking-dashboard">
       <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </button>
   </div>
@@ -1189,20 +1189,20 @@ h1,h2,h3,h4,p{margin:0}
   <div class="np-chat-panel" id="chat-panel" aria-hidden="true">
     <div class="np-chat-panel__header">
       <strong>NovaPay Assist</strong>
-      <button class="np-btn np-btn--ghost np-btn--sm" id="chat-close">Close</button>
+      <button class="np-btn np-btn--ghost np-btn--sm" id="chat-close" data-wci-role="action" data-wci-id="chat-close" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="banking-dashboard">Close</button>
     </div>
     <div class="np-chat-panel__messages" id="chat-messages">
       <div class="np-chat-msg np-chat-msg--agent">Hi John — I can help with transfers, cards, and activity.</div>
       <div class="np-chat-msg">Tip: use Quick Transfer for internal moves between accounts.</div>
     </div>
     <div style="display:flex;gap:8px;padding:12px">
-      <input id="chat-input" class="np-input" placeholder="Ask about your account" style="flex:1">
-      <button class="np-btn np-btn--primary" id="chat-send">Send</button>
+      <input id="chat-input" class="np-input" placeholder="Ask about your account" style="flex:1" data-wci-role="form" data-wci-id="chat-input" data-wci-desc="Input field for: Ask about your account" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="banking-dashboard">
+      <button class="np-btn np-btn--primary" id="chat-send" data-wci-role="action" data-wci-id="chat-send" data-wci-desc="Click to: Send" data-wci-action="click" data-wci-priority="3" data-wci-scope="banking-dashboard">Send</button>
     </div>
   </div>
 
   <div class="np-modal" id="review-modal" aria-hidden="true">
-    <div class="np-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="review-title">
+    <div class="np-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="review-title" data-wci-role="landmark" data-wci-id="np-modal-dialog" data-wci-desc="Section for: Review Transfer" data-wci-priority="3">
       <h2 id="review-title">Review Transfer</h2>
       <p class="np-help-text" id="review-summary" style="margin-top:6px">Ready to review your transfer details.</p>
       <div class="np-card" style="margin:14px 0;padding:14px">
@@ -1214,19 +1214,19 @@ h1,h2,h3,h4,p{margin:0}
         <p class="np-muted" id="review-memo" style="margin-top:10px"></p>
       </div>
       <div style="display:flex;gap:10px;justify-content:flex-end">
-        <button class="np-btn np-btn--ghost" id="review-back">Back</button>
-        <button class="np-btn np-btn--primary" id="review-submit">Confirm Transfer</button>
+        <button class="np-btn np-btn--ghost" id="review-back" data-wci-role="action" data-wci-id="review-back" data-wci-desc="Click to: Back" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-modal-dialog">Back</button>
+        <button class="np-btn np-btn--primary" id="review-submit" data-wci-role="action" data-wci-id="review-submit" data-wci-desc="Click to: Confirm Transfer" data-wci-action="click" data-wci-priority="3" data-wci-scope="np-modal-dialog">Confirm Transfer</button>
       </div>
     </div>
   </div>
 
-  <footer class="np-footer">
+  <footer class="np-footer" data-wci-role="landmark" data-wci-id="np-footer" data-wci-desc="Landmark zone for footer" data-wci-priority="3">
     <div class="np-footer__inner">
       <span>© 2026 NovaPay, Inc.</span>
       <span>FDIC Insured</span>
-      <a href="#/settings">Privacy</a>
-      <a href="#/settings">Terms</a>
-      <a href="#/settings">Security</a>
+      <a href="#/settings" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="np-footer">Privacy</a>
+      <a href="#/settings" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="np-footer">Terms</a>
+      <a href="#/settings" data-wci-role="nav" data-wci-id="security-2" data-wci-desc="Navigate to: Security" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="np-footer">Security</a>
     </div>
   </footer>
 

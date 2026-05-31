@@ -47,6 +47,7 @@
       "like-p_81925"
     ],
     "rawSelectors": [
+      "article[data-post-id=\"p_81924\"] .cb-post__actions button[aria-label=\"Like\"]",
       "article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
       "article[data-post-id=\"p_81924\"] .cb-post__actions button:nth-child(3)"
     ]
@@ -73,8 +74,9 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary",
-      "[data-employer-ref=\"ACM-447\"] button.hf-btn--primary"
+      "#apply-senior-engineer",
+      "[data-employer-ref=\"ACM-447\"][data-location=\"Seattle\"] .hf-btn--primary",
+      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary"
     ]
   },
   "healthcare-portal": {
@@ -124,8 +126,8 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
-      "[data-item=\"teriyaki-1299\"] button.qb-btn--primary"
+      "#add-teriyaki-checkout",
+      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary"
     ]
   },
   "insurance-quote": {
@@ -137,8 +139,8 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
-      "button[data-quote-zip=\"94105\"]"
+      "#get-auto-quote",
+      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]"
     ]
   },
   "real-estate": {

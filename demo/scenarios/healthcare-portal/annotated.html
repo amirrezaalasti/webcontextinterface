@@ -109,50 +109,50 @@ table{border-collapse:collapse}
 .mg-smoke{padding:10px 12px;border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;font-size:13px;color:#334155}
 .mg-hidden{display:none!important}
 </style></head><body>
-<div class="mg-app" data-page="healthcare-portal" id="healthcare_portal-page" data-wci-id="healthcare_portal-page" data-wci-role="landmark" data-wci-desc="Healthcare portal application root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="mg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="mg-app" data-page="healthcare-portal" id="healthcare_portal-page" data-wci-role="landmark" data-wci-id="healthcare_portal-page" data-wci-desc="MediGate Portal — Healthcare portal with patient banner and slot grid using data-slot attributes." data-wci-priority="2">
+  <div class="mg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="mg-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, secure sign-in telemetry, and experience optimization. You can manage preferences or accept to continue using the portal.</p>
-    <button type="button" class="mg-btn mg-btn--muted" data-cookie="reject">Reject non-essential</button>
-    <button type="button" class="mg-btn mg-btn--primary" data-cookie="accept">Accept all</button>
-    <button type="button" class="mg-btn mg-btn--ghost" data-cookie="customize">Customize</button>
+    <button type="button" class="mg-btn mg-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-cookie">Reject non-essential</button>
+    <button type="button" class="mg-btn mg-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-cookie">Accept all</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-cookie">Customize</button>
   </div>
 
   <div class="mg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="mg-btn mg-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="mg-btn">Continue as guest — express</button>
+    <button type="button" class="mg-btn mg-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="mg-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue as guest — express</button>
   </div>
 
-  <header class="mg-hdr">
+  <header class="mg-hdr" data-wci-role="landmark" data-wci-id="mg-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="mg-brand">
       <div class="mg-brand__logo" aria-hidden="true">M</div>
       <div class="mg-brand__meta"><strong>MediGate Portal</strong><span>Secure patient access · session protected</span></div>
     </div>
-    <nav class="mg-nav" aria-label="Global">
-      <a href="#">Home</a><a href="#">Visits</a><a href="#">Messages</a><a href="#">Results</a><a href="#">Billing</a><a href="#">Help</a>
+    <nav class="mg-nav" aria-label="Global" data-wci-role="nav" data-wci-id="mg-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="#" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Home</a><a href="#" data-wci-role="nav" data-wci-id="visits" data-wci-desc="Navigate to: Visits" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Visits</a><a href="#" data-wci-role="nav" data-wci-id="messages" data-wci-desc="Navigate to: Messages" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Messages</a><a href="#" data-wci-role="nav" data-wci-id="results" data-wci-desc="Navigate to: Results" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Results</a><a href="#" data-wci-role="nav" data-wci-id="billing" data-wci-desc="Navigate to: Billing" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Billing</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-nav">Help</a>
     </nav>
     <div class="mg-hdr-promo">
       <span class="mg-chip">Authenticated patient</span>
-      <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" id="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation/promo action" data-wci-priority="2" data-wci-scope="healthcare_portal-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+      <button type="button" class="mg-btn mg-btn--ghost" data-decoy="decoy-nav" id="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="mg-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="mg-subnav" aria-label="Secondary">
-    <a href="#">Overview</a><a href="#">Appointments</a><a href="#">Clinical notes</a><a href="#">Questionnaires</a><a href="#">Insurance</a><a href="#">Support</a>
-    <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
-    <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
+  <nav class="mg-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="mg-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="appointments" data-wci-desc="Navigate to: Appointments" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Appointments</a><a href="#" data-wci-role="nav" data-wci-id="clinical-notes" data-wci-desc="Navigate to: Clinical notes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Clinical notes</a><a href="#" data-wci-role="nav" data-wci-id="questionnaires" data-wci-desc="Navigate to: Questionnaires" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Questionnaires</a><a href="#" data-wci-role="nav" data-wci-id="insurance" data-wci-desc="Navigate to: Insurance" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Insurance</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-subnav">Support</a>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-subnav">Submit</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-subnav">Continue</button>
   </nav>
 
   <div class="mg-dup-row" aria-label="Quick actions">
-    <button type="button" class="mg-btn mg-btn--ghost">Submit</button>
-    <button type="button" class="mg-btn mg-btn--ghost">Continue</button>
-    <button type="button" class="mg-btn mg-btn--ghost">Save changes</button>
-    <button type="button" class="mg-btn mg-btn--ghost">Confirm</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Save changes</button>
+    <button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Confirm</button>
   </div>
 
   <div class="mg-dup-row">
-    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">Schedule video visit Tuesday</button>
-    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav">Schedule video visit Tue</button>
-    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy extra booking action" data-wci-priority="2" data-wci-scope="healthcare_portal-page" data-wci-state="{&quot;ready&quot;:true}">Book Tuesday video</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="schedule-video-visit-tuesday" data-wci-desc="Click to: Schedule video visit Tuesday — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="healthcare_portal-page" data-wci-competitor="true">Schedule video visit Tuesday</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="schedule-video-visit-tue" data-wci-desc="Click to: Schedule video visit Tue — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="healthcare_portal-page" data-wci-competitor="true">Schedule video visit Tue</button>
+    <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="healthcare_portal-page">Book Tuesday video</button>
   </div>
 
   <div class="mg-page-wrap">
@@ -167,17 +167,17 @@ table{border-collapse:collapse}
             <span>PCP Dr. Anita Patel</span>
           </div>
         </div>
-        <div class="mg-patient__badge">Identity verified · 2-factor passed</div>
+        <div class="mg-patient__badge" data-wci-role="display" data-wci-id="mg-patient-badge" data-wci-desc="Display value: Identity verified · 2-factor passed" data-wci-state="{&quot;value&quot;:&quot;Identity verified · 2-factor passed&quot;}" data-wci-priority="4" data-wci-scope="healthcare_portal-page">Identity verified · 2-factor passed</div>
       </div>
 
-      <section class="mg-panel mg-wizard" aria-labelledby="booking-title">
-        <div class="mg-toolbar"><span><strong>Today's care</strong> · Authentication verified</span><span class="mg-inline-status">Last visit: 3 weeks ago · Copay estimate: $0</span></div>
+      <section class="mg-panel mg-wizard" aria-labelledby="booking-title" data-wci-role="landmark" data-wci-id="mg-panel" data-wci-desc="Section for: Schedule follow-up care" data-wci-priority="3">
+        <div class="mg-toolbar"><span><strong>Today's care</strong> · Authentication verified</span><span class="mg-inline-status" data-wci-role="display" data-wci-id="mg-inline-status" data-wci-desc="Display value: Last visit: 3 weeks ago · Copay estimate: $0" data-wci-state="{&quot;value&quot;:&quot;Last visit: 3 weeks ago · Copay estimate: $0&quot;}" data-wci-priority="4" data-wci-scope="mg-panel">Last visit: 3 weeks ago · Copay estimate: $0</span></div>
         <h1 id="booking-title">Schedule follow-up care</h1>
         <p>Choose an available slot for your follow-up video visit. In-person and callback options are shown for convenience, but this appointment must be booked as a <strong>video visit</strong> for the authenticated patient.</p>
 
         <div class="mg-status-board">
-          <span class="mg-status-pill">Review step requires video consent + contact confirmation</span>
-          <span class="mg-note">Selections made: <span class="mg-counter" id="selection-count">0</span></span>
+          <span class="mg-status-pill" data-wci-role="display" data-wci-id="mg-status-pill" data-wci-desc="Display value: Review step requires video consent + contact confirmation" data-wci-state="{&quot;value&quot;:&quot;Review step requires video consent + contact confirmation&quot;}" data-wci-priority="4" data-wci-scope="mg-panel">Review step requires video consent + contact confirmation</span>
+          <span class="mg-note">Selections made: <span class="mg-counter" id="selection-count" data-wci-role="display" data-wci-id="selection-count" data-wci-desc="Display value: 0" data-wci-state="{&quot;value&quot;:&quot;0&quot;}" data-wci-priority="4" data-wci-scope="mg-panel">0</span></span>
           <span class="mg-note">Current choice: <span id="current-choice">None selected</span></span>
         </div>
 
@@ -189,73 +189,73 @@ table{border-collapse:collapse}
 
         <div class="mg-smoke" id="healthcare-portal-smoke-status" data-smoke-status="">Smoke status: ready</div>
 
-        <div class="mg-slots" role="main" aria-label="Next week availability">
+        <div class="mg-slots" role="main" aria-label="Next week availability" data-wci-role="landmark" data-wci-id="mg-slots" data-wci-desc="Landmark zone for div" data-wci-priority="3">
           <div class="mg-slot" data-slot="mon-0915-callback" data-mode="callback">
-            <div class="mg-slot__meta"><strong>Mon 09:15</strong><span class="mg-badge mg-badge--callback">Callback</span></div>
+            <div class="mg-slot__meta"><strong>Mon 09:15</strong><span class="mg-badge mg-badge--callback" data-wci-role="display" data-wci-id="mg-badge" data-wci-desc="Display value: Callback" data-wci-state="{&quot;value&quot;:&quot;Callback&quot;}" data-wci-priority="4" data-wci-scope="mg-slots">Callback</span></div>
             <div>Provider returns your call within 30 minutes.</div>
             <div class="mg-note">Not eligible for telehealth documentation workflow.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="mon-0915-callback">Request callback</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="mon-0915-callback" data-wci-role="action" data-wci-id="request-callback" data-wci-desc="Click to: Request callback" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-slots">Request callback</button></div>
           </div>
 
           <div class="mg-slot" data-slot="tue-1000-inperson" data-mode="inperson">
-            <div class="mg-slot__meta"><strong>Tue 10:00</strong><span class="mg-badge mg-badge--inperson">In-person</span></div>
+            <div class="mg-slot__meta"><strong>Tue 10:00</strong><span class="mg-badge mg-badge--inperson" data-wci-role="display" data-wci-id="mg-badge-2" data-wci-desc="Display value: In-person" data-wci-state="{&quot;value&quot;:&quot;In-person&quot;}" data-wci-priority="4" data-wci-scope="mg-slots">In-person</span></div>
             <div>Main clinic, Suite 210. Check-in at front desk.</div>
             <div class="mg-note">Photo ID and mask screening required on arrival.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1000-inperson">View directions</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1000-inperson" data-wci-role="action" data-wci-id="view-directions" data-wci-desc="Click to: View directions" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-slots">View directions</button></div>
           </div>
 
-          <div class="mg-slot" data-slot="tue-1430-video" data-mode="video">
-            <div class="mg-slot__meta"><strong>Tue 14:30</strong><span class="mg-badge mg-badge--video">Video visit</span></div>
+          <div class="mg-slot" data-slot="tue-1430-video" data-mode="video" data-wci-role="landmark" data-wci-id="schedule-video-visit-scope" data-wci-desc="Target scope for schedule-video-visit" data-wci-state="{&quot;slot&quot;:&quot;tue-1430-video&quot;,&quot;mode&quot;:&quot;video&quot;}" data-wci-priority="2">
+            <div class="mg-slot__meta"><strong>Tue 14:30</strong><span class="mg-badge mg-badge--video" data-wci-role="display" data-wci-id="mg-badge-3" data-wci-desc="Display value: Video visit" data-wci-state="{&quot;value&quot;:&quot;Video visit&quot;}" data-wci-priority="4" data-wci-scope="schedule-video-visit-scope">Video visit</span></div>
             <div>Telehealth appointment with Dr. Patel. Join link sent by SMS and email.</div>
             <div class="mg-note">Best match for patient preference and provider continuity.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" id="schedule-video-visit" data-wci-id="schedule-video-visit" data-wci-role="action" data-wci-action="click" data-wci-desc="Confirm the Tuesday 14:30 video visit slot" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="healthcare_portal-page">Confirm</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--primary" id="schedule-video-visit" data-wci-role="action" data-wci-id="schedule-video-visit" data-wci-desc="Book the Tuesday 14:30 video visit slot for the authenticated patient (not in-person or callback options)." data-wci-action="click" data-wci-priority="1" data-wci-scope="schedule-video-visit-scope" data-wci-primary="true">Confirm</button></div>
           </div>
 
           <div class="mg-slot" data-slot="tue-1530-callback" data-mode="callback">
-            <div class="mg-slot__meta"><strong>Tue 15:30</strong><span class="mg-badge mg-badge--callback">Callback</span></div>
+            <div class="mg-slot__meta"><strong>Tue 15:30</strong><span class="mg-badge mg-badge--callback" data-wci-role="display" data-wci-id="mg-badge-4" data-wci-desc="Display value: Callback" data-wci-state="{&quot;value&quot;:&quot;Callback&quot;}" data-wci-priority="4" data-wci-scope="mg-slots">Callback</span></div>
             <div>If you're unavailable, a nurse can call back later.</div>
             <div class="mg-note">Does not generate a join link or video intake checklist.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1530-callback">Request callback</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="tue-1530-callback" data-wci-role="action" data-wci-id="request-callback-2" data-wci-desc="Click to: Request callback" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-slots">Request callback</button></div>
           </div>
 
           <div class="mg-slot" data-slot="wed-0900-video" data-mode="video">
-            <div class="mg-slot__meta"><strong>Wed 09:00</strong><span class="mg-badge mg-badge--video">Video visit</span></div>
+            <div class="mg-slot__meta"><strong>Wed 09:00</strong><span class="mg-badge mg-badge--video" data-wci-role="display" data-wci-id="mg-badge-5" data-wci-desc="Display value: Video visit" data-wci-state="{&quot;value&quot;:&quot;Video visit&quot;}" data-wci-priority="4" data-wci-scope="mg-slots">Video visit</span></div>
             <div>Alternative telehealth slot, subject to provider approval.</div>
             <div class="mg-note">Backup availability if Tuesday becomes unavailable.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="wed-0900-video">Hold slot</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="wed-0900-video" data-wci-role="action" data-wci-id="hold-slot" data-wci-desc="Click to: Hold slot" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-slots">Hold slot</button></div>
           </div>
 
           <div class="mg-slot" data-slot="thu-1115-inperson" data-mode="inperson">
-            <div class="mg-slot__meta"><strong>Thu 11:15</strong><span class="mg-badge mg-badge--inperson">In-person</span></div>
+            <div class="mg-slot__meta"><strong>Thu 11:15</strong><span class="mg-badge mg-badge--inperson" data-wci-role="display" data-wci-id="mg-badge-6" data-wci-desc="Display value: In-person" data-wci-state="{&quot;value&quot;:&quot;In-person&quot;}" data-wci-priority="4" data-wci-scope="mg-slots">In-person</span></div>
             <div>Short office re-check with rooming by clinical staff.</div>
             <div class="mg-note">Travel time estimate: 34 minutes from home address.</div>
-            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="thu-1115-inperson">Select visit</button></div>
+            <div class="mg-slot__actions"><button type="button" class="mg-btn mg-btn--ghost" data-select-slot="thu-1115-inperson" data-wci-role="action" data-wci-id="select-visit" data-wci-desc="Click to: Select visit" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-slots">Select visit</button></div>
           </div>
         </div>
       </section>
 
-      <section class="mg-card">
+      <section class="mg-card" data-wci-role="landmark" data-wci-id="mg-card" data-wci-desc="Section for: Pre-visit checklist" data-wci-priority="3">
         <h2>Pre-visit checklist</h2>
         <div class="mg-checklist">
-          <label><input type="checkbox" id="consent-checkbox"> I agree to receive care via secure video.</label>
-          <label><input type="checkbox" id="sms-checkbox" checked=""> Send join link by SMS to ending in 44.</label>
-          <label><input type="checkbox" id="email-checkbox" checked=""> Send reminder to jordan.lee@example.com.</label>
-          <label><input type="checkbox" id="camera-checkbox"> I confirm camera and microphone are available.</label>
+          <label><input type="checkbox" id="consent-checkbox" data-wci-role="form" data-wci-id="consent-checkbox" data-wci-desc="Field for: I agree to receive care via secure video." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="mg-card"> I agree to receive care via secure video.</label>
+          <label><input type="checkbox" id="sms-checkbox" checked="" data-wci-role="form" data-wci-id="sms-checkbox" data-wci-desc="Field for: Send join link by SMS to ending in 44." data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="mg-card"> Send join link by SMS to ending in 44.</label>
+          <label><input type="checkbox" id="email-checkbox" checked="" data-wci-role="form" data-wci-id="email-checkbox" data-wci-desc="Field for: Send reminder to jordan.lee@example.com." data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="mg-card"> Send reminder to jordan.lee@example.com.</label>
+          <label><input type="checkbox" id="camera-checkbox" data-wci-role="form" data-wci-id="camera-checkbox" data-wci-desc="Field for: I confirm camera and microphone are available." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="mg-card"> I confirm camera and microphone are available.</label>
         </div>
         <div class="mg-error" id="checklist-error" aria-live="polite"></div>
         <div class="mg-ok" id="checklist-ok" aria-live="polite"></div>
       </section>
 
-      <section class="mg-card">
+      <section class="mg-card" data-wci-role="landmark" data-wci-id="mg-card-2" data-wci-desc="Section for: Appointment review" data-wci-priority="3">
         <h2>Appointment review</h2>
         <div class="mg-review">
           <div>
             <label for="reason">Reason for visit</label>
-            <textarea id="reason" rows="4" placeholder="Briefly describe the reason for the follow-up visit.">Follow-up on rash treatment and medication side effects.</textarea>
+            <textarea id="reason" rows="4" placeholder="Briefly describe the reason for the follow-up visit." data-wci-role="form" data-wci-id="reason" data-wci-desc="Text area for: Reason for visit" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Follow-up on rash treatment and medication side effects.&quot;}" data-wci-priority="3" data-wci-scope="mg-card-2">Follow-up on rash treatment and medication side effects.</textarea>
             <div class="mg-error" id="reason-error" aria-live="polite"></div>
 
             <label for="contact-method">Preferred reminder method</label>
-            <select id="contact-method">
+            <select id="contact-method" data-wci-role="form" data-wci-id="contact-method" data-wci-desc="Dropdown to select: Preferred reminder method" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;SMS&quot;}" data-wci-options="[&quot;SMS&quot;,&quot;Email&quot;,&quot;SMS and email&quot;]" data-wci-priority="3" data-wci-scope="mg-card-2">
               <option value="sms">SMS</option>
               <option value="email">Email</option>
               <option value="both">SMS and email</option>
@@ -267,31 +267,31 @@ table{border-collapse:collapse}
             <p><strong>Requested mode:</strong> <span id="summary-mode">None</span></p>
             <p><strong>Requested slot:</strong> <span id="summary-slot">No slot selected</span></p>
             <p><strong>Reminder:</strong> <span id="summary-reminder">SMS</span></p>
-            <p><strong>Status:</strong> <span id="summary-status" class="mg-badge">Awaiting selection</span></p>
+            <p><strong>Status:</strong> <span id="summary-status" class="mg-badge" data-wci-role="display" data-wci-id="summary-status" data-wci-desc="Display value: Awaiting selection" data-wci-state="{&quot;value&quot;:&quot;Awaiting selection&quot;}" data-wci-priority="4" data-wci-scope="mg-card-2">Awaiting selection</span></p>
           </div>
         </div>
       </section>
 
-      <section class="mg-card">
+      <section class="mg-card" data-wci-role="landmark" data-wci-id="mg-card-3" data-wci-desc="Section for: Upcoming care notes" data-wci-priority="3">
         <h2>Upcoming care notes</h2>
         <p>Medication reconciliation is complete. Please keep your camera, current medication list, and insurance card available for the Tuesday video appointment workflow.</p>
         <table>
           <thead><tr><th>Item</th><th>Status</th><th>Details</th></tr></thead>
           <tbody>
-            <tr><td>Referral</td><td><span class="mg-badge mg-badge--ok">Approved</span></td><td>Dermatology consult on file.</td></tr>
-            <tr><td>Balance</td><td><span class="mg-badge mg-badge--ok">$0 due</span></td><td>No copay due for telehealth follow-up.</td></tr>
-            <tr><td>Language</td><td><span class="mg-badge">English</span></td><td>Interpreter not required.</td></tr>
-            <tr><td>Questionnaire</td><td><span class="mg-badge mg-badge--warn">Pending</span></td><td>2 intake questions can be completed after scheduling.</td></tr>
+            <tr><td>Referral</td><td><span class="mg-badge mg-badge--ok" data-wci-role="display" data-wci-id="mg-badge-7" data-wci-desc="Display value: Approved" data-wci-state="{&quot;value&quot;:&quot;Approved&quot;}" data-wci-priority="4" data-wci-scope="mg-card-3">Approved</span></td><td>Dermatology consult on file.</td></tr>
+            <tr><td>Balance</td><td><span class="mg-badge mg-badge--ok" data-wci-role="display" data-wci-id="mg-badge-8" data-wci-desc="Display value: $0 due" data-wci-state="{&quot;value&quot;:&quot;$0 due&quot;}" data-wci-priority="4" data-wci-scope="mg-card-3">$0 due</span></td><td>No copay due for telehealth follow-up.</td></tr>
+            <tr><td>Language</td><td><span class="mg-badge" data-wci-role="display" data-wci-id="mg-badge-9" data-wci-desc="Display value: English" data-wci-state="{&quot;value&quot;:&quot;English&quot;}" data-wci-priority="4" data-wci-scope="mg-card-3">English</span></td><td>Interpreter not required.</td></tr>
+            <tr><td>Questionnaire</td><td><span class="mg-badge mg-badge--warn" data-wci-role="display" data-wci-id="mg-badge-10" data-wci-desc="Display value: Pending" data-wci-state="{&quot;value&quot;:&quot;Pending&quot;}" data-wci-priority="4" data-wci-scope="mg-card-3">Pending</span></td><td>2 intake questions can be completed after scheduling.</td></tr>
           </tbody>
         </table>
       </section>
     </div>
 
-    <aside class="mg-rail mg-rail--ads" aria-label="Sponsored and support rail">
+    <aside class="mg-rail mg-rail--ads" aria-label="Sponsored and support rail" data-wci-role="landmark" data-wci-id="mg-rail" data-wci-desc="Section for: Visit readiness" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
       <p>Explore optional wellness services and partner benefits available with your plan.</p>
-      <a href="#">Partner offer — limited time telehealth accessory discount</a><br>
-      <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time-telehealth-accessory-discount" data-wci-desc="Navigate to: Partner offer — limited time telehealth accessory discount" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-rail">Partner offer — limited time telehealth accessory discount</a><br>
+      <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-rail">View deal</button>
       <hr style="border:none;border-top:1px solid #f1f5f9;margin:16px 0">
       <h2>Visit readiness</h2>
       <ul>
@@ -299,23 +299,23 @@ table{border-collapse:collapse}
         <li>Average wait time for telehealth: 4–7 minutes.</li>
         <li>Support line: (800) 555-0142.</li>
       </ul>
-      <button type="button" class="mg-btn mg-btn--ghost" id="open-help">Open telehealth tips</button>
+      <button type="button" class="mg-btn mg-btn--ghost" id="open-help" data-wci-role="action" data-wci-id="open-help" data-wci-desc="Click to: Open telehealth tips" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-rail">Open telehealth tips</button>
     </aside>
   </div>
 
-  <div class="mg-filler" aria-hidden="true"><div class="mg-filler-inner"><a href="/misc/0" class="mg-btn mg-btn--ghost">Link 1</a><button type="button" class="mg-btn mg-btn--ghost">Action 2</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/4" class="mg-btn mg-btn--ghost">Link 5</a><button type="button" class="mg-btn mg-btn--ghost">Action 6</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/8" class="mg-btn mg-btn--ghost">Link 9</a><button type="button" class="mg-btn mg-btn--ghost">Action 10</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/12" class="mg-btn mg-btn--ghost">Link 13</a><button type="button" class="mg-btn mg-btn--ghost">Action 14</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/16" class="mg-btn mg-btn--ghost">Link 17</a><button type="button" class="mg-btn mg-btn--ghost">Action 18</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/20" class="mg-btn mg-btn--ghost">Link 21</a><button type="button" class="mg-btn mg-btn--ghost">Action 22</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/24" class="mg-btn mg-btn--ghost">Link 25</a><button type="button" class="mg-btn mg-btn--ghost">Action 26</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/28" class="mg-btn mg-btn--ghost">Link 29</a><button type="button" class="mg-btn mg-btn--ghost">Action 30</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/32" class="mg-btn mg-btn--ghost">Link 33</a><button type="button" class="mg-btn mg-btn--ghost">Action 34</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/36" class="mg-btn mg-btn--ghost">Link 37</a><button type="button" class="mg-btn mg-btn--ghost">Action 38</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button><a href="/misc/40" class="mg-btn mg-btn--ghost">Link 41</a><button type="button" class="mg-btn mg-btn--ghost">Action 42</button><button type="button" class="mg-btn mg-btn--ghost">Submit</button><button type="button" class="mg-btn mg-btn--ghost">Continue</button></div></div>
+  <div class="mg-filler" aria-hidden="true"><div class="mg-filler-inner"><a href="/misc/0" class="mg-btn mg-btn--ghost">Link 1</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 2</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/4" class="mg-btn mg-btn--ghost">Link 5</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 6</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/8" class="mg-btn mg-btn--ghost">Link 9</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 10</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/12" class="mg-btn mg-btn--ghost">Link 13</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 14</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/16" class="mg-btn mg-btn--ghost">Link 17</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 18</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/20" class="mg-btn mg-btn--ghost">Link 21</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 22</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/24" class="mg-btn mg-btn--ghost">Link 25</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 26</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/28" class="mg-btn mg-btn--ghost">Link 29</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 30</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/32" class="mg-btn mg-btn--ghost">Link 33</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 34</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/36" class="mg-btn mg-btn--ghost">Link 37</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 38</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button><a href="/misc/40" class="mg-btn mg-btn--ghost">Link 41</a><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Action 42</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Submit</button><button type="button" class="mg-btn mg-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Continue</button></div></div>
 
-  <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+  <button type="button" class="mg-btn mg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="hidden-promo" data-wci-desc="Click to: Hidden promo" data-wci-action="click" data-wci-priority="3" data-wci-scope="healthcare_portal-page">Hidden promo</button>
 
-  <footer class="mg-ftr"><small>© Demo MediGate Portal</small> · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="mg-ftr" data-wci-role="landmark" data-wci-id="mg-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo MediGate Portal</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-ftr">Terms</a> · <a href="#" data-wci-role="nav" data-wci-id="accessibility" data-wci-desc="Navigate to: Accessibility" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="mg-ftr">Accessibility</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
   <div class="mg-modal-backdrop" id="modal-backdrop"></div>
-  <div class="mg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+  <div class="mg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" data-wci-role="landmark" data-wci-id="mg-modal" data-wci-desc="Section for: Telehealth visit tips" data-wci-priority="3">
     <h2 id="help-title">Telehealth visit tips</h2>
     <p>Use a private, well-lit room. Keep your medication list nearby, test audio in advance, and join 10 minutes before the start time.</p>
     <div class="mg-modal__actions">
-      <button type="button" class="mg-btn" id="close-help">Close</button>
+      <button type="button" class="mg-btn" id="close-help" data-wci-role="action" data-wci-id="close-help" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="mg-modal">Close</button>
     </div>
   </div>
 </div>

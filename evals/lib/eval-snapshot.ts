@@ -7,8 +7,13 @@ export const EVAL_NODE_STATE_PATCHES: Record<
   Record<string, Record<string, unknown>>
 > = {
   banking: {
+    'transfer-from': { selected: 'Checking (••• 4821)' },
+    'transfer-to': { selected: 'Savings (••• 7293)' },
     'transfer-amount': { value: '500', valid: true },
     'review-transfer-btn': { disabled: false },
+  },
+  'photo-upload': {
+    'upload-iceland-album': { disabled: false, stagedFileCount: 1 },
   },
   checkout: {
     'shipping-option': { selected: 'Express (2–3 days, $12.99)' },

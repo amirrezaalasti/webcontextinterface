@@ -107,54 +107,54 @@ table{border-collapse:collapse}
 .hf-small-list li{padding:6px 0;border-bottom:1px solid #e2e8f0}
 .hf-small-list li:last-child{border-bottom:none}
 </style></head><body>
-<div class="hf-app" data-page="job-board" id="job_board-page" data-wci-id="job_board-page" data-wci-role="landmark" data-wci-desc="Job board page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="hf-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+<div class="hf-app" data-page="job-board" id="job_board-page" data-wci-role="landmark" data-wci-id="job_board-page" data-wci-desc="HireFlow Jobs — Job board with filter sidebar, employer reference cards, and generic confirm CTAs." data-wci-priority="2">
+  <div class="hf-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner" data-wci-role="landmark" data-wci-id="hf-cookie" data-wci-desc="Landmark zone: cookieBanner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-    <button type="button" class="hf-btn hf-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-    <button type="button" class="hf-btn hf-btn--primary" data-cookie-action="accept">Accept all</button>
-    <button type="button" class="hf-btn hf-btn--ghost" data-cookie-action="customize">Customize</button>
+    <button type="button" class="hf-btn hf-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-cookie">Reject non-essential</button>
+    <button type="button" class="hf-btn hf-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-cookie">Accept all</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-cookie">Customize</button>
   </div>
 
-  <header class="hf-hdr">
+  <header class="hf-hdr" data-wci-role="landmark" data-wci-id="hf-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="hf-brand" aria-label="HireFlow Jobs">
-      <div class="hf-brand-badge">HF</div>
+      <div class="hf-brand-badge" data-wci-role="display" data-wci-id="hf-brand-badge" data-wci-desc="Display value: HF" data-wci-state="{&quot;value&quot;:&quot;HF&quot;}" data-wci-priority="4" data-wci-scope="hf-hdr">HF</div>
       <div>
         HireFlow Jobs
         <small>Search smarter. Apply faster.</small>
       </div>
     </div>
-    <nav class="hf-nav" aria-label="Global">
-      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/saved">Saved jobs</a><a href="/employers">Employers</a>
+    <nav class="hf-nav" aria-label="Global" data-wci-role="nav" data-wci-id="hf-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Home</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Account</a><a href="/saved" data-wci-role="nav" data-wci-id="saved-jobs" data-wci-desc="Navigate to: Saved jobs" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Saved jobs</a><a href="/employers" data-wci-role="nav" data-wci-id="employers-2" data-wci-desc="Navigate to: Employers" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-nav">Employers</a>
     </nav>
     <div class="hf-hdr-promo">
-      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-      <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Navigation decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="hf-hdr">Claim Offer</button>
+      <button type="button" class="hf-btn hf-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="hf-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="hf-subnav" aria-label="Secondary">
-    <a href="#overview">Overview</a><a href="#roles">Roles</a><a href="#employers">Employers</a><a href="#apply-panel">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
-    <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
-    <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+  <nav class="hf-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="hf-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#overview" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">Overview</a><a href="#roles" data-wci-role="nav" data-wci-id="roles-2" data-wci-desc="Navigate to: Roles" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">Roles</a><a href="#employers" data-wci-role="nav" data-wci-id="employers-3" data-wci-desc="Navigate to: Employers" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">Employers</a><a href="#apply-panel" data-wci-role="nav" data-wci-id="application" data-wci-desc="Navigate to: Application" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">Application</a><a href="#faq" data-wci-role="nav" data-wci-id="faq" data-wci-desc="Navigate to: FAQ" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">FAQ</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-subnav">Support</a>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-subnav">Submit</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-subnav">Continue</button>
   </nav>
 
   <div class="hf-dup-row" aria-label="Quick actions">
-    <button type="button" class="hf-btn hf-btn--ghost">Submit</button>
-    <button type="button" class="hf-btn hf-btn--ghost">Continue</button>
-    <button type="button" class="hf-btn hf-btn--ghost">Save changes</button>
-    <button type="button" class="hf-btn hf-btn--ghost">Confirm</button>
-    <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Save changes</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Confirm</button>
+    <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="apply" data-wci-desc="Click to: Apply" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Apply</button>
   </div>
 
   <div class="hf-dup-row">
-    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">Apply Senior Engineer Acme</button>
-    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav">Apply to Acme Senior</button>
-    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Extra decoy action" data-wci-priority="2" data-wci-scope="job_board-page" data-wci-state="{&quot;ready&quot;:true}">Quick Apply Senior</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="apply-senior-engineer-acme" data-wci-desc="Decoy — header keyword trap (apply-senior-engineer-acme), not Seattle card Confirm" data-wci-action="click" data-wci-priority="5" data-wci-scope="job_board-page">Apply Senior Engineer Acme</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="apply-to-acme-senior" data-wci-desc="Decoy — header keyword trap (apply-to-acme-senior), not Seattle card Confirm" data-wci-action="click" data-wci-priority="5" data-wci-scope="job_board-page">Apply to Acme Senior</button>
+    <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="job_board-page">Quick Apply Senior</button>
   </div>
 
   <div class="hf-page-wrap">
     <div class="hf-page-main">
-      <section id="overview" class="hf-panel">
+      <section id="overview" class="hf-panel" data-wci-role="landmark" data-wci-id="hf-panel" data-wci-desc="Section for: Open roles" data-wci-priority="3">
         <div class="hf-banner">
           <div>
             <h1>Open roles</h1>
@@ -174,9 +174,9 @@ table{border-collapse:collapse}
         <div class="hf-search">
           <div>
             <label for="q">Search jobs</label>
-            <input id="q" type="search" value="Senior Engineer ACM-447" placeholder="Search by title, keyword, or employer">
+            <input id="q" type="search" value="Senior Engineer ACM-447" placeholder="Search by title, keyword, or employer" data-wci-role="form" data-wci-id="q" data-wci-desc="Field for: Search jobs" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Senior Engineer ACM-447&quot;}" data-wci-priority="3" data-wci-scope="hf-panel">
           </div>
-          <button type="button" class="hf-btn hf-btn--muted" id="clearSearchBtn">Clear</button>
+          <button type="button" class="hf-btn hf-btn--muted" id="clearSearchBtn" data-wci-role="action" data-wci-id="clearsearchbtn" data-wci-desc="Click to: Clear" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-panel">Clear</button>
         </div>
         <div class="hf-meta">
           <span class="hf-pill">Search feed</span>
@@ -186,77 +186,77 @@ table{border-collapse:collapse}
       </section>
 
       <div class="hf-layout">
-        <aside class="hf-filters" aria-label="Filters">
+        <aside class="hf-filters" aria-label="Filters" data-wci-role="landmark" data-wci-id="hf-filters" data-wci-desc="Section for: Filters" data-wci-priority="3">
           <h2>Filters</h2>
           <fieldset>
             <legend>Work style</legend>
-            <label><input type="checkbox" id="filterRemote"> Remote only</label>
-            <label><input type="checkbox" id="filterOffice" checked=""> In-office</label>
-            <label><input type="checkbox" id="filterHybrid" checked=""> Hybrid</label>
+            <label><input type="checkbox" id="filterRemote" data-wci-role="form" data-wci-id="filterremote" data-wci-desc="Field for: Remote only" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="hf-filters"> Remote only</label>
+            <label><input type="checkbox" id="filterOffice" checked="" data-wci-role="form" data-wci-id="filteroffice" data-wci-desc="Field for: In-office" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hf-filters"> In-office</label>
+            <label><input type="checkbox" id="filterHybrid" checked="" data-wci-role="form" data-wci-id="filterhybrid" data-wci-desc="Field for: Hybrid" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hf-filters"> Hybrid</label>
           </fieldset>
           <label for="location">Location</label>
-          <select id="location">
+          <select id="location" data-wci-role="form" data-wci-id="location" data-wci-desc="Dropdown to select: Location" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Seattle&quot;}" data-wci-options="[&quot;Any location&quot;,&quot;SF Bay&quot;,&quot;Seattle&quot;,&quot;NYC&quot;]" data-wci-priority="3" data-wci-scope="hf-filters">
             <option>Any location</option>
             <option>SF Bay</option>
             <option selected="">Seattle</option>
             <option>NYC</option>
           </select>
           <label for="level">Level</label>
-          <select id="level">
+          <select id="level" data-wci-role="form" data-wci-id="level" data-wci-desc="Dropdown to select: Level" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Senior&quot;}" data-wci-options="[&quot;Any level&quot;,&quot;Junior&quot;,&quot;Senior&quot;,&quot;Staff&quot;]" data-wci-priority="3" data-wci-scope="hf-filters">
             <option>Any level</option>
             <option>Junior</option>
             <option selected="">Senior</option>
             <option>Staff</option>
           </select>
           <label for="refFilter">Employer reference</label>
-          <input id="refFilter" type="text" value="ACM-447" placeholder="e.g. ACM-447">
+          <input id="refFilter" type="text" value="ACM-447" placeholder="e.g. ACM-447" data-wci-role="form" data-wci-id="reffilter" data-wci-desc="Field for: Employer reference — plausible alternative (not primary for this goal)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;ACM-447&quot;}" data-wci-priority="1" data-wci-scope="hf-filters" data-wci-competitor="true">
           <div class="hf-toolbar">
-            <button type="button" class="hf-btn hf-btn--primary" id="applyFiltersBtn">Apply filters</button>
-            <button type="button" class="hf-btn" id="resetFiltersBtn">Reset</button>
+            <button type="button" class="hf-btn hf-btn--primary" id="applyFiltersBtn" data-wci-role="action" data-wci-id="applyfiltersbtn" data-wci-desc="Apply filters sidebar — keyword trap, not Confirm on target job card" data-wci-action="click" data-wci-priority="1" data-wci-scope="hf-filters" data-wci-competitor="true">Apply filters</button>
+            <button type="button" class="hf-btn" id="resetFiltersBtn" data-wci-role="action" data-wci-id="resetfiltersbtn" data-wci-desc="Click to: Reset" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-filters">Reset</button>
           </div>
           <p class="hf-note" id="filterFeedback">Filter state ready.</p>
         </aside>
 
-        <main role="main">
-          <section id="roles">
+        <main role="main" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Junior QA — Beta LLC" data-wci-priority="3">
+          <section id="roles" data-wci-role="landmark" data-wci-id="roles" data-wci-desc="Section for: Junior QA — Beta LLC" data-wci-priority="3">
             <div class="hf-job-list" id="jobList">
-              <article class="hf-card" data-employer-ref="ACM-102" data-remote="true" data-work-style="remote" data-level="junior" data-location="Any location" data-keywords="beta qa remote junior testing" aria-label="Job card ACM-102">
+              <article class="hf-card" data-employer-ref="ACM-102" data-remote="true" data-work-style="remote" data-level="junior" data-location="Any location" data-keywords="beta qa remote junior testing" aria-label="Job card ACM-102" data-wci-role="landmark" data-wci-id="hf-card" data-wci-desc="Section for: Junior QA — Beta LLC" data-wci-priority="3">
                 <div class="hf-listing-title">
                   <div>
                     <h3>Junior QA — Beta LLC</h3>
                     <p>Remote-only · Ref ACM-102 · Posted 2d ago</p>
                   </div>
-                  <span class="hf-badge-red">Junior · Remote-only</span>
+                  <span class="hf-badge-red" data-wci-role="display" data-wci-id="hf-badge-red" data-wci-desc="Display value: Junior · Remote-only" data-wci-state="{&quot;value&quot;:&quot;Junior · Remote-only&quot;}" data-wci-priority="4" data-wci-scope="hf-card">Junior · Remote-only</span>
                 </div>
                 <p>Automation, test plans, and support queues. Not an in-office senior role.</p>
                 <div class="hf-card__actions">
-                  <button type="button" class="hf-btn hf-btn--ghost">Quick Apply</button>
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="quick-apply" data-wci-desc="Click to: Quick Apply" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card">Quick Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card">Save</button>
                 </div>
               </article>
 
-              <article class="hf-card" data-employer-ref="ACM-447X" data-work-style="remote" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 remote senior frontend" aria-label="Decoy reference card ACM-447X">
+              <article class="hf-card" data-employer-ref="ACM-447X" data-work-style="remote" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 remote senior frontend" aria-label="Decoy reference card ACM-447X" data-wci-role="landmark" data-wci-id="hf-card-2" data-wci-desc="Section for: Senior Engineer — Acme Cloud" data-wci-priority="3">
                 <div class="hf-listing-title">
                   <div>
                     <h3>Senior Engineer — Acme Cloud</h3>
                     <p>Remote-only · Ref ACM-447X · Posted today</p>
                   </div>
-                  <span class="hf-badge-red">Keyword trap</span>
+                  <span class="hf-badge-red" data-wci-role="display" data-wci-id="hf-badge-red-2" data-wci-desc="Display value: Keyword trap" data-wci-state="{&quot;value&quot;:&quot;Keyword trap&quot;}" data-wci-priority="4" data-wci-scope="hf-card-2">Keyword trap</span>
                 </div>
                 <p>Similar employer naming and senior title, but remote-only and different employer reference.</p>
                 <div class="hf-card__actions">
-                  <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="apply-2" data-wci-desc="Decoy — Apply on ACM-447X keyword trap (remote, wrong ref)" data-wci-action="click" data-wci-priority="5" data-wci-scope="hf-card-2" data-decoy="apply-2">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save-2" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card-2">Save</button>
                 </div>
               </article>
 
-              <article class="hf-card is-highlight" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 senior in-office react typescript target" aria-label="Target job card ACM-447">
+              <article class="hf-card is-highlight" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="Seattle" data-keywords="acme acm-447 senior in-office react typescript target" aria-label="Target job card ACM-447" data-wci-role="landmark" data-wci-id="apply-senior-engineer-scope" data-wci-desc="Target card ACM-447 · Senior Engineer Seattle · in-office · React/TS (not NYC/remote duplicates)" data-wci-state="{&quot;employer-ref&quot;:&quot;ACM-447&quot;,&quot;tier&quot;:&quot;senior-inoffice&quot;,&quot;work-style&quot;:&quot;office&quot;,&quot;level&quot;:&quot;senior&quot;,&quot;location&quot;:&quot;Seattle&quot;,&quot;keywords&quot;:&quot;acme acm-447 senior in-office react typescript target&quot;}" data-wci-priority="2">
                 <div class="hf-listing-title">
                   <div>
                     <h3>Senior Engineer — Acme Corp</h3>
                     <p>React, TypeScript · ref ACM-447 · In-office · Seattle · Posted today</p>
                   </div>
-                  <span class="hf-badge-green" id="targetEligibilityBadge">Target match</span>
+                  <span class="hf-badge-green" id="targetEligibilityBadge" data-wci-role="display" data-wci-id="targeteligibilitybadge" data-wci-desc="Display value: Target match" data-wci-state="{&quot;value&quot;:&quot;Target match&quot;}" data-wci-priority="4" data-wci-scope="apply-senior-engineer-scope">Target match</span>
                 </div>
                 <p>Build customer-facing workflows, mentor peers, and own production quality for a high-traffic platform.</p>
                 <ul>
@@ -265,59 +265,59 @@ table{border-collapse:collapse}
                   <li>Application review begins immediately</li>
                 </ul>
                 <div class="hf-card__actions">
-                  <button id="apply-senior-engineer" type="button" class="hf-btn hf-btn--primary" data-wci-id="apply-senior-engineer" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary confirm action for the ACM-447 senior in-office role" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="job_board-page">Confirm</button>
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
-                  <button type="button" class="hf-btn hf-btn--ghost">View team</button>
+                  <button id="apply-senior-engineer" type="button" class="hf-btn hf-btn--primary" data-wci-role="action" data-wci-id="apply-senior-engineer" data-wci-desc="Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). — card CTA labeled Confirm on Seattle target card (id apply-senior-engineer)" data-wci-action="click" data-wci-priority="1" data-wci-scope="apply-senior-engineer-scope" data-wci-primary="true" data-wci-state="{&quot;employerRef&quot;:&quot;ACM-447&quot;,&quot;location&quot;:&quot;Seattle&quot;,&quot;tier&quot;:&quot;senior-inoffice&quot;,&quot;workStyle&quot;:&quot;office&quot;,&quot;label&quot;:&quot;Confirm&quot;}">Confirm</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save-3" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="apply-senior-engineer-scope">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="view-team" data-wci-desc="Click to: View team" data-wci-action="click" data-wci-priority="3" data-wci-scope="apply-senior-engineer-scope">View team</button>
                 </div>
               </article>
 
-              <article class="hf-card" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="NYC" data-keywords="acme acm-447 backend alternate in-office senior" aria-label="Alternate card ACM-447">
+              <article class="hf-card" data-employer-ref="ACM-447" data-tier="senior-inoffice" data-work-style="office" data-level="senior" data-location="NYC" data-keywords="acme acm-447 backend alternate in-office senior" aria-label="Alternate card ACM-447" data-wci-role="landmark" data-wci-id="hf-card-3" data-wci-desc="Section for: Senior Engineer — Acme Corp" data-wci-priority="3">
                 <div class="hf-listing-title">
                   <div>
                     <h3>Senior Engineer — Acme Corp</h3>
                     <p>Backend platform · ref ACM-447 · In-office · NYC · Alternate posting</p>
                   </div>
-                  <span class="hf-badge-gray">Reference match</span>
+                  <span class="hf-badge-gray" data-wci-role="display" data-wci-id="hf-badge-gray" data-wci-desc="Display value: Reference match" data-wci-state="{&quot;value&quot;:&quot;Reference match&quot;}" data-wci-priority="4" data-wci-scope="hf-card-3">Reference match</span>
                 </div>
                 <p>Duplicate reference card with similar wording to test careful selection. Confirm buttons are available on employer cards.</p>
                 <div class="hf-card__actions">
-                  <button type="button" class="hf-btn hf-btn--primary">Apply</button>
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--primary" data-wci-role="action" data-wci-id="apply-3" data-wci-desc="Apply on ACM-447 NYC card — same employer ref but wrong Seattle in-office target posting" data-wci-action="click" data-wci-priority="1" data-wci-scope="hf-card-3" data-wci-competitor="true" data-decoy="apply-3">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save-4" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card-3">Save</button>
                 </div>
               </article>
 
-              <article class="hf-card" data-employer-ref="ACM-447" data-work-style="remote" data-level="senior" data-location="Any location" data-keywords="acme acm-447 remote senior api" aria-label="Remote decoy ACM-447">
+              <article class="hf-card" data-employer-ref="ACM-447" data-work-style="remote" data-level="senior" data-location="Any location" data-keywords="acme acm-447 remote senior api" aria-label="Remote decoy ACM-447" data-wci-role="landmark" data-wci-id="hf-card-4" data-wci-desc="Section for: Senior API Engineer — Acme Corp" data-wci-priority="3">
                 <div class="hf-listing-title">
                   <div>
                     <h3>Senior API Engineer — Acme Corp</h3>
                     <p>Remote-only · ref ACM-447 · Posted 1d ago</p>
                   </div>
-                  <span class="hf-badge-red">Remote-only</span>
+                  <span class="hf-badge-red" data-wci-role="display" data-wci-id="hf-badge-red-3" data-wci-desc="Display value: Remote-only" data-wci-state="{&quot;value&quot;:&quot;Remote-only&quot;}" data-wci-priority="4" data-wci-scope="hf-card-4">Remote-only</span>
                 </div>
                 <p>Correct employer reference but wrong work mode for the target action.</p>
                 <div class="hf-card__actions">
-                  <button type="button" class="hf-btn hf-btn--ghost">Apply</button>
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="apply-4" data-wci-desc="Decoy — Apply on remote-only ACM-447 listing (exclude per goal)" data-wci-action="click" data-wci-priority="5" data-wci-scope="hf-card-4" data-decoy="apply-4">Apply</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save-5" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card-4">Save</button>
                 </div>
               </article>
 
-              <article class="hf-card" data-employer-ref="ACM-220" data-work-style="hybrid" data-level="mid" data-location="SF Bay" data-keywords="pm gamma hybrid delivery" aria-label="Job card ACM-220">
+              <article class="hf-card" data-employer-ref="ACM-220" data-work-style="hybrid" data-level="mid" data-location="SF Bay" data-keywords="pm gamma hybrid delivery" aria-label="Job card ACM-220" data-wci-role="landmark" data-wci-id="hf-card-5" data-wci-desc="Section for: PM — Gamma Inc" data-wci-priority="3">
                 <div class="hf-listing-title">
                   <div>
                     <h3>PM — Gamma Inc</h3>
                     <p>Hybrid · ref ACM-220 · Mid-level</p>
                   </div>
-                  <span class="hf-badge-gray">Other employer</span>
+                  <span class="hf-badge-gray" data-wci-role="display" data-wci-id="hf-badge-gray-2" data-wci-desc="Display value: Other employer" data-wci-state="{&quot;value&quot;:&quot;Other employer&quot;}" data-wci-priority="4" data-wci-scope="hf-card-5">Other employer</span>
                 </div>
                 <p>Program planning, reporting, and stakeholder coordination.</p>
                 <div class="hf-card__actions">
-                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn">Save</button>
+                  <button type="button" class="hf-btn hf-btn--ghost hf-save-btn" data-wci-role="action" data-wci-id="save-6" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-card-5">Save</button>
                 </div>
               </article>
             </div>
           </section>
 
-          <section id="employers">
+          <section id="employers" data-wci-role="landmark" data-wci-id="employers" data-wci-desc="Section for: Employer reference cards" data-wci-priority="3">
             <h2>Employer reference cards</h2>
             <table aria-label="Employer reference summary">
               <thead><tr><th>Employer ref</th><th>Listing</th><th>Work mode</th><th>Status</th></tr></thead>
@@ -329,37 +329,37 @@ table{border-collapse:collapse}
             </table>
           </section>
 
-          <section id="apply-panel" class="hf-drawer">
+          <section id="apply-panel" class="hf-drawer" data-wci-role="landmark" data-wci-id="hf-drawer" data-wci-desc="Section for: Application readiness" data-wci-priority="3">
             <h2>Application readiness</h2>
             <p>Complete the form preview below. The targeted confirm action opens a review modal, validates required fields, and updates live status indicators.</p>
             <div class="hf-form-grid">
               <div>
                 <label for="appName">Full name</label>
-                <input id="appName" type="text" value="Jordan Lee" placeholder="Your full name">
+                <input id="appName" type="text" value="Jordan Lee" placeholder="Your full name" data-wci-role="form" data-wci-id="appname" data-wci-desc="Field for: Full name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Jordan Lee&quot;}" data-wci-priority="3" data-wci-scope="hf-drawer">
                 <div class="hf-error" id="nameError"></div>
               </div>
               <div>
                 <label for="appEmail">Email</label>
-                <input id="appEmail" type="email" value="jordan.lee@example.com" placeholder="name@example.com">
+                <input id="appEmail" type="email" value="jordan.lee@example.com" placeholder="name@example.com" data-wci-role="form" data-wci-id="appemail" data-wci-desc="Field for: Email" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;jordan.lee@example.com&quot;}" data-wci-priority="3" data-wci-scope="hf-drawer">
                 <div class="hf-error" id="emailError"></div>
               </div>
               <div>
                 <label for="appResume">Resume URL</label>
-                <input id="appResume" type="url" value="https://portfolio.example.com/resume.pdf" placeholder="https://...">
+                <input id="appResume" type="url" value="https://portfolio.example.com/resume.pdf" placeholder="https://..." data-wci-role="form" data-wci-id="appresume" data-wci-desc="Field for: Resume URL" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;https://portfolio.example.com/resume.pdf&quot;}" data-wci-priority="3" data-wci-scope="hf-drawer">
                 <div class="hf-error" id="resumeError"></div>
               </div>
               <div>
                 <label for="appNote">Why this role</label>
-                <textarea id="appNote" rows="4" placeholder="Summarize your fit for this role">Interested in the in-office senior opening at Acme Corp and comfortable with on-site collaboration.</textarea>
+                <textarea id="appNote" rows="4" placeholder="Summarize your fit for this role" data-wci-role="form" data-wci-id="appnote" data-wci-desc="Text area for: Why this role" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Interested in the in-office senior opening at Acme Corp and comfortable with on-site collaboration.&quot;}" data-wci-priority="3" data-wci-scope="hf-drawer">Interested in the in-office senior opening at Acme Corp and comfortable with on-site collaboration.</textarea>
                 <div class="hf-error" id="noteError"></div>
               </div>
             </div>
-            <label><input type="checkbox" id="attestOffice" checked=""> I confirm this application is for an in-office role.</label>
-            <label><input type="checkbox" id="attestLevel" checked=""> I confirm this is not a junior-tier listing.</label>
+            <label><input type="checkbox" id="attestOffice" checked="" data-wci-role="form" data-wci-id="attestoffice" data-wci-desc="Field for: I confirm this application is for an in-office role. — plausible alternative (not primary for this goal)" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="1" data-wci-scope="hf-drawer" data-wci-competitor="true"> I confirm this application is for an in-office role.</label>
+            <label><input type="checkbox" id="attestLevel" checked="" data-wci-role="form" data-wci-id="attestlevel" data-wci-desc="Field for: I confirm this is not a junior-tier listing." data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hf-drawer"> I confirm this is not a junior-tier listing.</label>
             <p class="hf-note" id="formPreview">Preview: Jordan Lee applying to employer ref ACM-447 for a senior in-office role.</p>
           </section>
 
-          <section id="faq" class="hf-panel">
+          <section id="faq" class="hf-panel" data-wci-role="landmark" data-wci-id="hf-panel-2" data-wci-desc="Section for: Application notes" data-wci-priority="3">
             <h2>Application notes</h2>
             <p>Use the reference code, confirm the on-site requirement, and avoid remote-only or junior tier postings. Similar employer names and duplicated reference cards may appear in the feed.</p>
           </section>
@@ -367,11 +367,11 @@ table{border-collapse:collapse}
       </div>
     </div>
 
-    <aside class="hf-rail hf-rail--ads" aria-label="Sponsored">
+    <aside class="hf-rail hf-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="hf-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
       <p>Discover premium career tools, resume templates, and interview prep resources.</p>
-      <a href="/ads/1">Partner offer — limited time</a><br>
-      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-rail">Partner offer — limited time</a><br>
+      <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-rail">View deal</button>
       <div id="support" class="hf-note" style="margin-top:10px">Need help? Contact support or browse filler links below.</div>
       <div class="hf-summary" style="margin-top:14px">
         <strong>Review cues</strong>
@@ -386,32 +386,32 @@ table{border-collapse:collapse}
 
   <div class="hf-filler" aria-hidden="true">
     <div class="hf-filler-inner">
-      <a href="/misc/0" class="hf-btn hf-btn--ghost">Link 1</a><button type="button" class="hf-btn hf-btn--ghost">Action 2</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/4" class="hf-btn hf-btn--ghost">Link 5</a><button type="button" class="hf-btn hf-btn--ghost">Action 6</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/8" class="hf-btn hf-btn--ghost">Link 9</a><button type="button" class="hf-btn hf-btn--ghost">Action 10</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/12" class="hf-btn hf-btn--ghost">Link 13</a><button type="button" class="hf-btn hf-btn--ghost">Action 14</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/16" class="hf-btn hf-btn--ghost">Link 17</a><button type="button" class="hf-btn hf-btn--ghost">Action 18</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/20" class="hf-btn hf-btn--ghost">Link 21</a><button type="button" class="hf-btn hf-btn--ghost">Action 22</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/24" class="hf-btn hf-btn--ghost">Link 25</a><button type="button" class="hf-btn hf-btn--ghost">Action 26</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/28" class="hf-btn hf-btn--ghost">Link 29</a><button type="button" class="hf-btn hf-btn--ghost">Action 30</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/32" class="hf-btn hf-btn--ghost">Link 33</a><button type="button" class="hf-btn hf-btn--ghost">Action 34</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/36" class="hf-btn hf-btn--ghost">Link 37</a><button type="button" class="hf-btn hf-btn--ghost">Action 38</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button><a href="/misc/40" class="hf-btn hf-btn--ghost">Link 41</a><button type="button" class="hf-btn hf-btn--ghost">Action 42</button><button type="button" class="hf-btn hf-btn--ghost">Submit</button><button type="button" class="hf-btn hf-btn--ghost">Continue</button>
+      <a href="/misc/0" class="hf-btn hf-btn--ghost">Link 1</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 2</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/4" class="hf-btn hf-btn--ghost">Link 5</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 6</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/8" class="hf-btn hf-btn--ghost">Link 9</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 10</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/12" class="hf-btn hf-btn--ghost">Link 13</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 14</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/16" class="hf-btn hf-btn--ghost">Link 17</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 18</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/20" class="hf-btn hf-btn--ghost">Link 21</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 22</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/24" class="hf-btn hf-btn--ghost">Link 25</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 26</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/28" class="hf-btn hf-btn--ghost">Link 29</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 30</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/32" class="hf-btn hf-btn--ghost">Link 33</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 34</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/36" class="hf-btn hf-btn--ghost">Link 37</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 38</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button><a href="/misc/40" class="hf-btn hf-btn--ghost">Link 41</a><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Action 42</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Submit</button><button type="button" class="hf-btn hf-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Continue</button>
     </div>
   </div>
 
-  <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+  <button type="button" class="hf-btn hf-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="hidden-promo" data-wci-desc="Click to: Hidden promo" data-wci-action="click" data-wci-priority="3" data-wci-scope="job_board-page">Hidden promo</button>
 
-  <footer class="hf-ftr">
-    <small>© Demo HireFlow Jobs</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <footer class="hf-ftr" data-wci-role="landmark" data-wci-id="hf-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3">
+    <small>© Demo HireFlow Jobs</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hf-ftr">Terms</a>
     <span> · Sponsored content may appear in feeds.</span>
   </footer>
 
   <div class="hf-modal-backdrop" id="modalBackdrop"></div>
-  <div class="hf-modal" id="applyModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+  <div class="hf-modal" id="applyModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle" data-wci-role="landmark" data-wci-id="hf-modal" data-wci-desc="Section for: Review application" data-wci-priority="3">
     <div class="hf-modal-header">
       <div>
         <h2 id="modalTitle" style="margin:0">Review application</h2>
         <p class="hf-note" id="modalSubtext">Confirming target employer ref ACM-447.</p>
       </div>
-      <button type="button" class="hf-btn hf-btn--ghost" id="closeModalBtn">Close</button>
+      <button type="button" class="hf-btn hf-btn--ghost" id="closeModalBtn" data-wci-role="action" data-wci-id="closemodalbtn" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-modal">Close</button>
     </div>
     <div class="hf-summary">
       <div id="modalPreview">No application preview yet.</div>
     </div>
     <div class="hf-card__actions">
-      <button type="button" class="hf-btn hf-btn--primary" id="submitApplicationBtn">Submit application</button>
-      <button type="button" class="hf-btn" id="editApplicationBtn">Edit details</button>
+      <button type="button" class="hf-btn hf-btn--primary" id="submitApplicationBtn" data-wci-role="action" data-wci-id="submitapplicationbtn" data-wci-desc="Submit application in modal — second-step CTA after card Confirm, not primary card action" data-wci-action="click" data-wci-priority="1" data-wci-scope="hf-modal" data-wci-competitor="true">Submit application</button>
+      <button type="button" class="hf-btn" id="editApplicationBtn" data-wci-role="action" data-wci-id="editapplicationbtn" data-wci-desc="Click to: Edit details" data-wci-action="click" data-wci-priority="3" data-wci-scope="hf-modal">Edit details</button>
     </div>
     <p class="hf-note" id="modalStatus">Awaiting confirmation.</p>
   </div>

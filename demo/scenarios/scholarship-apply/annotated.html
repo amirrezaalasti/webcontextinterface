@@ -109,39 +109,39 @@ table{border-collapse:collapse}
 .eg-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
 .eg-callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 14px;color:#1e3a8a}
 </style></head><body>
-<div class="eg-app" data-page="scholarship-apply" id="scholarship_apply-page" data-wci-id="scholarship_apply-page" data-wci-role="landmark" data-wci-desc="Scholarship application page root for EduGrant STEM application" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="eg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="eg-app" data-page="scholarship-apply" id="scholarship_apply-page" data-wci-role="landmark" data-wci-id="scholarship_apply-page" data-wci-desc="EduGrant application portal — Submit STEM scholarship application form (not fee waiver)." data-wci-priority="2" data-wci-state="{&quot;targetApplication&quot;:&quot;stem-scholarship&quot;,&quot;applicationType&quot;:&quot;stem-scholarship&quot;,&quot;eligibilityConfirmed&quot;:false,&quot;hint&quot;:&quot;Submit via button[data-app=\&quot;stem\&quot;] — not Fee waiver button or fee-waiver application type&quot;}"><div class="eg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="eg-cookie" data-wci-desc="Cookie banner — dismiss before completing application" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="eg-btn eg-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="eg-btn eg-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="eg-btn eg-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="eg-btn eg-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-cookie">Reject non-essential</button>
+  <button type="button" class="eg-btn eg-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-cookie">Accept all</button>
+  <button type="button" class="eg-btn eg-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-cookie">Customize</button>
 </div><div class="eg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="eg-btn eg-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="eg-btn">Continue as guest — express</button>
-</div><header class="eg-hdr">
-  <nav class="eg-nav" aria-label="Global"><a href="/">Home</a><a href="/scholarships">Scholarships</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="eg-hdr-promo"><span class="eg-badge eg-badge--info">Application cycle: Fall 2026</span><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional buttons unrelated to final scholarship submission" data-wci-priority="2" data-wci-scope="scholarship_apply-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="eg-btn eg-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="eg-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#eligibility">Eligibility</a><a href="#application-form">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
-  <button type="button" class="eg-btn eg-btn--ghost">Submit</button>
-  <button type="button" class="eg-btn eg-btn--ghost">Continue</button>
+  <button type="button" class="eg-btn eg-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="eg-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue as guest — express</button>
+</div><header class="eg-hdr" data-wci-role="landmark" data-wci-id="eg-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <nav class="eg-nav" aria-label="Global" data-wci-role="nav" data-wci-id="eg-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-nav">Home</a><a href="/scholarships" data-wci-role="nav" data-wci-id="scholarships" data-wci-desc="Navigate to: Scholarships" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-nav">Scholarships</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-nav">Account</a></nav>
+  <div class="eg-hdr-promo"><span class="eg-badge eg-badge--info" data-wci-role="display" data-wci-id="eg-badge" data-wci-desc="Display value: Application cycle: Fall 2026" data-wci-state="{&quot;value&quot;:&quot;Application cycle: Fall 2026&quot;}" data-wci-priority="4" data-wci-scope="eg-hdr">Application cycle: Fall 2026</span><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="eg-hdr">Claim Offer</button>
+    <button type="button" class="eg-btn eg-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Decoy nav/promo — not the scholarship submit action" data-wci-action="click" data-wci-priority="5" data-wci-scope="eg-hdr">Learn More</button></div>
+</header><nav class="eg-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="eg-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#overview" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-subnav">Overview</a><a href="#eligibility" data-wci-role="nav" data-wci-id="eligibility" data-wci-desc="Navigate to: Eligibility" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-subnav">Eligibility</a><a href="#application-form" data-wci-role="nav" data-wci-id="application" data-wci-desc="Navigate to: Application" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-subnav">Application</a><a href="#faq" data-wci-role="nav" data-wci-id="faq" data-wci-desc="Navigate to: FAQ" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-subnav">FAQ</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-subnav">Support</a>
+  <button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Decoy generic Submit — not button[data-app=&quot;stem&quot;]" data-wci-action="click" data-wci-priority="5" data-wci-scope="eg-subnav">Submit</button>
+  <button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-subnav">Continue</button>
 </nav><div class="eg-dup-row" aria-label="Quick actions">
-  <button type="button" class="eg-btn eg-btn--ghost">Submit</button>
-  <button type="button" class="eg-btn eg-btn--ghost">Continue</button>
-  <button type="button" class="eg-btn eg-btn--ghost">Save changes</button>
-  <button type="button" class="eg-btn eg-btn--ghost" id="open-review">Review answers</button>
-</div><div class="eg-dup-row"><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Submit STEM scholarship</button><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-nav">Submit STEM application</button></div><div class="eg-page-wrap"><div class="eg-page-main"><main role="main" class="eg-wizard" id="application-form" style="max-width:860px;margin:20px auto">
-  <section id="overview" class="eg-card eg-hero">
+  <button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Decoy generic Submit — not button[data-app=&quot;stem&quot;]" data-wci-action="click" data-wci-priority="5" data-wci-scope="scholarship_apply-page">Submit</button>
+  <button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button>
+  <button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Save changes</button>
+  <button type="button" class="eg-btn eg-btn--ghost" id="open-review" data-wci-role="action" data-wci-id="open-review" data-wci-desc="Click to: Review answers" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Review answers</button>
+</div><div class="eg-dup-row"><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy keyword trap — duplicate row above form; use #submit-stem-scholarship in Review &amp; submit panel" data-wci-action="click" data-wci-priority="5" data-wci-scope="scholarship_apply-page">Submit STEM scholarship</button><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="submit-stem-application" data-wci-desc="Decoy keyword trap — duplicate row above form; use #submit-stem-scholarship in Review &amp; submit panel" data-wci-action="click" data-wci-priority="5" data-wci-scope="scholarship_apply-page">Submit STEM application</button></div><div class="eg-page-wrap"><div class="eg-page-main"><main role="main" class="eg-wizard" id="application-form" style="max-width:860px;margin:20px auto" data-wci-role="landmark" data-wci-id="eg-wizard" data-wci-desc="Section for: STEM Scholars Award Application" data-wci-priority="3">
+  <section id="overview" class="eg-card eg-hero" data-wci-role="landmark" data-wci-id="eg-card" data-wci-desc="Section for: STEM Scholars Award Application" data-wci-priority="3">
     <div class="eg-topline">
       <div>
         <h1>STEM Scholars Award Application</h1>
         <p>Apply for the EduGrant STEM scholarship for undergraduate students pursuing computer science, engineering, mathematics, data science, physics, or related technical majors.</p>
       </div>
       <div class="eg-inline">
-        <span class="eg-badge eg-badge--warn" id="eligibility-badge">Eligibility not confirmed</span>
-        <span class="eg-badge" id="save-badge">Not saved</span>
+        <span class="eg-badge eg-badge--warn" id="eligibility-badge" data-wci-role="display" data-wci-id="eligibility-badge" data-wci-desc="Display value: Eligibility not confirmed" data-wci-state="{&quot;value&quot;:&quot;Eligibility not confirmed&quot;}" data-wci-priority="4" data-wci-scope="eg-card">Eligibility not confirmed</span>
+        <span class="eg-badge" id="save-badge" data-wci-role="display" data-wci-id="save-badge" data-wci-desc="Display value: Not saved" data-wci-state="{&quot;value&quot;:&quot;Not saved&quot;}" data-wci-priority="4" data-wci-scope="eg-card">Not saved</span>
       </div>
     </div>
-    <div class="eg-callout">Important: this application is for the <strong>STEM scholarship</strong>. Fee waiver requests are handled separately and do not complete a scholarship submission.</div>
+    <div class="eg-callout" data-wci-role="display" data-wci-id="scholarship-callout" data-wci-desc="Task constraint — STEM scholarship only; fee waiver is a separate flow and does not submit the application" data-wci-priority="2">Important: this application is for the <strong>STEM scholarship</strong>. Fee waiver requests are handled separately and do not complete a scholarship submission.</div>
     <div class="eg-grid-2" style="margin-top:14px">
       <div>
         <h3>Program snapshot</h3>
@@ -168,20 +168,20 @@ table{border-collapse:collapse}
     <div class="eg-step" id="step-4">4. Review &amp; submit</div>
   </div>
 
-  <form id="stem-application-form" novalidate="">
-    <section class="eg-panel" id="eligibility">
+  <form id="stem-application-form" novalidate="" data-wci-role="landmark" data-wci-id="stem-application-form" data-wci-desc="Multi-section STEM scholarship form — complete panels then submit" data-wci-priority="2" data-wci-scope="scholarship_apply-page">
+    <section class="eg-panel" id="eligibility" data-wci-role="landmark" data-wci-id="eg-panel" data-wci-desc="Section for: Eligibility check" data-wci-priority="3">
       <h2>Eligibility check</h2>
       <p>Confirm that you meet baseline scholarship criteria before submitting the application.</p>
       <fieldset>
         <legend>Application type</legend>
-        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-scholarship" value="stem-scholarship" checked=""><label for="type-scholarship">STEM scholarship application</label></div>
-        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-waiver" value="fee-waiver"><label for="type-waiver">Fee waiver request only</label></div>
+        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-scholarship" value="stem-scholarship" checked="" data-wci-role="form" data-wci-id="type-scholarship" data-wci-desc="Correct application type — STEM scholarship (keep selected)" data-wci-action="click" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="2" data-wci-scope="eg-panel"><label for="type-scholarship">STEM scholarship application</label></div>
+        <div class="eg-radio-row"><input type="radio" name="applicationType" id="type-waiver" value="fee-waiver" data-wci-role="form" data-wci-id="type-waiver-decoy" data-wci-desc="Wrong application type — fee waiver request only does not submit STEM scholarship" data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="5" data-wci-scope="eg-panel"><label for="type-waiver">Fee waiver request only</label></div>
         <p class="eg-error" id="applicationType-error"></p>
       </fieldset>
       <div class="eg-grid-2">
         <div>
           <label for="citizenship">Residency status <span aria-hidden="true">*</span></label>
-          <select id="citizenship" name="citizenship" required="">
+          <select id="citizenship" name="citizenship" required="" data-wci-role="form" data-wci-id="citizenship" data-wci-desc="Dropdown to select: Residency status *" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select status&quot;}" data-wci-options="[&quot;Select status&quot;,&quot;U.S. citizen&quot;,&quot;Permanent resident&quot;,&quot;DACA / Dreamer&quot;,&quot;International student&quot;]" data-wci-priority="3" data-wci-scope="eg-panel">
             <option value="">Select status</option>
             <option>U.S. citizen</option>
             <option>Permanent resident</option>
@@ -192,7 +192,7 @@ table{border-collapse:collapse}
         </div>
         <div>
           <label for="enrollment">Planned enrollment term <span aria-hidden="true">*</span></label>
-          <select id="enrollment" name="enrollment" required="">
+          <select id="enrollment" name="enrollment" required="" data-wci-role="form" data-wci-id="enrollment" data-wci-desc="Dropdown to select: Planned enrollment term *" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select term&quot;}" data-wci-options="[&quot;Select term&quot;,&quot;Fall 2026&quot;,&quot;Spring 2027&quot;,&quot;Summer 2027&quot;]" data-wci-priority="3" data-wci-scope="eg-panel">
             <option value="">Select term</option>
             <option>Fall 2026</option>
             <option>Spring 2027</option>
@@ -201,50 +201,50 @@ table{border-collapse:collapse}
           <p class="eg-error" id="enrollment-error"></p>
         </div>
       </div>
-      <div class="eg-checkbox-row"><input type="checkbox" id="eligibility-confirm" name="eligibilityConfirm" required=""><label for="eligibility-confirm">I confirm that I am applying for the STEM scholarship and not submitting only a fee waiver request. <span aria-hidden="true">*</span></label></div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="eligibility-confirm" name="eligibilityConfirm" required="" data-wci-role="form" data-wci-id="eligibility-confirm" data-wci-desc="Required — confirm STEM scholarship application (not fee-waiver-only request) — plausible alternative (not primary for t" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-required="true" data-wci-priority="1" data-wci-scope="eg-panel" data-wci-competitor="true"><label for="eligibility-confirm">I confirm that I am applying for the STEM scholarship and not submitting only a fee waiver request. <span aria-hidden="true">*</span></label></div>
       <p class="eg-error" id="eligibilityConfirm-error"></p>
     </section>
 
-    <section class="eg-panel">
+    <section class="eg-panel" data-wci-role="landmark" data-wci-id="eg-panel-2" data-wci-desc="Section for: Student profile" data-wci-priority="3">
       <h2>Student profile</h2>
       <div class="eg-grid-2">
         <div>
           <label for="full-name">Full legal name <span aria-hidden="true">*</span></label>
-          <input id="full-name" name="fullName" type="text" placeholder="e.g., Maya Patel" maxlength="80" required="">
+          <input id="full-name" name="fullName" type="text" placeholder="e.g., Maya Patel" maxlength="80" required="" data-wci-role="form" data-wci-id="full-name" data-wci-desc="Field for: Full legal name *" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-2">
           <p class="eg-error" id="fullName-error"></p>
         </div>
         <div>
           <label for="email">Email address <span aria-hidden="true">*</span></label>
-          <input id="email" name="email" type="email" placeholder="name@example.edu" required="">
+          <input id="email" name="email" type="email" placeholder="name@example.edu" required="" data-wci-role="form" data-wci-id="email" data-wci-desc="Field for: Email address *" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-2">
           <p class="eg-error" id="email-error"></p>
         </div>
         <div>
           <label for="birth-date">Date of birth</label>
-          <input id="birth-date" name="birthDate" type="date">
+          <input id="birth-date" name="birthDate" type="date" data-wci-role="form" data-wci-id="birth-date" data-wci-desc="Field for: Date of birth" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="eg-panel-2">
           <p class="eg-error" id="birthDate-error"></p>
         </div>
         <div>
           <label for="phone">Mobile phone</label>
-          <input id="phone" name="phone" type="tel" placeholder="(555) 555-0199">
+          <input id="phone" name="phone" type="tel" placeholder="(555) 555-0199" data-wci-role="form" data-wci-id="phone" data-wci-desc="Field for: Mobile phone" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="eg-panel-2">
           <p class="eg-error" id="phone-error"></p>
         </div>
       </div>
       <label for="address">Mailing address</label>
-      <input id="address" name="address" type="text" placeholder="Street, city, state">
+      <input id="address" name="address" type="text" placeholder="Street, city, state" data-wci-role="form" data-wci-id="address" data-wci-desc="Field for: Mailing address" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="eg-panel-2">
       <p class="eg-error" id="address-error"></p>
     </section>
 
-    <section class="eg-panel">
+    <section class="eg-panel" data-wci-role="landmark" data-wci-id="eg-panel-3" data-wci-desc="Section for: Academic information" data-wci-priority="3">
       <h2>Academic information</h2>
       <div class="eg-grid-2">
         <div>
           <label for="institution">Current or most recent school <span aria-hidden="true">*</span></label>
-          <input id="institution" name="institution" type="text" placeholder="Lincoln High School or State University" required="">
+          <input id="institution" name="institution" type="text" placeholder="Lincoln High School or State University" required="" data-wci-role="form" data-wci-id="institution" data-wci-desc="Field for: Current or most recent school *" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-3">
           <p class="eg-error" id="institution-error"></p>
         </div>
         <div>
           <label for="major">Intended STEM major <span aria-hidden="true">*</span></label>
-          <select id="major" name="major" required="">
+          <select id="major" name="major" required="" data-wci-role="form" data-wci-id="major" data-wci-desc="Dropdown to select: Intended STEM major *" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select major&quot;}" data-wci-options="[&quot;Select major&quot;,&quot;Computer Science&quot;,&quot;Electrical Engineering&quot;,&quot;Mechanical Engineering&quot;,&quot;Mathematics&quot;,&quot;Physics&quot;,&quot;Data Science&quot;,&quot;Biotechnology&quot;,&quot;Other STEM field&quot;]" data-wci-priority="3" data-wci-scope="eg-panel-3">
             <option value="">Select major</option>
             <option>Computer Science</option>
             <option>Electrical Engineering</option>
@@ -259,66 +259,66 @@ table{border-collapse:collapse}
         </div>
         <div>
           <label for="gpa">Cumulative GPA <span aria-hidden="true">*</span></label>
-          <input id="gpa" name="gpa" type="number" min="0" max="4" step="0.01" placeholder="3.65" required="">
+          <input id="gpa" name="gpa" type="number" min="0" max="4" step="0.01" placeholder="3.65" required="" data-wci-role="form" data-wci-id="gpa" data-wci-desc="Field for: Cumulative GPA *" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-3">
           <p class="eg-error" id="gpa-error"></p>
         </div>
         <div>
           <label for="grad-year">Expected graduation year</label>
-          <input id="grad-year" name="gradYear" type="number" min="2026" max="2035" placeholder="2029">
+          <input id="grad-year" name="gradYear" type="number" min="2026" max="2035" placeholder="2029" data-wci-role="form" data-wci-id="grad-year" data-wci-desc="Field for: Expected graduation year" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="eg-panel-3">
           <p class="eg-error" id="gradYear-error"></p>
         </div>
       </div>
       <fieldset>
         <legend>Areas of involvement</legend>
-        <div class="eg-checkbox-row"><input type="checkbox" id="inv-research" name="involvement" value="research"><label for="inv-research">Research or lab work</label></div>
-        <div class="eg-checkbox-row"><input type="checkbox" id="inv-robotics" name="involvement" value="robotics"><label for="inv-robotics">Coding, robotics, or engineering clubs</label></div>
-        <div class="eg-checkbox-row"><input type="checkbox" id="inv-mentor" name="involvement" value="mentor"><label for="inv-mentor">Tutoring, mentoring, or STEM outreach</label></div>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-research" name="involvement" value="research" data-wci-role="form" data-wci-id="inv-research" data-wci-desc="Field for: Research or lab work" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="eg-panel-3"><label for="inv-research">Research or lab work</label></div>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-robotics" name="involvement" value="robotics" data-wci-role="form" data-wci-id="inv-robotics" data-wci-desc="Field for: Coding, robotics, or engineering clubs" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="eg-panel-3"><label for="inv-robotics">Coding, robotics, or engineering clubs</label></div>
+        <div class="eg-checkbox-row"><input type="checkbox" id="inv-mentor" name="involvement" value="mentor" data-wci-role="form" data-wci-id="inv-mentor" data-wci-desc="Field for: Tutoring, mentoring, or STEM outreach" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="eg-panel-3"><label for="inv-mentor">Tutoring, mentoring, or STEM outreach</label></div>
       </fieldset>
     </section>
 
-    <section class="eg-panel">
+    <section class="eg-panel" data-wci-role="landmark" data-wci-id="eg-panel-4" data-wci-desc="Section for: Financial context" data-wci-priority="3">
       <h2>Financial context</h2>
       <div class="eg-grid-2">
         <div>
           <label for="income-band">Household income range</label>
-          <select id="income-band" name="incomeBand">
+          <select id="income-band" name="incomeBand" data-wci-role="form" data-wci-id="income-band" data-wci-desc="Dropdown to select: Household income range" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Prefer not to say&quot;}" data-wci-options="[&quot;Prefer not to say&quot;,&quot;Under $35,000&quot;,&quot;$35,000 - $60,000&quot;,&quot;$60,001 - $90,000&quot;,&quot;Above $90,000&quot;]" data-wci-priority="3" data-wci-scope="eg-panel-4">
             <option value="">Prefer not to say</option>
             <option>Under $35,000</option>
-            <option>$35,000 - $60,000</option>
-            <option>$60,001 - $90,000</option>
+            <option data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $35,000 - $60,000" data-wci-state="{&quot;value&quot;:&quot;$35,000 - $60,000&quot;}" data-wci-priority="4" data-wci-scope="eg-panel-4">$35,000 - $60,000</option>
+            <option data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $60,001 - $90,000" data-wci-state="{&quot;value&quot;:&quot;$60,001 - $90,000&quot;}" data-wci-priority="4" data-wci-scope="eg-panel-4">$60,001 - $90,000</option>
             <option>Above $90,000</option>
           </select>
           <p class="eg-error" id="incomeBand-error"></p>
         </div>
         <div>
           <label for="need-level">Estimated unmet need</label>
-          <select id="need-level" name="needLevel">
+          <select id="need-level" name="needLevel" data-wci-role="form" data-wci-id="need-level" data-wci-desc="Dropdown to select: Estimated unmet need" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select estimate&quot;}" data-wci-options="[&quot;Select estimate&quot;,&quot;Less than $2,000&quot;,&quot;$2,000 - $5,000&quot;,&quot;$5,001 - $10,000&quot;,&quot;More than $10,000&quot;]" data-wci-priority="3" data-wci-scope="eg-panel-4">
             <option value="">Select estimate</option>
             <option>Less than $2,000</option>
-            <option>$2,000 - $5,000</option>
-            <option>$5,001 - $10,000</option>
+            <option data-wci-role="display" data-wci-id="display-3" data-wci-desc="Display value: $2,000 - $5,000" data-wci-state="{&quot;value&quot;:&quot;$2,000 - $5,000&quot;}" data-wci-priority="4" data-wci-scope="eg-panel-4">$2,000 - $5,000</option>
+            <option data-wci-role="display" data-wci-id="display-4" data-wci-desc="Display value: $5,001 - $10,000" data-wci-state="{&quot;value&quot;:&quot;$5,001 - $10,000&quot;}" data-wci-priority="4" data-wci-scope="eg-panel-4">$5,001 - $10,000</option>
             <option>More than $10,000</option>
           </select>
           <p class="eg-error" id="needLevel-error"></p>
         </div>
       </div>
-      <div class="eg-checkbox-row"><input type="checkbox" id="waiver-optin" name="waiverOptIn"><label for="waiver-optin">I would also like information about separate fee waiver programs.</label></div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="waiver-optin" name="waiverOptIn" data-wci-role="form" data-wci-id="waiver-optin" data-wci-desc="Optional info about separate waiver programs — does not submit scholarship or replace primary action — plausible alterna" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="1" data-wci-scope="eg-panel-4" data-wci-competitor="true"><label for="waiver-optin">I would also like information about separate fee waiver programs.</label></div>
       <p class="eg-note">Selecting this does not change your scholarship application type.</p>
     </section>
 
-    <section class="eg-panel">
+    <section class="eg-panel" data-wci-role="landmark" data-wci-id="eg-panel-5" data-wci-desc="Section for: Personal statement" data-wci-priority="3">
       <h2>Personal statement</h2>
       <label for="essay">In 150–500 words, describe your interest in STEM, a challenge you overcame, and how this scholarship would support your goals. <span aria-hidden="true">*</span></label>
-      <textarea id="essay" name="essay" rows="9" placeholder="Share your academic interests, projects, leadership, and goals..." required=""></textarea>
-      <div class="eg-inline"><span class="eg-badge" id="essay-count-badge">0 words</span><span class="eg-note">Minimum 150 words required for submission.</span></div>
+      <textarea id="essay" name="essay" rows="9" placeholder="Share your academic interests, projects, leadership, and goals..." required="" data-wci-role="form" data-wci-id="essay" data-wci-desc="Text area for: In 150–500 words, describe your interest in STEM, a challenge you overcame, and how this scholarship would support your goals. *" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="eg-panel-5"></textarea>
+      <div class="eg-inline"><span class="eg-badge" id="essay-count-badge" data-wci-role="display" data-wci-id="essay-count-badge" data-wci-desc="Display value: 0 words" data-wci-state="{&quot;value&quot;:&quot;0 words&quot;}" data-wci-priority="4" data-wci-scope="eg-panel-5">0 words</span><span class="eg-note">Minimum 150 words required for submission.</span></div>
       <p class="eg-error" id="essay-error"></p>
     </section>
 
-    <section class="eg-panel">
+    <section class="eg-panel" data-wci-role="landmark" data-wci-id="submit-section" data-wci-desc="Review &amp; submit panel — primary STEM scholarship submission lives here" data-wci-priority="2">
       <h2>Review certifications</h2>
-      <div class="eg-checkbox-row"><input type="checkbox" id="certify-true" name="certifyTrue" required=""><label for="certify-true">I certify that the information in this scholarship application is accurate to the best of my knowledge. <span aria-hidden="true">*</span></label></div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="certify-true" name="certifyTrue" required="" data-wci-role="form" data-wci-id="certify-true" data-wci-desc="Field for: I certify that the information in this scholarship application is accurate to the best of my knowledge. *" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-6"><label for="certify-true">I certify that the information in this scholarship application is accurate to the best of my knowledge. <span aria-hidden="true">*</span></label></div>
       <p class="eg-error" id="certifyTrue-error"></p>
-      <div class="eg-checkbox-row"><input type="checkbox" id="certify-release" name="certifyRelease" required=""><label for="certify-release">I authorize EduGrant to review this application for scholarship consideration. <span aria-hidden="true">*</span></label></div>
+      <div class="eg-checkbox-row"><input type="checkbox" id="certify-release" name="certifyRelease" required="" data-wci-role="form" data-wci-id="certify-release" data-wci-desc="Field for: I authorize EduGrant to review this application for scholarship consideration. *" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-required="true" data-wci-priority="3" data-wci-scope="eg-panel-6"><label for="certify-release">I authorize EduGrant to review this application for scholarship consideration. <span aria-hidden="true">*</span></label></div>
       <p class="eg-error" id="certifyRelease-error"></p>
       <div class="eg-card eg-cart">
         <h3 style="margin-top:0">Application preview</h3>
@@ -331,16 +331,16 @@ table{border-collapse:collapse}
         </div>
       </div>
       <div class="eg-card__actions">
-        <button type="button" class="eg-btn eg-btn--muted" id="save-draft">Save draft</button>
-        <button type="button" class="eg-btn eg-btn--ghost" id="open-checklist">View submission checklist</button>
-        <button type="submit" class="eg-btn eg-btn--primary" data-app="stem" id="submit-stem-scholarship" data-wci-id="submit-stem-scholarship" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to submit the STEM scholarship application form" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="scholarship_apply-page">Submit STEM scholarship application</button>
-        <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">Fee waiver</button>
+        <button type="button" class="eg-btn eg-btn--muted" id="save-draft" data-wci-role="action" data-wci-id="save-draft" data-wci-desc="Click to: Save draft" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-panel-6">Save draft</button>
+        <button type="button" class="eg-btn eg-btn--ghost" id="open-checklist" data-wci-role="action" data-wci-id="open-checklist" data-wci-desc="Click to: View submission checklist" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-panel-6">View submission checklist</button>
+        <button type="submit" class="eg-btn eg-btn--primary" data-app="stem" id="submit-stem-scholarship" data-wci-role="action" data-wci-id="submit-stem-scholarship" data-wci-desc="Submit STEM scholarship application form (not fee waiver). — primary CTA: button[data-app=&quot;stem&quot;]" data-wci-action="click" data-wci-priority="1" data-wci-scope="submit-section" data-wci-state="{&quot;app&quot;:&quot;stem&quot;,&quot;applicationType&quot;:&quot;stem-scholarship&quot;,&quot;disabled&quot;:false,&quot;selector&quot;:&quot;button[data-app=\&quot;stem\&quot;]&quot;}" data-wci-primary="true">Submit STEM scholarship application</button>
+        <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="fee-waiver-decoy" data-wci-desc="Decoy — Fee waiver button does not submit STEM scholarship application" data-wci-action="click" data-wci-priority="5" data-wci-scope="eg-panel-6">Fee waiver</button>
       </div>
       <p class="eg-note">Primary submission sends the scholarship application. The fee waiver button is informational only.</p>
     </section>
   </form>
 
-  <section class="eg-card" id="faq">
+  <section class="eg-card" id="faq" data-wci-role="landmark" data-wci-id="eg-card-2" data-wci-desc="Section for: Frequently asked questions" data-wci-priority="3">
     <h2>Frequently asked questions</h2>
     <ul>
       <li><strong>Do I need to upload transcripts now?</strong> No. Finalists may be asked for supporting documents after review.</li>
@@ -348,11 +348,11 @@ table{border-collapse:collapse}
       <li><strong>Is the fee waiver the same as the scholarship?</strong> No. Fee waivers are separate from scholarship awards.</li>
     </ul>
   </section>
-</main></div><aside class="eg-rail eg-rail--ads" aria-label="Sponsored">
+</main></div><aside class="eg-rail eg-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="eg-rail" data-wci-desc="Section for: Checklist" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Explore partner prep programs, laptop discounts, and student success tools while you complete your application.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-rail">Partner offer — limited time</a><br>
+  <button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="eg-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
   <h2 style="margin-top:0">Checklist</h2>
   <ul class="eg-summary-list">
@@ -365,11 +365,11 @@ table{border-collapse:collapse}
     <h3 style="margin-top:0">Need help?</h3>
     <p>For application support, email scholarships@edugrant.example or call 1-800-555-0148.</p>
   </div>
-</aside></div><div class="eg-filler" aria-hidden="true"><div class="eg-filler-inner"><a href="/misc/0" class="eg-btn eg-btn--ghost">Link 1</a><button type="button" class="eg-btn eg-btn--ghost">Action 2</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/4" class="eg-btn eg-btn--ghost">Link 5</a><button type="button" class="eg-btn eg-btn--ghost">Action 6</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/8" class="eg-btn eg-btn--ghost">Link 9</a><button type="button" class="eg-btn eg-btn--ghost">Action 10</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/12" class="eg-btn eg-btn--ghost">Link 13</a><button type="button" class="eg-btn eg-btn--ghost">Action 14</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/16" class="eg-btn eg-btn--ghost">Link 17</a><button type="button" class="eg-btn eg-btn--ghost">Action 18</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button><a href="/misc/20" class="eg-btn eg-btn--ghost">Link 21</a><button type="button" class="eg-btn eg-btn--ghost">Action 22</button><button type="button" class="eg-btn eg-btn--ghost">Submit</button><button type="button" class="eg-btn eg-btn--ghost">Continue</button></div></div><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promotional control" data-wci-priority="2" data-wci-scope="scholarship_apply-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="eg-ftr"><small>© Demo EduGrant</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="eg-filler" aria-hidden="true"><div class="eg-filler-inner"><a href="/misc/0" class="eg-btn eg-btn--ghost">Link 1</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 2</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Decoy generic Submit — not button[data-app=&quot;stem&quot;]" data-wci-action="click" data-wci-priority="5" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button><a href="/misc/4" class="eg-btn eg-btn--ghost">Link 5</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 6</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button><a href="/misc/8" class="eg-btn eg-btn--ghost">Link 9</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 10</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button><a href="/misc/12" class="eg-btn eg-btn--ghost">Link 13</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 14</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button><a href="/misc/16" class="eg-btn eg-btn--ghost">Link 17</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 18</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button><a href="/misc/20" class="eg-btn eg-btn--ghost">Link 21</a><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Action 22</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Submit</button><button type="button" class="eg-btn eg-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="scholarship_apply-page">Continue</button></div></div><button type="button" class="eg-btn eg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="scholarship_apply-page">Hidden promo</button><footer class="eg-ftr" data-wci-role="landmark" data-wci-id="eg-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo EduGrant</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="eg-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="eg-overlay" id="modal-overlay"></div>
-<div class="eg-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-title">
+<div class="eg-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-title" data-wci-role="landmark" data-wci-id="eg-modal" data-wci-desc="Section for: Application review" data-wci-priority="3">
   <h2 id="review-title" style="margin-top:0">Application review</h2>
   <p>Use this quick review before final submission.</p>
   <ul class="eg-summary-list" id="review-list">
@@ -379,9 +379,9 @@ table{border-collapse:collapse}
     <li><span>Essay words</span><strong id="review-words">0</strong></li>
     <li><span>Application type</span><strong id="review-type">STEM scholarship</strong></li>
   </ul>
-  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-review">Close</button></div>
+  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-review" data-wci-role="action" data-wci-id="close-review" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-modal">Close</button></div>
 </div>
-<div class="eg-modal" id="checklist-modal" role="dialog" aria-modal="true" aria-labelledby="checklist-title">
+<div class="eg-modal" id="checklist-modal" role="dialog" aria-modal="true" aria-labelledby="checklist-title" data-wci-role="landmark" data-wci-id="eg-modal-2" data-wci-desc="Section for: Submission checklist" data-wci-priority="3">
   <h2 id="checklist-title" style="margin-top:0">Submission checklist</h2>
   <ul>
     <li>Choose <strong>STEM scholarship application</strong></li>
@@ -389,7 +389,7 @@ table{border-collapse:collapse}
     <li>Write at least 150 words in the personal statement</li>
     <li>Accept certifications before submitting</li>
   </ul>
-  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-checklist">Close</button></div>
+  <div class="eg-card__actions"><button type="button" class="eg-btn" id="close-checklist" data-wci-role="action" data-wci-id="close-checklist" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="eg-modal-2">Close</button></div>
 </div>
 
 <script>

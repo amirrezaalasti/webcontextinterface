@@ -109,30 +109,30 @@ table{border-collapse:collapse}
 .tr-kpi{padding:12px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
 .tr-kpi strong{display:block;font-size:18px}
 </style></head><body>
-<div class="tr-app" data-page="concert-tickets" id="concert_tickets-page" data-wci-id="concert_tickets-page" data-wci-role="landmark" data-wci-desc="Concert tickets page root for TicketRush" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="tr-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+<div class="tr-app" data-page="concert-tickets" id="concert_tickets-page" data-wci-role="landmark" data-wci-id="concert_tickets-page" data-wci-desc="TicketRush — Venue + tickets." data-wci-priority="2"><div class="tr-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner" data-wci-role="landmark" data-wci-id="tr-cookie" data-wci-desc="Landmark zone: cookieBanner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="tr-btn tr-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="tr-btn tr-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="tr-btn tr-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="tr-btn tr-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-cookie">Reject non-essential</button>
+  <button type="button" class="tr-btn tr-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-cookie">Accept all</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-cookie">Customize</button>
 </div><div class="tr-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="tr-btn tr-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="tr-btn">Continue as guest — express</button>
-</div><header class="tr-hdr">
+  <button type="button" class="tr-btn tr-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="tr-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue as guest — express</button>
+</div><header class="tr-hdr" data-wci-role="landmark" data-wci-id="tr-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
   <div class="tr-brand" aria-label="TicketRush home"><div class="tr-brand-mark">TR</div><span>TicketRush</span></div>
-  <nav class="tr-nav" aria-label="Global"><a href="#">Concerts</a><a href="#">Sports</a><a href="#">Theater</a><a href="#">Help</a><a href="#">Account</a></nav>
-  <div class="tr-hdr-promo"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy buttons unrelated to the correct purchase flow" data-wci-priority="2" data-wci-scope="concert_tickets-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="tr-btn tr-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="tr-subnav" aria-label="Secondary"><a href="#details">Event overview</a><a href="#tickets">Tickets</a><a href="#venue">Venue</a><a href="#policies">Policies</a><a href="#faq">Support</a>
-  <button type="button" class="tr-btn tr-btn--ghost">Submit</button>
-  <button type="button" class="tr-btn tr-btn--ghost">Continue</button>
+  <nav class="tr-nav" aria-label="Global" data-wci-role="nav" data-wci-id="tr-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="concerts" data-wci-desc="Navigate to: Concerts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-nav">Concerts</a><a href="#" data-wci-role="nav" data-wci-id="sports" data-wci-desc="Navigate to: Sports" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-nav">Sports</a><a href="#" data-wci-role="nav" data-wci-id="theater" data-wci-desc="Navigate to: Theater" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-nav">Theater</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-nav">Help</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-nav">Account</a></nav>
+  <div class="tr-hdr-promo"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="tr-hdr">Claim Offer</button>
+    <button type="button" class="tr-btn tr-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-hdr">Learn More</button></div>
+</header><nav class="tr-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="tr-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#details" data-wci-role="nav" data-wci-id="event-overview" data-wci-desc="Navigate to: Event overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-subnav">Event overview</a><a href="#tickets" data-wci-role="nav" data-wci-id="tickets" data-wci-desc="Navigate to: Tickets" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-subnav">Tickets</a><a href="#venue" data-wci-role="nav" data-wci-id="venue" data-wci-desc="Navigate to: Venue" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-subnav">Venue</a><a href="#policies" data-wci-role="nav" data-wci-id="policies" data-wci-desc="Navigate to: Policies" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-subnav">Policies</a><a href="#faq" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-subnav">Support</a>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-subnav">Submit</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-subnav">Continue</button>
 </nav><div class="tr-dup-row" aria-label="Quick actions">
-  <button type="button" class="tr-btn tr-btn--ghost">Submit</button>
-  <button type="button" class="tr-btn tr-btn--ghost">Continue</button>
-  <button type="button" class="tr-btn tr-btn--ghost">Save changes</button>
-  <button type="button" class="tr-btn tr-btn--ghost">Confirm</button>
-</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav">Buy 2 GA Neon Pulse</button></div><div class="tr-page-wrap"><div class="tr-page-main"><main role="main" class="tr-layout">
-  <section class="tr-hero" id="details" aria-labelledby="eventTitle">
-    <div class="tr-hero-badge">Live nation tour stop · Tonight only</div>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Save changes</button>
+  <button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Confirm</button>
+</div><div class="tr-dup-row"><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="buy-neon-pulse-ga-2" data-wci-desc="Click to: Buy Neon Pulse GA — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="concert_tickets-page" data-wci-competitor="true">Buy Neon Pulse GA</button><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="buy-2-ga-neon-pulse" data-wci-desc="Click to: Buy 2 GA Neon Pulse — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="concert_tickets-page" data-wci-competitor="true">Buy 2 GA Neon Pulse</button></div><div class="tr-page-wrap"><div class="tr-page-main"><main role="main" class="tr-layout" data-wci-role="landmark" data-wci-id="tr-layout" data-wci-desc="Section for: Neon Pulse — Fractured Lights Tour" data-wci-priority="3">
+  <section class="tr-hero" id="details" aria-labelledby="eventTitle" data-wci-role="landmark" data-wci-id="tr-hero" data-wci-desc="Section for: Neon Pulse — Fractured Lights Tour" data-wci-priority="3">
+    <div class="tr-hero-badge" data-wci-role="display" data-wci-id="tr-hero-badge" data-wci-desc="Display value: Live nation tour stop · Tonight only" data-wci-state="{&quot;value&quot;:&quot;Live nation tour stop · Tonight only&quot;}" data-wci-priority="4" data-wci-scope="tr-hero">Live nation tour stop · Tonight only</div>
     <h1 id="eventTitle">Neon Pulse — Fractured Lights Tour</h1>
     <p>Catch Neon Pulse live at Harborline Pavilion with an all-ages general admission floor, visual effects, and support from Static Bloom.</p>
     <div class="tr-hero-meta">
@@ -150,24 +150,24 @@ table{border-collapse:collapse}
 
   <div class="tr-banner" aria-label="booking status">
     <div>
-      <div class="tr-status" id="concert-tickets-smoke-status" data-smoke-status="">Ready to book Neon Pulse tickets.</div>
+      <div class="tr-status" id="concert-tickets-smoke-status" data-smoke-status="" data-wci-role="display" data-wci-id="concert-tickets-smoke-status" data-wci-desc="Display value: Ready to book Neon Pulse tickets." data-wci-state="{&quot;value&quot;:&quot;Ready to book Neon Pulse tickets.&quot;}" data-wci-priority="4" data-wci-scope="tr-layout">Ready to book Neon Pulse tickets.</div>
       <div class="tr-note">Smoke status updates after a primary ticket action.</div>
     </div>
     <div class="tr-small tr-muted">Session hold: <strong id="holdTimer">09:00</strong></div>
   </div>
 
   <div class="tr-main-grid">
-    <section class="tr-panel" id="tickets">
+    <section class="tr-panel" id="tickets" data-wci-role="landmark" data-wci-id="tr-panel" data-wci-desc="Section for: Choose your ticket type" data-wci-priority="3">
       <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
         <div>
           <h2 style="margin-top:0">Choose your ticket type</h2>
           <p>General admission includes floor access for the full show. VIP packages add lounge access and merch pickup, but are not required for entry.</p>
         </div>
-        <div class="tr-status" id="selectionBadge">No ticket selected</div>
+        <div class="tr-status" id="selectionBadge" data-wci-role="display" data-wci-id="selectionbadge" data-wci-desc="Display value: No ticket selected" data-wci-state="{&quot;value&quot;:&quot;No ticket selected&quot;}" data-wci-priority="4" data-wci-scope="tr-panel">No ticket selected</div>
       </div>
 
       <div class="tr-listing">
-        <article class="tr-ticket-row is-recommended" data-event="neon-pulse">
+        <article class="tr-ticket-row is-recommended" data-event="neon-pulse" data-wci-role="landmark" data-wci-id="buy-neon-pulse-ga-scope" data-wci-desc="Target scope for buy-neon-pulse-ga" data-wci-state="{&quot;event&quot;:&quot;neon-pulse&quot;}" data-wci-priority="2">
           <div>
             <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
               <div>
@@ -183,20 +183,20 @@ table{border-collapse:collapse}
             </div>
             <div class="tr-card__actions" style="margin-top:14px">
               <label for="gaQty" style="margin:0">Quantity
-                <select id="gaQty" aria-label="General admission quantity">
+                <select id="gaQty" aria-label="General admission quantity" data-wci-role="form" data-wci-id="gaqty" data-wci-desc="Dropdown to select: Quantity 1 ticket 2 tickets 3 tickets 4 tickets" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;2 tickets&quot;}" data-wci-options="[&quot;1 ticket&quot;,&quot;2 tickets&quot;,&quot;3 tickets&quot;,&quot;4 tickets&quot;]" data-wci-priority="3" data-wci-scope="buy-neon-pulse-ga-scope">
                   <option value="1">1 ticket</option>
                   <option value="2" selected="">2 tickets</option>
                   <option value="3">3 tickets</option>
                   <option value="4">4 tickets</option>
                 </select>
               </label>
-              <button type="button" class="tr-btn tr-btn--primary" data-tickets="ga-2" id="buy-neon-pulse-ga" data-wci-id="buy-neon-pulse-ga" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to purchase two general admission tickets for Neon Pulse" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="concert_tickets-page">Confirm</button>
-              <button type="button" class="tr-btn" data-preview="ga">Preview charges</button>
+              <button type="button" class="tr-btn tr-btn--primary" data-tickets="ga-2" id="buy-neon-pulse-ga" data-wci-role="action" data-wci-id="buy-neon-pulse-ga" data-wci-desc="Purchase two general admission tickets for Neon Pulse tour (not VIP)." data-wci-action="click" data-wci-priority="1" data-wci-scope="buy-neon-pulse-ga-scope" data-wci-primary="true">Confirm</button>
+              <button type="button" class="tr-btn" data-preview="ga" data-wci-role="action" data-wci-id="preview-charges" data-wci-desc="Click to: Preview charges" data-wci-action="click" data-wci-priority="3" data-wci-scope="buy-neon-pulse-ga-scope">Preview charges</button>
             </div>
           </div>
         </article>
 
-        <article class="tr-ticket-row">
+        <article class="tr-ticket-row" data-wci-role="landmark" data-wci-id="tr-ticket-row" data-wci-desc="Section for: VIP Soundcheck Experience" data-wci-priority="3">
           <div>
             <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
               <div>
@@ -210,12 +210,12 @@ table{border-collapse:collapse}
               <span class="tr-pill">Separate check-in</span>
             </div>
             <div class="tr-card__actions">
-              <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">VIP upgrade</button>
+              <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="vip-upgrade" data-wci-desc="Click to: VIP upgrade" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-ticket-row">VIP upgrade</button>
             </div>
           </div>
         </article>
 
-        <article class="tr-card" id="venue">
+        <article class="tr-card" id="venue" data-wci-role="landmark" data-wci-id="tr-card" data-wci-desc="Section for: Venue details" data-wci-priority="3">
           <h3>Venue details</h3>
           <p>Harborline Pavilion is a covered waterfront venue with standing room floor sections, ADA platforms, mobile-only entry, and public transit drop-off two blocks east of Gate B.</p>
           <table aria-label="Venue facts">
@@ -230,41 +230,41 @@ table{border-collapse:collapse}
       </div>
     </section>
 
-    <aside class="tr-panel tr-cart" aria-label="Order summary">
+    <aside class="tr-panel tr-cart" aria-label="Order summary" data-wci-role="landmark" data-wci-id="tr-panel-2" data-wci-desc="Section for: Order summary" data-wci-priority="3">
       <h2 style="margin-top:0">Order summary</h2>
       <div class="tr-summary-line"><span>Selection</span><strong id="summaryLabel">None</strong></div>
       <div class="tr-summary-line"><span>Tickets</span><strong id="summaryTickets">0</strong></div>
-      <div class="tr-summary-line"><span>Subtotal</span><strong id="summarySubtotal">$0.00</strong></div>
-      <div class="tr-summary-line"><span>Service fees</span><strong id="summaryFees">$0.00</strong></div>
-      <div class="tr-summary-line"><span>Total</span><strong id="summaryTotal">$0.00</strong></div>
+      <div class="tr-summary-line"><span>Subtotal</span><strong id="summarySubtotal" data-wci-role="display" data-wci-id="summarysubtotal" data-wci-desc="Display value: $0.00" data-wci-state="{&quot;value&quot;:&quot;$0.00&quot;}" data-wci-priority="4" data-wci-scope="tr-panel-2">$0.00</strong></div>
+      <div class="tr-summary-line"><span>Service fees</span><strong id="summaryFees" data-wci-role="display" data-wci-id="summaryfees" data-wci-desc="Display value: $0.00" data-wci-state="{&quot;value&quot;:&quot;$0.00&quot;}" data-wci-priority="4" data-wci-scope="tr-panel-2">$0.00</strong></div>
+      <div class="tr-summary-line"><span>Total</span><strong id="summaryTotal" data-wci-role="display" data-wci-id="summarytotal" data-wci-desc="Display value: $0.00" data-wci-state="{&quot;value&quot;:&quot;$0.00&quot;}" data-wci-priority="4" data-wci-scope="tr-panel-2">$0.00</strong></div>
 
       <fieldset>
         <legend>Delivery</legend>
         <label for="deliveryMethod">Ticket delivery method
-          <select id="deliveryMethod">
+          <select id="deliveryMethod" data-wci-role="form" data-wci-id="deliverymethod" data-wci-desc="Dropdown to select: Ticket delivery method Mobile transfer Will call pickup" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Mobile transfer&quot;}" data-wci-options="[&quot;Mobile transfer&quot;,&quot;Will call pickup&quot;]" data-wci-priority="3" data-wci-scope="tr-panel-2">
             <option value="mobile">Mobile transfer</option>
             <option value="willcall">Will call pickup</option>
           </select>
         </label>
         <label for="buyerEmail">Email for receipt
-          <input id="buyerEmail" type="email" placeholder="name@example.com" autocomplete="email">
+          <input id="buyerEmail" type="email" placeholder="name@example.com" autocomplete="email" data-wci-role="form" data-wci-id="buyeremail" data-wci-desc="Field for: Email for receipt" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="tr-panel-2">
         </label>
-        <div id="emailError" class="tr-status tr-status--danger" style="display:none;margin-top:8px">Enter a valid email before checkout.</div>
+        <div id="emailError" class="tr-status tr-status--danger" style="display:none;margin-top:8px" data-wci-role="display" data-wci-id="emailerror" data-wci-desc="Display value: Enter a valid email before checkout." data-wci-state="{&quot;value&quot;:&quot;Enter a valid email before checkout.&quot;}" data-wci-priority="4" data-wci-scope="tr-panel-2">Enter a valid email before checkout.</div>
       </fieldset>
 
-      <label class="tr-check"><input id="agreeTerms" type="checkbox"> <span>I understand all sales are final and ticket limits apply.</span></label>
-      <label class="tr-check"><input id="smsOptIn" type="checkbox"> <span>Text me event updates and gate alerts.</span></label>
+      <label class="tr-check"><input id="agreeTerms" type="checkbox" data-wci-role="form" data-wci-id="agreeterms" data-wci-desc="Field for: I understand all sales are final and ticket limits apply." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="tr-panel-2"> <span>I understand all sales are final and ticket limits apply.</span></label>
+      <label class="tr-check"><input id="smsOptIn" type="checkbox" data-wci-role="form" data-wci-id="smsoptin" data-wci-desc="Field for: Text me event updates and gate alerts." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="tr-panel-2"> <span>Text me event updates and gate alerts.</span></label>
 
-      <div class="tr-alert" id="checkoutHint">Select a ticket option to continue.</div>
+      <div class="tr-alert" id="checkoutHint" data-wci-role="display" data-wci-id="checkouthint" data-wci-desc="Display value: Select a ticket option to continue." data-wci-state="{&quot;value&quot;:&quot;Select a ticket option to continue.&quot;}" data-wci-priority="4" data-wci-scope="tr-panel-2">Select a ticket option to continue.</div>
       <div class="tr-card__actions">
-        <button type="button" class="tr-btn tr-btn--primary" id="checkoutBtn" disabled="">Proceed to checkout</button>
-        <button type="button" class="tr-btn tr-btn--ghost" data-preview="summary">Refresh totals</button>
+        <button type="button" class="tr-btn tr-btn--primary" id="checkoutBtn" disabled="" data-wci-role="action" data-wci-id="checkoutbtn" data-wci-desc="Click to: Proceed to checkout" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-panel-2">Proceed to checkout</button>
+        <button type="button" class="tr-btn tr-btn--ghost" data-preview="summary" data-wci-role="action" data-wci-id="refresh-totals" data-wci-desc="Click to: Refresh totals" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-panel-2">Refresh totals</button>
       </div>
       <p class="tr-note" id="policies">By continuing, you agree to TicketRush Marketplace Terms, venue policies, and ticket transfer restrictions.</p>
     </aside>
   </div>
 
-  <section class="tr-panel" id="faq">
+  <section class="tr-panel" id="faq" data-wci-role="landmark" data-wci-id="tr-panel-3" data-wci-desc="Section for: Know before you go" data-wci-priority="3">
     <h2 style="margin-top:0">Know before you go</h2>
     <ul>
       <li><strong>Arrival:</strong> GA floor lines usually peak 45–60 minutes before doors.</li>
@@ -272,19 +272,19 @@ table{border-collapse:collapse}
       <li><strong>Accessibility:</strong> ADA assistance is available from the west guest services desk.</li>
     </ul>
   </section>
-</main></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored">
+</main></div><aside class="tr-rail tr-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="tr-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p style="margin:0 0 8px">Bundle parking and skip scanning delays with a premium arrival package.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost">Action 2</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost">Action 6</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost">Action 10</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost">Action 14</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost">Action 18</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost">Action 22</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost">Action 26</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost">Action 30</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost">Action 34</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost">Action 38</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost">Action 42</button><button type="button" class="tr-btn tr-btn--ghost">Submit</button><button type="button" class="tr-btn tr-btn--ghost">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="2" data-wci-scope="concert_tickets-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="tr-ftr"><small>© Demo TicketRush</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-rail">Partner offer — limited time</a><br>
+  <button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-rail">View deal</button>
+</aside></div><div class="tr-filler" aria-hidden="true"><div class="tr-filler-inner"><a href="/misc/0" class="tr-btn tr-btn--ghost">Link 1</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 2</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/4" class="tr-btn tr-btn--ghost">Link 5</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 6</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/8" class="tr-btn tr-btn--ghost">Link 9</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 10</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/12" class="tr-btn tr-btn--ghost">Link 13</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 14</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/16" class="tr-btn tr-btn--ghost">Link 17</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 18</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/20" class="tr-btn tr-btn--ghost">Link 21</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 22</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/24" class="tr-btn tr-btn--ghost">Link 25</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 26</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/28" class="tr-btn tr-btn--ghost">Link 29</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 30</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/32" class="tr-btn tr-btn--ghost">Link 33</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 34</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/36" class="tr-btn tr-btn--ghost">Link 37</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 38</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button><a href="/misc/40" class="tr-btn tr-btn--ghost">Link 41</a><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Action 42</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Submit</button><button type="button" class="tr-btn tr-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="concert_tickets-page">Continue</button></div></div><button type="button" class="tr-btn tr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="concert_tickets-page">Hidden promo</button><footer class="tr-ftr" data-wci-role="landmark" data-wci-id="tr-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo TicketRush</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tr-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 <div class="tr-overlay" id="modalOverlay"></div>
-<div class="tr-modal" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
-  <button type="button" class="tr-btn tr-btn--ghost tr-close" id="closeModal">Close</button>
+<div class="tr-modal" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle" data-wci-role="landmark" data-wci-id="tr-modal" data-wci-desc="Section for: Ticket preview" data-wci-priority="3">
+  <button type="button" class="tr-btn tr-btn--ghost tr-close" id="closeModal" data-wci-role="action" data-wci-id="closemodal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="tr-modal">Close</button>
   <h2 id="previewTitle" style="margin-top:0">Ticket preview</h2>
   <p id="modalBody">Charges preview will appear here.</p>
-  <div class="tr-status tr-status--success" id="modalStatus">Preview ready.</div>
+  <div class="tr-status tr-status--success" id="modalStatus" data-wci-role="display" data-wci-id="modalstatus" data-wci-desc="Display value: Preview ready." data-wci-state="{&quot;value&quot;:&quot;Preview ready.&quot;}" data-wci-priority="4" data-wci-scope="tr-modal">Preview ready.</div>
 </div>
 <script>
 (function(){

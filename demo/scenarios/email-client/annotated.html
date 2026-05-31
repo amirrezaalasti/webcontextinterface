@@ -158,85 +158,85 @@ h1,h2,h3,h4,p{margin:0}
 <title>InboxPro Mail</title>
 </head>
 <body>
-<a class="gm-skip" href="#email_client-page">Skip to inbox</a>
+<a class="gm-skip" href="#email_client-page" data-wci-role="nav" data-wci-id="skip-to-inbox" data-wci-desc="Navigate to: Skip to inbox" data-wci-action="navigate" data-wci-priority="4">Skip to inbox</a>
 
-<div class="gm-app ip-app" data-page="email-client" id="email_client-page" role="main" aria-label="InboxPro Mail" data-wci-id="email_client-page" data-wci-role="landmark" data-wci-desc="InboxPro Mail application root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="gm-cookie ip-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="gm-app ip-app" data-page="email-client" id="email_client-page" role="main" aria-label="InboxPro Mail" data-wci-role="landmark" data-wci-id="email_client-page" data-wci-desc="InboxPro Mail — Gmail-style inbox with categories, compose, labels, and generic toolbar Confirm for archive action." data-wci-priority="2">
+  <div class="gm-cookie ip-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="gm-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads.</p>
-    <button type="button" class="ip-btn ip-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-    <button type="button" class="ip-btn ip-btn--primary" data-cookie-action="accept">Accept all</button>
-    <button type="button" class="ip-btn ip-btn--ghost" data-cookie-action="customize">Customize</button>
+    <button type="button" class="ip-btn ip-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-cookie">Reject non-essential</button>
+    <button type="button" class="ip-btn ip-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-cookie">Accept all</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-cookie">Customize</button>
   </div>
 
   <div class="ip-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="ip-btn ip-btn--primary">COMPLETE ORDER NOW</button>
+    <button type="button" class="ip-btn ip-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">COMPLETE ORDER NOW</button>
   </div>
 
-  <header class="gm-topbar">
+  <header class="gm-topbar" data-wci-role="landmark" data-wci-id="gm-topbar" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="gm-topbar__left">
-      <button type="button" class="gm-icon-btn" id="menu-toggle" aria-label="Main menu">☰</button>
+      <button type="button" class="gm-icon-btn" id="menu-toggle" aria-label="Main menu" data-wci-role="action" data-wci-id="menu-toggle" data-wci-desc="Click to: ☰" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">☰</button>
       <div class="gm-brand" aria-label="InboxPro Mail">
         <div class="gm-logo">M</div>
         <span class="gm-brand__text">InboxPro Mail</span>
       </div>
     </div>
     <div class="gm-search" role="search">
-      <button type="button" class="gm-icon-btn gm-search__toggle" id="search-options-btn" aria-label="Search options">⚙</button>
-      <input id="mail-search" type="search" placeholder="Search mail" aria-label="Search mail">
-      <button type="button" class="gm-icon-btn" id="search-btn" aria-label="Search">🔍</button>
+      <button type="button" class="gm-icon-btn gm-search__toggle" id="search-options-btn" aria-label="Search options" data-wci-role="action" data-wci-id="search-options-btn" data-wci-desc="Click to: ⚙" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">⚙</button>
+      <input id="mail-search" type="search" placeholder="Search mail" aria-label="Search mail" data-wci-role="form" data-wci-id="mail-search" data-wci-desc="Field for: Unread only" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="gm-topbar">
+      <button type="button" class="gm-icon-btn" id="search-btn" aria-label="Search" data-wci-role="action" data-wci-id="search-btn" data-wci-desc="Click to: 🔍" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">🔍</button>
       <div class="gm-search__panel hidden" id="search-options-panel">
-        <label><input type="checkbox" id="search-unread"> Unread only</label>
-        <label><input type="checkbox" id="search-attachments"> Has attachment</label>
-        <label><input type="checkbox" id="search-starred"> Starred</label>
+        <label><input type="checkbox" id="search-unread" data-wci-role="form" data-wci-id="search-unread" data-wci-desc="Field for: Unread only" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-topbar"> Unread only</label>
+        <label><input type="checkbox" id="search-attachments" data-wci-role="form" data-wci-id="search-attachments" data-wci-desc="Field for: Has attachment" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-topbar"> Has attachment</label>
+        <label><input type="checkbox" id="search-starred" data-wci-role="form" data-wci-id="search-starred" data-wci-desc="Field for: Starred" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-topbar"> Starred</label>
       </div>
     </div>
     <div class="gm-topbar__right">
-      <span class="gm-badge" id="header-new-count">3 new</span>
-      <button type="button" class="gm-icon-btn" id="help-btn" aria-label="Help">?</button>
-      <button type="button" class="gm-icon-btn" id="settings-btn" aria-label="Settings">⚙</button>
-      <button type="button" class="gm-avatar" aria-label="Account">AR</button>
-      <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional action not related to archiving the billing thread" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
+      <span class="gm-badge" id="header-new-count" data-wci-role="display" data-wci-id="header-new-count" data-wci-desc="Display value: 3 new" data-wci-state="{&quot;value&quot;:&quot;3 new&quot;}" data-wci-priority="4" data-wci-scope="gm-topbar">3 new</span>
+      <button type="button" class="gm-icon-btn" id="help-btn" aria-label="Help" data-wci-role="action" data-wci-id="help-btn" data-wci-desc="Click to: ?" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">?</button>
+      <button type="button" class="gm-icon-btn" id="settings-btn" aria-label="Settings" data-wci-role="action" data-wci-id="settings-btn" data-wci-desc="Click to: ⚙" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">⚙</button>
+      <button type="button" class="gm-avatar" aria-label="Account" data-wci-role="action" data-wci-id="ar" data-wci-desc="Click to: AR" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-topbar">AR</button>
+      <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="gm-topbar">Claim Offer</button>
     </div>
   </header>
 
   <div class="ip-dup-row" aria-label="Quick actions">
-    <button type="button" class="ip-btn ip-btn--ghost">Submit</button>
-    <button type="button" class="ip-btn ip-btn--ghost">Continue</button>
-    <button type="button" class="ip-btn ip-btn--ghost">Save changes</button>
-    <button type="button" class="ip-btn ip-btn--ghost">Confirm</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Submit</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Continue</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Save changes</button>
+    <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Confirm</button>
   </div>
 
   <div class="ip-dup-row" aria-label="Keyword decoys">
-    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo">Archive billing thread</button>
-    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav">Archive billing@acme.com</button>
-    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Extra decoy archive-themed control unrelated to the real thread tool action" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-state="{&quot;ready&quot;:true}">Archive acme billing</button>
+    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="archive-billing-thread-2" data-wci-desc="Click to: Archive billing thread — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-competitor="true">Archive billing thread</button>
+    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="archive-billing-acme-com" data-wci-desc="Click to: Archive billing@acme.com — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="email_client-page" data-wci-competitor="true">Archive billing@acme.com</button>
+    <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="email_client-page">Archive acme billing</button>
     <span class="gm-muted">Keyword decoys for search noise.</span>
   </div>
 
   <div class="gm-shell">
-    <aside class="gm-sidebar" id="gm-sidebar" aria-label="Folders and labels">
-      <button type="button" class="gm-compose ip-btn ip-btn--primary" id="compose-btn">
+    <aside class="gm-sidebar" id="gm-sidebar" aria-label="Folders and labels" data-wci-role="landmark" data-wci-id="gm-sidebar" data-wci-desc="Landmark zone: gm-sidebar" data-wci-priority="3">
+      <button type="button" class="gm-compose ip-btn ip-btn--primary" id="compose-btn" data-wci-role="action" data-wci-id="compose-btn" data-wci-desc="Click to: ✎ Compose" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar">
         <span class="gm-compose__icon">✎</span> Compose
       </button>
-      <nav class="gm-nav">
-        <button type="button" class="gm-nav__item gm-nav__item--active" data-folder="inbox">
-          <span>📥</span> Inbox <span class="gm-nav__count" id="sidebar-inbox-count">3</span>
+      <nav class="gm-nav" data-wci-role="nav" data-wci-id="gm-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+        <button type="button" class="gm-nav__item gm-nav__item--active" data-folder="inbox" data-wci-role="action" data-wci-id="inbox-3" data-wci-desc="Click to: 📥 Inbox 3" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav">
+          <span>📥</span> Inbox <span class="gm-nav__count" id="sidebar-inbox-count" data-wci-role="display" data-wci-id="sidebar-inbox-count" data-wci-desc="Display value: 3" data-wci-state="{&quot;value&quot;:&quot;3&quot;}" data-wci-priority="4" data-wci-scope="gm-nav">3</span>
         </button>
-        <button type="button" class="gm-nav__item" data-folder="starred"><span>⭐</span> Starred</button>
-        <button type="button" class="gm-nav__item" data-folder="snoozed"><span>🕐</span> Snoozed</button>
-        <button type="button" class="gm-nav__item" data-folder="sent"><span>📤</span> Sent</button>
-        <button type="button" class="gm-nav__item" data-folder="drafts"><span>📝</span> Drafts <span class="gm-nav__count">2</span></button>
-        <button type="button" class="gm-nav__item" data-folder="archive"><span>📦</span> Archive</button>
-        <button type="button" class="gm-nav__item" data-folder="spam"><span>⚠</span> Spam</button>
-        <button type="button" class="gm-nav__item" data-folder="trash"><span>🗑</span> Trash</button>
+        <button type="button" class="gm-nav__item" data-folder="starred" data-wci-role="action" data-wci-id="starred" data-wci-desc="Click to: ⭐ Starred" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>⭐</span> Starred</button>
+        <button type="button" class="gm-nav__item" data-folder="snoozed" data-wci-role="action" data-wci-id="snoozed" data-wci-desc="Click to: 🕐 Snoozed" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>🕐</span> Snoozed</button>
+        <button type="button" class="gm-nav__item" data-folder="sent" data-wci-role="action" data-wci-id="sent" data-wci-desc="Click to: 📤 Sent" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>📤</span> Sent</button>
+        <button type="button" class="gm-nav__item" data-folder="drafts" data-wci-role="action" data-wci-id="drafts-2" data-wci-desc="Click to: 📝 Drafts 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>📝</span> Drafts <span class="gm-nav__count" data-wci-role="display" data-wci-id="gm-nav-count" data-wci-desc="Display value: 2" data-wci-state="{&quot;value&quot;:&quot;2&quot;}" data-wci-priority="4" data-wci-scope="gm-nav">2</span></button>
+        <button type="button" class="gm-nav__item" data-folder="archive" data-wci-role="action" data-wci-id="archive" data-wci-desc="Click to: 📦 Archive" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>📦</span> Archive</button>
+        <button type="button" class="gm-nav__item" data-folder="spam" data-wci-role="action" data-wci-id="spam" data-wci-desc="Click to: ⚠ Spam" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>⚠</span> Spam</button>
+        <button type="button" class="gm-nav__item" data-folder="trash" data-wci-role="action" data-wci-id="trash" data-wci-desc="Click to: 🗑 Trash" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-nav"><span>🗑</span> Trash</button>
       </nav>
       <div class="gm-labels">
         <div class="gm-labels__title">Labels</div>
-        <button type="button" class="gm-label" data-label="finance"><span class="gm-label__dot gm-label__dot--green"></span> Finance</button>
-        <button type="button" class="gm-label" data-label="billing"><span class="gm-label__dot gm-label__dot--red"></span> Billing</button>
-        <button type="button" class="gm-label" data-label="team"><span class="gm-label__dot gm-label__dot--blue"></span> Team</button>
-        <button type="button" class="gm-label" data-label="travel"><span class="gm-label__dot gm-label__dot--yellow"></span> Travel</button>
-        <button type="button" class="gm-label gm-label--add" id="add-label-btn">+ Create label</button>
+        <button type="button" class="gm-label" data-label="finance" data-wci-role="action" data-wci-id="finance" data-wci-desc="Click to: Finance" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar"><span class="gm-label__dot gm-label__dot--green"></span> Finance</button>
+        <button type="button" class="gm-label" data-label="billing" data-wci-role="action" data-wci-id="billing" data-wci-desc="Click to: Billing" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar"><span class="gm-label__dot gm-label__dot--red"></span> Billing</button>
+        <button type="button" class="gm-label" data-label="team" data-wci-role="action" data-wci-id="team" data-wci-desc="Click to: Team" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar"><span class="gm-label__dot gm-label__dot--blue"></span> Team</button>
+        <button type="button" class="gm-label" data-label="travel" data-wci-role="action" data-wci-id="travel" data-wci-desc="Click to: Travel" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar"><span class="gm-label__dot gm-label__dot--yellow"></span> Travel</button>
+        <button type="button" class="gm-label gm-label--add" id="add-label-btn" data-wci-role="action" data-wci-id="add-label-btn" data-wci-desc="Click to: + Create label" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-sidebar">+ Create label</button>
       </div>
       <div class="gm-sidebar__footer">
         <div class="gm-storage">
@@ -248,7 +248,7 @@ h1,h2,h3,h4,p{margin:0}
 
     <div class="gm-main">
       <div class="gm-status-bar ip-status-bar" aria-label="Mailbox status">
-        <div class="ip-status-msg">Finance priority inbox active. Select the unread billing@acme.com thread to review archive tools.</div>
+        <div class="ip-status-msg" data-wci-role="display" data-wci-id="ip-status-msg" data-wci-desc="Display value: Finance priority inbox active. Select the unread billing@acme.com thread to review archive tools." data-wci-state="{&quot;value&quot;:&quot;Finance priority inbox active. Select the unread billing@acme.com thread to review archive tools.&quot;}" data-wci-priority="4" data-wci-scope="email_client-page">Finance priority inbox active. Select the unread billing@acme.com thread to review archive tools.</div>
         <div id="email-client-smoke-status" data-smoke-status="">Idle · no archive action yet</div>
       </div>
 
@@ -260,75 +260,75 @@ h1,h2,h3,h4,p{margin:0}
       </div>
 
       <div class="gm-tabs" role="tablist" aria-label="Inbox categories">
-        <button type="button" class="gm-tab gm-tab--active" data-category="primary" role="tab">Primary</button>
-        <button type="button" class="gm-tab" data-category="promotions" role="tab">Promotions</button>
-        <button type="button" class="gm-tab" data-category="social" role="tab">Social</button>
-        <button type="button" class="gm-tab" data-category="updates" role="tab">Updates</button>
+        <button type="button" class="gm-tab gm-tab--active" data-category="primary" role="tab" data-wci-role="action" data-wci-id="primary" data-wci-desc="Click to: Primary" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Primary</button>
+        <button type="button" class="gm-tab" data-category="promotions" role="tab" data-wci-role="action" data-wci-id="promotions" data-wci-desc="Click to: Promotions" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Promotions</button>
+        <button type="button" class="gm-tab" data-category="social" role="tab" data-wci-role="action" data-wci-id="social" data-wci-desc="Click to: Social" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Social</button>
+        <button type="button" class="gm-tab" data-category="updates" role="tab" data-wci-role="action" data-wci-id="updates" data-wci-desc="Click to: Updates" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Updates</button>
       </div>
 
       <div class="gm-toolbar" id="list-toolbar">
-        <label class="gm-check"><input type="checkbox" id="select-all"> <span class="gm-skip">Select all</span></label>
-        <button type="button" class="gm-icon-btn" id="refresh-mail" title="Refresh">↻</button>
-        <button type="button" class="gm-icon-btn" id="bulk-archive" title="Archive" disabled="">📦</button>
-        <button type="button" class="gm-icon-btn" id="bulk-delete" title="Delete" disabled="">🗑</button>
-        <button type="button" class="gm-icon-btn" id="mark-all-read" title="Mark all read">✉</button>
-        <button type="button" class="gm-icon-btn" id="bulk-snooze" title="Snooze" disabled="">🕐</button>
-        <button type="button" class="gm-icon-btn" id="bulk-label" title="Label" disabled="">🏷</button>
+        <label class="gm-check"><input type="checkbox" id="select-all" data-wci-role="form" data-wci-id="select-all" data-wci-desc="Field for: Select all" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="email_client-page"> <span class="gm-skip">Select all</span></label>
+        <button type="button" class="gm-icon-btn" id="refresh-mail" title="Refresh" data-wci-role="action" data-wci-id="refresh-mail" data-wci-desc="Click to: ↻" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">↻</button>
+        <button type="button" class="gm-icon-btn" id="bulk-archive" title="Archive" disabled="" data-wci-role="action" data-wci-id="bulk-archive" data-wci-desc="Click to: 📦" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">📦</button>
+        <button type="button" class="gm-icon-btn" id="bulk-delete" title="Delete" disabled="" data-wci-role="action" data-wci-id="bulk-delete" data-wci-desc="Click to: 🗑" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">🗑</button>
+        <button type="button" class="gm-icon-btn" id="mark-all-read" title="Mark all read" data-wci-role="action" data-wci-id="mark-all-read" data-wci-desc="Click to: ✉" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">✉</button>
+        <button type="button" class="gm-icon-btn" id="bulk-snooze" title="Snooze" disabled="" data-wci-role="action" data-wci-id="bulk-snooze" data-wci-desc="Click to: 🕐" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">🕐</button>
+        <button type="button" class="gm-icon-btn" id="bulk-label" title="Label" disabled="" data-wci-role="action" data-wci-id="bulk-label" data-wci-desc="Click to: 🏷" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">🏷</button>
         <span class="gm-toolbar__spacer"></span>
         <span class="gm-muted" id="mailbox-count-text">1–6 of 12</span>
-        <button type="button" class="gm-icon-btn" id="prev-page" title="Newer">◀</button>
-        <button type="button" class="gm-icon-btn" id="next-page" title="Older">▶</button>
+        <button type="button" class="gm-icon-btn" id="prev-page" title="Newer" data-wci-role="action" data-wci-id="prev-page" data-wci-desc="Click to: ◀" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">◀</button>
+        <button type="button" class="gm-icon-btn" id="next-page" title="Older" data-wci-role="action" data-wci-id="next-page" data-wci-desc="Click to: ▶" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">▶</button>
       </div>
       <div class="gm-help" id="search-feedback">Tip: try “acme”, “invoice”, or “unread”.</div>
 
       <div class="gm-split">
-        <section class="gm-list-pane" aria-label="Mail list">
+        <section class="gm-list-pane" aria-label="Mail list" data-wci-role="landmark" data-wci-id="gm-list-pane" data-wci-desc="Landmark zone for section" data-wci-priority="3">
           <table class="ip-inbox ip-list gm-list" role="grid" aria-label="Conversation list" id="conversation-table">
             <thead class="gm-skip"><tr><th>From</th><th>Subject</th><th>Preview</th><th>Tags</th><th>Date</th></tr></thead>
             <tbody>
               <tr data-thread="digest" data-domain="digest.com" data-category="digest" data-unread="false" data-tab="promotions" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star" data-wci-role="action" data-wci-id="button" data-wci-desc="Click to: ☆" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">☆</button></td>
                 <td class="gm-row__from">news@digest.com</td>
                 <td class="gm-row__subject"><span class="gm-subject">Weekly roundup</span> <span class="gm-snippet">— Five updates you may have missed</span></td>
                 <td class="gm-row__tags"><span class="ip-chip">Digest</span></td>
                 <td class="gm-row__date">08:14</td>
               </tr>
               <tr class="unread is-selected" data-thread="billing-acme" data-domain="acme.com" data-category="billing" data-unread="true" data-tab="primary" aria-selected="true" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox-2" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star" data-wci-role="action" data-wci-id="button-2" data-wci-desc="Click to: ☆" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">☆</button></td>
                 <td class="gm-row__from">billing@acme.com</td>
                 <td class="gm-row__subject"><span class="gm-subject">Invoice #992 due today</span> <span class="gm-snippet">— Payment reminder for enterprise plan</span></td>
                 <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
                 <td class="gm-row__date">09:21</td>
               </tr>
               <tr data-thread="social" data-domain="social.io" data-category="social" data-unread="false" data-tab="social" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn gm-star-btn--on" aria-label="Unstar">★</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox-3" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn gm-star-btn--on" aria-label="Unstar" data-wci-role="action" data-wci-id="button-3" data-wci-desc="Click to: ★" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">★</button></td>
                 <td class="gm-row__from">noreply@social.io</td>
                 <td class="gm-row__subject"><span class="gm-subject">3 new mentions</span> <span class="gm-snippet">— Social notifications and reactions</span></td>
                 <td class="gm-row__tags"><span class="ip-chip">Social</span></td>
                 <td class="gm-row__date">09:40</td>
               </tr>
               <tr data-thread="support" data-domain="helpdesk.net" data-category="support" data-unread="false" data-tab="updates" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox-4" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star" data-wci-role="action" data-wci-id="button-4" data-wci-desc="Click to: ☆" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">☆</button></td>
                 <td class="gm-row__from">support@helpdesk.net</td>
                 <td class="gm-row__subject"><span class="gm-subject">Ticket update</span> <span class="gm-snippet">— We updated your case #1184</span></td>
                 <td class="gm-row__tags"><span class="ip-chip">Support</span></td>
                 <td class="gm-row__date">10:02</td>
               </tr>
               <tr class="unread" data-thread="billing-contoso" data-domain="contoso.com" data-category="billing" data-unread="true" data-tab="primary" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox-5" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star" data-wci-role="action" data-wci-id="button-5" data-wci-desc="Click to: ☆" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">☆</button></td>
                 <td class="gm-row__from">billing@contoso.com</td>
                 <td class="gm-row__subject"><span class="gm-subject">Card on file failed</span> <span class="gm-snippet">— Retry scheduled for tomorrow morning</span></td>
                 <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip ip-chip--secure">Finance</span></td>
                 <td class="gm-row__date">10:14</td>
               </tr>
               <tr class="unread" data-thread="digest-acme" data-domain="acme.com" data-category="digest" data-unread="true" data-tab="promotions" tabindex="0">
-                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select"></td>
-                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star">☆</button></td>
+                <td class="gm-row__check"><input type="checkbox" class="row-check" aria-label="Select" data-wci-role="form" data-wci-id="input-checkbox-6" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="gm-list-pane"></td>
+                <td class="gm-row__star"><button type="button" class="gm-star-btn" aria-label="Star" data-wci-role="action" data-wci-id="button-6" data-wci-desc="Click to: ☆" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-list-pane">☆</button></td>
                 <td class="gm-row__from">digest@acme.com</td>
                 <td class="gm-row__subject"><span class="gm-subject">Monthly product digest</span> <span class="gm-snippet">— Feature highlights and release notes</span></td>
                 <td class="gm-row__tags"><span class="ip-chip ip-chip--unread">Unread</span><span class="ip-chip">Digest</span></td>
@@ -338,14 +338,14 @@ h1,h2,h3,h4,p{margin:0}
           </table>
         </section>
 
-        <section class="gm-read-pane ip-thread-preview" aria-label="Selected message preview" id="thread-preview">
+        <section class="gm-read-pane ip-thread-preview" aria-label="Selected message preview" id="thread-preview" data-wci-role="landmark" data-wci-id="gm-read-pane" data-wci-desc="Section for: Invoice #992 due today" data-wci-priority="3">
           <div class="gm-read__header">
             <h2 id="preview-subject">Invoice #992 due today</h2>
             <div class="gm-read__actions">
-              <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
-              <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
-              <button type="button" class="ip-btn ip-btn--ghost" id="toggle-read">Mark unread</button>
-              <button type="button" class="ip-btn ip-btn--ghost" id="snooze-btn">Snooze</button>
+              <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="reply" data-wci-desc="Click to: Reply" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-read-pane">Reply</button>
+              <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="forward" data-wci-desc="Click to: Forward" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-read-pane">Forward</button>
+              <button type="button" class="ip-btn ip-btn--ghost" id="toggle-read" data-wci-role="action" data-wci-id="toggle-read" data-wci-desc="Click to: Mark unread" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-read-pane">Mark unread</button>
+              <button type="button" class="ip-btn ip-btn--ghost" id="snooze-btn" data-wci-role="action" data-wci-id="snooze-btn" data-wci-desc="Click to: Snooze" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-read-pane">Snooze</button>
             </div>
           </div>
           <div class="ip-thread-meta gm-read__meta">
@@ -366,7 +366,7 @@ h1,h2,h3,h4,p{margin:0}
       </div>
 
       <div class="gm-thread-panel ip-frame">
-        <aside class="gm-thread-aside" aria-label="Folders and filters">
+        <aside class="gm-thread-aside" aria-label="Folders and filters" data-wci-role="landmark" data-wci-id="gm-thread-aside" data-wci-desc="Section for: Folders" data-wci-priority="3">
           <h2>Folders</h2>
           <ul class="gm-thread-list">
             <li>Inbox</li><li>Archive</li><li>Important</li><li>Drafts</li><li>Spam</li>
@@ -378,25 +378,25 @@ h1,h2,h3,h4,p{margin:0}
           <div class="ip-banner ip-banner--warn">Sender domain alone is not enough. Avoid digest and social notifications when archiving.</div>
         </aside>
 
-        <main aria-label="Conversation details">
-          <article class="ip-panel gm-thread-detail">
+        <main aria-label="Conversation details" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Thread details" data-wci-priority="3">
+          <article class="ip-panel gm-thread-detail" data-wci-role="landmark" data-wci-id="ip-panel" data-wci-desc="Section for: Thread details" data-wci-priority="3">
             <h2>Thread details</h2>
             <p><strong id="details-sender">billing@acme.com</strong> from <strong id="details-domain">acme.com</strong> is the active unread conversation. This is the thread to archive.</p>
             <p class="gm-muted" id="details-note">Avoid digest and social notifications; they are separate rows with similar action wording.</p>
-            <div class="ip-toolbar gm-thread-tools" data-action-bar="thread-tools" aria-label="Thread tools">
-              <button type="button" class="ip-btn ip-btn--ghost">Reply</button>
-              <button type="button" class="ip-btn ip-btn--ghost">Forward</button>
-              <button type="button" class="ip-btn ip-btn--primary" id="archive-billing-thread" data-wci-id="archive-billing-thread" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary Confirm button in thread tools used to archive the selected billing thread" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="email_client-page">Confirm</button>
-              <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-promo">Upgrade storage</button>
-              <button type="button" class="ip-btn ip-btn--ghost">Archive</button>
+            <div class="ip-toolbar gm-thread-tools" data-action-bar="thread-tools" aria-label="Thread tools" data-wci-role="landmark" data-wci-id="archive-billing-thread-scope" data-wci-desc="Target scope for archive-billing-thread" data-wci-state="{&quot;action-bar&quot;:&quot;thread-tools&quot;}" data-wci-priority="2">
+              <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="reply-2" data-wci-desc="Click to: Reply" data-wci-action="click" data-wci-priority="3" data-wci-scope="archive-billing-thread-scope">Reply</button>
+              <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="forward-2" data-wci-desc="Click to: Forward" data-wci-action="click" data-wci-priority="3" data-wci-scope="archive-billing-thread-scope">Forward</button>
+              <button type="button" class="ip-btn ip-btn--primary" id="archive-billing-thread" data-wci-role="action" data-wci-id="archive-billing-thread" data-wci-desc="Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications)." data-wci-action="click" data-wci-priority="1" data-wci-scope="archive-billing-thread-scope" data-wci-primary="true">Confirm</button>
+              <button type="button" class="ip-btn ip-btn--ghost" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="upgrade-storage" data-wci-desc="Click to: Upgrade storage" data-wci-action="click" data-wci-priority="3" data-wci-scope="archive-billing-thread-scope">Upgrade storage</button>
+              <button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="archive-2" data-wci-desc="Click to: Archive" data-wci-action="click" data-wci-priority="3" data-wci-scope="archive-billing-thread-scope">Archive</button>
             </div>
             <div class="ip-toolbar-note" id="tools-feedback">Primary confirm archives the currently selected thread after a quick reason check.</div>
           </article>
 
-          <article class="ip-panel ip-stack gm-checklist" aria-label="Archive checklist">
+          <article class="ip-panel ip-stack gm-checklist" aria-label="Archive checklist" data-wci-role="landmark" data-wci-id="ip-panel-2" data-wci-desc="Section for: Archive checklist" data-wci-priority="3">
             <h3>Archive checklist</h3>
             <label for="archive-reason">Reason for archive</label>
-            <select id="archive-reason" aria-describedby="archive-reason-help archive-reason-error">
+            <select id="archive-reason" aria-describedby="archive-reason-help archive-reason-error" data-wci-role="form" data-wci-id="archive-reason" data-wci-desc="Dropdown to select: Reason for archive" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Choose a reason&quot;}" data-wci-options="[&quot;Choose a reason&quot;,&quot;Invoice reviewed and filed&quot;,&quot;Duplicate billing reminder&quot;,&quot;Issue resolved with sender&quot;]" data-wci-priority="3" data-wci-scope="ip-panel-2">
               <option value="">Choose a reason</option>
               <option value="processed">Invoice reviewed and filed</option>
               <option value="duplicate">Duplicate billing reminder</option>
@@ -404,11 +404,11 @@ h1,h2,h3,h4,p{margin:0}
             </select>
             <div class="ip-help" id="archive-reason-help">Required before confirming from thread tools.</div>
             <div class="ip-error" id="archive-reason-error" aria-live="polite"></div>
-            <label><input type="checkbox" id="archive-attachments"> Keep attachments available in archive</label>
+            <label><input type="checkbox" id="archive-attachments" data-wci-role="form" data-wci-id="archive-attachments" data-wci-desc="Field for: Keep attachments available in archive" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="ip-panel-2"> Keep attachments available in archive</label>
           </article>
         </main>
 
-        <aside class="ip-pane gm-context" aria-label="Context panel">
+        <aside class="ip-pane gm-context" aria-label="Context panel" data-wci-role="landmark" data-wci-id="ip-pane" data-wci-desc="Section for: Message" data-wci-priority="3">
           <h2>Message</h2>
           <p id="context-message">Invoice attached. Please confirm receipt and archive this thread after review.</p>
           <div class="ip-panel gm-context-card">
@@ -425,15 +425,15 @@ h1,h2,h3,h4,p{margin:0}
       </div>
     </div>
 
-    <aside class="gm-rail" aria-label="Google apps">
-      <button type="button" class="gm-rail__app" title="Calendar">📅</button>
-      <button type="button" class="gm-rail__app" title="Keep">📌</button>
-      <button type="button" class="gm-rail__app" title="Tasks">✓</button>
-      <button type="button" class="gm-rail__app" title="Contacts">👤</button>
+    <aside class="gm-rail" aria-label="Google apps" data-wci-role="landmark" data-wci-id="gm-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
+      <button type="button" class="gm-rail__app" title="Calendar" data-wci-role="action" data-wci-id="button-7" data-wci-desc="Click to: 📅" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-rail">📅</button>
+      <button type="button" class="gm-rail__app" title="Keep" data-wci-role="action" data-wci-id="button-8" data-wci-desc="Click to: 📌" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-rail">📌</button>
+      <button type="button" class="gm-rail__app" title="Tasks" data-wci-role="action" data-wci-id="button-9" data-wci-desc="Click to: ✓" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-rail">✓</button>
+      <button type="button" class="gm-rail__app" title="Contacts" data-wci-role="action" data-wci-id="button-10" data-wci-desc="Click to: 👤" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-rail">👤</button>
       <div class="gm-rail__promo ip-rail">
         <strong>Sponsored</strong>
         <p>Upgrade to InboxPro Teams for shared labels and invoice previews.</p>
-        <a href="#">See plans</a>
+        <a href="#" data-wci-role="nav" data-wci-id="see-plans" data-wci-desc="Navigate to: See plans" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gm-rail">See plans</a>
         <p class="gm-muted" id="rail-activity">No archive changes recorded in this session.</p>
       </div>
     </aside>
@@ -441,59 +441,59 @@ h1,h2,h3,h4,p{margin:0}
 
   <div class="ip-filler" aria-hidden="true">
     <div class="ip-filler-inner">
-      <a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost">Action 6</button><button type="button" class="ip-btn ip-btn--ghost">Submit</button><button type="button" class="ip-btn ip-btn--ghost">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost">Action 10</button>
+      <a href="/misc/0" class="ip-btn ip-btn--ghost">Link 1</a><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Submit</button><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Continue</button><a href="/misc/4" class="ip-btn ip-btn--ghost">Link 5</a><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Action 6</button><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Submit</button><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Continue</button><a href="/misc/8" class="ip-btn ip-btn--ghost">Link 9</a><button type="button" class="ip-btn ip-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Action 10</button>
     </div>
   </div>
 
-  <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden">Hidden promo</button>
+  <button type="button" class="ip-btn ip-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra-2" data-wci-desc="Click to: Hidden promo" data-wci-action="click" data-wci-priority="3" data-wci-scope="email_client-page">Hidden promo</button>
 
   <div class="gm-modal-backdrop ip-modal-backdrop" id="compose-backdrop" aria-hidden="true">
-    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="compose-title">
+    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="compose-title" data-wci-role="landmark" data-wci-id="gm-modal" data-wci-desc="Section for: New Message" data-wci-priority="3">
       <div class="gm-modal__header">
         <h3 id="compose-title">New Message</h3>
-        <button type="button" class="gm-icon-btn" id="close-compose">×</button>
+        <button type="button" class="gm-icon-btn" id="close-compose" data-wci-role="action" data-wci-id="close-compose" data-wci-desc="Click to: ×" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal">×</button>
       </div>
-      <div class="gm-form-row"><label for="compose-to">To</label><input id="compose-to" type="email" placeholder="Recipients"></div>
-      <div class="gm-form-row"><label for="compose-subject">Subject</label><input id="compose-subject" type="text" placeholder="Subject"></div>
-      <div class="gm-form-row"><label for="compose-body">Body</label><textarea id="compose-body" rows="8" placeholder="Write your message…"></textarea></div>
+      <div class="gm-form-row"><label for="compose-to">To</label><input id="compose-to" type="email" placeholder="Recipients" data-wci-role="form" data-wci-id="compose-to" data-wci-desc="Field for: To" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="gm-modal"></div>
+      <div class="gm-form-row"><label for="compose-subject">Subject</label><input id="compose-subject" type="text" placeholder="Subject" data-wci-role="form" data-wci-id="compose-subject" data-wci-desc="Field for: Subject" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="gm-modal"></div>
+      <div class="gm-form-row"><label for="compose-body">Body</label><textarea id="compose-body" rows="8" placeholder="Write your message…" data-wci-role="form" data-wci-id="compose-body" data-wci-desc="Text area for: Body" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="gm-modal"></textarea></div>
       <div class="gm-modal__footer">
-        <button type="button" class="ip-btn ip-btn--primary" id="send-compose">Send</button>
-        <button type="button" class="ip-btn ip-btn--ghost" id="save-draft">Save draft</button>
-        <button type="button" class="ip-btn ip-btn--ghost" id="discard-compose">Discard</button>
+        <button type="button" class="ip-btn ip-btn--primary" id="send-compose" data-wci-role="action" data-wci-id="send-compose" data-wci-desc="Click to: Send" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal">Send</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="save-draft" data-wci-role="action" data-wci-id="save-draft" data-wci-desc="Click to: Save draft" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal">Save draft</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="discard-compose" data-wci-role="action" data-wci-id="discard-compose" data-wci-desc="Click to: Discard" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal">Discard</button>
       </div>
     </div>
   </div>
 
   <div class="gm-modal-backdrop ip-modal-backdrop" id="snooze-backdrop" aria-hidden="true">
-    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="snooze-title">
+    <div class="gm-modal ip-modal" role="dialog" aria-labelledby="snooze-title" data-wci-role="landmark" data-wci-id="gm-modal-2" data-wci-desc="Section for: Snooze until" data-wci-priority="3">
       <h3 id="snooze-title">Snooze until</h3>
       <div class="gm-snooze-options">
-        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="later">Later today</button>
-        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="tomorrow">Tomorrow</button>
-        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="week">Next week</button>
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="later" data-wci-role="action" data-wci-id="later-today" data-wci-desc="Click to: Later today" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal-2">Later today</button>
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="tomorrow" data-wci-role="action" data-wci-id="tomorrow" data-wci-desc="Click to: Tomorrow" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal-2">Tomorrow</button>
+        <button type="button" class="ip-btn ip-btn--ghost gm-snooze-opt" data-snooze="week" data-wci-role="action" data-wci-id="next-week" data-wci-desc="Click to: Next week" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal-2">Next week</button>
       </div>
-      <button type="button" class="ip-btn ip-btn--ghost" id="cancel-snooze">Cancel</button>
+      <button type="button" class="ip-btn ip-btn--ghost" id="cancel-snooze" data-wci-role="action" data-wci-id="cancel-snooze" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="gm-modal-2">Cancel</button>
     </div>
   </div>
 
   <div class="gm-modal-backdrop ip-modal-backdrop" id="archive-modal-backdrop" aria-hidden="true">
-    <div class="ip-modal gm-modal" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title">
+    <div class="ip-modal gm-modal" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title" data-wci-role="landmark" data-wci-id="ip-modal" data-wci-desc="Section for: Archive thread" data-wci-priority="3">
       <h3 id="archive-modal-title">Archive thread</h3>
       <p id="archive-modal-copy">You're about to archive the selected conversation.</p>
       <div class="ip-form-row">
         <label for="archive-confirm-input">Type ARCHIVE to continue</label>
-        <input id="archive-confirm-input" type="text" autocomplete="off" placeholder="ARCHIVE">
+        <input id="archive-confirm-input" type="text" autocomplete="off" placeholder="ARCHIVE" data-wci-role="form" data-wci-id="archive-confirm-input" data-wci-desc="Field for: Type ARCHIVE to continue" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="ip-modal">
         <div class="ip-error" id="archive-confirm-error" aria-live="polite"></div>
       </div>
       <div class="gm-modal__footer">
-        <button type="button" class="ip-btn ip-btn--ghost" id="cancel-archive-modal">Cancel</button>
-        <button type="button" class="ip-btn ip-btn--primary" id="confirm-archive-modal">Archive now</button>
+        <button type="button" class="ip-btn ip-btn--ghost" id="cancel-archive-modal" data-wci-role="action" data-wci-id="cancel-archive-modal" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="ip-modal">Cancel</button>
+        <button type="button" class="ip-btn ip-btn--primary" id="confirm-archive-modal" data-wci-role="action" data-wci-id="confirm-archive-modal" data-wci-desc="Click to: Archive now" data-wci-action="click" data-wci-priority="3" data-wci-scope="ip-modal">Archive now</button>
       </div>
     </div>
   </div>
 
-  <footer class="gm-footer ip-ftr">
-    <small>© Demo InboxPro Mail</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <footer class="gm-footer ip-ftr" data-wci-role="landmark" data-wci-id="gm-footer" data-wci-desc="Landmark zone for footer" data-wci-priority="3">
+    <small>© Demo InboxPro Mail</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gm-footer">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gm-footer">Terms</a>
   </footer>
 </div>
 

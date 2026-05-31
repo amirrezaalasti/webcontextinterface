@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benchmark Scenarios — WCI</title>
+  <meta name="description" content="Browse all 50 WCI benchmark scenarios — raw HTML and annotated pages with interactive data-wci-* inspection." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./logo.png" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./scenarios-viewer.css" />
+</head>
+<body class="scenarios-page">
+
+<header class="scenarios-toolbar">
+  <div class="scenarios-toolbar__inner">
+    <a href="./index.html" class="scenarios-toolbar__brand">
+      <img src="./logo.png" alt="" width="28" height="28" decoding="async" />
+      <span>WCI Scenarios</span>
+    </a>
+    <nav class="scenarios-toolbar__nav" aria-label="Site">
+      <a href="./index.html">Demo home</a>
+      <a href="./index.html#eval-results">Results</a>
+      <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset ↗</a>
+      <a href="#" id="scenarios-docs-link">Docs ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="scenarios-layout">
+  <aside class="scenarios-sidebar" aria-label="Scenario list">
+    <div class="scenarios-sidebar__filters">
+      <input type="search" id="scenario-search" class="scenarios-search" placeholder="Search scenarios…" autocomplete="off" />
+      <div class="scenarios-filter-row" id="tier-filters" role="group" aria-label="Filter by tier">
+        <button type="button" class="scenarios-filter-chip is-active" data-tier="all">All</button>
+        <button type="button" class="scenarios-filter-chip" data-tier="handmade">Handmade (5)</button>
+        <button type="button" class="scenarios-filter-chip" data-tier="synthetic">Synthetic (45)</button>
+      </div>
+      <div class="scenarios-filter-row" id="difficulty-filters" role="group" aria-label="Filter by difficulty">
+        <button type="button" class="scenarios-filter-chip is-active" data-difficulty="all">All</button>
+        <button type="button" class="scenarios-filter-chip" data-difficulty="easy">Easy</button>
+        <button type="button" class="scenarios-filter-chip" data-difficulty="medium">Medium</button>
+        <button type="button" class="scenarios-filter-chip" data-difficulty="hard">Hard</button>
+      </div>
+      <span class="scenarios-sidebar__count" id="scenario-count">50 scenarios</span>
+    </div>
+    <ul class="scenarios-list" id="scenario-list" role="listbox" aria-label="Scenarios"></ul>
+  </aside>
+
+  <main class="scenarios-main" id="scenario-main">
+    <div class="scenarios-main__header" id="scenario-header" hidden>
+      <div class="scenarios-main__title-row">
+        <span class="scenarios-main__icon" id="scenario-icon" aria-hidden="true"></span>
+        <div>
+          <h1 class="scenarios-main__title" id="scenario-title">—</h1>
+          <div class="scenarios-main__meta-row" id="scenario-meta-row" hidden>
+            <span class="scenarios-main__tier" id="scenario-tier"></span>
+            <span class="scenarios-main__difficulty" id="scenario-difficulty"></span>
+          </div>
+          <div class="scenarios-main__id" id="scenario-id"></div>
+        </div>
+      </div>
+      <p class="scenarios-main__desc" id="scenario-desc"></p>
+      <div class="scenarios-main__task" id="scenario-task" hidden>
+        <strong>Benchmark task:</strong> <span id="scenario-task-goal"></span>
+      </div>
+    </div>
+
+    <div class="scenarios-controls" id="scenario-controls" hidden>
+      <div class="scenarios-view-tabs" role="tablist" aria-label="HTML variant">
+        <button type="button" class="scenarios-view-tab is-active" data-view="raw" role="tab" aria-selected="true">Raw HTML</button>
+        <button type="button" class="scenarios-view-tab" data-view="annotated" role="tab" aria-selected="false">Annotated (WCI)</button>
+      </div>
+      <label class="scenarios-wci-toggle is-disabled" id="wci-inspect-mode-label">
+        <input type="checkbox" id="wci-inspect-mode" checked disabled />
+        Inspect mode
+      </label>
+      <label class="scenarios-wci-toggle is-disabled" id="wci-show-all-label">
+        <input type="checkbox" id="wci-highlight-toggle" checked disabled />
+        Show outlines
+      </label>
+      <span class="scenarios-wci-count" id="wci-node-count" hidden></span>
+    </div>
+
+    <div class="scenarios-preview" id="viewer-layout">
+      <div class="scenarios-viewer-pane">
+        <div class="scenarios-viewer-wrap is-empty" id="viewer-wrap">
+          <p class="scenarios-empty-msg" id="viewer-empty">Select a scenario from the list to preview its page.</p>
+          <p class="scenarios-loading" id="scenario-loading" hidden>Loading…</p>
+          <iframe id="scenario-iframe" class="scenarios-iframe" title="Scenario preview" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" hidden></iframe>
+          <div class="wci-inspect-layer" id="wci-inspect-layer" hidden aria-hidden="true"></div>
+          <div class="wci-highlight" id="wci-highlight" hidden aria-hidden="true">
+            <span class="wci-highlight__tag" id="wci-highlight-tag"></span>
+          </div>
+        </div>
+        <p class="scenarios-viewer-hint" id="wci-inspect-hint" hidden>Inspect mode on — hover elements to view attributes, click to select</p>
+      </div>
+
+      <aside class="wci-inspector" id="wci-inspector" hidden aria-label="WCI inspector">
+        <div class="wci-inspector__header">
+          <div>
+            <h2 class="wci-inspector__title">WCI Inspector</h2>
+            <p class="wci-inspector__subtitle" id="wci-inspector-status">No element selected</p>
+          </div>
+          <button type="button" class="wci-inspector__clear" id="wci-clear-btn" hidden>Clear</button>
+        </div>
+
+        <label class="wci-inspector__picker">
+          <span class="wci-inspector__picker-label">Jump to node</span>
+          <select id="wci-node-picker" class="wci-inspector__select" disabled>
+            <option value="">— select a WCI node —</option>
+          </select>
+        </label>
+
+        <div class="wci-inspector__body">
+          <div class="wci-inspector__empty" id="wci-inspector-empty">
+            <p>Hover or click an annotated element in the preview.</p>
+          </div>
+          <div class="wci-inspector__content" id="wci-inspector-content" hidden>
+            <div class="wci-inspector__node" id="wci-inspector-node"></div>
+            <div class="wci-inspector__role-row" id="wci-inspector-role-row"></div>
+            <p class="wci-inspector__desc" id="wci-inspector-desc"></p>
+            <div class="wci-inspector__attrs" id="wci-inspector-attrs"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <details class="scenarios-challenges" id="scenario-challenges" hidden>
+      <summary>Design challenges (<span id="challenges-count">0</span>)</summary>
+      <ul id="challenges-list"></ul>
+    </details>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('scenarios-docs-link');
+    if (!el) return;
+    var path = location.pathname.replace(/\/?demo\/?.*$/, '/');
+    el.href = path || '/';
+  })();
+</script>
+<script type="module" src="./scenarios-viewer.ts"></script>
+</body>
+</html>

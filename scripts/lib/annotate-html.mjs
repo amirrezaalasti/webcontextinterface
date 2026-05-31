@@ -112,6 +112,38 @@ export function injectAnnotationTargets(rawHtml, targets, opts = {}) {
   return dom.serialize();
 }
 
+function findScopeContainer(el) {
+  let node = el.parentElement;
+  while (node && node.tagName !== 'BODY') {
+    const dataAttrs = [...node.attributes].filter(
+      (a) =>
+        a.name.startsWith('data-') &&
+        !a.name.startsWith('data-wci-') &&
+        a.name !== 'data-decoy' &&
+        a.name !== 'data-page'
+    );
+    if (dataAttrs.length >= 1 && /^(ARTICLE|SECTION|TR|LI|DIV)$/i.test(node.tagName)) {
+      return {
+        el: node,
+        state: Object.fromEntries(dataAttrs.map((a) => [a.name.replace(/^data-/, ''), a.value])),
+      };
+    }
+    node = node.parentElement;
+  }
+  return null;
+}
+
+function applyWciTarget(el, target, defaults) {
+  const role = target.role ?? defaults.role;
+  el.setAttribute('data-wci-role', role);
+  el.setAttribute('data-wci-id', target.wciId);
+  el.setAttribute('data-wci-desc', target.desc);
+  if (target.action) el.setAttribute('data-wci-action', target.action);
+  if (target.state) el.setAttribute('data-wci-state', JSON.stringify(target.state));
+  if (target.scope) el.setAttribute('data-wci-scope', target.scope);
+  el.setAttribute('data-wci-priority', String(target.priority ?? defaults.priority));
+}
+
 /**
  * @param {string} rawHtml
  * @param {AnnotationPlan} plan
@@ -126,22 +158,37 @@ export function buildAnnotatedFromRaw(rawHtml, plan) {
     if (!el) {
       throw new Error(`Annotation target not found: ${target.selector} (${target.wciId})`);
     }
-    const role = target.role ?? defaults.role;
-    el.setAttribute('data-wci-role', role);
-    el.setAttribute('data-wci-id', target.wciId);
-    el.setAttribute('data-wci-desc', target.desc);
-    if (target.action) el.setAttribute('data-wci-action', target.action);
-    if (target.state) el.setAttribute('data-wci-state', JSON.stringify(target.state));
-    if (target.scope) el.setAttribute('data-wci-scope', target.scope);
-    el.setAttribute('data-wci-priority', String(target.priority ?? defaults.priority));
+    applyWciTarget(el, target, defaults);
+    return el;
   };
 
   apply(plan.pageLandmark, { role: 'landmark', priority: 2 });
-  apply(plan.primary, { role: 'action', priority: 1 });
+
+  const primaryEl = apply(plan.primary, { role: 'action', priority: 1 });
   if (!plan.primary.action) {
-    const el = doc.querySelector(plan.primary.selector);
-    el?.setAttribute('data-wci-action', 'click');
-    el?.setAttribute('data-wci-state', JSON.stringify(plan.primary.state ?? { ready: true }));
+    primaryEl.setAttribute('data-wci-action', 'click');
+    primaryEl.setAttribute(
+      'data-wci-state',
+      JSON.stringify(plan.primary.state ?? { ready: true })
+    );
+  }
+
+  const scopeFromPlan = plan.landmarks?.find((lm) => lm.wciId === plan.primary.scope);
+  if (!scopeFromPlan && !plan.primary.scope) {
+    const scopeContainer = findScopeContainer(primaryEl);
+    if (scopeContainer) {
+      const scopeId = `${plan.primary.wciId}-scope`;
+      applyWciTarget(scopeContainer.el, {
+        wciId: scopeId,
+        desc: `Target scope for ${plan.primary.wciId}`,
+        state: scopeContainer.state,
+        role: 'landmark',
+        priority: 2,
+      }, { role: 'landmark', priority: 2 });
+      primaryEl.setAttribute('data-wci-scope', scopeId);
+    }
+  } else if (plan.primary.scope) {
+    primaryEl.setAttribute('data-wci-scope', plan.primary.scope);
   }
 
   for (const d of plan.decoys ?? []) {

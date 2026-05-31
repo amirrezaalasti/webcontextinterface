@@ -90,55 +90,55 @@ table{border-collapse:collapse}
 .pw-switch{display:flex;align-items:center;gap:8px;margin:8px 0}
 .pw-preview{padding:10px 12px;border:1px dashed #cbd5e1;border-radius:8px;background:#fcfcff;color:#334155;font-size:13px}
 </style></head><body>
-<div class="pw-app" data-page="podcast-subscribe" id="podcast_subscribe-page" data-wci-id="podcast_subscribe-page" data-wci-role="landmark" data-wci-desc="Podcast subscription show page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="pw-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+<div class="pw-app" data-page="podcast-subscribe" id="podcast_subscribe-page" data-wci-role="landmark" data-wci-id="podcast_subscribe-page" data-wci-desc="PodWave — Show page." data-wci-priority="2">
+  <div class="pw-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner" data-wci-role="landmark" data-wci-id="pw-cookie" data-wci-desc="Landmark zone: cookieBanner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and occasional partner placements across PodWave. Manage preferences or accept to continue.</p>
-    <button type="button" class="pw-btn pw-btn--muted" id="cookieReject">Reject non-essential</button>
-    <button type="button" class="pw-btn pw-btn--primary" id="cookieAccept">Accept all</button>
-    <button type="button" class="pw-btn pw-btn--ghost" id="cookieCustomize">Customize</button>
+    <button type="button" class="pw-btn pw-btn--muted" id="cookieReject" data-wci-role="action" data-wci-id="cookiereject" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-cookie">Reject non-essential</button>
+    <button type="button" class="pw-btn pw-btn--primary" id="cookieAccept" data-wci-role="action" data-wci-id="cookieaccept" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-cookie">Accept all</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="cookieCustomize" data-wci-role="action" data-wci-id="cookiecustomize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-cookie">Customize</button>
   </div>
 
   <div class="pw-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="pw-btn pw-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="pw-btn">Continue as guest — express</button>
+    <button type="button" class="pw-btn pw-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="pw-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Continue as guest — express</button>
   </div>
 
-  <header class="pw-hdr">
-    <nav class="pw-nav" aria-label="Global">
-      <a href="#">Discover</a><a href="#">Charts</a><a href="#">Creators</a><a href="#">Library</a><a href="#">Account</a>
+  <header class="pw-hdr" data-wci-role="landmark" data-wci-id="pw-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+    <nav class="pw-nav" aria-label="Global" data-wci-role="nav" data-wci-id="pw-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="#" data-wci-role="nav" data-wci-id="discover" data-wci-desc="Navigate to: Discover" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-nav">Discover</a><a href="#" data-wci-role="nav" data-wci-id="charts" data-wci-desc="Navigate to: Charts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-nav">Charts</a><a href="#" data-wci-role="nav" data-wci-id="creators" data-wci-desc="Navigate to: Creators" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-nav">Creators</a><a href="#" data-wci-role="nav" data-wci-id="library" data-wci-desc="Navigate to: Library" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-nav">Library</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-nav">Account</a>
     </nav>
     <div class="pw-hdr-promo">
-      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional trial or offer action" data-wci-priority="2" data-wci-scope="podcast_subscribe-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-      <button type="button" class="pw-btn pw-btn--ghost" data-decoy="decoy-nav">Learn More</button>
+      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="pw-hdr">Claim Offer</button>
+      <button type="button" class="pw-btn pw-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="pw-subnav" aria-label="Secondary">
-    <a href="#about">About the show</a><a href="#episodes">Episodes</a><a href="#reviews">Reviews</a><a href="#host">Host</a><a href="#similar">Similar shows</a>
-    <button type="button" class="pw-btn pw-btn--ghost" id="shareBtn">Share</button>
-    <button type="button" class="pw-btn pw-btn--ghost" id="saveBtn">Save</button>
+  <nav class="pw-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="pw-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#about" data-wci-role="nav" data-wci-id="about-the-show" data-wci-desc="Navigate to: About the show" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-subnav">About the show</a><a href="#episodes" data-wci-role="nav" data-wci-id="episodes" data-wci-desc="Navigate to: Episodes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-subnav">Episodes</a><a href="#reviews" data-wci-role="nav" data-wci-id="reviews" data-wci-desc="Navigate to: Reviews" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-subnav">Reviews</a><a href="#host" data-wci-role="nav" data-wci-id="host" data-wci-desc="Navigate to: Host" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-subnav">Host</a><a href="#similar" data-wci-role="nav" data-wci-id="similar-shows" data-wci-desc="Navigate to: Similar shows" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-subnav">Similar shows</a>
+    <button type="button" class="pw-btn pw-btn--ghost" id="shareBtn" data-wci-role="action" data-wci-id="sharebtn" data-wci-desc="Click to: Share" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-subnav">Share</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="saveBtn" data-wci-role="action" data-wci-id="savebtn" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-subnav">Save</button>
   </nav>
 
   <div class="pw-dup-row" aria-label="Quick actions">
-    <button type="button" class="pw-btn pw-btn--ghost" id="playSampleBtn">Play latest</button>
-    <button type="button" class="pw-btn pw-btn--ghost" id="followCreatorBtn">Follow creator</button>
-    <button type="button" class="pw-btn pw-btn--ghost">Add to queue</button>
-    <button type="button" class="pw-btn pw-btn--ghost">Report</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="playSampleBtn" data-wci-role="action" data-wci-id="playsamplebtn" data-wci-desc="Click to: Play latest" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Play latest</button>
+    <button type="button" class="pw-btn pw-btn--ghost" id="followCreatorBtn" data-wci-role="action" data-wci-id="followcreatorbtn" data-wci-desc="Click to: Follow creator" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Follow creator</button>
+    <button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="add-to-queue" data-wci-desc="Click to: Add to queue" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Add to queue</button>
+    <button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="report" data-wci-desc="Click to: Report" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Report</button>
   </div>
 
   <div class="pw-dup-row">
-    <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Start 30-day trial</button>
-    <button type="button" class="pw-btn pw-btn--ghost">Upgrade for ad-free</button>
+    <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="start-30-day-trial" data-wci-desc="Click to: Start 30-day trial" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Start 30-day trial</button>
+    <button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="upgrade-for-ad-free" data-wci-desc="Click to: Upgrade for ad-free" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Upgrade for ad-free</button>
   </div>
 
   <div class="pw-page-wrap">
     <div class="pw-page-main">
-      <article role="main" class="pw-hero" data-show="ai-daily">
+      <article role="main" class="pw-hero" data-show="ai-daily" data-wci-role="landmark" data-wci-id="subscribe-ai-daily-scope" data-wci-desc="Target scope for subscribe-ai-daily" data-wci-state="{&quot;show&quot;:&quot;ai-daily&quot;}" data-wci-priority="2">
         <div class="pw-cover" aria-hidden="true">AI<br>DAILY</div>
         <div>
           <div class="pw-badges">
-            <span class="pw-badge pw-badge--live">Updated every weekday</span>
-            <span class="pw-badge pw-badge--muted" id="followStateBadge">Not subscribed</span>
+            <span class="pw-badge pw-badge--live" data-wci-role="display" data-wci-id="pw-badge" data-wci-desc="Display value: Updated every weekday" data-wci-state="{&quot;value&quot;:&quot;Updated every weekday&quot;}" data-wci-priority="4" data-wci-scope="subscribe-ai-daily-scope">Updated every weekday</span>
+            <span class="pw-badge pw-badge--muted" id="followStateBadge" data-wci-role="display" data-wci-id="followstatebadge" data-wci-desc="Display value: Not subscribed" data-wci-state="{&quot;value&quot;:&quot;Not subscribed&quot;}" data-wci-priority="4" data-wci-scope="subscribe-ai-daily-scope">Not subscribed</span>
           </div>
           <h1>AI Daily</h1>
           <div class="pw-meta">
@@ -149,16 +149,16 @@ table{border-collapse:collapse}
           </div>
           <p>Your concise morning briefing on AI launches, model releases, research breakthroughs, regulation, and practical tools for work. Hosted by Maya Chen and the PodWave editorial team.</p>
           <div class="pw-status-line">
-            <button type="button" class="pw-btn pw-btn--primary" data-subscribe="ai-daily" id="subscribe-ai-daily" data-wci-id="subscribe-ai-daily" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary subscribe action for the AI Daily show feed" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="podcast_subscribe-page">Subscribe</button>
-            <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">Free trial</button>
-            <span class="pw-status-box" id="podcast-subscribe-smoke-status" data-smoke-status="">Ready to subscribe to AI Daily.</span>
+            <button type="button" class="pw-btn pw-btn--primary" data-subscribe="ai-daily" id="subscribe-ai-daily" data-wci-role="action" data-wci-id="subscribe-ai-daily" data-wci-desc="Subscribe to the AI Daily show feed (not free trial promo)." data-wci-action="click" data-wci-priority="1" data-wci-scope="subscribe-ai-daily-scope" data-wci-primary="true">Subscribe</button>
+            <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="free-trial" data-wci-desc="Click to: Free trial — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="subscribe-ai-daily-scope" data-wci-competitor="true">Free trial</button>
+            <span class="pw-status-box" id="podcast-subscribe-smoke-status" data-smoke-status="" data-wci-role="display" data-wci-id="podcast-subscribe-smoke-status" data-wci-desc="Display value: Ready to subscribe to AI Daily." data-wci-state="{&quot;value&quot;:&quot;Ready to subscribe to AI Daily.&quot;}" data-wci-priority="4" data-wci-scope="subscribe-ai-daily-scope">Ready to subscribe to AI Daily.</span>
           </div>
           <p class="pw-inline-note">Subscribing follows the show feed and adds new episodes to your library. This is separate from any premium trial or paid membership.</p>
         </div>
       </article>
 
       <div class="pw-split">
-        <section class="pw-card" id="about">
+        <section class="pw-card" id="about" data-wci-role="landmark" data-wci-id="pw-card" data-wci-desc="Section for: About this show" data-wci-priority="3">
           <h2>About this show</h2>
           <p>AI Daily turns the noise of the AI ecosystem into a clear, practical update you can finish before your first meeting. Each episode summarizes the news that matters, gives context on why it matters now, and closes with one practical takeaway.</p>
           <div class="pw-kpi">
@@ -168,20 +168,20 @@ table{border-collapse:collapse}
           </div>
         </section>
 
-        <section class="pw-card">
+        <section class="pw-card" data-wci-role="landmark" data-wci-id="pw-card-2" data-wci-desc="Section for: Subscription preferences" data-wci-priority="3">
           <h2>Subscription preferences</h2>
-          <form id="notifyForm" novalidate="">
+          <form id="notifyForm" novalidate="" data-wci-role="landmark" data-wci-id="notifyform" data-wci-desc="Landmark zone: notifyForm" data-wci-priority="3">
             <label for="emailInput">Email for release alerts</label>
-            <input id="emailInput" name="email" type="email" placeholder="you@example.com" aria-describedby="emailHelp emailError">
+            <input id="emailInput" name="email" type="email" placeholder="you@example.com" aria-describedby="emailHelp emailError" data-wci-role="form" data-wci-id="emailinput" data-wci-desc="Field for: Email for release alerts" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="notifyform">
             <div id="emailHelp" class="pw-inline-note">Optional. Receive a quick alert when a new episode drops.</div>
             <div id="emailError" class="pw-inline-note pw-error" aria-live="polite"></div>
 
             <div class="pw-switch">
-              <input id="episodeAlerts" type="checkbox" checked="">
+              <input id="episodeAlerts" type="checkbox" checked="" data-wci-role="form" data-wci-id="episodealerts" data-wci-desc="Field for: Send me new episode notifications" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="notifyform">
               <label for="episodeAlerts" style="margin:0">Send me new episode notifications</label>
             </div>
             <div class="pw-switch">
-              <input id="breakingAlerts" type="checkbox">
+              <input id="breakingAlerts" type="checkbox" data-wci-role="form" data-wci-id="breakingalerts" data-wci-desc="Field for: Send occasional breaking AI news alerts" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="notifyform">
               <label for="breakingAlerts" style="margin:0">Send occasional breaking AI news alerts</label>
             </div>
             <div class="pw-preview" id="alertPreview">Preview: New episodes only.</div>
@@ -189,7 +189,7 @@ table{border-collapse:collapse}
         </section>
       </div>
 
-      <section class="pw-card" id="episodes">
+      <section class="pw-card" id="episodes" data-wci-role="landmark" data-wci-id="pw-card-3" data-wci-desc="Section for: Recent episodes" data-wci-priority="3">
         <h2>Recent episodes</h2>
         <table aria-label="Recent AI Daily episodes">
           <thead><tr><th>Episode</th><th>Summary</th><th>Length</th></tr></thead>
@@ -201,7 +201,7 @@ table{border-collapse:collapse}
         </table>
       </section>
 
-      <section class="pw-card" id="reviews">
+      <section class="pw-card" id="reviews" data-wci-role="landmark" data-wci-id="pw-card-4" data-wci-desc="Section for: Listener reviews" data-wci-priority="3">
         <h2>Listener reviews</h2>
         <ul class="pw-list-tight">
           <li><strong>“Actually useful.”</strong> Short enough to finish, dense enough to matter.</li>
@@ -210,23 +210,23 @@ table{border-collapse:collapse}
         </ul>
       </section>
 
-      <section class="pw-card" id="host">
+      <section class="pw-card" id="host" data-wci-role="landmark" data-wci-id="pw-card-5" data-wci-desc="Section for: Host &amp; editorial notes" data-wci-priority="3">
         <h2>Host &amp; editorial notes</h2>
         <p>Maya Chen is a former product lead turned technology journalist covering applied AI, developer tooling, and enterprise adoption. PodWave’s editorial desk verifies claims from primary sources and updates show notes when stories evolve.</p>
       </section>
     </div>
 
-    <aside class="pw-rail pw-rail--ads" aria-label="Sponsored">
+    <aside class="pw-rail pw-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="pw-rail" data-wci-desc="Section for: Show details" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
       <p>Try PodWave Premium for ad-free listening, offline downloads, and early access playlists.</p>
-      <a href="#">Partner offer — limited time</a><br>
-      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo">View deal</button>
-      <section class="pw-card" style="margin-top:14px">
+      <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-rail">Partner offer — limited time</a><br>
+      <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-rail">View deal</button>
+      <section class="pw-card" style="margin-top:14px" data-wci-role="landmark" data-wci-id="pw-card-6" data-wci-desc="Section for: Show details" data-wci-priority="3">
         <h3 style="margin-top:0">Show details</h3>
         <p class="pw-mini">Language: English<br>Category: Technology<br>Published by: PodWave Originals</p>
-        <button type="button" class="pw-btn pw-btn--ghost" id="openInfoBtn">What does subscribe do?</button>
+        <button type="button" class="pw-btn pw-btn--ghost" id="openInfoBtn" data-wci-role="action" data-wci-id="openinfobtn" data-wci-desc="Click to: What does subscribe do?" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-card-6">What does subscribe do?</button>
       </section>
-      <section class="pw-card" id="similar">
+      <section class="pw-card" id="similar" data-wci-role="landmark" data-wci-id="pw-card-7" data-wci-desc="Section for: Listeners also follow" data-wci-priority="3">
         <h3 style="margin-top:0">Listeners also follow</h3>
         <ul class="pw-list-tight">
           <li>Practical ML Weekly</li>
@@ -237,20 +237,20 @@ table{border-collapse:collapse}
     </aside>
   </div>
 
-  <div class="pw-filler" aria-hidden="true"><div class="pw-filler-inner"><a href="#" class="pw-btn pw-btn--ghost">Link 1</a><button type="button" class="pw-btn pw-btn--ghost">Action 2</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="#" class="pw-btn pw-btn--ghost">Link 5</a><button type="button" class="pw-btn pw-btn--ghost">Action 6</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button><a href="#" class="pw-btn pw-btn--ghost">Link 9</a><button type="button" class="pw-btn pw-btn--ghost">Action 10</button><button type="button" class="pw-btn pw-btn--ghost">Submit</button><button type="button" class="pw-btn pw-btn--ghost">Continue</button></div></div>
+  <div class="pw-filler" aria-hidden="true"><div class="pw-filler-inner"><a href="#" class="pw-btn pw-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="podcast_subscribe-page">Link 1</a><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Action 2</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Submit</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Continue</button><a href="#" class="pw-btn pw-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="podcast_subscribe-page">Link 5</a><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Action 6</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Submit</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Continue</button><a href="#" class="pw-btn pw-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="podcast_subscribe-page">Link 9</a><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Action 10</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Submit</button><button type="button" class="pw-btn pw-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="podcast_subscribe-page">Continue</button></div></div>
 
-  <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promotional element" data-wci-priority="2" data-wci-scope="podcast_subscribe-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="pw-btn pw-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="podcast_subscribe-page">Hidden promo</button>
 
   <div class="pw-overlay" id="modalOverlay"></div>
-  <div class="pw-modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle" aria-describedby="infoModalDesc">
+  <div class="pw-modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle" aria-describedby="infoModalDesc" data-wci-role="landmark" data-wci-id="pw-modal" data-wci-desc="Section for: Subscribing vs. free trial" data-wci-priority="3">
     <h2 id="infoModalTitle" style="margin-top:0">Subscribing vs. free trial</h2>
     <p id="infoModalDesc">Subscribing follows the AI Daily show feed so new episodes appear in your library. A free trial is a separate premium promotion and is not required to subscribe to this show.</p>
     <div class="pw-card__actions">
-      <button type="button" class="pw-btn pw-btn--primary" id="closeInfoBtn">Got it</button>
+      <button type="button" class="pw-btn pw-btn--primary" id="closeInfoBtn" data-wci-role="action" data-wci-id="closeinfobtn" data-wci-desc="Click to: Got it" data-wci-action="click" data-wci-priority="3" data-wci-scope="pw-modal">Got it</button>
     </div>
   </div>
 
-  <footer class="pw-ftr"><small>© Demo PodWave</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="pw-ftr" data-wci-role="landmark" data-wci-id="pw-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo PodWave</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pw-ftr">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 </div>
 

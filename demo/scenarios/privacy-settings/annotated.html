@@ -98,63 +98,63 @@ table{border-collapse:collapse}
 .pd-modal{max-width:560px;width:100%}
 .pd-modal h3{margin-top:0}
 </style></head><body>
-<div class="pd-app" data-page="privacy-settings" id="privacy_settings-page" data-wci-id="privacy_settings-page" data-wci-role="landmark" data-wci-desc="Privacy settings application root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="pd-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="pd-app" data-page="privacy-settings" id="privacy_settings-page" data-wci-role="landmark" data-wci-id="privacy_settings-page" data-wci-desc="PrivacyDesk — Toggle rows." data-wci-priority="2">
+  <div class="pd-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="pd-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-    <button type="button" class="pd-btn pd-btn--muted" id="cookie-reject">Reject non-essential</button>
-    <button type="button" class="pd-btn pd-btn--primary" id="cookie-accept">Accept all</button>
-    <button type="button" class="pd-btn pd-btn--ghost" id="cookie-customize">Customize</button>
+    <button type="button" class="pd-btn pd-btn--muted" id="cookie-reject" data-wci-role="action" data-wci-id="cookie-reject" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-cookie">Reject non-essential</button>
+    <button type="button" class="pd-btn pd-btn--primary" id="cookie-accept" data-wci-role="action" data-wci-id="cookie-accept" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-cookie">Accept all</button>
+    <button type="button" class="pd-btn pd-btn--ghost" id="cookie-customize" data-wci-role="action" data-wci-id="cookie-customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-cookie">Customize</button>
   </div>
 
   <div class="pd-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="pd-btn pd-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="pd-btn">Continue as guest — express</button>
+    <button type="button" class="pd-btn pd-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="pd-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue as guest — express</button>
   </div>
 
-  <header class="pd-hdr">
+  <header class="pd-hdr" data-wci-role="landmark" data-wci-id="pd-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="pd-brand" aria-label="PrivacyDesk home"><span class="pd-brand-mark" aria-hidden="true"></span><span>PrivacyDesk</span></div>
-    <nav class="pd-nav" aria-label="Global">
-      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/trust">Trust Center</a>
+    <nav class="pd-nav" aria-label="Global" data-wci-role="nav" data-wci-id="pd-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-nav">Home</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-nav">Account</a><a href="/trust" data-wci-role="nav" data-wci-id="trust-center" data-wci-desc="Navigate to: Trust Center" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-nav">Trust Center</a>
     </nav>
     <div class="pd-hdr-promo">
-      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-      <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation/button elements unrelated to the required privacy save action" data-wci-priority="2" data-wci-scope="privacy_settings-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-hdr">Claim Offer</button>
+      <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="pd-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="pd-subnav" aria-label="Secondary">
-    <a href="#">Overview</a><a href="#">Reports</a><a href="#" aria-current="page">Settings</a><a href="#">Billing</a><a href="#">Support</a>
-    <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
-    <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
+  <nav class="pd-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="pd-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="reports" data-wci-desc="Navigate to: Reports" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-subnav">Reports</a><a href="#" aria-current="page" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-subnav">Settings</a><a href="#" data-wci-role="nav" data-wci-id="billing" data-wci-desc="Navigate to: Billing" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-subnav">Billing</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-subnav">Support</a>
+    <button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-subnav">Submit</button>
+    <button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-subnav">Continue</button>
   </nav>
 
   <div class="pd-dup-row" aria-label="Quick actions">
-    <button type="button" class="pd-btn pd-btn--ghost">Submit</button>
-    <button type="button" class="pd-btn pd-btn--ghost">Continue</button>
-    <button type="button" class="pd-btn pd-btn--ghost">Save changes</button>
-    <button type="button" class="pd-btn pd-btn--ghost" id="open-export">Download</button>
+    <button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button>
+    <button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button>
+    <button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Save changes</button>
+    <button type="button" class="pd-btn pd-btn--ghost" id="open-export" data-wci-role="action" data-wci-id="open-export" data-wci-desc="Click to: Download" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Download</button>
   </div>
 
   <div class="pd-dup-row">
-    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">Disable third-party sharing</button>
-    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-nav">Save disable third party</button>
+    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="disable-third-party-sharing" data-wci-desc="Click to: Disable third-party sharing — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="privacy_settings-page" data-wci-competitor="true">Disable third-party sharing</button>
+    <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="save-disable-third-party" data-wci-desc="Click to: Save disable third party — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="privacy_settings-page" data-wci-competitor="true">Save disable third party</button>
   </div>
 
   <div class="pd-page-wrap">
     <div class="pd-page-main">
-      <main role="main" class="pd-layout" aria-label="Privacy settings main content">
+      <main role="main" class="pd-layout" aria-label="Privacy settings main content" data-wci-role="landmark" data-wci-id="pd-layout" data-wci-desc="Section for: Privacy controls" data-wci-priority="3">
         <div class="pd-headerbar">
           <div>
             <h1>Privacy controls</h1>
             <p>Control how your workspace uses analytics, diagnostics, partner enrichment, and advertising signals. Changes below apply to this account immediately after save.</p>
           </div>
           <div>
-            <div class="pd-badge pd-badge--warn" id="review-badge">Review required</div>
-            <div class="pd-inline-count" id="enabled-counter">3 sharing features active</div>
+            <div class="pd-badge pd-badge--warn" id="review-badge" data-wci-role="display" data-wci-id="review-badge" data-wci-desc="Display value: Review required" data-wci-state="{&quot;value&quot;:&quot;Review required&quot;}" data-wci-priority="4" data-wci-scope="pd-layout">Review required</div>
+            <div class="pd-inline-count" id="enabled-counter" data-wci-role="display" data-wci-id="enabled-counter" data-wci-desc="Display value: 3 sharing features active" data-wci-state="{&quot;value&quot;:&quot;3 sharing features active&quot;}" data-wci-priority="4" data-wci-scope="pd-layout">3 sharing features active</div>
           </div>
         </div>
 
-        <section class="pd-panel pd-stack" aria-labelledby="sharing-title">
+        <section class="pd-panel pd-stack" aria-labelledby="sharing-title" data-wci-role="landmark" data-wci-id="pd-panel" data-wci-desc="Landmark zone for section" data-wci-priority="3">
           <div class="pd-toolbar">
             <strong id="sharing-title">Data sharing preferences</strong>
             <span class="pd-note">Last synced with policy engine: <span id="sync-time">just now</span></span>
@@ -165,7 +165,7 @@ table{border-collapse:collapse}
               <strong>Workspace policy snapshot</strong>
               <p>Your organization allows optional sharing settings to be updated by admins and account owners.</p>
             </div>
-            <span class="pd-badge" id="status-pill">Sharing enabled</span>
+            <span class="pd-badge" id="status-pill" data-wci-role="display" data-wci-id="status-pill" data-wci-desc="Display value: Sharing enabled" data-wci-state="{&quot;value&quot;:&quot;Sharing enabled&quot;}" data-wci-priority="4" data-wci-scope="pd-panel">Sharing enabled</span>
           </div>
 
           <div class="pd-setting-list" aria-label="Toggle rows">
@@ -177,7 +177,7 @@ table{border-collapse:collapse}
               <div class="pd-setting-meta">
                 <span class="pd-switch-label" id="label-analytics">On</span>
                 <label class="pd-switch">
-                  <input type="checkbox" id="analytics-toggle" checked="">
+                  <input type="checkbox" id="analytics-toggle" checked="" data-wci-role="form" data-wci-id="analytics-toggle" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="pd-panel">
                   <span class="pd-switch-track" aria-hidden="true"></span>
                 </label>
               </div>
@@ -191,7 +191,7 @@ table{border-collapse:collapse}
               <div class="pd-setting-meta">
                 <span class="pd-switch-label" id="label-diagnostics">On</span>
                 <label class="pd-switch">
-                  <input type="checkbox" id="diagnostics-toggle" checked="">
+                  <input type="checkbox" id="diagnostics-toggle" checked="" data-wci-role="form" data-wci-id="diagnostics-toggle" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="pd-panel">
                   <span class="pd-switch-track" aria-hidden="true"></span>
                 </label>
               </div>
@@ -205,7 +205,7 @@ table{border-collapse:collapse}
               <div class="pd-setting-meta">
                 <span class="pd-switch-label" id="label-third-party">Enabled</span>
                 <label class="pd-switch">
-                  <input type="checkbox" checked="" id="tp-share" aria-describedby="third-party-warning">
+                  <input type="checkbox" checked="" id="tp-share" aria-describedby="third-party-warning" data-wci-role="form" data-wci-id="tp-share" data-wci-desc="Form input field" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="pd-panel">
                   <span class="pd-switch-track" aria-hidden="true"></span>
                 </label>
               </div>
@@ -217,7 +217,7 @@ table{border-collapse:collapse}
           <fieldset>
             <legend>Change summary</legend>
             <label for="change-reason">Admin note</label>
-            <textarea id="change-reason" rows="4" placeholder="Optional note for audit trail. Example: Disabled partner sharing to meet updated privacy requirements."></textarea>
+            <textarea id="change-reason" rows="4" placeholder="Optional note for audit trail. Example: Disabled partner sharing to meet updated privacy requirements." data-wci-role="form" data-wci-id="change-reason" data-wci-desc="Text area for: Admin note" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="pd-panel"></textarea>
             <div class="pd-note">Audit entries are visible to workspace administrators and compliance reviewers.</div>
           </fieldset>
 
@@ -228,13 +228,13 @@ table{border-collapse:collapse}
               <div id="privacy-settings-smoke-status" class="pd-smoke">Waiting for update. Third-party sharing is currently enabled.</div>
             </div>
             <div>
-              <button type="button" class="pd-btn pd-btn--ghost" id="preview-policy">Preview effect</button>
-              <button type="button" class="pd-btn pd-btn--primary" data-save="disable-third-party" id="disable-third-party-share" data-wci-id="disable-third-party-share" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary save action to disable third-party data sharing" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="privacy_settings-page">Confirm</button>
+              <button type="button" class="pd-btn pd-btn--ghost" id="preview-policy" data-wci-role="action" data-wci-id="preview-policy" data-wci-desc="Click to: Preview effect" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-panel">Preview effect</button>
+              <button type="button" class="pd-btn pd-btn--primary" data-save="disable-third-party" id="disable-third-party-share" data-wci-role="action" data-wci-id="disable-third-party-share" data-wci-desc="Save settings to disable third-party data sharing toggle." data-wci-action="click" data-wci-priority="1" data-wci-scope="pd-panel" data-wci-primary="true">Confirm</button>
             </div>
           </div>
         </section>
 
-        <section class="pd-card">
+        <section class="pd-card" data-wci-role="landmark" data-wci-id="pd-card" data-wci-desc="Section for: Recent privacy events" data-wci-priority="3">
           <h2>Recent privacy events</h2>
           <div class="pd-mini-list">
             <div class="pd-mini-item"><span>Cookie banner customized</span><span class="pd-note">Today</span></div>
@@ -242,17 +242,17 @@ table{border-collapse:collapse}
             <div class="pd-mini-item"><span>Partner list exported</span><span class="pd-note">7 days ago</span></div>
           </div>
           <div class="pd-card__actions">
-            <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav">Download data</button>
+            <button type="button" class="pd-btn pd-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="download-data" data-wci-desc="Click to: Download data" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-card">Download data</button>
           </div>
         </section>
       </main>
     </div>
 
-    <aside class="pd-rail pd-rail--ads" aria-label="Sponsored">
+    <aside class="pd-rail pd-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="pd-rail" data-wci-desc="Section for: Checklist" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
       <p>Compare compliance automation vendors and benchmark your opt-out rate against similar businesses.</p>
-      <a href="/ads/1">Partner offer — limited time</a><br>
-      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-rail">Partner offer — limited time</a><br>
+      <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-rail">View deal</button>
       <hr style="border:none;border-top:1px solid #f3e8ff;margin:14px 0">
       <h3 style="margin:0 0 8px;font-size:14px">Checklist</h3>
       <ul>
@@ -263,22 +263,22 @@ table{border-collapse:collapse}
     </aside>
   </div>
 
-  <div class="pd-filler" aria-hidden="true"><div class="pd-filler-inner"><a href="/misc/0" class="pd-btn pd-btn--ghost">Link 1</a><button type="button" class="pd-btn pd-btn--ghost">Action 2</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/4" class="pd-btn pd-btn--ghost">Link 5</a><button type="button" class="pd-btn pd-btn--ghost">Action 6</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/8" class="pd-btn pd-btn--ghost">Link 9</a><button type="button" class="pd-btn pd-btn--ghost">Action 10</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/12" class="pd-btn pd-btn--ghost">Link 13</a><button type="button" class="pd-btn pd-btn--ghost">Action 14</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/16" class="pd-btn pd-btn--ghost">Link 17</a><button type="button" class="pd-btn pd-btn--ghost">Action 18</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/20" class="pd-btn pd-btn--ghost">Link 21</a><button type="button" class="pd-btn pd-btn--ghost">Action 22</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/24" class="pd-btn pd-btn--ghost">Link 25</a><button type="button" class="pd-btn pd-btn--ghost">Action 26</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/28" class="pd-btn pd-btn--ghost">Link 29</a><button type="button" class="pd-btn pd-btn--ghost">Action 30</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/32" class="pd-btn pd-btn--ghost">Link 33</a><button type="button" class="pd-btn pd-btn--ghost">Action 34</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/36" class="pd-btn pd-btn--ghost">Link 37</a><button type="button" class="pd-btn pd-btn--ghost">Action 38</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button><a href="/misc/40" class="pd-btn pd-btn--ghost">Link 41</a><button type="button" class="pd-btn pd-btn--ghost">Action 42</button><button type="button" class="pd-btn pd-btn--ghost">Submit</button><button type="button" class="pd-btn pd-btn--ghost">Continue</button></div></div>
+  <div class="pd-filler" aria-hidden="true"><div class="pd-filler-inner"><a href="/misc/0" class="pd-btn pd-btn--ghost">Link 1</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 2</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/4" class="pd-btn pd-btn--ghost">Link 5</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 6</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/8" class="pd-btn pd-btn--ghost">Link 9</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 10</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/12" class="pd-btn pd-btn--ghost">Link 13</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 14</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/16" class="pd-btn pd-btn--ghost">Link 17</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 18</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/20" class="pd-btn pd-btn--ghost">Link 21</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 22</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/24" class="pd-btn pd-btn--ghost">Link 25</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 26</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/28" class="pd-btn pd-btn--ghost">Link 29</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 30</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/32" class="pd-btn pd-btn--ghost">Link 33</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 34</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/36" class="pd-btn pd-btn--ghost">Link 37</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 38</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button><a href="/misc/40" class="pd-btn pd-btn--ghost">Link 41</a><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Action 42</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Submit</button><button type="button" class="pd-btn pd-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="privacy_settings-page">Continue</button></div></div>
 
-  <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra control" data-wci-priority="2" data-wci-scope="privacy_settings-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="pd-btn pd-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="privacy_settings-page">Hidden promo</button>
 
-  <footer class="pd-ftr"><small>© Demo PrivacyDesk</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="pd-ftr" data-wci-role="landmark" data-wci-id="pd-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo PrivacyDesk</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pd-ftr">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 </div>
 
 <div class="pd-modal-backdrop" id="modal-backdrop"></div>
 <div class="pd-modal-shell" id="preview-modal-shell" aria-hidden="true">
-  <div class="pd-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+  <div class="pd-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" data-wci-role="landmark" data-wci-id="pd-modal" data-wci-desc="Section for: Policy preview" data-wci-priority="3">
     <h3 id="preview-title">Policy preview</h3>
     <p id="preview-copy">Third-party data sharing remains enabled. Turn the toggle off to preview the stricter policy.</p>
     <div class="pd-card__actions">
-      <button type="button" class="pd-btn pd-btn--ghost" id="close-preview">Close</button>
-      <button type="button" class="pd-btn pd-btn--muted" id="modal-export">Download summary</button>
+      <button type="button" class="pd-btn pd-btn--ghost" id="close-preview" data-wci-role="action" data-wci-id="close-preview" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-modal">Close</button>
+      <button type="button" class="pd-btn pd-btn--muted" id="modal-export" data-wci-role="action" data-wci-id="modal-export" data-wci-desc="Click to: Download summary" data-wci-action="click" data-wci-priority="3" data-wci-scope="pd-modal">Download summary</button>
     </div>
   </div>
 </div>

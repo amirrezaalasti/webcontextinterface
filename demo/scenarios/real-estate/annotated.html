@@ -141,82 +141,82 @@ h1,h2,h3,h4,p{margin:0}
 <title>Homes for sale in Springfield | HomeNest Listings</title>
 </head>
 <body>
-<div class="hn-app" data-page="real-estate" id="real_estate-page" data-current-route="/homes/search" data-wci-id="real_estate-page" data-wci-role="landmark" data-wci-desc="HomeNest map search results — filters, listing cards, tour modal, and save shortlist" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
+<div class="hn-app" data-page="real-estate" id="real_estate-page" data-current-route="/homes/search" data-wci-role="landmark" data-wci-id="real_estate-page" data-wci-desc="HomeNest Listings — Zillow-style map search with header search, filters sidebar, listing photo cards, mortgage calculator, tour scheduling modal, and Confirm vs Tour/Save decoys." data-wci-priority="2">
 
-  <div class="hn-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <div class="hn-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="hn-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue browsing listings.</p>
-    <button type="button" class="hn-btn hn-btn--muted" data-cookie="reject">Reject non-essential</button>
-    <button type="button" class="hn-btn hn-btn--primary" data-cookie="accept">Accept all</button>
-    <button type="button" class="hn-btn hn-btn--ghost" data-cookie="customize">Customize</button>
+    <button type="button" class="hn-btn hn-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-cookie">Reject non-essential</button>
+    <button type="button" class="hn-btn hn-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-cookie">Accept all</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-cookie">Customize</button>
   </div>
 
   <div class="hn-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="hn-btn hn-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="hn-btn">Continue as guest — express</button>
+    <button type="button" class="hn-btn hn-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="hn-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Continue as guest — express</button>
   </div>
 
-  <header class="hn-hdr hn-hdr--sticky" role="banner">
+  <header class="hn-hdr hn-hdr--sticky" role="banner" data-wci-role="landmark" data-wci-id="hn-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="hn-hdr__row">
       <div class="hn-brand" aria-label="HomeNest brand">
-        <span class="hn-brand-badge">H</span>
+        <span class="hn-brand-badge" data-wci-role="display" data-wci-id="hn-brand-badge" data-wci-desc="Display value: H" data-wci-state="{&quot;value&quot;:&quot;H&quot;}" data-wci-priority="4" data-wci-scope="hn-hdr">H</span>
         <span class="hn-brand-text">HomeNest</span>
       </div>
-      <form class="hn-search-bar" id="header-search" aria-label="Search homes" onsubmit="return false">
+      <form class="hn-search-bar" id="header-search" aria-label="Search homes" onsubmit="return false" data-wci-role="landmark" data-wci-id="hn-search-bar" data-wci-desc="Landmark zone: header-search" data-wci-priority="3">
         <label class="hn-sr-only" for="header-location">City, neighborhood, or address</label>
-        <input id="header-location" type="search" value="Springfield, IL" autocomplete="off">
-        <button type="button" class="hn-btn hn-btn--primary" id="header-search-btn">Search</button>
+        <input id="header-location" type="search" value="Springfield, IL" autocomplete="off" data-wci-role="form" data-wci-id="header-location" data-wci-desc="Field for: City, neighborhood, or address — plausible alternative (not primary for this goal)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Springfield, IL&quot;}" data-wci-priority="1" data-wci-scope="hn-search-bar" data-wci-competitor="true">
+        <button type="button" class="hn-btn hn-btn--primary" id="header-search-btn" data-wci-role="action" data-wci-id="header-search-btn" data-wci-desc="Click to: Search" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-search-bar">Search</button>
       </form>
-      <nav class="hn-nav" aria-label="Global">
-        <a href="#/buy">Buy</a>
-        <a href="#/rent">Rent</a>
-        <a href="#/sell">Sell</a>
-        <a href="#/agents">Find agents</a>
-        <a href="#/saved">Saved homes</a>
+      <nav class="hn-nav" aria-label="Global" data-wci-role="nav" data-wci-id="hn-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+        <a href="#/buy" data-wci-role="nav" data-wci-id="buy" data-wci-desc="Navigate to: Buy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-nav">Buy</a>
+        <a href="#/rent" data-wci-role="nav" data-wci-id="rent" data-wci-desc="Navigate to: Rent" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-nav">Rent</a>
+        <a href="#/sell" data-wci-role="nav" data-wci-id="sell" data-wci-desc="Navigate to: Sell" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-nav">Sell</a>
+        <a href="#/agents" data-wci-role="nav" data-wci-id="find-agents" data-wci-desc="Navigate to: Find agents" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-nav">Find agents</a>
+        <a href="#/saved" data-wci-role="nav" data-wci-id="saved-homes" data-wci-desc="Navigate to: Saved homes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-nav">Saved homes</a>
       </nav>
       <div class="hn-hdr-promo">
-        <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy action unrelated to saving the target listing" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-        <button type="button" class="hn-btn hn-btn--ghost" data-decoy="decoy-nav">Learn More</button>
-        <button type="button" class="hn-btn hn-btn--ghost hn-hdr__account" aria-label="Account">Sign in</button>
+        <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" id="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="hn-hdr">Claim Offer</button>
+        <button type="button" class="hn-btn hn-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-hdr">Learn More</button>
+        <button type="button" class="hn-btn hn-btn--ghost hn-hdr__account" aria-label="Account" data-wci-role="action" data-wci-id="sign-in" data-wci-desc="Click to: Sign in" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-hdr">Sign in</button>
       </div>
     </div>
   </header>
 
-  <nav class="hn-subnav" aria-label="Secondary">
-    <a href="#/map">Map search</a>
-    <a href="#/new">New today</a>
-    <a href="#/cuts">Price cuts</a>
-    <a href="#/open">Open houses</a>
-    <a href="#/hoods">Neighborhoods</a>
+  <nav class="hn-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="hn-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#/map" data-wci-role="nav" data-wci-id="map-search" data-wci-desc="Navigate to: Map search" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-subnav">Map search</a>
+    <a href="#/new" data-wci-role="nav" data-wci-id="new-today" data-wci-desc="Navigate to: New today" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-subnav">New today</a>
+    <a href="#/cuts" data-wci-role="nav" data-wci-id="price-cuts" data-wci-desc="Navigate to: Price cuts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-subnav">Price cuts</a>
+    <a href="#/open" data-wci-role="nav" data-wci-id="open-houses" data-wci-desc="Navigate to: Open houses" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-subnav">Open houses</a>
+    <a href="#/hoods" data-wci-role="nav" data-wci-id="neighborhoods" data-wci-desc="Navigate to: Neighborhoods" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-subnav">Neighborhoods</a>
     <span class="hn-subnav__sep" aria-hidden="true">|</span>
     <span class="hn-muted hn-subnav__crumb">Illinois › Springfield › North Springfield</span>
   </nav>
 
   <div class="hn-dup-row" aria-label="Quick actions">
-    <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
-    <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
-    <button type="button" class="hn-btn hn-btn--ghost">Save changes</button>
-    <button type="button" class="hn-btn hn-btn--ghost">Confirm</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Submit</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Continue</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Save changes</button>
+    <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Confirm</button>
   </div>
   <div class="hn-dup-row" aria-label="Keyword traps">
-    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">Save listing 742</button>
-    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Save 742 Evergreen</button>
-    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav">Confirm save Oak Street</button>
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="save-listing-742-2" data-wci-desc="Click to: Save listing 742" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Save listing 742</button>
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="save-742-evergreen" data-wci-desc="Click to: Save 742 Evergreen" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Save 742 Evergreen</button>
+    <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="confirm-save-oak-street" data-wci-desc="Click to: Confirm save Oak Street — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="real_estate-page" data-wci-competitor="true">Confirm save Oak Street</button>
   </div>
 
   <div class="hn-page-wrap">
     <div class="hn-page-main">
-      <section class="hn-hero" aria-label="Search summary">
+      <section class="hn-hero" aria-label="Search summary" data-wci-role="landmark" data-wci-id="hn-hero" data-wci-desc="Section for: Homes for sale in Springfield" data-wci-priority="3">
         <div class="hn-hero__top">
           <div>
             <h1>Homes for sale in Springfield</h1>
             <p>Browse active listings on the map, compare bedroom counts, school ratings, and save favorites to your HomeNest shortlist.</p>
           </div>
           <div class="hn-hero__actions">
-            <button type="button" class="hn-btn hn-btn--ghost" data-view="map" aria-pressed="true">Map</button>
-            <button type="button" class="hn-btn hn-btn--ghost is-active" data-view="split">Split</button>
-            <button type="button" class="hn-btn hn-btn--ghost" data-view="list">List</button>
+            <button type="button" class="hn-btn hn-btn--ghost" data-view="map" aria-pressed="true" data-wci-role="action" data-wci-id="map" data-wci-desc="Click to: Map" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-hero">Map</button>
+            <button type="button" class="hn-btn hn-btn--ghost is-active" data-view="split" data-wci-role="action" data-wci-id="split" data-wci-desc="Click to: Split" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-hero">Split</button>
+            <button type="button" class="hn-btn hn-btn--ghost" data-view="list" data-wci-role="action" data-wci-id="list" data-wci-desc="Click to: List" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-hero">List</button>
             <label class="hn-sr-only" for="sort-listings">Sort listings</label>
-            <select id="sort-listings" class="hn-select hn-select--inline" aria-label="Sort order">
+            <select id="sort-listings" class="hn-select hn-select--inline" aria-label="Sort order" data-wci-role="form" data-wci-id="sort-listings" data-wci-desc="Dropdown to select: Sort listings" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Recommended&quot;}" data-wci-options="[&quot;Recommended&quot;,&quot;Newest&quot;,&quot;Price (low to high)&quot;,&quot;Price (high to low)&quot;,&quot;Square feet&quot;]" data-wci-priority="3" data-wci-scope="hn-hero">
               <option>Recommended</option>
               <option>Newest</option>
               <option>Price (low to high)</option>
@@ -228,57 +228,57 @@ h1,h2,h3,h4,p{margin:0}
         <div class="hn-kpis">
           <div class="hn-kpi"><div class="hn-muted">Matches</div><strong id="match-count">4 listings</strong></div>
           <div class="hn-kpi"><div class="hn-muted">Saved</div><strong id="saved-count">0 homes</strong></div>
-          <div class="hn-kpi"><div class="hn-muted">Avg. list price</div><strong>$421k</strong></div>
+          <div class="hn-kpi"><div class="hn-muted">Avg. list price</div><strong data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $421k" data-wci-state="{&quot;value&quot;:&quot;$421k&quot;}" data-wci-priority="4" data-wci-scope="hn-hero">$421k</strong></div>
           <div class="hn-kpi"><div class="hn-muted">Status</div><strong id="real-estate-smoke-status">Ready to save a listing</strong></div>
         </div>
       </section>
 
       <div class="hn-layout">
-        <aside class="hn-filters" aria-label="Filters and preferences" data-wci-role="landmark" data-wci-id="listing-search-filters" data-wci-desc="Search filters sidebar — location, price, beds, baths, and save preferences" data-wci-priority="2" data-wci-scope="real_estate-page">
+        <aside class="hn-filters" aria-label="Filters and preferences" data-wci-role="landmark" data-wci-id="hn-filters" data-wci-desc="Section for: Filters" data-wci-priority="3">
           <h2>Filters</h2>
           <label for="location-search">Location or address</label>
-          <input id="location-search" type="text" value="Springfield, IL" data-wci-role="form" data-wci-id="location-search" data-wci-desc="Filter by city, neighborhood, or street address" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Springfield, IL&quot;}" data-wci-scope="listing-search-filters" data-wci-priority="0">
+          <input id="location-search" type="text" value="Springfield, IL" data-wci-role="form" data-wci-id="location-search" data-wci-desc="Field for: Location or address" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Springfield, IL&quot;}" data-wci-priority="3" data-wci-scope="hn-filters">
           <label for="home-type">Home type</label>
-          <select id="home-type">
+          <select id="home-type" data-wci-role="form" data-wci-id="home-type" data-wci-desc="Dropdown to select: Home type" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Houses&quot;}" data-wci-options="[&quot;Houses&quot;,&quot;Townhomes&quot;,&quot;Condos&quot;,&quot;Multi-family&quot;]" data-wci-priority="3" data-wci-scope="hn-filters">
             <option selected="">Houses</option>
             <option>Townhomes</option>
             <option>Condos</option>
             <option>Multi-family</option>
           </select>
           <label for="price-range">Price range</label>
-          <select id="price-range">
+          <select id="price-range" data-wci-role="form" data-wci-id="price-range" data-wci-desc="Dropdown to select: Price range" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;$300k – $500k&quot;}" data-wci-options="[&quot;Any price&quot;,&quot;$300k – $500k&quot;,&quot;$500k – $800k&quot;,&quot;$800k+&quot;]" data-wci-priority="3" data-wci-scope="hn-filters">
             <option>Any price</option>
-            <option selected="">$300k – $500k</option>
-            <option>$500k – $800k</option>
-            <option>$800k+</option>
+            <option selected="" data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $300k – $500k" data-wci-state="{&quot;value&quot;:&quot;$300k – $500k&quot;}" data-wci-priority="4" data-wci-scope="hn-filters">$300k – $500k</option>
+            <option data-wci-role="display" data-wci-id="display-3" data-wci-desc="Display value: $500k – $800k" data-wci-state="{&quot;value&quot;:&quot;$500k – $800k&quot;}" data-wci-priority="4" data-wci-scope="hn-filters">$500k – $800k</option>
+            <option data-wci-role="display" data-wci-id="display-4" data-wci-desc="Display value: $800k+" data-wci-state="{&quot;value&quot;:&quot;$800k+&quot;}" data-wci-priority="4" data-wci-scope="hn-filters">$800k+</option>
           </select>
           <fieldset>
             <legend>Beds</legend>
-            <label class="hn-checkrow"><input type="radio" name="beds" checked=""> Any</label>
-            <label class="hn-checkrow"><input type="radio" name="beds"> 2+</label>
-            <label class="hn-checkrow"><input type="radio" name="beds"> 3+</label>
-            <label class="hn-checkrow"><input type="radio" name="beds"> 4+</label>
+            <label class="hn-checkrow"><input type="radio" name="beds" checked="" data-wci-role="form" data-wci-id="beds" data-wci-desc="Field for: Any" data-wci-action="click" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hn-filters"> Any</label>
+            <label class="hn-checkrow"><input type="radio" name="beds" data-wci-role="form" data-wci-id="beds-2" data-wci-desc="Field for: 2+" data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="hn-filters"> 2+</label>
+            <label class="hn-checkrow"><input type="radio" name="beds" data-wci-role="form" data-wci-id="beds-3" data-wci-desc="Field for: 3+" data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="hn-filters"> 3+</label>
+            <label class="hn-checkrow"><input type="radio" name="beds" data-wci-role="form" data-wci-id="beds-4" data-wci-desc="Field for: 4+" data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="hn-filters"> 4+</label>
           </fieldset>
           <fieldset>
             <legend>Baths</legend>
-            <label class="hn-checkrow"><input type="checkbox" checked=""> 1+</label>
-            <label class="hn-checkrow"><input type="checkbox" checked=""> 2+</label>
+            <label class="hn-checkrow"><input type="checkbox" checked="" data-wci-role="form" data-wci-id="1" data-wci-desc="Field for: 1+" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hn-filters"> 1+</label>
+            <label class="hn-checkrow"><input type="checkbox" checked="" data-wci-role="form" data-wci-id="2" data-wci-desc="Field for: 2+" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="hn-filters"> 2+</label>
           </fieldset>
           <label for="sqft-min">Min sqft</label>
-          <input id="sqft-min" type="number" value="1000" min="500" step="100">
+          <input id="sqft-min" type="number" value="1000" min="500" step="100" data-wci-role="form" data-wci-id="sqft-min" data-wci-desc="Field for: Min sqft" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;1000&quot;}" data-wci-priority="3" data-wci-scope="hn-filters">
           <fieldset>
             <legend>Save preference</legend>
-            <label class="hn-checkrow"><input type="checkbox" id="save-notes-toggle"> Add a note when saving</label>
+            <label class="hn-checkrow"><input type="checkbox" id="save-notes-toggle" data-wci-role="form" data-wci-id="save-notes-toggle" data-wci-desc="Field for: Add a note when saving" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="hn-filters"> Add a note when saving</label>
             <div class="hn-error" id="save-form-error"></div>
             <div class="hn-success" id="save-form-success"></div>
           </fieldset>
           <label for="save-note">Optional note for saved homes</label>
-          <textarea id="save-note" rows="3" placeholder="Example: Great school district, compare with west side listings." disabled=""></textarea>
+          <textarea id="save-note" rows="3" placeholder="Example: Great school district, compare with west side listings." disabled="" data-wci-role="form" data-wci-id="save-note" data-wci-desc="Text area for: Optional note for saved homes" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="hn-filters"></textarea>
           <div class="hn-statusbar">
-            <span class="hn-badge hn-badge--info" id="filter-badge">4 homes match</span>
-            <button type="button" class="hn-btn hn-btn--ghost" id="reset-filters">Reset</button>
+            <span class="hn-badge hn-badge--info" id="filter-badge" data-wci-role="display" data-wci-id="filter-badge" data-wci-desc="Display value: 4 homes match" data-wci-state="{&quot;value&quot;:&quot;4 homes match&quot;}" data-wci-priority="4" data-wci-scope="hn-filters">4 homes match</span>
+            <button type="button" class="hn-btn hn-btn--ghost" id="reset-filters" data-wci-role="action" data-wci-id="reset-filters" data-wci-desc="Click to: Reset" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-filters">Reset</button>
           </div>
-          <button type="button" class="hn-btn hn-btn--primary hn-btn--full" id="apply-filters">Apply filters</button>
+          <button type="button" class="hn-btn hn-btn--primary hn-btn--full" id="apply-filters" data-wci-role="action" data-wci-id="apply-filters" data-wci-desc="Click to: Apply filters" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-filters">Apply filters</button>
           <table aria-label="Saved shortlist summary">
             <thead><tr><th>Home</th><th>Status</th></tr></thead>
             <tbody id="saved-summary"><tr><td colspan="2" class="hn-muted">No homes saved yet.</td></tr></tbody>
@@ -287,8 +287,8 @@ h1,h2,h3,h4,p{margin:0}
 
         <div class="hn-results">
           <div class="hn-toolbar" aria-label="Results controls">
-            <span class="hn-badge hn-badge--ok">Live map</span>
-            <span class="hn-badge hn-badge--warn">Tour availability varies</span>
+            <span class="hn-badge hn-badge--ok" data-wci-role="display" data-wci-id="hn-badge" data-wci-desc="Display value: Live map" data-wci-state="{&quot;value&quot;:&quot;Live map&quot;}" data-wci-priority="4" data-wci-scope="real_estate-page">Live map</span>
+            <span class="hn-badge hn-badge--warn" data-wci-role="display" data-wci-id="hn-badge-2" data-wci-desc="Display value: Tour availability varies" data-wci-state="{&quot;value&quot;:&quot;Tour availability varies&quot;}" data-wci-priority="4" data-wci-scope="real_estate-page">Tour availability varies</span>
             <span class="hn-muted">Touring a home is not the same as saving it to your shortlist.</span>
           </div>
           <div class="hn-statusbar">
@@ -300,10 +300,10 @@ h1,h2,h3,h4,p{margin:0}
 
           <div class="hn-map-wrap">
             <div class="hn-map-tools" aria-label="Map controls">
-              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Zoom in</button>
-              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Zoom out</button>
-              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Satellite</button>
-              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Draw</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" data-wci-role="action" data-wci-id="zoom-in" data-wci-desc="Click to: Zoom in" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Zoom in</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" data-wci-role="action" data-wci-id="zoom-out" data-wci-desc="Click to: Zoom out" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Zoom out</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" data-wci-role="action" data-wci-id="satellite" data-wci-desc="Click to: Satellite" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Satellite</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" data-wci-role="action" data-wci-id="draw" data-wci-desc="Click to: Draw" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Draw</button>
             </div>
             <div class="hn-map" role="img" aria-label="Map of listing locations">
               <div class="hn-map-grid"></div>
@@ -314,118 +314,118 @@ h1,h2,h3,h4,p{margin:0}
             </div>
           </div>
 
-          <aside class="hn-detail" id="listing-detail-panel" aria-label="Listing preview">
+          <aside class="hn-detail" id="listing-detail-panel" aria-label="Listing preview" data-wci-role="landmark" data-wci-id="hn-detail" data-wci-desc="Landmark zone: listing-detail-panel" data-wci-priority="3">
             <div class="hn-detail__hdr">
               <div>
                 <div class="hn-muted">Selected listing</div>
                 <div class="hn-address" id="detail-address">742 Evergreen Terrace</div>
-                <div class="hn-price" id="detail-price">$412,000</div>
+                <div class="hn-price" id="detail-price" data-wci-role="display" data-wci-id="detail-price" data-wci-desc="Display value: $412,000" data-wci-state="{&quot;value&quot;:&quot;$412,000&quot;}" data-wci-priority="4" data-wci-scope="hn-detail">$412,000</div>
               </div>
-              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" id="dismiss-detail">Close</button>
+              <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" id="dismiss-detail" data-wci-role="action" data-wci-id="dismiss-detail" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-detail">Close</button>
             </div>
             <p class="hn-detail__copy" id="detail-copy">3 bed · 2 bath · 1,960 sqft · Corner lot with updated roof.</p>
             <div class="hn-detail__stats">
-              <span class="hn-badge hn-badge--ok">Walk score 74</span>
-              <span class="hn-badge hn-badge--info">Tax est. $4,820/yr</span>
+              <span class="hn-badge hn-badge--ok" data-wci-role="display" data-wci-id="hn-badge-3" data-wci-desc="Display value: Walk score 74" data-wci-state="{&quot;value&quot;:&quot;Walk score 74&quot;}" data-wci-priority="4" data-wci-scope="hn-detail">Walk score 74</span>
+              <span class="hn-badge hn-badge--info" data-wci-role="display" data-wci-id="hn-badge-4" data-wci-desc="Display value: Tax est. $4,820/yr" data-wci-state="{&quot;value&quot;:&quot;Tax est. $4,820/yr&quot;}" data-wci-priority="4" data-wci-scope="hn-detail">Tax est. $4,820/yr</span>
             </div>
           </aside>
 
-          <section class="hn-listings" aria-label="Listing cards">
-            <article data-listing="oak-2br" class="hn-card">
+          <section class="hn-listings" aria-label="Listing cards" data-wci-role="landmark" data-wci-id="hn-listings" data-wci-desc="Landmark zone for section" data-wci-priority="3">
+            <article data-listing="oak-2br" class="hn-card" data-wci-role="landmark" data-wci-id="hn-card" data-wci-desc="Landmark zone for article" data-wci-priority="3">
               <div class="hn-card__media" role="img" aria-label="Photo of 18 Oak Street"></div>
               <div class="hn-card__body">
-                <div class="hn-meta"><span class="hn-badge hn-badge--warn">Open house Sun</span><span>MLS #20814</span></div>
-                <div class="hn-price">$339,000</div>
+                <div class="hn-meta"><span class="hn-badge hn-badge--warn" data-wci-role="display" data-wci-id="hn-badge-5" data-wci-desc="Display value: Open house Sun" data-wci-state="{&quot;value&quot;:&quot;Open house Sun&quot;}" data-wci-priority="4" data-wci-scope="hn-card">Open house Sun</span><span>MLS #20814</span></div>
+                <div class="hn-price" data-wci-role="display" data-wci-id="hn-price" data-wci-desc="Display value: $339,000" data-wci-state="{&quot;value&quot;:&quot;$339,000&quot;}" data-wci-priority="4" data-wci-scope="hn-card">$339,000</div>
                 <div class="hn-address">18 Oak Street</div>
                 <p class="hn-card__blurb">2 bed · 1.5 bath · 1,180 sqft · Renovated kitchen and fenced yard.</p>
                 <div class="hn-meta"><span>12 min to downtown</span><span>•</span><span>Listed 5 days ago</span></div>
                 <div class="hn-card__actions">
-                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="oak-2br">Compare</button>
-                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="oak">Tour</button>
-                  <button type="button" class="hn-btn" data-save-secondary="oak">Save</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="oak-2br" data-wci-role="action" data-wci-id="compare" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="oak" data-wci-role="action" data-wci-id="tour" data-wci-desc="Click to: Tour" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="oak" data-wci-role="action" data-wci-id="save" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card">Save</button>
                 </div>
               </div>
             </article>
 
-            <article data-listing="evergreen-742" data-beds="3" class="hn-card is-selected hn-card--featured">
+            <article data-listing="evergreen-742" data-beds="3" class="hn-card is-selected hn-card--featured" data-wci-role="landmark" data-wci-id="save-listing-742-scope" data-wci-desc="Target scope for save-listing-742" data-wci-state="{&quot;listing&quot;:&quot;evergreen-742&quot;,&quot;beds&quot;:&quot;3&quot;}" data-wci-priority="2">
               <div class="hn-card__media hn-card__media--featured" role="img" aria-label="Photo of 742 Evergreen Terrace"></div>
               <div class="hn-card__body">
-                <div class="hn-meta"><span class="hn-badge hn-badge--ok">Best match</span><span>MLS #74231</span><span>3 beds</span></div>
-                <div class="hn-price">$412,000</div>
+                <div class="hn-meta"><span class="hn-badge hn-badge--ok" data-wci-role="display" data-wci-id="hn-badge-6" data-wci-desc="Display value: Best match" data-wci-state="{&quot;value&quot;:&quot;Best match&quot;}" data-wci-priority="4" data-wci-scope="save-listing-742-scope">Best match</span><span>MLS #74231</span><span>3 beds</span></div>
+                <div class="hn-price" data-wci-role="display" data-wci-id="hn-price-2" data-wci-desc="Display value: $412,000" data-wci-state="{&quot;value&quot;:&quot;$412,000&quot;}" data-wci-priority="4" data-wci-scope="save-listing-742-scope">$412,000</div>
                 <div class="hn-address">742 Evergreen Terrace</div>
                 <p class="hn-card__blurb">3 bed · 2 bath · 1,960 sqft · Corner lot, updated roof, detached garage, and bright family room.</p>
                 <div class="hn-meta"><span>Walk score 74</span><span>•</span><span>Listed 2 days ago</span><span>•</span><span>Preferred school zone</span></div>
                 <div class="hn-card__actions">
-                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="evergreen-742">Compare</button>
-                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="evergreen">Tour</button>
-                  <button type="button" class="hn-btn hn-btn--primary" id="save-listing-742" data-wci-id="save-listing-742" data-wci-role="action" data-wci-action="click" data-wci-desc="Confirm save for 3-bed listing at 742 Evergreen Terrace (not Tour or generic Save on other cards)" data-wci-priority="1" data-wci-state="{&quot;listingId&quot;:&quot;evergreen-742&quot;,&quot;beds&quot;:3,&quot;address&quot;:&quot;742 Evergreen Terrace&quot;,&quot;saved&quot;:false}" data-wci-scope="real_estate-page" data-wci-precondition="Target is the three-bedroom Evergreen Terrace listing, not Oak Street two-bedroom">Confirm</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="evergreen-742" data-wci-role="action" data-wci-id="compare-2" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="save-listing-742-scope">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="evergreen" data-wci-role="action" data-wci-id="tour-2" data-wci-desc="Click to: Tour" data-wci-action="click" data-wci-priority="3" data-wci-scope="save-listing-742-scope">Tour</button>
+                  <button type="button" class="hn-btn hn-btn--primary" id="save-listing-742" data-wci-role="action" data-wci-id="save-listing-742" data-wci-desc="Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom)." data-wci-action="click" data-wci-priority="1" data-wci-scope="save-listing-742-scope" data-wci-primary="true">Confirm</button>
                 </div>
                 <div class="hn-success" id="listing-742-status">Not yet saved.</div>
               </div>
             </article>
 
-            <article data-listing="pine-4br" class="hn-card">
+            <article data-listing="pine-4br" class="hn-card" data-wci-role="landmark" data-wci-id="hn-card-2" data-wci-desc="Landmark zone for article" data-wci-priority="3">
               <div class="hn-card__media" role="img" aria-label="Photo of 16 Pine Avenue"></div>
               <div class="hn-card__body">
-                <div class="hn-meta"><span class="hn-badge hn-badge--info">Price reduced</span><span>MLS #99102</span></div>
-                <div class="hn-price">$489,000</div>
+                <div class="hn-meta"><span class="hn-badge hn-badge--info" data-wci-role="display" data-wci-id="hn-badge-7" data-wci-desc="Display value: Price reduced" data-wci-state="{&quot;value&quot;:&quot;Price reduced&quot;}" data-wci-priority="4" data-wci-scope="hn-card-2">Price reduced</span><span>MLS #99102</span></div>
+                <div class="hn-price" data-wci-role="display" data-wci-id="hn-price-3" data-wci-desc="Display value: $489,000" data-wci-state="{&quot;value&quot;:&quot;$489,000&quot;}" data-wci-priority="4" data-wci-scope="hn-card-2">$489,000</div>
                 <div class="hn-address">16 Pine Avenue</div>
                 <p class="hn-card__blurb">4 bed · 2.5 bath · 2,220 sqft · Covered porch, home office nook, and landscaped backyard.</p>
                 <div class="hn-meta"><span>Garage parking</span><span>•</span><span>Listed 14 days ago</span></div>
                 <div class="hn-card__actions">
-                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="pine-4br">Compare</button>
-                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="pine">Tour</button>
-                  <button type="button" class="hn-btn" data-save-secondary="pine">Save</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="pine-4br" data-wci-role="action" data-wci-id="compare-3" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-2">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="pine" data-wci-role="action" data-wci-id="tour-3" data-wci-desc="Click to: Tour" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-2">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="pine" data-wci-role="action" data-wci-id="save-2" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-2">Save</button>
                 </div>
               </div>
             </article>
 
-            <article data-listing="elm-townhome" class="hn-card">
+            <article data-listing="elm-townhome" class="hn-card" data-wci-role="landmark" data-wci-id="hn-card-3" data-wci-desc="Landmark zone for article" data-wci-priority="3">
               <div class="hn-card__media" role="img" aria-label="Photo of 220 Elm Court"></div>
               <div class="hn-card__body">
-                <div class="hn-meta"><span class="hn-badge hn-badge--info">New listing</span><span>MLS #44120</span></div>
-                <div class="hn-price">$365,000</div>
+                <div class="hn-meta"><span class="hn-badge hn-badge--info" data-wci-role="display" data-wci-id="hn-badge-8" data-wci-desc="Display value: New listing" data-wci-state="{&quot;value&quot;:&quot;New listing&quot;}" data-wci-priority="4" data-wci-scope="hn-card-3">New listing</span><span>MLS #44120</span></div>
+                <div class="hn-price" data-wci-role="display" data-wci-id="hn-price-4" data-wci-desc="Display value: $365,000" data-wci-state="{&quot;value&quot;:&quot;$365,000&quot;}" data-wci-priority="4" data-wci-scope="hn-card-3">$365,000</div>
                 <div class="hn-address">220 Elm Court</div>
                 <p class="hn-card__blurb">3 bed · 2.5 bath · 1,640 sqft · End-unit townhome with rooftop deck access.</p>
                 <div class="hn-meta"><span>HOA $185/mo</span><span>•</span><span>Listed yesterday</span></div>
                 <div class="hn-card__actions">
-                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="elm-townhome">Compare</button>
-                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="elm">Tour</button>
-                  <button type="button" class="hn-btn" data-save-secondary="elm">Save</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-compare="elm-townhome" data-wci-role="action" data-wci-id="compare-4" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-3">Compare</button>
+                  <button type="button" class="hn-btn hn-btn--ghost" data-tour="elm" data-wci-role="action" data-wci-id="tour-4" data-wci-desc="Click to: Tour" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-3">Tour</button>
+                  <button type="button" class="hn-btn" data-save-secondary="elm" data-wci-role="action" data-wci-id="save-3" data-wci-desc="Click to: Save" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-card-3">Save</button>
                 </div>
               </div>
             </article>
           </section>
 
-          <section class="hn-agent-strip" aria-label="Local agent">
+          <section class="hn-agent-strip" aria-label="Local agent" data-wci-role="landmark" data-wci-id="hn-agent-strip" data-wci-desc="Landmark zone for section" data-wci-priority="3">
             <div class="hn-agent-strip__avatar" aria-hidden="true">SK</div>
             <div>
               <strong>Sarah Kim · HomeNest Premier Agent</strong>
               <p class="hn-muted">Specializing in North Springfield · 4.9★ · 128 closings last year</p>
             </div>
-            <button type="button" class="hn-btn hn-btn--ghost">Message</button>
-            <button type="button" class="hn-btn">Schedule call</button>
+            <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="message" data-wci-desc="Click to: Message" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-agent-strip">Message</button>
+            <button type="button" class="hn-btn" data-wci-role="action" data-wci-id="schedule-call" data-wci-desc="Click to: Schedule call" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-agent-strip">Schedule call</button>
           </section>
         </div>
       </div>
     </div>
 
-    <aside class="hn-rail hn-rail--ads" aria-label="Tools and sponsored">
+    <aside class="hn-rail hn-rail--ads" aria-label="Tools and sponsored" data-wci-role="landmark" data-wci-id="hn-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
       <div class="hn-rail-card">
         <strong>Mortgage calculator</strong>
         <label for="mortgage-price">Home price</label>
-        <input id="mortgage-price" type="number" value="412000" step="1000">
+        <input id="mortgage-price" type="number" value="412000" step="1000" data-wci-role="form" data-wci-id="mortgage-price" data-wci-desc="Field for: Home price" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;412000&quot;}" data-wci-priority="3" data-wci-scope="hn-rail">
         <label for="mortgage-down">Down payment %</label>
-        <input id="mortgage-down" type="number" value="20" min="0" max="100">
+        <input id="mortgage-down" type="number" value="20" min="0" max="100" data-wci-role="form" data-wci-id="mortgage-down" data-wci-desc="Field for: Down payment %" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;20&quot;}" data-wci-priority="3" data-wci-scope="hn-rail">
         <label for="mortgage-rate">Interest rate %</label>
-        <input id="mortgage-rate" type="number" value="6.5" step="0.125">
+        <input id="mortgage-rate" type="number" value="6.5" step="0.125" data-wci-role="form" data-wci-id="mortgage-rate" data-wci-desc="Field for: Interest rate %" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;6.5&quot;}" data-wci-priority="3" data-wci-scope="hn-rail">
         <p class="hn-mortgage-out" id="mortgage-estimate">Est. $2,084/mo (30-yr fixed)</p>
       </div>
       <hr class="hn-rail-divider">
       <div><strong>Sponsored</strong></div>
       <p>Compare mortgage pre-approval offers from partner lenders and estimate your monthly payment.</p>
-      <a href="#">Partner offer — limited time</a>
-      <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-rail">Partner offer — limited time</a>
+      <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-rail">View deal</button>
       <hr class="hn-rail-divider">
       <div><strong>Buying checklist</strong></div>
       <ul class="hn-checklist">
@@ -437,7 +437,7 @@ h1,h2,h3,h4,p{margin:0}
       <hr class="hn-rail-divider">
       <div><strong>Neighborhood snapshot</strong></div>
       <dl class="hn-dl">
-        <dt>Median list</dt><dd>$398k</dd>
+        <dt>Median list</dt><dd data-wci-role="display" data-wci-id="display-5" data-wci-desc="Display value: $398k" data-wci-state="{&quot;value&quot;:&quot;$398k&quot;}" data-wci-priority="4" data-wci-scope="hn-rail">$398k</dd>
         <dt>Days on market</dt><dd>18</dd>
         <dt>Walk score</dt><dd>68 avg</dd>
       </dl>
@@ -446,25 +446,25 @@ h1,h2,h3,h4,p{margin:0}
 
   <div class="hn-compare-tray" id="compare-tray" aria-label="Compare homes">
     <span><strong id="compare-count">0</strong> homes selected to compare</span>
-    <button type="button" class="hn-btn hn-btn--primary hn-btn--sm">Compare now</button>
-    <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm">Clear</button>
+    <button type="button" class="hn-btn hn-btn--primary hn-btn--sm" data-wci-role="action" data-wci-id="compare-now" data-wci-desc="Click to: Compare now" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Compare now</button>
+    <button type="button" class="hn-btn hn-btn--ghost hn-btn--sm" data-wci-role="action" data-wci-id="clear" data-wci-desc="Click to: Clear" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Clear</button>
   </div>
 
   <div class="hn-filler" aria-hidden="true">
     <div class="hn-filler-inner">
       <a href="/misc/0" class="hn-btn hn-btn--ghost">Link 1</a>
-      <button type="button" class="hn-btn hn-btn--ghost">Action 2</button>
-      <button type="button" class="hn-btn hn-btn--ghost">Submit</button>
-      <button type="button" class="hn-btn hn-btn--ghost">Continue</button>
+      <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Action 2</button>
+      <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Submit</button>
+      <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Continue</button>
       <a href="/misc/4" class="hn-btn hn-btn--ghost">Link 5</a>
-      <button type="button" class="hn-btn hn-btn--ghost">Action 6</button>
+      <button type="button" class="hn-btn hn-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="real_estate-page">Action 6</button>
     </div>
   </div>
 
-  <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="2" data-wci-scope="real_estate-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="hn-btn hn-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="real_estate-page">Hidden promo</button>
 
-  <footer class="hn-ftr">
-    <small>© Demo HomeNest Listings</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <footer class="hn-ftr" data-wci-role="landmark" data-wci-id="hn-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3">
+    <small>© Demo HomeNest Listings</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="hn-ftr">Terms</a>
     <span> · Listing data is simulated for benchmark purposes.</span>
   </footer>
 
@@ -475,18 +475,18 @@ h1,h2,h3,h4,p{margin:0}
 </div>
 
 <div class="hn-overlay" id="modal-overlay"></div>
-<div class="hn-modal" id="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title">
+<div class="hn-modal" id="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title" data-wci-role="landmark" data-wci-id="hn-modal" data-wci-desc="Section for: Schedule a tour" data-wci-priority="3">
   <div class="hn-modal__hdr">
     <div>
       <h2 class="hn-modal__title" id="tour-modal-title">Schedule a tour</h2>
       <p id="tour-modal-subtitle">Select a home to preview tour details.</p>
     </div>
-    <button type="button" class="hn-btn hn-btn--ghost" id="close-modal">Close</button>
+    <button type="button" class="hn-btn hn-btn--ghost" id="close-modal" data-wci-role="action" data-wci-id="close-modal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-modal">Close</button>
   </div>
   <label for="tour-name">Your name</label>
-  <input id="tour-name" type="text" placeholder="Jamie Buyer">
+  <input id="tour-name" type="text" placeholder="Jamie Buyer" data-wci-role="form" data-wci-id="tour-name" data-wci-desc="Field for: Your name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="hn-modal">
   <label for="tour-time">Preferred time</label>
-  <select id="tour-time">
+  <select id="tour-time" data-wci-role="form" data-wci-id="tour-time" data-wci-desc="Dropdown to select: Preferred time" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select a time&quot;}" data-wci-options="[&quot;Select a time&quot;,&quot;Tomorrow 10:00 AM&quot;,&quot;Tomorrow 1:30 PM&quot;,&quot;Saturday 11:00 AM&quot;]" data-wci-priority="3" data-wci-scope="hn-modal">
     <option value="">Select a time</option>
     <option>Tomorrow 10:00 AM</option>
     <option>Tomorrow 1:30 PM</option>
@@ -495,8 +495,8 @@ h1,h2,h3,h4,p{margin:0}
   <div class="hn-error" id="tour-error"></div>
   <div class="hn-success" id="tour-success"></div>
   <div class="hn-modal__foot">
-    <button type="button" class="hn-btn" id="tour-cancel">Cancel</button>
-    <button type="button" class="hn-btn hn-btn--primary" id="tour-submit">Request tour</button>
+    <button type="button" class="hn-btn" id="tour-cancel" data-wci-role="action" data-wci-id="tour-cancel" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-modal">Cancel</button>
+    <button type="button" class="hn-btn hn-btn--primary" id="tour-submit" data-wci-role="action" data-wci-id="tour-submit" data-wci-desc="Click to: Request tour" data-wci-action="click" data-wci-priority="3" data-wci-scope="hn-modal">Request tour</button>
   </div>
 </div>
 

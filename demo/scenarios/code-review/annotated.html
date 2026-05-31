@@ -103,61 +103,61 @@ table{border-collapse:collapse}
 .ml-counter{font-size:12px;color:#64748b}
 .ml-hidden{display:none!important}
 </style></head><body>
-<div class="ml-app" data-page="code-review" id="code_review-page" data-wci-id="code_review-page" data-wci-role="landmark" data-wci-desc="Code review application root for MergeLab pull request review page" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="ml-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="ml-app" data-page="code-review" id="code_review-page" data-wci-role="landmark" data-wci-id="code_review-page" data-wci-desc="MergeLab — PR diff." data-wci-priority="2"><div class="ml-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="ml-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="ml-btn ml-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-  <button type="button" class="ml-btn ml-btn--primary" data-cookie-action="accept">Accept all</button>
-  <button type="button" class="ml-btn ml-btn--ghost" data-cookie-action="customize">Customize</button>
+  <button type="button" class="ml-btn ml-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-cookie">Reject non-essential</button>
+  <button type="button" class="ml-btn ml-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-cookie">Accept all</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-cookie">Customize</button>
 </div><div class="ml-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="ml-btn ml-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="ml-btn">Continue as guest — express</button>
-</div><header class="ml-hdr">
-  <div class="ml-brand"><span class="ml-brand-badge">ML</span><span>MergeLab</span></div>
-  <nav class="ml-nav" aria-label="Global"><a href="#">Pull requests</a><a href="#">Repositories</a><a href="#">Actions</a><a href="#">Security</a><a href="#">Account</a></nav>
-  <div class="ml-hdr-promo"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy button unrelated to approving the pull request" data-wci-priority="2" data-wci-scope="code_review-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="ml-btn ml-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="ml-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Commits</a><a href="#">Checks</a><a href="#">Files changed</a><a href="#">Reviewers</a>
-  <button type="button" class="ml-btn ml-btn--ghost">Submit</button>
-  <button type="button" class="ml-btn ml-btn--ghost">Continue</button>
+  <button type="button" class="ml-btn ml-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="ml-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue as guest — express</button>
+</div><header class="ml-hdr" data-wci-role="landmark" data-wci-id="ml-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <div class="ml-brand"><span class="ml-brand-badge" data-wci-role="display" data-wci-id="ml-brand-badge" data-wci-desc="Display value: ML" data-wci-state="{&quot;value&quot;:&quot;ML&quot;}" data-wci-priority="4" data-wci-scope="ml-hdr">ML</span><span>MergeLab</span></div>
+  <nav class="ml-nav" aria-label="Global" data-wci-role="nav" data-wci-id="ml-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="pull-requests" data-wci-desc="Navigate to: Pull requests" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-nav">Pull requests</a><a href="#" data-wci-role="nav" data-wci-id="repositories" data-wci-desc="Navigate to: Repositories" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-nav">Repositories</a><a href="#" data-wci-role="nav" data-wci-id="actions" data-wci-desc="Navigate to: Actions" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-nav">Actions</a><a href="#" data-wci-role="nav" data-wci-id="security" data-wci-desc="Navigate to: Security" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-nav">Security</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-nav">Account</a></nav>
+  <div class="ml-hdr-promo"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="ml-hdr">Claim Offer</button>
+    <button type="button" class="ml-btn ml-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-hdr">Learn More</button></div>
+</header><nav class="ml-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="ml-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="commits" data-wci-desc="Navigate to: Commits" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-subnav">Commits</a><a href="#" data-wci-role="nav" data-wci-id="checks" data-wci-desc="Navigate to: Checks" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-subnav">Checks</a><a href="#" data-wci-role="nav" data-wci-id="files-changed" data-wci-desc="Navigate to: Files changed" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-subnav">Files changed</a><a href="#" data-wci-role="nav" data-wci-id="reviewers" data-wci-desc="Navigate to: Reviewers" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-subnav">Reviewers</a>
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-subnav">Submit</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-subnav">Continue</button>
 </nav><div class="ml-dup-row" aria-label="Quick actions">
-  <button type="button" class="ml-btn ml-btn--ghost">Submit</button>
-  <button type="button" class="ml-btn ml-btn--ghost">Continue</button>
-  <button type="button" class="ml-btn ml-btn--ghost">Save changes</button>
-  <button type="button" class="ml-btn ml-btn--ghost">Confirm</button>
-</div><div class="ml-dup-row"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Approve PR 4182</button><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-nav">Approve pull request 4182</button></div><div class="ml-page-wrap"><div class="ml-page-main">
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Save changes</button>
+  <button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Confirm</button>
+</div><div class="ml-dup-row"><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="approve-pr-4182-2" data-wci-desc="Click to: Approve PR 4182 — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="code_review-page" data-wci-competitor="true">Approve PR 4182</button><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="approve-pull-request-4182" data-wci-desc="Click to: Approve pull request 4182 — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="code_review-page" data-wci-competitor="true">Approve pull request 4182</button></div><div class="ml-page-wrap"><div class="ml-page-main">
   <div class="ml-kpi">
-    <span class="ml-badge ml-badge--open">Open review</span>
-    <span class="ml-badge ml-badge--amber" id="review-state-badge">Awaiting review decision</span>
+    <span class="ml-badge ml-badge--open" data-wci-role="display" data-wci-id="ml-badge" data-wci-desc="Display value: Open review" data-wci-state="{&quot;value&quot;:&quot;Open review&quot;}" data-wci-priority="4" data-wci-scope="code_review-page">Open review</span>
+    <span class="ml-badge ml-badge--amber" id="review-state-badge" data-wci-role="display" data-wci-id="review-state-badge" data-wci-desc="Display value: Awaiting review decision" data-wci-state="{&quot;value&quot;:&quot;Awaiting review decision&quot;}" data-wci-priority="4" data-wci-scope="code_review-page">Awaiting review decision</span>
     <span class="ml-pill" style="background:#e2e8f0;color:#334155">Repository: core/api-gateway</span>
     <span class="ml-pill" style="background:#e0f2fe;color:#075985">Branch: fix/request-timeout</span>
   </div>
   <div class="ml-layout-review">
-    <aside class="ml-sidebar" aria-label="Changed files">
-      <h3>Changed files <span class="ml-counter" id="file-count">3 files</span></h3>
+    <aside class="ml-sidebar" aria-label="Changed files" data-wci-role="landmark" data-wci-id="ml-sidebar" data-wci-desc="Section for: Changed files 3 files" data-wci-priority="3">
+      <h3>Changed files <span class="ml-counter" id="file-count" data-wci-role="display" data-wci-id="file-count" data-wci-desc="Display value: 3 files" data-wci-state="{&quot;value&quot;:&quot;3 files&quot;}" data-wci-priority="4" data-wci-scope="ml-sidebar">3 files</span></h3>
       <div class="ml-file-item is-active"><span>src/http/client.ts</span><span>+14 −3</span></div>
       <div class="ml-file-item"><span>src/http/retry.ts</span><span>+4 −0</span></div>
       <div class="ml-file-item"><span>tests/timeout.spec.ts</span><span>+18 −1</span></div>
-      <article class="ml-card">
+      <article class="ml-card" data-wci-role="landmark" data-wci-id="ml-card" data-wci-desc="Section for: Review checklist" data-wci-priority="3">
         <h3 style="margin-top:0">Review checklist</h3>
-        <label><input type="checkbox" id="check-tests" checked=""> Tests added</label>
-        <label><input type="checkbox" id="check-risk" checked=""> Risk understood</label>
-        <label><input type="checkbox" id="check-backward" checked=""> Backward compatible</label>
+        <label><input type="checkbox" id="check-tests" checked="" data-wci-role="form" data-wci-id="check-tests" data-wci-desc="Field for: Tests added" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="ml-card"> Tests added</label>
+        <label><input type="checkbox" id="check-risk" checked="" data-wci-role="form" data-wci-id="check-risk" data-wci-desc="Field for: Risk understood" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="ml-card"> Risk understood</label>
+        <label><input type="checkbox" id="check-backward" checked="" data-wci-role="form" data-wci-id="check-backward" data-wci-desc="Field for: Backward compatible" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="ml-card"> Backward compatible</label>
         <div class="ml-note">All items are informational and do not block approval.</div>
       </article>
     </aside>
-    <main role="main" data-pr="4182">
+    <main role="main" data-pr="4182" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: PR #4182 Fix timeout handling in upstream request path" data-wci-priority="3">
       <div class="ml-pr-head">
         <div>
           <h1>PR #4182 Fix timeout handling in upstream request path</h1>
-          <div class="ml-meta">Opened by <strong>npatel</strong> · 2 hours ago · targets <code>main</code> · linked incident <a href="#">INC-2031</a></div>
+          <div class="ml-meta">Opened by <strong>npatel</strong> · 2 hours ago · targets <code>main</code> · linked incident <a href="#" data-wci-role="nav" data-wci-id="inc-2031" data-wci-desc="Navigate to: INC-2031" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="main">INC-2031</a></div>
         </div>
         <div class="ml-actions">
-          <span class="ml-badge ml-badge--green">2 checks passed</span>
-          <span class="ml-badge ml-badge--green">1 approval required</span>
+          <span class="ml-badge ml-badge--green" data-wci-role="display" data-wci-id="ml-badge-2" data-wci-desc="Display value: 2 checks passed" data-wci-state="{&quot;value&quot;:&quot;2 checks passed&quot;}" data-wci-priority="4" data-wci-scope="main">2 checks passed</span>
+          <span class="ml-badge ml-badge--green" data-wci-role="display" data-wci-id="ml-badge-3" data-wci-desc="Display value: 1 approval required" data-wci-state="{&quot;value&quot;:&quot;1 approval required&quot;}" data-wci-priority="4" data-wci-scope="main">1 approval required</span>
         </div>
       </div>
 
-      <article class="ml-card">
+      <article class="ml-card" data-wci-role="landmark" data-wci-id="ml-card-2" data-wci-desc="Section for: Summary" data-wci-priority="3">
         <h2 style="margin-top:0">Summary</h2>
         <p>This change ensures client requests respect the configured timeout budget and stop hanging when the upstream service never resolves. The patch adds a guarded <code>waitFor()</code> path, propagates timeout abort signals into retries, and updates the test suite to cover the regression reported after the 2.14 deploy.</p>
         <div class="ml-inline">
@@ -168,10 +168,10 @@ table{border-collapse:collapse}
         </div>
       </article>
 
-      <section class="ml-card">
+      <section class="ml-card" data-wci-role="landmark" data-wci-id="ml-card-3" data-wci-desc="Section for: Reviewer notes" data-wci-priority="3">
         <h2 style="margin-top:0">Reviewer notes</h2>
         <label for="review-note">Optional approval note</label>
-        <textarea id="review-note" rows="4" maxlength="240" placeholder="Looks good. Verified timeout cancellation and tests cover the retry path."></textarea>
+        <textarea id="review-note" rows="4" maxlength="240" placeholder="Looks good. Verified timeout cancellation and tests cover the retry path." data-wci-role="form" data-wci-id="review-note" data-wci-desc="Text area for: Optional approval note" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="ml-card-3"></textarea>
         <div class="ml-inline" style="justify-content:space-between;margin-top:8px">
           <div class="ml-error" id="review-note-error" aria-live="polite"></div>
           <div class="ml-counter"><span id="note-char-count">0</span>/240</div>
@@ -183,16 +183,16 @@ table{border-collapse:collapse}
             <div class="ml-note" id="last-updated-note">No action recorded yet.</div>
           </div>
           <div>
-            <button type="button" class="ml-btn" id="preview-note-btn">Preview note</button>
+            <button type="button" class="ml-btn" id="preview-note-btn" data-wci-role="action" data-wci-id="preview-note-btn" data-wci-desc="Click to: Preview note" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-card-3">Preview note</button>
           </div>
         </div>
       </section>
 
-      <section>
+      <section data-wci-role="landmark" data-wci-id="section" data-wci-desc="Landmark zone for section" data-wci-priority="3">
         <div class="ml-toolbar">
           <strong>Diff viewer</strong>
           <span class="ml-note">File: src/http/client.ts</span>
-          <button type="button" class="ml-btn ml-btn--ghost" id="toggle-context-btn" aria-pressed="true">Hide context lines</button>
+          <button type="button" class="ml-btn ml-btn--ghost" id="toggle-context-btn" aria-pressed="true" data-wci-role="action" data-wci-id="toggle-context-btn" data-wci-desc="Click to: Hide context lines" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">Hide context lines</button>
         </div>
         <div class="ml-diff" aria-label="Code diff">
           <div class="ml-diff-head"><div>Old</div><div>Code</div><div>New</div></div>
@@ -206,7 +206,7 @@ table{border-collapse:collapse}
         </div>
       </section>
 
-      <section class="ml-card">
+      <section class="ml-card" data-wci-role="landmark" data-wci-id="ml-card-4" data-wci-desc="Section for: Latest review activity" data-wci-priority="3">
         <h2 style="margin-top:0">Latest review activity</h2>
         <ul class="ml-reviews">
           <li><span><strong>mgarcia</strong> approved test coverage</span><span class="ml-note">14 min ago</span></li>
@@ -215,37 +215,37 @@ table{border-collapse:collapse}
         </ul>
       </section>
 
-      <section class="ml-card">
+      <section class="ml-card" data-wci-role="landmark" data-wci-id="ml-card-5" data-wci-desc="Section for: Review decision" data-wci-priority="3">
         <h2 style="margin-top:0">Review decision</h2>
         <p>You can leave an optional note and approve the pull request, or request changes if the timeout fix is incomplete. Approving will mark this review as accepted and update the review status banner.</p>
         <div class="ml-actions">
-          <button type="button" class="ml-btn ml-btn--primary" data-pr-action="approve" id="approve-pr-4182" data-wci-id="approve-pr-4182" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary approve action for pull request 4182" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="code_review-page">Approve</button>
-          <button type="button" class="ml-btn ml-btn--danger" id="request-changes-btn">Request changes</button>
-          <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">Try Pro</button>
+          <button type="button" class="ml-btn ml-btn--primary" data-pr-action="approve" id="approve-pr-4182" data-wci-role="action" data-wci-id="approve-pr-4182" data-wci-desc="Approve pull request number 4182 fixing timeout (not request changes or pro upsell)." data-wci-action="click" data-wci-priority="1" data-wci-scope="ml-card-5" data-wci-primary="true">Approve</button>
+          <button type="button" class="ml-btn ml-btn--danger" id="request-changes-btn" data-wci-role="action" data-wci-id="request-changes-btn" data-wci-desc="Click to: Request changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-card-5">Request changes</button>
+          <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="try-pro" data-wci-desc="Click to: Try Pro" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-card-5">Try Pro</button>
         </div>
       </section>
     </main>
   </div>
-</div><aside class="ml-rail ml-rail--ads" aria-label="Sponsored">
+</div><aside class="ml-rail ml-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="ml-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Speed up enterprise code reviews with AI summaries, compliance checks, and team dashboards.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-rail">Partner offer — limited time</a><br>
+  <button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
   <div class="ml-note">Queue health</div>
   <div style="margin-top:6px"><strong>Median review time:</strong> 37 min</div>
   <div><strong>Open PRs:</strong> 12</div>
-</aside></div><div class="ml-filler" aria-hidden="true"><div class="ml-filler-inner"><a href="/misc/0" class="ml-btn ml-btn--ghost">Link 1</a><button type="button" class="ml-btn ml-btn--ghost">Action 2</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/4" class="ml-btn ml-btn--ghost">Link 5</a><button type="button" class="ml-btn ml-btn--ghost">Action 6</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/8" class="ml-btn ml-btn--ghost">Link 9</a><button type="button" class="ml-btn ml-btn--ghost">Action 10</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/12" class="ml-btn ml-btn--ghost">Link 13</a><button type="button" class="ml-btn ml-btn--ghost">Action 14</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/16" class="ml-btn ml-btn--ghost">Link 17</a><button type="button" class="ml-btn ml-btn--ghost">Action 18</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/20" class="ml-btn ml-btn--ghost">Link 21</a><button type="button" class="ml-btn ml-btn--ghost">Action 22</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/24" class="ml-btn ml-btn--ghost">Link 25</a><button type="button" class="ml-btn ml-btn--ghost">Action 26</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/28" class="ml-btn ml-btn--ghost">Link 29</a><button type="button" class="ml-btn ml-btn--ghost">Action 30</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/32" class="ml-btn ml-btn--ghost">Link 33</a><button type="button" class="ml-btn ml-btn--ghost">Action 34</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/36" class="ml-btn ml-btn--ghost">Link 37</a><button type="button" class="ml-btn ml-btn--ghost">Action 38</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button><a href="/misc/40" class="ml-btn ml-btn--ghost">Link 41</a><button type="button" class="ml-btn ml-btn--ghost">Action 42</button><button type="button" class="ml-btn ml-btn--ghost">Submit</button><button type="button" class="ml-btn ml-btn--ghost">Continue</button></div></div><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional element" data-wci-priority="2" data-wci-scope="code_review-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="ml-ftr"><small>© Demo MergeLab</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+</aside></div><div class="ml-filler" aria-hidden="true"><div class="ml-filler-inner"><a href="/misc/0" class="ml-btn ml-btn--ghost">Link 1</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 2</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/4" class="ml-btn ml-btn--ghost">Link 5</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 6</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/8" class="ml-btn ml-btn--ghost">Link 9</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 10</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/12" class="ml-btn ml-btn--ghost">Link 13</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 14</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/16" class="ml-btn ml-btn--ghost">Link 17</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 18</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/20" class="ml-btn ml-btn--ghost">Link 21</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 22</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/24" class="ml-btn ml-btn--ghost">Link 25</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 26</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/28" class="ml-btn ml-btn--ghost">Link 29</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 30</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/32" class="ml-btn ml-btn--ghost">Link 33</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 34</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/36" class="ml-btn ml-btn--ghost">Link 37</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 38</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button><a href="/misc/40" class="ml-btn ml-btn--ghost">Link 41</a><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Action 42</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Submit</button><button type="button" class="ml-btn ml-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="code_review-page">Continue</button></div></div><button type="button" class="ml-btn ml-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="code_review-page">Hidden promo</button><footer class="ml-ftr" data-wci-role="landmark" data-wci-id="ml-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo MergeLab</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="ml-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
 
 <div class="ml-overlay" id="note-preview-modal" aria-hidden="true">
-  <div class="ml-modal-card" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+  <div class="ml-modal-card" role="dialog" aria-modal="true" aria-labelledby="preview-title" data-wci-role="landmark" data-wci-id="ml-modal-card" data-wci-desc="Landmark zone for div" data-wci-priority="3">
     <div class="ml-modal-head"><strong id="preview-title">Review note preview</strong></div>
     <div class="ml-modal-body">
       <p id="preview-note-text" style="white-space:pre-wrap">No note entered.</p>
     </div>
     <div class="ml-modal-foot">
-      <button type="button" class="ml-btn" id="close-preview-btn">Close</button>
+      <button type="button" class="ml-btn" id="close-preview-btn" data-wci-role="action" data-wci-id="close-preview-btn" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="ml-modal-card">Close</button>
     </div>
   </div>
 </div>

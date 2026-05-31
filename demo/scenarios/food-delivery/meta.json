@@ -54,14 +54,14 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
-      "[data-item=\"teriyaki-1299\"] button.qb-btn--primary"
+      "#add-teriyaki-checkout",
+      "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary"
     ]
   },
   "tasks": {
     "singleShot": {
       "goal": "Add the Tokyo Bowl teriyaki item priced 12.99 to cart and proceed to checkout (not other restaurants).",
-      "groundTruthSelector": "[data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+      "groundTruthSelector": "#add-teriyaki-checkout",
       "groundTruthNodeId": "add-teriyaki-checkout"
     },
     "multiStep": [
@@ -76,7 +76,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Final action uses ground-truth selector: #add-teriyaki-checkout",
           "Primary WCI action id: add-teriyaki-checkout",
           "No decoy ids triggered: decoy-promo, decoy-extra"
         ],
@@ -94,7 +94,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "step": "Execute final action at #add-teriyaki-checkout",
             "type": "act"
           },
           {
@@ -132,7 +132,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+          "Final action uses ground-truth selector: #add-teriyaki-checkout",
           "Primary WCI action id: add-teriyaki-checkout",
           "No decoy ids triggered: decoy-promo, decoy-extra"
         ],
@@ -146,7 +146,7 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-restaurant=\"tokyo-bowl\"][data-item=\"teriyaki-1299\"] .qb-btn--primary",
+            "step": "Execute primary selector #add-teriyaki-checkout",
             "type": "act"
           },
           {

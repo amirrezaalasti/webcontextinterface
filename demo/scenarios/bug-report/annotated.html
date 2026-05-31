@@ -92,49 +92,49 @@ table{border-collapse:collapse}
 .it-counter{font-size:12px;color:#64748b;text-align:right;margin-top:4px}
 .it-ab{display:none!important}
 </style></head><body>
-<div class="it-app" data-page="bug-report" id="bug_report-page" data-wci-id="bug_report-page" data-wci-role="landmark" data-wci-desc="Bug report page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="it-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+<div class="it-app" data-page="bug-report" id="bug_report-page" data-wci-role="landmark" data-wci-id="bug_report-page" data-wci-desc="IssueTrack — Modal dialog." data-wci-priority="2">
+  <div class="it-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner" data-wci-role="landmark" data-wci-id="it-cookie" data-wci-desc="Landmark zone: cookieBanner" data-wci-priority="3">
     <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-    <button type="button" class="it-btn it-btn--muted" data-cookie="reject">Reject non-essential</button>
-    <button type="button" class="it-btn it-btn--primary" data-cookie="accept">Accept all</button>
-    <button type="button" class="it-btn it-btn--ghost" data-cookie="customize">Customize</button>
+    <button type="button" class="it-btn it-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-cookie">Reject non-essential</button>
+    <button type="button" class="it-btn it-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-cookie">Accept all</button>
+    <button type="button" class="it-btn it-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-cookie">Customize</button>
   </div>
 
-  <header class="it-hdr">
+  <header class="it-hdr" data-wci-role="landmark" data-wci-id="it-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
     <div class="it-inline">
       <strong style="font-size:18px;color:#0f172a">IssueTrack</strong>
-      <span class="it-badge it-badge--open">Workspace: Retail Checkout</span>
+      <span class="it-badge it-badge--open" data-wci-role="display" data-wci-id="it-badge" data-wci-desc="Display value: Workspace: Retail Checkout" data-wci-state="{&quot;value&quot;:&quot;Workspace: Retail Checkout&quot;}" data-wci-priority="4" data-wci-scope="it-hdr">Workspace: Retail Checkout</span>
     </div>
-    <nav class="it-nav" aria-label="Global">
-      <a href="#">Home</a><a href="#">Projects</a><a href="#">Boards</a><a href="#">Reports</a><a href="#">Account</a>
+    <nav class="it-nav" aria-label="Global" data-wci-role="nav" data-wci-id="it-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="#" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-nav">Home</a><a href="#" data-wci-role="nav" data-wci-id="projects" data-wci-desc="Navigate to: Projects" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-nav">Projects</a><a href="#" data-wci-role="nav" data-wci-id="boards" data-wci-desc="Navigate to: Boards" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-nav">Boards</a><a href="#" data-wci-role="nav" data-wci-id="reports" data-wci-desc="Navigate to: Reports" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-nav">Reports</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-nav">Account</a>
     </nav>
     <div class="it-hdr-promo">
-      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy control that should not be used for filing the bug" data-wci-priority="1" data-wci-scope="bug_report-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-      <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Open chat</button>
+      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="it-hdr">Claim Offer</button>
+      <button type="button" class="it-btn it-btn--ghost" data-open-chat="1" data-wci-role="action" data-wci-id="open-chat" data-wci-desc="Click to: Open chat" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-hdr">Open chat</button>
     </div>
   </header>
 
-  <nav class="it-subnav" aria-label="Secondary">
-    <a href="#">Overview</a><a href="#">Bug Queue</a><a href="#">Escalations</a><a href="#">Mobile</a><a href="#">Settings</a>
-    <span class="it-badge it-badge--warn">2 issues pending triage</span>
+  <nav class="it-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="it-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="bug-queue" data-wci-desc="Navigate to: Bug Queue" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-subnav">Bug Queue</a><a href="#" data-wci-role="nav" data-wci-id="escalations" data-wci-desc="Navigate to: Escalations" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-subnav">Escalations</a><a href="#" data-wci-role="nav" data-wci-id="mobile" data-wci-desc="Navigate to: Mobile" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-subnav">Mobile</a><a href="#" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-subnav">Settings</a>
+    <span class="it-badge it-badge--warn" data-wci-role="display" data-wci-id="it-badge-2" data-wci-desc="Display value: 2 issues pending triage" data-wci-state="{&quot;value&quot;:&quot;2 issues pending triage&quot;}" data-wci-priority="4" data-wci-scope="it-subnav">2 issues pending triage</span>
   </nav>
 
   <div class="it-dup-row" aria-label="Quick actions">
-    <button type="button" class="it-btn it-btn--ghost" id="openReportModalTop">New bug report</button>
-    <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Chat support</button>
-    <button type="button" class="it-btn it-btn--ghost">Export queue</button>
-    <button type="button" class="it-btn it-btn--ghost">Bulk assign</button>
+    <button type="button" class="it-btn it-btn--ghost" id="openReportModalTop" data-wci-role="action" data-wci-id="openreportmodaltop" data-wci-desc="Click to: New bug report — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="bug_report-page" data-wci-competitor="true">New bug report</button>
+    <button type="button" class="it-btn it-btn--ghost" data-open-chat="1" data-wci-role="action" data-wci-id="chat-support" data-wci-desc="Click to: Chat support" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Chat support</button>
+    <button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="export-queue" data-wci-desc="Click to: Export queue" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Export queue</button>
+    <button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="bulk-assign" data-wci-desc="Click to: Bulk assign" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Bulk assign</button>
   </div>
 
   <div class="it-page-wrap">
-    <main class="it-page-main" role="main">
-      <section class="it-panel">
+    <main class="it-page-main" role="main" data-wci-role="landmark" data-wci-id="it-page-main" data-wci-desc="Section for: Bug reporting dashboard" data-wci-priority="3">
+      <section class="it-panel" data-wci-role="landmark" data-wci-id="it-panel" data-wci-desc="Section for: Bug reporting dashboard" data-wci-priority="3">
         <div class="it-inline" style="justify-content:space-between;align-items:flex-start">
           <div>
             <h1>Bug reporting dashboard</h1>
             <p>Track regressions, route incidents to the correct product area, and capture reproducible reports with platform and severity metadata.</p>
           </div>
-          <div class="it-status" id="queueStatus">Queue healthy · mobile form validation enabled</div>
+          <div class="it-status" id="queueStatus" data-wci-role="display" data-wci-id="queuestatus" data-wci-desc="Display value: Queue healthy · mobile form validation enabled" data-wci-state="{&quot;value&quot;:&quot;Queue healthy · mobile form validation enabled&quot;}" data-wci-priority="4" data-wci-scope="it-panel">Queue healthy · mobile form validation enabled</div>
         </div>
 
         <div class="it-kpis">
@@ -144,25 +144,25 @@ table{border-collapse:collapse}
         </div>
 
         <div class="it-layout">
-          <section>
-            <article>
+          <section data-wci-role="landmark" data-wci-id="section" data-wci-desc="Section for: Recent checkout-related issues" data-wci-priority="3">
+            <article data-wci-role="landmark" data-wci-id="article" data-wci-desc="Section for: Recent checkout-related issues" data-wci-priority="3">
               <h2>Recent checkout-related issues</h2>
               <p>Use the list below to avoid duplicates. Chat support is available for general questions, but formal incident intake must be submitted through the report flow.</p>
               <table aria-label="Recent issue list">
                 <thead><tr><th>Issue</th><th>Category</th><th>Platform</th><th>Status</th></tr></thead>
                 <tbody>
-                  <tr><td>Promo code field clipped on small screens</td><td>Checkout</td><td>Mobile</td><td><span class="it-badge">Investigating</span></td></tr>
-                  <tr><td>Apple Pay CTA not announced by screen readers</td><td>Payments</td><td>iOS</td><td><span class="it-badge it-badge--open">Open</span></td></tr>
-                  <tr><td>Timeout after address confirmation on weak networks</td><td>Checkout</td><td>Android</td><td><span class="it-badge it-badge--warn">Needs details</span></td></tr>
+                  <tr><td>Promo code field clipped on small screens</td><td>Checkout</td><td>Mobile</td><td><span class="it-badge" data-wci-role="display" data-wci-id="it-badge-3" data-wci-desc="Display value: Investigating" data-wci-state="{&quot;value&quot;:&quot;Investigating&quot;}" data-wci-priority="4" data-wci-scope="article">Investigating</span></td></tr>
+                  <tr><td>Apple Pay CTA not announced by screen readers</td><td>Payments</td><td>iOS</td><td><span class="it-badge it-badge--open" data-wci-role="display" data-wci-id="it-badge-4" data-wci-desc="Display value: Open" data-wci-state="{&quot;value&quot;:&quot;Open&quot;}" data-wci-priority="4" data-wci-scope="article">Open</span></td></tr>
+                  <tr><td>Timeout after address confirmation on weak networks</td><td>Checkout</td><td>Android</td><td><span class="it-badge it-badge--warn" data-wci-role="display" data-wci-id="it-badge-5" data-wci-desc="Display value: Needs details" data-wci-state="{&quot;value&quot;:&quot;Needs details&quot;}" data-wci-priority="4" data-wci-scope="article">Needs details</span></td></tr>
                 </tbody>
               </table>
               <div class="it-card__actions">
-                <button type="button" class="it-btn it-btn--primary" id="openReportModalMain">Report a checkout bug</button>
-                <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Ask chat support</button>
+                <button type="button" class="it-btn it-btn--primary" id="openReportModalMain" data-wci-role="action" data-wci-id="openreportmodalmain" data-wci-desc="Click to: Report a checkout bug — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="article" data-wci-competitor="true">Report a checkout bug</button>
+                <button type="button" class="it-btn it-btn--ghost" data-open-chat="1" data-wci-role="action" data-wci-id="ask-chat-support" data-wci-desc="Click to: Ask chat support" data-wci-action="click" data-wci-priority="3" data-wci-scope="article">Ask chat support</button>
               </div>
             </article>
 
-            <article>
+            <article data-wci-role="landmark" data-wci-id="article-2" data-wci-desc="Section for: Submission guidance" data-wci-priority="3">
               <h2>Submission guidance</h2>
               <ul>
                 <li>Choose the correct product category so the bug reaches the checkout team.</li>
@@ -173,51 +173,51 @@ table{border-collapse:collapse}
             </article>
           </section>
 
-          <aside class="it-filters" aria-label="Right rail tools">
+          <aside class="it-filters" aria-label="Right rail tools" data-wci-role="landmark" data-wci-id="it-filters" data-wci-desc="Section for: Filters" data-wci-priority="3">
             <h2>Filters</h2>
             <label for="severityFilter">Severity</label>
-            <select id="severityFilter"><option>All severities</option><option>High</option><option>Medium</option><option>Low</option></select>
+            <select id="severityFilter" data-wci-role="form" data-wci-id="severityfilter" data-wci-desc="Dropdown to select: Severity" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;All severities&quot;}" data-wci-options="[&quot;All severities&quot;,&quot;High&quot;,&quot;Medium&quot;,&quot;Low&quot;]" data-wci-priority="3" data-wci-scope="it-filters"><option>All severities</option><option>High</option><option>Medium</option><option>Low</option></select>
             <label for="ownerFilter">Assigned team</label>
-            <select id="ownerFilter"><option>All teams</option><option selected="">Checkout</option><option>Growth</option><option>Support tooling</option></select>
+            <select id="ownerFilter" data-wci-role="form" data-wci-id="ownerfilter" data-wci-desc="Dropdown to select: Assigned team" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Checkout&quot;}" data-wci-options="[&quot;All teams&quot;,&quot;Checkout&quot;,&quot;Growth&quot;,&quot;Support tooling&quot;]" data-wci-priority="3" data-wci-scope="it-filters"><option>All teams</option><option selected="">Checkout</option><option>Growth</option><option>Support tooling</option></select>
             <div class="it-card__actions">
-              <button type="button" class="it-btn" id="applyFilters">Apply</button>
+              <button type="button" class="it-btn" id="applyFilters" data-wci-role="action" data-wci-id="applyfilters" data-wci-desc="Click to: Apply" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-filters">Apply</button>
             </div>
-            <div class="it-status" id="filterStatus">Showing checkout issues by default</div>
+            <div class="it-status" id="filterStatus" data-wci-role="display" data-wci-id="filterstatus" data-wci-desc="Display value: Showing checkout issues by default" data-wci-state="{&quot;value&quot;:&quot;Showing checkout issues by default&quot;}" data-wci-priority="4" data-wci-scope="it-filters">Showing checkout issues by default</div>
           </aside>
         </div>
       </section>
 
       <div class="it-modal-backdrop" id="modalBackdrop"></div>
-      <section class="it-modal is-open" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
-        <header>
+      <section class="it-modal is-open" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle" data-wci-role="landmark" data-wci-id="it-modal" data-wci-desc="Section for: File a bug report" data-wci-priority="3">
+        <header data-wci-role="landmark" data-wci-id="header" data-wci-desc="Section for: File a bug report" data-wci-priority="3">
           <div>
             <h2 id="reportTitle" style="margin:0 0 4px">File a bug report</h2>
             <p style="margin:0">Create a structured issue for the engineering queue. Chat support requests are handled separately.</p>
           </div>
-          <button type="button" class="it-btn it-btn--ghost" id="closeModal" aria-label="Close dialog">Close</button>
+          <button type="button" class="it-btn it-btn--ghost" id="closeModal" aria-label="Close dialog" data-wci-role="action" data-wci-id="closemodal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="header">Close</button>
         </header>
 
         <div class="it-modal__grid">
-          <form id="bugReportForm" novalidate="">
+          <form id="bugReportForm" novalidate="" data-wci-role="landmark" data-wci-id="bugreportform" data-wci-desc="Landmark zone: bugReportForm" data-wci-priority="3">
             <label for="bugTitle">Issue title</label>
-            <input id="bugTitle" name="bugTitle" type="text" value="Checkout session times out on mobile" maxlength="90">
+            <input id="bugTitle" name="bugTitle" type="text" value="Checkout session times out on mobile" maxlength="90" data-wci-role="form" data-wci-id="bugtitle" data-wci-desc="Field for: Issue title" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Checkout session times out on mobile&quot;}" data-wci-priority="3" data-wci-scope="bugreportform">
             <div class="it-counter"><span id="titleCount">33</span>/90 characters</div>
             <div class="it-error" id="titleError"></div>
 
             <fieldset>
               <legend>Request type</legend>
               <label class="it-radio" id="radioBugWrap">
-                <input type="radio" name="requestType" value="bug" checked="">
+                <input type="radio" name="requestType" value="bug" checked="" data-wci-role="form" data-wci-id="requesttype" data-wci-desc="Field for: Bug reportRoute to product engineering for triage and reproduction." data-wci-action="click" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="bugreportform">
                 <span><strong>Bug report</strong><br><span class="it-muted">Route to product engineering for triage and reproduction.</span></span>
               </label>
               <label class="it-radio" id="radioChatWrap">
-                <input type="radio" name="requestType" value="chat">
+                <input type="radio" name="requestType" value="chat" data-wci-role="form" data-wci-id="requesttype-2" data-wci-desc="Field for: Chat supportFor questions, policies, or account assistance." data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="bugreportform">
                 <span><strong>Chat support</strong><br><span class="it-muted">For questions, policies, or account assistance.</span></span>
               </label>
             </fieldset>
 
             <label for="categorySelect">Category</label>
-            <select id="categorySelect" name="category">
+            <select id="categorySelect" name="category" data-wci-role="form" data-wci-id="categoryselect" data-wci-desc="Dropdown to select: Category" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Checkout&quot;}" data-wci-options="[&quot;Select category&quot;,&quot;Orders&quot;,&quot;Payments&quot;,&quot;Checkout&quot;,&quot;Catalog&quot;]" data-wci-priority="3" data-wci-scope="bugreportform">
               <option value="">Select category</option>
               <option value="orders">Orders</option>
               <option value="payments">Payments</option>
@@ -227,7 +227,7 @@ table{border-collapse:collapse}
             <div class="it-error" id="categoryError"></div>
 
             <label for="platformSelect">Platform</label>
-            <select id="platformSelect" name="platform">
+            <select id="platformSelect" name="platform" data-wci-role="form" data-wci-id="platformselect" data-wci-desc="Dropdown to select: Platform" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Mobile web&quot;}" data-wci-options="[&quot;Select platform&quot;,&quot;Desktop web&quot;,&quot;Mobile web&quot;,&quot;iOS app&quot;,&quot;Android app&quot;]" data-wci-priority="3" data-wci-scope="bugreportform">
               <option value="">Select platform</option>
               <option value="web">Desktop web</option>
               <option value="mobile" selected="">Mobile web</option>
@@ -237,7 +237,7 @@ table{border-collapse:collapse}
             <div class="it-error" id="platformError"></div>
 
             <label for="severitySelect">Severity</label>
-            <select id="severitySelect" name="severity">
+            <select id="severitySelect" name="severity" data-wci-role="form" data-wci-id="severityselect" data-wci-desc="Dropdown to select: Severity" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Medium&quot;}" data-wci-options="[&quot;Medium&quot;,&quot;High&quot;,&quot;Critical&quot;,&quot;Low&quot;]" data-wci-priority="3" data-wci-scope="bugreportform">
               <option value="medium" selected="">Medium</option>
               <option value="high">High</option>
               <option value="critical">Critical</option>
@@ -245,29 +245,29 @@ table{border-collapse:collapse}
             </select>
 
             <label for="bugDetails">Reproduction details</label>
-            <textarea id="bugDetails" name="details" rows="7">Customers on mobile web are timing out during checkout after tapping Place Order. The spinner remains visible for ~30 seconds, then the session expires and they are returned to the cart.</textarea>
+            <textarea id="bugDetails" name="details" rows="7" data-wci-role="form" data-wci-id="bugdetails" data-wci-desc="Text area for: Reproduction details" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;Customers on mobile web are timing out during checkout after tapping Place Order. The spinner remains visible for ~30 seconds, then the session expires and they are returned to the cart.&quot;}" data-wci-priority="3" data-wci-scope="bugreportform">Customers on mobile web are timing out during checkout after tapping Place Order. The spinner remains visible for ~30 seconds, then the session expires and they are returned to the cart.</textarea>
             <div class="it-counter"><span id="detailCount">191</span> characters</div>
             <div class="it-error" id="detailsError"></div>
 
             <label for="stepsField">Steps to reproduce</label>
-            <textarea id="stepsField" name="steps" rows="5">1. Add any item to cart on a mobile device.
+            <textarea id="stepsField" name="steps" rows="5" data-wci-role="form" data-wci-id="stepsfield" data-wci-desc="Text area for: Steps to reproduce" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;1. Add any item to cart on a mobile device.\n2. Proceed through shipping and payment.\n3. Tap Place Order on a slower connection.\n4. Observe timeout and return to cart.&quot;}" data-wci-priority="3" data-wci-scope="bugreportform">1. Add any item to cart on a mobile device.
 2. Proceed through shipping and payment.
 3. Tap Place Order on a slower connection.
 4. Observe timeout and return to cart.</textarea>
             <div class="it-error" id="stepsError"></div>
 
-            <label><input type="checkbox" id="attachLogs" checked=""> Include client console snapshot</label>
-            <label><input type="checkbox" id="confirmImpact" checked=""> This issue affects order completion</label>
+            <label><input type="checkbox" id="attachLogs" checked="" data-wci-role="form" data-wci-id="attachlogs" data-wci-desc="Field for: Include client console snapshot" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="bugreportform"> Include client console snapshot</label>
+            <label><input type="checkbox" id="confirmImpact" checked="" data-wci-role="form" data-wci-id="confirmimpact" data-wci-desc="Field for: This issue affects order completion" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="bugreportform"> This issue affects order completion</label>
             <div class="it-error" id="typeError"></div>
 
             <div class="it-card__actions">
-              <button type="button" class="it-btn it-btn--primary" data-file-bug="checkout-timeout" id="file-checkout-timeout-bug" data-wci-id="file-checkout-timeout-bug" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to file the checkout timeout bug for mobile category" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="bug_report-page">File checkout timeout bug</button>
-              <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Switch to chat support</button>
+              <button type="button" class="it-btn it-btn--primary" data-file-bug="checkout-timeout" id="file-checkout-timeout-bug" data-wci-role="action" data-wci-id="file-checkout-timeout-bug" data-wci-desc="File bug report for checkout timeout on mobile category (not chat support)." data-wci-action="click" data-wci-priority="1" data-wci-scope="bugreportform" data-wci-primary="true">File checkout timeout bug</button>
+              <button type="button" class="it-btn it-btn--ghost" data-open-chat="1" data-wci-role="action" data-wci-id="switch-to-chat-support" data-wci-desc="Click to: Switch to chat support" data-wci-action="click" data-wci-priority="3" data-wci-scope="bugreportform">Switch to chat support</button>
             </div>
-            <div class="it-status" id="formStatus">Ready to submit to Checkout · Mobile queue</div>
+            <div class="it-status" id="formStatus" data-wci-role="display" data-wci-id="formstatus" data-wci-desc="Display value: Ready to submit to Checkout · Mobile queue" data-wci-state="{&quot;value&quot;:&quot;Ready to submit to Checkout · Mobile queue&quot;}" data-wci-priority="4" data-wci-scope="bugreportform">Ready to submit to Checkout · Mobile queue</div>
           </form>
 
-          <aside class="it-help">
+          <aside class="it-help" data-wci-role="landmark" data-wci-id="it-help" data-wci-desc="Section for: Submission preview" data-wci-priority="3">
             <h3 style="margin-top:0">Submission preview</h3>
             <div class="it-preview" id="reportPreview">
               <strong>Checkout session times out on mobile</strong>
@@ -275,35 +275,35 @@ table{border-collapse:collapse}
               <p style="margin:8px 0 0">Customers on mobile web are timing out during checkout after tapping Place Order.</p>
             </div>
             <div class="it-list-meta">
-              <span class="it-badge">Auto-route: Checkout</span>
-              <span class="it-badge">Queue: Mobile</span>
+              <span class="it-badge" data-wci-role="display" data-wci-id="it-badge-6" data-wci-desc="Display value: Auto-route: Checkout" data-wci-state="{&quot;value&quot;:&quot;Auto-route: Checkout&quot;}" data-wci-priority="4" data-wci-scope="it-help">Auto-route: Checkout</span>
+              <span class="it-badge" data-wci-role="display" data-wci-id="it-badge-7" data-wci-desc="Display value: Queue: Mobile" data-wci-state="{&quot;value&quot;:&quot;Queue: Mobile&quot;}" data-wci-priority="4" data-wci-scope="it-help">Queue: Mobile</span>
             </div>
             <hr style="border:none;border-top:1px solid #e2e8f0;margin:14px 0">
             <h3>Alternative actions</h3>
             <p>If you need help understanding an issue rather than logging a bug, use chat support instead.</p>
-            <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">Chat support promo</button>
+            <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="chat-support-promo" data-wci-desc="Click to: Chat support promo" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-help">Chat support promo</button>
           </aside>
         </div>
       </section>
     </main>
 
-    <aside class="it-rail it-rail--ads" aria-label="Sponsored">
+    <aside class="it-rail it-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="it-rail" data-wci-desc="Section for: Support shortcuts" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
-      <a href="#">Partner offer — incident response training</a><br>
-      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo">View deal</button>
-      <article class="it-card" style="margin-top:14px">
+      <a href="#" data-wci-role="nav" data-wci-id="partner-offer-incident-response-training" data-wci-desc="Navigate to: Partner offer — incident response training" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-rail">Partner offer — incident response training</a><br>
+      <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-rail">View deal</button>
+      <article class="it-card" style="margin-top:14px" data-wci-role="landmark" data-wci-id="it-card" data-wci-desc="Section for: Support shortcuts" data-wci-priority="3">
         <h3 style="margin-top:0">Support shortcuts</h3>
         <p>Live chat, billing help, and account recovery are available from the support center.</p>
-        <button type="button" class="it-btn it-btn--ghost" data-open-chat="1">Open chat panel</button>
+        <button type="button" class="it-btn it-btn--ghost" data-open-chat="1" data-wci-role="action" data-wci-id="open-chat-panel" data-wci-desc="Click to: Open chat panel" data-wci-action="click" data-wci-priority="3" data-wci-scope="it-card">Open chat panel</button>
       </article>
     </aside>
   </div>
 
-  <div class="it-filler" aria-hidden="true"><div class="it-filler-inner"><a href="#" class="it-btn it-btn--ghost">Link 1</a><button type="button" class="it-btn it-btn--ghost">Action 2</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="#" class="it-btn it-btn--ghost">Link 5</a><button type="button" class="it-btn it-btn--ghost">Action 6</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button><a href="#" class="it-btn it-btn--ghost">Link 9</a><button type="button" class="it-btn it-btn--ghost">Action 10</button><button type="button" class="it-btn it-btn--ghost">Submit</button><button type="button" class="it-btn it-btn--ghost">Continue</button></div></div>
+  <div class="it-filler" aria-hidden="true"><div class="it-filler-inner"><a href="#" class="it-btn it-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="bug_report-page">Link 1</a><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Action 2</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Submit</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Continue</button><a href="#" class="it-btn it-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="bug_report-page">Link 5</a><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Action 6</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Submit</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Continue</button><a href="#" class="it-btn it-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="bug_report-page">Link 9</a><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Action 10</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Submit</button><button type="button" class="it-btn it-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="bug_report-page">Continue</button></div></div>
 
-  <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo element" data-wci-priority="1" data-wci-scope="bug_report-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="it-btn it-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="bug_report-page">Hidden promo</button>
 
-  <footer class="it-ftr"><small>© Demo IssueTrack</small> · <a href="#">Privacy</a> · <a href="#">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="it-ftr" data-wci-role="landmark" data-wci-id="it-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo IssueTrack</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="it-ftr">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 </div>
 

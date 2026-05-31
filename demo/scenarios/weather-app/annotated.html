@@ -98,30 +98,30 @@ table{border-collapse:collapse}
 .sk-list-tight li{padding:6px 0;border-bottom:1px dashed #e2e8f0}
 .sk-list-tight li:last-child{border-bottom:none}
 </style></head><body>
-<div class="sk-app" data-page="weather-app" id="weather_app-page" data-wci-id="weather_app-page" data-wci-role="landmark" data-wci-desc="SkyCast weather dashboard root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sk-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="sk-app" data-page="weather-app" id="weather_app-page" data-wci-role="landmark" data-wci-id="weather_app-page" data-wci-desc="SkyCast — Weather dashboard." data-wci-priority="2"><div class="sk-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="sk-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, severe weather telemetry, and local forecast tuning. Manage preferences or accept to continue.</p>
-  <button type="button" class="sk-btn sk-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="sk-btn sk-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="sk-btn sk-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="sk-btn sk-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-cookie">Reject non-essential</button>
+  <button type="button" class="sk-btn sk-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-cookie">Accept all</button>
+  <button type="button" class="sk-btn sk-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-cookie">Customize</button>
 </div><div class="sk-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="sk-btn sk-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="sk-btn">Continue as guest — express</button>
-</div><header class="sk-hdr">
-  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="font-weight:800;font-size:18px;color:#111827">SkyCast</div><span class="sk-badge sk-badge--live">Live radar</span></div>
-  <nav class="sk-nav" aria-label="Global"><a href="#">Home</a><a href="#">Maps</a><a href="#">Alerts</a><a href="#">Climate</a><a href="#">Account</a></nav>
-  <div class="sk-hdr-promo"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Claim Premium Trial</button>
-    <button type="button" class="sk-btn sk-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sk-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Hourly</a><a href="#">10-Day</a><a href="#">Radar</a><a href="#">Air Quality</a><a href="#">Settings</a>
-  <button type="button" class="sk-btn sk-btn--ghost" id="open-manage-alerts">Manage alerts</button>
-  <button type="button" class="sk-btn sk-btn--ghost" id="open-saved-cities">Saved cities</button>
+  <button type="button" class="sk-btn sk-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="sk-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue as guest — express</button>
+</div><header class="sk-hdr" data-wci-role="landmark" data-wci-id="sk-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="font-weight:800;font-size:18px;color:#111827">SkyCast</div><span class="sk-badge sk-badge--live" data-wci-role="display" data-wci-id="sk-badge" data-wci-desc="Display value: Live radar" data-wci-state="{&quot;value&quot;:&quot;Live radar&quot;}" data-wci-priority="4" data-wci-scope="sk-hdr">Live radar</span></div>
+  <nav class="sk-nav" aria-label="Global" data-wci-role="nav" data-wci-id="sk-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-nav">Home</a><a href="#" data-wci-role="nav" data-wci-id="maps" data-wci-desc="Navigate to: Maps" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-nav">Maps</a><a href="#" data-wci-role="nav" data-wci-id="alerts" data-wci-desc="Navigate to: Alerts" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-nav">Alerts</a><a href="#" data-wci-role="nav" data-wci-id="climate" data-wci-desc="Navigate to: Climate" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-nav">Climate</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-nav">Account</a></nav>
+  <div class="sk-hdr-promo"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-premium-trial" data-wci-desc="Click to: Claim Premium Trial" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-hdr">Claim Premium Trial</button>
+    <button type="button" class="sk-btn sk-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-hdr">Learn More</button></div>
+</header><nav class="sk-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="sk-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="hourly" data-wci-desc="Navigate to: Hourly" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">Hourly</a><a href="#" data-wci-role="nav" data-wci-id="10-day" data-wci-desc="Navigate to: 10-Day" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">10-Day</a><a href="#" data-wci-role="nav" data-wci-id="radar" data-wci-desc="Navigate to: Radar" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">Radar</a><a href="#" data-wci-role="nav" data-wci-id="air-quality" data-wci-desc="Navigate to: Air Quality" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">Air Quality</a><a href="#" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-subnav">Settings</a>
+  <button type="button" class="sk-btn sk-btn--ghost" id="open-manage-alerts" data-wci-role="action" data-wci-id="open-manage-alerts" data-wci-desc="Click to: Manage alerts" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-subnav">Manage alerts</button>
+  <button type="button" class="sk-btn sk-btn--ghost" id="open-saved-cities" data-wci-role="action" data-wci-id="open-saved-cities" data-wci-desc="Click to: Saved cities" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-subnav">Saved cities</button>
 </nav><div class="sk-dup-row" aria-label="Quick actions">
-  <button type="button" class="sk-btn sk-btn--ghost">Refresh data</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Download report</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Save changes</button>
-  <button type="button" class="sk-btn sk-btn--ghost">Confirm</button>
-</div><div class="sk-dup-row"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">Enable rain alerts San Francisco</button><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-nav">Enable SF rain alerts</button></div><div class="sk-page-wrap"><div class="sk-page-main"><main role="main"><section class="sk-hero" aria-label="Current location summary">
+  <button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="refresh-data" data-wci-desc="Click to: Refresh data" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Refresh data</button>
+  <button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="download-report" data-wci-desc="Click to: Download report" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Download report</button>
+  <button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Save changes</button>
+  <button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Confirm</button>
+</div><div class="sk-dup-row"><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="enable-rain-alerts-san-francisco" data-wci-desc="Click to: Enable rain alerts San Francisco — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="weather_app-page" data-wci-competitor="true">Enable rain alerts San Francisco</button><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="enable-sf-rain-alerts-2" data-wci-desc="Click to: Enable SF rain alerts" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Enable SF rain alerts</button></div><div class="sk-page-wrap"><div class="sk-page-main"><main role="main" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: San Francisco" data-wci-priority="3"><section class="sk-hero" aria-label="Current location summary" data-wci-role="landmark" data-wci-id="sk-hero" data-wci-desc="Section for: San Francisco" data-wci-priority="3">
   <div>
-    <div class="sk-status-line"><span class="sk-badge">Pacific Coast</span><span class="sk-badge sk-badge--warn" id="regional-risk-badge">Light rain risk overnight</span></div>
+    <div class="sk-status-line"><span class="sk-badge" data-wci-role="display" data-wci-id="sk-badge-2" data-wci-desc="Display value: Pacific Coast" data-wci-state="{&quot;value&quot;:&quot;Pacific Coast&quot;}" data-wci-priority="4" data-wci-scope="sk-hero">Pacific Coast</span><span class="sk-badge sk-badge--warn" id="regional-risk-badge" data-wci-role="display" data-wci-id="regional-risk-badge" data-wci-desc="Display value: Light rain risk overnight" data-wci-state="{&quot;value&quot;:&quot;Light rain risk overnight&quot;}" data-wci-priority="4" data-wci-scope="sk-hero">Light rain risk overnight</span></div>
     <h1>San Francisco</h1>
     <p>Marine layer clearing by late afternoon. Patchy precipitation remains possible after 9 PM with gusts near the waterfront.</p>
     <div class="sk-status-line"><span>Updated <strong id="last-updated">2 min ago</strong></span><span>Station: SF Downtown</span><span>Feels like 60°</span></div>
@@ -131,8 +131,8 @@ table{border-collapse:collapse}
 
 <div class="sk-layout">
   <div>
-    <section class="sk-panel">
-      <div class="sk-toolbar" style="justify-content:space-between"><strong>Today</strong><div class="sk-status-line"><span class="sk-badge sk-badge--ok" id="weather-app-smoke-status">Smoke check: idle</span><span class="sk-badge" id="active-alert-count">1 alert active</span></div></div>
+    <section class="sk-panel" data-wci-role="landmark" data-wci-id="sk-panel" data-wci-desc="Section for: Key metrics" data-wci-priority="3">
+      <div class="sk-toolbar" style="justify-content:space-between"><strong>Today</strong><div class="sk-status-line"><span class="sk-badge sk-badge--ok" id="weather-app-smoke-status" data-wci-role="display" data-wci-id="weather-app-smoke-status" data-wci-desc="Display value: Smoke check: idle" data-wci-state="{&quot;value&quot;:&quot;Smoke check: idle&quot;}" data-wci-priority="4" data-wci-scope="sk-panel">Smoke check: idle</span><span class="sk-badge" id="active-alert-count" data-wci-role="display" data-wci-id="active-alert-count" data-wci-desc="Display value: 1 alert active" data-wci-state="{&quot;value&quot;:&quot;1 alert active&quot;}" data-wci-priority="4" data-wci-scope="sk-panel">1 alert active</span></div></div>
       <div class="sk-grid-2" style="margin-top:14px">
         <div class="sk-card">
           <h2>Key metrics</h2>
@@ -154,43 +154,43 @@ table{border-collapse:collapse}
       </div>
     </section>
 
-    <section class="sk-panel">
+    <section class="sk-panel" data-wci-role="landmark" data-wci-id="sk-panel-2" data-wci-desc="Section for: City alert preferences" data-wci-priority="3">
       <h2>City alert preferences</h2>
       <p>Turn location-specific alerts on or off. Changes are applied immediately and synchronized across your devices.</p>
-      <div class="sk-alert-row" data-city="SF" data-alert="rain">
+      <div class="sk-alert-row" data-city="SF" data-alert="rain" data-wci-role="landmark" data-wci-id="enable-sf-rain-alerts-scope" data-wci-desc="Target scope for enable-sf-rain-alerts" data-wci-state="{&quot;city&quot;:&quot;SF&quot;,&quot;alert&quot;:&quot;rain&quot;}" data-wci-priority="2">
         <div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Precipitation alerts</strong><span class="sk-badge" id="sf-rain-badge">Off</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Precipitation alerts</strong><span class="sk-badge" id="sf-rain-badge" data-wci-role="display" data-wci-id="sf-rain-badge" data-wci-desc="Display value: Off" data-wci-state="{&quot;value&quot;:&quot;Off&quot;}" data-wci-priority="4" data-wci-scope="enable-sf-rain-alerts-scope">Off</span></div>
           <p style="margin-top:6px">Receive push notifications when rain is forecast or detected within the next 6 hours in San Francisco.</p>
           <div class="sk-inline-note" id="sf-rain-detail">Current setting: disabled. Recommended because showers may develop late tonight.</div>
         </div>
         <div class="sk-card__actions" style="margin-top:0">
-          <button type="button" class="sk-btn sk-btn--primary" id="enable-sf-rain-alerts" data-wci-id="enable-sf-rain-alerts" data-wci-role="action" data-wci-action="click" data-wci-desc="Enable precipitation alerts for San Francisco" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="weather_app-page">Confirm</button>
+          <button type="button" class="sk-btn sk-btn--primary" id="enable-sf-rain-alerts" data-wci-role="action" data-wci-id="enable-sf-rain-alerts" data-wci-desc="Turn on precipitation alerts for San Francisco (not other cities)." data-wci-action="click" data-wci-priority="1" data-wci-scope="enable-sf-rain-alerts-scope" data-wci-primary="true">Confirm</button>
         </div>
       </div>
       <div class="sk-alert-row" data-city="SF" data-alert="wind">
         <div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Wind advisories</strong><span class="sk-badge sk-badge--ok">On</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>San Francisco · Wind advisories</strong><span class="sk-badge sk-badge--ok" data-wci-role="display" data-wci-id="sk-badge-3" data-wci-desc="Display value: On" data-wci-state="{&quot;value&quot;:&quot;On&quot;}" data-wci-priority="4" data-wci-scope="sk-panel-2">On</span></div>
           <p style="margin-top:6px">Notifies you about coastal gusts above 25 mph and bridge-level advisories.</p>
         </div>
-        <button type="button" class="sk-switch" aria-checked="true" aria-label="San Francisco wind advisories"></button>
+        <button type="button" class="sk-switch" aria-checked="true" aria-label="San Francisco wind advisories" data-wci-role="action" data-wci-id="button" data-wci-desc="Click to: San Francisco wind advisories — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="sk-panel-2" data-wci-competitor="true"></button>
       </div>
       <div class="sk-alert-row" data-city="NYC" data-alert="rain">
         <div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>New York City · Precipitation alerts</strong><span class="sk-badge">Off</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>New York City · Precipitation alerts</strong><span class="sk-badge" data-wci-role="display" data-wci-id="sk-badge-4" data-wci-desc="Display value: Off" data-wci-state="{&quot;value&quot;:&quot;Off&quot;}" data-wci-priority="4" data-wci-scope="sk-panel-2">Off</span></div>
           <p style="margin-top:6px">Useful for travel, but unrelated to your Bay Area home feed.</p>
         </div>
-        <button type="button" class="sk-btn sk-btn--decoy">Enable</button>
+        <button type="button" class="sk-btn sk-btn--decoy" data-wci-role="action" data-wci-id="enable" data-wci-desc="Click to: Enable" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-panel-2">Enable</button>
       </div>
       <div class="sk-alert-row" data-city="SEA" data-alert="rain">
         <div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>Seattle · Precipitation alerts</strong><span class="sk-badge sk-badge--ok">On</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong>Seattle · Precipitation alerts</strong><span class="sk-badge sk-badge--ok" data-wci-role="display" data-wci-id="sk-badge-5" data-wci-desc="Display value: On" data-wci-state="{&quot;value&quot;:&quot;On&quot;}" data-wci-priority="4" data-wci-scope="sk-panel-2">On</span></div>
           <p style="margin-top:6px">Travel alert currently synchronized from your saved forecast watchlist.</p>
         </div>
-        <button type="button" class="sk-btn sk-btn--ghost">Manage</button>
+        <button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="manage" data-wci-desc="Click to: Manage" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-panel-2">Manage</button>
       </div>
     </section>
 
-    <section class="sk-panel">
+    <section class="sk-panel" data-wci-role="landmark" data-wci-id="sk-panel-3" data-wci-desc="Section for: Saved locations" data-wci-priority="3">
       <h2>Saved locations</h2>
       <table aria-label="Saved city summaries">
         <thead><tr><th>City</th><th>Condition</th><th>Temp</th><th>Alert status</th></tr></thead>
@@ -204,27 +204,27 @@ table{border-collapse:collapse}
     </section>
   </div>
 
-  <aside>
-    <section class="sk-filters">
+  <aside data-wci-role="landmark" data-wci-id="aside" data-wci-desc="Section for: Notification delivery" data-wci-priority="3">
+    <section class="sk-filters" data-wci-role="landmark" data-wci-id="sk-filters" data-wci-desc="Section for: Notification delivery" data-wci-priority="3">
       <h2>Notification delivery</h2>
-      <form id="notify-form" novalidate="">
+      <form id="notify-form" novalidate="" data-wci-role="landmark" data-wci-id="notify-form" data-wci-desc="Landmark zone: notify-form" data-wci-priority="3">
         <label for="notify-channel">Preferred channel</label>
-        <select id="notify-channel" name="channel">
+        <select id="notify-channel" name="channel" data-wci-role="form" data-wci-id="notify-channel" data-wci-desc="Dropdown to select: Preferred channel" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Choose a delivery method&quot;}" data-wci-options="[&quot;Choose a delivery method&quot;,&quot;Push notification&quot;,&quot;Email&quot;,&quot;SMS&quot;]" data-wci-priority="3" data-wci-scope="notify-form">
           <option value="">Choose a delivery method</option>
           <option value="push">Push notification</option>
           <option value="email">Email</option>
           <option value="sms">SMS</option>
         </select>
         <label for="notify-email">Backup email</label>
-        <input id="notify-email" name="email" type="email" placeholder="name@example.com">
+        <input id="notify-email" name="email" type="email" placeholder="name@example.com" data-wci-role="form" data-wci-id="notify-email" data-wci-desc="Field for: Backup email" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="notify-form">
         <div id="notify-form-msg" class="sk-inline-note">Select a channel to validate delivery settings.</div>
         <div class="sk-card__actions">
-          <button type="submit" class="sk-btn">Validate settings</button>
+          <button type="submit" class="sk-btn" data-wci-role="action" data-wci-id="validate-settings" data-wci-desc="Click to: Validate settings" data-wci-action="click" data-wci-priority="3" data-wci-scope="notify-form">Validate settings</button>
         </div>
       </form>
     </section>
 
-    <section class="sk-card">
+    <section class="sk-card" data-wci-role="landmark" data-wci-id="sk-card" data-wci-desc="Section for: Radar notes" data-wci-priority="3">
       <h2>Radar notes</h2>
       <ul class="sk-list-tight" style="list-style:none;padding:0;margin-top:8px">
         <li>Drizzle bands offshore may move inland after sunset.</li>
@@ -233,16 +233,16 @@ table{border-collapse:collapse}
       </ul>
     </section>
   </aside>
-</div></main></div><aside class="sk-rail sk-rail--ads" aria-label="Sponsored">
+</div></main></div><aside class="sk-rail sk-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="sk-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Upgrade to SkyCast Pro for minute-by-minute precipitation forecasting and personalized marine layer insights.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="sk-filler" aria-hidden="true"><div class="sk-filler-inner"><a href="#" class="sk-btn sk-btn--ghost">Link 1</a><button type="button" class="sk-btn sk-btn--ghost">Action 2</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 5</a><button type="button" class="sk-btn sk-btn--ghost">Action 6</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 9</a><button type="button" class="sk-btn sk-btn--ghost">Action 10</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 13</a><button type="button" class="sk-btn sk-btn--ghost">Action 14</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 17</a><button type="button" class="sk-btn sk-btn--ghost">Action 18</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button><a href="#" class="sk-btn sk-btn--ghost">Link 21</a><button type="button" class="sk-btn sk-btn--ghost">Action 22</button><button type="button" class="sk-btn sk-btn--ghost">Submit</button><button type="button" class="sk-btn sk-btn--ghost">Continue</button></div></div><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo button" data-wci-priority="1" data-wci-scope="weather_app-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sk-ftr"><small>© Demo SkyCast</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-rail">Partner offer — limited time</a><br>
+  <button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-rail">View deal</button>
+</aside></div><div class="sk-filler" aria-hidden="true"><div class="sk-filler-inner"><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 1</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 2</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 5</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 6</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 9</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 10</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-13" data-wci-desc="Navigate to: Link 13" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 13</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 14</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-17" data-wci-desc="Navigate to: Link 17" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 17</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 18</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button><a href="#" class="sk-btn sk-btn--ghost" data-wci-role="nav" data-wci-id="link-21" data-wci-desc="Navigate to: Link 21" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="weather_app-page">Link 21</a><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Action 22</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Submit</button><button type="button" class="sk-btn sk-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="weather_app-page">Continue</button></div></div><button type="button" class="sk-btn sk-btn--decoy" data-decoy="decoy-extra" id="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="weather_app-page">Hidden promo</button><footer class="sk-ftr" data-wci-role="landmark" data-wci-id="sk-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo SkyCast</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sk-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="sk-modal-backdrop" id="modal-backdrop"></div>
-<div class="sk-modal sk-hidden" id="saved-cities-modal" role="dialog" aria-modal="true" aria-labelledby="saved-cities-title">
+<div class="sk-modal sk-hidden" id="saved-cities-modal" role="dialog" aria-modal="true" aria-labelledby="saved-cities-title" data-wci-role="landmark" data-wci-id="sk-modal" data-wci-desc="Section for: Saved cities" data-wci-priority="3">
   <h2 id="saved-cities-title">Saved cities</h2>
   <p>Your home forecast is set to San Francisco. Travel cities are available for manual alert configuration.</p>
   <ul class="sk-list-tight" style="list-style:none;padding:0;margin:10px 0 14px">
@@ -250,7 +250,7 @@ table{border-collapse:collapse}
     <li>Seattle — synced from watchlist</li>
     <li>New York City — business travel</li>
   </ul>
-  <div class="sk-card__actions"><button type="button" class="sk-btn" data-close-modal="">Close</button></div>
+  <div class="sk-card__actions"><button type="button" class="sk-btn" data-close-modal="" data-wci-role="action" data-wci-id="close" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="sk-modal">Close</button></div>
 </div>
 
 <script>

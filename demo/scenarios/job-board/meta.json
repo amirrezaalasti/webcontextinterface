@@ -52,11 +52,17 @@
     "decoyNodeIds": [
       "decoy-promo",
       "decoy-nav",
-      "decoy-extra"
+      "decoy-extra",
+      "apply-3",
+      "apply-4",
+      "apply-2",
+      "apply-senior-engineer-acme",
+      "apply-to-acme-senior"
     ],
     "rawSelectors": [
-      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary",
-      "[data-employer-ref=\"ACM-447\"] button.hf-btn--primary"
+      "#apply-senior-engineer",
+      "[data-employer-ref=\"ACM-447\"][data-location=\"Seattle\"] .hf-btn--primary",
+      "[data-employer-ref=\"ACM-447\"] .hf-btn--primary"
     ]
   },
   "tasks": {

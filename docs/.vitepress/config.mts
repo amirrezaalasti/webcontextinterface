@@ -49,6 +49,7 @@ export default defineConfig({
         target: '_blank',
       },
       { text: 'Demo', link: demoUrl, target: '_blank' },
+      { text: 'Scenarios', link: `${demoBase}scenarios.html`, target: '_blank' },
     ],
 
     sidebar: [

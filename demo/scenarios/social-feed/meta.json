@@ -80,6 +80,7 @@
       "like-p_81925"
     ],
     "rawSelectors": [
+      "article[data-post-id=\"p_81924\"] .cb-post__actions button[aria-label=\"Like\"]",
       "article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
       "article[data-post-id=\"p_81924\"] .cb-post__actions button:nth-child(3)"
     ]
@@ -87,7 +88,7 @@
   "tasks": {
     "singleShot": {
       "goal": "Like the post by @alice_dev about AgentDOM",
-      "groundTruthSelector": "article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+      "groundTruthSelector": "article[data-post-id=\"p_81924\"] .cb-post__actions button[aria-label=\"Like\"]",
       "groundTruthNodeId": "like-p_81924"
     },
     "multiStep": [
@@ -102,7 +103,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions button[aria-label=\"Like\"]",
           "Primary WCI action id: like-p_81924",
           "No decoy ids triggered: like-p_81925"
         ],
@@ -167,7 +168,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+          "Final action uses ground-truth selector: article[data-post-id=\"p_81924\"] .cb-post__actions button[aria-label=\"Like\"]",
           "Primary WCI action id: like-p_81924",
           "No decoy ids triggered: like-p_81925"
         ],

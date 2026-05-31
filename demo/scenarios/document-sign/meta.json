@@ -3,9 +3,12 @@
   "title": "SignNow",
   "icon": "✍️",
   "difficulty": "Hard",
-  "description": "Pages + tools.",
+  "description": "Multi-page document viewer with signer sidebar and page-12 keyword traps.",
   "challenges": [
-    "Initial"
+    "Page 12 vs other pages",
+    "Keyword traps",
+    "Generic Confirm decoys",
+    "Signature preconditions"
   ],
   "task": {
     "goal": "Sign employment agreement on page twelve of the document viewer.",
@@ -48,6 +51,8 @@
     "wciNodeId": "sign-agreement-p12",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
+      "decoy-promo",
+      "decoy-nav",
       "decoy-extra"
     ],
     "rawSelectors": [
@@ -67,14 +72,14 @@
         "goal": "Sign employment agreement on page twelve of the document viewer. Complete with explicit verification and no decoy interactions.",
         "difficulty": "Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Confirm viewer is on page 12 (Employee Signature)",
+          "Avoid decoy controls (promo/nav/keyword-trap Confirm rows)"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: button[data-sign-page=\"12\"]",
           "Primary WCI action id: sign-agreement-p12",
-          "No decoy ids triggered: decoy-extra"
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
         ],
         "standardFlow": [
           {
@@ -120,17 +125,17 @@
       {
         "id": "document-sign.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Sign employment agreement on page twelve of the document viewer. First validate key constraints (initial) then execute and verify.",
+        "goal": "Sign employment agreement on page twelve of the document viewer. First validate page 12 and signature preconditions then execute and verify.",
         "difficulty": "Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Confirm viewer is on page 12 (Employee Signature)",
+          "Avoid decoy controls (promo/nav/keyword-trap Confirm rows)"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: button[data-sign-page=\"12\"]",
           "Primary WCI action id: sign-agreement-p12",
-          "No decoy ids triggered: decoy-extra"
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
         ],
         "standardFlow": [
           {

@@ -100,39 +100,39 @@ table{border-collapse:collapse}
 .fcart-mini-list{margin-top:10px;padding-left:18px;color:#334155}
 .fcart-muted{color:#64748b}
 </style></head><body>
-<div class="fcart-app" data-page="grocery-list" id="grocery_list-page" data-wci-id="grocery_list-page" data-wci-role="landmark" data-wci-desc="FreshCart grocery list app root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="fcart-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="fcart-app" data-page="grocery-list" id="grocery_list-page" data-wci-role="landmark" data-wci-id="grocery_list-page" data-wci-desc="FreshCart — List UL." data-wci-priority="2"><div class="fcart-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="fcart-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="fcart-btn fcart-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-  <button type="button" class="fcart-btn fcart-btn--primary" data-cookie-action="accept">Accept all</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost" data-cookie-action="customize">Customize</button>
+  <button type="button" class="fcart-btn fcart-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-cookie">Reject non-essential</button>
+  <button type="button" class="fcart-btn fcart-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-cookie">Accept all</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-cookie">Customize</button>
 </div><div class="fcart-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="fcart-btn fcart-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="fcart-btn">Continue as guest — express</button>
-</div><header class="fcart-hdr">
+  <button type="button" class="fcart-btn fcart-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="fcart-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue as guest — express</button>
+</div><header class="fcart-hdr" data-wci-role="landmark" data-wci-id="fcart-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
   <div class="fcart-brand" aria-label="FreshCart brand"><div class="fcart-brand__mark">🛒</div><div>FreshCart</div></div>
-  <nav class="fcart-nav" aria-label="Global"><a href="/">Home</a><a href="/shop">Shop</a><a href="/lists">Lists</a><a href="/recipes">Recipes</a><a href="/help">Help</a><a href="/account">Account</a></nav>
-  <div class="fcart-hdr-promo"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="navigate" data-wci-desc="Decoy navigation and share-related controls" data-wci-priority="2" data-wci-scope="grocery_list-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button></div>
-</header><nav class="fcart-subnav" aria-label="Secondary"><a href="#overview">Overview</a><a href="#family-list">Family list</a><a href="#meal-plan">Meal plan</a><a href="#settings">Sharing</a><a href="#support">Support</a>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Submit</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
+  <nav class="fcart-nav" aria-label="Global" data-wci-role="nav" data-wci-id="fcart-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Home</a><a href="/shop" data-wci-role="nav" data-wci-id="shop" data-wci-desc="Navigate to: Shop" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Shop</a><a href="/lists" data-wci-role="nav" data-wci-id="lists" data-wci-desc="Navigate to: Lists" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Lists</a><a href="/recipes" data-wci-role="nav" data-wci-id="recipes" data-wci-desc="Navigate to: Recipes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Recipes</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Help</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-nav">Account</a></nav>
+  <div class="fcart-hdr-promo"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-hdr">Claim Offer</button>
+    <button type="button" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="fcart-hdr">Learn More</button></div>
+</header><nav class="fcart-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="fcart-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#overview" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-subnav">Overview</a><a href="#family-list" data-wci-role="nav" data-wci-id="family-list" data-wci-desc="Navigate to: Family list" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-subnav">Family list</a><a href="#meal-plan" data-wci-role="nav" data-wci-id="meal-plan" data-wci-desc="Navigate to: Meal plan" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-subnav">Meal plan</a><a href="#settings" data-wci-role="nav" data-wci-id="sharing" data-wci-desc="Navigate to: Sharing" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-subnav">Sharing</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-subnav">Support</a>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-subnav">Submit</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-subnav">Continue</button>
 </nav><div class="fcart-dup-row" aria-label="Quick actions">
-  <button type="button" class="fcart-btn fcart-btn--ghost">Submit</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Continue</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Save changes</button>
-  <button type="button" class="fcart-btn fcart-btn--ghost">Confirm</button>
-</div><div class="fcart-dup-row"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">Add avocados family list</button><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-nav">Add organic avocados list</button></div><div class="fcart-page-wrap"><div class="fcart-page-main">
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Save changes</button>
+  <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Confirm</button>
+</div><div class="fcart-dup-row"><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="add-avocados-family-list" data-wci-desc="Click to: Add avocados family list — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="grocery_list-page" data-wci-competitor="true">Add avocados family list</button><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="add-organic-avocados-list" data-wci-desc="Click to: Add organic avocados list — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="grocery_list-page" data-wci-competitor="true">Add organic avocados list</button></div><div class="fcart-page-wrap"><div class="fcart-page-main">
   <div class="fcart-breadcrumbs" aria-label="Breadcrumbs"><span>Lists</span><span>Shared household</span><span>Weekly groceries</span></div>
-  <main role="main" aria-labelledby="page-title">
+  <main role="main" aria-labelledby="page-title" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Family grocery list" data-wci-priority="3">
     <div class="fcart-layout">
-      <section class="fcart-card" id="overview">
+      <section class="fcart-card" id="overview" data-wci-role="landmark" data-wci-id="fcart-card" data-wci-desc="Section for: Family grocery list" data-wci-priority="3">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
           <div>
             <h1 id="page-title">Family grocery list</h1>
             <p>Keep the shared household list in sync for pickup and delivery. Everyone in the Rivera family can add staples, suggest swaps, and mark items complete.</p>
           </div>
           <div>
-            <span class="fcart-status fcart-status--idle" id="list-sync-badge">Not synced yet</span>
+            <span class="fcart-status fcart-status--idle" id="list-sync-badge" data-wci-role="display" data-wci-id="list-sync-badge" data-wci-desc="Display value: Not synced yet" data-wci-state="{&quot;value&quot;:&quot;Not synced yet&quot;}" data-wci-priority="4" data-wci-scope="fcart-card">Not synced yet</span>
           </div>
         </div>
         <div class="fcart-summary" aria-label="List summary">
@@ -144,35 +144,35 @@ table{border-collapse:collapse}
         <div class="fcart-note">Tip: items marked <strong>Family</strong> are visible to everyone instantly once added to the shared list.</div>
       </section>
 
-      <section class="fcart-composer" aria-labelledby="quick-add-title">
+      <section class="fcart-composer" aria-labelledby="quick-add-title" data-wci-role="landmark" data-wci-id="fcart-composer" data-wci-desc="Section for: Quick add suggestion" data-wci-priority="3">
         <h2 id="quick-add-title">Quick add suggestion</h2>
         <p>Use this helper to stage a custom item before sharing it. The target task for this page is the dedicated avocados row below.</p>
         <div class="fcart-inline">
           <div>
             <label for="quick-item-name">Item name</label>
-            <input id="quick-item-name" type="text" placeholder="e.g. bananas">
+            <input id="quick-item-name" type="text" placeholder="e.g. bananas" data-wci-role="form" data-wci-id="quick-item-name" data-wci-desc="Field for: Item name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="fcart-composer">
           </div>
           <div>
             <label for="quick-item-qty">Qty</label>
-            <select id="quick-item-qty"><option value="">Select qty</option><option>1 bag</option><option>2</option><option>3</option><option>6</option></select>
+            <select id="quick-item-qty" data-wci-role="form" data-wci-id="quick-item-qty" data-wci-desc="Dropdown to select: Qty" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select qty&quot;}" data-wci-options="[&quot;Select qty&quot;,&quot;1 bag&quot;,&quot;2&quot;,&quot;3&quot;,&quot;6&quot;]" data-wci-priority="3" data-wci-scope="fcart-composer"><option value="">Select qty</option><option>1 bag</option><option>2</option><option>3</option><option>6</option></select>
           </div>
           <div style="flex:0 0 auto">
-            <button type="button" class="fcart-btn" id="preview-add-btn" disabled="">Preview item</button>
+            <button type="button" class="fcart-btn" id="preview-add-btn" disabled="" data-wci-role="action" data-wci-id="preview-add-btn" data-wci-desc="Click to: Preview item" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-composer">Preview item</button>
           </div>
         </div>
         <div class="fcart-error" id="quick-add-error" aria-live="polite"></div>
         <div class="fcart-help" id="quick-preview">Preview: nothing staged</div>
       </section>
 
-      <section class="fcart-card" id="family-list" aria-labelledby="shared-list-title">
+      <section class="fcart-card" id="family-list" aria-labelledby="shared-list-title" data-wci-role="landmark" data-wci-id="fcart-card-2" data-wci-desc="Section for: Shared family list" data-wci-priority="3">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
           <div>
             <h2 id="shared-list-title">Shared family list</h2>
             <p>Review items added by family members. Use the action buttons to remove, defer, or share an item to the family board.</p>
           </div>
           <div class="fcart-toolbar">
-            <a href="/share" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav">Share list</a>
-            <button type="button" class="fcart-btn fcart-btn--ghost" id="open-share-modal">Manage access</button>
+            <a href="/share" class="fcart-btn fcart-btn--ghost" data-decoy="decoy-nav" data-wci-role="nav" data-wci-id="share-list" data-wci-desc="Navigate to: Share list" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-card-2">Share list</a>
+            <button type="button" class="fcart-btn fcart-btn--ghost" id="open-share-modal" data-wci-role="action" data-wci-id="open-share-modal" data-wci-desc="Click to: Manage access" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-card-2">Manage access</button>
           </div>
         </div>
 
@@ -187,7 +187,7 @@ table{border-collapse:collapse}
               </div>
             </div>
             <div>
-              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+              <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="remove" data-wci-desc="Click to: Remove" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-card-2">Remove</button>
             </div>
           </li>
           <li class="fcart-list-item">
@@ -200,7 +200,7 @@ table{border-collapse:collapse}
               </div>
             </div>
             <div>
-              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+              <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="remove-2" data-wci-desc="Click to: Remove" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-card-2">Remove</button>
             </div>
           </li>
           <li class="fcart-list-item">
@@ -213,10 +213,10 @@ table{border-collapse:collapse}
               </div>
             </div>
             <div>
-              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+              <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="remove-3" data-wci-desc="Click to: Remove" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-card-2">Remove</button>
             </div>
           </li>
-          <li class="fcart-list-item" data-item="organic-avocados">
+          <li class="fcart-list-item" data-item="organic-avocados" data-wci-role="landmark" data-wci-id="add-avocados-list-scope" data-wci-desc="Target scope for add-avocados-list" data-wci-state="{&quot;item&quot;:&quot;organic-avocados&quot;}" data-wci-priority="2">
             <div class="fcart-list-item__meta">
               <div class="fcart-checkbox" id="avocado-check" aria-hidden="true"></div>
               <div>
@@ -226,7 +226,7 @@ table{border-collapse:collapse}
               </div>
             </div>
             <div>
-              <button type="button" class="fcart-btn fcart-btn--primary" data-add-family="avocados" id="add-avocados-list" data-wci-id="add-avocados-list" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to add organic avocados to the shared family list" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="grocery_list-page">Add to family list</button>
+              <button type="button" class="fcart-btn fcart-btn--primary" data-add-family="avocados" id="add-avocados-list" data-wci-role="action" data-wci-id="add-avocados-list" data-wci-desc="Add organic avocados line item to shared family list." data-wci-action="click" data-wci-priority="1" data-wci-scope="add-avocados-list-scope" data-wci-primary="true">Add to family list</button>
             </div>
           </li>
           <li class="fcart-list-item">
@@ -239,18 +239,18 @@ table{border-collapse:collapse}
               </div>
             </div>
             <div>
-              <button type="button" class="fcart-btn fcart-btn--ghost">Remove</button>
+              <button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="remove-4" data-wci-desc="Click to: Remove" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-card-2">Remove</button>
             </div>
           </li>
         </ul>
 
         <div class="fcart-toolbar" style="justify-content:space-between">
           <div class="fcart-help">Visible status: <strong id="family-list-status">Awaiting shared update</strong></div>
-          <div id="grocery-list-smoke-status" class="fcart-status fcart-status--warn" aria-live="polite">Smoke status: waiting for primary action</div>
+          <div id="grocery-list-smoke-status" class="fcart-status fcart-status--warn" aria-live="polite" data-wci-role="display" data-wci-id="grocery-list-smoke-status" data-wci-desc="Display value: Smoke status: waiting for primary action" data-wci-state="{&quot;value&quot;:&quot;Smoke status: waiting for primary action&quot;}" data-wci-priority="4" data-wci-scope="fcart-card-2">Smoke status: waiting for primary action</div>
         </div>
       </section>
 
-      <section class="fcart-card" id="meal-plan">
+      <section class="fcart-card" id="meal-plan" data-wci-role="landmark" data-wci-id="fcart-card-3" data-wci-desc="Section for: This week’s meal notes" data-wci-priority="3">
         <h2>This week’s meal notes</h2>
         <p>Wednesday taco bowls, Friday avocado toast brunch, and Sunday burger night. Produce suggestions are pulled from the shared list automatically.</p>
         <ul>
@@ -261,11 +261,11 @@ table{border-collapse:collapse}
       </section>
     </div>
   </main>
-</div><aside class="fcart-rail fcart-rail--ads" aria-label="Sponsored">
+</div><aside class="fcart-rail fcart-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="fcart-rail" data-wci-desc="Section for: List members" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p class="fcart-muted">Upgrade to FreshCart Plus for faster list syncing and member permissions.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-rail">Partner offer — limited time</a><br>
+  <button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
   <h3 style="margin-top:0">List members</h3>
   <ul style="list-style:none;padding:0;margin:0 0 12px">
@@ -275,28 +275,28 @@ table{border-collapse:collapse}
     <li style="padding:6px 0">Noah — viewer</li>
   </ul>
   <div class="fcart-help">Last family sync preview: <span id="rail-sync-preview">no recent action</span></div>
-</aside></div><div class="fcart-filler" aria-hidden="true"><div class="fcart-filler-inner"><a href="/misc/0" class="fcart-btn fcart-btn--ghost">Link 1</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 2</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/4" class="fcart-btn fcart-btn--ghost">Link 5</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 6</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/8" class="fcart-btn fcart-btn--ghost">Link 9</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 10</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/12" class="fcart-btn fcart-btn--ghost">Link 13</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 14</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/16" class="fcart-btn fcart-btn--ghost">Link 17</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 18</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/20" class="fcart-btn fcart-btn--ghost">Link 21</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 22</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/24" class="fcart-btn fcart-btn--ghost">Link 25</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 26</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/28" class="fcart-btn fcart-btn--ghost">Link 29</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 30</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/32" class="fcart-btn fcart-btn--ghost">Link 33</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 34</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/36" class="fcart-btn fcart-btn--ghost">Link 37</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 38</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button><a href="/misc/40" class="fcart-btn fcart-btn--ghost">Link 41</a><button type="button" class="fcart-btn fcart-btn--ghost">Action 42</button><button type="button" class="fcart-btn fcart-btn--ghost">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost">Continue</button></div></div><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo control" data-wci-priority="2" data-wci-scope="grocery_list-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="fcart-ftr"><small>© Demo FreshCart</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="fcart-filler" aria-hidden="true"><div class="fcart-filler-inner"><a href="/misc/0" class="fcart-btn fcart-btn--ghost">Link 1</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 2</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/4" class="fcart-btn fcart-btn--ghost">Link 5</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 6</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/8" class="fcart-btn fcart-btn--ghost">Link 9</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 10</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/12" class="fcart-btn fcart-btn--ghost">Link 13</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 14</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/16" class="fcart-btn fcart-btn--ghost">Link 17</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 18</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/20" class="fcart-btn fcart-btn--ghost">Link 21</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 22</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/24" class="fcart-btn fcart-btn--ghost">Link 25</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 26</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/28" class="fcart-btn fcart-btn--ghost">Link 29</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 30</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/32" class="fcart-btn fcart-btn--ghost">Link 33</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 34</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/36" class="fcart-btn fcart-btn--ghost">Link 37</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 38</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button><a href="/misc/40" class="fcart-btn fcart-btn--ghost">Link 41</a><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Action 42</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Submit</button><button type="button" class="fcart-btn fcart-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="grocery_list-page">Continue</button></div></div><button type="button" class="fcart-btn fcart-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="grocery_list-page">Hidden promo</button><footer class="fcart-ftr" data-wci-role="landmark" data-wci-id="fcart-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo FreshCart</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fcart-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
 
 <div class="fcart-modal-backdrop" id="share-backdrop"></div>
 <div class="fcart-modal" id="share-modal" aria-hidden="true">
-  <div class="fcart-modal__panel" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+  <div class="fcart-modal__panel" role="dialog" aria-modal="true" aria-labelledby="share-modal-title" data-wci-role="landmark" data-wci-id="fcart-modal-panel" data-wci-desc="Section for: Manage family access" data-wci-priority="3">
     <div class="fcart-modal__hd">
       <div>
         <h2 id="share-modal-title" style="margin:0">Manage family access</h2>
         <p class="fcart-muted" style="margin-top:6px">Invite a family member or adjust a permission level.</p>
       </div>
-      <button type="button" class="fcart-btn fcart-btn--ghost" id="close-share-modal" aria-label="Close">Close</button>
+      <button type="button" class="fcart-btn fcart-btn--ghost" id="close-share-modal" aria-label="Close" data-wci-role="action" data-wci-id="close-share-modal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="fcart-modal-panel">Close</button>
     </div>
-    <form id="share-form" novalidate="">
+    <form id="share-form" novalidate="" data-wci-role="landmark" data-wci-id="share-form" data-wci-desc="Landmark zone: share-form" data-wci-priority="3">
       <label for="share-email">Family member email</label>
-      <input id="share-email" type="email" placeholder="name@example.com">
+      <input id="share-email" type="email" placeholder="name@example.com" data-wci-role="form" data-wci-id="share-email" data-wci-desc="Field for: Family member email" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="share-form">
       <label for="share-role">Permission</label>
-      <select id="share-role"><option value="">Select permission</option><option value="viewer">Viewer</option><option value="add">Can add</option><option value="edit">Can edit</option></select>
+      <select id="share-role" data-wci-role="form" data-wci-id="share-role" data-wci-desc="Dropdown to select: Permission" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select permission&quot;}" data-wci-options="[&quot;Select permission&quot;,&quot;Viewer&quot;,&quot;Can add&quot;,&quot;Can edit&quot;]" data-wci-priority="3" data-wci-scope="share-form"><option value="">Select permission</option><option value="viewer">Viewer</option><option value="add">Can add</option><option value="edit">Can edit</option></select>
       <div class="fcart-error" id="share-form-error" aria-live="polite"></div>
       <div class="fcart-toolbar">
-        <button type="submit" class="fcart-btn fcart-btn--primary">Send invite</button>
-        <button type="button" class="fcart-btn" id="cancel-share-modal">Cancel</button>
+        <button type="submit" class="fcart-btn fcart-btn--primary" data-wci-role="action" data-wci-id="send-invite" data-wci-desc="Click to: Send invite" data-wci-action="click" data-wci-priority="3" data-wci-scope="share-form">Send invite</button>
+        <button type="button" class="fcart-btn" id="cancel-share-modal" data-wci-role="action" data-wci-id="cancel-share-modal" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="share-form">Cancel</button>
       </div>
     </form>
     <div class="fcart-help" id="share-form-success">No invite sent yet.</div>

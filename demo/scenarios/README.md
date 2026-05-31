@@ -2,6 +2,8 @@
 
 Fifty synthetic “fake site” pages for the AgentDOM / WCI benchmark demo and evals.
 
+**Web browser:** open [`/demo/scenarios.html`](../scenarios.html) (or run `npm run demo` and click **Scenarios** in the header) to preview raw vs annotated HTML and hover annotated nodes for `data-wci-*` details.
+
 **Official release:** [Zenodo 10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) (CC BY 4.0).
 
 ## Layout
@@ -64,6 +66,14 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 - `decoyNodeIds` include `decoy-promo`, `decoy-nav`, and `decoy-extra` where injected.
 
 **Legacy (5)** — unchanged hand-authored DOM; already hard (flight, banking, checkout, social, admin). Do not simplify. Embedded layout CSS is injected via `npm run scenarios:legacy-styles` (also runs when preserving legacy files in `setup-benchmark-scenarios.mjs`).
+
+**admin-dashboard** — after overlay auto-completion, `refineAdminDashboardAnnotations` in `scripts/lib/scenario-enrich-annotate.mjs` encodes the multi-step task: `deals-table` state with open vs closed probability, `top-probability-row` / `deal-foxtrot-closed` row hints, primary `export-btn` (priority 1) vs decoy `export-csv-btn`, and dismissable `shortcuts-overlay`. Rebuild with `node scripts/complete-annotations.mjs` (all scenarios) or the admin-only rebuild path used during development.
+
+**photo-upload** — `refinePhotoUploadAnnotations` encodes album constraints: `album-selector` state, target `album-iceland-2026` vs misleading `album-iceland-2024-decoy`, primary `upload-iceland-album` (priority 1) inside `[data-album="iceland-2026"]`, keyword-trap duplicate row decoys, and thumb/staging preconditions for validation multi-step tasks.
+
+**calendar-app** — `refineCalendarAppAnnotations` encodes series vs grid constraints: `calendar-week-grid` warns against `+ Add` one-off cells, `recurring-series-panel` scopes primary `create-standup-series` (`data-series="weekday-standup-09"`), and `oneoff-confirm-decoy` / keyword-trap rows are priority 5.
+
+**scholarship-apply** — `refineScholarshipApplyAnnotations` encodes STEM vs waiver constraints: `type-waiver-decoy` and `fee-waiver-decoy` (priority 5), `submit-stem-scholarship` on `button[data-app="stem"]` (priority 1), and `eligibility-confirm` for validation multi-step.
 
 ## Annotation overlay model
 

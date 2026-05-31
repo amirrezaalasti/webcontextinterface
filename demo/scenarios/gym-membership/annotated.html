@@ -123,37 +123,37 @@ table{border-collapse:collapse}
 @media(max-width:640px){.fc-input-row{grid-template-columns:1fr}}
 .fc-check{display:flex;align-items:flex-start;gap:8px;margin-top:8px;color:#334155}
 </style></head><body>
-<div class="fc-app" data-page="gym-membership" id="gym_membership-page" data-wci-id="gym_membership-page" data-wci-role="landmark" data-wci-desc="FitClub gym membership page root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="fc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="fc-app" data-page="gym-membership" id="gym_membership-page" data-wci-role="landmark" data-wci-id="gym_membership-page" data-wci-desc="FitClub — Pricing cards." data-wci-priority="2"><div class="fc-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="fc-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="fc-btn fc-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="fc-btn fc-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="fc-btn fc-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="fc-btn fc-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-cookie">Reject non-essential</button>
+  <button type="button" class="fc-btn fc-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-cookie">Accept all</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-cookie">Customize</button>
 </div><div class="fc-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="fc-btn fc-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="fc-btn">Continue as guest — express</button>
-</div><header class="fc-hdr">
-  <div class="fc-brand" aria-label="FitClub brand"><div class="fc-brand-badge">FC</div><div><div>FitClub</div><div class="fc-note">Membership &amp; wellness</div></div></div>
-  <nav class="fc-nav" aria-label="Global"><a href="/">Home</a><a href="/classes">Classes</a><a href="/locations">Locations</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="fc-hdr-promo"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="fc-btn fc-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="fc-subnav" aria-label="Secondary"><a href="#plans">Plans</a><a href="#compare">Compare</a><a href="#benefits">Benefits</a><a href="#support">Support</a><a href="#billing-tools">Billing tools</a>
-  <button type="button" class="fc-btn fc-btn--ghost">Submit</button>
-  <button type="button" class="fc-btn fc-btn--ghost">Continue</button>
+  <button type="button" class="fc-btn fc-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="fc-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue as guest — express</button>
+</div><header class="fc-hdr" data-wci-role="landmark" data-wci-id="fc-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <div class="fc-brand" aria-label="FitClub brand"><div class="fc-brand-badge" data-wci-role="display" data-wci-id="fc-brand-badge" data-wci-desc="Display value: FC" data-wci-state="{&quot;value&quot;:&quot;FC&quot;}" data-wci-priority="4" data-wci-scope="fc-hdr">FC</div><div><div>FitClub</div><div class="fc-note">Membership &amp; wellness</div></div></div>
+  <nav class="fc-nav" aria-label="Global" data-wci-role="nav" data-wci-id="fc-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Home</a><a href="/classes" data-wci-role="nav" data-wci-id="classes" data-wci-desc="Navigate to: Classes" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Classes</a><a href="/locations" data-wci-role="nav" data-wci-id="locations" data-wci-desc="Navigate to: Locations" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Locations</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-nav">Account</a></nav>
+  <div class="fc-hdr-promo"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-hdr">Claim Offer</button>
+    <button type="button" class="fc-btn fc-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-hdr">Learn More</button></div>
+</header><nav class="fc-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="fc-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#plans" data-wci-role="nav" data-wci-id="plans" data-wci-desc="Navigate to: Plans" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-subnav">Plans</a><a href="#compare" data-wci-role="nav" data-wci-id="compare" data-wci-desc="Navigate to: Compare" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-subnav">Compare</a><a href="#benefits" data-wci-role="nav" data-wci-id="benefits" data-wci-desc="Navigate to: Benefits" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-subnav">Benefits</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-subnav">Support</a><a href="#billing-tools" data-wci-role="nav" data-wci-id="billing-tools" data-wci-desc="Navigate to: Billing tools" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-subnav">Billing tools</a>
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-subnav">Submit</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-subnav">Continue</button>
 </nav><div class="fc-dup-row" aria-label="Quick actions">
-  <button type="button" class="fc-btn fc-btn--ghost">Submit</button>
-  <button type="button" class="fc-btn fc-btn--ghost">Continue</button>
-  <button type="button" class="fc-btn fc-btn--ghost">Save changes</button>
-  <button type="button" class="fc-btn fc-btn--ghost">Confirm</button>
-</div><div class="fc-dup-row"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">Upgrade to annual</button><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-nav">Upgrade annual plan</button></div><div class="fc-page-wrap"><div class="fc-page-main"><main role="main">
-<section class="fc-hero" aria-label="Membership hero">
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Save changes</button>
+  <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Confirm</button>
+</div><div class="fc-dup-row"><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="upgrade-to-annual" data-wci-desc="Click to: Upgrade to annual" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Upgrade to annual</button><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="upgrade-annual-plan-2" data-wci-desc="Click to: Upgrade annual plan — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="gym_membership-page" data-wci-competitor="true">Upgrade annual plan</button></div><div class="fc-page-wrap"><div class="fc-page-main"><main role="main" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Choose a membership that fits your training routine" data-wci-priority="3">
+<section class="fc-hero" aria-label="Membership hero" data-wci-role="landmark" data-wci-id="fc-hero" data-wci-desc="Section for: Choose a membership that fits your training routine" data-wci-priority="3">
   <div>
-    <span class="fc-badge fc-badge--info">Best value: annual saves 20%</span>
+    <span class="fc-badge fc-badge--info" data-wci-role="display" data-wci-id="fc-badge" data-wci-desc="Display value: Best value: annual saves 20%" data-wci-state="{&quot;value&quot;:&quot;Best value: annual saves 20%&quot;}" data-wci-priority="4" data-wci-scope="fc-hero">Best value: annual saves 20%</span>
     <h1>Choose a membership that fits your training routine</h1>
     <p>You're currently on a monthly membership. Switch to annual billing to lock in a lower rate, keep class credits rolling over longer, and get a complimentary onboarding session with a trainer.</p>
     <div class="fc-inline" style="margin-top:12px">
       <div class="fc-segment" aria-label="Billing period toggle">
-        <button type="button" class="is-active" data-billing-toggle="monthly" aria-pressed="true">Monthly view</button>
-        <button type="button" data-billing-toggle="annual" aria-pressed="false">Annual view</button>
+        <button type="button" class="is-active" data-billing-toggle="monthly" aria-pressed="true" data-wci-role="action" data-wci-id="monthly-view" data-wci-desc="Click to: Monthly view" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-hero">Monthly view</button>
+        <button type="button" data-billing-toggle="annual" aria-pressed="false" data-wci-role="action" data-wci-id="annual-view" data-wci-desc="Click to: Annual view" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-hero">Annual view</button>
       </div>
       <span class="fc-note" id="billing-caption">Displayed prices reflect monthly billing by default.</span>
     </div>
@@ -165,7 +165,7 @@ table{border-collapse:collapse}
         <div class="fc-note">Membership</div>
         <strong id="current-plan-label">Starter Monthly</strong>
       </div>
-      <span class="fc-badge fc-badge--warning" id="membership-badge">Current plan</span>
+      <span class="fc-badge fc-badge--warning" id="membership-badge" data-wci-role="display" data-wci-id="membership-badge" data-wci-desc="Display value: Current plan" data-wci-state="{&quot;value&quot;:&quot;Current plan&quot;}" data-wci-priority="4" data-wci-scope="fc-hero">Current plan</span>
     </div>
     <div class="fc-mini-grid">
       <div class="fc-stat"><div class="fc-note">Monthly visits</div><strong>11</strong><span class="fc-note">tracked this cycle</span></div>
@@ -175,7 +175,7 @@ table{border-collapse:collapse}
   </div>
 </section>
 
-<section class="fc-panel" aria-label="Membership state" style="margin-bottom:16px">
+<section class="fc-panel" aria-label="Membership state" style="margin-bottom:16px" data-wci-role="landmark" data-wci-id="fc-panel" data-wci-desc="Section for: Membership checkout state" data-wci-priority="3">
   <div class="fc-inline" style="justify-content:space-between;width:100%">
     <div>
       <h2 style="margin:0 0 4px">Membership checkout state</h2>
@@ -185,16 +185,16 @@ table{border-collapse:collapse}
   </div>
 </section>
 
-<section id="plans" class="fc-grid fc-grid--plans" aria-label="Pricing cards">
-  <article class="fc-card fc-plan-card is-current" data-plan="monthly">
+<section id="plans" class="fc-grid fc-grid--plans" aria-label="Pricing cards" data-wci-role="landmark" data-wci-id="fc-grid" data-wci-desc="Section for: Starter Monthly" data-wci-priority="3">
+  <article class="fc-card fc-plan-card is-current" data-plan="monthly" data-wci-role="landmark" data-wci-id="fc-card" data-wci-desc="Section for: Starter Monthly" data-wci-priority="3">
     <div class="fc-plan-top">
       <div>
         <h3 style="margin-top:0">Starter Monthly</h3>
         <div class="fc-plan-meta">Flexible billing • cancel anytime</div>
       </div>
-      <span class="fc-badge fc-badge--muted">Current</span>
+      <span class="fc-badge fc-badge--muted" data-wci-role="display" data-wci-id="fc-badge-2" data-wci-desc="Display value: Current" data-wci-state="{&quot;value&quot;:&quot;Current&quot;}" data-wci-priority="4" data-wci-scope="fc-card">Current</span>
     </div>
-    <div class="fc-price" data-price-monthly="$39"><span>$39</span> <small>/mo</small></div>
+    <div class="fc-price" data-price-monthly="$39"><span data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $39" data-wci-state="{&quot;value&quot;:&quot;$39&quot;}" data-wci-priority="4" data-wci-scope="fc-card">$39</span> <small>/mo</small></div>
     <p>Good for members who prefer flexibility and short-term commitment.</p>
     <ul class="fc-plan-list">
       <li>Unlimited gym floor access</li>
@@ -203,20 +203,20 @@ table{border-collapse:collapse}
       <li>Basic progress tracking</li>
     </ul>
     <div class="fc-card__actions" style="margin-top:auto">
-      <button type="button" class="fc-btn fc-btn--ghost" disabled="" aria-disabled="true">Current plan</button>
-      <button type="button" class="fc-btn">View details</button>
+      <button type="button" class="fc-btn fc-btn--ghost" disabled="" aria-disabled="true" data-wci-role="action" data-wci-id="current-plan" data-wci-desc="Click to: Current plan" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-card">Current plan</button>
+      <button type="button" class="fc-btn" data-wci-role="action" data-wci-id="view-details" data-wci-desc="Click to: View details" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-card">View details</button>
     </div>
   </article>
 
-  <article class="fc-card fc-plan-card is-featured" data-plan="annual">
+  <article class="fc-card fc-plan-card is-featured" data-plan="annual" data-wci-role="landmark" data-wci-id="upgrade-annual-plan-scope" data-wci-desc="Target scope for upgrade-annual-plan" data-wci-state="{&quot;plan&quot;:&quot;annual&quot;}" data-wci-priority="2">
     <div class="fc-plan-top">
       <div>
         <h3 style="margin-top:0">Performance Annual</h3>
         <div class="fc-plan-meta">Billed once yearly • featured plan</div>
       </div>
-      <span class="fc-badge fc-badge--success">Most popular</span>
+      <span class="fc-badge fc-badge--success" data-wci-role="display" data-wci-id="fc-badge-3" data-wci-desc="Display value: Most popular" data-wci-state="{&quot;value&quot;:&quot;Most popular&quot;}" data-wci-priority="4" data-wci-scope="upgrade-annual-plan-scope">Most popular</span>
     </div>
-    <div class="fc-price"><span id="annual-price-display">$374</span> <small id="annual-price-caption">/year</small></div>
+    <div class="fc-price"><span id="annual-price-display" data-wci-role="display" data-wci-id="annual-price-display" data-wci-desc="Display value: $374" data-wci-state="{&quot;value&quot;:&quot;$374&quot;}" data-wci-priority="4" data-wci-scope="upgrade-annual-plan-scope">$374</span> <small id="annual-price-caption">/year</small></div>
     <p>Save compared with paying month-to-month, plus receive premium perks immediately after switching.</p>
     <ul class="fc-plan-list">
       <li>Unlimited gym floor access</li>
@@ -227,20 +227,20 @@ table{border-collapse:collapse}
     </ul>
     <div class="fc-note" id="featured-savings">You save $94 over 12 months.</div>
     <div class="fc-card__actions" style="margin-top:auto">
-      <button type="button" class="fc-btn fc-btn--ghost" data-open-modal="annual-review">Review terms</button>
-      <button type="button" class="fc-btn fc-btn--primary" id="upgrade-annual-plan" data-wci-id="upgrade-annual-plan" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to switch to the featured annual membership plan" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="gym_membership-page">Confirm</button>
+      <button type="button" class="fc-btn fc-btn--ghost" data-open-modal="annual-review" data-wci-role="action" data-wci-id="review-terms" data-wci-desc="Click to: Review terms" data-wci-action="click" data-wci-priority="3" data-wci-scope="upgrade-annual-plan-scope">Review terms</button>
+      <button type="button" class="fc-btn fc-btn--primary" id="upgrade-annual-plan" data-wci-role="action" data-wci-id="upgrade-annual-plan" data-wci-desc="Switch from monthly to the featured annual membership plan." data-wci-action="click" data-wci-priority="1" data-wci-scope="upgrade-annual-plan-scope" data-wci-primary="true">Confirm</button>
     </div>
   </article>
 
-  <article class="fc-card fc-plan-card" data-plan="premium-plus">
+  <article class="fc-card fc-plan-card" data-plan="premium-plus" data-wci-role="landmark" data-wci-id="fc-card-2" data-wci-desc="Section for: Premium Plus" data-wci-priority="3">
     <div class="fc-plan-top">
       <div>
         <h3 style="margin-top:0">Premium Plus</h3>
         <div class="fc-plan-meta">For coaching-focused members</div>
       </div>
-      <span class="fc-badge fc-badge--info">Includes PT intro</span>
+      <span class="fc-badge fc-badge--info" data-wci-role="display" data-wci-id="fc-badge-4" data-wci-desc="Display value: Includes PT intro" data-wci-state="{&quot;value&quot;:&quot;Includes PT intro&quot;}" data-wci-priority="4" data-wci-scope="fc-card-2">Includes PT intro</span>
     </div>
-    <div class="fc-price"><span>$59</span> <small>/mo</small></div>
+    <div class="fc-price"><span data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $59" data-wci-state="{&quot;value&quot;:&quot;$59&quot;}" data-wci-priority="4" data-wci-scope="fc-card-2">$59</span> <small>/mo</small></div>
     <p>Includes recovery lounge access and one small-group coaching session each month.</p>
     <ul class="fc-plan-list">
       <li>Everything in Starter</li>
@@ -249,13 +249,13 @@ table{border-collapse:collapse}
       <li>Nutrition webinar library</li>
     </ul>
     <div class="fc-card__actions" style="margin-top:auto">
-      <button type="button" class="fc-btn">Compare</button>
-      <button type="button" class="fc-btn fc-btn--ghost">Contact sales</button>
+      <button type="button" class="fc-btn" data-wci-role="action" data-wci-id="compare-2" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-card-2">Compare</button>
+      <button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="contact-sales" data-wci-desc="Click to: Contact sales" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-card-2">Contact sales</button>
     </div>
   </article>
 </section>
 
-<section class="fc-layout" style="grid-template-columns:1.15fr .85fr;margin-top:18px">
+<section class="fc-layout" style="grid-template-columns:1.15fr .85fr;margin-top:18px" data-wci-role="landmark" data-wci-id="fc-layout" data-wci-desc="Section for: Feature comparison" data-wci-priority="3">
   <div class="fc-panel" id="compare">
     <h2 style="margin-top:0">Feature comparison</h2>
     <table class="fc-compare" aria-label="Plan comparison table">
@@ -269,36 +269,36 @@ table{border-collapse:collapse}
       </tbody>
     </table>
   </div>
-  <aside class="fc-filters" id="billing-tools">
+  <aside class="fc-filters" id="billing-tools" data-wci-role="landmark" data-wci-id="fc-filters" data-wci-desc="Section for: Apply promo code" data-wci-priority="3">
     <h2>Apply promo code</h2>
     <p>Optional: use a valid promo code before switching plans.</p>
-    <form id="promo-form" novalidate="">
+    <form id="promo-form" novalidate="" data-wci-role="landmark" data-wci-id="promo-form" data-wci-desc="Landmark zone: promo-form" data-wci-priority="3">
       <div class="fc-input-row">
         <div>
           <label for="promo-code">Promo code</label>
-          <input id="promo-code" name="promoCode" type="text" placeholder="Try SAVE20 or TRAIN10" autocomplete="off" maxlength="12">
+          <input id="promo-code" name="promoCode" type="text" placeholder="Try SAVE20 or TRAIN10" autocomplete="off" maxlength="12" data-wci-role="form" data-wci-id="promo-code" data-wci-desc="Field for: Promo code" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="promo-form">
           <div class="fc-error" id="promo-error" aria-live="polite"></div>
         </div>
         <div>
           <label for="payment-method">Payment method</label>
-          <select id="payment-method" name="paymentMethod">
+          <select id="payment-method" name="paymentMethod" data-wci-role="form" data-wci-id="payment-method" data-wci-desc="Dropdown to select: Payment method" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Choose…&quot;}" data-wci-options="[&quot;Choose…&quot;,&quot;Visa ending 4242&quot;,&quot;Amex ending 3005&quot;]" data-wci-priority="3" data-wci-scope="promo-form">
             <option value="">Choose…</option>
             <option value="visa">Visa ending 4242</option>
             <option value="amex">Amex ending 3005</option>
           </select>
         </div>
       </div>
-      <label class="fc-check"><input type="checkbox" id="agree-terms"> <span>I understand the annual plan renews yearly unless canceled according to FitClub terms.</span></label>
+      <label class="fc-check"><input type="checkbox" id="agree-terms" data-wci-role="form" data-wci-id="agree-terms" data-wci-desc="Field for: I understand the annual plan renews yearly unless canceled according to FitClub terms. — plausible alternativ" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="1" data-wci-scope="promo-form" data-wci-competitor="true"> <span>I understand the annual plan renews yearly unless canceled according to FitClub terms.</span></label>
       <div class="fc-card__actions">
-        <button type="submit" class="fc-btn">Apply code</button>
-        <button type="button" class="fc-btn fc-btn--ghost" id="reset-promo">Reset</button>
+        <button type="submit" class="fc-btn" data-wci-role="action" data-wci-id="apply-code" data-wci-desc="Click to: Apply code" data-wci-action="click" data-wci-priority="3" data-wci-scope="promo-form">Apply code</button>
+        <button type="button" class="fc-btn fc-btn--ghost" id="reset-promo" data-wci-role="action" data-wci-id="reset-promo" data-wci-desc="Click to: Reset" data-wci-action="click" data-wci-priority="3" data-wci-scope="promo-form">Reset</button>
       </div>
       <div class="fc-note" id="promo-preview">No promo applied. Annual total remains $374.</div>
     </form>
   </aside>
 </section>
 
-<section class="fc-panel" id="benefits" style="margin-top:18px">
+<section class="fc-panel" id="benefits" style="margin-top:18px" data-wci-role="landmark" data-wci-id="fc-panel-2" data-wci-desc="Section for: Why members switch to annual" data-wci-priority="3">
   <h2 style="margin-top:0">Why members switch to annual</h2>
   <div class="fc-mini-grid">
     <div class="fc-tile"><strong>Lower effective rate</strong><p>Pay once and save versus 12 separate monthly charges.</p></div>
@@ -307,34 +307,34 @@ table{border-collapse:collapse}
   </div>
 </section>
 
-<section class="fc-panel" id="support" style="margin-top:18px">
+<section class="fc-panel" id="support" style="margin-top:18px" data-wci-role="landmark" data-wci-id="fc-panel-3" data-wci-desc="Section for: Common questions" data-wci-priority="3">
   <h2 style="margin-top:0">Common questions</h2>
   <details open=""><summary><strong>When does the plan change take effect?</strong></summary><p>Your annual plan begins immediately after confirmation. Remaining monthly days are credited in the final total shown at checkout.</p></details>
   <details><summary><strong>Can I freeze my annual membership?</strong></summary><p>Yes. Eligible members may freeze for up to 30 days once per annual term.</p></details>
   <details><summary><strong>Will my class credits change?</strong></summary><p>Yes. Your included monthly class allotment updates as soon as the new plan is active.</p></details>
 </section>
-</main></div><aside class="fc-rail fc-rail--ads" aria-label="Sponsored">
+</main></div><aside class="fc-rail fc-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="fc-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p style="margin-top:0">Add a recovery kit to your membership and save 10% this week.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-rail">Partner offer — limited time</a><br>
+  <button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fcd34d;margin:14px 0">
   <div class="fc-note">This sidebar contains promotional content and is not required to manage your plan.</div>
-</aside></div><div class="fc-filler" aria-hidden="true"><div class="fc-filler-inner"><a href="/misc/0" class="fc-btn fc-btn--ghost">Link 1</a><button type="button" class="fc-btn fc-btn--ghost">Action 2</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/4" class="fc-btn fc-btn--ghost">Link 5</a><button type="button" class="fc-btn fc-btn--ghost">Action 6</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/8" class="fc-btn fc-btn--ghost">Link 9</a><button type="button" class="fc-btn fc-btn--ghost">Action 10</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/12" class="fc-btn fc-btn--ghost">Link 13</a><button type="button" class="fc-btn fc-btn--ghost">Action 14</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/16" class="fc-btn fc-btn--ghost">Link 17</a><button type="button" class="fc-btn fc-btn--ghost">Action 18</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/20" class="fc-btn fc-btn--ghost">Link 21</a><button type="button" class="fc-btn fc-btn--ghost">Action 22</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/24" class="fc-btn fc-btn--ghost">Link 25</a><button type="button" class="fc-btn fc-btn--ghost">Action 26</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/28" class="fc-btn fc-btn--ghost">Link 29</a><button type="button" class="fc-btn fc-btn--ghost">Action 30</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/32" class="fc-btn fc-btn--ghost">Link 33</a><button type="button" class="fc-btn fc-btn--ghost">Action 34</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/36" class="fc-btn fc-btn--ghost">Link 37</a><button type="button" class="fc-btn fc-btn--ghost">Action 38</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button><a href="/misc/40" class="fc-btn fc-btn--ghost">Link 41</a><button type="button" class="fc-btn fc-btn--ghost">Action 42</button><button type="button" class="fc-btn fc-btn--ghost">Submit</button><button type="button" class="fc-btn fc-btn--ghost">Continue</button></div></div><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promotional button" data-wci-priority="1" data-wci-scope="gym_membership-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="fc-ftr"><small>© Demo FitClub</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="fc-filler" aria-hidden="true"><div class="fc-filler-inner"><a href="/misc/0" class="fc-btn fc-btn--ghost">Link 1</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 2</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/4" class="fc-btn fc-btn--ghost">Link 5</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 6</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/8" class="fc-btn fc-btn--ghost">Link 9</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 10</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/12" class="fc-btn fc-btn--ghost">Link 13</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 14</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/16" class="fc-btn fc-btn--ghost">Link 17</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 18</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/20" class="fc-btn fc-btn--ghost">Link 21</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 22</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/24" class="fc-btn fc-btn--ghost">Link 25</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 26</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/28" class="fc-btn fc-btn--ghost">Link 29</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 30</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/32" class="fc-btn fc-btn--ghost">Link 33</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 34</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/36" class="fc-btn fc-btn--ghost">Link 37</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 38</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button><a href="/misc/40" class="fc-btn fc-btn--ghost">Link 41</a><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Action 42</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Submit</button><button type="button" class="fc-btn fc-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gym_membership-page">Continue</button></div></div><button type="button" class="fc-btn fc-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="gym_membership-page">Hidden promo</button><footer class="fc-ftr" data-wci-role="landmark" data-wci-id="fc-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo FitClub</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="fc-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="fc-overlay" id="modal-overlay"></div>
-<div class="fc-modal" id="annual-review-modal" role="dialog" aria-modal="true" aria-labelledby="annual-review-title" aria-hidden="true">
+<div class="fc-modal" id="annual-review-modal" role="dialog" aria-modal="true" aria-labelledby="annual-review-title" aria-hidden="true" data-wci-role="landmark" data-wci-id="fc-modal" data-wci-desc="Section for: Annual membership review" data-wci-priority="3">
   <h2 id="annual-review-title" style="margin-top:0">Annual membership review</h2>
   <p>This plan renews yearly at the then-current annual rate. A prorated credit from your current monthly cycle may be applied at checkout. You can freeze your membership once per term for up to 30 days.</p>
   <ul>
-    <li>Featured annual total: <strong id="modal-annual-total">$374</strong></li>
+    <li>Featured annual total: <strong id="modal-annual-total" data-wci-role="display" data-wci-id="modal-annual-total" data-wci-desc="Display value: $374" data-wci-state="{&quot;value&quot;:&quot;$374&quot;}" data-wci-priority="4" data-wci-scope="fc-modal">$374</strong></li>
     <li>Included classes: <strong>12 per month</strong></li>
     <li>Current status: <strong id="modal-current-status">Starter Monthly</strong></li>
   </ul>
   <div class="fc-card__actions">
-    <button type="button" class="fc-btn fc-btn--ghost" id="close-modal">Close</button>
-    <button type="button" class="fc-btn fc-btn--primary" id="modal-confirm">Looks good</button>
+    <button type="button" class="fc-btn fc-btn--ghost" id="close-modal" data-wci-role="action" data-wci-id="close-modal" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-modal">Close</button>
+    <button type="button" class="fc-btn fc-btn--primary" id="modal-confirm" data-wci-role="action" data-wci-id="modal-confirm" data-wci-desc="Click to: Looks good" data-wci-action="click" data-wci-priority="3" data-wci-scope="fc-modal">Looks good</button>
   </div>
 </div>
 

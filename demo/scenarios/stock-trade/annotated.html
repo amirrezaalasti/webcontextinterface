@@ -895,20 +895,20 @@
 </head>
 <body>
 
-<div class="tp-app" data-page="stock-trade" id="stock_trade-page" data-wci-role="landmark" data-wci-id="stock_trade-page" data-wci-desc="TradePulse stock trading page root" data-wci-state="{&quot;ready&quot;:true}" data-wci-priority="1">
+<div class="tp-app" data-page="stock-trade" id="stock_trade-page" data-wci-role="landmark" data-wci-id="stock_trade-page" data-wci-desc="TradePulse — Trading UI." data-wci-priority="2">
   
   <!-- Cookie Banner -->
-  <div class="tp-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+  <div class="tp-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="tp-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies to analyze traffic, personalize advertisements, and enhance your trading experience. By clicking "Accept", you agree to our cookie policy.</p>
     <div class="tp-cookie-actions">
-      <button type="button" class="tp-btn tp-btn--ghost" style="padding: 6px 12px;" data-cookie-action="reject">Reject</button>
-      <button type="button" class="tp-btn tp-btn--primary" style="padding: 6px 12px;" data-cookie-action="accept">Accept all</button>
+      <button type="button" class="tp-btn tp-btn--ghost" style="padding: 6px 12px;" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject" data-wci-desc="Click to: Reject" data-wci-action="click" data-wci-priority="3" data-wci-scope="tp-cookie">Reject</button>
+      <button type="button" class="tp-btn tp-btn--primary" style="padding: 6px 12px;" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="tp-cookie">Accept all</button>
     </div>
   </div>
 
   <!-- Header -->
-  <header class="tp-hdr">
-    <a href="#" class="tp-brand" aria-label="TradePulse home">
+  <header class="tp-hdr" data-wci-role="landmark" data-wci-id="tp-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+    <a href="#" class="tp-brand" aria-label="TradePulse home" data-wci-role="nav" data-wci-id="tradepulse-pro-us-equities-live-terminal" data-wci-desc="Navigate to: ↗ TradePulse Pro US Equities · Live Terminal" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-hdr">
       <div class="tp-brand-mark">↗</div>
       <div>
         <div class="tp-brand-name">TradePulse Pro</div>
@@ -916,18 +916,18 @@
       </div>
     </a>
     
-    <nav class="tp-nav" aria-label="Global">
-      <a href="#" class="tp-nav-item is-active">Trading</a>
-      <a href="#" class="tp-nav-item">Watchlist</a>
-      <a href="#" class="tp-nav-item">Portfolio</a>
-      <a href="#" class="tp-nav-item">Analytics</a>
-      <a href="#" class="tp-nav-item">Settings</a>
+    <nav class="tp-nav" aria-label="Global" data-wci-role="nav" data-wci-id="tp-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="#" class="tp-nav-item is-active" data-wci-role="nav" data-wci-id="trading" data-wci-desc="Navigate to: Trading" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-nav">Trading</a>
+      <a href="#" class="tp-nav-item" data-wci-role="nav" data-wci-id="watchlist" data-wci-desc="Navigate to: Watchlist" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-nav">Watchlist</a>
+      <a href="#" class="tp-nav-item" data-wci-role="nav" data-wci-id="portfolio" data-wci-desc="Navigate to: Portfolio" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-nav">Portfolio</a>
+      <a href="#" class="tp-nav-item" data-wci-role="nav" data-wci-id="analytics" data-wci-desc="Navigate to: Analytics" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-nav">Analytics</a>
+      <a href="#" class="tp-nav-item" data-wci-role="nav" data-wci-id="settings" data-wci-desc="Navigate to: Settings" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="tp-nav">Settings</a>
     </nav>
     
     <div class="tp-hdr-promo">
-      <span class="tp-badge tp-status-good" id="session-state">Market open</span>
+      <span class="tp-badge tp-status-good" id="session-state" data-wci-role="display" data-wci-id="session-state" data-wci-desc="Display value: Market open" data-wci-state="{&quot;value&quot;:&quot;Market open&quot;}" data-wci-priority="4" data-wci-scope="tp-hdr">Market open</span>
       <!-- Smoke status tracking element (crucial for agent validation checks) -->
-      <span class="tp-badge tp-status-good" id="stock-trade-smoke-status" style="background-color: rgba(41, 98, 255, 0.1); color: var(--accent-blue); border-color: rgba(41, 98, 255, 0.2);">awaiting order</span>
+      <span class="tp-badge tp-status-good" id="stock-trade-smoke-status" style="background-color: rgba(41, 98, 255, 0.1); color: var(--accent-blue); border-color: rgba(41, 98, 255, 0.2);" data-wci-role="display" data-wci-id="stock-trade-smoke-status" data-wci-desc="Display value: awaiting order" data-wci-state="{&quot;value&quot;:&quot;awaiting order&quot;}" data-wci-priority="4" data-wci-scope="tp-hdr">awaiting order</span>
     </div>
   </header>
 
@@ -942,13 +942,13 @@
         
         <!-- Left vertical drawing toolbar -->
         <div class="tp-drawing-toolbar">
-          <button type="button" class="tp-tool-btn is-active" data-tool="crosshair" title="Crosshair">✛</button>
-          <button type="button" class="tp-tool-btn" data-tool="line" title="Trend Line">╱</button>
-          <button type="button" class="tp-tool-btn" data-tool="h-line" title="Horizontal Support/Resistance Line">⎯</button>
-          <button type="button" class="tp-tool-btn" data-tool="fib" title="Fibonacci Retracement">☰</button>
-          <button type="button" class="tp-tool-btn" data-tool="text" title="Text Note">✎</button>
-          <button type="button" class="tp-tool-btn" data-tool="ruler" title="Measure range">⇳</button>
-          <button type="button" class="tp-tool-btn" id="clear-drawings" title="Clear all drawings" style="margin-top: auto; color: var(--down-red);">☒</button>
+          <button type="button" class="tp-tool-btn is-active" data-tool="crosshair" title="Crosshair" data-wci-role="action" data-wci-id="button" data-wci-desc="Click to: ✛" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">✛</button>
+          <button type="button" class="tp-tool-btn" data-tool="line" title="Trend Line" data-wci-role="action" data-wci-id="button-2" data-wci-desc="Click to: ╱" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">╱</button>
+          <button type="button" class="tp-tool-btn" data-tool="h-line" title="Horizontal Support/Resistance Line" data-wci-role="action" data-wci-id="button-3" data-wci-desc="Click to: ⎯" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">⎯</button>
+          <button type="button" class="tp-tool-btn" data-tool="fib" title="Fibonacci Retracement" data-wci-role="action" data-wci-id="button-4" data-wci-desc="Click to: ☰" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">☰</button>
+          <button type="button" class="tp-tool-btn" data-tool="text" title="Text Note" data-wci-role="action" data-wci-id="button-5" data-wci-desc="Click to: ✎" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">✎</button>
+          <button type="button" class="tp-tool-btn" data-tool="ruler" title="Measure range" data-wci-role="action" data-wci-id="button-6" data-wci-desc="Click to: ⇳" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">⇳</button>
+          <button type="button" class="tp-tool-btn" id="clear-drawings" title="Clear all drawings" style="margin-top: auto; color: var(--down-red);" data-wci-role="action" data-wci-id="clear-drawings" data-wci-desc="Click to: ☒" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">☒</button>
         </div>
         
         <!-- Main canvas chart display -->
@@ -960,7 +960,7 @@
               <div id="active-ticker" class="tp-ticker-title">AAPL</div>
               <div id="active-name" class="tp-ticker-desc">Apple Inc. · NASDAQ</div>
               <div class="tp-ticker-price-group">
-                <span id="live-price" class="tp-ticker-live-price">182.44</span>
+                <span id="live-price" class="tp-ticker-live-price" data-wci-role="display" data-wci-id="live-price" data-wci-desc="Display value: 182.44" data-wci-state="{&quot;value&quot;:&quot;182.44&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">182.44</span>
                 <span id="price-change" class="tp-ticker-live-change tp-txt-up">+2.18 (+1.21%)</span>
               </div>
             </div>
@@ -968,22 +968,22 @@
             <div class="tp-chart-controls">
               <!-- Timeframes -->
               <div class="tp-ctrl-group" id="timeframe-select">
-                <button type="button" class="tp-ctrl-btn" data-tf="1m">1m</button>
-                <button type="button" class="tp-ctrl-btn" data-tf="5m">5m</button>
-                <button type="button" class="tp-ctrl-btn" data-tf="15m">15m</button>
-                <button type="button" class="tp-ctrl-btn" data-tf="1h">1h</button>
-                <button type="button" class="tp-ctrl-btn is-active" data-tf="1D">1D</button>
+                <button type="button" class="tp-ctrl-btn" data-tf="1m" data-wci-role="action" data-wci-id="1m" data-wci-desc="Click to: 1m" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">1m</button>
+                <button type="button" class="tp-ctrl-btn" data-tf="5m" data-wci-role="action" data-wci-id="5m" data-wci-desc="Click to: 5m" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">5m</button>
+                <button type="button" class="tp-ctrl-btn" data-tf="15m" data-wci-role="action" data-wci-id="15m" data-wci-desc="Click to: 15m" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">15m</button>
+                <button type="button" class="tp-ctrl-btn" data-tf="1h" data-wci-role="action" data-wci-id="1h" data-wci-desc="Click to: 1h" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">1h</button>
+                <button type="button" class="tp-ctrl-btn is-active" data-tf="1D" data-wci-role="action" data-wci-id="1d" data-wci-desc="Click to: 1D" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">1D</button>
               </div>
               <!-- Chart Type -->
               <div class="tp-ctrl-group" id="chart-type-select">
-                <button type="button" class="tp-ctrl-btn is-active" data-type="candles">Candles</button>
-                <button type="button" class="tp-ctrl-btn" data-type="line">Line</button>
+                <button type="button" class="tp-ctrl-btn is-active" data-type="candles" data-wci-role="action" data-wci-id="candles" data-wci-desc="Click to: Candles" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Candles</button>
+                <button type="button" class="tp-ctrl-btn" data-type="line" data-wci-role="action" data-wci-id="line" data-wci-desc="Click to: Line" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Line</button>
               </div>
               <!-- Technical Indicators overlays -->
               <div class="tp-ctrl-group" id="indicators-select">
-                <button type="button" class="tp-ctrl-btn is-active" data-ind="volume" title="Volume bars">VOL</button>
-                <button type="button" class="tp-ctrl-btn is-active" data-ind="sma" title="Simple Moving Average 9">SMA</button>
-                <button type="button" class="tp-ctrl-btn" data-ind="ema" title="Exponential Moving Average 20">EMA</button>
+                <button type="button" class="tp-ctrl-btn is-active" data-ind="volume" title="Volume bars" data-wci-role="action" data-wci-id="vol" data-wci-desc="Click to: VOL" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">VOL</button>
+                <button type="button" class="tp-ctrl-btn is-active" data-ind="sma" title="Simple Moving Average 9" data-wci-role="action" data-wci-id="sma" data-wci-desc="Click to: SMA" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">SMA</button>
+                <button type="button" class="tp-ctrl-btn" data-ind="ema" title="Exponential Moving Average 20" data-wci-role="action" data-wci-id="ema" data-wci-desc="Click to: EMA" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">EMA</button>
               </div>
             </div>
           </div>
@@ -1007,10 +1007,10 @@
       <!-- Bottom Account Console panel -->
       <div class="tp-console">
         <div class="tp-console-tabs">
-          <button type="button" class="tp-tab-btn is-active" data-tab="positions">Positions</button>
-          <button type="button" class="tp-tab-btn" data-tab="orders">Orders Log</button>
-          <button type="button" class="tp-tab-btn" data-tab="history">Account History</button>
-          <button type="button" class="tp-tab-btn" data-tab="summary">Portfolio Summary</button>
+          <button type="button" class="tp-tab-btn is-active" data-tab="positions" data-wci-role="action" data-wci-id="positions" data-wci-desc="Click to: Positions" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Positions</button>
+          <button type="button" class="tp-tab-btn" data-tab="orders" data-wci-role="action" data-wci-id="orders-log" data-wci-desc="Click to: Orders Log" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Orders Log</button>
+          <button type="button" class="tp-tab-btn" data-tab="history" data-wci-role="action" data-wci-id="account-history" data-wci-desc="Click to: Account History" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Account History</button>
+          <button type="button" class="tp-tab-btn" data-tab="summary" data-wci-role="action" data-wci-id="portfolio-summary" data-wci-desc="Click to: Portfolio Summary" data-wci-action="click" data-wci-priority="3" data-wci-scope="stock_trade-page">Portfolio Summary</button>
         </div>
         
         <div class="tp-console-content">
@@ -1082,8 +1082,8 @@
                     <td>CREDIT</td>
                     <td class="numeric">-</td>
                     <td class="numeric">-</td>
-                    <td class="numeric">$30,000.00</td>
-                    <td>$30,000.00</td>
+                    <td class="numeric" data-wci-role="display" data-wci-id="numeric" data-wci-desc="Display value: $30,000.00" data-wci-state="{&quot;value&quot;:&quot;$30,000.00&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">$30,000.00</td>
+                    <td data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $30,000.00" data-wci-state="{&quot;value&quot;:&quot;$30,000.00&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">$30,000.00</td>
                   </tr>
                 </tbody>
               </table>
@@ -1095,15 +1095,15 @@
             <div class="tp-summary-grid">
               <div class="tp-summary-card">
                 <div class="lbl">Net Asset Value</div>
-                <div class="val" id="summary-nav">$29,378.56</div>
+                <div class="val" id="summary-nav" data-wci-role="display" data-wci-id="summary-nav" data-wci-desc="Display value: $29,378.56" data-wci-state="{&quot;value&quot;:&quot;$29,378.56&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">$29,378.56</div>
               </div>
               <div class="tp-summary-card">
                 <div class="lbl">Total Cash available</div>
-                <div class="val" id="summary-cash">$25,000.00</div>
+                <div class="val" id="summary-cash" data-wci-role="display" data-wci-id="summary-cash" data-wci-desc="Display value: $25,000.00" data-wci-state="{&quot;value&quot;:&quot;$25,000.00&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">$25,000.00</div>
               </div>
               <div class="tp-summary-card">
                 <div class="lbl">Securities Value</div>
-                <div class="val" id="summary-securities">$4,378.56</div>
+                <div class="val" id="summary-securities" data-wci-role="display" data-wci-id="summary-securities" data-wci-desc="Display value: $4,378.56" data-wci-state="{&quot;value&quot;:&quot;$4,378.56&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">$4,378.56</div>
               </div>
               <div class="tp-summary-card">
                 <div class="lbl">Daily P&amp;L Return</div>
@@ -1123,7 +1123,7 @@
       <div class="tp-sidebar-section">
         <div class="tp-sec-hdr">
           <span class="tp-sec-title">Tech Watchlist</span>
-          <span class="tp-badge" style="background-color: var(--panel-border); color: var(--text-main); font-size: 9px; padding: 2px 6px;">Live Refresh</span>
+          <span class="tp-badge" style="background-color: var(--panel-border); color: var(--text-main); font-size: 9px; padding: 2px 6px;" data-wci-role="display" data-wci-id="tp-badge" data-wci-desc="Display value: Live Refresh" data-wci-state="{&quot;value&quot;:&quot;Live Refresh&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">Live Refresh</span>
         </div>
         <div class="tp-watchlist-scroll">
           <table class="tp-wl-table">
@@ -1138,28 +1138,28 @@
       <div class="tp-sidebar-section" style="border-bottom: none;">
         <div class="tp-sec-hdr">
           <span class="tp-sec-title">Order ticket</span>
-          <span class="tp-badge" id="order-badge" style="background-color: var(--up-green-bg); color: var(--up-green); font-size: 10px; font-weight: 700;">Draft</span>
+          <span class="tp-badge" id="order-badge" style="background-color: var(--up-green-bg); color: var(--up-green); font-size: 10px; font-weight: 700;" data-wci-role="display" data-wci-id="order-badge" data-wci-desc="Display value: Draft" data-wci-state="{&quot;value&quot;:&quot;Draft&quot;}" data-wci-priority="4" data-wci-scope="stock_trade-page">Draft</span>
         </div>
         
         <div class="tp-order-ticket-container">
-          <form id="order-form" novalidate="">
+          <form id="order-form" novalidate="" data-wci-role="landmark" data-wci-id="order-form" data-wci-desc="Landmark zone: order-form" data-wci-priority="3">
             <!-- Buy / Sell toggle tabs -->
             <div class="tp-order-tabs">
-              <button type="button" class="tp-side-btn is-active-buy" id="side-buy" data-side="buy">Buy</button>
-              <button type="button" class="tp-side-btn" id="side-sell" data-side="sell">Sell</button>
+              <button type="button" class="tp-side-btn is-active-buy" id="side-buy" data-side="buy" data-wci-role="action" data-wci-id="side-buy" data-wci-desc="Click to: Buy" data-wci-action="click" data-wci-priority="3" data-wci-scope="order-form">Buy</button>
+              <button type="button" class="tp-side-btn" id="side-sell" data-side="sell" data-wci-role="action" data-wci-id="side-sell" data-wci-desc="Click to: Sell" data-wci-action="click" data-wci-priority="3" data-wci-scope="order-form">Sell</button>
             </div>
             
             <div class="tp-order-form">
               <!-- Symbol (Readonly) -->
               <div class="tp-form-field">
                 <label for="trade-symbol">Symbol</label>
-                <input id="trade-symbol" name="symbol" class="tp-input-box" type="text" value="AAPL" readonly="" aria-readonly="true">
+                <input id="trade-symbol" name="symbol" class="tp-input-box" type="text" value="AAPL" readonly="" aria-readonly="true" data-wci-role="form" data-wci-id="trade-symbol" data-wci-desc="Field for: Symbol" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;AAPL&quot;}" data-wci-priority="3" data-wci-scope="order-form">
               </div>
               
               <!-- Account -->
               <div class="tp-form-field">
                 <label for="trade-account">Account</label>
-                <select id="trade-account" name="account" class="tp-input-box">
+                <select id="trade-account" name="account" class="tp-input-box" data-wci-role="form" data-wci-id="trade-account" data-wci-desc="Dropdown to select: Account" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Individual Margin ••• 4821&quot;}" data-wci-options="[&quot;Individual Margin ••• 4821&quot;,&quot;IRA Account ••• 1209&quot;]" data-wci-priority="3" data-wci-scope="order-form">
                   <option selected="">Individual Margin ••• 4821</option>
                   <option>IRA Account ••• 1209</option>
                 </select>
@@ -1169,7 +1169,7 @@
                 <!-- Order type -->
                 <div class="tp-form-field">
                   <label for="trade-order-type">Order type</label>
-                  <select id="trade-order-type" name="orderType" class="tp-input-box">
+                  <select id="trade-order-type" name="orderType" class="tp-input-box" data-wci-role="form" data-wci-id="trade-order-type" data-wci-desc="Dropdown to select: Order type — plausible alternative (not primary for this goal)" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Market&quot;}" data-wci-options="[&quot;Market&quot;,&quot;Limit&quot;,&quot;Stop Loss&quot;]" data-wci-priority="1" data-wci-scope="order-form" data-wci-competitor="true">
                     <option value="market" selected="">Market</option>
                     <option value="limit">Limit</option>
                     <option value="stop">Stop Loss</option>
@@ -1178,20 +1178,20 @@
                 <!-- Quantity -->
                 <div class="tp-form-field">
                   <label for="trade-qty">Shares</label>
-                  <input id="trade-qty" name="qty" class="tp-input-box" type="number" min="1" step="1" value="10" data-shares="10" inputmode="numeric">
+                  <input id="trade-qty" name="qty" class="tp-input-box" type="number" min="1" step="1" value="10" data-shares="10" inputmode="numeric" data-wci-role="form" data-wci-id="trade-qty" data-wci-desc="Field for: Shares" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;10&quot;}" data-wci-priority="3" data-wci-scope="order-form">
                 </div>
               </div>
               
               <!-- Limit Price Row -->
               <div class="tp-form-field" id="limit-wrap" hidden="">
                 <label for="trade-limit-price">Limit price ($)</label>
-                <input id="trade-limit-price" name="limitPrice" class="tp-input-box" type="number" min="0.01" step="0.01" placeholder="0.00">
+                <input id="trade-limit-price" name="limitPrice" class="tp-input-box" type="number" min="0.01" step="0.01" placeholder="0.00" data-wci-role="form" data-wci-id="trade-limit-price" data-wci-desc="Field for: Limit price ($)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="order-form">
               </div>
               
               <!-- Stop Price Row -->
               <div class="tp-form-field" id="stop-wrap" hidden="">
                 <label for="trade-stop-price">Stop activation price ($)</label>
-                <input id="trade-stop-price" name="stopPrice" class="tp-input-box" type="number" min="0.01" step="0.01" placeholder="0.00">
+                <input id="trade-stop-price" name="stopPrice" class="tp-input-box" type="number" min="0.01" step="0.01" placeholder="0.00" data-wci-role="form" data-wci-id="trade-stop-price" data-wci-desc="Field for: Stop activation price ($)" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="order-form">
               </div>
               
               <!-- Time in force -->
@@ -1199,10 +1199,10 @@
                 <label>Time In Force</label>
                 <div style="display: flex; gap: 16px; margin-top: 4px;">
                   <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-main); font-weight: normal; text-transform: none;">
-                    <input type="radio" name="tif" value="day" checked=""> Day
+                    <input type="radio" name="tif" value="day" checked="" data-wci-role="form" data-wci-id="tif" data-wci-desc="Field for: Day" data-wci-action="click" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="order-form"> Day
                   </label>
                   <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-main); font-weight: normal; text-transform: none;">
-                    <input type="radio" name="tif" value="gtc"> Good 'til canceled
+                    <input type="radio" name="tif" value="gtc" data-wci-role="form" data-wci-id="tif-2" data-wci-desc="Field for: Good 'til canceled" data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="order-form"> Good 'til canceled
                   </label>
                 </div>
               </div>
@@ -1215,11 +1215,11 @@
                 </div>
                 <div class="tp-summary-row">
                   <span>Est. Value</span>
-                  <strong id="estimated-value">$1,824.40</strong>
+                  <strong id="estimated-value" data-wci-role="display" data-wci-id="estimated-value" data-wci-desc="Display value: $1,824.40" data-wci-state="{&quot;value&quot;:&quot;$1,824.40&quot;}" data-wci-priority="4" data-wci-scope="order-form">$1,824.40</strong>
                 </div>
                 <div class="tp-summary-row">
                   <span>Cash Bal After Order</span>
-                  <span id="buying-power" style="font-family: var(--font-mono);">$23,175.60</span>
+                  <span id="buying-power" style="font-family: var(--font-mono);" data-wci-role="display" data-wci-id="buying-power" data-wci-desc="Display value: $23,175.60" data-wci-state="{&quot;value&quot;:&quot;$23,175.60&quot;}" data-wci-priority="4" data-wci-scope="order-form">$23,175.60</span>
                 </div>
               </div>
               
@@ -1229,9 +1229,9 @@
               
               <!-- Buttons -->
               <div class="tp-action-row">
-                <button type="button" class="tp-btn tp-btn--primary" data-symbol="AAPL" data-order="market" id="buy-aapl-market" data-wci-role="action" data-wci-id="buy-aapl-market" data-wci-desc="Primary action to buy ten shares of AAPL at market order type" data-wci-action="click" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="stock_trade-page" data-wci-priority="1">Submit Order</button>
-                <button type="button" class="tp-btn tp-btn--ghost" id="preview-order">Preview</button>
-                <button type="reset" class="tp-btn tp-btn--ghost" id="reset-form" style="padding: 10px;">↺</button>
+                <button type="button" class="tp-btn tp-btn--primary" data-symbol="AAPL" data-order="market" id="buy-aapl-market" data-wci-role="action" data-wci-id="buy-aapl-market" data-wci-desc="Buy ten shares of AAPL at market order type." data-wci-action="click" data-wci-priority="1" data-wci-scope="order-form" data-wci-primary="true">Submit Order</button>
+                <button type="button" class="tp-btn tp-btn--ghost" id="preview-order" data-wci-role="action" data-wci-id="preview-order" data-wci-desc="Click to: Preview" data-wci-action="click" data-wci-priority="3" data-wci-scope="order-form">Preview</button>
+                <button type="reset" class="tp-btn tp-btn--ghost" id="reset-form" style="padding: 10px;" data-wci-role="action" data-wci-id="reset-form" data-wci-desc="Click to: ↺" data-wci-action="click" data-wci-priority="3" data-wci-scope="order-form">↺</button>
               </div>
               
             </div>
@@ -1257,17 +1257,17 @@
 </div>
 
 <!-- Decoy element (required by benchmark verification trap triggers) -->
-<button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Hidden decoy promo node that should be preserved" data-wci-action="click" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="stock_trade-page" data-wci-priority="1">Hidden promo</button>
+<button type="button" class="tp-btn tp-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5">Hidden promo</button>
 
 <!-- Confirm Order Modal Dialog -->
 <div class="tp-modal-backdrop" id="order-modal-backdrop"></div>
-<div class="tp-modal-box" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" aria-hidden="true">
+<div class="tp-modal-box" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" aria-hidden="true" data-wci-role="landmark" data-wci-id="tp-modal-box" data-wci-desc="Section for: Confirm Ticket Submission" data-wci-priority="3">
   <h3 id="order-modal-title" class="tp-modal-title">Confirm Ticket Submission</h3>
   <p id="modal-summary" class="tp-modal-summary">Buy 10 shares of AAPL at market order.</p>
   <div class="tp-order-summary" style="margin-bottom: 16px;">
     <div class="tp-summary-row">
       <span>Contract Value</span>
-      <strong id="modal-estimated">$1,824.40</strong>
+      <strong id="modal-estimated" data-wci-role="display" data-wci-id="modal-estimated" data-wci-desc="Display value: $1,824.40" data-wci-state="{&quot;value&quot;:&quot;$1,824.40&quot;}" data-wci-priority="4" data-wci-scope="tp-modal-box">$1,824.40</strong>
     </div>
     <div class="tp-summary-row">
       <span>Duration validity</span>
@@ -1275,8 +1275,8 @@
     </div>
   </div>
   <div class="tp-modal-actions">
-    <button type="button" class="tp-btn tp-btn--ghost" id="close-modal">Back</button>
-    <button type="button" class="tp-btn tp-btn--primary" id="modal-confirm">Confirm Order</button>
+    <button type="button" class="tp-btn tp-btn--ghost" id="close-modal" data-wci-role="action" data-wci-id="close-modal" data-wci-desc="Click to: Back" data-wci-action="click" data-wci-priority="3" data-wci-scope="tp-modal-box">Back</button>
+    <button type="button" class="tp-btn tp-btn--primary" id="modal-confirm" data-wci-role="action" data-wci-id="modal-confirm" data-wci-desc="Click to: Confirm Order" data-wci-action="click" data-wci-priority="3" data-wci-scope="tp-modal-box">Confirm Order</button>
   </div>
 </div>
 

@@ -107,53 +107,53 @@ table{border-collapse:collapse}
 .rx-pill{padding:6px 10px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;font-size:12px;color:#334155}
 .rx-sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 </style></head><body>
-<div class="rx-app" data-page="pharmacy-order" id="pharmacy_order-page" data-wci-id="pharmacy_order-page" data-wci-role="landmark" data-wci-desc="RxDirect pharmacy order page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}">
-  <div class="rx-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="rx-app" data-page="pharmacy-order" id="pharmacy_order-page" data-wci-role="landmark" data-wci-id="pharmacy_order-page" data-wci-desc="RxDirect — Prescription table." data-wci-priority="2">
+  <div class="rx-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="rx-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
     <p>We use cookies for analytics, refill reminders, and personalization. Manage preferences or accept to continue.</p>
-    <button type="button" class="rx-btn rx-btn--muted" data-cookie="reject">Reject non-essential</button>
-    <button type="button" class="rx-btn rx-btn--primary" data-cookie="accept">Accept all</button>
-    <button type="button" class="rx-btn rx-btn--ghost" data-cookie="customize">Customize</button>
+    <button type="button" class="rx-btn rx-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-cookie">Reject non-essential</button>
+    <button type="button" class="rx-btn rx-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-cookie">Accept all</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-cookie">Customize</button>
   </div>
 
   <div class="rx-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-    <button type="button" class="rx-btn rx-btn--primary">COMPLETE ORDER NOW</button>
-    <button type="button" class="rx-btn">Continue as guest — express</button>
+    <button type="button" class="rx-btn rx-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">COMPLETE ORDER NOW</button>
+    <button type="button" class="rx-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue as guest — express</button>
   </div>
 
-  <header class="rx-hdr">
-    <nav class="rx-nav" aria-label="Global">
-      <a href="/">Home</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a><a href="/messages">Messages</a>
+  <header class="rx-hdr" data-wci-role="landmark" data-wci-id="rx-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+    <nav class="rx-nav" aria-label="Global" data-wci-role="nav" data-wci-id="rx-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+      <a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-nav">Home</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-nav">Account</a><a href="/messages" data-wci-role="nav" data-wci-id="messages" data-wci-desc="Navigate to: Messages" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-nav">Messages</a>
     </nav>
     <div class="rx-hdr-promo">
-      <span class="rx-badge rx-badge--ok">Auto-refill eligible</span>
-      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-      <button type="button" class="rx-btn rx-btn--ghost" data-decoy="decoy-nav" data-wci-id="decoy-nav" data-wci-role="nav" data-wci-action="click" data-wci-desc="Decoy navigation-style action unrelated to the real refill submission" data-wci-priority="2" data-wci-scope="pharmacy_order-page" data-wci-state="{&quot;ready&quot;:true}">Learn More</button>
+      <span class="rx-badge rx-badge--ok" data-wci-role="display" data-wci-id="rx-badge" data-wci-desc="Display value: Auto-refill eligible" data-wci-state="{&quot;value&quot;:&quot;Auto-refill eligible&quot;}" data-wci-priority="4" data-wci-scope="rx-hdr">Auto-refill eligible</span>
+      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-hdr">Claim Offer</button>
+      <button type="button" class="rx-btn rx-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="decoy-nav" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="rx-hdr">Learn More</button>
     </div>
   </header>
 
-  <nav class="rx-subnav" aria-label="Secondary">
-    <a href="#">Overview</a><a href="#">Orders</a><a href="#">Prescriptions</a><a href="#">Insurance</a><a href="#">Support</a>
-    <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
-    <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
+  <nav class="rx-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="rx-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3">
+    <a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="orders" data-wci-desc="Navigate to: Orders" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-subnav">Orders</a><a href="#" data-wci-role="nav" data-wci-id="prescriptions" data-wci-desc="Navigate to: Prescriptions" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-subnav">Prescriptions</a><a href="#" data-wci-role="nav" data-wci-id="insurance" data-wci-desc="Navigate to: Insurance" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-subnav">Insurance</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-subnav">Support</a>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-subnav">Submit</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-subnav">Continue</button>
   </nav>
 
   <div class="rx-dup-row" aria-label="Quick actions">
-    <button type="button" class="rx-btn rx-btn--ghost">Submit</button>
-    <button type="button" class="rx-btn rx-btn--ghost">Continue</button>
-    <button type="button" class="rx-btn rx-btn--ghost">Save changes</button>
-    <button type="button" class="rx-btn rx-btn--ghost">Confirm</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Save changes</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Confirm</button>
     <span class="rx-note">Tip: only prescriptions with refill status <strong>Ready</strong> can be submitted today.</span>
   </div>
 
   <div class="rx-dup-row">
-    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">Refill Lisinopril</button>
-    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-nav">Refill Lisinopril 10mg</button>
-    <button type="button" class="rx-btn rx-btn--ghost">View reminders</button>
+    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="refill-lisinopril-2" data-wci-desc="Click to: Refill Lisinopril — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="pharmacy_order-page" data-wci-competitor="true">Refill Lisinopril</button>
+    <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="refill-lisinopril-10mg" data-wci-desc="Click to: Refill Lisinopril 10mg" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Refill Lisinopril 10mg</button>
+    <button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="view-reminders" data-wci-desc="Click to: View reminders" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">View reminders</button>
   </div>
 
   <div class="rx-page-wrap">
-    <main class="rx-page-main" role="main">
-      <section class="rx-hero rx-panel">
+    <main class="rx-page-main" role="main" data-wci-role="landmark" data-wci-id="rx-page-main" data-wci-desc="Section for: Prescription refills" data-wci-priority="3">
+      <section class="rx-hero rx-panel" data-wci-role="landmark" data-wci-id="rx-hero" data-wci-desc="Section for: Prescription refills" data-wci-priority="3">
         <div class="rx-toolbar-top">
           <div>
             <h1>Prescription refills</h1>
@@ -161,7 +161,7 @@ table{border-collapse:collapse}
           </div>
           <div class="rx-search">
             <label for="rx-search">Search prescriptions</label>
-            <input id="rx-search" type="text" placeholder="Drug name or Rx #" aria-describedby="rx-search-hint">
+            <input id="rx-search" type="text" placeholder="Drug name or Rx #" aria-describedby="rx-search-hint" data-wci-role="form" data-wci-id="rx-search" data-wci-desc="Field for: Search prescriptions" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="rx-hero">
             <div class="rx-inline-msg" id="rx-search-hint">Filter the table by medicine name.</div>
           </div>
         </div>
@@ -174,43 +174,43 @@ table{border-collapse:collapse}
         </div>
 
         <div class="rx-status-strip">
-          <span class="rx-badge rx-badge--muted" id="selected-pharmacy">Pharmacy: RxDirect Mail</span>
-          <span class="rx-badge rx-badge--muted" id="selected-shipping">Shipping: Standard 3–5 days</span>
-          <span class="rx-badge rx-badge--muted">Insurance on file</span>
+          <span class="rx-badge rx-badge--muted" id="selected-pharmacy" data-wci-role="display" data-wci-id="selected-pharmacy" data-wci-desc="Display value: Pharmacy: RxDirect Mail" data-wci-state="{&quot;value&quot;:&quot;Pharmacy: RxDirect Mail&quot;}" data-wci-priority="4" data-wci-scope="rx-hero">Pharmacy: RxDirect Mail</span>
+          <span class="rx-badge rx-badge--muted" id="selected-shipping" data-wci-role="display" data-wci-id="selected-shipping" data-wci-desc="Display value: Shipping: Standard 3–5 days" data-wci-state="{&quot;value&quot;:&quot;Shipping: Standard 3–5 days&quot;}" data-wci-priority="4" data-wci-scope="rx-hero">Shipping: Standard 3–5 days</span>
+          <span class="rx-badge rx-badge--muted" data-wci-role="display" data-wci-id="rx-badge-2" data-wci-desc="Display value: Insurance on file" data-wci-state="{&quot;value&quot;:&quot;Insurance on file&quot;}" data-wci-priority="4" data-wci-scope="rx-hero">Insurance on file</span>
         </div>
       </section>
 
-      <section class="rx-layout" style="grid-template-columns:minmax(220px,260px) minmax(0,1fr)">
-        <aside class="rx-filters" aria-label="Refill preferences">
+      <section class="rx-layout" style="grid-template-columns:minmax(220px,260px) minmax(0,1fr)" data-wci-role="landmark" data-wci-id="rx-layout" data-wci-desc="Section for: Refill preferences" data-wci-priority="3">
+        <aside class="rx-filters" aria-label="Refill preferences" data-wci-role="landmark" data-wci-id="rx-filters" data-wci-desc="Section for: Refill preferences" data-wci-priority="3">
           <h2>Refill preferences</h2>
           <label for="pharmacy-select">Pickup or delivery</label>
-          <select id="pharmacy-select">
+          <select id="pharmacy-select" data-wci-role="form" data-wci-id="pharmacy-select" data-wci-desc="Dropdown to select: Pickup or delivery" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Mail order - RxDirect Mail&quot;}" data-wci-options="[&quot;Mail order - RxDirect Mail&quot;,&quot;Store pickup - Market St #214&quot;]" data-wci-priority="3" data-wci-scope="rx-filters">
             <option value="mail" selected="">Mail order - RxDirect Mail</option>
             <option value="pickup">Store pickup - Market St #214</option>
           </select>
 
           <label for="shipping-speed">Shipping speed</label>
-          <select id="shipping-speed">
+          <select id="shipping-speed" data-wci-role="form" data-wci-id="shipping-speed" data-wci-desc="Dropdown to select: Shipping speed" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Standard (3–5 days)&quot;}" data-wci-options="[&quot;Standard (3–5 days)&quot;,&quot;Expedited (1–2 days)&quot;]" data-wci-priority="3" data-wci-scope="rx-filters">
             <option value="standard" selected="">Standard (3–5 days)</option>
             <option value="expedited">Expedited (1–2 days)</option>
           </select>
 
           <fieldset>
             <legend>Safety reminders</legend>
-            <label><input type="checkbox" id="agree-interactions"> I have reviewed current medications for interactions.</label>
-            <label><input type="checkbox" id="agree-address"> Shipping address and contact number are current.</label>
+            <label><input type="checkbox" id="agree-interactions" data-wci-role="form" data-wci-id="agree-interactions" data-wci-desc="Field for: I have reviewed current medications for interactions." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rx-filters"> I have reviewed current medications for interactions.</label>
+            <label><input type="checkbox" id="agree-address" data-wci-role="form" data-wci-id="agree-address" data-wci-desc="Field for: Shipping address and contact number are current." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rx-filters"> Shipping address and contact number are current.</label>
             <div class="rx-inline-msg" id="pref-msg">Complete reminders during confirmation for eligible refills.</div>
           </fieldset>
 
           <div class="rx-card__actions">
-            <button type="button" class="rx-btn rx-btn--ghost" id="preview-settings">Preview summary</button>
+            <button type="button" class="rx-btn rx-btn--ghost" id="preview-settings" data-wci-role="action" data-wci-id="preview-settings" data-wci-desc="Click to: Preview summary" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-filters">Preview summary</button>
           </div>
         </aside>
 
-        <section>
+        <section data-wci-role="landmark" data-wci-id="section" data-wci-desc="Section for: Your prescriptions" data-wci-priority="3">
           <div class="rx-panel">
             <h2>Your prescriptions</h2>
-            <p>Rows marked <span class="rx-badge rx-badge--ok">Ready</span> can be refilled. Rows marked <span class="rx-badge rx-badge--warn">View only</span> cannot be submitted today.</p>
+            <p>Rows marked <span class="rx-badge rx-badge--ok" data-wci-role="display" data-wci-id="rx-badge-3" data-wci-desc="Display value: Ready" data-wci-state="{&quot;value&quot;:&quot;Ready&quot;}" data-wci-priority="4" data-wci-scope="section">Ready</span> can be refilled. Rows marked <span class="rx-badge rx-badge--warn" data-wci-role="display" data-wci-id="rx-badge-4" data-wci-desc="Display value: View only" data-wci-state="{&quot;value&quot;:&quot;View only&quot;}" data-wci-priority="4" data-wci-scope="section">View only</span> cannot be submitted today.</p>
             <div class="rx-table-wrap">
               <table aria-label="Prescription table" id="rx-table">
                 <thead>
@@ -222,40 +222,40 @@ table{border-collapse:collapse}
                     <td>500mg tablet</td>
                     <td>#8831042</td>
                     <td>Dr. K. Shah</td>
-                    <td><span class="rx-badge rx-badge--warn">View only</span></td>
+                    <td><span class="rx-badge rx-badge--warn" data-wci-role="display" data-wci-id="rx-badge-5" data-wci-desc="Display value: View only" data-wci-state="{&quot;value&quot;:&quot;View only&quot;}" data-wci-priority="4" data-wci-scope="section">View only</span></td>
                     <td>0 refills</td>
                     <td>Apr 02, 2026</td>
-                    <td><button type="button" class="rx-btn rx-btn--ghost" data-view-row="metformin">View</button></td>
+                    <td><button type="button" class="rx-btn rx-btn--ghost" data-view-row="metformin" data-wci-role="action" data-wci-id="view" data-wci-desc="Click to: View" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">View</button></td>
                   </tr>
-                  <tr data-rx="lisinopril-10">
+                  <tr data-rx="lisinopril-10" data-wci-role="landmark" data-wci-id="refill-lisinopril-scope" data-wci-desc="Target scope for refill-lisinopril" data-wci-state="{&quot;rx&quot;:&quot;lisinopril-10&quot;}" data-wci-priority="2">
                     <td><strong>Lisinopril</strong><div class="rx-note">ACE inhibitor • 30 tablets</div></td>
                     <td>10mg</td>
                     <td>#4412098</td>
                     <td>Dr. R. Patel</td>
-                    <td><span class="rx-badge rx-badge--ok" id="lisinopril-status">Ready</span></td>
+                    <td><span class="rx-badge rx-badge--ok" id="lisinopril-status" data-wci-role="display" data-wci-id="lisinopril-status" data-wci-desc="Display value: Ready" data-wci-state="{&quot;value&quot;:&quot;Ready&quot;}" data-wci-priority="4" data-wci-scope="refill-lisinopril-scope">Ready</span></td>
                     <td id="lisinopril-remaining">2 refills</td>
                     <td>May 12, 2026</td>
-                    <td><button type="button" class="rx-btn rx-btn--primary" id="refill-lisinopril" data-wci-id="refill-lisinopril" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to refill the 10mg Lisinopril prescription row" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="pharmacy_order-page">Confirm</button></td>
+                    <td><button type="button" class="rx-btn rx-btn--primary" id="refill-lisinopril" data-wci-role="action" data-wci-id="refill-lisinopril" data-wci-desc="Refill the ten milligram Lisinopril prescription row (not Metformin view-only)." data-wci-action="click" data-wci-priority="1" data-wci-scope="refill-lisinopril-scope" data-wci-primary="true">Confirm</button></td>
                   </tr>
                   <tr data-rx="atorvastatin-20">
                     <td><strong>Atorvastatin</strong><div class="rx-note">Generic for Lipitor</div></td>
                     <td>20mg</td>
                     <td>#1129045</td>
                     <td>Dr. L. Owens</td>
-                    <td><span class="rx-badge rx-badge--ok">Ready</span></td>
+                    <td><span class="rx-badge rx-badge--ok" data-wci-role="display" data-wci-id="rx-badge-6" data-wci-desc="Display value: Ready" data-wci-state="{&quot;value&quot;:&quot;Ready&quot;}" data-wci-priority="4" data-wci-scope="section">Ready</span></td>
                     <td>1 refill</td>
                     <td>May 01, 2026</td>
-                    <td><button type="button" class="rx-btn rx-btn--muted" disabled="">Add later</button></td>
+                    <td><button type="button" class="rx-btn rx-btn--muted" disabled="" data-wci-role="action" data-wci-id="add-later" data-wci-desc="Click to: Add later" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">Add later</button></td>
                   </tr>
                   <tr data-rx="sertraline-50">
                     <td><strong>Sertraline</strong><div class="rx-note">Maintenance therapy</div></td>
                     <td>50mg</td>
                     <td>#9920084</td>
                     <td>Dr. J. Romero</td>
-                    <td><span class="rx-badge rx-badge--muted">Too soon</span></td>
+                    <td><span class="rx-badge rx-badge--muted" data-wci-role="display" data-wci-id="rx-badge-7" data-wci-desc="Display value: Too soon" data-wci-state="{&quot;value&quot;:&quot;Too soon&quot;}" data-wci-priority="4" data-wci-scope="section">Too soon</span></td>
                     <td>3 refills</td>
                     <td>May 27, 2026</td>
-                    <td><button type="button" class="rx-btn rx-btn--ghost" disabled="">Available Jun 18</button></td>
+                    <td><button type="button" class="rx-btn rx-btn--ghost" disabled="" data-wci-role="action" data-wci-id="available-jun-18" data-wci-desc="Click to: Available Jun 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">Available Jun 18</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -263,7 +263,7 @@ table{border-collapse:collapse}
             <div class="rx-inline-msg" id="table-feedback">Select <strong>Confirm</strong> on an eligible row to review refill details before submitting.</div>
           </div>
 
-          <article class="rx-card">
+          <article class="rx-card" data-wci-role="landmark" data-wci-id="rx-card" data-wci-desc="Section for: Patient &amp; delivery summary" data-wci-priority="3">
             <h3>Patient &amp; delivery summary</h3>
             <div class="rx-confirm-grid">
               <div>
@@ -284,7 +284,7 @@ table{border-collapse:collapse}
             </div>
           </article>
 
-          <article class="rx-card rx-cart">
+          <article class="rx-card rx-cart" data-wci-role="landmark" data-wci-id="rx-card-2" data-wci-desc="Section for: Submission status" data-wci-priority="3">
             <h3>Submission status</h3>
             <p id="pharmacy-order-smoke-status" data-smoke-status="">Idle — no refill action taken yet.</p>
             <div class="rx-inline-msg" id="submission-preview">Preview: no refill request prepared.</div>
@@ -293,70 +293,70 @@ table{border-collapse:collapse}
       </section>
     </main>
 
-    <aside class="rx-rail rx-rail--ads" aria-label="Sponsored">
+    <aside class="rx-rail rx-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="rx-rail" data-wci-desc="Section for: Need help?" data-wci-priority="3">
       <div><strong>Sponsored</strong></div>
       <p>Compare home blood pressure cuffs and organize medication reminders with partner tools.</p>
-      <a href="/ads/1">Partner offer — limited time</a><br>
-      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo">View deal</button>
+      <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-rail">Partner offer — limited time</a><br>
+      <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-rail">View deal</button>
       <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0">
       <h2 style="font-size:14px">Need help?</h2>
       <p class="rx-note">A pharmacist can review side effects, interactions, and missed dose guidance before you submit.</p>
-      <button type="button" class="rx-btn rx-btn--ghost" id="open-help">Contact pharmacist</button>
+      <button type="button" class="rx-btn rx-btn--ghost" id="open-help" data-wci-role="action" data-wci-id="open-help" data-wci-desc="Click to: Contact pharmacist" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-rail">Contact pharmacist</button>
     </aside>
   </div>
 
-  <div class="rx-filler" aria-hidden="true"><div class="rx-filler-inner"><a href="/misc/0" class="rx-btn rx-btn--ghost">Link 1</a><button type="button" class="rx-btn rx-btn--ghost">Action 2</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/4" class="rx-btn rx-btn--ghost">Link 5</a><button type="button" class="rx-btn rx-btn--ghost">Action 6</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/8" class="rx-btn rx-btn--ghost">Link 9</a><button type="button" class="rx-btn rx-btn--ghost">Action 10</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/12" class="rx-btn rx-btn--ghost">Link 13</a><button type="button" class="rx-btn rx-btn--ghost">Action 14</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/16" class="rx-btn rx-btn--ghost">Link 17</a><button type="button" class="rx-btn rx-btn--ghost">Action 18</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/20" class="rx-btn rx-btn--ghost">Link 21</a><button type="button" class="rx-btn rx-btn--ghost">Action 22</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/24" class="rx-btn rx-btn--ghost">Link 25</a><button type="button" class="rx-btn rx-btn--ghost">Action 26</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/28" class="rx-btn rx-btn--ghost">Link 29</a><button type="button" class="rx-btn rx-btn--ghost">Action 30</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/32" class="rx-btn rx-btn--ghost">Link 33</a><button type="button" class="rx-btn rx-btn--ghost">Action 34</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/36" class="rx-btn rx-btn--ghost">Link 37</a><button type="button" class="rx-btn rx-btn--ghost">Action 38</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button><a href="/misc/40" class="rx-btn rx-btn--ghost">Link 41</a><button type="button" class="rx-btn rx-btn--ghost">Action 42</button><button type="button" class="rx-btn rx-btn--ghost">Submit</button><button type="button" class="rx-btn rx-btn--ghost">Continue</button></div></div>
+  <div class="rx-filler" aria-hidden="true"><div class="rx-filler-inner"><a href="/misc/0" class="rx-btn rx-btn--ghost">Link 1</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 2</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/4" class="rx-btn rx-btn--ghost">Link 5</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 6</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/8" class="rx-btn rx-btn--ghost">Link 9</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 10</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/12" class="rx-btn rx-btn--ghost">Link 13</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 14</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/16" class="rx-btn rx-btn--ghost">Link 17</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 18</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/20" class="rx-btn rx-btn--ghost">Link 21</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 22</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/24" class="rx-btn rx-btn--ghost">Link 25</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 26</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/28" class="rx-btn rx-btn--ghost">Link 29</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 30</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/32" class="rx-btn rx-btn--ghost">Link 33</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 34</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/36" class="rx-btn rx-btn--ghost">Link 37</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 38</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button><a href="/misc/40" class="rx-btn rx-btn--ghost">Link 41</a><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Action 42</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Submit</button><button type="button" class="rx-btn rx-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pharmacy_order-page">Continue</button></div></div>
 
-  <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="display" data-wci-action="click" data-wci-desc="Hidden decoy extra node preserved for evaluation" data-wci-priority="3" data-wci-scope="pharmacy_order-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button>
+  <button type="button" class="rx-btn rx-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="pharmacy_order-page">Hidden promo</button>
 
-  <footer class="rx-ftr"><small>© Demo RxDirect</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
+  <footer class="rx-ftr" data-wci-role="landmark" data-wci-id="rx-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo RxDirect</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="rx-ftr">Terms</a><span> · Sponsored content may appear in feeds.</span></footer>
   <div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
   <div class="rx-overlay" id="modal-overlay" hidden=""></div>
-  <div class="rx-modal" id="refill-modal" role="dialog" aria-modal="true" aria-labelledby="refill-modal-title" hidden="">
+  <div class="rx-modal" id="refill-modal" role="dialog" aria-modal="true" aria-labelledby="refill-modal-title" hidden="" data-wci-role="landmark" data-wci-id="rx-modal" data-wci-desc="Section for: Confirm refill request" data-wci-priority="3">
     <h2 id="refill-modal-title">Confirm refill request</h2>
     <p>You are reviewing the eligible refill for <strong>Lisinopril 10mg</strong>. This medication is refillable today. Metformin remains view-only and cannot be submitted from this screen.</p>
 
     <div class="rx-confirm-grid">
-      <section>
+      <section data-wci-role="landmark" data-wci-id="section-2" data-wci-desc="Section for: Prescription details" data-wci-priority="3">
         <h3>Prescription details</h3>
         <p><strong>Medication:</strong> Lisinopril 10mg</p>
         <p><strong>Quantity:</strong> 30 tablets</p>
         <p><strong>Supply:</strong> 30 days</p>
         <p><strong>Prescriber:</strong> Dr. R. Patel</p>
       </section>
-      <section>
+      <section data-wci-role="landmark" data-wci-id="section-3" data-wci-desc="Section for: Delivery confirmation" data-wci-priority="3">
         <h3>Delivery confirmation</h3>
         <label for="confirm-shipping">Shipping speed</label>
-        <select id="confirm-shipping">
+        <select id="confirm-shipping" data-wci-role="form" data-wci-id="confirm-shipping" data-wci-desc="Dropdown to select: Shipping speed" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Standard (3–5 days)&quot;}" data-wci-options="[&quot;Standard (3–5 days)&quot;,&quot;Expedited (1–2 days)&quot;]" data-wci-priority="3" data-wci-scope="section-3">
           <option value="standard" selected="">Standard (3–5 days)</option>
           <option value="expedited">Expedited (1–2 days)</option>
         </select>
         <label for="confirm-notes">Notes for pharmacy</label>
-        <textarea id="confirm-notes" maxlength="180" placeholder="Optional: gate code, delivery timing, counseling request"></textarea>
+        <textarea id="confirm-notes" maxlength="180" placeholder="Optional: gate code, delivery timing, counseling request" data-wci-role="form" data-wci-id="confirm-notes" data-wci-desc="Text area for: Notes for pharmacy" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="section-3"></textarea>
         <div class="rx-inline-msg" id="notes-count">0 / 180 characters</div>
       </section>
     </div>
 
     <fieldset>
       <legend>Required acknowledgements</legend>
-      <label><input type="checkbox" id="ack-dose"> I confirm I am refilling the 10mg Lisinopril prescription shown in this dialog.</label>
-      <label><input type="checkbox" id="ack-address-modal"> I confirm the shipping address is correct.</label>
-      <label><input type="checkbox" id="ack-sideeffects"> I do not need a pharmacist call before submission.</label>
-      <div class="rx-inline-msg is-error" id="modal-validation">Select all required acknowledgements to submit this refill.</div>
+      <label><input type="checkbox" id="ack-dose" data-wci-role="form" data-wci-id="ack-dose" data-wci-desc="Field for: I confirm I am refilling the 10mg Lisinopril prescription shown in this dialog. — plausible alternative (not " data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="1" data-wci-scope="rx-modal" data-wci-competitor="true"> I confirm I am refilling the 10mg Lisinopril prescription shown in this dialog.</label>
+      <label><input type="checkbox" id="ack-address-modal" data-wci-role="form" data-wci-id="ack-address-modal" data-wci-desc="Field for: I confirm the shipping address is correct." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rx-modal"> I confirm the shipping address is correct.</label>
+      <label><input type="checkbox" id="ack-sideeffects" data-wci-role="form" data-wci-id="ack-sideeffects" data-wci-desc="Field for: I do not need a pharmacist call before submission." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="rx-modal"> I do not need a pharmacist call before submission.</label>
+      <div class="rx-inline-msg is-error" id="modal-validation" data-wci-role="display" data-wci-id="modal-validation" data-wci-desc="Display value: Select all required acknowledgements to submit this refill." data-wci-state="{&quot;value&quot;:&quot;Select all required acknowledgements to submit this refill.&quot;}" data-wci-priority="4" data-wci-scope="rx-modal">Select all required acknowledgements to submit this refill.</div>
     </fieldset>
 
     <div class="rx-card__actions">
-      <button type="button" class="rx-btn rx-btn--ghost" id="cancel-modal">Cancel</button>
-      <button type="button" class="rx-btn rx-btn--primary" id="submit-refill" disabled="">Submit refill</button>
+      <button type="button" class="rx-btn rx-btn--ghost" id="cancel-modal" data-wci-role="action" data-wci-id="cancel-modal" data-wci-desc="Click to: Cancel" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-modal">Cancel</button>
+      <button type="button" class="rx-btn rx-btn--primary" id="submit-refill" disabled="" data-wci-role="action" data-wci-id="submit-refill" data-wci-desc="Click to: Submit refill" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-modal">Submit refill</button>
     </div>
   </div>
 
-  <div class="rx-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden="">
+  <div class="rx-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden="" data-wci-role="landmark" data-wci-id="rx-modal-2" data-wci-desc="Section for: Contact pharmacist" data-wci-priority="3">
     <h2 id="help-title">Contact pharmacist</h2>
     <p>A licensed pharmacist is available 24/7. For urgent symptoms, call your care team or 911.</p>
     <div class="rx-card__actions">
-      <button type="button" class="rx-btn rx-btn--primary" id="close-help">Close</button>
+      <button type="button" class="rx-btn rx-btn--primary" id="close-help" data-wci-role="action" data-wci-id="close-help" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="rx-modal-2">Close</button>
     </div>
   </div>
 </div>

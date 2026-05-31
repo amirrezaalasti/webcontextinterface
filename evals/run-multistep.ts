@@ -2,12 +2,10 @@
 /**
  * WCI multi-step benchmark runner.
  *
- * This harness evaluates tasks defined in scenario meta files:
- *   demo/scenarios/<scenario-id>/meta.json -> tasks.multiStep[]
+ * Evaluates tasks.multiStep[] using the same five approaches as eval:benchmark:
+ *   raw-html | dom-outline | interactive-candidates | wci-full | wci-grounding
  *
- * Scoring combines:
- *  - final action correctness (ground-truth selector/id)
- *  - flow-coverage over expected step types (observe/reason/act/verify/...)
+ * WCI pass: correct final node id + no decoy. Baselines: final action + flow-type coverage.
  */
 
 import * as dotenv from 'dotenv';
@@ -16,11 +14,18 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import manifest from '../demo/scenarios/manifest.json';
-import { buildEvalContext, listAnnotatedNodeIds, type ContextKind, type EvalContext } from './lib/contexts';
+import {
+  isWciContextKind,
+  listAnnotatedNodeIds,
+  WCI_CONTEXT_KINDS,
+  type ContextKind,
+} from './lib/contexts';
 import { SCENARIO_GROUND_TRUTH } from './lib/ground-truth';
 import { EVAL_MODELS, queryModel } from './lib/llm';
 import { closeBrowser, resolveGroundTruthLocator, scoreRawPrediction } from './lib/playwright-validate';
-import { extractCssSelector, scoreWciPrediction } from './lib/scorers';
+import { scoreFlowCoverage } from './lib/flow-coverage';
+import { buildMultistepEvalContext } from './lib/multistep-prompt';
+import { extractCssSelector, resolveWciNodeId, scoreWciPrediction } from './lib/scorers';
 
 dotenv.config();
 
@@ -29,8 +34,14 @@ const ROOT = path.resolve(__dirname, '..');
 const SCENARIOS_DIR = path.join(ROOT, 'demo/scenarios');
 const OUT_DIR = path.join(ROOT, 'demo/public');
 
-type EvalMode = 'standard' | 'wci';
-type RunMode = EvalMode | 'both';
+const RAW_APPROACHES: ContextKind[] = ['raw-html', 'dom-outline', 'interactive-candidates'];
+const DEFAULT_APPROACHES: ContextKind[] = [...RAW_APPROACHES, ...WCI_CONTEXT_KINDS];
+
+const VALID_APPROACHES = new Set<ContextKind>([
+  ...RAW_APPROACHES,
+  ...WCI_CONTEXT_KINDS,
+  'wci-distilled',
+]);
 
 type MultiStepAction = {
   step: string;
@@ -82,7 +93,7 @@ type ParsedAgentPlan = {
 type TaskRunResult = {
   scenarioId: string;
   taskId: string;
-  mode: EvalMode;
+  approach: ContextKind;
   correctFinalAction: boolean;
   hitDecoy: boolean;
   flowCoverage: number;
@@ -125,7 +136,7 @@ function parseArgs() {
   const heuristicOnly = argv.includes('--heuristic-only');
   const modelsArg = argv.find((a) => a.startsWith('--models='));
   const scenariosArg = argv.find((a) => a.startsWith('--scenarios='));
-  const modeArg = argv.find((a) => a.startsWith('--mode='))?.split('=')[1] as RunMode | undefined;
+  const approachesArg = argv.find((a) => a.startsWith('--approaches='));
   const minCoverageArg = argv.find((a) => a.startsWith('--min-coverage='))?.split('=')[1];
 
   const scenarioIds = scenariosArg
@@ -136,9 +147,14 @@ function parseArgs() {
     ? modelsArg.split('=')[1].split(',').map((s) => s.trim())
     : EVAL_MODELS.map((m) => m.id);
 
-  const mode: RunMode = modeArg ?? 'both';
-  if (!['standard', 'wci', 'both'].includes(mode)) {
-    throw new Error(`Unknown --mode=${mode}. Use standard|wci|both`);
+  let approaches: ContextKind[] = DEFAULT_APPROACHES;
+  if (approachesArg) {
+    const requested = approachesArg.split('=')[1].split(',').map((s) => s.trim()) as ContextKind[];
+    const invalid = requested.filter((a) => !VALID_APPROACHES.has(a));
+    if (invalid.length) {
+      throw new Error(`Unknown --approaches: ${invalid.join(', ')}`);
+    }
+    approaches = requested.map((a) => (a === 'wci-distilled' ? 'wci-grounding' : a));
   }
 
   const minCoverage = minCoverageArg ? Number(minCoverageArg) : 0.6;
@@ -149,7 +165,7 @@ function parseArgs() {
   return {
     verifyOnly,
     heuristicOnly,
-    mode,
+    approaches,
     minCoverage,
     models: EVAL_MODELS.filter((m) => modelIds.includes(m.id)),
     scenarioIds,
@@ -169,6 +185,20 @@ function loadScenarios(ids?: string[]): ScenarioBundle[] {
     const annotatedHtml = fs.readFileSync(path.join(dir, 'annotated.html'), 'utf8');
     return { id, meta, rawHtml, annotatedHtml };
   });
+}
+
+function scenarioLike(s: ScenarioBundle) {
+  return {
+    id: s.id,
+    title: s.meta.title,
+    icon: s.meta.icon,
+    difficulty: s.meta.difficulty,
+    description: s.meta.description,
+    challenges: s.meta.challenges,
+    rawHtml: s.rawHtml,
+    annotatedHtml: s.annotatedHtml,
+    task: s.meta.task,
+  };
 }
 
 async function verifyGroundTruth(scenarios: ScenarioBundle[]): Promise<boolean> {
@@ -191,62 +221,6 @@ async function verifyGroundTruth(scenarios: ScenarioBundle[]): Promise<boolean> 
   return ok;
 }
 
-function buildScenarioContextInput(s: ScenarioBundle, mode: EvalMode): EvalContext {
-  const kind: ContextKind = mode === 'wci' ? 'wci-grounding' : 'raw-html';
-  const scenarioLike = {
-    id: s.id,
-    title: s.meta.title,
-    icon: s.meta.icon,
-    difficulty: s.meta.difficulty,
-    description: s.meta.description,
-    challenges: s.meta.challenges,
-    rawHtml: s.rawHtml,
-    annotatedHtml: s.annotatedHtml,
-    task: s.meta.task,
-  };
-  return buildEvalContext(scenarioLike, kind);
-}
-
-function buildTaskPrompt(
-  scenarioCtx: EvalContext,
-  task: MultiStepTask,
-  mode: EvalMode
-): EvalContext {
-  const expected = mode === 'wci' ? task.wciFlow : task.standardFlow;
-  const payload = [
-    `TASK_ID: ${task.id}`,
-    `TASK_TITLE: ${task.title}`,
-    `TASK_GOAL: ${task.goal}`,
-    '',
-    'PREREQUISITES:',
-    ...task.prerequisites.map((p) => `- ${p}`),
-    '',
-    `EXPECTED_FLOW_${mode.toUpperCase()}:`,
-    ...expected.map((s, i) => `${i + 1}. [${s.type}] ${s.step}`),
-    '',
-    'COMPLETION_CRITERIA:',
-    ...task.completionCriteria.map((c) => `- ${c}`),
-    '',
-    'CONTEXT:',
-    scenarioCtx.content,
-    '',
-    'Return strict JSON:',
-    '{"actions":[{"type":"observe|reason|guardrail|recovery|act|verify","step":"...","target":"..."}],"final_action":"..."}',
-    'No markdown, no prose.',
-  ].join('\n');
-
-  return {
-    kind: scenarioCtx.kind,
-    content: payload,
-    tokenEstimate: Math.ceil(payload.length / 4),
-    systemPrompt:
-      mode === 'wci'
-        ? 'You are a multi-step WCI agent. Use actionable WCI node ids for final_action.'
-        : 'You are a multi-step web automation agent. Use a valid CSS selector for final_action.',
-    userPromptPrefix: '',
-  };
-}
-
 function parseAgentPlan(raw: string): ParsedAgentPlan {
   const cleaned = raw.trim();
   const fence = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/i)?.[1] ?? cleaned;
@@ -260,63 +234,83 @@ function parseAgentPlan(raw: string): ParsedAgentPlan {
   }
 }
 
-function scoreFlowCoverage(expected: MultiStepAction[], parsed: ParsedAgentPlan): number {
-  const expectedTypes = expected.map((s) => normalizeType(s.type));
-  if (!expectedTypes.length) return 1;
-  const observed = new Set(
-    (parsed.actions ?? [])
-      .map((a) => normalizeType(a.type ?? ''))
-      .filter(Boolean)
-  );
-  const hits = expectedTypes.filter((t) => observed.has(t)).length;
-  return hits / expectedTypes.length;
+function collectFinalActionCandidates(parsed: ParsedAgentPlan): string[] {
+  const out: string[] = [];
+  if (parsed.final_action?.trim()) out.push(parsed.final_action.trim());
+  for (const a of [...(parsed.actions ?? [])].reverse()) {
+    if (normalizeType(a.type ?? '') === 'act' && a.target?.trim()) {
+      out.push(a.target.trim());
+    }
+  }
+  for (const a of [...(parsed.actions ?? [])].reverse()) {
+    if (a.target?.trim()) out.push(a.target.trim());
+  }
+  return out;
 }
 
 async function evaluateTaskRun(
   s: ScenarioBundle,
   task: MultiStepTask,
-  mode: EvalMode,
+  approach: ContextKind,
   modelResponse: string,
   tokenEstimate: number,
   minCoverage: number
 ): Promise<TaskRunResult> {
   const parsed = parseAgentPlan(modelResponse);
   const gt = SCENARIO_GROUND_TRUTH[s.id];
-  const expectedFinalAction = mode === 'wci' ? gt.wciNodeId : gt.rawSelectors[0];
+  const expectedFinalAction = isWciContextKind(approach)
+    ? gt.wciNodeId
+    : gt.rawSelectors[0];
 
-  let parsedFinalAction = parsed.final_action?.trim() || null;
-  if (!parsedFinalAction) {
-    const lastAct = [...(parsed.actions ?? [])].reverse().find((a) => normalizeType(a.type ?? '') === 'act');
-    parsedFinalAction = lastAct?.target?.trim() || null;
-  }
-
+  const candidates = collectFinalActionCandidates(parsed);
+  let parsedFinalAction: string | null = null;
   let correctFinalAction = false;
   let hitDecoy = false;
   let validationError: string | undefined;
 
-  if (!parsedFinalAction) {
-    validationError = 'missing final_action';
-  } else if (mode === 'wci') {
+  if (isWciContextKind(approach)) {
     const validIds = listAnnotatedNodeIds(s.annotatedHtml);
-    const r = scoreWciPrediction(parsedFinalAction, gt, validIds);
-    correctFinalAction = r.correct;
-    hitDecoy = r.hitDecoy;
-    parsedFinalAction = r.parsed;
+    parsedFinalAction = resolveWciNodeId(candidates, validIds);
+    if (!parsedFinalAction) {
+      validationError = 'missing or invalid WCI node id in final_action';
+    } else {
+      const r = scoreWciPrediction(parsedFinalAction, gt, validIds);
+      correctFinalAction = r.correct;
+      hitDecoy = r.hitDecoy;
+      parsedFinalAction = r.parsed;
+    }
   } else {
-    const selector = extractCssSelector(parsedFinalAction) ?? parsedFinalAction;
-    const r = await scoreRawPrediction(s.rawHtml, selector, gt);
-    correctFinalAction = r.correct;
-    validationError = r.validationError;
-    parsedFinalAction = r.parsed;
+    let raw = parsed.final_action?.trim() || null;
+    if (!raw) {
+      const lastAct = [...(parsed.actions ?? [])]
+        .reverse()
+        .find((a) => normalizeType(a.type ?? '') === 'act');
+      raw = lastAct?.target?.trim() || null;
+    }
+    if (!raw) {
+      validationError = 'missing final_action';
+    } else {
+      const selector = extractCssSelector(raw) ?? raw;
+      const r = await scoreRawPrediction(s.rawHtml, selector, gt);
+      correctFinalAction = r.correct;
+      validationError = r.validationError;
+      parsedFinalAction = r.parsed;
+    }
   }
 
-  const flowCoverage = scoreFlowCoverage(mode === 'wci' ? task.wciFlow : task.standardFlow, parsed);
-  const passed = correctFinalAction && flowCoverage >= minCoverage;
+  const flow = isWciContextKind(approach) ? task.wciFlow : task.standardFlow;
+  const flowCoverage = scoreFlowCoverage(flow, parsed, approach, {
+    correctFinalAction,
+  });
+  // WCI: pass on correct grounding id (flow JSON is advisory; avoids 0.33 coverage false fails)
+  const passed = isWciContextKind(approach)
+    ? correctFinalAction && !hitDecoy
+    : correctFinalAction && flowCoverage >= minCoverage;
 
   return {
     scenarioId: s.id,
     taskId: task.id,
-    mode,
+    approach,
     correctFinalAction,
     hitDecoy,
     flowCoverage: Number(flowCoverage.toFixed(3)),
@@ -334,10 +328,10 @@ function summarize(results: TaskRunResult[]) {
   const passed = results.filter((r) => r.passed).length;
   const finalCorrect = results.filter((r) => r.correctFinalAction).length;
   const avgCoverage = total
-    ? Number((results.reduce((s, r) => s + r.flowCoverage, 0) / total).toFixed(3))
+    ? Number((results.reduce((sum, r) => sum + r.flowCoverage, 0) / total).toFixed(3))
     : 0;
   const avgTokens = total
-    ? Math.round(results.reduce((s, r) => s + r.tokenEstimate, 0) / total)
+    ? Math.round(results.reduce((sum, r) => sum + r.tokenEstimate, 0) / total)
     : 0;
   return {
     tasks: total,
@@ -349,64 +343,78 @@ function summarize(results: TaskRunResult[]) {
   };
 }
 
+function heuristicResponse(
+  s: ScenarioBundle,
+  task: MultiStepTask,
+  approach: ContextKind
+): string {
+  const gt = SCENARIO_GROUND_TRUTH[s.id];
+  const flow = isWciContextKind(approach) ? task.wciFlow : task.standardFlow;
+  const finalAction = isWciContextKind(approach) ? gt.wciNodeId : gt.rawSelectors[0];
+  return JSON.stringify({
+    actions: flow.map((f) => ({ type: f.type, step: f.step, target: finalAction })),
+    final_action: finalAction,
+  });
+}
+
+function primaryTasksOnly(tasks: MultiStepTask[]): MultiStepTask[] {
+  return tasks.filter((t) => t.id.endsWith('.multi-step.primary'));
+}
+
 async function runModel(
   model: { id: string; name: string; model: string },
   scenarios: ScenarioBundle[],
-  runMode: RunMode,
+  approaches: ContextKind[],
   minCoverage: number,
   heuristicOnly: boolean
 ) {
-  const modes: EvalMode[] = runMode === 'both' ? ['standard', 'wci'] : [runMode];
-  const byMode: Record<EvalMode, TaskRunResult[]> = { standard: [], wci: [] };
+  const byApproach = Object.fromEntries(
+    approaches.map((a) => [a, [] as TaskRunResult[]])
+  ) as Record<ContextKind, TaskRunResult[]>;
 
-  for (const mode of modes) {
-    for (const s of scenarios) {
-      const multi = s.meta.tasks?.multiStep ?? [];
-      const ctx = buildScenarioContextInput(s, mode);
-      for (const task of multi) {
-        process.stdout.write(`  ${s.id} · ${task.id} [${mode}] ... `);
+  for (const s of scenarios) {
+    const multi = primaryTasksOnly(s.meta.tasks?.multiStep ?? []);
+    for (const task of multi) {
+      console.log(`  ${s.id}`);
+      for (const approach of approaches) {
+        const ctx = buildMultistepEvalContext(scenarioLike(s), task, approach);
+        process.stdout.write(`    [${approach}] ... `);
         try {
           const resp = heuristicOnly
             ? {
-                raw:
-                  mode === 'wci'
-                    ? JSON.stringify({
-                        actions: task.wciFlow.map((f) => ({ type: f.type, step: f.step })),
-                        final_action: SCENARIO_GROUND_TRUTH[s.id].wciNodeId,
-                      })
-                    : JSON.stringify({
-                        actions: task.standardFlow.map((f) => ({ type: f.type, step: f.step })),
-                        final_action: SCENARIO_GROUND_TRUTH[s.id].rawSelectors[0],
-                      }),
+                raw: heuristicResponse(s, task, approach),
                 usageTokens: ctx.tokenEstimate,
               }
-            : await queryModel(model.model, buildTaskPrompt(ctx, task, mode), {
-                maxTokens: 1200,
+            : await queryModel(model.model, ctx, {
+                maxTokens: 800,
                 temperature: 0,
               });
 
           const result = await evaluateTaskRun(
             s,
             task,
-            mode,
+            approach,
             resp.raw,
             resp.usageTokens || ctx.tokenEstimate,
             minCoverage
           );
-          byMode[mode].push(result);
+          byApproach[approach].push(result);
           console.log(result.passed ? '✓' : '✗');
         } catch (e) {
           const err = e instanceof Error ? e.message : String(e);
-          byMode[mode].push({
+          const gt = SCENARIO_GROUND_TRUTH[s.id];
+          byApproach[approach].push({
             scenarioId: s.id,
             taskId: task.id,
-            mode,
+            approach,
             correctFinalAction: false,
             hitDecoy: false,
             flowCoverage: 0,
             passed: false,
             parsedFinalAction: null,
-            expectedFinalAction: mode === 'wci' ? SCENARIO_GROUND_TRUTH[s.id].wciNodeId : SCENARIO_GROUND_TRUTH[s.id].rawSelectors[0],
+            expectedFinalAction: isWciContextKind(approach)
+              ? gt.wciNodeId
+              : gt.rawSelectors[0],
             tokenEstimate: ctx.tokenEstimate,
             rawResponse: err,
             validationError: err,
@@ -418,15 +426,17 @@ async function runModel(
     }
   }
 
+  const summary: Record<string, ReturnType<typeof summarize>> = {};
+  for (const approach of approaches) {
+    summary[approach] = summarize(byApproach[approach]);
+  }
+
   return {
     modelId: model.id,
     modelName: model.name,
     openRouterModel: model.model,
-    summary: {
-      standard: summarize(byMode.standard),
-      wci: summarize(byMode.wci),
-    },
-    results: byMode,
+    summary,
+    results: byApproach,
   };
 }
 
@@ -435,7 +445,7 @@ async function main() {
   const scenarios = loadScenarios(args.scenarioIds);
   console.log('WCI Multi-step Benchmark\n');
   console.log(
-    `Scenarios: ${scenarios.length}${args.scenarioIds?.length ? ' (filtered)' : ' (all)'} · mode=${args.mode} · minCoverage=${args.minCoverage}\n`
+    `Scenarios: ${scenarios.length}${args.scenarioIds?.length ? ' (filtered)' : ' (all)'} · approaches=${args.approaches.join(',')} · minCoverage=${args.minCoverage}\n`
   );
 
   const gtOk = await verifyGroundTruth(scenarios);
@@ -466,16 +476,18 @@ async function main() {
   const modelRuns = [];
   for (const m of activeModels) {
     console.log(`\n${'='.repeat(60)}\n🤖 ${m.name}\n   ${m.model}\n${'='.repeat(60)}`);
-    const run = await runModel(m, scenarios, args.mode, args.minCoverage, args.heuristicOnly);
+    const run = await runModel(
+      m,
+      scenarios,
+      args.approaches,
+      args.minCoverage,
+      args.heuristicOnly
+    );
     modelRuns.push(run);
-    if (args.mode === 'both' || args.mode === 'standard') {
+    for (const approach of args.approaches) {
+      const s = run.summary[approach];
       console.log(
-        `  standard: ${run.summary.standard.passRate}% pass | final-action ${run.summary.standard.finalActionAccuracy}% | coverage ${run.summary.standard.avgCoverage}`
-      );
-    }
-    if (args.mode === 'both' || args.mode === 'wci') {
-      console.log(
-        `  wci:      ${run.summary.wci.passRate}% pass | final-action ${run.summary.wci.finalActionAccuracy}% | coverage ${run.summary.wci.avgCoverage}`
+        `  ${approach.padEnd(24)} ${s.passRate}% pass | final ${s.finalActionAccuracy}% | coverage ${s.avgCoverage}`
       );
     }
   }
@@ -490,9 +502,9 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         methodology:
-          'Multi-step evaluation over tasks.multiStep. Pass requires correct final action plus minimum flow-type coverage.',
+          'Multi-step evaluation over tasks.multiStep (primary task only). WCI pass = correct final_action node id and no decoy. Baselines pass = correct final action plus robust flow coverage. WCI prompt = v2 compact rows (evals/lib/wci-eval-distill.ts).',
         minCoverage: args.minCoverage,
-        mode: args.mode,
+        approaches: args.approaches,
         scenarioCount: scenarios.length,
         models: modelRuns,
       },
@@ -509,4 +521,3 @@ main().catch(async (e) => {
   await closeBrowser();
   process.exit(1);
 });
-

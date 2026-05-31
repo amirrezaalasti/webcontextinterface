@@ -131,32 +131,32 @@ table{border-collapse:collapse}
 .gr-sheet .gr-sheet-body{padding:16px 18px;display:grid;gap:12px}
 .gr-sheet .gr-sheet-foot{padding:14px 18px;border-top:1px solid #eef2f7;display:flex;justify-content:flex-end;gap:8px}
 </style></head><body>
-<div class="gr-app" data-page="ride-share" id="ride_share-page" data-wci-id="ride_share-page" data-wci-role="landmark" data-wci-desc="GoRide ride share app root landmark" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="gr-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="gr-app" data-page="ride-share" id="ride_share-page" data-wci-role="landmark" data-wci-id="ride_share-page" data-wci-desc="GoRide — Map + dest bar." data-wci-priority="2"><div class="gr-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="gr-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="gr-btn gr-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="gr-btn gr-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="gr-btn gr-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="gr-btn gr-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-cookie">Reject non-essential</button>
+  <button type="button" class="gr-btn gr-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-cookie">Accept all</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-cookie">Customize</button>
 </div><div class="gr-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="gr-btn gr-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="gr-btn">Continue as guest — express</button>
-</div><header class="gr-hdr">
-  <div class="gr-brand" aria-label="GoRide brand"><div class="gr-brand-badge">G</div><div><div>GoRide</div><small style="display:block;color:#64748b;font-weight:500">Live pickup in 3–5 min</small></div></div>
-  <nav class="gr-nav" aria-label="Global"><a href="/">Home</a><a href="/trips">Trips</a><a href="/help">Help</a><a href="/account">Account</a></nav>
-  <div class="gr-hdr-promo"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Promotional decoy actions unrelated to the actual ride request" data-wci-priority="2" data-wci-scope="ride_share-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="gr-btn gr-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="gr-subnav" aria-label="Secondary"><a href="#ride-booking">Book</a><a href="#ride-activity">Activity</a><a href="#safety">Safety</a><a href="#billing">Billing</a><a href="#support">Support</a>
-  <button type="button" class="gr-btn gr-btn--ghost">Submit</button>
-  <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
+  <button type="button" class="gr-btn gr-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="gr-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue as guest — express</button>
+</div><header class="gr-hdr" data-wci-role="landmark" data-wci-id="gr-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <div class="gr-brand" aria-label="GoRide brand"><div class="gr-brand-badge" data-wci-role="display" data-wci-id="gr-brand-badge" data-wci-desc="Display value: G" data-wci-state="{&quot;value&quot;:&quot;G&quot;}" data-wci-priority="4" data-wci-scope="gr-hdr">G</div><div><div>GoRide</div><small style="display:block;color:#64748b;font-weight:500">Live pickup in 3–5 min</small></div></div>
+  <nav class="gr-nav" aria-label="Global" data-wci-role="nav" data-wci-id="gr-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-nav">Home</a><a href="/trips" data-wci-role="nav" data-wci-id="trips" data-wci-desc="Navigate to: Trips" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-nav">Trips</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-nav">Help</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-nav">Account</a></nav>
+  <div class="gr-hdr-promo"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="gr-hdr">Claim Offer</button>
+    <button type="button" class="gr-btn gr-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-hdr">Learn More</button></div>
+</header><nav class="gr-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="gr-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#ride-booking" data-wci-role="nav" data-wci-id="book" data-wci-desc="Navigate to: Book" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-subnav">Book</a><a href="#ride-activity" data-wci-role="nav" data-wci-id="activity" data-wci-desc="Navigate to: Activity" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-subnav">Activity</a><a href="#safety" data-wci-role="nav" data-wci-id="safety" data-wci-desc="Navigate to: Safety" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-subnav">Safety</a><a href="#billing" data-wci-role="nav" data-wci-id="billing" data-wci-desc="Navigate to: Billing" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-subnav">Billing</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-subnav">Support</a>
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-subnav">Submit</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-subnav">Continue</button>
 </nav><div class="gr-dup-row" aria-label="Quick actions">
-  <button type="button" class="gr-btn gr-btn--ghost">Submit</button>
-  <button type="button" class="gr-btn gr-btn--ghost">Continue</button>
-  <button type="button" class="gr-btn gr-btn--ghost">Save changes</button>
-  <button type="button" class="gr-btn gr-btn--ghost">Confirm</button>
-</div><div class="gr-dup-row"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">Request ride SFO</button><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-nav">Request ride SFO Terminal 2</button></div><div class="gr-page-wrap"><div class="gr-page-main"><main role="main" id="ride-booking">
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Save changes</button>
+  <button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Confirm</button>
+</div><div class="gr-dup-row"><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="request-ride-sfo" data-wci-desc="Click to: Request ride SFO — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="ride_share-page" data-wci-competitor="true">Request ride SFO</button><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="request-ride-sfo-terminal-2" data-wci-desc="Click to: Request ride SFO Terminal 2 — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="ride_share-page" data-wci-competitor="true">Request ride SFO Terminal 2</button></div><div class="gr-page-wrap"><div class="gr-page-main"><main role="main" id="ride-booking" data-wci-role="landmark" data-wci-id="ride-booking" data-wci-desc="Section for: Where to?" data-wci-priority="3">
   <h1>Where to?</h1>
   <p>Airport drop-off is active. Review the destination, choose a ride type, and request when ready.</p>
   <div class="gr-ride-layout">
-    <section aria-label="Map and route preview">
+    <section aria-label="Map and route preview" data-wci-role="landmark" data-wci-id="section" data-wci-desc="Section for: Trip notes" data-wci-priority="3">
       <div class="gr-map">
         <div class="gr-map-grid"></div>
         <div class="gr-road gr-road--h1"></div>
@@ -167,9 +167,9 @@ table{border-collapse:collapse}
         <div class="gr-pin" style="left:42%;top:36%"><div class="gr-pin__dot gr-pin__dot--pickup"></div><div class="gr-pin__label">Pickup · 2 min away</div></div>
         <div class="gr-pin" style="left:67%;top:63%"><div class="gr-pin__dot gr-pin__dot--dest"></div><div class="gr-pin__label">SFO Terminal 2</div></div>
         <div class="gr-map-controls" aria-label="Map controls">
-          <button type="button" class="gr-map-control" data-map="zoom-in" aria-label="Zoom in">+</button>
-          <button type="button" class="gr-map-control" data-map="zoom-out" aria-label="Zoom out">−</button>
-          <button type="button" class="gr-map-control" data-map="center" aria-label="Center route">⌖</button>
+          <button type="button" class="gr-map-control" data-map="zoom-in" aria-label="Zoom in" data-wci-role="action" data-wci-id="button" data-wci-desc="Click to: +" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">+</button>
+          <button type="button" class="gr-map-control" data-map="zoom-out" aria-label="Zoom out" data-wci-role="action" data-wci-id="button-2" data-wci-desc="Click to: −" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">−</button>
+          <button type="button" class="gr-map-control" data-map="center" aria-label="Center route" data-wci-role="action" data-wci-id="button-3" data-wci-desc="Click to: ⌖" data-wci-action="click" data-wci-priority="3" data-wci-scope="section">⌖</button>
         </div>
         <div class="gr-map-legend">
           <div class="gr-chip"><b id="map-zoom-label">Zoom 12</b></div>
@@ -182,7 +182,7 @@ table{border-collapse:collapse}
           <div class="gr-kv"><strong id="driver-nearby-count">6</strong><span>drivers nearby</span></div>
           <div class="gr-kv"><strong id="surge-label">1.0×</strong><span>current pricing</span></div>
         </div>
-        <article class="gr-card" id="ride-activity">
+        <article class="gr-card" id="ride-activity" data-wci-role="landmark" data-wci-id="gr-card" data-wci-desc="Section for: Trip notes" data-wci-priority="3">
           <h2>Trip notes</h2>
           <p>Airport pickups and drop-offs may require terminal lane guidance. Your selected destination is already pinned to the app route preview.</p>
           <ul>
@@ -194,14 +194,14 @@ table{border-collapse:collapse}
       </div>
     </section>
 
-    <section class="gr-ride-panel" aria-label="Ride request panel">
+    <section class="gr-ride-panel" aria-label="Ride request panel" data-wci-role="landmark" data-wci-id="gr-ride-panel" data-wci-desc="Section for: Confirm your ride" data-wci-priority="3">
       <div class="gr-ride-panel-head">
         <div class="gr-ride-title">
           <div>
             <h2 style="margin:0 0 4px">Confirm your ride</h2>
-            <p style="margin:0">Destination and fare are locked for the next <span class="gr-count" id="fare-countdown">4:30</span>.</p>
+            <p style="margin:0">Destination and fare are locked for the next <span class="gr-count" id="fare-countdown" data-wci-role="display" data-wci-id="fare-countdown" data-wci-desc="Display value: 4:30" data-wci-state="{&quot;value&quot;:&quot;4:30&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">4:30</span>.</p>
           </div>
-          <span class="gr-badge gr-badge--ready" id="ride-state-badge">Ready</span>
+          <span class="gr-badge gr-badge--ready" id="ride-state-badge" data-wci-role="display" data-wci-id="ride-state-badge" data-wci-desc="Display value: Ready" data-wci-state="{&quot;value&quot;:&quot;Ready&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">Ready</span>
         </div>
       </div>
 
@@ -212,31 +212,31 @@ table{border-collapse:collapse}
             <strong>Pickup</strong>
             <small id="pickup-text">1 Market St, San Francisco</small>
           </div>
-          <button type="button" class="gr-btn gr-btn--ghost" id="edit-pickup">Edit</button>
+          <button type="button" class="gr-btn gr-btn--ghost" id="edit-pickup" data-wci-role="action" data-wci-id="edit-pickup" data-wci-desc="Click to: Edit" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">Edit</button>
         </div>
         <div class="gr-stop">
           <div class="gr-stop-icon gr-stop-icon--dest" aria-hidden="true"></div>
           <div class="gr-stop-meta">
             <label for="destInput" style="margin:0 0 4px;display:block">Destination</label>
-            <input id="destInput" type="text" value="SFO Terminal 2" readonly="" data-dest="SFO-T2" aria-describedby="dest-note">
+            <input id="destInput" type="text" value="SFO Terminal 2" readonly="" data-dest="SFO-T2" aria-describedby="dest-note" data-wci-role="form" data-wci-id="destinput" data-wci-desc="Field for: Destination" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;SFO Terminal 2&quot;}" data-wci-priority="3" data-wci-scope="gr-ride-panel">
             <div class="gr-inline-note" id="dest-note">Airport preset selected from recent destinations.</div>
           </div>
-          <span class="gr-badge gr-badge--muted">Locked</span>
+          <span class="gr-badge gr-badge--muted" data-wci-role="display" data-wci-id="gr-badge" data-wci-desc="Display value: Locked" data-wci-state="{&quot;value&quot;:&quot;Locked&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">Locked</span>
         </div>
       </div>
 
       <div class="gr-fare-options" id="rideOptions">
-        <div class="gr-option is-selected" data-ride-option="standard" tabindex="0" role="button" aria-pressed="true">
+        <div class="gr-option is-selected" data-ride-option="standard" tabindex="0" role="button" aria-pressed="true" data-wci-role="action" data-wci-id="goride-standardaffordable-everyday-ride-4-seats-38-50" data-wci-desc="Click to: GoRide StandardAffordable everyday ride · 4 seats $38.50" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">
           <div><h3>GoRide Standard</h3><p>Affordable everyday ride · 4 seats</p></div>
-          <strong>$38.50</strong>
+          <strong data-wci-role="display" data-wci-id="display" data-wci-desc="Display value: $38.50" data-wci-state="{&quot;value&quot;:&quot;$38.50&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">$38.50</strong>
         </div>
-        <div class="gr-option" data-ride-option="comfort" tabindex="0" role="button" aria-pressed="false">
+        <div class="gr-option" data-ride-option="comfort" tabindex="0" role="button" aria-pressed="false" data-wci-role="action" data-wci-id="goride-comfortnewer-cars-with-extra-legroom-46-20" data-wci-desc="Click to: GoRide ComfortNewer cars with extra legroom $46.20" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">
           <div><h3>GoRide Comfort</h3><p>Newer cars with extra legroom</p></div>
-          <strong>$46.20</strong>
+          <strong data-wci-role="display" data-wci-id="display-2" data-wci-desc="Display value: $46.20" data-wci-state="{&quot;value&quot;:&quot;$46.20&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">$46.20</strong>
         </div>
-        <div class="gr-option" data-ride-option="xl" tabindex="0" role="button" aria-pressed="false">
+        <div class="gr-option" data-ride-option="xl" tabindex="0" role="button" aria-pressed="false" data-wci-role="action" data-wci-id="goride-xlextra-space-for-luggage-and-groups-58-10" data-wci-desc="Click to: GoRide XLExtra space for luggage and groups $58.10" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">
           <div><h3>GoRide XL</h3><p>Extra space for luggage and groups</p></div>
-          <strong>$58.10</strong>
+          <strong data-wci-role="display" data-wci-id="display-3" data-wci-desc="Display value: $58.10" data-wci-state="{&quot;value&quot;:&quot;$58.10&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">$58.10</strong>
         </div>
       </div>
 
@@ -250,46 +250,46 @@ table{border-collapse:collapse}
       </div>
 
       <div class="gr-actions">
-        <div class="gr-status" id="ride-share-smoke-status" aria-live="polite">Awaiting ride request for SFO Terminal 2.</div>
-        <div class="gr-status" id="validationStatus">Review complete. You can request a ride now.</div>
+        <div class="gr-status" id="ride-share-smoke-status" aria-live="polite" data-wci-role="display" data-wci-id="ride-share-smoke-status" data-wci-desc="Display value: Awaiting ride request for SFO Terminal 2." data-wci-state="{&quot;value&quot;:&quot;Awaiting ride request for SFO Terminal 2.&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">Awaiting ride request for SFO Terminal 2.</div>
+        <div class="gr-status" id="validationStatus" data-wci-role="display" data-wci-id="validationstatus" data-wci-desc="Display value: Review complete. You can request a ride now." data-wci-state="{&quot;value&quot;:&quot;Review complete. You can request a ride now.&quot;}" data-wci-priority="4" data-wci-scope="gr-ride-panel">Review complete. You can request a ride now.</div>
         <div>
-          <button type="button" class="gr-btn gr-btn--primary" data-dest="SFO-T2" id="request-sfo-ride" data-wci-id="request-sfo-ride" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to request a ride to SFO Terminal 2" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="ride_share-page">Request ride to SFO Terminal 2</button>
-          <button type="button" class="gr-btn gr-btn--ghost" id="open-details">View fare details</button>
+          <button type="button" class="gr-btn gr-btn--primary" data-dest="SFO-T2" id="request-sfo-ride" data-wci-role="action" data-wci-id="request-sfo-ride" data-wci-desc="Request a ride to SFO Terminal 2 at listed destination (ignore promo ride offer)." data-wci-action="click" data-wci-priority="1" data-wci-scope="gr-ride-panel" data-wci-primary="true">Request ride to SFO Terminal 2</button>
+          <button type="button" class="gr-btn gr-btn--ghost" id="open-details" data-wci-role="action" data-wci-id="open-details" data-wci-desc="Click to: View fare details" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">View fare details</button>
         </div>
-        <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">50% off first ride</button>
+        <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="50-off-first-ride" data-wci-desc="Click to: 50% off first ride" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-ride-panel">50% off first ride</button>
       </div>
     </section>
   </div>
-</main></div><aside class="gr-rail gr-rail--ads" aria-label="Sponsored">
+</main></div><aside class="gr-rail gr-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="gr-rail" data-wci-desc="Section for: Airport tips" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p style="margin:0 0 10px">Unlock airport lounge perks with our partner card. Not required to request your ride.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo">View deal</button>
-  <article class="gr-card" style="margin-top:16px;background:#fffef7">
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-rail">Partner offer — limited time</a><br>
+  <button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-rail">View deal</button>
+  <article class="gr-card" style="margin-top:16px;background:#fffef7" data-wci-role="landmark" data-wci-id="gr-card-2" data-wci-desc="Section for: Airport tips" data-wci-priority="3">
     <h2 style="font-size:14px;margin-top:0">Airport tips</h2>
     <p style="font-size:13px">Terminal 2 drop-offs usually use the upper departures level during midday traffic. Keep your phone handy for final curb guidance.</p>
   </article>
-</aside></div><div class="gr-filler" aria-hidden="true"><div class="gr-filler-inner"><a href="/misc/0" class="gr-btn gr-btn--ghost">Link 1</a><button type="button" class="gr-btn gr-btn--ghost">Action 2</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/4" class="gr-btn gr-btn--ghost">Link 5</a><button type="button" class="gr-btn gr-btn--ghost">Action 6</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/8" class="gr-btn gr-btn--ghost">Link 9</a><button type="button" class="gr-btn gr-btn--ghost">Action 10</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/12" class="gr-btn gr-btn--ghost">Link 13</a><button type="button" class="gr-btn gr-btn--ghost">Action 14</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/16" class="gr-btn gr-btn--ghost">Link 17</a><button type="button" class="gr-btn gr-btn--ghost">Action 18</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/20" class="gr-btn gr-btn--ghost">Link 21</a><button type="button" class="gr-btn gr-btn--ghost">Action 22</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/24" class="gr-btn gr-btn--ghost">Link 25</a><button type="button" class="gr-btn gr-btn--ghost">Action 26</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/28" class="gr-btn gr-btn--ghost">Link 29</a><button type="button" class="gr-btn gr-btn--ghost">Action 30</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/32" class="gr-btn gr-btn--ghost">Link 33</a><button type="button" class="gr-btn gr-btn--ghost">Action 34</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/36" class="gr-btn gr-btn--ghost">Link 37</a><button type="button" class="gr-btn gr-btn--ghost">Action 38</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button><a href="/misc/40" class="gr-btn gr-btn--ghost">Link 41</a><button type="button" class="gr-btn gr-btn--ghost">Action 42</button><button type="button" class="gr-btn gr-btn--ghost">Submit</button><button type="button" class="gr-btn gr-btn--ghost">Continue</button></div></div><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo button" data-wci-priority="2" data-wci-scope="ride_share-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="gr-ftr"><small>© Demo GoRide</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+</aside></div><div class="gr-filler" aria-hidden="true"><div class="gr-filler-inner"><a href="/misc/0" class="gr-btn gr-btn--ghost">Link 1</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 2</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/4" class="gr-btn gr-btn--ghost">Link 5</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 6</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/8" class="gr-btn gr-btn--ghost">Link 9</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 10</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/12" class="gr-btn gr-btn--ghost">Link 13</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 14</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/16" class="gr-btn gr-btn--ghost">Link 17</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 18</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/20" class="gr-btn gr-btn--ghost">Link 21</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 22</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/24" class="gr-btn gr-btn--ghost">Link 25</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 26</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/28" class="gr-btn gr-btn--ghost">Link 29</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 30</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/32" class="gr-btn gr-btn--ghost">Link 33</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 34</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/36" class="gr-btn gr-btn--ghost">Link 37</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 38</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button><a href="/misc/40" class="gr-btn gr-btn--ghost">Link 41</a><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Action 42</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Submit</button><button type="button" class="gr-btn gr-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ride_share-page">Continue</button></div></div><button type="button" class="gr-btn gr-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="ride_share-page">Hidden promo</button><footer class="gr-ftr" data-wci-role="landmark" data-wci-id="gr-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo GoRide</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="gr-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div></div>
 <div class="gr-modal-backdrop" id="modalBackdrop"></div>
-<section class="gr-sheet" id="fareModal" role="dialog" aria-modal="true" aria-labelledby="fareModalTitle">
-  <header>
+<section class="gr-sheet" id="fareModal" role="dialog" aria-modal="true" aria-labelledby="fareModalTitle" data-wci-role="landmark" data-wci-id="gr-sheet" data-wci-desc="Section for: Fare details" data-wci-priority="3">
+  <header data-wci-role="landmark" data-wci-id="header" data-wci-desc="Section for: Fare details" data-wci-priority="3">
     <h2 id="fareModalTitle" style="margin:0;font-size:18px">Fare details</h2>
-    <button type="button" class="gr-btn gr-btn--ghost" id="close-modal-top">Close</button>
+    <button type="button" class="gr-btn gr-btn--ghost" id="close-modal-top" data-wci-role="action" data-wci-id="close-modal-top" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="header">Close</button>
   </header>
   <div class="gr-sheet-body">
-    <div class="gr-status">Estimated fare updates with traffic, tolls, and pickup distance. Promo banners do not affect your selected destination.</div>
+    <div class="gr-status" data-wci-role="display" data-wci-id="gr-status" data-wci-desc="Display value: Estimated fare updates with traffic, tolls, and pickup distance. Promo banners do not affect your selected destination." data-wci-state="{&quot;value&quot;:&quot;Estimated fare updates with traffic, tolls, and pickup distance. Promo banners do not affect your selected destination.&quot;}" data-wci-priority="4" data-wci-scope="gr-sheet">Estimated fare updates with traffic, tolls, and pickup distance. Promo banners do not affect your selected destination.</div>
     <table>
       <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
       <tbody>
-        <tr><td>Base fare</td><td>$24.00</td></tr>
-        <tr><td>Distance + time</td><td id="modalFareLine">$14.50</td></tr>
+        <tr><td>Base fare</td><td data-wci-role="display" data-wci-id="display-4" data-wci-desc="Display value: $24.00" data-wci-state="{&quot;value&quot;:&quot;$24.00&quot;}" data-wci-priority="4" data-wci-scope="gr-sheet">$24.00</td></tr>
+        <tr><td>Distance + time</td><td id="modalFareLine" data-wci-role="display" data-wci-id="modalfareline" data-wci-desc="Display value: $14.50" data-wci-state="{&quot;value&quot;:&quot;$14.50&quot;}" data-wci-priority="4" data-wci-scope="gr-sheet">$14.50</td></tr>
         <tr><td>Airport access</td><td>Included</td></tr>
       </tbody>
     </table>
   </div>
   <div class="gr-sheet-foot">
-    <button type="button" class="gr-btn" id="close-modal">Done</button>
+    <button type="button" class="gr-btn" id="close-modal" data-wci-role="action" data-wci-id="close-modal" data-wci-desc="Click to: Done" data-wci-action="click" data-wci-priority="3" data-wci-scope="gr-sheet">Done</button>
   </div>
 </section>
 <script>

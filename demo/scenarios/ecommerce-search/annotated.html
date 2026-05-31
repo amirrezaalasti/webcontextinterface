@@ -119,28 +119,28 @@ table{border-collapse:collapse}
 .sg-note{font-size:12px;color:#64748b}
 .sg-hidden{display:none!important}
 </style></head><body>
-<div class="sg-app" data-page="ecommerce-search" id="ecommerce_search-page" data-wci-id="ecommerce_search-page" data-wci-role="landmark" data-wci-desc="ShopGrid ecommerce search page root" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="sg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="sg-app" data-page="ecommerce-search" id="ecommerce_search-page" data-wci-role="landmark" data-wci-id="ecommerce_search-page" data-wci-desc="ShopGrid — Filter bar + grid." data-wci-priority="2"><div class="sg-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="sg-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="sg-btn sg-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="sg-btn sg-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="sg-btn sg-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="sg-btn sg-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-cookie">Reject non-essential</button>
+  <button type="button" class="sg-btn sg-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-cookie">Accept all</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-cookie">Customize</button>
 </div><div class="sg-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="sg-btn sg-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="sg-btn">Continue as guest — express</button>
-</div><header class="sg-hdr">
-  <nav class="sg-nav" aria-label="Global"><a href="/">Home</a><a href="/deals">Deals</a><a href="/help">Help</a><a href="/blog">Blog</a><a href="/account">Account</a></nav>
-  <div class="sg-hdr-promo"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-id="decoy-promo" data-wci-role="action" data-wci-action="click" data-wci-desc="Decoy promotional buttons unrelated to the required filter action" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-state="{&quot;ready&quot;:true}">Claim Offer</button>
-    <button type="button" class="sg-btn sg-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="sg-subnav" aria-label="Secondary"><a href="#">Trending</a><a href="#">Electronics</a><a href="#">Home Office</a><a href="#">Clearance</a><a href="#">Support</a>
-  <button type="button" class="sg-btn sg-btn--ghost">Submit</button>
-  <button type="button" class="sg-btn sg-btn--ghost">Continue</button>
+  <button type="button" class="sg-btn sg-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="sg-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue as guest — express</button>
+</div><header class="sg-hdr" data-wci-role="landmark" data-wci-id="sg-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <nav class="sg-nav" aria-label="Global" data-wci-role="nav" data-wci-id="sg-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="/" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-nav">Home</a><a href="/deals" data-wci-role="nav" data-wci-id="deals" data-wci-desc="Navigate to: Deals" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-nav">Deals</a><a href="/help" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-nav">Help</a><a href="/blog" data-wci-role="nav" data-wci-id="blog" data-wci-desc="Navigate to: Blog" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-nav">Blog</a><a href="/account" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-nav">Account</a></nav>
+  <div class="sg-hdr-promo"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="decoy-promo" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="sg-hdr">Claim Offer</button>
+    <button type="button" class="sg-btn sg-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-hdr">Learn More</button></div>
+</header><nav class="sg-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="sg-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="trending" data-wci-desc="Navigate to: Trending" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-subnav">Trending</a><a href="#" data-wci-role="nav" data-wci-id="electronics" data-wci-desc="Navigate to: Electronics" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-subnav">Electronics</a><a href="#" data-wci-role="nav" data-wci-id="home-office" data-wci-desc="Navigate to: Home Office" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-subnav">Home Office</a><a href="#" data-wci-role="nav" data-wci-id="clearance" data-wci-desc="Navigate to: Clearance" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-subnav">Clearance</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-subnav">Support</a>
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-subnav">Submit</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-subnav">Continue</button>
 </nav><div class="sg-dup-row" aria-label="Quick actions">
-  <button type="button" class="sg-btn sg-btn--ghost">Submit</button>
-  <button type="button" class="sg-btn sg-btn--ghost">Continue</button>
-  <button type="button" class="sg-btn sg-btn--ghost">Save changes</button>
-  <button type="button" class="sg-btn sg-btn--ghost">Confirm</button>
-</div><div class="sg-dup-row"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Apply filters 4 star</button><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-nav">Apply rating price filter</button></div><div class="sg-page-wrap"><div class="sg-page-main"><main role="main">
-  <section class="sg-banner" aria-label="Flash sale banner">
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Save changes</button>
+  <button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Confirm</button>
+</div><div class="sg-dup-row"><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="apply-filters-4-star" data-wci-desc="Click to: Apply filters 4 star — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-competitor="true">Apply filters 4 star</button><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="apply-rating-price-filter-2" data-wci-desc="Click to: Apply rating price filter — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-competitor="true">Apply rating price filter</button></div><div class="sg-page-wrap"><div class="sg-page-main"><main role="main" data-wci-role="landmark" data-wci-id="main" data-wci-desc="Section for: Search results for “smart home accessories”" data-wci-priority="3">
+  <section class="sg-banner" aria-label="Flash sale banner" data-wci-role="landmark" data-wci-id="sg-banner" data-wci-desc="Landmark zone for section" data-wci-priority="3">
     <div>
       <strong>Flash Sale ends in <span id="flash-timer">11:59</span></strong>
       <div class="sg-muted">Prices refresh automatically as inventory changes. Filters apply to current sale pricing.</div>
@@ -157,14 +157,14 @@ table{border-collapse:collapse}
         <span class="sg-pill">Pickup today</span>
       </div>
     </div>
-    <form class="sg-searchbar" aria-label="Search products" onsubmit="return false;">
+    <form class="sg-searchbar" aria-label="Search products" onsubmit="return false;" data-wci-role="landmark" data-wci-id="sg-searchbar" data-wci-desc="Landmark zone for form" data-wci-priority="3">
       <label>Search catalog
-        <input type="text" id="search-query" value="smart home accessories" aria-label="Search catalog">
+        <input type="text" id="search-query" value="smart home accessories" aria-label="Search catalog" data-wci-role="form" data-wci-id="search-query" data-wci-desc="Field for: Search catalog" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;smart home accessories&quot;}" data-wci-priority="3" data-wci-scope="sg-searchbar">
       </label>
       <label>Sort by
-        <select id="sort-select" aria-label="Sort by"><option value="featured">Featured</option><option value="price-asc">Price: Low to high</option><option value="rating-desc">Top rated</option></select>
+        <select id="sort-select" aria-label="Sort by" data-wci-role="form" data-wci-id="sort-select" data-wci-desc="Dropdown to select: Sort by FeaturedPrice: Low to highTop rated" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Featured&quot;}" data-wci-options="[&quot;Featured&quot;,&quot;Price: Low to high&quot;,&quot;Top rated&quot;]" data-wci-priority="3" data-wci-scope="sg-searchbar"><option value="featured">Featured</option><option value="price-asc">Price: Low to high</option><option value="rating-desc">Top rated</option></select>
       </label>
-      <button type="button" class="sg-btn">Update</button>
+      <button type="button" class="sg-btn" data-wci-role="action" data-wci-id="update" data-wci-desc="Click to: Update" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-searchbar">Update</button>
     </form>
   </div>
 
@@ -174,16 +174,16 @@ table{border-collapse:collapse}
     <div class="sg-stat"><span class="sg-muted">Current filter state</span><strong id="filter-summary">None</strong></div>
   </div>
 
-  <div id="ecommerce-search-smoke-status" class="sg-status" data-smoke-status="">Waiting for rating and price filter action.</div>
+  <div id="ecommerce-search-smoke-status" class="sg-status" data-smoke-status="" data-wci-role="display" data-wci-id="ecommerce-search-smoke-status" data-wci-desc="Display value: Waiting for rating and price filter action." data-wci-state="{&quot;value&quot;:&quot;Waiting for rating and price filter action.&quot;}" data-wci-priority="4" data-wci-scope="main">Waiting for rating and price filter action.</div>
 
   <div class="sg-filter-layout">
-    <aside class="sg-filters" aria-label="Search filters">
+    <aside class="sg-filters" aria-label="Search filters" data-wci-role="landmark" data-wci-id="sg-filters" data-wci-desc="Section for: Filters" data-wci-priority="3">
       <h2>Filters</h2>
       <p class="sg-note">Use filters to narrow products during the flash sale. Some prices update every minute.</p>
       <fieldset>
         <legend>Customer rating</legend>
         <label for="rating-filter">Minimum rating</label>
-        <select id="rating-filter" aria-describedby="rating-help">
+        <select id="rating-filter" aria-describedby="rating-help" data-wci-role="form" data-wci-id="rating-filter" data-wci-desc="Dropdown to select: Minimum rating" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Any rating&quot;}" data-wci-options="[&quot;Any rating&quot;,&quot;3 stars &amp; up&quot;,&quot;4 stars &amp; up&quot;,&quot;4.5 stars &amp; up&quot;]" data-wci-priority="3" data-wci-scope="sg-filters">
           <option value="0">Any rating</option>
           <option value="3">3 stars &amp; up</option>
           <option value="4">4 stars &amp; up</option>
@@ -194,25 +194,25 @@ table{border-collapse:collapse}
       <fieldset>
         <legend>Price</legend>
         <label for="max-price">Maximum price</label>
-        <input type="number" id="max-price" value="50" min="1" step="1" aria-describedby="price-help filter-error">
+        <input type="number" id="max-price" value="50" min="1" step="1" aria-describedby="price-help filter-error" data-wci-role="form" data-wci-id="max-price" data-wci-desc="Field for: Maximum price" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;50&quot;}" data-wci-priority="3" data-wci-scope="sg-filters">
         <div id="price-help" class="sg-note">Enter the highest price you want to pay today.</div>
       </fieldset>
       <fieldset>
         <legend>Availability</legend>
-        <label><input type="checkbox" checked=""> In stock</label>
-        <label><input type="checkbox"> Same-day pickup</label>
-        <label><input type="checkbox"> New arrivals</label>
+        <label><input type="checkbox" checked="" data-wci-role="form" data-wci-id="in-stock" data-wci-desc="Field for: In stock" data-wci-action="check" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="3" data-wci-scope="sg-filters"> In stock</label>
+        <label><input type="checkbox" data-wci-role="form" data-wci-id="same-day-pickup" data-wci-desc="Field for: Same-day pickup" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="sg-filters"> Same-day pickup</label>
+        <label><input type="checkbox" data-wci-role="form" data-wci-id="new-arrivals" data-wci-desc="Field for: New arrivals" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="sg-filters"> New arrivals</label>
       </fieldset>
-      <div id="filter-error" class="sg-status error sg-hidden" aria-live="polite">Please enter a maximum price of at least $1.</div>
+      <div id="filter-error" class="sg-status error sg-hidden" aria-live="polite" data-wci-role="display" data-wci-id="filter-error" data-wci-desc="Display value: Please enter a maximum price of at least $1." data-wci-state="{&quot;value&quot;:&quot;Please enter a maximum price of at least $1.&quot;}" data-wci-priority="4" data-wci-scope="sg-filters">Please enter a maximum price of at least $1.</div>
       <div class="sg-toolbar">
-        <button type="button" class="sg-btn sg-btn--primary" data-filter="rating-price" id="apply-rating-price-filter" data-wci-id="apply-rating-price-filter" data-wci-role="action" data-wci-action="click" data-wci-desc="Apply rating and price filters to show four-star-and-up items under fifty dollars" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="ecommerce_search-page">Apply 4★ &amp; under $50</button>
-        <button type="button" class="sg-btn" id="clear-filters">Clear filters</button>
-        <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">Flash sale</button>
+        <button type="button" class="sg-btn sg-btn--primary" data-filter="rating-price" id="apply-rating-price-filter" data-wci-role="action" data-wci-id="apply-rating-price-filter" data-wci-desc="Apply filters for four-star minimum rating and maximum price fifty dollars." data-wci-action="click" data-wci-priority="1" data-wci-scope="sg-filters" data-wci-primary="true">Apply 4★ &amp; under $50</button>
+        <button type="button" class="sg-btn" id="clear-filters" data-wci-role="action" data-wci-id="clear-filters" data-wci-desc="Click to: Clear filters" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-filters">Clear filters</button>
+        <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="flash-sale" data-wci-desc="Click to: Flash sale" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-filters">Flash sale</button>
       </div>
       <p class="sg-note">Primary goal: four-star minimum rating and maximum price fifty dollars.</p>
     </aside>
 
-    <section aria-label="Product results">
+    <section aria-label="Product results" data-wci-role="landmark" data-wci-id="section" data-wci-desc="Section for: Mini Smart Plug" data-wci-priority="3">
       <div class="sg-panel" style="margin-bottom:14px;">
         <div class="sg-meta" style="justify-content:space-between;align-items:center;">
           <div><strong>Active filters preview</strong><div class="sg-note">Shown before you apply changes</div></div>
@@ -221,91 +221,91 @@ table{border-collapse:collapse}
       </div>
 
       <div class="sg-results-grid" id="results-grid">
-        <article class="sg-product" data-price="29" data-rating="4.6" data-name="Mini Smart Plug">
+        <article class="sg-product" data-price="29" data-rating="4.6" data-name="Mini Smart Plug" data-wci-role="landmark" data-wci-id="sg-product" data-wci-desc="Section for: Mini Smart Plug" data-wci-priority="3">
           <div class="sg-product__img">Mini Plug</div>
           <div class="sg-tag sale">Flash sale</div>
           <h3>Mini Smart Plug</h3>
           <p>Compact Wi‑Fi plug with app scheduling and voice assistant support.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$29</span><span class="sg-rating">★★★★☆ 4.6</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price" data-wci-desc="Display value: $29" data-wci-state="{&quot;value&quot;:&quot;$29&quot;}" data-wci-priority="4" data-wci-scope="sg-product">$29</span><span class="sg-rating">★★★★☆ 4.6</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="45" data-rating="4.2" data-name="LED Light Strip">
+        <article class="sg-product" data-price="45" data-rating="4.2" data-name="LED Light Strip" data-wci-role="landmark" data-wci-id="sg-product-2" data-wci-desc="Section for: LED Light Strip" data-wci-priority="3">
           <div class="sg-product__img">LED Strip</div>
           <div class="sg-tag">Top seller</div>
           <h3>LED Light Strip</h3>
           <p>16-ft color-changing strip with scenes, timer presets, and music sync.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$45</span><span class="sg-rating">★★★★☆ 4.2</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-2" data-wci-desc="Display value: $45" data-wci-state="{&quot;value&quot;:&quot;$45&quot;}" data-wci-priority="4" data-wci-scope="sg-product-2">$45</span><span class="sg-rating">★★★★☆ 4.2</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-2" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-2">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-2" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-2">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="64" data-rating="4.8" data-name="Indoor Security Cam">
+        <article class="sg-product" data-price="64" data-rating="4.8" data-name="Indoor Security Cam" data-wci-role="landmark" data-wci-id="sg-product-3" data-wci-desc="Section for: Indoor Security Cam" data-wci-priority="3">
           <div class="sg-product__img">Security Cam</div>
           <div class="sg-tag">HD video</div>
           <h3>Indoor Security Cam</h3>
           <p>1080p indoor camera with motion alerts, night vision, and two-way audio.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$64</span><span class="sg-rating">★★★★★ 4.8</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-3" data-wci-desc="Display value: $64" data-wci-state="{&quot;value&quot;:&quot;$64&quot;}" data-wci-priority="4" data-wci-scope="sg-product-3">$64</span><span class="sg-rating">★★★★★ 4.8</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-3" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-3">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-3" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-3">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="18" data-rating="3.9" data-name="Outlet Timer">
+        <article class="sg-product" data-price="18" data-rating="3.9" data-name="Outlet Timer" data-wci-role="landmark" data-wci-id="sg-product-4" data-wci-desc="Section for: Outlet Timer" data-wci-priority="3">
           <div class="sg-product__img">Timer</div>
           <div class="sg-tag">Value</div>
           <h3>Outlet Timer</h3>
           <p>Simple programmable timer for lamps, fans, and holiday lighting.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$18</span><span class="sg-rating">★★★☆☆ 3.9</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-4" data-wci-desc="Display value: $18" data-wci-state="{&quot;value&quot;:&quot;$18&quot;}" data-wci-priority="4" data-wci-scope="sg-product-4">$18</span><span class="sg-rating">★★★☆☆ 3.9</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-4" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-4">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-4" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-4">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="49" data-rating="4.1" data-name="Video Door Sensor Kit">
+        <article class="sg-product" data-price="49" data-rating="4.1" data-name="Video Door Sensor Kit" data-wci-role="landmark" data-wci-id="sg-product-5" data-wci-desc="Section for: Video Door Sensor Kit" data-wci-priority="3">
           <div class="sg-product__img">Sensor Kit</div>
           <div class="sg-tag sale">Today only</div>
           <h3>Video Door Sensor Kit</h3>
           <p>Starter security sensor pack with hub pairing and app-based notifications.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$49</span><span class="sg-rating">★★★★☆ 4.1</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-5" data-wci-desc="Display value: $49" data-wci-state="{&quot;value&quot;:&quot;$49&quot;}" data-wci-priority="4" data-wci-scope="sg-product-5">$49</span><span class="sg-rating">★★★★☆ 4.1</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-5" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-5">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-5" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-5">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="52" data-rating="4.0" data-name="Voice Assistant Speaker">
+        <article class="sg-product" data-price="52" data-rating="4.0" data-name="Voice Assistant Speaker" data-wci-role="landmark" data-wci-id="sg-product-6" data-wci-desc="Section for: Voice Assistant Speaker" data-wci-priority="3">
           <div class="sg-product__img">Speaker</div>
           <div class="sg-tag">Bundle</div>
           <h3>Voice Assistant Speaker</h3>
           <p>Compact smart speaker with room-aware sound and multi-device pairing.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$52</span><span class="sg-rating">★★★★☆ 4.0</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-6" data-wci-desc="Display value: $52" data-wci-state="{&quot;value&quot;:&quot;$52&quot;}" data-wci-priority="4" data-wci-scope="sg-product-6">$52</span><span class="sg-rating">★★★★☆ 4.0</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-6" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-6">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-6" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-6">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="37" data-rating="4.7" data-name="Smart Bulb 4-Pack">
+        <article class="sg-product" data-price="37" data-rating="4.7" data-name="Smart Bulb 4-Pack" data-wci-role="landmark" data-wci-id="sg-product-7" data-wci-desc="Section for: Smart Bulb 4-Pack" data-wci-priority="3">
           <div class="sg-product__img">Bulb Pack</div>
           <div class="sg-tag">Energy saver</div>
           <h3>Smart Bulb 4-Pack</h3>
           <p>Dimmable color bulbs with grouping, scenes, and automation support.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$37</span><span class="sg-rating">★★★★★ 4.7</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-7" data-wci-desc="Display value: $37" data-wci-state="{&quot;value&quot;:&quot;$37&quot;}" data-wci-priority="4" data-wci-scope="sg-product-7">$37</span><span class="sg-rating">★★★★★ 4.7</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-7" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-7">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-7" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-7">Compare</button></div>
         </article>
-        <article class="sg-product" data-price="24" data-rating="4.0" data-name="Window Contact Sensor">
+        <article class="sg-product" data-price="24" data-rating="4.0" data-name="Window Contact Sensor" data-wci-role="landmark" data-wci-id="sg-product-8" data-wci-desc="Section for: Window Contact Sensor" data-wci-priority="3">
           <div class="sg-product__img">Contact Sensor</div>
           <div class="sg-tag">Easy install</div>
           <h3>Window Contact Sensor</h3>
           <p>Peel-and-stick contact sensor with long battery life and instant alerts.</p>
-          <div class="sg-product__meta"><span class="sg-product__price">$24</span><span class="sg-rating">★★★★☆ 4.0</span></div>
-          <div class="sg-card__actions"><button type="button" class="sg-btn">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost">Compare</button></div>
+          <div class="sg-product__meta"><span class="sg-product__price" data-wci-role="display" data-wci-id="sg-product-price-8" data-wci-desc="Display value: $24" data-wci-state="{&quot;value&quot;:&quot;$24&quot;}" data-wci-priority="4" data-wci-scope="sg-product-8">$24</span><span class="sg-rating">★★★★☆ 4.0</span></div>
+          <div class="sg-card__actions"><button type="button" class="sg-btn" data-wci-role="action" data-wci-id="add-to-cart-8" data-wci-desc="Click to: Add to cart" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-8">Add to cart</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="compare-8" data-wci-desc="Click to: Compare" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-product-8">Compare</button></div>
         </article>
       </div>
     </section>
   </div>
-</main></div><aside class="sg-rail sg-rail--ads" aria-label="Sponsored">
+</main></div><aside class="sg-rail sg-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="sg-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Bundle protection plans, extended support, and next-day replacement.</p>
-  <a href="/ads/1">Partner offer — limited time</a><br>
-  <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo">View deal</button>
+  <a href="/ads/1" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-rail">Partner offer — limited time</a><br>
+  <button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-rail">View deal</button>
   <hr style="border:none;border-top:1px solid #fde68a;margin:14px 0;">
   <strong>Need help choosing?</strong>
   <p>Compare feature sets, battery life, and app compatibility before checkout.</p>
-  <button type="button" class="sg-btn" id="open-help">Buying guide</button>
-</aside></div><div class="sg-filler" aria-hidden="true"><div class="sg-filler-inner"><a href="/misc/0" class="sg-btn sg-btn--ghost">Link 1</a><button type="button" class="sg-btn sg-btn--ghost">Action 2</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/4" class="sg-btn sg-btn--ghost">Link 5</a><button type="button" class="sg-btn sg-btn--ghost">Action 6</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/8" class="sg-btn sg-btn--ghost">Link 9</a><button type="button" class="sg-btn sg-btn--ghost">Action 10</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/12" class="sg-btn sg-btn--ghost">Link 13</a><button type="button" class="sg-btn sg-btn--ghost">Action 14</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/16" class="sg-btn sg-btn--ghost">Link 17</a><button type="button" class="sg-btn sg-btn--ghost">Action 18</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/20" class="sg-btn sg-btn--ghost">Link 21</a><button type="button" class="sg-btn sg-btn--ghost">Action 22</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/24" class="sg-btn sg-btn--ghost">Link 25</a><button type="button" class="sg-btn sg-btn--ghost">Action 26</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/28" class="sg-btn sg-btn--ghost">Link 29</a><button type="button" class="sg-btn sg-btn--ghost">Action 30</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/32" class="sg-btn sg-btn--ghost">Link 33</a><button type="button" class="sg-btn sg-btn--ghost">Action 34</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/36" class="sg-btn sg-btn--ghost">Link 37</a><button type="button" class="sg-btn sg-btn--ghost">Action 38</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button><a href="/misc/40" class="sg-btn sg-btn--ghost">Link 41</a><button type="button" class="sg-btn sg-btn--ghost">Action 42</button><button type="button" class="sg-btn sg-btn--ghost">Submit</button><button type="button" class="sg-btn sg-btn--ghost">Continue</button></div></div><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden extra decoy promo node" data-wci-priority="1" data-wci-scope="ecommerce_search-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="sg-ftr"><small>© Demo ShopGrid</small> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  <button type="button" class="sg-btn" id="open-help" data-wci-role="action" data-wci-id="open-help" data-wci-desc="Click to: Buying guide" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-rail">Buying guide</button>
+</aside></div><div class="sg-filler" aria-hidden="true"><div class="sg-filler-inner"><a href="/misc/0" class="sg-btn sg-btn--ghost">Link 1</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 2</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/4" class="sg-btn sg-btn--ghost">Link 5</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 6</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/8" class="sg-btn sg-btn--ghost">Link 9</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 10</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/12" class="sg-btn sg-btn--ghost">Link 13</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 14</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/16" class="sg-btn sg-btn--ghost">Link 17</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 18</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/20" class="sg-btn sg-btn--ghost">Link 21</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-22" data-wci-desc="Click to: Action 22" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 22</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-8" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-8" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/24" class="sg-btn sg-btn--ghost">Link 25</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-26" data-wci-desc="Click to: Action 26" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 26</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-9" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-9" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/28" class="sg-btn sg-btn--ghost">Link 29</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-30" data-wci-desc="Click to: Action 30" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 30</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-10" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-10" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/32" class="sg-btn sg-btn--ghost">Link 33</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-34" data-wci-desc="Click to: Action 34" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 34</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-11" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-11" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/36" class="sg-btn sg-btn--ghost">Link 37</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-38" data-wci-desc="Click to: Action 38" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 38</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-12" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-12" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button><a href="/misc/40" class="sg-btn sg-btn--ghost">Link 41</a><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="action-42" data-wci-desc="Click to: Action 42" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Action 42</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="submit-13" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Submit</button><button type="button" class="sg-btn sg-btn--ghost" data-wci-role="action" data-wci-id="continue-13" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="ecommerce_search-page">Continue</button></div></div><button type="button" class="sg-btn sg-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="ecommerce_search-page">Hidden promo</button><footer class="sg-ftr" data-wci-role="landmark" data-wci-id="sg-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo ShopGrid</small> · <a href="/privacy" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-ftr">Privacy</a> · <a href="/terms" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="sg-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="sg-modal-backdrop" id="modal-backdrop"></div>
-<div class="sg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" aria-hidden="true">
+<div class="sg-modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" aria-hidden="true" data-wci-role="landmark" data-wci-id="sg-modal" data-wci-desc="Section for: Buying guide" data-wci-priority="3">
   <h2 id="help-title">Buying guide</h2>
   <p>For quick value picks during the flash sale, start with products rated at least 4 stars and a budget ceiling near $50.</p>
   <div class="sg-card__actions">
-    <button type="button" class="sg-btn sg-btn--primary" id="close-help">Got it</button>
+    <button type="button" class="sg-btn sg-btn--primary" id="close-help" data-wci-role="action" data-wci-id="close-help" data-wci-desc="Click to: Got it" data-wci-action="click" data-wci-priority="3" data-wci-scope="sg-modal">Got it</button>
   </div>
 </div>
 

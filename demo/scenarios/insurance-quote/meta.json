@@ -53,14 +53,14 @@
       "decoy-extra"
     ],
     "rawSelectors": [
-      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
-      "button[data-quote-zip=\"94105\"]"
+      "#get-auto-quote",
+      "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]"
     ]
   },
   "tasks": {
     "singleShot": {
       "goal": "Request an auto liability quote for ZIP 94105 (not full coverage or phone agent flow).",
-      "groundTruthSelector": "form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+      "groundTruthSelector": "#get-auto-quote",
       "groundTruthNodeId": "get-auto-quote"
     },
     "multiStep": [
@@ -75,7 +75,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+          "Final action uses ground-truth selector: #get-auto-quote",
           "Primary WCI action id: get-auto-quote",
           "No decoy ids triggered: decoy-nav, decoy-extra"
         ],
@@ -93,7 +93,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+            "step": "Execute final action at #get-auto-quote",
             "type": "act"
           },
           {
@@ -131,7 +131,7 @@
           "Avoid decoy controls (promo/nav/extra)"
         ],
         "completionCriteria": [
-          "Final action uses ground-truth selector: form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+          "Final action uses ground-truth selector: #get-auto-quote",
           "Primary WCI action id: get-auto-quote",
           "No decoy ids triggered: decoy-nav, decoy-extra"
         ],
@@ -145,7 +145,7 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector form button[data-quote-zip=\"94105\"][data-cov=\"liability\"]",
+            "step": "Execute primary selector #get-auto-quote",
             "type": "act"
           },
           {

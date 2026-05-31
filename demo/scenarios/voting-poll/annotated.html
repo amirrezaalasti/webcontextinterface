@@ -91,27 +91,27 @@ table{border-collapse:collapse}
 #measure12-confirm-modal{display:none;position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92vw,520px)}
 #measure12-confirm-modal.is-open{display:block}
 </style></head><body>
-<div class="vh-app" data-page="voting-poll" id="voting_poll-page" data-wci-id="voting_poll-page" data-wci-role="landmark" data-wci-desc="VoteHub ballot page root for the voting poll scenario" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="vh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner">
+<div class="vh-app" data-page="voting-poll" id="voting_poll-page" data-wci-role="landmark" data-wci-id="voting_poll-page" data-wci-desc="VoteHub — Ballot form." data-wci-priority="2"><div class="vh-cookie" role="dialog" aria-label="Cookie preferences" id="cookie-banner" data-wci-role="landmark" data-wci-id="vh-cookie" data-wci-desc="Landmark zone: cookie-banner" data-wci-priority="3">
   <p>We use cookies for analytics, ballot-session recovery, and accessibility improvements. Manage preferences or accept to continue.</p>
-  <button type="button" class="vh-btn vh-btn--muted" data-cookie-action="reject">Reject non-essential</button>
-  <button type="button" class="vh-btn vh-btn--primary" data-cookie-action="accept">Accept all</button>
-  <button type="button" class="vh-btn vh-btn--ghost" data-cookie-action="customize">Customize</button>
+  <button type="button" class="vh-btn vh-btn--muted" data-cookie-action="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-cookie">Reject non-essential</button>
+  <button type="button" class="vh-btn vh-btn--primary" data-cookie-action="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-cookie">Accept all</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-cookie-action="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-cookie">Customize</button>
 </div><div class="vh-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="vh-btn vh-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="vh-btn">Continue as guest — express</button>
-</div><header class="vh-hdr">
-  <nav class="vh-nav" aria-label="Global"><a href="#">Home</a><a href="#">Help</a><a href="#">Voter Guide</a><a href="#">Account</a></nav>
-  <div class="vh-hdr-promo"><span class="vh-status vh-status--info" aria-live="polite">Ballot session active</span><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Claim civic rewards</button>
-    <button type="button" class="vh-btn vh-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="vh-subnav" aria-label="Secondary"><a href="#">Overview</a><a href="#">Measures</a><a href="#">Candidates</a><a href="#">FAQ</a><a href="#">Support</a>
-  <button type="button" class="vh-btn vh-btn--ghost">Submit</button>
-  <button type="button" class="vh-btn vh-btn--ghost">Continue</button>
+  <button type="button" class="vh-btn vh-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="vh-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue as guest — express</button>
+</div><header class="vh-hdr" data-wci-role="landmark" data-wci-id="vh-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <nav class="vh-nav" aria-label="Global" data-wci-role="nav" data-wci-id="vh-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-nav">Home</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-nav">Help</a><a href="#" data-wci-role="nav" data-wci-id="voter-guide" data-wci-desc="Navigate to: Voter Guide" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-nav">Voter Guide</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-nav">Account</a></nav>
+  <div class="vh-hdr-promo"><span class="vh-status vh-status--info" aria-live="polite" data-wci-role="display" data-wci-id="vh-status" data-wci-desc="Display value: Ballot session active" data-wci-state="{&quot;value&quot;:&quot;Ballot session active&quot;}" data-wci-priority="4" data-wci-scope="vh-hdr">Ballot session active</span><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-civic-rewards" data-wci-desc="Click to: Claim civic rewards" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-hdr">Claim civic rewards</button>
+    <button type="button" class="vh-btn vh-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-hdr">Learn More</button></div>
+</header><nav class="vh-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="vh-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="overview" data-wci-desc="Navigate to: Overview" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-subnav">Overview</a><a href="#" data-wci-role="nav" data-wci-id="measures" data-wci-desc="Navigate to: Measures" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-subnav">Measures</a><a href="#" data-wci-role="nav" data-wci-id="candidates" data-wci-desc="Navigate to: Candidates" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-subnav">Candidates</a><a href="#" data-wci-role="nav" data-wci-id="faq" data-wci-desc="Navigate to: FAQ" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-subnav">FAQ</a><a href="#" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-subnav">Support</a>
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-subnav">Submit</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-subnav">Continue</button>
 </nav><div class="vh-dup-row" aria-label="Quick actions">
-  <button type="button" class="vh-btn vh-btn--ghost">Submit</button>
-  <button type="button" class="vh-btn vh-btn--ghost">Continue</button>
-  <button type="button" class="vh-btn vh-btn--ghost">Save changes</button>
-  <button type="button" class="vh-btn vh-btn--ghost">Confirm</button>
-</div><div class="vh-dup-row"><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">Cast vote Proposition 12</button><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-nav">Vote yes Proposition 12</button></div><div class="vh-page-wrap"><div class="vh-page-main"><main class="vh-wizard" role="main" aria-labelledby="ballot-title">
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Save changes</button>
+  <button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Confirm</button>
+</div><div class="vh-dup-row"><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="cast-vote-proposition-12" data-wci-desc="Click to: Cast vote Proposition 12" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Cast vote Proposition 12</button><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="vote-yes-proposition-12" data-wci-desc="Click to: Vote yes Proposition 12" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Vote yes Proposition 12</button></div><div class="vh-page-wrap"><div class="vh-page-main"><main class="vh-wizard" role="main" aria-labelledby="ballot-title" data-wci-role="landmark" data-wci-id="vh-wizard" data-wci-desc="Section for: Municipal Ballot — Local Measure Twelve" data-wci-priority="3">
   <div class="vh-steps" aria-label="Ballot progress">
     <div class="vh-step">Identity</div>
     <div class="vh-step is-active">Measures</div>
@@ -119,14 +119,14 @@ table{border-collapse:collapse}
     <div class="vh-step">Receipt</div>
   </div>
 
-  <section class="vh-panel" aria-labelledby="ballot-title">
+  <section class="vh-panel" aria-labelledby="ballot-title" data-wci-role="landmark" data-wci-id="vh-panel" data-wci-desc="Section for: Municipal Ballot — Local Measure Twelve" data-wci-priority="3">
     <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
       <div>
         <h1 id="ballot-title">Municipal Ballot — Local Measure Twelve</h1>
         <p>Record your position on Measure 12, then confirm and submit this item to your ballot review queue.</p>
       </div>
       <div>
-        <div id="voting-poll-smoke-status" class="vh-status vh-status--warn" data-smoke-status="">Awaiting ballot confirmation</div>
+        <div id="voting-poll-smoke-status" class="vh-status vh-status--warn" data-smoke-status="" data-wci-role="display" data-wci-id="voting-poll-smoke-status" data-wci-desc="Display value: Awaiting ballot confirmation" data-wci-state="{&quot;value&quot;:&quot;Awaiting ballot confirmation&quot;}" data-wci-priority="4" data-wci-scope="vh-panel">Awaiting ballot confirmation</div>
       </div>
     </div>
 
@@ -136,18 +136,18 @@ table{border-collapse:collapse}
 
     <div class="vh-split">
       <div>
-        <form id="measure12-form" data-measure="12" novalidate="">
+        <form id="measure12-form" data-measure="12" novalidate="" data-wci-role="landmark" data-wci-id="measure12-form" data-wci-desc="Section for: Live review" data-wci-priority="3">
           <fieldset aria-describedby="measure12-help measure12-error">
             <legend>Choose your vote for Measure 12</legend>
             <p id="measure12-help" class="vh-inline-note">Selecting <strong>Yes</strong> records an affirmative vote. You must also check the confirmation box before submission.</p>
 
             <label class="vh-choice" for="m12-no-card">
-              <input id="m12-no-card" type="radio" name="m12" value="no" aria-describedby="choice-no-desc">
+              <input id="m12-no-card" type="radio" name="m12" value="no" aria-describedby="choice-no-desc" data-wci-role="form" data-wci-id="m12-no-card" data-wci-desc="Field for: NoOppose Local Measure 12 as written." data-wci-action="click" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="measure12-form">
               <span><strong>No</strong><br><span id="choice-no-desc" class="vh-muted">Oppose Local Measure 12 as written.</span></span>
             </label>
 
             <label class="vh-choice is-selected" for="m12-yes-card">
-              <input id="m12-yes-card" type="radio" name="m12" value="yes" checked="" data-vote="yes" aria-describedby="choice-yes-desc">
+              <input id="m12-yes-card" type="radio" name="m12" value="yes" checked="" data-vote="yes" aria-describedby="choice-yes-desc" data-wci-role="form" data-wci-id="m12-yes-card" data-wci-desc="Field for: YesSupport Local Measure 12 and cast an affirmative vote. — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-state="{&quot;checked&quot;:true}" data-wci-priority="1" data-wci-scope="measure12-form" data-wci-competitor="true">
               <span><strong>Yes</strong><br><span id="choice-yes-desc" class="vh-muted">Support Local Measure 12 and cast an affirmative vote.</span></span>
             </label>
 
@@ -157,7 +157,7 @@ table{border-collapse:collapse}
           <fieldset aria-describedby="confirm-help confirm-error">
             <legend>Confirmation</legend>
             <label style="display:flex;gap:10px;align-items:flex-start;margin-top:0">
-              <input id="m12-confirm-check" type="checkbox">
+              <input id="m12-confirm-check" type="checkbox" data-wci-role="form" data-wci-id="m12-confirm-check" data-wci-desc="Field for: I confirm that my intended vote on Local Measure 12 is reflected above and I want to place it on my ballot. —" data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="1" data-wci-scope="measure12-form" data-wci-competitor="true">
               <span>I confirm that my intended vote on Local Measure 12 is reflected above and I want to place it on my ballot.</span>
             </label>
             <div id="confirm-help" class="vh-inline-note">For security, ballot items require a separate confirmation acknowledgment.</div>
@@ -165,7 +165,7 @@ table{border-collapse:collapse}
           </fieldset>
 
           <label for="voter-note">Optional private note</label>
-          <textarea id="voter-note" rows="3" maxlength="140" placeholder="Add a reminder for your ballot review (not submitted to election officials)."></textarea>
+          <textarea id="voter-note" rows="3" maxlength="140" placeholder="Add a reminder for your ballot review (not submitted to election officials)." data-wci-role="form" data-wci-id="voter-note" data-wci-desc="Text area for: Optional private note" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="measure12-form"></textarea>
           <div class="vh-inline-note">Characters remaining: <span id="note-counter">140</span></div>
 
           <div class="vh-review" aria-live="polite">
@@ -176,14 +176,14 @@ table{border-collapse:collapse}
           </div>
 
           <div class="vh-card__actions" style="margin-top:16px">
-            <button type="button" class="vh-btn vh-btn--ghost" id="preview-ballot-btn">Preview summary</button>
-            <button type="submit" class="vh-btn vh-btn--primary" data-measure-submit="12" id="vote-prop-12" data-wci-id="vote-prop-12" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action to confirm and submit an affirmative vote for Local Measure 12" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="voting_poll-page">Confirm</button>
+            <button type="button" class="vh-btn vh-btn--ghost" id="preview-ballot-btn" data-wci-role="action" data-wci-id="preview-ballot-btn" data-wci-desc="Click to: Preview summary" data-wci-action="click" data-wci-priority="3" data-wci-scope="measure12-form">Preview summary</button>
+            <button type="submit" class="vh-btn vh-btn--primary" data-measure-submit="12" id="vote-prop-12" data-wci-role="action" data-wci-id="vote-prop-12" data-wci-desc="Cast an affirmative vote on local measure twelve then submit ballot." data-wci-action="click" data-wci-priority="1" data-wci-scope="measure12-form" data-wci-primary="true">Confirm</button>
           </div>
         </form>
       </div>
 
       <div>
-        <article class="vh-card" aria-labelledby="measure-meta-title">
+        <article class="vh-card" aria-labelledby="measure-meta-title" data-wci-role="landmark" data-wci-id="vh-card" data-wci-desc="Section for: Ballot item details" data-wci-priority="3">
           <h2 id="measure-meta-title">Ballot item details</h2>
           <div class="vh-kv">
             <div class="vh-muted">Measure ID</div><div>12</div>
@@ -193,7 +193,7 @@ table{border-collapse:collapse}
           </div>
         </article>
 
-        <article class="vh-card">
+        <article class="vh-card" data-wci-role="landmark" data-wci-id="vh-card-2" data-wci-desc="Section for: Before you submit" data-wci-priority="3">
           <h2>Before you submit</h2>
           <ul>
             <li>Verify that your vote reflects your intent.</li>
@@ -202,7 +202,7 @@ table{border-collapse:collapse}
           </ul>
         </article>
 
-        <article class="vh-card">
+        <article class="vh-card" data-wci-role="landmark" data-wci-id="vh-card-3" data-wci-desc="Section for: Recent ballot activity" data-wci-priority="3">
           <h2>Recent ballot activity</h2>
           <table aria-label="Recent activity">
             <thead><tr><th>Time</th><th>Activity</th></tr></thead>
@@ -215,16 +215,16 @@ table{border-collapse:collapse}
       </div>
     </div>
   </section>
-</main></div><aside class="vh-rail vh-rail--ads" aria-label="Sponsored">
+</main></div><aside class="vh-rail vh-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="vh-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Review local transportation briefings and neighborhood policy newsletters.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="vh-filler" aria-hidden="true"><div class="vh-filler-inner"><a href="#" class="vh-btn vh-btn--ghost">Link 1</a><button type="button" class="vh-btn vh-btn--ghost">Action 2</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 5</a><button type="button" class="vh-btn vh-btn--ghost">Action 6</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 9</a><button type="button" class="vh-btn vh-btn--ghost">Action 10</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 13</a><button type="button" class="vh-btn vh-btn--ghost">Action 14</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button><a href="#" class="vh-btn vh-btn--ghost">Link 17</a><button type="button" class="vh-btn vh-btn--ghost">Action 18</button><button type="button" class="vh-btn vh-btn--ghost">Submit</button><button type="button" class="vh-btn vh-btn--ghost">Continue</button></div></div><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy extra promo node that should not be used for ballot submission" data-wci-priority="1" data-wci-scope="voting_poll-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="vh-ftr"><small>© Demo VoteHub</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-rail">Partner offer — limited time</a><br>
+  <button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-rail">View deal</button>
+</aside></div><div class="vh-filler" aria-hidden="true"><div class="vh-filler-inner"><a href="#" class="vh-btn vh-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="voting_poll-page">Link 1</a><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Action 2</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button><a href="#" class="vh-btn vh-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="voting_poll-page">Link 5</a><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Action 6</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button><a href="#" class="vh-btn vh-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="voting_poll-page">Link 9</a><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Action 10</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button><a href="#" class="vh-btn vh-btn--ghost" data-wci-role="nav" data-wci-id="link-13" data-wci-desc="Navigate to: Link 13" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="voting_poll-page">Link 13</a><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Action 14</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button><a href="#" class="vh-btn vh-btn--ghost" data-wci-role="nav" data-wci-id="link-17" data-wci-desc="Navigate to: Link 17" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="voting_poll-page">Link 17</a><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Action 18</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Submit</button><button type="button" class="vh-btn vh-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="voting_poll-page">Continue</button></div></div><button type="button" class="vh-btn vh-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="voting_poll-page">Hidden promo</button><footer class="vh-ftr" data-wci-role="landmark" data-wci-id="vh-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo VoteHub</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="vh-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="vh-modal-backdrop" id="modal-backdrop"></div>
-<div class="vh-modal" id="measure12-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+<div class="vh-modal" id="measure12-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" data-wci-role="landmark" data-wci-id="vh-modal" data-wci-desc="Section for: Ballot preview" data-wci-priority="3">
   <h2 id="modal-title" style="margin-top:0">Ballot preview</h2>
   <p id="modal-desc">Review your current vote before placing it on your ballot.</p>
   <div class="vh-review">
@@ -234,8 +234,8 @@ table{border-collapse:collapse}
     <p><strong>Private note:</strong> <span id="modal-note">No note added.</span></p>
   </div>
   <div class="vh-card__actions">
-    <button type="button" class="vh-btn vh-btn--ghost" id="close-modal-btn">Close</button>
-    <button type="button" class="vh-btn vh-btn--primary" id="apply-from-modal-btn">Looks good</button>
+    <button type="button" class="vh-btn vh-btn--ghost" id="close-modal-btn" data-wci-role="action" data-wci-id="close-modal-btn" data-wci-desc="Click to: Close" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-modal">Close</button>
+    <button type="button" class="vh-btn vh-btn--primary" id="apply-from-modal-btn" data-wci-role="action" data-wci-id="apply-from-modal-btn" data-wci-desc="Click to: Looks good" data-wci-action="click" data-wci-priority="3" data-wci-scope="vh-modal">Looks good</button>
   </div>
 </div>
 

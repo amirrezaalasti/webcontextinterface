@@ -3,9 +3,12 @@
   "title": "AuthGate",
   "icon": "🔐",
   "difficulty": "Very Hard",
-  "description": "Admin panel.",
+  "description": "Admin password-reset wizard with disable-account decoys and keyword traps.",
   "challenges": [
-    "Disable"
+    "Disable vs reset",
+    "Keyword traps",
+    "Generic Submit/Confirm decoys",
+    "Identity verification gate"
   ],
   "task": {
     "goal": "Send password reset link to user@corp.com (not disable account).",
@@ -48,6 +51,7 @@
     "wciNodeId": "send-reset-link",
     "acceptableNodeIds": [],
     "decoyNodeIds": [
+      "decoy-promo",
       "decoy-nav",
       "decoy-extra"
     ],
@@ -68,14 +72,14 @@
         "goal": "Send password reset link to user@corp.com (not disable account). Complete with explicit verification and no decoy interactions.",
         "difficulty": "Very Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Confirm recipient is user@corp.com",
+          "Avoid disable/suspend decoys (sidebar, inline, related tools)"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: button[data-action=\"send-reset\"]",
           "Primary WCI action id: send-reset-link",
-          "No decoy ids triggered: decoy-nav, decoy-extra"
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
         ],
         "standardFlow": [
           {
@@ -121,17 +125,17 @@
       {
         "id": "password-reset.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Send password reset link to user@corp.com (not disable account). First validate key constraints (disable) then execute and verify.",
+        "goal": "Send password reset link to user@corp.com (not disable account). First validate disable-vs-reset constraints then execute and verify.",
         "difficulty": "Very Hard",
         "prerequisites": [
-          "Dismiss overlays if present",
-          "Stay on current app flow (avoid external navigation)",
-          "Avoid decoy controls (promo/nav/extra)"
+          "Dismiss cookie banner if present",
+          "Confirm recipient is user@corp.com",
+          "Avoid disable/suspend decoys (sidebar, inline, related tools)"
         ],
         "completionCriteria": [
           "Final action uses ground-truth selector: button[data-action=\"send-reset\"]",
           "Primary WCI action id: send-reset-link",
-          "No decoy ids triggered: decoy-nav, decoy-extra"
+          "No decoy ids triggered: decoy-promo, decoy-nav, decoy-extra"
         ],
         "standardFlow": [
           {

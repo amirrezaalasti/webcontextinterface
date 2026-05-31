@@ -105,37 +105,37 @@ table{border-collapse:collapse}
 .pm-check.ok{color:#166534}.pm-check.no{color:#b91c1c}
 .pm-mini{font-size:12px;color:#64748b}
 </style></head><body>
-<div class="pm-app" data-page="pet-adoption" id="pet_adoption-page" data-wci-id="pet_adoption-page" data-wci-role="landmark" data-wci-desc="Pet adoption page root for PawMatch" data-wci-priority="1" data-wci-action="navigate" data-wci-state="{&quot;ready&quot;:true}"><div class="pm-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner">
+<div class="pm-app" data-page="pet-adoption" id="pet_adoption-page" data-wci-role="landmark" data-wci-id="pet_adoption-page" data-wci-desc="PawMatch — Pet page." data-wci-priority="2"><div class="pm-cookie" role="dialog" aria-label="Cookie preferences" id="cookieBanner" data-wci-role="landmark" data-wci-id="pm-cookie" data-wci-desc="Landmark zone: cookieBanner" data-wci-priority="3">
   <p>We use cookies for analytics, personalization, and ads. Manage preferences or accept to continue.</p>
-  <button type="button" class="pm-btn pm-btn--muted" data-cookie="reject">Reject non-essential</button>
-  <button type="button" class="pm-btn pm-btn--primary" data-cookie="accept">Accept all</button>
-  <button type="button" class="pm-btn pm-btn--ghost" data-cookie="customize">Customize</button>
+  <button type="button" class="pm-btn pm-btn--muted" data-cookie="reject" data-wci-role="action" data-wci-id="reject-non-essential" data-wci-desc="Click to: Reject non-essential" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-cookie">Reject non-essential</button>
+  <button type="button" class="pm-btn pm-btn--primary" data-cookie="accept" data-wci-role="action" data-wci-id="accept-all" data-wci-desc="Click to: Accept all" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-cookie">Accept all</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-cookie="customize" data-wci-role="action" data-wci-id="customize" data-wci-desc="Click to: Customize" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-cookie">Customize</button>
 </div><div class="pm-ab" data-experiment="checkout-v3" data-variant="B" aria-hidden="true">
-  <button type="button" class="pm-btn pm-btn--primary">COMPLETE ORDER NOW</button>
-  <button type="button" class="pm-btn">Continue as guest — express</button>
-</div><header class="pm-hdr">
-  <nav class="pm-nav" aria-label="Global"><a href="#">Home</a><a href="#">Find a pet</a><a href="#">Shelters</a><a href="#">Help</a><a href="#">Account</a></nav>
-  <div class="pm-hdr-promo"><span class="pm-badge">87 pets nearby</span><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Claim Offer</button>
-    <button type="button" class="pm-btn pm-btn--ghost" data-decoy="decoy-nav">Learn More</button></div>
-</header><nav class="pm-subnav" aria-label="Secondary"><a href="#profile">Profile</a><a href="#care">Care details</a><a href="#application">Application</a><a href="#faq">FAQ</a><a href="#support">Support</a>
-  <button type="button" class="pm-btn pm-btn--ghost">Submit</button>
-  <button type="button" class="pm-btn pm-btn--ghost">Continue</button>
+  <button type="button" class="pm-btn pm-btn--primary" data-wci-role="action" data-wci-id="complete-order-now" data-wci-desc="Click to: COMPLETE ORDER NOW" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">COMPLETE ORDER NOW</button>
+  <button type="button" class="pm-btn" data-wci-role="action" data-wci-id="continue-as-guest-express" data-wci-desc="Click to: Continue as guest — express" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue as guest — express</button>
+</div><header class="pm-hdr" data-wci-role="landmark" data-wci-id="pm-hdr" data-wci-desc="Landmark zone for header" data-wci-priority="3">
+  <nav class="pm-nav" aria-label="Global" data-wci-role="nav" data-wci-id="pm-nav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#" data-wci-role="nav" data-wci-id="home" data-wci-desc="Navigate to: Home" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-nav">Home</a><a href="#" data-wci-role="nav" data-wci-id="find-a-pet" data-wci-desc="Navigate to: Find a pet" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-nav">Find a pet</a><a href="#" data-wci-role="nav" data-wci-id="shelters" data-wci-desc="Navigate to: Shelters" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-nav">Shelters</a><a href="#" data-wci-role="nav" data-wci-id="help" data-wci-desc="Navigate to: Help" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-nav">Help</a><a href="#" data-wci-role="nav" data-wci-id="account" data-wci-desc="Navigate to: Account" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-nav">Account</a></nav>
+  <div class="pm-hdr-promo"><span class="pm-badge" data-wci-role="display" data-wci-id="pm-badge" data-wci-desc="Display value: 87 pets nearby" data-wci-state="{&quot;value&quot;:&quot;87 pets nearby&quot;}" data-wci-priority="4" data-wci-scope="pm-hdr">87 pets nearby</span><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="claim-offer" data-wci-desc="Click to: Claim Offer" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-hdr">Claim Offer</button>
+    <button type="button" class="pm-btn pm-btn--ghost" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="learn-more" data-wci-desc="Click to: Learn More" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-hdr">Learn More</button></div>
+</header><nav class="pm-subnav" aria-label="Secondary" data-wci-role="nav" data-wci-id="pm-subnav" data-wci-desc="Landmark zone for nav" data-wci-priority="3"><a href="#profile" data-wci-role="nav" data-wci-id="profile" data-wci-desc="Navigate to: Profile" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-subnav">Profile</a><a href="#care" data-wci-role="nav" data-wci-id="care-details" data-wci-desc="Navigate to: Care details" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-subnav">Care details</a><a href="#application" data-wci-role="nav" data-wci-id="application" data-wci-desc="Navigate to: Application" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-subnav">Application</a><a href="#faq" data-wci-role="nav" data-wci-id="faq-2" data-wci-desc="Navigate to: FAQ" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-subnav">FAQ</a><a href="#support" data-wci-role="nav" data-wci-id="support" data-wci-desc="Navigate to: Support" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-subnav">Support</a>
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-subnav">Submit</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-subnav">Continue</button>
 </nav><div class="pm-dup-row" aria-label="Quick actions">
-  <button type="button" class="pm-btn pm-btn--ghost">Submit</button>
-  <button type="button" class="pm-btn pm-btn--ghost">Continue</button>
-  <button type="button" class="pm-btn pm-btn--ghost">Save changes</button>
-  <button type="button" class="pm-btn pm-btn--ghost">Confirm</button>
-</div><div class="pm-dup-row"><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">Submit adoption Max</button><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-nav">Apply adopt Max dog</button></div><div class="pm-page-wrap"><div class="pm-page-main"><main role="main" class="pm-wizard">
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-2" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-2" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="save-changes" data-wci-desc="Click to: Save changes" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Save changes</button>
+  <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="confirm" data-wci-desc="Click to: Confirm" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Confirm</button>
+</div><div class="pm-dup-row"><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="submit-adoption-max" data-wci-desc="Click to: Submit adoption Max — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="pet_adoption-page" data-wci-competitor="true">Submit adoption Max</button><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-nav" data-wci-role="action" data-wci-id="apply-adopt-max-dog" data-wci-desc="Click to: Apply adopt Max dog — plausible alternative (not primary for this goal)" data-wci-action="click" data-wci-priority="1" data-wci-scope="pet_adoption-page" data-wci-competitor="true">Apply adopt Max dog</button></div><div class="pm-page-wrap"><div class="pm-page-main"><main role="main" class="pm-wizard" data-wci-role="landmark" data-wci-id="pm-wizard" data-wci-desc="Section for: Max" data-wci-priority="3">
   <div class="pm-status-bar">
     <div class="pm-smoke" id="pet-adoption-smoke-status">Smoke status: waiting for adoption action</div>
     <div class="pm-mini" id="interestCounter">12 people bookmarked Max this week</div>
     <div class="pm-mini" id="draftStatus">Application draft: incomplete</div>
   </div>
 
-  <section class="pm-hero" id="profile" data-pet="max">
+  <section class="pm-hero" id="profile" data-pet="max" data-wci-role="landmark" data-wci-id="apply-adopt-max-scope" data-wci-desc="Target scope for apply-adopt-max" data-wci-state="{&quot;pet&quot;:&quot;max&quot;}" data-wci-priority="2">
     <div class="pm-pet-photo" aria-label="Illustration of Max the dog"><div class="pm-pet-face"><i class="e1"></i><i class="e2"></i><i class="n"></i><div class="m"></div></div></div>
     <div>
-      <div><span class="pm-badge">Available for adoption</span><span class="pm-badge pm-badge--warn" id="profileEnergy">High energy</span></div>
+      <div><span class="pm-badge" data-wci-role="display" data-wci-id="pm-badge-2" data-wci-desc="Display value: Available for adoption" data-wci-state="{&quot;value&quot;:&quot;Available for adoption&quot;}" data-wci-priority="4" data-wci-scope="apply-adopt-max-scope">Available for adoption</span><span class="pm-badge pm-badge--warn" id="profileEnergy" data-wci-role="display" data-wci-id="profileenergy" data-wci-desc="Display value: High energy" data-wci-state="{&quot;value&quot;:&quot;High energy&quot;}" data-wci-priority="4" data-wci-scope="apply-adopt-max-scope">High energy</span></div>
       <h1 style="margin:8px 0 8px">Max</h1>
       <p>Max is a 2-year-old mixed breed dog with a playful personality, great leash manners, and a soft spot for squeaky toys. He is currently fostered through PawMatch Rescue and is ready to meet families who can provide daily exercise, patience during transitions, and a fenced yard or committed outdoor routine.</p>
       <div class="pm-meta">
@@ -145,17 +145,17 @@ table{border-collapse:collapse}
         <div class="pm-stat"><span>Location</span><strong>Austin, TX</strong></div>
       </div>
       <div class="pm-card__actions">
-        <button type="button" class="pm-btn pm-btn--primary" data-adopt="max" id="apply-adopt-max" data-wci-id="apply-adopt-max" data-wci-role="action" data-wci-action="click" data-wci-desc="Primary action button to apply to adopt Max" data-wci-priority="1" data-wci-state="{&quot;ready&quot;:true}" data-wci-scope="pet_adoption-page">Apply to adopt Max</button>
-        <button type="button" class="pm-btn" id="bookmarkBtn">Save profile</button>
-        <button type="button" class="pm-btn pm-btn--ghost" id="toggleCareBtn" aria-expanded="true">Hide care summary</button>
+        <button type="button" class="pm-btn pm-btn--primary" data-adopt="max" id="apply-adopt-max" data-wci-role="action" data-wci-id="apply-adopt-max" data-wci-desc="Submit adoption application for dog Max profile." data-wci-action="click" data-wci-priority="1" data-wci-scope="apply-adopt-max-scope" data-wci-primary="true">Apply to adopt Max</button>
+        <button type="button" class="pm-btn" id="bookmarkBtn" data-wci-role="action" data-wci-id="bookmarkbtn" data-wci-desc="Click to: Save profile" data-wci-action="click" data-wci-priority="3" data-wci-scope="apply-adopt-max-scope">Save profile</button>
+        <button type="button" class="pm-btn pm-btn--ghost" id="toggleCareBtn" aria-expanded="true" data-wci-role="action" data-wci-id="togglecarebtn" data-wci-desc="Click to: Hide care summary" data-wci-action="click" data-wci-priority="3" data-wci-scope="apply-adopt-max-scope">Hide care summary</button>
       </div>
       <p class="pm-help">Tip: completing the application below unlocks a prefilled summary in the final review modal.</p>
     </div>
   </section>
 
   <div class="pm-columns">
-    <section>
-      <article id="care">
+    <section data-wci-role="landmark" data-wci-id="section" data-wci-desc="Section for: Care and compatibility" data-wci-priority="3">
+      <article id="care" data-wci-role="landmark" data-wci-id="care" data-wci-desc="Section for: Care and compatibility" data-wci-priority="3">
         <h2>Care and compatibility</h2>
         <p id="careSummary">Best in an active household. Max has lived with older children, enjoys structured play, and benefits from slow introductions to unfamiliar dogs. He is crate trained at night and responds well to treat-based training.</p>
         <table aria-label="Pet details">
@@ -169,7 +169,7 @@ table{border-collapse:collapse}
         </table>
       </article>
 
-      <article id="application" class="pm-panel">
+      <article id="application" class="pm-panel" data-wci-role="landmark" data-wci-id="pm-panel" data-wci-desc="Section for: Adoption application" data-wci-priority="3">
         <div class="pm-steps" aria-label="Application steps">
           <div class="pm-step is-active">1. Applicant</div>
           <div class="pm-step">2. Home</div>
@@ -177,26 +177,26 @@ table{border-collapse:collapse}
         </div>
         <h2>Adoption application</h2>
         <p>Tell PawMatch a bit about your home and experience. Fields marked with plain labels can be misleading—review carefully before submitting.</p>
-        <form id="adoptionForm" novalidate="">
+        <form id="adoptionForm" novalidate="" data-wci-role="landmark" data-wci-id="adoptionform" data-wci-desc="Landmark zone: adoptionForm" data-wci-priority="3">
           <div class="pm-form-grid">
             <div>
               <label for="fullName">Name</label>
-              <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Jordan Lee">
+              <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Jordan Lee" data-wci-role="form" data-wci-id="fullname" data-wci-desc="Field for: Name" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="adoptionform">
               <div class="pm-error" id="fullNameError" aria-live="polite"></div>
             </div>
             <div>
               <label for="emailAddress">Contact</label>
-              <input id="emailAddress" name="emailAddress" type="email" autocomplete="email" placeholder="you@example.com">
+              <input id="emailAddress" name="emailAddress" type="email" autocomplete="email" placeholder="you@example.com" data-wci-role="form" data-wci-id="emailaddress" data-wci-desc="Field for: Contact" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="adoptionform">
               <div class="pm-error" id="emailError" aria-live="polite"></div>
             </div>
             <div>
               <label for="phoneNumber">Phone</label>
-              <input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" placeholder="(555) 123-4567">
+              <input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" placeholder="(555) 123-4567" data-wci-role="form" data-wci-id="phonenumber" data-wci-desc="Field for: Phone" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="adoptionform">
               <div class="pm-error" id="phoneError" aria-live="polite"></div>
             </div>
             <div>
               <label for="housingType">Residence</label>
-              <select id="housingType" name="housingType">
+              <select id="housingType" name="housingType" data-wci-role="form" data-wci-id="housingtype" data-wci-desc="Dropdown to select: Residence" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Choose one&quot;}" data-wci-options="[&quot;Choose one&quot;,&quot;Apartment&quot;,&quot;Townhome&quot;,&quot;House&quot;,&quot;Rural property&quot;]" data-wci-priority="3" data-wci-scope="adoptionform">
                 <option value="">Choose one</option>
                 <option>Apartment</option>
                 <option>Townhome</option>
@@ -210,7 +210,7 @@ table{border-collapse:collapse}
           <fieldset>
             <legend>Home details</legend>
             <label for="yardSize">Outdoor access</label>
-            <select id="yardSize" name="yardSize">
+            <select id="yardSize" name="yardSize" data-wci-role="form" data-wci-id="yardsize" data-wci-desc="Dropdown to select: Outdoor access" data-wci-action="select" data-wci-state="{&quot;selected&quot;:&quot;Select access type&quot;}" data-wci-options="[&quot;Select access type&quot;,&quot;No private yard&quot;,&quot;Shared outdoor area&quot;,&quot;Small fenced yard&quot;,&quot;Large fenced yard&quot;]" data-wci-priority="3" data-wci-scope="adoptionform">
               <option value="">Select access type</option>
               <option value="none">No private yard</option>
               <option value="shared">Shared outdoor area</option>
@@ -220,20 +220,20 @@ table{border-collapse:collapse}
             <div class="pm-error" id="yardError" aria-live="polite"></div>
 
             <label for="experienceYears">Years</label>
-            <input id="experienceYears" name="experienceYears" type="number" min="0" max="40" step="1" placeholder="3">
+            <input id="experienceYears" name="experienceYears" type="number" min="0" max="40" step="1" placeholder="3" data-wci-role="form" data-wci-id="experienceyears" data-wci-desc="Field for: Years" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="adoptionform">
             <div class="pm-help">This refers to prior dog-care experience, not years at your current address.</div>
             <div class="pm-error" id="experienceError" aria-live="polite"></div>
 
             <label for="scheduleNotes">Schedule</label>
-            <textarea id="scheduleNotes" name="scheduleNotes" rows="5" placeholder="Describe a typical weekday, exercise time, and who will care for Max when you are away."></textarea>
+            <textarea id="scheduleNotes" name="scheduleNotes" rows="5" placeholder="Describe a typical weekday, exercise time, and who will care for Max when you are away." data-wci-role="form" data-wci-id="schedulenotes" data-wci-desc="Text area for: Schedule" data-wci-action="fill" data-wci-state="{&quot;value&quot;:&quot;&quot;}" data-wci-priority="3" data-wci-scope="adoptionform"></textarea>
             <div class="pm-error" id="scheduleError" aria-live="polite"></div>
           </fieldset>
 
           <fieldset>
             <legend>Readiness checklist</legend>
-            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeVisits" name="agreeVisits" style="margin-top:2px"> I can participate in a virtual or in-person home check if requested.</label>
-            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCare" name="agreeCare" style="margin-top:2px"> I understand Max may need decompression time and gradual introductions.</label>
-            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCosts" name="agreeCosts" style="margin-top:2px"> I am prepared for routine veterinary care, food, and training expenses.</label>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeVisits" name="agreeVisits" style="margin-top:2px" data-wci-role="form" data-wci-id="agreevisits" data-wci-desc="Field for: I can participate in a virtual or in-person home check if requested." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="adoptionform"> I can participate in a virtual or in-person home check if requested.</label>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCare" name="agreeCare" style="margin-top:2px" data-wci-role="form" data-wci-id="agreecare" data-wci-desc="Field for: I understand Max may need decompression time and gradual introductions." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="adoptionform"> I understand Max may need decompression time and gradual introductions.</label>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-weight:400"><input type="checkbox" id="agreeCosts" name="agreeCosts" style="margin-top:2px" data-wci-role="form" data-wci-id="agreecosts" data-wci-desc="Field for: I am prepared for routine veterinary care, food, and training expenses." data-wci-action="check" data-wci-state="{&quot;checked&quot;:false}" data-wci-priority="3" data-wci-scope="adoptionform"> I am prepared for routine veterinary care, food, and training expenses.</label>
             <div class="pm-error" id="checklistError" aria-live="polite"></div>
           </fieldset>
 
@@ -241,7 +241,7 @@ table{border-collapse:collapse}
         </form>
       </article>
 
-      <article id="faq">
+      <article id="faq" data-wci-role="landmark" data-wci-id="faq" data-wci-desc="Section for: Adoption FAQ" data-wci-priority="3">
         <h2>Adoption FAQ</h2>
         <ul>
           <li><strong>How long does review take?</strong><br>Most completed applications receive a response within 2–3 business days.</li>
@@ -251,8 +251,8 @@ table{border-collapse:collapse}
       </article>
     </section>
 
-    <aside>
-      <article class="pm-card">
+    <aside data-wci-role="landmark" data-wci-id="aside" data-wci-desc="Section for: Application completeness" data-wci-priority="3">
+      <article class="pm-card" data-wci-role="landmark" data-wci-id="pm-card" data-wci-desc="Section for: Application completeness" data-wci-priority="3">
         <h3>Application completeness</h3>
         <ul class="pm-checklist" id="completionList">
           <li><span>Applicant info</span><span class="pm-check no" id="checkApplicant">Missing</span></li>
@@ -262,32 +262,32 @@ table{border-collapse:collapse}
         <div class="pm-mini">Only the real adoption button on Max's profile opens final submission.</div>
       </article>
 
-      <article class="pm-card" id="support">
+      <article class="pm-card" id="support" data-wci-role="landmark" data-wci-id="pm-card-2" data-wci-desc="Section for: Foster notes" data-wci-priority="3">
         <h3>Foster notes</h3>
         <p>Max settles quickly after walks, loves frozen enrichment toys, and sleeps through the night in his crate. He knows sit, down, and touch.</p>
         <div class="pm-card__actions">
-          <button type="button" class="pm-btn pm-btn--muted">Request callback</button>
-          <button type="button" class="pm-btn pm-btn--ghost">Share profile</button>
+          <button type="button" class="pm-btn pm-btn--muted" data-wci-role="action" data-wci-id="request-callback" data-wci-desc="Click to: Request callback" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-card-2">Request callback</button>
+          <button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="share-profile" data-wci-desc="Click to: Share profile" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-card-2">Share profile</button>
         </div>
       </article>
     </aside>
   </div>
-</main></div><aside class="pm-rail pm-rail--ads" aria-label="Sponsored">
+</main></div><aside class="pm-rail pm-rail--ads" aria-label="Sponsored" data-wci-role="landmark" data-wci-id="pm-rail" data-wci-desc="Landmark zone for aside" data-wci-priority="3">
   <div><strong>Sponsored</strong></div>
   <p>Need pet insurance after adoption? Compare starter plans from local partners.</p>
-  <a href="#">Partner offer — limited time</a><br>
-  <button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo">View deal</button>
-</aside></div><div class="pm-filler" aria-hidden="true"><div class="pm-filler-inner"><a href="#" class="pm-btn pm-btn--ghost">Link 1</a><button type="button" class="pm-btn pm-btn--ghost">Action 2</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 5</a><button type="button" class="pm-btn pm-btn--ghost">Action 6</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 9</a><button type="button" class="pm-btn pm-btn--ghost">Action 10</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 13</a><button type="button" class="pm-btn pm-btn--ghost">Action 14</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button><a href="#" class="pm-btn pm-btn--ghost">Link 17</a><button type="button" class="pm-btn pm-btn--ghost">Action 18</button><button type="button" class="pm-btn pm-btn--ghost">Submit</button><button type="button" class="pm-btn pm-btn--ghost">Continue</button></div></div><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-id="decoy-extra" data-wci-role="action" data-wci-action="click" data-wci-desc="Hidden decoy promo control that should not be used" data-wci-priority="1" data-wci-scope="pet_adoption-page" data-wci-state="{&quot;ready&quot;:true}">Hidden promo</button><footer class="pm-ftr"><small>© Demo PawMatch</small> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+  <a href="#" data-wci-role="nav" data-wci-id="partner-offer-limited-time" data-wci-desc="Navigate to: Partner offer — limited time" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-rail">Partner offer — limited time</a><br>
+  <button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-promo" data-wci-role="action" data-wci-id="view-deal" data-wci-desc="Click to: View deal" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-rail">View deal</button>
+</aside></div><div class="pm-filler" aria-hidden="true"><div class="pm-filler-inner"><a href="#" class="pm-btn pm-btn--ghost" data-wci-role="nav" data-wci-id="link-1" data-wci-desc="Navigate to: Link 1" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pet_adoption-page">Link 1</a><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="action-2" data-wci-desc="Click to: Action 2" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Action 2</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-3" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-3" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button><a href="#" class="pm-btn pm-btn--ghost" data-wci-role="nav" data-wci-id="link-5" data-wci-desc="Navigate to: Link 5" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pet_adoption-page">Link 5</a><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="action-6" data-wci-desc="Click to: Action 6" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Action 6</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-4" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-4" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button><a href="#" class="pm-btn pm-btn--ghost" data-wci-role="nav" data-wci-id="link-9" data-wci-desc="Navigate to: Link 9" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pet_adoption-page">Link 9</a><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="action-10" data-wci-desc="Click to: Action 10" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Action 10</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-5" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-5" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button><a href="#" class="pm-btn pm-btn--ghost" data-wci-role="nav" data-wci-id="link-13" data-wci-desc="Navigate to: Link 13" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pet_adoption-page">Link 13</a><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="action-14" data-wci-desc="Click to: Action 14" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Action 14</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-6" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-6" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button><a href="#" class="pm-btn pm-btn--ghost" data-wci-role="nav" data-wci-id="link-17" data-wci-desc="Navigate to: Link 17" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pet_adoption-page">Link 17</a><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="action-18" data-wci-desc="Click to: Action 18" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Action 18</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="submit-7" data-wci-desc="Click to: Submit" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Submit</button><button type="button" class="pm-btn pm-btn--ghost" data-wci-role="action" data-wci-id="continue-7" data-wci-desc="Click to: Continue" data-wci-action="click" data-wci-priority="3" data-wci-scope="pet_adoption-page">Continue</button></div></div><button type="button" class="pm-btn pm-btn--decoy" data-decoy="decoy-extra" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden" data-wci-role="action" data-wci-id="decoy-extra" data-wci-desc="Decoy control — do not use for the task goal" data-wci-action="click" data-wci-priority="5" data-wci-scope="pet_adoption-page">Hidden promo</button><footer class="pm-ftr" data-wci-role="landmark" data-wci-id="pm-ftr" data-wci-desc="Landmark zone for footer" data-wci-priority="3"><small>© Demo PawMatch</small> · <a href="#" data-wci-role="nav" data-wci-id="privacy" data-wci-desc="Navigate to: Privacy" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-ftr">Privacy</a> · <a href="#" data-wci-role="nav" data-wci-id="terms" data-wci-desc="Navigate to: Terms" data-wci-action="navigate" data-wci-priority="4" data-wci-scope="pm-ftr">Terms</a>
   <span> · Sponsored content may appear in feeds.</span></footer><div class="px-track" style="position:absolute;width:1px;height:1px;overflow:hidden" aria-hidden="true"><img src="/px.gif" alt=""></div>
 
 <div class="pm-overlay" id="modalOverlay"></div>
-<div class="pm-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+<div class="pm-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle" data-wci-role="landmark" data-wci-id="pm-modal" data-wci-desc="Section for: Review adoption application" data-wci-priority="3">
   <h2 id="reviewTitle" style="margin-top:0">Review adoption application</h2>
   <p>Please confirm that the information below is accurate before sending your request for Max.</p>
   <div class="pm-note" id="reviewSummary">No summary yet.</div>
   <div class="pm-card__actions" style="margin-top:14px">
-    <button type="button" class="pm-btn pm-btn--primary" id="finalSubmitBtn">Send application</button>
-    <button type="button" class="pm-btn" id="closeModalBtn">Keep editing</button>
+    <button type="button" class="pm-btn pm-btn--primary" id="finalSubmitBtn" data-wci-role="action" data-wci-id="finalsubmitbtn" data-wci-desc="Click to: Send application" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-modal">Send application</button>
+    <button type="button" class="pm-btn" id="closeModalBtn" data-wci-role="action" data-wci-id="closemodalbtn" data-wci-desc="Click to: Keep editing" data-wci-action="click" data-wci-priority="3" data-wci-scope="pm-modal">Keep editing</button>
   </div>
   <div class="pm-success" id="submitResult" aria-live="polite"></div>
 </div>
