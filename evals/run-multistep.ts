@@ -25,6 +25,7 @@ import { EVAL_MODELS, queryModel } from './lib/llm';
 import { closeBrowser, resolveGroundTruthLocator, scoreRawPrediction } from './lib/playwright-validate';
 import { scoreFlowCoverage } from './lib/flow-coverage';
 import { buildMultistepEvalContext } from './lib/multistep-prompt';
+import { listCompetitorNodeIds } from './lib/competitor-nodes';
 import { extractCssSelector, resolveWciNodeId, scoreWciPrediction } from './lib/scorers';
 
 dotenv.config();
@@ -270,14 +271,18 @@ async function evaluateTaskRun(
 
   if (isWciContextKind(approach)) {
     const validIds = listAnnotatedNodeIds(s.annotatedHtml);
+    const competitorIds = listCompetitorNodeIds(s.annotatedHtml);
     parsedFinalAction = resolveWciNodeId(candidates, validIds);
     if (!parsedFinalAction) {
       validationError = 'missing or invalid WCI node id in final_action';
     } else {
-      const r = scoreWciPrediction(parsedFinalAction, gt, validIds);
+      const r = scoreWciPrediction(parsedFinalAction, gt, validIds, competitorIds);
       correctFinalAction = r.correct;
       hitDecoy = r.hitDecoy;
       parsedFinalAction = r.parsed;
+      if (parsedFinalAction && !r.correct && competitorIds.includes(parsedFinalAction)) {
+        validationError = 'final_action is a competitor trap (data-wci-competitor)';
+      }
     }
   } else {
     let raw = parsed.final_action?.trim() || null;
@@ -502,7 +507,7 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         methodology:
-          'Multi-step evaluation over tasks.multiStep (primary task only). WCI pass = correct final_action node id and no decoy. Baselines pass = correct final action plus robust flow coverage. WCI prompt = v2 compact rows (evals/lib/wci-eval-distill.ts).',
+          'Multi-step evaluation over tasks.multiStep (primary task only). WCI pass = correct final_action node id and no decoy/competitor. Baselines pass = correct final action plus flow coverage (minCoverage). WCI prompt = v2 pipe rows; flow metadata sanitized; competitors marked x.',
         minCoverage: args.minCoverage,
         approaches: args.approaches,
         scenarioCount: scenarios.length,

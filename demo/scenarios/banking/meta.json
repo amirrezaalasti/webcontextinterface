@@ -15,7 +15,7 @@
     "Bill pay, cards, and investments pages add realistic navigation noise"
   ],
   "task": {
-    "goal": "Transfer $500 from Checking to Savings account",
+    "goal": "Transfer $500 from Checking to Savings account Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -134,7 +134,7 @@
       {
         "id": "banking.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page.",
+        "goal": "Transfer $500 from Checking to Savings account Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -154,12 +154,12 @@
             "note": "Agent finds 150+ elements including hidden session dialog and chat widget"
           },
           {
-            "step": "click: Transfer button on checking card",
+            "step": "click: [target] [target]",
             "type": "act",
             "note": "Multiple \"Transfer\" buttons — unclear which one to use"
           },
           {
-            "step": "click: sidebar Transfer nav link",
+            "step": "click: [target] Transfer nav link",
             "type": "error",
             "note": "Navigates to separate transfer page instead of quick transfer"
           },
@@ -169,27 +169,27 @@
             "note": "Returns to dashboard"
           },
           {
-            "step": "fill: xfer-from select",
+            "step": "fill: [target] select",
             "type": "act",
             "note": "Locates form but unsure which select is source vs destination"
           },
           {
-            "step": "fill: xfer-amount input",
+            "step": "fill: [target] input",
             "type": "act",
             "note": "Enters amount"
           },
           {
-            "step": "click: Review Transfer button",
+            "step": "click: [target] Transfer button",
             "type": "error",
             "note": "Button is disabled — agent doesn't know why"
           },
           {
-            "step": "fill: correct fields",
+            "step": "fill: [target] fields",
             "type": "act",
             "note": "Eventually fills all fields correctly"
           },
           {
-            "step": "click: Review Transfer button",
+            "step": "click: [target] Transfer button",
             "type": "act",
             "note": "Button now enabled, clicks it"
           },
@@ -201,27 +201,27 @@
         ],
         "wciFlow": [
           {
-            "step": "read: quick-transfer scope",
+            "step": "read: [target] scope",
             "type": "act",
             "note": "Sees transfer form with typed fields and preconditions"
           },
           {
-            "step": "select: transfer-from",
+            "step": "select: [target]",
             "type": "act",
             "note": "Selects \"Checking\" — knows balance from state"
           },
           {
-            "step": "select: transfer-to",
+            "step": "select: [target]",
             "type": "act",
             "note": "Selects \"Savings\""
           },
           {
-            "step": "fill: transfer-amount",
+            "step": "fill: [target]",
             "type": "act",
             "note": "Enters $500 — precondition tells it max is $12,847.63"
           },
           {
-            "step": "click: review-transfer-btn",
+            "step": "click: [target]",
             "type": "act",
             "note": "Clicks review — gets ActionResult with state change"
           }
@@ -230,7 +230,7 @@
       {
         "id": "banking.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly.",
+        "goal": "Transfer $500 from Checking to Savings account Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -253,7 +253,7 @@
             "type": "recovery"
           },
           {
-            "step": "Execute correct action .np-quick-transfer button.np-btn--primary",
+            "step": "Execute correct action [target][target]",
             "type": "act"
           },
           {
@@ -263,11 +263,11 @@
         ],
         "wciFlow": [
           {
-            "step": "Use WCI scope to identify decoy ids up-front",
+            "step": "Use WCI scope to identify decoy ids [target]",
             "type": "read"
           },
           {
-            "step": "Execute review-transfer-btn directly",
+            "step": "Execute [target] directly",
             "type": "act"
           },
           {

@@ -10,7 +10,7 @@
     "Keyword trap decoys matching employer names"
   ],
   "task": {
-    "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers).",
+    "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -75,7 +75,7 @@
       {
         "id": "job-board.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Complete with explicit verification and no decoy interactions.",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -89,7 +89,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -101,7 +101,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -119,7 +119,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id apply-senior-engineer",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -131,7 +131,7 @@
       {
         "id": "job-board.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). First validate key constraints (multiple confirm/apply buttons) then execute and verify.",
+        "goal": "Submit an application only for the in-office senior role at employer reference ACM-447 (exclude remote-only listings and junior tiers). First validate key constraints (multiple confirm/apply buttons) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -153,11 +153,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-employer-ref=\"ACM-447\"] .hf-btn--primary",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -171,7 +171,7 @@
             "type": "reason"
           },
           {
-            "step": "Click apply-senior-engineer",
+            "step": "Click [target]",
             "type": "act"
           },
           {

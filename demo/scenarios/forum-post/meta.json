@@ -8,7 +8,7 @@
     "New post"
   ],
   "task": {
-    "goal": "Pin the community thread about WCI specification feedback.",
+    "goal": "Pin the community thread about WCI specification feedback. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "forum-post.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Pin the community thread about WCI specification feedback. Complete with explicit verification and no decoy interactions.",
+        "goal": "Pin the community thread about WCI specification feedback. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id pin-wci-thread",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "forum-post.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Pin the community thread about WCI specification feedback. First validate key constraints (new post) then execute and verify.",
+        "goal": "Pin the community thread about WCI specification feedback. First validate key constraints (new post) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-thread=\"wci-feedback\"] button[data-pin=\"wci-feedback\"]",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click pin-wci-thread",
+            "step": "Click [target]",
             "type": "act"
           },
           {

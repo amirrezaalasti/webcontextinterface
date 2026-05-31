@@ -8,7 +8,7 @@
     "Flash sale"
   ],
   "task": {
-    "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars.",
+    "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "ecommerce-search.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Complete with explicit verification and no decoy interactions.",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-filter=\"rating-price\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id apply-rating-price-filter",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "ecommerce-search.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. First validate key constraints (flash sale) then execute and verify.",
+        "goal": "Apply filters for four-star minimum rating and maximum price fifty dollars. First validate key constraints (flash sale) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-filter=\"rating-price\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click apply-rating-price-filter",
+            "step": "Click [target]",
             "type": "act"
           },
           {

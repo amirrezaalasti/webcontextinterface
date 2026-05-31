@@ -10,7 +10,7 @@
     "ADP keyword decoys"
   ],
   "task": {
-    "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry).",
+    "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -68,7 +68,7 @@
       {
         "id": "tax-filing.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). Complete with explicit verification and no decoy interactions.",
+        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -82,7 +82,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -94,7 +94,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-provider=\"ADP\"][data-form=\"W2\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -112,7 +112,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id import-w2-adp",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -124,7 +124,7 @@
       {
         "id": "tax-filing.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). First validate key constraints (manual vs import) then execute and verify.",
+        "goal": "Import W-2 wages from payroll provider ADP on the income step (not manual entry). First validate key constraints (manual vs import) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -146,11 +146,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-provider=\"ADP\"][data-form=\"W2\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -164,7 +164,7 @@
             "type": "reason"
           },
           {
-            "step": "Click import-w2-adp",
+            "step": "Click [target]",
             "type": "act"
           },
           {

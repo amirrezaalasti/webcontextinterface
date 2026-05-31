@@ -8,7 +8,7 @@
     "Trial"
   ],
   "task": {
-    "goal": "Subscribe to the AI Daily show feed (not free trial promo).",
+    "goal": "Subscribe to the AI Daily show feed (not free trial promo). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "podcast-subscribe.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Subscribe to the AI Daily show feed (not free trial promo). Complete with explicit verification and no decoy interactions.",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id subscribe-ai-daily",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "podcast-subscribe.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Subscribe to the AI Daily show feed (not free trial promo). First validate key constraints (trial) then execute and verify.",
+        "goal": "Subscribe to the AI Daily show feed (not free trial promo). First validate key constraints (trial) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-show=\"ai-daily\"] button[data-subscribe=\"ai-daily\"]",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click subscribe-ai-daily",
+            "step": "Click [target]",
             "type": "act"
           },
           {

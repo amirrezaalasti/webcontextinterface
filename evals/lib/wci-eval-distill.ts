@@ -3,10 +3,11 @@
  *
  * agent.md full surface is for Bridge/runtime. Eval v2 uses pipe rows:
  *   {"v":2,"g":"g","N":["export-btn|c|1","deals-table|2|top:Fox|D"]}
- * Order: id|a|d|p|s|r — empty segments omitted. System prompt documents abbreviations.
+ * Order: id|a|d|p|x|s|r — x=competitor trap. System prompt documents abbreviations.
  */
 
 import { applyEvalStatePatches } from './eval-snapshot';
+import { focusTokensFromText, sanitizeFlowSteps } from './flow-sanitize';
 import type { WciDistillNode } from './contexts';
 import { parseAnnotatedNodesForEval } from './contexts';
 
@@ -23,10 +24,6 @@ const STATE_MAX_CHARS = 96;
 /** Soft char budget for WCI JSON body (pipe rows); not a hard node count. */
 const BUDGET_CHARS_GROUNDING = 2400;
 const BUDGET_CHARS_FULL = 3200;
-
-const STOP = new Set(
-  'the a an and or to for on in at of with from by is are be this that your you'.split(' ')
-);
 
 const ACTION_SHORT: Record<string, string> = {
   click: 'c',
@@ -68,28 +65,12 @@ const STATE_KEY_SHORT: Record<string, string> = {
 const STATE_HINT_KEYS = Object.keys(STATE_KEY_SHORT);
 
 function focusTokens(focus: MultistepTaskFocus): Set<string> {
-  const text = [
+  const sanitizedFlow = sanitizeFlowSteps(focus.wciFlow);
+  return focusTokensFromText([
     focus.goal,
     ...(focus.prerequisites ?? []),
-    ...(focus.wciFlow ?? []).map((s) => s.step),
-  ]
-    .join(' ')
-    .toLowerCase();
-  const out = new Set<string>();
-  for (const m of text.match(/[a-z][a-z0-9_-]{2,}/g) ?? []) {
-    if (!STOP.has(m)) out.add(m);
-  }
-  return out;
-}
-
-function flowNodeIds(focus: MultistepTaskFocus): Set<string> {
-  const ids = new Set<string>();
-  for (const step of focus.wciFlow ?? []) {
-    for (const m of step.step.match(/\b[a-z][a-z0-9_-]{4,}\b/g) ?? []) {
-      if (m.includes('-') || m.length >= 8) ids.add(m);
-    }
-  }
-  return ids;
+    ...sanitizedFlow.map((s) => s.step),
+  ]);
 }
 
 function isGroundingNode(node: WciDistillNode): boolean {
@@ -105,9 +86,10 @@ function goalNeedsReadSurface(goal: string): boolean {
   );
 }
 
-function scoreNode(node: WciDistillNode, tokens: Set<string>, flowIds: Set<string>): number {
+function scoreNode(node: WciDistillNode, tokens: Set<string>): number {
   let score = 0;
-  if (node.priority === 1) score += 100;
+  if (node.competitor) score -= 120;
+  else if (node.priority === 1) score += 100;
   else if (node.priority === 2) score += 60;
   else if (node.priority === 3) score += 20;
   else if (node.priority >= 5) return -1000;
@@ -116,7 +98,6 @@ function scoreNode(node: WciDistillNode, tokens: Set<string>, flowIds: Set<strin
   for (const t of tokens) {
     if (blob.includes(t)) score += 12;
   }
-  if (flowIds.has(node.id)) score += 80;
   if (node.state?.disabled === true) score -= 30;
   return score;
 }
@@ -188,18 +169,20 @@ function shortRole(role: string | null | undefined): string | null {
   return ROLE_SHORT[role] ?? role.slice(0, 1);
 }
 
-/** id|a|d|p|s|r — omit empty segments after id. */
+/** id|a|d|p|x|s|r — x marks competitor trap rows. */
 function toPipeRow(n: WciDistillNode, tokens: Set<string>, view: 'grounding' | 'full'): string {
   const parts: string[] = [n.id];
   const a = isGroundingNode(n) ? shortAction(n.action) : null;
   const d = compactDesc(n.id, n.desc, tokens);
   const p = n.priority <= 2 ? String(n.priority) : null;
+  const x = n.competitor ? 'x' : null;
   const s = compactStateString(n.state, tokens, n.role);
   const r = view === 'full' && !isGroundingNode(n) ? shortRole(n.role) : null;
 
   if (a) parts.push(a);
   if (d) parts.push(d);
   if (p) parts.push(p);
+  if (x) parts.push(x);
   if (s) parts.push(s);
   if (r) parts.push(r);
   return parts.join('|');
@@ -215,7 +198,6 @@ function selectNodes(
   focus: MultistepTaskFocus
 ): WciDistillNode[] {
   const tokens = focusTokens(focus);
-  const flowIds = flowNodeIds(focus);
   const budget = view === 'grounding' ? BUDGET_CHARS_GROUNDING : BUDGET_CHARS_FULL;
   const readSurface = goalNeedsReadSurface(focus.goal);
 
@@ -236,7 +218,7 @@ function selectNodes(
   }
 
   const ranked = [...pool]
-    .map((n) => ({ n, score: scoreNode(n, tokens, flowIds) }))
+    .map((n) => ({ n, score: scoreNode(n, tokens) }))
     .filter((x) => x.score > -500)
     .sort((a, b) => b.score - a.score || a.n.priority - b.n.priority);
 
@@ -253,7 +235,7 @@ function selectNodes(
     used += cost;
   };
 
-  // Always include priority 1–2 (and key read surfaces for wci-full).
+  // Priority 1–2 actionable nodes (includes competitors for realism).
   for (const { n } of ranked) {
     if (n.priority > 2) continue;
     if (!isGroundingNode(n) && view === 'grounding') continue;
@@ -267,7 +249,6 @@ function selectNodes(
     tryAdd(n, true);
   }
 
-  // Fill budget with task-relevant optional nodes (skip low-scoring p3+ noise).
   for (const { n, score } of ranked) {
     if (n.priority > 2 && score < 36) continue;
     tryAdd(n, false);

@@ -8,6 +8,7 @@ const base = process.env.VITEPRESS_BASE ?? '/';
 const demoUrl =
   process.env.VITEPRESS_DEMO_URL ??
   (process.env.NODE_ENV === 'production' ? `${base}demo/` : 'http://localhost:5173');
+const demoBase = demoUrl.endsWith('/') ? demoUrl : `${demoUrl}/`;
 
 export default defineConfig({
   title: 'WCI',

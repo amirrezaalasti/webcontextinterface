@@ -620,7 +620,7 @@ function updateLeaderboardMeta(data: EvalResultsFile, modelCount: number) {
   const el = document.getElementById('leaderboard-meta');
   if (!el) return;
   const when = data.generatedAt ? new Date(data.generatedAt).toLocaleDateString() : '—';
-  el.textContent = `${modelCount} models · 50 scenarios · 5 approaches per task · snapshot ${when}. Methodology: evals/README.md`;
+  el.textContent = `${modelCount} models · 50 multi-step scenarios · 5 approaches · snapshot ${when}. Methodology: evals/README.md`;
 }
 
 function chartBarLine(
@@ -669,7 +669,7 @@ function renderEvalCharts(data: EvalResultsFile): void {
   section.hidden = false;
   if (chartsMeta) {
     const when = data.generatedAt ? new Date(data.generatedAt).toLocaleDateString() : '—';
-    chartsMeta.textContent = `${order.length} models · 50 scenarios · snapshot ${when}. Hover bars for exact values.`;
+    chartsMeta.textContent = `${order.length} models · 50 multi-step scenarios · snapshot ${when}. Hover bars for exact values.`;
   }
 
   const maxTokens = Math.max(

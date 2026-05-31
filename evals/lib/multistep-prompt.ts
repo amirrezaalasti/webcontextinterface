@@ -8,10 +8,12 @@ import {
   type ContextKind,
   type EvalContext,
 } from './contexts';
+import {
+  SCORED_FINAL_ACTION_SUFFIX,
+  sanitizeFlowStepForPrompt,
+  sanitizeFlowSteps,
+} from './flow-sanitize';
 import { buildWciMultistepPayload } from './wci-eval-distill';
-
-const SELECTOR_IN_TEXT =
-  /(\[[\w-]+(?:="[^"]*")?\]|#[\w-]+|\.[\w.-]+(?:\s|$)|button[\w\[\]="':.\s-]+|final action uses ground-truth selector)/gi;
 
 export type MultiStepTaskLike = {
   id: string;
@@ -23,14 +25,7 @@ export type MultiStepTaskLike = {
 };
 
 /** Remove ground-truth selectors and WCI ids from flow step text shown to the model. */
-export function sanitizeFlowStepForPrompt(step: string): string {
-  return step
-    .replace(SELECTOR_IN_TEXT, '[target]')
-    .replace(/\bnode id\s+[a-z][a-z0-9_-]+/gi, 'node id [from graph]')
-    .replace(/\b(?:click|select|invoke|execute):\s*[a-z][a-z0-9_-]+/gi, (m) => m.split(':')[0] + ': [target]')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
-}
+export { sanitizeFlowStepForPrompt } from './flow-sanitize';
 
 /** Completion criteria without answer leakage — scoring still uses ground truth separately. */
 export function filterCompletionCriteria(criteria: string[], approach: ContextKind): string[] {
@@ -40,11 +35,13 @@ export function filterCompletionCriteria(criteria: string[], approach: ContextKi
     if (isWciContextKind(approach)) {
       if (lower.includes('ground-truth selector')) continue;
       if (lower.includes('primary wci action id')) {
-        out.push('Pick final_action: one nodes[].id that completes the goal (not a decoy)');
+        out.push(
+          'final_action must be one nodes[].id that completes the goal — not a competitor (x) or decoy row'
+        );
         continue;
       }
       if (lower.includes('no decoy')) {
-        out.push('Do not use decoy ids (priority 5 / decoy controls)');
+        out.push('Do not use decoy ids (priority 5) or competitor traps (x in pipe row)');
         continue;
       }
       if (!lower.includes('selector') && !lower.includes('#') && !lower.includes('[')) {
@@ -56,7 +53,7 @@ export function filterCompletionCriteria(criteria: string[], approach: ContextKi
     if (lower.includes('ground-truth selector')) continue;
     if (lower.includes('wci action id')) continue;
     if (lower.includes('no decoy')) {
-      out.push('Avoid decoy controls listed on the page');
+      out.push('Avoid decoy and plausible-wrong controls on the page');
       continue;
     }
     if (!lower.includes('selector:') && !line.includes('#') && !line.includes('[data-')) {
@@ -93,7 +90,7 @@ function multistepContextBody(
     const json = buildWciMultistepPayload(scenario.annotatedHtml, scenario.id, view, {
       goal: task.goal,
       prerequisites: task.prerequisites,
-      wciFlow: task.wciFlow,
+      wciFlow: sanitizeFlowSteps(task.wciFlow),
     });
     return `WCI_NODES:\n${json}`;
   }
@@ -119,7 +116,11 @@ export function buildMultistepEvalContext(
   task: MultiStepTaskLike,
   approach: ContextKind
 ): EvalContext {
-  const flow = isWciContextKind(approach) ? task.wciFlow : task.standardFlow;
+  const flowRaw = isWciContextKind(approach) ? task.wciFlow : task.standardFlow;
+  const flow = flowRaw.map((f) => ({
+    type: f.type,
+    step: sanitizeFlowStepForPrompt(f.step),
+  }));
   const criteria = filterCompletionCriteria(task.completionCriteria, approach);
   const finalHint = isWciContextKind(approach)
     ? 'WCI node id from nodes[]'
@@ -132,6 +133,7 @@ export function buildMultistepEvalContext(
     `FLOW: ${flowTypeSummary(flow)}`,
     ...task.prerequisites.slice(0, 3).map((p) => `PREREQ: ${p}`),
     ...criteria.map((c) => `RULE: ${c}`),
+    `RULE: ${SCORED_FINAL_ACTION_SUFFIX}`,
     multistepContextBody(scenario, task, approach),
     `Reply JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"<${finalHint}>"}`,
   ].join('\n');
@@ -143,9 +145,9 @@ export function buildMultistepEvalContext(
     content: payload,
     tokenEstimate: estimateTokens(payload),
     systemPrompt: isWciContextKind(approach)
-      ? 'WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). r: L/D=landmark/display. final_action=row id, p=1 primary. Never CSS.'
+      ? 'WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.'
       : singleShot.systemPrompt +
-        ' Plan briefly, then set final_action to the one element that completes the task.',
+        ' Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).',
     userPromptPrefix: '',
   };
 }

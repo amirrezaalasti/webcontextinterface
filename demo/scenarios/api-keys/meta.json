@@ -20,7 +20,7 @@
     "Permission matrix and IP allowlist add domain noise without actionable CTAs"
   ],
   "task": {
-    "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens).",
+    "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production, not service account tokens). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -117,7 +117,7 @@
       {
         "id": "api-keys.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production). Complete with explicit verification and no decoy interactions.",
+        "goal": "Rotate the primary production API key row (not staging reveal, not read replica, not legacy production). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -136,7 +136,7 @@
             "type": "observe"
           },
           {
-            "step": "Scan seven-row table — identify production primary row (chip=primary), reject replica and legacy rows",
+            "step": "Scan [target] table — identify production primary row (chip=primary), reject replica and legacy rows",
             "type": "reason"
           },
           {
@@ -148,7 +148,7 @@
             "type": "act"
           },
           {
-            "step": "Execute final action at tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+            "step": "Execute final action at tr[target] [target]",
             "type": "act"
           },
           {
@@ -158,19 +158,19 @@
         ],
         "wciFlow": [
           {
-            "step": "Read api_keys-page landmark and keys-table display state",
+            "step": "Read api_keys-page landmark and [target] display state",
             "type": "read"
           },
           {
-            "step": "Filter actionable nodes — rotate-prod-api-key priority 1, reject decoy ids",
+            "step": "Filter actionable nodes — [target] priority 1, reject decoy ids",
             "type": "reason"
           },
           {
-            "step": "Validate rotation-form-section preconditions if state.enabled is false",
+            "step": "Validate [target] preconditions if state[target]is false",
             "type": "reason"
           },
           {
-            "step": "Invoke rotate-prod-api-key",
+            "step": "Invoke [target]",
             "type": "act"
           },
           {
@@ -182,7 +182,7 @@
       {
         "id": "api-keys.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Rotate the primary production API key row. First validate environment constraints (reject staging reveal and legacy rows) then execute and verify.",
+        "goal": "Rotate the primary production API key row. First validate environment constraints (reject staging reveal and legacy rows) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -205,25 +205,25 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector tr[data-key=\"production\"] button[data-rotate=\"production\"]",
+            "step": "Execute primary selector tr[target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
         "wciFlow": [
           {
-            "step": "Read keys-table state.rows and rotate-prod-api-key state.tier",
+            "step": "Read [target] state[target]and [target] state[target]",
             "type": "read"
           },
           {
-            "step": "Validate node preconditions and reject staging-reveal-btn",
+            "step": "Validate node preconditions and reject [target]",
             "type": "reason"
           },
           {
-            "step": "Click rotate-prod-api-key",
+            "step": "Click [target]",
             "type": "act"
           },
           {
@@ -235,7 +235,7 @@
       {
         "id": "api-keys.multi-step.full-flow",
         "title": "End-to-end Rotation Workflow",
-        "goal": "Complete the full production rotation workflow: fill readiness form, pass MFA, open confirmation modal, and confirm rotation.",
+        "goal": "Complete the full production rotation workflow: fill readiness form, pass MFA, open confirmation modal, and confirm rotation. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss cookie banner",
@@ -250,7 +250,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Fill rotation-reason textarea with valid reason",
+            "step": "Fill [target] textarea with valid reason",
             "type": "act"
           },
           {
@@ -276,15 +276,15 @@
         ],
         "wciFlow": [
           {
-            "step": "Fill rotation-reason via WCI bridge",
+            "step": "Fill [target] via WCI bridge",
             "type": "act"
           },
           {
-            "step": "Click validate-rotation then rotate-prod-api-key",
+            "step": "Click [target] then [target]",
             "type": "act"
           },
           {
-            "step": "Click confirm-rotation in modal",
+            "step": "Click [target] in modal",
             "type": "verify"
           }
         ]

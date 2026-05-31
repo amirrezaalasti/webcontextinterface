@@ -10,7 +10,7 @@
     "Dark theme + filler"
   ],
   "task": {
-    "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer).",
+    "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -67,7 +67,7 @@
       {
         "id": "streaming-service.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions.",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -81,7 +81,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -93,7 +93,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "step": "Execute final action at [target][target] [target]",
             "type": "act"
           },
           {
@@ -111,7 +111,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id add-ocean-deep-watchlist",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -123,7 +123,7 @@
       {
         "id": "streaming-service.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify.",
+        "goal": "Add the fifty-two minute documentary titled Ocean Deep to the watchlist (not play trailer). First validate key constraints (play vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -145,11 +145,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-title-id=\"ocean-deep\"][data-runtime=\"52\"] .sv-btn--primary",
+            "step": "Execute primary selector [target][target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -163,7 +163,7 @@
             "type": "reason"
           },
           {
-            "step": "Click add-ocean-deep-watchlist",
+            "step": "Click [target]",
             "type": "act"
           },
           {

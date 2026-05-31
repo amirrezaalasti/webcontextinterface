@@ -67,7 +67,7 @@ Benchmark tasks are meant to stress **reasoning**, not string-matching button la
 
 **Legacy (5)** — unchanged hand-authored DOM; already hard (flight, banking, checkout, social, admin). Do not simplify. Embedded layout CSS is injected via `npm run scenarios:legacy-styles` (also runs when preserving legacy files in `setup-benchmark-scenarios.mjs`).
 
-**admin-dashboard** — after overlay auto-completion, `refineAdminDashboardAnnotations` in `scripts/lib/scenario-enrich-annotate.mjs` encodes the multi-step task: `deals-table` state with open vs closed probability, `top-probability-row` / `deal-foxtrot-closed` row hints, primary `export-btn` (priority 1) vs decoy `export-csv-btn`, and dismissable `shortcuts-overlay`. Rebuild with `node scripts/complete-annotations.mjs` (all scenarios) or the admin-only rebuild path used during development.
+**admin-dashboard** — after overlay auto-completion, `refineAdminDashboardAnnotations` in `scripts/lib/scenario-enrich-annotate.mjs` encodes the multi-step task: `deals-table` state with open vs closed probability, `top-probability-row` / `deal-foxtrot-closed` row hints, primary `export-btn` (priority 1) vs decoy `export-csv-btn`, and dismissable `shortcuts-overlay`. Legacy annotated pages are maintained on disk; for generated scenarios use `npm run scenarios:rebuild-annotations`.
 
 **photo-upload** — `refinePhotoUploadAnnotations` encodes album constraints: `album-selector` state, target `album-iceland-2026` vs misleading `album-iceland-2024-decoy`, primary `upload-iceland-album` (priority 1) inside `[data-album="iceland-2026"]`, keyword-trap duplicate row decoys, and thumb/staging preconditions for validation multi-step tasks.
 
@@ -93,41 +93,6 @@ Legacy scenarios keep their existing abstract annotated views from the original 
 npm run scenarios:restyle
 ```
 
-**Agentic enrichment (deeper, more realistic DOM):** Uses OpenRouter (default `gpt-5.4-mini`) to expand pages while keeping ground-truth selectors and WCI annotations intact. Validates each attempt and retries on failure.
-
-```bash
-# preview selection
-npm run scenarios:enrich -- --dry-run --limit=5
-
-# enrich 45 generated scenarios (skips legacy 5 by default)
-npm run scenarios:enrich -- --depth=medium
-
-# include legacy (larger pages, higher cost)
-npm run scenarios:enrich -- --legacy --depth=light --scenarios=banking,social-feed
-
-npm run eval:verify   # after enriching
-```
-
-Options: `--scenarios=id1,id2`, `--depth=light|medium|heavy`, `--model=openai/gpt-5.4-mini`, `--attempts=3`. Set `SCENARIO_ENRICH_MODEL` in `.env` to override the default model.
-
-**Agent-driven full rebuild (raw + annotated in one loop):** Calls a model to iteratively rebuild each scenario website, validates functional selectors/decoys, generates annotation targets, then writes both `raw.html` and `annotated.html`.
-
-```bash
-# dry-run (selection only)
-npm run scenarios:agent-build -- --dry-run --limit=5
-
-# rebuild all 50 scenarios with gpt-5.4-mini
-npm run scenarios:agent-build -- --model=openai/gpt-5.4-mini --attempts=3
-
-# rebuild generated-only (skip legacy 5)
-npm run scenarios:agent-build -- --no-legacy --attempts=3
-```
-
-By default this includes a Playwright runtime smoke check: generated pages must execute JS and update a smoke status element + `window.__scenarioSmoke` on primary action.  
-Use `--no-smoke` only for debugging prompts.
-
-Options: `--scenarios=id1,id2`, `--limit=10`, `--attempts=3`, `--model=openai/gpt-5.4-mini`, `--min-growth=0.15`, `--no-legacy`, `--no-smoke`.
-
 ## Regenerating files
 
 ```bash
@@ -143,7 +108,7 @@ This:
 Multi-step evaluation runner:
 
 ```bash
-npm run eval:multistep -- --mode=both
+npm run eval:multistep -- --models=gpt5Nano
 ```
 
 Implementation modules:

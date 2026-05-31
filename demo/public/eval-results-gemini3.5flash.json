@@ -1,5 +1,7 @@
 {
-  "generatedAt": "2026-05-22T22:08:47.626Z",
+  "generatedAt": "2026-05-31T07:53:57.952Z",
+  "sourceReport": "eval-multistep-report-gemini35flash.json",
+  "methodology": "multistep",
   "modelOrder": [
     {
       "id": "gemini35Flash",
@@ -8,21 +10,44 @@
     }
   ],
   "gemini35Flash": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 41,
-      "avgTokens": 2234
+      "successRate": 1,
+      "avgTokens": 3043
     },
     "wci": {
-      "successRate": 98,
-      "avgTokens": 541
+      "successRate": 96,
+      "avgTokens": 777
     },
     "wciFull": {
-      "successRate": 96,
-      "avgTokens": 680
+      "successRate": 94,
+      "avgTokens": 829
     },
     "agentDom": {
-      "successRate": 98,
-      "avgTokens": 541
+      "successRate": 96,
+      "avgTokens": 777
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 0,
+        "avgTokens": 5939
+      },
+      "domOutline": {
+        "successRate": 0,
+        "avgTokens": 1752
+      },
+      "candidates": {
+        "successRate": 2,
+        "avgTokens": 1438
+      },
+      "wciFull": {
+        "successRate": 94,
+        "avgTokens": 829
+      },
+      "wciGrounding": {
+        "successRate": 96,
+        "avgTokens": 777
+      }
     }
   }
 }

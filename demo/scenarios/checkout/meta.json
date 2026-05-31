@@ -13,7 +13,7 @@
     "Trust badges and decorative SVGs add noise"
   ],
   "task": {
-    "goal": "Complete shipping step with Express shipping and continue to payment",
+    "goal": "Complete shipping step with Express shipping and continue to payment Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -111,7 +111,7 @@
       {
         "id": "checkout.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Complete shipping step with Express shipping and continue to payment Complete the flow end-to-end and verify final state without leaving the page.",
+        "goal": "Complete shipping step with Express shipping and continue to payment Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -144,12 +144,12 @@
             "note": "Finds new address form (hidden) and saved address — unclear state"
           },
           {
-            "step": "click: express shipping radio",
+            "step": "click: [target] shipping radio",
             "type": "act",
             "note": "Selects express shipping"
           },
           {
-            "step": "click: upsell Add button",
+            "step": "click: [target] Add button",
             "type": "error",
             "note": "Accidentally clicks upsell widget Add button"
           },
@@ -159,7 +159,7 @@
             "note": "Must undo upsell addition"
           },
           {
-            "step": "click: Continue to Payment button",
+            "step": "click: [target] to Payment button",
             "type": "act",
             "note": "Finally clicks correct button"
           },
@@ -171,17 +171,17 @@
         ],
         "wciFlow": [
           {
-            "step": "read: checkout-flow scope",
+            "step": "read: [target] scope",
             "type": "act",
             "note": "Step 2/4, contact pre-filled, address selected, shipping options listed"
           },
           {
-            "step": "select: shipping-option",
+            "step": "select: [target]",
             "type": "act",
             "note": "Selects \"Express (2–3 days, $12.99)\" from typed options"
           },
           {
-            "step": "click: continue-payment-btn",
+            "step": "click: [target]",
             "type": "act",
             "note": "Preconditions met — gets ActionResult with step 3 transition"
           }
@@ -190,7 +190,7 @@
       {
         "id": "checkout.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Complete shipping step with Express shipping and continue to payment Deliberately recover after one decoy interaction and still finish correctly.",
+        "goal": "Complete shipping step with Express shipping and continue to payment Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -211,7 +211,7 @@
             "type": "recovery"
           },
           {
-            "step": "Execute correct action #continue-to-payment",
+            "step": "Execute correct action [target]",
             "type": "act"
           },
           {
@@ -221,11 +221,11 @@
         ],
         "wciFlow": [
           {
-            "step": "Use WCI scope to identify decoy ids up-front",
+            "step": "Use WCI scope to identify decoy ids [target]",
             "type": "read"
           },
           {
-            "step": "Execute continue-payment-btn directly",
+            "step": "Execute [target] directly",
             "type": "act"
           },
           {

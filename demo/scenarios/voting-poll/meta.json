@@ -8,7 +8,7 @@
     "Yes radio vs confirm"
   ],
   "task": {
-    "goal": "Cast an affirmative vote on local measure twelve then submit ballot.",
+    "goal": "Cast an affirmative vote on local measure twelve then submit ballot. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "voting-poll.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. Complete with explicit verification and no decoy interactions.",
+        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -78,7 +78,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -90,7 +90,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-measure-submit=\"12\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -108,7 +108,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id vote-prop-12",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -120,7 +120,7 @@
       {
         "id": "voting-poll.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. First validate key constraints (yes radio vs confirm) then execute and verify.",
+        "goal": "Cast an affirmative vote on local measure twelve then submit ballot. First validate key constraints (yes radio vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -142,11 +142,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-measure-submit=\"12\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -160,7 +160,7 @@
             "type": "reason"
           },
           {
-            "step": "Click vote-prop-12",
+            "step": "Click [target]",
             "type": "act"
           },
           {

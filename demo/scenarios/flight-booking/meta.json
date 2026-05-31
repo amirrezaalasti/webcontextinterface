@@ -16,7 +16,7 @@
     "Fare comparison tables hidden behind toggle buttons"
   ],
   "task": {
-    "goal": "Select the cheapest nonstop Economy flight from JFK to LAX",
+    "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -112,7 +112,7 @@
       {
         "id": "flight-booking.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Complete the flow end-to-end and verify final state without leaving the page.",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -131,7 +131,7 @@
             "note": "Agent parses 200+ elements, finds 40+ clickable targets"
           },
           {
-            "step": "click: Spring Sale promo link",
+            "step": "click: [target] Sale promo link",
             "type": "error",
             "note": "Mistakenly clicks promotional ad link in mega-menu"
           },
@@ -141,7 +141,7 @@
             "note": "Returns to search results, re-parses DOM"
           },
           {
-            "step": "click: SkyMiles promo card",
+            "step": "click: [target] promo card",
             "type": "error",
             "note": "Clicks inline promotional banner thinking it's a flight"
           },
@@ -156,7 +156,7 @@
             "note": "Tries to sort by price but unsure which select element"
           },
           {
-            "step": "click: SW1042 economy fare button",
+            "step": "click: [target] economy fare button",
             "type": "act",
             "note": "Finally identifies correct button after multiple attempts"
           },
@@ -168,7 +168,7 @@
         ],
         "wciFlow": [
           {
-            "step": "read: flight-search-results scope",
+            "step": "read: [target] scope",
             "type": "act",
             "note": "Gets 3 flight results with prices in structured JSON"
           },
@@ -178,7 +178,7 @@
             "note": "Identifies SW1042 Economy $329 as cheapest nonstop"
           },
           {
-            "step": "click: select-SW1042-economy",
+            "step": "click: [target]",
             "type": "act",
             "note": "Direct action on typed node with ActionResult confirmation"
           }
@@ -187,7 +187,7 @@
       {
         "id": "flight-booking.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Deliberately recover after one decoy interaction and still finish correctly.",
+        "goal": "Select the cheapest nonstop Economy flight from JFK to LAX Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -209,7 +209,7 @@
             "type": "recovery"
           },
           {
-            "step": "Execute correct action [data-flight-id=\"SW1042\"] button.sw-fare-btn--economy[data-price=\"329\"]",
+            "step": "Execute correct action [target] [target]",
             "type": "act"
           },
           {
@@ -219,11 +219,11 @@
         ],
         "wciFlow": [
           {
-            "step": "Use WCI scope to identify decoy ids up-front",
+            "step": "Use WCI scope to identify decoy ids [target]",
             "type": "read"
           },
           {
-            "step": "Execute select-SW1042-economy directly",
+            "step": "Execute [target] directly",
             "type": "act"
           },
           {

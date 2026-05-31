@@ -8,7 +8,7 @@
     "Select vs Confirm"
   ],
   "task": {
-    "goal": "Book two nights at the downtown Marriott property (not airport inn).",
+    "goal": "Book two nights at the downtown Marriott property (not airport inn). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "hotel-booking.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Book two nights at the downtown Marriott property (not airport inn). Complete with explicit verification and no decoy interactions.",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id book-marriott-downtown",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "hotel-booking.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Book two nights at the downtown Marriott property (not airport inn). First validate key constraints (select vs confirm) then execute and verify.",
+        "goal": "Book two nights at the downtown Marriott property (not airport inn). First validate key constraints (select vs confirm) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-hotel=\"marriott-downtown\"] .sf-btn--primary",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click book-marriott-downtown",
+            "step": "Click [target]",
             "type": "act"
           },
           {

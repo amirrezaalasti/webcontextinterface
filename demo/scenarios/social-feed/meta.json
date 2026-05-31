@@ -13,7 +13,7 @@
     "Every post has 4–5 identical icon buttons (reply, repost, like, share, bookmark)"
   ],
   "task": {
-    "goal": "Like the post by @alice_dev about AgentDOM",
+    "goal": "Like the post by @alice_dev about AgentDOM Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "dismiss",
@@ -95,7 +95,7 @@
       {
         "id": "social-feed.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Like the post by @alice_dev about AgentDOM Complete the flow end-to-end and verify final state without leaving the page.",
+        "goal": "Like the post by @alice_dev about AgentDOM Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -114,7 +114,7 @@
             "note": "Agent must first dismiss the notification prompt overlay"
           },
           {
-            "step": "click: Not Now button",
+            "step": "click: [target] Now button",
             "type": "act",
             "note": "Dismisses overlay"
           },
@@ -124,7 +124,7 @@
             "note": "Finds 30+ identical icon buttons, can't distinguish like from reply"
           },
           {
-            "step": "click: sponsored post like button",
+            "step": "click: [target] post like button",
             "type": "error",
             "note": "Likes the sponsored TechGear post instead — same structure"
           },
@@ -134,12 +134,12 @@
             "note": "Re-scans to find Alice's post among nested replies and sponsored content"
           },
           {
-            "step": "click: Alice reply-thread like",
+            "step": "click: [target] [target] like",
             "type": "error",
             "note": "Likes a reply in Alice's thread instead of the main post"
           },
           {
-            "step": "click: correct heart icon",
+            "step": "click: [target] heart icon",
             "type": "act",
             "note": "Finally finds and clicks the right like button"
           }
@@ -151,7 +151,7 @@
             "note": "Finds post by @alice_dev with typed action buttons"
           },
           {
-            "step": "click: like-p_81924",
+            "step": "click: [target]",
             "type": "act",
             "note": "Clicks typed like button — gets ActionResult with count 568"
           }
@@ -160,7 +160,7 @@
       {
         "id": "social-feed.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Like the post by @alice_dev about AgentDOM Deliberately recover after one decoy interaction and still finish correctly.",
+        "goal": "Like the post by @alice_dev about AgentDOM Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -182,7 +182,7 @@
             "type": "recovery"
           },
           {
-            "step": "Execute correct action article[data-post-id=\"p_81924\"] .cb-post__actions > button:nth-child(3)",
+            "step": "Execute correct action article[target] [target]> [target](3)",
             "type": "act"
           },
           {
@@ -192,7 +192,7 @@
         ],
         "wciFlow": [
           {
-            "step": "Use WCI scope to identify decoy ids up-front",
+            "step": "Use WCI scope to identify decoy ids [target]",
             "type": "read"
           },
           {

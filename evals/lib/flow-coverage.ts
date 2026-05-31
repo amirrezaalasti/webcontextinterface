@@ -105,24 +105,24 @@ function collectObservedBuckets(
 
   if (opts.correctFinalAction) {
     observed.add(bucketForApproach(approach, 'act'));
-    if (isWciContextKind(approach)) {
-      // Correct WCI id implies graph read + constraint filtering
-      observed.add('observe');
-      const expectsVerify = opts.expected.some(
-        (s) => bucketForApproach(approach, s.type) === 'verify'
+    const expectsVerify = opts.expected.some(
+      (s) => bucketForApproach(approach, s.type) === 'verify'
+    );
+    if (expectsVerify) {
+      const hasVerifyAction = (parsed.actions ?? []).some((a) =>
+        inferTypesFromAction(a).includes('verify')
       );
-      if (expectsVerify) observed.add('verify');
-    } else {
-      const expectsVerify = opts.expected.some(
-        (s) => bucketForApproach(approach, s.type) === 'verify'
-      );
-      if (
-        expectsVerify &&
-        ((parsed.actions?.length ?? 0) >= 2 ||
-          (parsed.actions ?? []).some((a) => inferTypesFromAction(a).includes('verify')))
-      ) {
-        observed.add('verify');
+      if (hasVerifyAction || /\b(verify|confirm|check)\b/i.test(parsed.final_action ?? '')) {
+        observed.add(bucketForApproach(approach, 'verify'));
       }
+    }
+    if (!isWciContextKind(approach)) {
+      const hasObserveAction = (parsed.actions ?? []).some((a) =>
+        inferTypesFromAction(a).some((t) =>
+          ['observe', 'reason'].includes(bucketForApproach(approach, t))
+        )
+      );
+      if (hasObserveAction) observed.add(bucketForApproach(approach, 'observe'));
     }
   }
 

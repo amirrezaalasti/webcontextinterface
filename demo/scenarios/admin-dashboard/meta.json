@@ -16,7 +16,7 @@
     "Sortable column headers and six KPI cards with SVG icons"
   ],
   "task": {
-    "goal": "Find the deal with the highest probability and export the dashboard",
+    "goal": "Find the deal with the highest probability and export the dashboard Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -103,7 +103,7 @@
       {
         "id": "admin-dashboard.multi-step.primary",
         "title": "Primary Multi-step Completion",
-        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page.",
+        "goal": "Find the deal with the highest probability and export the dashboard Complete the flow end-to-end and verify final state without leaving the page. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -127,7 +127,7 @@
             "note": "Table has checkboxes, action buttons, stage badges — hard to extract data"
           },
           {
-            "step": "click: deal row checkbox",
+            "step": "click: [target] row checkbox",
             "type": "error",
             "note": "Accidentally selects deal checkbox instead of reading data"
           },
@@ -142,19 +142,19 @@
             "note": "Eventually finds highest probability deal"
           },
           {
-            "step": "click: Export button",
+            "step": "click: [target] button",
             "type": "act",
             "note": "Multiple buttons with similar text — sidebar has pipeline export too"
           },
           {
-            "step": "click: correct Export button",
+            "step": "click: [target] Export button",
             "type": "act",
             "note": "Finds the dashboard export button"
           }
         ],
         "wciFlow": [
           {
-            "step": "read: deals-table display node",
+            "step": "read: [target] display node",
             "type": "act",
             "note": "Gets structured deal data with probability field"
           },
@@ -164,7 +164,7 @@
             "note": "SaaS Migration — Delta LLC has 80% probability"
           },
           {
-            "step": "click: export-btn",
+            "step": "click: [target]",
             "type": "act",
             "note": "Clicks typed export button — gets ActionResult"
           }
@@ -173,7 +173,7 @@
       {
         "id": "admin-dashboard.multi-step.recovery",
         "title": "Recovery Under Distraction",
-        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly.",
+        "goal": "Find the deal with the highest probability and export the dashboard Deliberately recover after one decoy interaction and still finish correctly. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -195,7 +195,7 @@
             "type": "recovery"
           },
           {
-            "step": "Execute correct action .qc-topbar__right button:has-text(\"Export\")",
+            "step": "Execute correct action [target][target](\"Export\")",
             "type": "act"
           },
           {
@@ -205,11 +205,11 @@
         ],
         "wciFlow": [
           {
-            "step": "Use WCI scope to identify decoy ids up-front",
+            "step": "Use WCI scope to identify decoy ids [target]",
             "type": "read"
           },
           {
-            "step": "Execute export-btn directly",
+            "step": "Execute [target] directly",
             "type": "act"
           },
           {

@@ -8,7 +8,7 @@
     "Taken spots"
   ],
   "task": {
-    "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass).",
+    "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -66,7 +66,7 @@
       {
         "id": "parking-reservation.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Complete with explicit verification and no decoy interactions.",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -80,7 +80,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -92,7 +92,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-spot=\"B12\"][data-open=\"true\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -110,7 +110,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id reserve-spot-b12",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -122,7 +122,7 @@
       {
         "id": "parking-reservation.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). First validate key constraints (taken spots) then execute and verify.",
+        "goal": "Reserve open garage spot B12 for Saturday 2pm (not taken spots or monthly pass). First validate key constraints (taken spots) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -144,11 +144,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-spot=\"B12\"][data-open=\"true\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -162,7 +162,7 @@
             "type": "reason"
           },
           {
-            "step": "Click reserve-spot-b12",
+            "step": "Click [target]",
             "type": "act"
           },
           {

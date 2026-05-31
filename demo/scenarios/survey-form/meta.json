@@ -8,7 +8,7 @@
     "Skip"
   ],
   "task": {
-    "goal": "Submit NPS score nine with the provided positive comment (not skip prize).",
+    "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "survey-form.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Complete with explicit verification and no decoy interactions.",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-nps-submit=\"9\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id submit-nps-9",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "survey-form.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). First validate key constraints (skip) then execute and verify.",
+        "goal": "Submit NPS score nine with the provided positive comment (not skip prize). First validate key constraints (skip) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-nps-submit=\"9\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click submit-nps-9",
+            "step": "Click [target]",
             "type": "act"
           },
           {

@@ -1,5 +1,7 @@
 {
-  "generatedAt": "2026-05-22T22:14:28.299Z",
+  "generatedAt": "2026-05-31T08:52:31.682Z",
+  "sourceReport": "eval-multistep-report-llama318B.json",
+  "methodology": "multistep",
   "modelOrder": [
     {
       "id": "llama31_8b",
@@ -8,21 +10,44 @@
     }
   ],
   "llama31_8b": {
+    "methodology": "multistep",
     "standard": {
       "successRate": 13,
-      "avgTokens": 1767
+      "avgTokens": 2185
     },
     "wci": {
-      "successRate": 92,
-      "avgTokens": 450
+      "successRate": 82,
+      "avgTokens": 807
     },
     "wciFull": {
-      "successRate": 92,
-      "avgTokens": 561
+      "successRate": 78,
+      "avgTokens": 834
     },
     "agentDom": {
-      "successRate": 92,
-      "avgTokens": 450
+      "successRate": 82,
+      "avgTokens": 807
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 0,
+        "avgTokens": 4130
+      },
+      "domOutline": {
+        "successRate": 0,
+        "avgTokens": 1197
+      },
+      "candidates": {
+        "successRate": 38,
+        "avgTokens": 1227
+      },
+      "wciFull": {
+        "successRate": 78,
+        "avgTokens": 834
+      },
+      "wciGrounding": {
+        "successRate": 82,
+        "avgTokens": 807
+      }
     }
   }
 }

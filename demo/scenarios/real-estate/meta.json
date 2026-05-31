@@ -11,7 +11,7 @@
     "Optional note gate before save"
   ],
   "task": {
-    "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom).",
+    "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -69,7 +69,7 @@
       {
         "id": "real-estate.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Complete with explicit verification and no decoy interactions.",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -88,15 +88,15 @@
             "type": "observe"
           },
           {
-            "step": "Narrow to 3BR Evergreen Terrace 742; reject Oak Street 2BR and keyword dup-row traps",
+            "step": "Narrow to 3BR Evergreen Terrace 742; reject Oak Street 2BR and keyword [target] traps",
             "type": "reason"
           },
           {
-            "step": "Reject Tour and secondary Save on non-target listings",
+            "step": "Reject Tour and secondary Save on [target] listings",
             "type": "guardrail"
           },
           {
-            "step": "Execute Confirm at [data-listing=\"evergreen-742\"] .hn-btn--primary",
+            "step": "Execute Confirm at [target] [target]",
             "type": "act"
           },
           {
@@ -110,15 +110,15 @@
             "type": "read"
           },
           {
-            "step": "Filter actionable nodes — require save-listing-742 preconditions",
+            "step": "Filter actionable nodes — require [target] preconditions",
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id save-listing-742",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
-            "step": "Verify ActionResult confirms saved state for evergreen-742",
+            "step": "Verify ActionResult confirms saved state for [target]",
             "type": "verify"
           }
         ]
@@ -126,7 +126,7 @@
       {
         "id": "real-estate.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate bed count and address, then execute Confirm and verify.",
+        "goal": "Save the three-bedroom listing at address Evergreen Terrace 742 (not the Oak Street two-bedroom). First validate bed count and address, then execute Confirm and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss cookie banner if present",
@@ -148,17 +148,17 @@
             "type": "reason"
           },
           {
-            "step": "Click Confirm on evergreen-742 card",
+            "step": "Click Confirm on [target] card",
             "type": "act"
           },
           {
-            "step": "Check listing-742-status and saved shortlist table",
+            "step": "Check [target] and saved shortlist table",
             "type": "verify"
           }
         ],
         "wciFlow": [
           {
-            "step": "Read scoped context and save-listing-742 state JSON",
+            "step": "Read scoped context and [target] state JSON",
             "type": "read"
           },
           {
@@ -166,7 +166,7 @@
             "type": "reason"
           },
           {
-            "step": "Click save-listing-742",
+            "step": "Click [target]",
             "type": "act"
           },
           {

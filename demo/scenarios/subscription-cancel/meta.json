@@ -8,7 +8,7 @@
     "Upgrade"
   ],
   "task": {
-    "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade).",
+    "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "subscription-cancel.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). Complete with explicit verification and no decoy interactions.",
+        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id cancel-premium-sub",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "subscription-cancel.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). First validate key constraints (upgrade) then execute and verify.",
+        "goal": "Cancel Premium subscription effective next billing cycle (not team upgrade). First validate key constraints (upgrade) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-plan=\"premium\"] button[data-cancel=\"next-cycle\"]",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click cancel-premium-sub",
+            "step": "Click [target]",
             "type": "act"
           },
           {

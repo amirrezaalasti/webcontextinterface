@@ -10,7 +10,7 @@
     "Keyword archive decoys"
   ],
   "task": {
-    "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications).",
+    "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -68,7 +68,7 @@
       {
         "id": "email-client.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Complete with explicit verification and no decoy interactions.",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -82,7 +82,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -94,7 +94,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -112,7 +112,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id archive-billing-thread",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -124,7 +124,7 @@
       {
         "id": "email-client.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). First validate key constraints (billing-acme row vs toolbar) then execute and verify.",
+        "goal": "Archive the unread thread whose sender domain is acme.com billing (not digest or social notifications). First validate key constraints (billing-acme row vs toolbar) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -146,11 +146,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-action-bar=\"thread-tools\"] .ip-btn--primary",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -164,7 +164,7 @@
             "type": "reason"
           },
           {
-            "step": "Click archive-billing-thread",
+            "step": "Click [target]",
             "type": "act"
           },
           {

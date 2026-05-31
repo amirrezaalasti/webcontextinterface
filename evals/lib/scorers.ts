@@ -110,7 +110,8 @@ export function extractCssSelector(raw: string): string | null {
 export function scoreWciPrediction(
   predicted: string,
   gt: ScenarioGroundTruth,
-  validNodeIds?: string[]
+  validNodeIds?: string[],
+  competitorNodeIds?: string[]
 ): { correct: boolean; hitDecoy: boolean; parsed: string | null } {
   const parsed = normalizeNodeId(predicted, validNodeIds);
   if (!parsed) return { correct: false, hitDecoy: false, parsed: null };
@@ -121,7 +122,9 @@ export function scoreWciPrediction(
 
   const correct =
     parsed === gt.wciNodeId || gt.acceptableNodeIds.includes(parsed);
-  const hitDecoy = gt.decoyNodeIds.includes(parsed);
+  const hitDecoy =
+    gt.decoyNodeIds.includes(parsed) ||
+    (competitorNodeIds?.includes(parsed) ?? false);
 
   return { correct, hitDecoy, parsed };
 }

@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-05-29T19:22:40.585Z",
+  "generatedAt": "2026-05-31T09:16:38.381Z",
+  "methodology": "multistep",
   "mergedFrom": [
     "gpt5",
     "gpt5Nano",
@@ -12,12 +13,12 @@
     {
       "id": "gpt5",
       "name": "GPT-5",
-      "openRouterModel": "openai/gpt-5"
+      "openRouterModel": "openai/gpt-5.4"
     },
     {
       "id": "gpt5Nano",
       "name": "GPT-5 Nano",
-      "openRouterModel": "openai/gpt-5-nano"
+      "openRouterModel": "openai/gpt-5.4-nano"
     },
     {
       "id": "gptoss20B",
@@ -41,242 +42,248 @@
     }
   ],
   "gpt5": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 51,
-      "avgTokens": 2081
+      "successRate": 31,
+      "avgTokens": 2387
     },
     "wci": {
-      "successRate": 100,
-      "avgTokens": 505
+      "successRate": 94,
+      "avgTokens": 764
     },
     "wciFull": {
-      "successRate": 96,
-      "avgTokens": 632
+      "successRate": 94,
+      "avgTokens": 782
     },
     "agentDom": {
-      "successRate": 100,
-      "avgTokens": 505
+      "successRate": 94,
+      "avgTokens": 764
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 90,
-        "avgTokens": 2993
+        "successRate": 2,
+        "avgTokens": 4336
       },
       "domOutline": {
-        "successRate": 54,
-        "avgTokens": 2019
+        "successRate": 18,
+        "avgTokens": 1490
       },
       "candidates": {
-        "successRate": 8,
-        "avgTokens": 1230
+        "successRate": 74,
+        "avgTokens": 1334
       },
       "wciFull": {
-        "successRate": 96,
-        "avgTokens": 632
+        "successRate": 94,
+        "avgTokens": 782
       },
       "wciGrounding": {
-        "successRate": 100,
-        "avgTokens": 505
+        "successRate": 94,
+        "avgTokens": 764
       }
     }
   },
   "gpt5Nano": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 25,
-      "avgTokens": 2049
+      "successRate": 15,
+      "avgTokens": 2306
     },
     "wci": {
-      "successRate": 100,
-      "avgTokens": 528
+      "successRate": 86,
+      "avgTokens": 790
     },
     "wciFull": {
-      "successRate": 98,
-      "avgTokens": 655
+      "successRate": 80,
+      "avgTokens": 816
     },
     "agentDom": {
-      "successRate": 100,
-      "avgTokens": 528
+      "successRate": 86,
+      "avgTokens": 790
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 58,
-        "avgTokens": 3047
+        "successRate": 0,
+        "avgTokens": 4341
       },
       "domOutline": {
-        "successRate": 12,
-        "avgTokens": 1914
+        "successRate": 0,
+        "avgTokens": 1329
       },
       "candidates": {
-        "successRate": 4,
-        "avgTokens": 1185
+        "successRate": 46,
+        "avgTokens": 1249
       },
       "wciFull": {
-        "successRate": 98,
-        "avgTokens": 655
+        "successRate": 80,
+        "avgTokens": 816
       },
       "wciGrounding": {
-        "successRate": 100,
-        "avgTokens": 528
+        "successRate": 86,
+        "avgTokens": 790
       }
     }
   },
   "gptoss20B": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 22,
-      "avgTokens": 1908
+      "successRate": 1,
+      "avgTokens": 2334
     },
     "wci": {
-      "successRate": 100,
-      "avgTokens": 535
+      "successRate": 86,
+      "avgTokens": 731
     },
     "wciFull": {
-      "successRate": 98,
-      "avgTokens": 649
+      "successRate": 92,
+      "avgTokens": 723
     },
     "agentDom": {
-      "successRate": 100,
-      "avgTokens": 535
+      "successRate": 86,
+      "avgTokens": 731
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 62,
-        "avgTokens": 2869
+        "successRate": 2,
+        "avgTokens": 4402
       },
       "domOutline": {
-        "successRate": 4,
-        "avgTokens": 1738
+        "successRate": 0,
+        "avgTokens": 1352
       },
       "candidates": {
-        "successRate": 0,
-        "avgTokens": 1116
+        "successRate": 2,
+        "avgTokens": 1248
       },
       "wciFull": {
-        "successRate": 98,
-        "avgTokens": 649
+        "successRate": 92,
+        "avgTokens": 723
       },
       "wciGrounding": {
-        "successRate": 100,
-        "avgTokens": 535
+        "successRate": 86,
+        "avgTokens": 731
       }
     }
   },
   "gemini35Flash": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 41,
-      "avgTokens": 2234
+      "successRate": 1,
+      "avgTokens": 3043
     },
     "wci": {
-      "successRate": 98,
-      "avgTokens": 541
+      "successRate": 96,
+      "avgTokens": 777
     },
     "wciFull": {
-      "successRate": 96,
-      "avgTokens": 680
+      "successRate": 94,
+      "avgTokens": 829
     },
     "agentDom": {
-      "successRate": 98,
-      "avgTokens": 541
+      "successRate": 96,
+      "avgTokens": 777
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 88,
-        "avgTokens": 3315
+        "successRate": 0,
+        "avgTokens": 5939
       },
       "domOutline": {
-        "successRate": 28,
-        "avgTokens": 2116
+        "successRate": 0,
+        "avgTokens": 1752
       },
       "candidates": {
-        "successRate": 8,
-        "avgTokens": 1271
+        "successRate": 2,
+        "avgTokens": 1438
       },
       "wciFull": {
-        "successRate": 96,
-        "avgTokens": 680
+        "successRate": 94,
+        "avgTokens": 829
       },
       "wciGrounding": {
-        "successRate": 98,
-        "avgTokens": 541
+        "successRate": 96,
+        "avgTokens": 777
       }
     }
   },
   "qwen25_7b": {
+    "methodology": "multistep",
     "standard": {
-      "successRate": 31,
-      "avgTokens": 1823
+      "successRate": 0,
+      "avgTokens": 2258
     },
     "wci": {
-      "successRate": 90,
-      "avgTokens": 454
+      "successRate": 84,
+      "avgTokens": 546
     },
     "wciFull": {
-      "successRate": 92,
-      "avgTokens": 569
+      "successRate": 86,
+      "avgTokens": 572
     },
     "agentDom": {
-      "successRate": 90,
-      "avgTokens": 454
+      "successRate": 84,
+      "avgTokens": 546
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 70,
-        "avgTokens": 2857
+        "successRate": 0,
+        "avgTokens": 4496
       },
       "domOutline": {
-        "successRate": 14,
-        "avgTokens": 1541
+        "successRate": 0,
+        "avgTokens": 1106
       },
       "candidates": {
-        "successRate": 8,
-        "avgTokens": 1070
+        "successRate": 0,
+        "avgTokens": 1172
       },
       "wciFull": {
-        "successRate": 92,
-        "avgTokens": 569
+        "successRate": 86,
+        "avgTokens": 572
       },
       "wciGrounding": {
-        "successRate": 90,
-        "avgTokens": 454
+        "successRate": 84,
+        "avgTokens": 546
       }
     }
   },
   "llama31_8b": {
+    "methodology": "multistep",
     "standard": {
       "successRate": 13,
-      "avgTokens": 1767
+      "avgTokens": 2185
     },
     "wci": {
-      "successRate": 92,
-      "avgTokens": 450
+      "successRate": 82,
+      "avgTokens": 807
     },
     "wciFull": {
-      "successRate": 92,
-      "avgTokens": 561
+      "successRate": 78,
+      "avgTokens": 834
     },
     "agentDom": {
-      "successRate": 92,
-      "avgTokens": 450
+      "successRate": 82,
+      "avgTokens": 807
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 20,
-        "avgTokens": 2762
+        "successRate": 0,
+        "avgTokens": 4130
       },
       "domOutline": {
-        "successRate": 16,
-        "avgTokens": 1518
+        "successRate": 0,
+        "avgTokens": 1197
       },
       "candidates": {
-        "successRate": 4,
-        "avgTokens": 1021
+        "successRate": 38,
+        "avgTokens": 1227
       },
       "wciFull": {
-        "successRate": 92,
-        "avgTokens": 561
+        "successRate": 78,
+        "avgTokens": 834
       },
       "wciGrounding": {
-        "successRate": 92,
-        "avgTokens": 450
+        "successRate": 82,
+        "avgTokens": 807
       }
     }
   }

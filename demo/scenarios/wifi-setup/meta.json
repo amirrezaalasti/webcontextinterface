@@ -8,7 +8,7 @@
     "Home locked"
   ],
   "task": {
-    "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked).",
+    "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -64,7 +64,7 @@
       {
         "id": "wifi-setup.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). Complete with explicit verification and no decoy interactions.",
+        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -78,7 +78,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -90,7 +90,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-connect-ssid=\"Guest_5G\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -108,7 +108,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id connect-guest-5g",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -120,7 +120,7 @@
       {
         "id": "wifi-setup.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). First validate key constraints (home locked) then execute and verify.",
+        "goal": "Connect device to guest network SSID Guest_5G (Home_5G is locked). First validate key constraints (home locked) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -142,11 +142,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-connect-ssid=\"Guest_5G\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -160,7 +160,7 @@
             "type": "reason"
           },
           {
-            "step": "Click connect-guest-5g",
+            "step": "Click [target]",
             "type": "act"
           },
           {

@@ -8,7 +8,7 @@
     "Chat"
   ],
   "task": {
-    "goal": "File bug report for checkout timeout on mobile category (not chat support).",
+    "goal": "File bug report for checkout timeout on mobile category (not chat support). Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "bug-report.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions.",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at button[data-file-bug=\"checkout-timeout\"]",
+            "step": "Execute final action at [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id file-checkout-timeout-bug",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "bug-report.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify.",
+        "goal": "File bug report for checkout timeout on mobile category (not chat support). First validate key constraints (chat) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Very Hard",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector button[data-file-bug=\"checkout-timeout\"]",
+            "step": "Execute primary selector [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click file-checkout-timeout-bug",
+            "step": "Click [target]",
             "type": "act"
           },
           {

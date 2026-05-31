@@ -8,7 +8,7 @@
     "Share"
   ],
   "task": {
-    "goal": "Add organic avocados line item to shared family list.",
+    "goal": "Add organic avocados line item to shared family list. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
     "standardSteps": [
       {
         "action": "scan",
@@ -65,7 +65,7 @@
       {
         "id": "grocery-list.multi-step.primary",
         "title": "Constraint-driven Completion",
-        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions.",
+        "goal": "Add organic avocados line item to shared family list. Complete with explicit verification and no decoy interactions. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -79,7 +79,7 @@
         ],
         "standardFlow": [
           {
-            "step": "Observe page state and locate task-relevant section",
+            "step": "Observe page state and locate [target] section",
             "type": "observe"
           },
           {
@@ -91,7 +91,7 @@
             "type": "guardrail"
           },
           {
-            "step": "Execute final action at [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "step": "Execute final action at [target] [target]",
             "type": "act"
           },
           {
@@ -109,7 +109,7 @@
             "type": "reason"
           },
           {
-            "step": "Invoke primary node id add-avocados-list",
+            "step": "Invoke primary node id [from graph]",
             "type": "act"
           },
           {
@@ -121,7 +121,7 @@
       {
         "id": "grocery-list.multi-step.validation",
         "title": "Validation + Final Action",
-        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify.",
+        "goal": "Add organic avocados line item to shared family list. First validate key constraints (share) then execute and verify. Scored final_action: the one control that completes this goal (not a later confirmation, checkout, or competitor trap).",
         "difficulty": "Extreme",
         "prerequisites": [
           "Dismiss overlays if present",
@@ -143,11 +143,11 @@
             "type": "reason"
           },
           {
-            "step": "Execute primary selector [data-item=\"organic-avocados\"] button[data-add-family=\"avocados\"]",
+            "step": "Execute primary selector [target] [target]",
             "type": "act"
           },
           {
-            "step": "Check post-action confirmation state",
+            "step": "Check [target] confirmation state",
             "type": "verify"
           }
         ],
@@ -161,7 +161,7 @@
             "type": "reason"
           },
           {
-            "step": "Click add-avocados-list",
+            "step": "Click [target]",
             "type": "act"
           },
           {

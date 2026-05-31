@@ -35,8 +35,6 @@
     "scenarios:legacy-styles": "node scripts/inject-legacy-styles.mjs",
     "scenarios:regenerate": "node scripts/setup-benchmark-scenarios.mjs",
     "scenarios:restyle": "node scripts/setup-benchmark-scenarios.mjs && node scripts/inject-legacy-styles.mjs",
-    "scenarios:enrich": "node scripts/enrich-scenarios.mjs",
-    "scenarios:agent-build": "node scripts/agent-build-scenarios.mjs",
     "scenarios:rebuild-annotations": "node scripts/rebuild-scenario-annotations.mjs",
     "eval:webarena:compare": "tsx evals/webarena/runners/compare.ts",
     "eval:webarena:annotate": "tsx evals/webarena/adapter/inject-wci-tags.ts",
