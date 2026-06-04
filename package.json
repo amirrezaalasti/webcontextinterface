@@ -15,7 +15,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w @webcontextinterface/spec && npm run build -w @webcontextinterface/distiller && npm run build -w @webcontextinterface/bridge && npm run build -w @webcontextinterface/context && npm run build -w @webcontextinterface/core",
+    "build": "npm run build -w @webcontextinterface/spec && npm run build -w @webcontextinterface/distiller && npm run build -w @webcontextinterface/context && npm run build -w @webcontextinterface/bridge && npm run build -w @webcontextinterface/core",
     "build:packages": "npm run build",
     "dev": "vite demo --open",
     "demo": "vite demo --open",

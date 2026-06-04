@@ -41,7 +41,7 @@ const flows = ctx.manifest?.task_flows;
 const narrative = ctx.narrative;
 ```
 
-Pass optional `Headers` from the initial navigation response to honour `X-WCI-*` overrides.
+Discovery order: `<meta name="wci:*">` (highest), then `X-WCI-Directives` / `X-WCI-Manifest` / `X-WCI-Context` headers, then `/wci.txt`, `/wci.json`, `/wci.md`, with `/.well-known/wci/*` as a fetch fallback. Pass optional `Headers` from the initial navigation response to honour header overrides. See [Specification — discovery order](./specification.md#discovery-order).
 
 ## PolicyEngine
 

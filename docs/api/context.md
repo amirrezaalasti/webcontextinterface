@@ -4,15 +4,17 @@ Site-wide context loader and **`PolicyEngine`** for `wci.txt` / `wci.json` / `wc
 
 ## `WciContextLoader`
 
-### `static load(baseUrl?: string, headers?: HeadersInit): Promise<SiteContext>`
+### `static load(baseUrl?: string, headers?: Headers): Promise<SiteContext>`
 
 Fetches and parses site context files in parallel.
 
-**Discovery order:**
+**URL resolution (highest → lowest):**
 
-1. Response headers (`X-WCI-Policy`, `X-WCI-Manifest`, `X-WCI-Context`)
-2. Well-known URIs (`/.well-known/wci/wci.txt`, etc.)
-3. Root fallbacks (`/wci.txt`, `/wci.json`, `/wci.md`)
+1. `<meta name="wci:directives">`, `wci:manifest`, `wci:context` in the page head
+2. Response headers: `X-WCI-Directives`, `X-WCI-Manifest`, `X-WCI-Context`
+3. Root defaults: `/wci.txt`, `/wci.json`, `/wci.md`
+
+**Fetch fallbacks:** When meta or headers do not set an explicit URL, well-known paths are fetched in parallel as backup: `/.well-known/wci/directives.txt`, `manifest.json`, `context.md`. Content from the resolved root or explicit URL wins over well-known when both return a body.
 
 Defaults `baseUrl` to `window.location.origin` when omitted.
 

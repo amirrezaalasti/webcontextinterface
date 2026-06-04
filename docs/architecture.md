@@ -85,11 +85,7 @@ State changes also emit `wci:state-change` on `document` for observers.
 
 ## Site context (`@webcontextinterface/context`)
 
-Before touching a page, agents can load site policy:
-
-1. HTTP headers (`X-WCI-*`)
-2. Well-known URIs (`/.well-known/wci/*`)
-3. Root fallbacks (`/wci.txt`, `/wci.json`, `/wci.md`)
+Before touching a page, agents can load site policy. `WciContextLoader` resolves URLs in priority order: `<meta name="wci:*">` tags, then `X-WCI-Directives` / `X-WCI-Manifest` / `X-WCI-Context` headers, then root `/wci.txt`, `/wci.json`, `/wci.md`. Well-known `/.well-known/wci/*` paths are fetched only as a fallback when no explicit URL was set.
 
 `PolicyEngine` enforces allow/deny scopes, auth requirements, and human-confirmation scopes. Attach it to `WciBridge` via `setPolicy` so every dispatch is validated before DOM mutation.
 

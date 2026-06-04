@@ -26,11 +26,7 @@ console.log(ctx.policy.policy);        // parsed wci.txt rules
 
 ## `WciContextLoader.load(baseUrl?, headers?)`
 
-Fetches context files in parallel with graceful fallbacks:
-
-1. HTTP headers (`X-WCI-*`)
-2. Well-known URIs (`/.well-known/wci/*`)
-3. Root fallbacks (`/wci.txt`, `/wci.json`, `/wci.md`)
+Resolves file URLs (highest → lowest): `<meta name="wci:directives|manifest|context">`, then `X-WCI-Directives` / `X-WCI-Manifest` / `X-WCI-Context` headers, then `/wci.txt`, `/wci.json`, `/wci.md`. Fetches in parallel; uses `/.well-known/wci/directives.txt`, `manifest.json`, `context.md` only when no explicit URL was set and the primary fetch misses.
 
 Defaults `baseUrl` to `window.location.origin` in the browser.
 

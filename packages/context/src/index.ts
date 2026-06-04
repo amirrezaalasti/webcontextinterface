@@ -20,6 +20,10 @@ export interface SiteContext {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export class PolicyEngine {
+  /** Sliding-window timestamps for rate-limit tracking */
+  private actionTimestamps: number[] = [];
+  private distilTimestamps: number[] = [];
+
   constructor(public readonly policy: WciPolicy) {}
 
   /** Returns true if the scope is explicitly denied */
@@ -47,6 +51,55 @@ export class PolicyEngine {
   /** Returns true if the scope requires an explicit human confirmation */
   requiresHumanConfirmation(scopeId: string): boolean {
     return this.policy.requireHumanConfirmation.includes(scopeId);
+  }
+
+  /**
+   * Check and record an action against the rate limit.
+   * Returns true if the action is rate-limited (should be blocked).
+   */
+  isActionRateLimited(): boolean {
+    return this.checkRateLimit(
+      this.actionTimestamps,
+      this.policy.rateLimitActions
+    );
+  }
+
+  /**
+   * Check and record a distil request against the rate limit.
+   * Returns true if the request is rate-limited (should be blocked).
+   */
+  isDistilRateLimited(): boolean {
+    return this.checkRateLimit(
+      this.distilTimestamps,
+      this.policy.rateLimitDistil
+    );
+  }
+
+  /**
+   * Record an action dispatch (call after a successful dispatch).
+   */
+  recordAction(): void {
+    this.actionTimestamps.push(Date.now());
+  }
+
+  /**
+   * Record a distil request (call after a successful distil).
+   */
+  recordDistil(): void {
+    this.distilTimestamps.push(Date.now());
+  }
+
+  /** Sliding-window rate limit check (1-minute window) */
+  private checkRateLimit(timestamps: number[], limit: number): boolean {
+    const now = Date.now();
+    const windowMs = 60_000; // 1 minute
+
+    // Evict timestamps older than the window
+    while (timestamps.length > 0 && timestamps[0] < now - windowMs) {
+      timestamps.shift();
+    }
+
+    return timestamps.length >= limit;
   }
 }
 
@@ -132,10 +185,11 @@ async function tryFetch(url: string): Promise<string | null> {
 export class WciContextLoader {
   /**
    * Load all three context files for a site.
-   * Implements the three-tier discovery protocol:
-   *   1. HTTP response headers (X-WCI-*)
-   *   2. Well-known URIs (/.well-known/wci/*)
+   * Discovery priority (highest → lowest):
+   *   1. `<meta>` tags in the document head
+   *   2. HTTP response headers (X-WCI-*)
    *   3. Root-level fallbacks (/wci.txt, /wci.json, /wci.md)
+   *   4. Well-known URIs (/.well-known/wci/*) — used only as fallback
    *
    * @param baseUrl  Site origin, e.g. "https://example.com"
    * @param headers  Optional Response headers from the initial page load
@@ -144,34 +198,42 @@ export class WciContextLoader {
     baseUrl: string = window.location.origin,
     headers?: Headers
   ): Promise<SiteContext> {
-    // ── 1. Determine file URLs via discovery priority ─────────────────────
+    // ── 1. Start with root-level defaults ──────────────────────────────────
     let directivesUrl  = resolveUrl(baseUrl, '/wci.txt');
     let manifestUrl    = resolveUrl(baseUrl, '/wci.json');
     let contextUrl     = resolveUrl(baseUrl, '/wci.md');
 
-    // Override from HTTP headers if provided
+    // Track whether an explicit (non-default) URL was provided
+    let directivesExplicit = false;
+    let manifestExplicit   = false;
+    let contextExplicit    = false;
+
+    // ── 2. Override from HTTP headers if provided ─────────────────────────
     if (headers) {
-      directivesUrl = headers.get('X-WCI-Directives') ?? directivesUrl;
-      manifestUrl   = headers.get('X-WCI-Manifest')   ?? manifestUrl;
-      contextUrl    = headers.get('X-WCI-Context')    ?? contextUrl;
+      const hDir = headers.get('X-WCI-Directives');
+      const hMan = headers.get('X-WCI-Manifest');
+      const hCtx = headers.get('X-WCI-Context');
+      if (hDir) { directivesUrl = hDir; directivesExplicit = true; }
+      if (hMan) { manifestUrl   = hMan; manifestExplicit   = true; }
+      if (hCtx) { contextUrl    = hCtx; contextExplicit    = true; }
     }
 
-    // Override from <meta> tags (DOM fallback)
+    // ── 3. Override from <meta> tags (highest priority) ───────────────────
     if (typeof document !== 'undefined') {
       const mDirectives = document.querySelector<HTMLMetaElement>('meta[name="wci:directives"]');
       const mManifest   = document.querySelector<HTMLMetaElement>('meta[name="wci:manifest"]');
       const mContext    = document.querySelector<HTMLMetaElement>('meta[name="wci:context"]');
-      if (mDirectives?.content) directivesUrl = resolveUrl(baseUrl, mDirectives.content);
-      if (mManifest?.content)   manifestUrl   = resolveUrl(baseUrl, mManifest.content);
-      if (mContext?.content)    contextUrl    = resolveUrl(baseUrl, mContext.content);
+      if (mDirectives?.content) { directivesUrl = resolveUrl(baseUrl, mDirectives.content); directivesExplicit = true; }
+      if (mManifest?.content)   { manifestUrl   = resolveUrl(baseUrl, mManifest.content);   manifestExplicit   = true; }
+      if (mContext?.content)    { contextUrl    = resolveUrl(baseUrl, mContext.content);     contextExplicit    = true; }
     }
 
-    // Try well-known URIs first (RFC 8615) for directives and manifest
+    // ── 4. Well-known URIs (fallback only) ────────────────────────────────
     const wellKnownDirectives = resolveUrl(baseUrl, '/.well-known/wci/directives.txt');
     const wellKnownManifest   = resolveUrl(baseUrl, '/.well-known/wci/manifest.json');
     const wellKnownContext    = resolveUrl(baseUrl, '/.well-known/wci/context.md');
 
-    // ── 2. Fetch all three in parallel ────────────────────────────────────
+    // ── 5. Fetch all in parallel ──────────────────────────────────────────
     const [
       directivesTxt,
       directivesTxtWK,
@@ -181,17 +243,17 @@ export class WciContextLoader {
       agentMdWK,
     ] = await Promise.all([
       tryFetch(directivesUrl),
-      tryFetch(wellKnownDirectives),
+      directivesExplicit ? Promise.resolve(null) : tryFetch(wellKnownDirectives),
       tryFetch(manifestUrl),
-      tryFetch(wellKnownManifest),
+      manifestExplicit   ? Promise.resolve(null) : tryFetch(wellKnownManifest),
       tryFetch(contextUrl),
-      tryFetch(wellKnownContext),
+      contextExplicit    ? Promise.resolve(null) : tryFetch(wellKnownContext),
     ]);
 
-    // ── 3. Parse ──────────────────────────────────────────────────────────
-    const rawDirectives = directivesTxtWK ?? directivesTxt;
-    const rawManifest   = manifestJsonWK  ?? manifestJson;
-    const rawNarrative  = agentMdWK       ?? agentMd;
+    // ── 6. Resolve: explicit/root-level wins; well-known is fallback ─────
+    const rawDirectives = directivesTxt ?? directivesTxtWK;
+    const rawManifest   = manifestJson  ?? manifestJsonWK;
+    const rawNarrative  = agentMd       ?? agentMdWK;
 
     const parsedPolicy = parseWciTxt(rawDirectives ?? '');
 

@@ -24,6 +24,16 @@ export type WciAction =
   | 'focus'
   | 'clear';
 
+/** All valid WciRole values (for runtime validation) */
+export const VALID_WCI_ROLES: readonly WciRole[] = [
+  'action', 'form', 'display', 'nav', 'status', 'landmark',
+] as const;
+
+/** All valid WciAction values (for runtime validation) */
+export const VALID_WCI_ACTIONS: readonly WciAction[] = [
+  'click', 'fill', 'select', 'check', 'upload', 'submit', 'navigate', 'focus', 'clear',
+] as const;
+
 /** Sensitivity levels for scopes */
 export type ScopeSensitivity =
   | 'low'
@@ -58,7 +68,7 @@ export interface WciNodeSpec {
   scope?: string;
   /** Whether the Distiller should prune this node */
   hidden?: boolean;
-  /** 1 (primary CTA) → 5 (low-priority) */
+  /** 1 (primary CTA) → 5 (low-priority). Defaults to 3 (medium) when unset. */
   priority?: number;
 }
 
@@ -161,10 +171,32 @@ export interface ScopeDescriptor {
 
 export function readWciNodeSpec(el: HTMLElement): WciNodeSpec | null {
   const id   = el.dataset.wciId;
-  const role = el.dataset.wciRole as WciRole | undefined;
+  const rawRole = el.dataset.wciRole;
 
   // A node must have at least an id OR a role to be included
-  if (!id && !role) return null;
+  if (!id && !rawRole) return null;
+
+  // Validate role — reject unknown values with a console warning
+  let role: WciRole | undefined;
+  if (rawRole) {
+    if ((VALID_WCI_ROLES as readonly string[]).includes(rawRole)) {
+      role = rawRole as WciRole;
+    } else {
+      console.warn(`[WCI] Unknown role "${rawRole}" on element "${id ?? el.id}". Falling back to "display".`);
+      role = 'display';
+    }
+  }
+
+  // Validate action — reject unknown values with a console warning
+  let action: WciAction | undefined;
+  const rawAction = el.dataset.wciAction;
+  if (rawAction) {
+    if ((VALID_WCI_ACTIONS as readonly string[]).includes(rawAction)) {
+      action = rawAction as WciAction;
+    } else {
+      console.warn(`[WCI] Unknown action "${rawAction}" on element "${id ?? el.id}". Ignoring.`);
+    }
+  }
 
   let state: Record<string, unknown> = {};
   try { state = JSON.parse(el.dataset.wciState ?? '{}'); } catch { /* ignore */ }
@@ -179,7 +211,7 @@ export function readWciNodeSpec(el: HTMLElement): WciNodeSpec | null {
     id:           id ?? el.id ?? crypto.randomUUID(),
     role:         role ?? 'display',
     desc:         el.dataset.wciDesc ?? el.textContent?.trim().slice(0, 120) ?? '',
-    action:       el.dataset.wciAction as WciAction | undefined,
+    action,
     state,
     precondition: el.dataset.wciPrecondition,
     required:     el.dataset.wciRequired === 'true',

@@ -73,6 +73,20 @@ export function enforcePolicyForDispatch(
     };
   }
 
+  if (policy.isActionRateLimited()) {
+    return {
+      success: false,
+      nodeId: req.nodeId,
+      action: req.action,
+      timestamp,
+      error: {
+        code: 'RATE_LIMITED',
+        message: `Action rate limit (${policy.policy.rateLimitActions}/min) exceeded.`,
+        hint: 'Wait before retrying. The site\u2019s wci.txt Rate-Limit-Actions directive is in effect.',
+      },
+    };
+  }
+
   return null;
 }
 
@@ -85,10 +99,23 @@ export function checkPolicyBeforeDispatch(
   req: ActionRequest,
   root: Element
 ): ActionResult | null {
-  if (!policy) return null;
-
   const target = root.querySelector<HTMLElement>(`[data-wci-id="${req.nodeId}"]`);
-  if (!target) return null;
+
+  if (!target) {
+    return {
+      success: false,
+      nodeId: req.nodeId,
+      action: req.action,
+      timestamp: new Date().toISOString(),
+      error: {
+        code: 'NODE_NOT_FOUND',
+        message: `No element with data-wci-id="${req.nodeId}" found in the DOM.`,
+        hint: 'Verify the node ID from the distilled view. The page may have navigated.',
+      },
+    };
+  }
+
+  if (!policy) return null;
 
   return enforcePolicyForDispatch(policy, req, target);
 }

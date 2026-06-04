@@ -25,7 +25,6 @@ function patchState(el: HTMLElement, patch: Record<string, unknown>): Record<str
   return next;
 }
 
-/** Collect side effects — scan the DOM for nodes whose state changed after the action */
 function collectSideEffects(
   before: Map<string, Record<string, unknown>>,
   root: Element
@@ -34,9 +33,15 @@ function collectSideEffects(
   const all = root.querySelectorAll<HTMLElement>('[data-wci-id]');
   for (const el of Array.from(all)) {
     const id = el.dataset.wciId!;
-    const prev = before.get(id);
-    if (!prev) continue;
     const curr = captureState(el);
+    const prev = before.get(id);
+
+    if (!prev) {
+      // Newly appeared node — report its initial state as a side effect
+      effects.push({ nodeId: id, change: curr });
+      continue;
+    }
+
     const changed = Object.entries(curr).some(([k, v]) => JSON.stringify(v) !== JSON.stringify(prev[k]));
     if (changed) effects.push({ nodeId: id, change: curr });
   }
@@ -67,9 +72,13 @@ export async function dispatchAction(
     if (blocked) return blocked;
   }
 
-  // Check precondition
+  // Check precondition — block if precondition is declared and the element
+  // signals it is unmet via disabled or aria-disabled.
   const precondition = target.dataset.wciPrecondition;
-  if (precondition && target.hasAttribute('disabled')) {
+  if (precondition && (
+    target.hasAttribute('disabled') ||
+    target.getAttribute('aria-disabled') === 'true'
+  )) {
     return {
       success: false, nodeId: req.nodeId, action: req.action, timestamp,
       error: {
@@ -105,10 +114,12 @@ export async function dispatchAction(
         if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) {
           throw new Error(`Node "${req.nodeId}" does not support "fill".`);
         }
-        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-          window.HTMLInputElement.prototype, 'value'
-        )?.set;
-        nativeInputValueSetter?.call(target, String(req.value ?? ''));
+        // Use the correct native setter for the element type
+        const proto = target instanceof HTMLTextAreaElement
+          ? window.HTMLTextAreaElement.prototype
+          : window.HTMLInputElement.prototype;
+        const nativeValueSetter = Object.getOwnPropertyDescriptor(proto, 'value')?.set;
+        nativeValueSetter?.call(target, String(req.value ?? ''));
         target.dispatchEvent(new Event('input', { bubbles: true }));
         target.dispatchEvent(new Event('change', { bubbles: true }));
         stateAfter = patchState(target, { value: req.value });
@@ -166,6 +177,20 @@ export async function dispatchAction(
         stateAfter = patchState(target, { navigating: href });
         break;
       }
+
+      case 'upload': {
+        throw new Error(
+          `Action "upload" is not yet implemented. ` +
+          `Node "${req.nodeId}" cannot be automated for file uploads.`
+        );
+      }
+
+      default: {
+        throw new Error(
+          `Unknown action "${req.action}" on node "${req.nodeId}". ` +
+          `Supported actions: click, fill, select, check, focus, clear, submit, navigate.`
+        );
+      }
     }
 
     // Emit custom wci event
@@ -187,6 +212,9 @@ export async function dispatchAction(
 
     const sideEffects = collectSideEffects(before, root)
       .filter(se => se.nodeId !== req.nodeId);
+
+    // Record the action for rate-limit tracking
+    if (policy) policy.recordAction();
 
     return {
       success: true, nodeId: req.nodeId, action: req.action,

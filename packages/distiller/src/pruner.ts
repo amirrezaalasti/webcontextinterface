@@ -22,28 +22,21 @@ export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}
   function walk(el: Element): void {
     const htmlEl = el as HTMLElement;
 
-    // Skip hidden subtrees
-    if (htmlEl.dataset?.wciHidden === 'true') return;
-
     // Try to read a spec from this element
     const spec = readWciNodeSpec(htmlEl);
 
     if (spec) {
-      // If a scope filter is active, only include nodes in that scope
-      if (!opts.scope || spec.scope === opts.scope || spec.id === opts.scope) {
-        if (!spec.hidden) {
+      // If a scope filter is active, only include nodes in that scope.
+      // Nodes marked data-wci-hidden="true" are excluded but their children
+      // are still visited (hiding is per-node, not per-subtree).
+      if (!spec.hidden) {
+        if (!opts.scope || spec.scope === opts.scope || spec.id === opts.scope) {
           nodes.push(spec);
         }
       }
-      // If this element IS the landmark we're scoping to, still recurse
-      if (spec.role === 'landmark') {
-        for (const child of Array.from(el.children)) walk(child);
-        return;
-      }
-      // Non-landmark annotated nodes: recurse for nested annotated children
     }
 
-    // Always recurse into children
+    // Always recurse into children (even for hidden or landmark nodes)
     for (const child of Array.from(el.children)) walk(child);
   }
 

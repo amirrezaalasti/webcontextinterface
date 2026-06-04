@@ -28,8 +28,8 @@ const otp = otpArg?.slice('--otp='.length);
 const packages = [
   { name: '@webcontextinterface/spec', dir: 'spec' },
   { name: '@webcontextinterface/distiller', dir: 'distiller' },
-  { name: '@webcontextinterface/bridge', dir: 'bridge' },
   { name: '@webcontextinterface/context', dir: 'context' },
+  { name: '@webcontextinterface/bridge', dir: 'bridge' },
   { name: '@webcontextinterface/core', dir: 'core' },
 ];
 

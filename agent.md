@@ -859,16 +859,16 @@ Defined in `@webcontextinterface/spec` — see `packages/spec/src/index.ts` for 
 
 `WciContextLoader.load(baseUrl, headers?)` resolves file URLs in priority order:
 
-1. **HTTP headers** on initial navigation  
-   `X-WCI-Directives`, `X-WCI-Manifest`, `X-WCI-Context`
-2. **HTML meta tags**  
+1. **HTML meta tags** (highest)  
    `meta[name="wci:directives"]`, `wci:manifest`, `wci:context`
-3. **Well-known (RFC 8615)**  
-   `/.well-known/wci/directives.txt`, `manifest.json`, `context.md`
-4. **Root fallbacks**  
+2. **HTTP headers** on initial navigation  
+   `X-WCI-Directives`, `X-WCI-Manifest`, `X-WCI-Context`
+3. **Root defaults**  
    `/wci.txt`, `/wci.json`, `/wci.md`
+4. **Well-known (RFC 8615)** — fetched only when no explicit URL was set via meta/headers; used if the primary fetch returns no body  
+   `/.well-known/wci/directives.txt`, `manifest.json`, `context.md`
 
-Fetches well-known and root paths in parallel; prefers well-known body when both exist.
+Fetches configured URLs in parallel; root or explicit URL content wins over well-known when both return a body.
 
 ---
 

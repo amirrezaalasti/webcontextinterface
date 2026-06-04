@@ -82,12 +82,15 @@ Free-form Markdown injected into the LLM system prompt (policies, tone, domain g
 
 ## Discovery order
 
-`WciContextLoader` resolves file URLs in this priority:
+`WciContextLoader` resolves which URLs to fetch, then loads content with fallbacks.
 
-1. HTTP response headers: `X-WCI-Directives`, `X-WCI-Manifest`, `X-WCI-Context`
-2. `<meta name="wci:directives">` (and manifest/context) in the page
-3. `/.well-known/wci/*` (RFC 8615)
-4. `/wci.txt`, `/wci.json`, `/wci.md`
+**URL resolution (highest → lowest):**
+
+1. `<meta name="wci:directives">`, `wci:manifest`, `wci:context` in the page head
+2. HTTP response headers: `X-WCI-Directives`, `X-WCI-Manifest`, `X-WCI-Context`
+3. Root defaults: `/wci.txt`, `/wci.json`, `/wci.md`
+
+**Fetch fallbacks:** When meta or headers do not set an explicit URL, well-known paths are also fetched (RFC 8615): `/.well-known/wci/directives.txt`, `manifest.json`, `context.md`. Root or explicit URL content wins over well-known when both return a body.
 
 ## Events
 

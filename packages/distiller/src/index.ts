@@ -55,7 +55,7 @@ export class WciDistiller {
       : null;
 
     const meta = {
-      pageTitle:   root instanceof Document ? document.title : (el as HTMLElement).dataset?.agentDesc ?? '',
+      pageTitle:   root instanceof Document ? root.title : (el as HTMLElement).dataset?.agentDesc ?? '',
       scope:       this.opts.scope,
       scopeDesc:   landmarkEl?.dataset?.wciDesc,
       siteContext: this.opts.siteContext,
@@ -70,7 +70,10 @@ export class WciDistiller {
 
   /** Convenience: distil and return a pretty-printed JSON string */
   distilJSON(root: Document | Element = document): string {
+    const saved = this.opts.format;
+    this.opts.format = 'json';
     const view = this.distil(root) as WciView;
+    this.opts.format = saved;
     return JSON.stringify(view, null, 2);
   }
 
@@ -85,5 +88,6 @@ export class WciDistiller {
 }
 
 export { pruneDOM } from './pruner';
+export type { PrunerOptions } from './pruner';
 export { serializeJSON } from './serializer-json';
 export { serializeMarkdown } from './serializer-md';
