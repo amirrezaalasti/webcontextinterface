@@ -163,7 +163,7 @@ The **only** feedback channel agents should trust after an action: success/failu
 5. On policy failure, handle `ActionResult.error` (`SCOPE_DENIED`, `AUTH_REQUIRED`, `HUMAN_CONFIRMATION_REQUIRED`).
 6. Append result to history; re-distil or read `sideEffects` → next turn.
 
-**Size target:** each npm layer is designed to stay under **~8 KB gzipped** when used alone; use only the packages you need.
+**Size target:** each npm layer is designed to stay under **~8 KB minified** when used alone; use only the packages you need.
 
 ---
 

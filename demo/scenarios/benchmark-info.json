@@ -1,0 +1,365 @@
+{
+  "generatedAt": "2026-06-04T06:40:01.593Z",
+  "scenarioCount": 50,
+  "methodology": "Each scenario is one fake website (annotated.html). totalElements is every DOM node; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ totalElements. Typical site: ~105 WCI nodes among ~250 page elements (~42% of the DOM), plus ~600 labels on those nodes.",
+  "suite": {
+    "wciAttributes": {
+      "mean": 620.1,
+      "median": 598,
+      "min": 383,
+      "max": 1140
+    },
+    "wciNodes": {
+      "mean": 106.4,
+      "median": 104.5,
+      "min": 64,
+      "max": 193
+    },
+    "totalElements": {
+      "mean": 295,
+      "median": 256.5,
+      "min": 172,
+      "max": 739
+    },
+    "wciNodeSharePct": {
+      "mean": 37.9,
+      "median": 38.85,
+      "min": 21.7,
+      "max": 49.6
+    }
+  },
+  "byTier": {
+    "handmade": {
+      "count": 5,
+      "wciAttributes": {
+        "mean": 855.8,
+        "median": 979,
+        "min": 408,
+        "max": 1140
+      },
+      "wciNodes": {
+        "mean": 143.2,
+        "median": 160,
+        "min": 65,
+        "max": 193
+      }
+    },
+    "synthetic": {
+      "count": 45,
+      "wciAttributes": {
+        "mean": 593.9,
+        "median": 582,
+        "min": 383,
+        "max": 965
+      },
+      "wciNodes": {
+        "mean": 102.3,
+        "median": 101,
+        "min": 64,
+        "max": 164
+      }
+    }
+  },
+  "scenarios": {
+    "flight-booking": {
+      "wciNodes": 193,
+      "wciAttributes": 1140,
+      "totalElements": 649,
+      "wciNodeSharePct": 29.7
+    },
+    "banking": {
+      "wciNodes": 170,
+      "wciAttributes": 1008,
+      "totalElements": 732,
+      "wciNodeSharePct": 23.2
+    },
+    "checkout": {
+      "wciNodes": 65,
+      "wciAttributes": 408,
+      "totalElements": 248,
+      "wciNodeSharePct": 26.2
+    },
+    "social-feed": {
+      "wciNodes": 128,
+      "wciAttributes": 744,
+      "totalElements": 566,
+      "wciNodeSharePct": 22.6
+    },
+    "admin-dashboard": {
+      "wciNodes": 160,
+      "wciAttributes": 979,
+      "totalElements": 739,
+      "wciNodeSharePct": 21.7
+    },
+    "job-board": {
+      "wciNodes": 124,
+      "wciAttributes": 725,
+      "totalElements": 316,
+      "wciNodeSharePct": 39.2
+    },
+    "healthcare-portal": {
+      "wciNodes": 109,
+      "wciAttributes": 637,
+      "totalElements": 276,
+      "wciNodeSharePct": 39.5
+    },
+    "email-client": {
+      "wciNodes": 123,
+      "wciAttributes": 723,
+      "totalElements": 356,
+      "wciNodeSharePct": 34.6
+    },
+    "calendar-app": {
+      "wciNodes": 117,
+      "wciAttributes": 694,
+      "totalElements": 344,
+      "wciNodeSharePct": 34
+    },
+    "food-delivery": {
+      "wciNodes": 134,
+      "wciAttributes": 767,
+      "totalElements": 270,
+      "wciNodeSharePct": 49.6
+    },
+    "insurance-quote": {
+      "wciNodes": 70,
+      "wciAttributes": 400,
+      "totalElements": 206,
+      "wciNodeSharePct": 34
+    },
+    "real-estate": {
+      "wciNodes": 121,
+      "wciAttributes": 717,
+      "totalElements": 333,
+      "wciNodeSharePct": 36.3
+    },
+    "lms-course": {
+      "wciNodes": 106,
+      "wciAttributes": 618,
+      "totalElements": 285,
+      "wciNodeSharePct": 37.2
+    },
+    "support-ticket": {
+      "wciNodes": 108,
+      "wciAttributes": 636,
+      "totalElements": 261,
+      "wciNodeSharePct": 41.4
+    },
+    "ecommerce-search": {
+      "wciNodes": 123,
+      "wciAttributes": 708,
+      "totalElements": 278,
+      "wciNodeSharePct": 44.2
+    },
+    "streaming-service": {
+      "wciNodes": 99,
+      "wciAttributes": 574,
+      "totalElements": 223,
+      "wciNodeSharePct": 44.4
+    },
+    "hotel-booking": {
+      "wciNodes": 90,
+      "wciAttributes": 531,
+      "totalElements": 276,
+      "wciNodeSharePct": 32.6
+    },
+    "tax-filing": {
+      "wciNodes": 106,
+      "wciAttributes": 611,
+      "totalElements": 265,
+      "wciNodeSharePct": 40
+    },
+    "weather-app": {
+      "wciNodes": 90,
+      "wciAttributes": 511,
+      "totalElements": 252,
+      "wciNodeSharePct": 35.7
+    },
+    "parking-reservation": {
+      "wciNodes": 111,
+      "wciAttributes": 643,
+      "totalElements": 231,
+      "wciNodeSharePct": 48.1
+    },
+    "gym-membership": {
+      "wciNodes": 109,
+      "wciAttributes": 622,
+      "totalElements": 306,
+      "wciNodeSharePct": 35.6
+    },
+    "pharmacy-order": {
+      "wciNodes": 113,
+      "wciAttributes": 657,
+      "totalElements": 300,
+      "wciNodeSharePct": 37.7
+    },
+    "ride-share": {
+      "wciNodes": 101,
+      "wciAttributes": 582,
+      "totalElements": 240,
+      "wciNodeSharePct": 42.1
+    },
+    "voting-poll": {
+      "wciNodes": 73,
+      "wciAttributes": 417,
+      "totalElements": 190,
+      "wciNodeSharePct": 38.4
+    },
+    "wiki-edit": {
+      "wciNodes": 82,
+      "wciAttributes": 474,
+      "totalElements": 213,
+      "wciNodeSharePct": 38.5
+    },
+    "code-review": {
+      "wciNodes": 96,
+      "wciAttributes": 551,
+      "totalElements": 246,
+      "wciNodeSharePct": 39
+    },
+    "inventory-mgmt": {
+      "wciNodes": 115,
+      "wciAttributes": 666,
+      "totalElements": 297,
+      "wciNodeSharePct": 38.7
+    },
+    "subscription-cancel": {
+      "wciNodes": 105,
+      "wciAttributes": 603,
+      "totalElements": 233,
+      "wciNodeSharePct": 45.1
+    },
+    "password-reset": {
+      "wciNodes": 114,
+      "wciAttributes": 663,
+      "totalElements": 279,
+      "wciNodeSharePct": 40.9
+    },
+    "document-sign": {
+      "wciNodes": 91,
+      "wciAttributes": 513,
+      "totalElements": 263,
+      "wciNodeSharePct": 34.6
+    },
+    "survey-form": {
+      "wciNodes": 96,
+      "wciAttributes": 558,
+      "totalElements": 208,
+      "wciNodeSharePct": 46.2
+    },
+    "charity-donate": {
+      "wciNodes": 104,
+      "wciAttributes": 593,
+      "totalElements": 242,
+      "wciNodeSharePct": 43
+    },
+    "flight-checkin": {
+      "wciNodes": 116,
+      "wciAttributes": 672,
+      "totalElements": 252,
+      "wciNodeSharePct": 46
+    },
+    "visa-application": {
+      "wciNodes": 92,
+      "wciAttributes": 533,
+      "totalElements": 219,
+      "wciNodeSharePct": 42
+    },
+    "stock-trade": {
+      "wciNodes": 64,
+      "wciAttributes": 383,
+      "totalElements": 228,
+      "wciNodeSharePct": 28.1
+    },
+    "podcast-subscribe": {
+      "wciNodes": 69,
+      "wciAttributes": 386,
+      "totalElements": 172,
+      "wciNodeSharePct": 40.1
+    },
+    "photo-upload": {
+      "wciNodes": 84,
+      "wciAttributes": 491,
+      "totalElements": 205,
+      "wciNodeSharePct": 41
+    },
+    "forum-post": {
+      "wciNodes": 96,
+      "wciAttributes": 559,
+      "totalElements": 224,
+      "wciNodeSharePct": 42.9
+    },
+    "dating-profile": {
+      "wciNodes": 94,
+      "wciAttributes": 535,
+      "totalElements": 222,
+      "wciNodeSharePct": 42.3
+    },
+    "rental-car": {
+      "wciNodes": 127,
+      "wciAttributes": 749,
+      "totalElements": 338,
+      "wciNodeSharePct": 37.6
+    },
+    "concert-tickets": {
+      "wciNodes": 99,
+      "wciAttributes": 573,
+      "totalElements": 247,
+      "wciNodeSharePct": 40.1
+    },
+    "grocery-list": {
+      "wciNodes": 96,
+      "wciAttributes": 556,
+      "totalElements": 264,
+      "wciNodeSharePct": 36.4
+    },
+    "pet-adoption": {
+      "wciNodes": 88,
+      "wciAttributes": 508,
+      "totalElements": 240,
+      "wciNodeSharePct": 36.7
+    },
+    "scholarship-apply": {
+      "wciNodes": 105,
+      "wciAttributes": 631,
+      "totalElements": 360,
+      "wciNodeSharePct": 29.2
+    },
+    "wifi-setup": {
+      "wciNodes": 96,
+      "wciAttributes": 552,
+      "totalElements": 221,
+      "wciNodeSharePct": 43.4
+    },
+    "invoice-pay": {
+      "wciNodes": 123,
+      "wciAttributes": 722,
+      "totalElements": 274,
+      "wciNodeSharePct": 44.9
+    },
+    "newsletter-sub": {
+      "wciNodes": 92,
+      "wciAttributes": 529,
+      "totalElements": 234,
+      "wciNodeSharePct": 39.3
+    },
+    "api-keys": {
+      "wciNodes": 164,
+      "wciAttributes": 965,
+      "totalElements": 502,
+      "wciNodeSharePct": 32.7
+    },
+    "privacy-settings": {
+      "wciNodes": 86,
+      "wciAttributes": 501,
+      "totalElements": 197,
+      "wciNodeSharePct": 43.7
+    },
+    "bug-report": {
+      "wciNodes": 84,
+      "wciAttributes": 488,
+      "totalElements": 230,
+      "wciNodeSharePct": 36.5
+    }
+  }
+}

@@ -176,5 +176,13 @@
         ]
       }
     ]
+  },
+  "benchmark": {
+    "wciNodes": 121,
+    "wciAttributes": 717,
+    "wciIds": 121,
+    "totalElements": 333,
+    "wciNodeSharePct": 36.3,
+    "attrsPerNode": 5.93
   }
 }

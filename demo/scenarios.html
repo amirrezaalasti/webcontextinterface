@@ -46,6 +46,17 @@
         <button type="button" class="scenarios-filter-chip" data-difficulty="hard">Hard</button>
       </div>
       <span class="scenarios-sidebar__count" id="scenario-count">50 scenarios</span>
+      <details class="scenarios-benchmark-info" id="benchmark-info-panel" open>
+        <summary>Benchmark info</summary>
+        <p class="scenarios-benchmark-info__text" id="benchmark-info-summary">Loading annotation stats…</p>
+      </details>
+      <details class="scenarios-benchmark-info" id="eval-config-panel">
+        <summary>Eval config (models &amp; prompts)</summary>
+        <p class="scenarios-benchmark-info__text" id="eval-config-summary">Loading…</p>
+        <p class="scenarios-benchmark-info__link">
+          <a href="./index.html#eval-config">Full prompts on demo home ↗</a>
+        </p>
+      </details>
     </div>
     <ul class="scenarios-list" id="scenario-list" role="listbox" aria-label="Scenarios"></ul>
   </aside>
@@ -59,6 +70,7 @@
           <div class="scenarios-main__meta-row" id="scenario-meta-row" hidden>
             <span class="scenarios-main__tier" id="scenario-tier"></span>
             <span class="scenarios-main__difficulty" id="scenario-difficulty"></span>
+            <span class="scenarios-main__annotations" id="scenario-annotations" hidden></span>
           </div>
           <div class="scenarios-main__id" id="scenario-id"></div>
         </div>

@@ -9,6 +9,11 @@ import {
   type EvalContext,
 } from './contexts';
 import {
+  EVAL_CONTEXT_LIMITS,
+  EVAL_MULTISTEP_SYSTEM_PROMPTS,
+  EVAL_MULTISTEP_USER_FORMAT,
+} from './eval-config';
+import {
   SCORED_FINAL_ACTION_SUFFIX,
   sanitizeFlowStepForPrompt,
   sanitizeFlowSteps,
@@ -95,12 +100,18 @@ function multistepContextBody(
     return `WCI_NODES:\n${json}`;
   }
   if (approach === 'dom-outline') {
-    return `DOM_OUTLINE:\n${buildDomOutline(scenario.rawHtml, 55)}`;
+    return `DOM_OUTLINE:\n${buildDomOutline(
+      scenario.rawHtml,
+      EVAL_CONTEXT_LIMITS.multistep.domOutlineMaxLines
+    )}`;
   }
   if (approach === 'interactive-candidates') {
-    return `CANDIDATES:\n${buildInteractiveCandidates(scenario.rawHtml, 40)}`;
+    return `CANDIDATES:\n${buildInteractiveCandidates(
+      scenario.rawHtml,
+      EVAL_CONTEXT_LIMITS.multistep.interactiveCandidatesMax
+    )}`;
   }
-  const maxRaw = 12_000;
+  const maxRaw = EVAL_CONTEXT_LIMITS.multistep.rawHtmlMaxChars;
   const truncated =
     scenario.rawHtml.length > maxRaw
       ? scenario.rawHtml.slice(0, maxRaw) + '\n<!-- TRUNCATED -->'
@@ -123,19 +134,19 @@ export function buildMultistepEvalContext(
   }));
   const criteria = filterCompletionCriteria(task.completionCriteria, approach);
   const finalHint = isWciContextKind(approach)
-    ? 'WCI node id from nodes[]'
+    ? EVAL_MULTISTEP_USER_FORMAT.finalActionHints.wci
     : approach === 'interactive-candidates'
-      ? 'index or CSS selector'
-      : 'CSS selector';
+      ? EVAL_MULTISTEP_USER_FORMAT.finalActionHints['interactive-candidates']
+      : EVAL_MULTISTEP_USER_FORMAT.finalActionHints.default;
 
   const payload = [
     `GOAL: ${task.goal}`,
     `FLOW: ${flowTypeSummary(flow)}`,
-    ...task.prerequisites.slice(0, 3).map((p) => `PREREQ: ${p}`),
+    ...task.prerequisites.slice(0, EVAL_CONTEXT_LIMITS.multistep.prerequisitesMax).map((p) => `PREREQ: ${p}`),
     ...criteria.map((c) => `RULE: ${c}`),
     `RULE: ${SCORED_FINAL_ACTION_SUFFIX}`,
     multistepContextBody(scenario, task, approach),
-    `Reply JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"<${finalHint}>"}`,
+    `${EVAL_MULTISTEP_USER_FORMAT.replyJson.replace('<hint>', finalHint)}`,
   ].join('\n');
 
   const singleShot = buildEvalContext(scenario, approach);
@@ -145,9 +156,8 @@ export function buildMultistepEvalContext(
     content: payload,
     tokenEstimate: estimateTokens(payload),
     systemPrompt: isWciContextKind(approach)
-      ? 'WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.'
-      : singleShot.systemPrompt +
-        ' Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).',
+      ? EVAL_MULTISTEP_SYSTEM_PROMPTS.wci
+      : singleShot.systemPrompt + EVAL_MULTISTEP_SYSTEM_PROMPTS.baselineSuffix,
     userPromptPrefix: '',
   };
 }

@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 import { rebuildAnnotated } from './lib/scenario-enrich-annotate.mjs';
 import { sameDomSkeleton } from './lib/annotate-html.mjs';
+import { refreshBenchmarkAnnotationArtifacts } from './lib/wci-annotation-stats.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SCENARIOS_DIR = path.join(__dirname, '../demo/scenarios');
@@ -51,6 +52,19 @@ function main() {
       console.log(`  ❌ ${id}: ${e instanceof Error ? e.message : e}`);
       fail++;
     }
+  }
+
+  if (ok > 0) {
+    const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const info = refreshBenchmarkAnnotationArtifacts(
+      SCENARIOS_DIR,
+      manifest.scenarios ?? [],
+      fs,
+      path
+    );
+    console.log(
+      `Updated benchmark-info.json (~${info.suite.wciAttributes.median} labels on ~${info.suite.wciNodes.median} pieces per site, median)`
+    );
   }
 
   console.log(`\nRebuilt ${ok} scenarios${fail ? `, ${fail} failed` : ''}.`);

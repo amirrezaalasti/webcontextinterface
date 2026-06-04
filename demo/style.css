@@ -1656,6 +1656,103 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
 }
 
+/* ── Eval config (models / prompts) ───────────────────────────────────────── */
+.eval-config-panel {
+  margin-top: 2rem;
+  padding: 1.75rem 2rem 2rem;
+  background: var(--clr-bg-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-xl);
+}
+
+.eval-config-panel__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.eval-config-panel__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.eval-config-panel__subtitle {
+  font-size: 0.9rem;
+  color: var(--clr-text-2);
+  margin: 0 auto;
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+.eval-config-panel__subtitle a {
+  color: var(--clr-primary);
+}
+
+.eval-config-panel__meta {
+  font-size: 0.85rem;
+  color: var(--clr-text-3);
+  margin-bottom: 1.25rem;
+}
+
+.eval-config-inference__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.eval-config-dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1.25rem;
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+
+.eval-config-dl dt {
+  color: var(--clr-text-3);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.eval-config-note {
+  font-size: 0.85rem;
+  color: var(--clr-text-3);
+  margin: 0 0 1.5rem;
+}
+
+.eval-config-models {
+  margin-bottom: 1.5rem;
+}
+
+.eval-config-models-table {
+  min-width: 520px;
+}
+
+.eval-config-prompt {
+  margin-bottom: 0.65rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  background: var(--clr-bg-3);
+}
+
+.eval-config-prompt summary {
+  cursor: pointer;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.eval-config-pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-top: 1px solid var(--clr-border);
+  color: var(--clr-text-2);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
 .agent-leaderboard__header {
   padding: 2rem 2rem 1.5rem;
   text-align: center;

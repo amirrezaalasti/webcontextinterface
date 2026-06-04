@@ -21,6 +21,7 @@ import {
   type ContextKind,
 } from './lib/contexts';
 import { SCENARIO_GROUND_TRUTH } from './lib/ground-truth';
+import { EVAL_INFERENCE } from './lib/eval-config';
 import { EVAL_MODELS, queryModel } from './lib/llm';
 import { closeBrowser, resolveGroundTruthLocator, scoreRawPrediction } from './lib/playwright-validate';
 import { scoreFlowCoverage } from './lib/flow-coverage';
@@ -388,10 +389,7 @@ async function runModel(
                 raw: heuristicResponse(s, task, approach),
                 usageTokens: ctx.tokenEstimate,
               }
-            : await queryModel(model.model, ctx, {
-                maxTokens: 800,
-                temperature: 0,
-              });
+            : await queryModel(model.model, ctx, EVAL_INFERENCE.multistep.defaultQueryOptions);
 
           const result = await evaluateTaskRun(
             s,

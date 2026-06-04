@@ -6,6 +6,7 @@
 import { WciDistiller } from '@webcontextinterface/distiller';
 import { WciBridge } from '@webcontextinterface/bridge';
 import { WciContextLoader } from '@webcontextinterface/context';
+import bundledEvalConfig from './public/eval-config.json';
 import bundledEvalResults from './public/eval-results-all.json';
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
@@ -807,4 +808,105 @@ async function loadEvalResults(): Promise<void> {
   applyEvalResults(data);
 }
 
+interface EvalConfigFile {
+  generatedAt?: string;
+  provider?: { name: string; chatCompletionsUrl: string };
+  inference?: {
+    multistep: {
+      temperature: number;
+      maxTokens: number;
+      reasoning: { effort: string };
+      minCoverageDefault: number;
+      passRule: string;
+    };
+    singleShot: { temperature: number; maxTokens: number; reasoning: { effort: string } };
+  };
+  models?: Array<{ id: string; displayName: string; openRouterModel: string }>;
+  prompts?: {
+    multistep?: { systemByApproach?: Record<string, string> };
+  };
+}
+
+function escapeHtmlText(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderEvalConfigPanel(data: EvalConfigFile): void {
+  const body = document.getElementById('eval-config-body');
+  const jsonLink = document.getElementById('eval-config-json-link') as HTMLAnchorElement | null;
+  if (!body) return;
+
+  if (jsonLink) jsonLink.href = demoAssetUrl('eval-config.json');
+
+  const ms = data.inference?.multistep;
+  const models = data.models ?? [];
+  const prompts = data.prompts?.multistep?.systemByApproach ?? {};
+  const approachOrder = [
+    'raw-html',
+    'dom-outline',
+    'interactive-candidates',
+    'wci-full',
+    'wci-grounding',
+  ];
+
+  const modelRows = models
+    .map(
+      (m) =>
+        `<tr><td>${escapeHtmlText(m.displayName)}</td><td><code>${escapeHtmlText(m.id)}</code></td><td><code>${escapeHtmlText(m.openRouterModel)}</code></td></tr>`
+    )
+    .join('');
+
+  const promptBlocks = approachOrder
+    .map((id) => {
+      const text = prompts[id];
+      if (!text) return '';
+      return `
+        <details class="eval-config-prompt">
+          <summary><code>${escapeHtmlText(id)}</code> — system prompt</summary>
+          <pre class="eval-config-pre">${escapeHtmlText(text)}</pre>
+        </details>`;
+    })
+    .join('');
+
+  const when = data.generatedAt
+    ? new Date(data.generatedAt).toLocaleString()
+    : '—';
+
+  body.innerHTML = `
+    <p class="eval-config-panel__meta">Snapshot <strong>${escapeHtmlText(when)}</strong> · ${escapeHtmlText(data.provider?.name ?? 'OpenRouter')} · <code>${escapeHtmlText(data.provider?.chatCompletionsUrl ?? '')}</code></p>
+    <div class="eval-config-inference">
+      <h4 class="eval-config-inference__title">Published multi-step inference</h4>
+      <dl class="eval-config-dl">
+        <dt>temperature</dt><dd><strong>${ms?.temperature ?? 0}</strong></dd>
+        <dt>max_tokens</dt><dd><strong>${ms?.maxTokens ?? '—'}</strong></dd>
+        <dt>reasoning.effort</dt><dd><strong>${escapeHtmlText(ms?.reasoning.effort ?? 'low')}</strong></dd>
+        <dt>minCoverage</dt><dd><strong>${ms?.minCoverageDefault ?? 0.6}</strong></dd>
+        <dt>passRule</dt><dd><code>${escapeHtmlText(ms?.passRule ?? 'unified')}</code></dd>
+      </dl>
+      <p class="eval-config-note">Single-shot <code>eval:benchmark</code> uses temperature <strong>${data.inference?.singleShot.temperature ?? 0}</strong>, max_tokens <strong>${data.inference?.singleShot.maxTokens ?? 1000}</strong> (not on this leaderboard).</p>
+    </div>
+    <div class="eval-config-models">
+      <h4 class="eval-config-inference__title">Models</h4>
+      <div class="leaderboard-table-container">
+        <table class="leaderboard-table eval-config-models-table">
+          <thead><tr><th>Name</th><th>ID</th><th>OpenRouter slug</th></tr></thead>
+          <tbody>${modelRows}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="eval-config-prompts">
+      <h4 class="eval-config-inference__title">System prompts (multi-step)</h4>
+      ${promptBlocks}
+    </div>`;
+}
+
+function initEvalConfigPanel(): void {
+  renderEvalConfigPanel(bundledEvalConfig as EvalConfigFile);
+}
+
 void loadEvalResults();
+initEvalConfigPanel();

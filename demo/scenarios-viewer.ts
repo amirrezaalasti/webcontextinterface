@@ -3,6 +3,17 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import manifest from './scenarios/manifest.json';
+import benchmarkInfo from './scenarios/benchmark-info.json';
+import evalConfig from './public/eval-config.json';
+
+interface ScenarioBenchmarkCounts {
+  wciNodes: number;
+  wciAttributes: number;
+  wciIds?: number;
+  totalElements?: number;
+  wciNodeSharePct?: number;
+  attrsPerNode?: number;
+}
 
 interface ScenarioMeta {
   id: string;
@@ -11,6 +22,7 @@ interface ScenarioMeta {
   difficulty: 'Hard' | 'Very Hard' | 'Extreme';
   description: string;
   challenges: string[];
+  benchmark?: ScenarioBenchmarkCounts;
   task?: { goal: string };
 }
 
@@ -158,6 +170,9 @@ const wciCountEl = document.getElementById('wci-node-count')!;
 const challengesBlock = document.getElementById('scenario-challenges')!;
 const challengesList = document.getElementById('challenges-list')!;
 const challengesCount = document.getElementById('challenges-count')!;
+const benchmarkInfoSummary = document.getElementById('benchmark-info-summary')!;
+const evalConfigSummary = document.getElementById('eval-config-summary')!;
+const scenarioAnnotationsEl = document.getElementById('scenario-annotations')!;
 
 let activeId: string | null = null;
 let viewMode: ViewMode = 'raw';
@@ -606,6 +621,42 @@ async function renderScenario(id: string): Promise<void> {
   }
 }
 
+function formatAnnotationSummary(counts: ScenarioBenchmarkCounts): string {
+  const pieces = counts.wciNodes;
+  const labels = counts.wciAttributes;
+  const total = counts.totalElements;
+  const pct = counts.wciNodeSharePct;
+  if (total != null && pct != null) {
+    return `${pieces} of ${total} page elements WCI-annotated (${pct}%) · ${labels.toLocaleString()} labels`;
+  }
+  return `~${labels.toLocaleString()} WCI labels on ${pieces} UI pieces`;
+}
+
+function renderBenchmarkInfoPanel(): void {
+  const suite = benchmarkInfo.suite;
+  const labels = suite.wciAttributes;
+  const pieces = suite.wciNodes;
+  const total = suite.totalElements;
+  const share = suite.wciNodeSharePct;
+  benchmarkInfoSummary.innerHTML = [
+    `<strong>${benchmarkInfo.scenarioCount} fake websites.</strong> `,
+    `Typically <strong>~${Math.round(pieces.median)} WCI nodes</strong> among `,
+    `<strong>~${Math.round(total?.median ?? 0)} page elements</strong> `,
+    `(<strong>~${Math.round(share?.median ?? 0)}%</strong> of the DOM annotated; median). `,
+    `Plus <strong>~${Math.round(labels.median).toLocaleString()} labels</strong> on those nodes.`,
+  ].join('');
+
+  const ms = evalConfig.inference?.multistep;
+  const modelCount = evalConfig.models?.length ?? 0;
+  evalConfigSummary.innerHTML = [
+    `<strong>temperature ${ms?.temperature ?? 0}</strong>, `,
+    `max_tokens <strong>${ms?.maxTokens ?? 800}</strong>, `,
+    `reasoning <strong>${ms?.reasoning?.effort ?? 'low'}</strong>. `,
+    `<strong>${modelCount}</strong> OpenRouter models · `,
+    '5 approach-specific system prompts (multi-step).',
+  ].join('');
+}
+
 function selectScenario(id: string, updateUrl = true): void {
   const meta = metaById[id];
   if (!meta) return;
@@ -626,6 +677,16 @@ function selectScenario(id: string, updateUrl = true): void {
   tierEl.className = `scenarios-main__tier scenarios-main__tier--${tier}`;
   diffEl.textContent = displayDifficultyLabel(displayDiff);
   diffEl.className = `scenarios-main__difficulty scenarios-main__difficulty--${displayDiff}`;
+
+  const perPage =
+    meta.benchmark ?? benchmarkInfo.scenarios[id as keyof typeof benchmarkInfo.scenarios];
+  if (perPage && 'wciAttributes' in perPage) {
+    scenarioAnnotationsEl.textContent = formatAnnotationSummary(perPage as ScenarioBenchmarkCounts);
+    scenarioAnnotationsEl.hidden = false;
+  } else {
+    scenarioAnnotationsEl.hidden = true;
+  }
+
   metaRow.hidden = false;
 
   document.getElementById('scenario-desc')!.textContent = meta.description;
@@ -793,6 +854,7 @@ highlightBox.style.top = '0';
 highlightBox.style.left = '0';
 
 renderList();
+renderBenchmarkInfoPanel();
 
 const { id: urlId, view: urlView } = readUrlState();
 viewMode = urlView;

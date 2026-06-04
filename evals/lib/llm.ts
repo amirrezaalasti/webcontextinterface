@@ -1,24 +1,15 @@
 import type { EvalContext } from './contexts';
+import { EVAL_INFERENCE, EVAL_MODELS, EVAL_PROVIDER } from './eval-config';
 
 /**
  * LLM configs for element-grounding evaluation via OpenRouter.
  * Same prompts for every model — not proprietary agent SDKs.
  */
-export interface ModelConfig {
-  id: string;
-  name: string;
-  model: string;
-  inputPricePer1M?: number;
-}
+import type { EvalModelConfig } from './eval-config';
 
-export const EVAL_MODELS: ModelConfig[] = [
-  { id: 'gpt5Nano', name: 'GPT-5 Nano', model: 'openai/gpt-5.4-nano', inputPricePer1M: 0.05 },
-  { id: 'gpt5', name: 'GPT-5', model: 'openai/gpt-5.4', inputPricePer1M: 1.25 },
-  { id: 'gemini35Flash', name: 'Gemini 3.5 Flash', model: 'google/gemini-3.5-flash', inputPricePer1M: 0.2 },
-  { id: 'qwen25_7b', name: 'Qwen 2.5 7B', model: 'qwen/qwen-2.5-7b-instruct', inputPricePer1M: 0.04 },
-  { id: 'llama31_8b', name: 'Llama 3.1 8B', model: 'meta-llama/llama-3.1-8b-instruct', inputPricePer1M: 0.03 },
-  { id: 'gptoss20B', name: 'GPT-OSS 20B', model: 'openai/gpt-oss-20b', inputPricePer1M: 0.04 },
-];
+export type ModelConfig = EvalModelConfig;
+
+export { EVAL_MODELS };
 
 export const EVAL_MODEL_BY_ID = Object.fromEntries(EVAL_MODELS.map((m) => [m.id, m])) as Record<
   string,
@@ -26,10 +17,7 @@ export const EVAL_MODEL_BY_ID = Object.fromEntries(EVAL_MODELS.map((m) => [m.id,
 >;
 
 const OPENROUTER_URL =
-  process.env.OPENROUTER_BASE_URL?.replace(/\/$/, '') ?? 'https://openrouter.ai/api/v1';
-
-/** Default reasoning effort for all OpenRouter chat calls (GPT-5 requires reasoning). */
-const DEFAULT_REASONING_EFFORT = 'low' as const;
+  process.env.OPENROUTER_BASE_URL?.replace(/\/$/, '') ?? EVAL_PROVIDER.chatCompletionsUrl.replace(/\/chat\/completions$/, '');
 
 /** Extract assistant text from OpenRouter / OpenAI chat completion JSON */
 export function extractAssistantText(data: {
@@ -75,7 +63,7 @@ export async function queryModel(
     );
   }
 
-  const maxTokens = options.maxTokens ?? 1000;
+  const maxTokens = options.maxTokens ?? EVAL_INFERENCE.singleShot.maxTokens;
 
   const body: Record<string, unknown> = {
     model,
@@ -83,9 +71,9 @@ export async function queryModel(
       { role: 'system', content: ctx.systemPrompt },
       { role: 'user', content: ctx.content },
     ],
-    temperature: options.temperature ?? 0,
+    temperature: options.temperature ?? EVAL_INFERENCE.singleShot.temperature,
     max_tokens: maxTokens,
-    reasoning: { effort: DEFAULT_REASONING_EFFORT },
+    reasoning: EVAL_INFERENCE.singleShot.reasoning,
   };
 
   const res = await fetch(`${OPENROUTER_URL}/chat/completions`, {
@@ -93,8 +81,8 @@ export async function queryModel(
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
-      'HTTP-Referer': process.env.OPENROUTER_REFERER ?? 'https://github.com/wci-framework',
-      'X-Title': 'WCI Benchmark Eval',
+      'HTTP-Referer': process.env.OPENROUTER_REFERER ?? EVAL_PROVIDER.httpReferer,
+      'X-Title': EVAL_PROVIDER.xTitle,
     },
     body: JSON.stringify(body),
   });

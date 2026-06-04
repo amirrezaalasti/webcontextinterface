@@ -13,12 +13,43 @@ Each scenario is a folder under `demo/scenarios/`:
 ```
 demo/scenarios/
   manifest.json              # ordered list of all scenario ids
+  benchmark-info.json        # suite-wide data-wci-* annotation stats (mean/median per page)
   ground-truth.generated.json # Playwright-verified selectors (regenerate via script)
   multi-step.generated.json  # catalog of richer multi-step tasks per scenario
   {scenario-id}/
     raw.html                 # noisy, realistic DOM (no data-wci-*)
     annotated.html           # same DOM tree with data-wci-* overlay injected
-    meta.json                # title, icon, difficulty, single-shot + multi-step tasks
+    meta.json                # title, icon, difficulty, tasks, benchmark.{wciNodes,wciAttributes}
+```
+
+## Benchmark information (annotation cost)
+
+Each scenario is **one fake website** (`raw.html`). The WCI version (`annotated.html`) is the same page with semantic `data-wci-*` labels on buttons, forms, nav, and landmarks so agents can act without reading the full DOM.
+
+**Q3 — how much annotation does one benchmark site need?**
+
+| | Typical site (median) | Average across 50 sites | Range |
+|---|----------------------|-------------------------|-------|
+| **Page elements** (all DOM nodes on the site) | **~250** | ~260 | 170–450 |
+| **WCI-annotated elements** (`wciNodes`) | **~105** | ~106 | 64–193 |
+| **Share of page annotated** (`wciNodeSharePct`) | **~42%** | ~41% | 28–58% |
+| **WCI labels** (`data-wci-*` on those nodes) | **~600** | ~620 | 383–1,140 |
+
+In plain terms: **one website → ~250 DOM elements → ~105 get WCI markup (~42% of the page) → ~600 semantic labels** on those nodes (~6 labels per annotated element).
+
+Example (`weather-app`): **90 WCI nodes out of 252 page elements (35.7%)**, with 511 labels.
+
+- **Handmade sites (5)** — bigger pages (flight booking, banking, checkout, …): about **160** pieces and **~980** labels per site (median).
+- **Synthetic sites (45)** — domain templates with shared chrome: about **101** pieces and **~580** labels per site (median).
+
+Counts are stored in `meta.json` (`benchmark`) and aggregated in `benchmark-info.json` (excludes `data-wci-legacy-styles`, a styling marker only).
+
+Refresh counts after editing HTML:
+
+```bash
+node scripts/setup-benchmark-scenarios.mjs   # full regen + stats
+# or, stats only from existing annotated.html:
+node -e "import { refreshBenchmarkAnnotationArtifacts } from './scripts/lib/wci-annotation-stats.mjs'; import fs from 'fs'; import path from 'path'; const d='demo/scenarios'; const m=JSON.parse(fs.readFileSync(path.join(d,'manifest.json'),'utf8')); refreshBenchmarkAnnotationArtifacts(d,m.scenarios,fs,path);"
 ```
 
 ## Structural diversity

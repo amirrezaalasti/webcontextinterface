@@ -65,7 +65,7 @@ const result = await bridge.click('continue-payment-btn');
 | Minimal action runner | `@webcontextinterface/bridge` + `@webcontextinterface/context` |
 | Types only (SSR, tests) | `@webcontextinterface/spec` |
 
-Each layer targets ~8 KB gzipped when used alone.
+Each layer targets ~8 KB minified when used alone.
 
 ## Package API pages
 

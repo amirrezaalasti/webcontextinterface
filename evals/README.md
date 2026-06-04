@@ -35,15 +35,23 @@ Legacy CLI alias: `--approaches=wci-distilled` → `wci-grounding`.
 
 Implementation: `evals/lib/contexts.ts` (`buildEvalContext`), prompts and truncation per row above.
 
+## Models, prompts, and inference settings
+
+Exact system prompts, temperature, `max_tokens`, reasoning effort, and OpenRouter model slugs are defined in **`evals/lib/eval-config.ts`** and exported to:
+
+- [`docs/benchmark-eval-config.md`](../docs/benchmark-eval-config.md) — human-readable report
+- [`demo/public/eval-config.json`](../demo/public/eval-config.json) — machine-readable (demo site **Evaluation Results** section)
+
+Regenerate after prompt changes: `npm run eval:export-config`.
+
 ## Models (default roster)
 
-Configured in `evals/lib/llm.ts`:
+Configured in `evals/lib/eval-config.ts` (re-exported from `evals/lib/llm.ts`):
 
 | ID | OpenRouter slug |
 |----|-----------------|
-| `gpt5Nano` | `openai/gpt-5-nano` |
-| `gpt5Mini` | `openai/gpt-5-mini` |
-| `gpt5` | `openai/gpt-5` |
+| `gpt5Nano` | `openai/gpt-5.4-nano` |
+| `gpt5` | `openai/gpt-5.4` |
 | `gemini35Flash` | `google/gemini-3.5-flash` |
 | `qwen25_7b` | `qwen/qwen-2.5-7b-instruct` |
 | `llama31_8b` | `meta-llama/llama-3.1-8b-instruct` |
@@ -82,7 +90,7 @@ npm run eval:merge-leaderboard
 
 Full run ≈ **10 models × 50 scenarios × 5 approaches = 2,500** API calls. Use `--models=`, `--approaches=`, and `--scenarios=` to limit spend. Five **handmade** scenarios (flight booking, banking, checkout, dashboard, social media) have the largest hand-authored DOM; the other **45** synthetic layouts use distinct templates with noise/decoys and constraint-based goals (see `demo/scenarios/README.md`).
 
-**Reasoning:** every request sends `reasoning: { effort: "low" }` with `max_tokens: 1000`.
+**Inference (published multi-step):** `temperature: 0`, `max_tokens: 800`, `reasoning: { effort: "low" }`. Single-shot `eval:benchmark` uses `max_tokens: 1000`. See [`docs/benchmark-eval-config.md`](../docs/benchmark-eval-config.md).
 
 ## How the benchmark runs (end-to-end)
 
@@ -275,7 +283,7 @@ These numbers are useful for comparing **context formats on a fixed grounding ta
 |-----|----------------|
 | **Live agent trajectories** | Multi-step runs score **one** LLM JSON plan + `final_action` per task — no observe → act → observe loop, tool calls, backtracking, or recovery after a wrong click. Single-shot (`eval:benchmark`) is narrower still (one control pick). |
 | **Live browsing** | Static `raw.html` / `annotated.html` in `demo/scenarios/`, loaded in headless Chromium — not dynamic SPAs, network latency, auth sessions, CAPTCHAs, or post-click DOM updates. |
-| **Annotation cost, drift, or errors** | WCI paths assume `data-wci-*` is already **correct and complete**. The benchmark does not score mis-annotation, stale labels, partial coverage, or pages with no annotation pass. |
+| **Annotation cost, drift, or errors** | WCI paths assume annotations are already **correct and complete**. The benchmark does not score mis-labeling, drift, or partial coverage. Publisher effort: **~105 WCI nodes among ~255 page elements per site (~39% of the DOM)**, with **~600 labels** on those nodes (median). Details: `demo/scenarios/benchmark-info.json`. |
 | **Distillation / Bridge runtime** | Eval uses offline JSON or pipe rows built from HTML — not the live `@webcontextinterface/bridge` observe cycle or distiller package in production. |
 | **Tooling ecosystems** | Models answer via OpenRouter chat completions only — not Browser Use, Playwright agents, computer-use APIs, MCP browser tools, or site-specific SDKs. |
 | **End-user outcomes** | Success = Playwright agrees the chosen element matches ground truth — not “payment cleared,” “form submitted to backend,” or user satisfaction. |

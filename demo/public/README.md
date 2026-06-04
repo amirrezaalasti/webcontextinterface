@@ -8,6 +8,7 @@ Published **multi-step** evaluation outputs from `npm run eval:multistep`. The d
 
 | File | Contents |
 |------|----------|
+| `eval-config.json` | **Models, temperature, max_tokens, and exact system prompts** — demo Evaluation Results panel |
 | `eval-results-all.json` | **Merged leaderboard** for all archived models — **demo loads this first** |
 | `eval-results.json` | Single-model snapshot (fallback; default **GPT-5**) |
 | `eval-results-<model>.json` | Leaderboard row for one model (e.g. `eval-results-gpt5nano.json`) |

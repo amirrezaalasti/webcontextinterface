@@ -13,6 +13,11 @@ import { HARD_GOALS } from './lib/scenario-goals.mjs';
 import { buildGeneratedLayout } from './lib/scenario-layouts.mjs';
 import { injectLegacyStyles, LEGACY_STYLE_IDS } from './lib/legacy-scenario-styles.mjs';
 import { addMultiStepTasks } from './lib/scenario-multistep.mjs';
+import {
+  countWciAnnotations,
+  enrichBenchmarkMeta,
+  refreshBenchmarkAnnotationArtifacts,
+} from './lib/wci-annotation-stats.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,9 +36,15 @@ function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
 
+function attachBenchmarkCounts(meta, annotatedHtml) {
+  meta.benchmark = enrichBenchmarkMeta(countWciAnnotations(annotatedHtml));
+  return meta;
+}
+
 function writeScenario(id, rawHtml, annotatedHtml, meta) {
   const dir = path.join(SCENARIOS_DIR, id);
   ensureDir(dir);
+  attachBenchmarkCounts(meta, annotatedHtml);
   fs.writeFileSync(path.join(dir, 'raw.html'), rawHtml, 'utf8');
   fs.writeFileSync(path.join(dir, 'annotated.html'), annotatedHtml, 'utf8');
   fs.writeFileSync(path.join(dir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n', 'utf8');
@@ -241,6 +252,17 @@ function main() {
     'utf8'
   );
 
+  const info = refreshBenchmarkAnnotationArtifacts(
+    SCENARIOS_DIR,
+    manifest.scenarios,
+    fs,
+    path
+  );
+  console.log(
+    `\nAnnotation effort: typical site ~${info.suite.wciNodes.median} WCI nodes / ~${info.suite.totalElements.median} elements` +
+      ` (~${info.suite.wciNodeSharePct.median}% of DOM), ~${info.suite.wciAttributes.median} labels on those nodes`
+  );
+  console.log(`Wrote ${path.join(SCENARIOS_DIR, 'benchmark-info.json')}`);
   console.log(`\nDone: ${manifest.count} scenarios in ${SCENARIOS_DIR}`);
 }
 

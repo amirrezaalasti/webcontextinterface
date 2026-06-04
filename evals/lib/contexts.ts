@@ -1,5 +1,10 @@
 import { JSDOM } from 'jsdom';
 import type { BenchmarkScenario } from '../../demo/benchmark';
+import {
+  EVAL_CONTEXT_LIMITS,
+  EVAL_SINGLE_SHOT_SYSTEM_PROMPTS,
+  EVAL_WCI_VIEW_HINTS,
+} from './eval-config';
 import { applyEvalStatePatches } from './eval-snapshot';
 
 const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'svg', 'path', 'line', 'circle', 'rect', 'polyline', 'polygon']);
@@ -176,8 +181,7 @@ export function buildWciFullJson(html: string): string {
   nodes.sort((a, b) => a.priority - b.priority);
   return serializeWciView(pageTitle, nodes, {
     view: 'full',
-    grounding_hint:
-      'Full WCI graph (landmarks, displays, forms, actions). Reply with one node "id". Prefer actionable nodes (with "action") over landmarks when they complete the goal.',
+    grounding_hint: EVAL_WCI_VIEW_HINTS.full,
   });
 }
 
@@ -209,8 +213,7 @@ export function buildWciGroundingJson(html: string, scenarioId: string): string 
 
   return serializeWciView(pageTitle, actionable, {
     view: 'grounding',
-    grounding_hint:
-      'Actionable nodes only (no landmarks). Use scope_context and state to satisfy every part of the goal.',
+    grounding_hint: EVAL_WCI_VIEW_HINTS.grounding,
   });
 }
 
@@ -296,7 +299,7 @@ export function buildEvalContext(
   kind: ContextKind,
   options: { rawHtmlMaxChars?: number } = {}
 ): EvalContext {
-  const maxRaw = options.rawHtmlMaxChars ?? 28_000;
+  const maxRaw = options.rawHtmlMaxChars ?? EVAL_CONTEXT_LIMITS.singleShot.rawHtmlMaxChars;
   const goal = scenario.task.goal;
 
   switch (kind) {
@@ -310,33 +313,32 @@ export function buildEvalContext(
         kind,
         content,
         tokenEstimate: estimateTokens(content),
-        systemPrompt:
-          'You are a web automation agent. Reply with ONE line only: a valid CSS selector for the element that achieves the goal. No markdown, no quotes, no explanation.',
+        systemPrompt: EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['raw-html'],
         userPromptPrefix: '',
       };
     }
     case 'dom-outline': {
-      const outline = buildDomOutline(scenario.rawHtml, 100);
+      const outline = buildDomOutline(scenario.rawHtml, EVAL_CONTEXT_LIMITS.singleShot.domOutlineMaxLines);
       const content = `GOAL: ${goal}\n\nDOM OUTLINE (interactive nodes marked):\n${outline}`;
       return {
         kind,
         content,
         tokenEstimate: estimateTokens(content),
-        systemPrompt:
-          'You are a web agent using a DOM outline. Output ONLY one CSS selector for the element that best achieves the goal. No explanation.',
+        systemPrompt: EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['dom-outline'],
         userPromptPrefix: '',
       };
     }
     case 'interactive-candidates': {
-      const list = buildInteractiveCandidates(scenario.rawHtml, 60);
+      const list = buildInteractiveCandidates(
+        scenario.rawHtml,
+        EVAL_CONTEXT_LIMITS.singleShot.interactiveCandidatesMax
+      );
       const content = `GOAL: ${goal}\n\nINTERACTIVE CANDIDATES (numbered [0..n], no element ids — use data-* context and labels):\n${list}`;
       return {
         kind,
         content,
         tokenEstimate: estimateTokens(content),
-        systemPrompt:
-          'You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. ' +
-          'Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation.',
+        systemPrompt: EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['interactive-candidates'],
         userPromptPrefix: '',
       };
     }
@@ -347,10 +349,7 @@ export function buildEvalContext(
         kind,
         content,
         tokenEstimate: estimateTokens(content),
-        systemPrompt:
-          'You are a WCI agent on the full distilled graph (landmarks, forms, actions). ' +
-          'Apply every constraint in the GOAL. Prefer node ids that have an "action" field (click/select/fill) over landmarks or displays. ' +
-          'Reply with ONE line: the exact "id" only. No CSS, no markdown, no explanation.',
+        systemPrompt: EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['wci-full'],
         userPromptPrefix: '',
       };
     }
@@ -362,10 +361,7 @@ export function buildEvalContext(
         kind: kind === 'wci-distilled' ? 'wci-grounding' : kind,
         content,
         tokenEstimate: estimateTokens(content),
-        systemPrompt:
-          'You are a WCI grounding agent. The JSON lists only actionable nodes (click/select/fill), with state and scope_context (e.g. stops, price). ' +
-          'Apply every constraint in the GOAL. Pick the single node id that completes the goal given current state. ' +
-          'Do not invent ids. Reply with ONE line: the exact "id" only. No CSS, no markdown, no explanation.',
+        systemPrompt: EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['wci-grounding'],
         userPromptPrefix: '',
       };
     }

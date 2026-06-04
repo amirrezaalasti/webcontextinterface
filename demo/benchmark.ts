@@ -20,6 +20,8 @@ export interface BenchmarkScenario {
   challenges: string[];
   rawHtml: string;
   annotatedHtml: string;
+  /** Annotation density on annotated.html (from meta.benchmark when present). */
+  benchmark?: ScenarioBenchmarkCounts;
   task: {
     goal: string;
     standardSteps: TaskStep[];
@@ -34,6 +36,18 @@ export interface TaskStep {
   note: string;
 }
 
+/** Per-page WCI annotation counts (from annotated.html). */
+export interface ScenarioBenchmarkCounts {
+  wciNodes: number;
+  wciAttributes: number;
+  wciIds: number;
+  /** All DOM elements on the page (same tree as raw.html). */
+  totalElements: number;
+  /** wciNodes as % of totalElements. */
+  wciNodeSharePct: number;
+  attrsPerNode: number;
+}
+
 export interface BenchmarkMetrics {
   rawTokens: number;
   distilledTokens: number;
@@ -41,11 +55,17 @@ export interface BenchmarkMetrics {
   rawElements: number;
   rawInteractive: number;
   distilledNodes: number;
+  wciAttributes: number;
   noiseElements: number;
   falsePositives: number;
   standardSteps: number;
   agentdomSteps: number;
   stepReduction: number;
+}
+
+export interface BenchmarkSuiteAnnotationStats {
+  wciAttributes: { mean: number; median: number; min: number; max: number };
+  wciNodes: { mean: number; median: number; min: number; max: number };
 }
 
 interface ScenarioMeta {
@@ -55,7 +75,39 @@ interface ScenarioMeta {
   difficulty: BenchmarkScenario['difficulty'];
   description: string;
   challenges: string[];
+  benchmark?: ScenarioBenchmarkCounts;
   task: BenchmarkScenario['task'];
+}
+
+const WCI_STYLE_ATTR = 'data-wci-legacy-styles';
+
+/** Count semantic data-wci-* annotations (browser or Node DOMParser). */
+export function countWciAnnotationsFromHtml(
+  html: string
+): Omit<ScenarioBenchmarkCounts, 'attrsPerNode'> {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const allElements = doc.querySelectorAll('*');
+  const totalElements = allElements.length;
+  let wciNodes = 0;
+  let wciAttributes = 0;
+  let wciIds = 0;
+
+  allElements.forEach((el) => {
+    let hasWci = false;
+    for (const attr of Array.from(el.attributes)) {
+      if (!attr.name.startsWith('data-wci-') || attr.name === WCI_STYLE_ATTR) continue;
+      wciAttributes++;
+      hasWci = true;
+    }
+    if (hasWci) wciNodes++;
+    if (el.hasAttribute('data-wci-id')) wciIds++;
+  });
+
+  const wciNodeSharePct =
+    totalElements > 0 ? Math.round((wciNodes / totalElements) * 1000) / 10 : 0;
+
+  return { wciNodes, wciAttributes, wciIds, totalElements, wciNodeSharePct };
 }
 
 // ── HTML loading (Node fs + Vite import.meta.glob) ───────────────────────────
@@ -137,6 +189,37 @@ const metaJsonById: Record<string, string> = isNodeRuntime()
       })
     );
 
+function resolveBenchmarkCounts(
+  meta: ScenarioMeta,
+  annotatedHtml: string
+): ScenarioBenchmarkCounts {
+  if (meta.benchmark?.wciNodes != null && meta.benchmark.wciAttributes != null) {
+    const b = meta.benchmark;
+    const totalElements =
+      b.totalElements ?? countElements(annotatedHtml);
+    const wciNodeSharePct =
+      b.wciNodeSharePct ??
+      (totalElements > 0
+        ? Math.round((b.wciNodes / totalElements) * 1000) / 10
+        : 0);
+    return {
+      wciNodes: b.wciNodes,
+      wciAttributes: b.wciAttributes,
+      wciIds: b.wciIds ?? b.wciNodes,
+      totalElements,
+      wciNodeSharePct,
+      attrsPerNode:
+        b.attrsPerNode ??
+        Math.round((b.wciAttributes / b.wciNodes) * 100) / 100,
+    };
+  }
+  const counts = countWciAnnotationsFromHtml(annotatedHtml);
+  return {
+    ...counts,
+    attrsPerNode: Math.round((counts.wciAttributes / counts.wciNodes) * 100) / 100,
+  };
+}
+
 function buildScenario(id: string): BenchmarkScenario {
   const meta = loadMeta(id);
   const { rawHtml, annotatedHtml } = loadScenarioHtml(id);
@@ -149,6 +232,7 @@ function buildScenario(id: string): BenchmarkScenario {
     challenges: meta.challenges,
     rawHtml,
     annotatedHtml,
+    benchmark: resolveBenchmarkCounts(meta, annotatedHtml),
     task: meta.task,
   };
 }
@@ -211,7 +295,12 @@ export class BenchmarkEngine {
 
     const parser = new DOMParser();
     const annotatedDoc = parser.parseFromString(scenario.annotatedHtml, 'text/html');
-    const distilledNodes = annotatedDoc.querySelectorAll('[data-wci-id]').length;
+    const distilledNodes =
+      scenario.benchmark?.wciNodes ??
+      annotatedDoc.querySelectorAll('[data-wci-id]').length;
+    const wciAttributes =
+      scenario.benchmark?.wciAttributes ??
+      countWciAnnotationsFromHtml(scenario.annotatedHtml).wciAttributes;
 
     const rawElements = countElements(scenario.rawHtml);
     const rawInteractive = countInteractive(scenario.rawHtml);
@@ -226,6 +315,7 @@ export class BenchmarkEngine {
       rawElements,
       rawInteractive,
       distilledNodes,
+      wciAttributes,
       noiseElements,
       falsePositives,
       standardSteps: scenario.task.standardSteps.length,

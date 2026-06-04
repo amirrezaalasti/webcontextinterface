@@ -140,6 +140,41 @@
   color: var(--clr-text-3);
 }
 
+.scenarios-benchmark-info {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--clr-text-2);
+}
+
+.scenarios-benchmark-info summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.scenarios-benchmark-info__link {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+}
+
+.scenarios-benchmark-info__link a {
+  color: var(--clr-primary, #4f6ef7);
+}
+
+.scenarios-benchmark-info__text {
+  margin: 6px 0 0;
+  line-height: 1.45;
+}
+
+.scenarios-main__annotations {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: hsl(var(--hue-primary) 55% 94%);
+  color: var(--clr-primary-d);
+}
+
 .scenarios-sidebar__tier-hint {
   font-size: 0.6875rem;
   line-height: 1.4;

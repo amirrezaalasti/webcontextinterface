@@ -17,7 +17,7 @@ Re-exports:
 - `@webcontextinterface/bridge`
 - `@webcontextinterface/context`
 
-Use individual packages when bundle size matters (~8 KB gzipped per layer).
+Use individual packages when bundle size matters (~8 KB minified per layer).
 
 ## Quick start — agent loop
 

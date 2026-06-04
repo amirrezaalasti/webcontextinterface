@@ -32,10 +32,12 @@
     "eval:verify": "tsx evals/run-benchmark.ts --verify-ground-truth",
     "eval:heuristic": "tsx evals/run-benchmark.ts --heuristic-only",
     "eval:merge-leaderboard": "tsx scripts/build-eval-leaderboard.ts",
+    "eval:export-config": "tsx scripts/export-eval-config.ts",
     "scenarios:legacy-styles": "node scripts/inject-legacy-styles.mjs",
     "scenarios:regenerate": "node scripts/setup-benchmark-scenarios.mjs",
     "scenarios:restyle": "node scripts/setup-benchmark-scenarios.mjs && node scripts/inject-legacy-styles.mjs",
     "scenarios:rebuild-annotations": "node scripts/rebuild-scenario-annotations.mjs",
+    "scenarios:benchmark-info": "node scripts/update-benchmark-info.mjs",
     "publish:packages": "node scripts/publish-packages.mjs",
     "publish:packages:dry-run": "node scripts/publish-packages.mjs --dry-run"
   },

@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-06-04T06:35:48.354Z",
+  "source": "evals/lib/eval-config.ts",
+  "methodology": {
+    "publishedHarness": "multistep",
+    "scenarioCount": 50,
+    "approaches": [
+      "raw-html",
+      "dom-outline",
+      "interactive-candidates",
+      "wci-full",
+      "wci-grounding"
+    ],
+    "taskSource": "meta.tasks.multiStep (primary task only)",
+    "singleShotHarness": "eval:benchmark (not on public demo leaderboard)"
+  },
+  "provider": {
+    "name": "OpenRouter",
+    "chatCompletionsUrl": "https://openrouter.ai/api/v1/chat/completions",
+    "httpReferer": "https://github.com/wci-framework",
+    "xTitle": "WCI Benchmark Eval"
+  },
+  "inference": {
+    "singleShot": {
+      "temperature": 0,
+      "maxTokens": 1000,
+      "reasoning": {
+        "effort": "low"
+      },
+      "defaultQueryOptions": {
+        "temperature": 0,
+        "maxTokens": 1000
+      }
+    },
+    "multistep": {
+      "temperature": 0,
+      "maxTokens": 800,
+      "reasoning": {
+        "effort": "low"
+      },
+      "minCoverageDefault": 0.6,
+      "passRule": "unified",
+      "rateLimitPauseMs": 250,
+      "defaultQueryOptions": {
+        "temperature": 0,
+        "maxTokens": 800
+      }
+    }
+  },
+  "contextLimits": {
+    "singleShot": {
+      "rawHtmlMaxChars": 28000,
+      "domOutlineMaxLines": 100,
+      "interactiveCandidatesMax": 60
+    },
+    "multistep": {
+      "rawHtmlMaxChars": 12000,
+      "domOutlineMaxLines": 55,
+      "interactiveCandidatesMax": 40,
+      "wciPipeBudgetCharsGrounding": 2400,
+      "wciPipeBudgetCharsFull": 3200,
+      "prerequisitesMax": 3
+    }
+  },
+  "models": [
+    {
+      "id": "gpt5Nano",
+      "displayName": "GPT-5 Nano",
+      "openRouterModel": "openai/gpt-5.4-nano",
+      "inputPricePer1M": 0.05
+    },
+    {
+      "id": "gpt5",
+      "displayName": "GPT-5",
+      "openRouterModel": "openai/gpt-5.4",
+      "inputPricePer1M": 1.25
+    },
+    {
+      "id": "gemini35Flash",
+      "displayName": "Gemini 3.5 Flash",
+      "openRouterModel": "google/gemini-3.5-flash",
+      "inputPricePer1M": 0.2
+    },
+    {
+      "id": "qwen25_7b",
+      "displayName": "Qwen 2.5 7B",
+      "openRouterModel": "qwen/qwen-2.5-7b-instruct",
+      "inputPricePer1M": 0.04
+    },
+    {
+      "id": "llama31_8b",
+      "displayName": "Llama 3.1 8B",
+      "openRouterModel": "meta-llama/llama-3.1-8b-instruct",
+      "inputPricePer1M": 0.03
+    },
+    {
+      "id": "gptoss20B",
+      "displayName": "GPT-OSS 20B",
+      "openRouterModel": "openai/gpt-oss-20b",
+      "inputPricePer1M": 0.04
+    }
+  ],
+  "prompts": {
+    "singleShot": {
+      "description": "One system + one user message per call (eval:benchmark).",
+      "systemByApproach": {
+        "raw-html": "You are a web automation agent. Reply with ONE line only: a valid CSS selector for the element that achieves the goal. No markdown, no quotes, no explanation.",
+        "dom-outline": "You are a web agent using a DOM outline. Output ONLY one CSS selector for the element that best achieves the goal. No explanation.",
+        "interactive-candidates": "You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation.",
+        "wci-full": "You are a WCI agent on the full distilled graph (landmarks, forms, actions). Apply every constraint in the GOAL. Prefer node ids that have an \"action\" field (click/select/fill) over landmarks or displays. Reply with ONE line: the exact \"id\" only. No CSS, no markdown, no explanation.",
+        "wci-grounding": "You are a WCI grounding agent. The JSON lists only actionable nodes (click/select/fill), with state and scope_context (e.g. stops, price). Apply every constraint in the GOAL. Pick the single node id that completes the goal given current state. Do not invent ids. Reply with ONE line: the exact \"id\" only. No CSS, no markdown, no explanation."
+      },
+      "wciViewHintsInUserContext": {
+        "full": "Full WCI graph (landmarks, displays, forms, actions). Reply with one node \"id\". Prefer actionable nodes (with \"action\") over landmarks when they complete the goal.",
+        "grounding": "Actionable nodes only (no landmarks). Use scope_context and state to satisfy every part of the goal."
+      },
+      "userTemplates": {
+        "raw-html": "GOAL: {goal}\\n\\nHTML:\\n{rawHtml}",
+        "dom-outline": "GOAL: {goal}\\n\\nDOM OUTLINE (interactive nodes marked):\\n{outline}",
+        "interactive-candidates": "GOAL: {goal}\\n\\nINTERACTIVE CANDIDATES (numbered [0..n], no element ids — use data-* context and labels):\\n{list}",
+        "wci-full": "GOAL: {goal}\\n\\nWCI FULL VIEW (all annotated nodes — reply with one \"id\"):\\n{json}",
+        "wci-grounding": "GOAL: {goal}\\n\\nWCI GROUNDING VIEW (actionable nodes only — reply with one \"id\"):\\n{json}"
+      }
+    },
+    "multistep": {
+      "description": "Published leaderboard (eval:multistep). System prompt is WCI-specific or baseline single-shot + suffix. User block is compact (goal, flow, rules, context).",
+      "systemByApproach": {
+        "wci-full": "WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.",
+        "wci-grounding": "WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.",
+        "raw-html": "You are a web automation agent. Reply with ONE line only: a valid CSS selector for the element that achieves the goal. No markdown, no quotes, no explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).",
+        "dom-outline": "You are a web agent using a DOM outline. Output ONLY one CSS selector for the element that best achieves the goal. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).",
+        "interactive-candidates": "You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step)."
+      },
+      "userBlockFormat": {
+        "replyJson": "Reply JSON only: {\"actions\":[{\"type\":\"observe|reason|act|verify\",\"step\":\"brief\",\"target\":\"...\"}],\"final_action\":\"<hint>\"}",
+        "finalActionHints": {
+          "wci": "WCI node id from nodes[]",
+          "interactive-candidates": "index or CSS selector",
+          "default": "CSS selector"
+        },
+        "scoredFinalActionRule": "Scored final_action: the one control that completes this goal .",
+        "userBlockPrefixes": {
+          "goal": "GOAL:",
+          "flow": "FLOW:",
+          "prereq": "PREREQ:",
+          "rule": "RULE:",
+          "wciNodes": "WCI_NODES:",
+          "domOutline": "DOM_OUTLINE:",
+          "candidates": "CANDIDATES:",
+          "html": "HTML:"
+        }
+      },
+      "flowSanitization": "wciFlow/standardFlow step text sanitized (no ground-truth ids/selectors); completion criteria filtered in multistep-prompt.ts"
+    }
+  }
+}
