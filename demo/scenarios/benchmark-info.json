@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-04T10:03:29.969Z",
+  "generatedAt": "2026-06-04T10:10:57.212Z",
   "scenarioCount": 50,
-  "methodology": "Each scenario is one fake website (one annotated.html page). pageElements is every DOM node on that page; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ pageElements. Per-site vsSuiteMean reports delta and z-score from the suite mean. Suite mean ± σ (50 sites): ~106 ± 26 WCI nodes per page among ~295 ± 125 DOM elements per page (~38% ± 6% of the DOM annotated), plus ~620 ± 155 labels on those nodes.",
+  "methodology": "Each scenario is one fake website (one annotated.html file). inAppPages = navigable views inside that site (hash-routed SPA panels or document viewer pages). domElements = every DOM node in the file. wciNodes carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ domElements. Suite mean ± σ (50 sites): ~2 ± 3 in-app pages per website, ~106 ± 26 WCI nodes, ~295 ± 125 DOM elements (~38% ± 6% annotated), ~620 ± 155 labels.",
   "suite": {
     "wciAttributes": {
       "mean": 620.1,
@@ -17,7 +17,14 @@
       "max": 193,
       "stdDev": 25.6
     },
-    "pageElements": {
+    "inAppPages": {
+      "mean": 1.8,
+      "median": 1,
+      "min": 1,
+      "max": 12,
+      "stdDev": 2.6
+    },
+    "domElements": {
       "mean": 295,
       "median": 256.5,
       "min": 172,
@@ -42,7 +49,14 @@
   "byTier": {
     "handmade": {
       "count": 5,
-      "pageElements": {
+      "inAppPages": {
+        "mean": 7,
+        "median": 7,
+        "min": 1,
+        "max": 12,
+        "stdDev": 3.6
+      },
+      "domElements": {
         "mean": 586.8,
         "median": 649,
         "min": 248,
@@ -73,7 +87,14 @@
     },
     "synthetic": {
       "count": 45,
-      "pageElements": {
+      "inAppPages": {
+        "mean": 1.2,
+        "median": 1,
+        "min": 1,
+        "max": 12,
+        "stdDev": 1.6
+      },
+      "domElements": {
         "mean": 262.6,
         "median": 252,
         "min": 172,
@@ -107,11 +128,17 @@
     "flight-booking": {
       "wciNodes": 193,
       "wciAttributes": 1140,
-      "pageElements": 649,
+      "inAppPages": 9,
+      "inAppPagesKind": "spa-routes",
+      "domElements": 649,
       "totalElements": 649,
       "wciNodeSharePct": 29.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": 7.2,
+          "zScore": 2.77
+        },
+        "domElements": {
           "delta": 354,
           "zScore": 2.83
         },
@@ -132,11 +159,17 @@
     "banking": {
       "wciNodes": 170,
       "wciAttributes": 1008,
-      "pageElements": 732,
+      "inAppPages": 7,
+      "inAppPagesKind": "spa-routes",
+      "domElements": 732,
       "totalElements": 732,
       "wciNodeSharePct": 23.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": 5.2,
+          "zScore": 2
+        },
+        "domElements": {
           "delta": 437,
           "zScore": 3.49
         },
@@ -157,11 +190,17 @@
     "checkout": {
       "wciNodes": 65,
       "wciAttributes": 408,
-      "pageElements": 248,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 248,
       "totalElements": 248,
       "wciNodeSharePct": 26.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -47,
           "zScore": -0.38
         },
@@ -182,11 +221,17 @@
     "social-feed": {
       "wciNodes": 128,
       "wciAttributes": 744,
-      "pageElements": 566,
+      "inAppPages": 6,
+      "inAppPagesKind": "spa-routes",
+      "domElements": 566,
       "totalElements": 566,
       "wciNodeSharePct": 22.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": 4.2,
+          "zScore": 1.62
+        },
+        "domElements": {
           "delta": 271,
           "zScore": 2.16
         },
@@ -207,11 +252,17 @@
     "admin-dashboard": {
       "wciNodes": 160,
       "wciAttributes": 979,
-      "pageElements": 739,
+      "inAppPages": 12,
+      "inAppPagesKind": "spa-routes",
+      "domElements": 739,
       "totalElements": 739,
       "wciNodeSharePct": 21.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": 10.2,
+          "zScore": 3.92
+        },
+        "domElements": {
           "delta": 444,
           "zScore": 3.55
         },
@@ -232,11 +283,17 @@
     "job-board": {
       "wciNodes": 124,
       "wciAttributes": 725,
-      "pageElements": 316,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 316,
       "totalElements": 316,
       "wciNodeSharePct": 39.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 21,
           "zScore": 0.17
         },
@@ -257,11 +314,17 @@
     "healthcare-portal": {
       "wciNodes": 109,
       "wciAttributes": 637,
-      "pageElements": 276,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 276,
       "totalElements": 276,
       "wciNodeSharePct": 39.5,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -19,
           "zScore": -0.15
         },
@@ -282,11 +345,17 @@
     "email-client": {
       "wciNodes": 123,
       "wciAttributes": 723,
-      "pageElements": 356,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 356,
       "totalElements": 356,
       "wciNodeSharePct": 34.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 61,
           "zScore": 0.49
         },
@@ -307,11 +376,17 @@
     "calendar-app": {
       "wciNodes": 117,
       "wciAttributes": 694,
-      "pageElements": 344,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 344,
       "totalElements": 344,
       "wciNodeSharePct": 34,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 49,
           "zScore": 0.39
         },
@@ -332,11 +407,17 @@
     "food-delivery": {
       "wciNodes": 134,
       "wciAttributes": 767,
-      "pageElements": 270,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 270,
       "totalElements": 270,
       "wciNodeSharePct": 49.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -25,
           "zScore": -0.2
         },
@@ -357,11 +438,17 @@
     "insurance-quote": {
       "wciNodes": 70,
       "wciAttributes": 400,
-      "pageElements": 206,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 206,
       "totalElements": 206,
       "wciNodeSharePct": 34,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -89,
           "zScore": -0.71
         },
@@ -382,11 +469,17 @@
     "real-estate": {
       "wciNodes": 121,
       "wciAttributes": 717,
-      "pageElements": 333,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 333,
       "totalElements": 333,
       "wciNodeSharePct": 36.3,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 38,
           "zScore": 0.3
         },
@@ -407,11 +500,17 @@
     "lms-course": {
       "wciNodes": 106,
       "wciAttributes": 618,
-      "pageElements": 285,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 285,
       "totalElements": 285,
       "wciNodeSharePct": 37.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -10,
           "zScore": -0.08
         },
@@ -432,11 +531,17 @@
     "support-ticket": {
       "wciNodes": 108,
       "wciAttributes": 636,
-      "pageElements": 261,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 261,
       "totalElements": 261,
       "wciNodeSharePct": 41.4,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -34,
           "zScore": -0.27
         },
@@ -457,11 +562,17 @@
     "ecommerce-search": {
       "wciNodes": 123,
       "wciAttributes": 708,
-      "pageElements": 278,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 278,
       "totalElements": 278,
       "wciNodeSharePct": 44.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -17,
           "zScore": -0.14
         },
@@ -482,11 +593,17 @@
     "streaming-service": {
       "wciNodes": 99,
       "wciAttributes": 574,
-      "pageElements": 223,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 223,
       "totalElements": 223,
       "wciNodeSharePct": 44.4,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -72,
           "zScore": -0.58
         },
@@ -507,11 +624,17 @@
     "hotel-booking": {
       "wciNodes": 90,
       "wciAttributes": 531,
-      "pageElements": 276,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 276,
       "totalElements": 276,
       "wciNodeSharePct": 32.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -19,
           "zScore": -0.15
         },
@@ -532,11 +655,17 @@
     "tax-filing": {
       "wciNodes": 106,
       "wciAttributes": 611,
-      "pageElements": 265,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 265,
       "totalElements": 265,
       "wciNodeSharePct": 40,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -30,
           "zScore": -0.24
         },
@@ -557,11 +686,17 @@
     "weather-app": {
       "wciNodes": 90,
       "wciAttributes": 511,
-      "pageElements": 252,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 252,
       "totalElements": 252,
       "wciNodeSharePct": 35.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -43,
           "zScore": -0.34
         },
@@ -582,11 +717,17 @@
     "parking-reservation": {
       "wciNodes": 111,
       "wciAttributes": 643,
-      "pageElements": 231,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 231,
       "totalElements": 231,
       "wciNodeSharePct": 48.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -64,
           "zScore": -0.51
         },
@@ -607,11 +748,17 @@
     "gym-membership": {
       "wciNodes": 109,
       "wciAttributes": 622,
-      "pageElements": 306,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 306,
       "totalElements": 306,
       "wciNodeSharePct": 35.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 11,
           "zScore": 0.09
         },
@@ -632,11 +779,17 @@
     "pharmacy-order": {
       "wciNodes": 113,
       "wciAttributes": 657,
-      "pageElements": 300,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 300,
       "totalElements": 300,
       "wciNodeSharePct": 37.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 5,
           "zScore": 0.04
         },
@@ -657,11 +810,17 @@
     "ride-share": {
       "wciNodes": 101,
       "wciAttributes": 582,
-      "pageElements": 240,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 240,
       "totalElements": 240,
       "wciNodeSharePct": 42.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -55,
           "zScore": -0.44
         },
@@ -682,11 +841,17 @@
     "voting-poll": {
       "wciNodes": 73,
       "wciAttributes": 417,
-      "pageElements": 190,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 190,
       "totalElements": 190,
       "wciNodeSharePct": 38.4,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -105,
           "zScore": -0.84
         },
@@ -707,11 +872,17 @@
     "wiki-edit": {
       "wciNodes": 82,
       "wciAttributes": 474,
-      "pageElements": 213,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 213,
       "totalElements": 213,
       "wciNodeSharePct": 38.5,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -82,
           "zScore": -0.65
         },
@@ -732,11 +903,17 @@
     "code-review": {
       "wciNodes": 96,
       "wciAttributes": 551,
-      "pageElements": 246,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 246,
       "totalElements": 246,
       "wciNodeSharePct": 39,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -49,
           "zScore": -0.39
         },
@@ -757,11 +934,17 @@
     "inventory-mgmt": {
       "wciNodes": 115,
       "wciAttributes": 666,
-      "pageElements": 297,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 297,
       "totalElements": 297,
       "wciNodeSharePct": 38.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 2,
           "zScore": 0.02
         },
@@ -782,11 +965,17 @@
     "subscription-cancel": {
       "wciNodes": 105,
       "wciAttributes": 603,
-      "pageElements": 233,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 233,
       "totalElements": 233,
       "wciNodeSharePct": 45.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -62,
           "zScore": -0.5
         },
@@ -807,11 +996,17 @@
     "password-reset": {
       "wciNodes": 114,
       "wciAttributes": 663,
-      "pageElements": 279,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 279,
       "totalElements": 279,
       "wciNodeSharePct": 40.9,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -16,
           "zScore": -0.13
         },
@@ -832,11 +1027,17 @@
     "document-sign": {
       "wciNodes": 91,
       "wciAttributes": 513,
-      "pageElements": 263,
+      "inAppPages": 12,
+      "inAppPagesKind": "document-pages",
+      "domElements": 263,
       "totalElements": 263,
       "wciNodeSharePct": 34.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": 10.2,
+          "zScore": 3.92
+        },
+        "domElements": {
           "delta": -32,
           "zScore": -0.26
         },
@@ -857,11 +1058,17 @@
     "survey-form": {
       "wciNodes": 96,
       "wciAttributes": 558,
-      "pageElements": 208,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 208,
       "totalElements": 208,
       "wciNodeSharePct": 46.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -87,
           "zScore": -0.69
         },
@@ -882,11 +1089,17 @@
     "charity-donate": {
       "wciNodes": 104,
       "wciAttributes": 593,
-      "pageElements": 242,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 242,
       "totalElements": 242,
       "wciNodeSharePct": 43,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -53,
           "zScore": -0.42
         },
@@ -907,11 +1120,17 @@
     "flight-checkin": {
       "wciNodes": 116,
       "wciAttributes": 672,
-      "pageElements": 252,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 252,
       "totalElements": 252,
       "wciNodeSharePct": 46,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -43,
           "zScore": -0.34
         },
@@ -932,11 +1151,17 @@
     "visa-application": {
       "wciNodes": 92,
       "wciAttributes": 533,
-      "pageElements": 219,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 219,
       "totalElements": 219,
       "wciNodeSharePct": 42,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -76,
           "zScore": -0.61
         },
@@ -957,11 +1182,17 @@
     "stock-trade": {
       "wciNodes": 64,
       "wciAttributes": 383,
-      "pageElements": 228,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 228,
       "totalElements": 228,
       "wciNodeSharePct": 28.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -67,
           "zScore": -0.54
         },
@@ -982,11 +1213,17 @@
     "podcast-subscribe": {
       "wciNodes": 69,
       "wciAttributes": 386,
-      "pageElements": 172,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 172,
       "totalElements": 172,
       "wciNodeSharePct": 40.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -123,
           "zScore": -0.98
         },
@@ -1007,11 +1244,17 @@
     "photo-upload": {
       "wciNodes": 84,
       "wciAttributes": 491,
-      "pageElements": 205,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 205,
       "totalElements": 205,
       "wciNodeSharePct": 41,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -90,
           "zScore": -0.72
         },
@@ -1032,11 +1275,17 @@
     "forum-post": {
       "wciNodes": 96,
       "wciAttributes": 559,
-      "pageElements": 224,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 224,
       "totalElements": 224,
       "wciNodeSharePct": 42.9,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -71,
           "zScore": -0.57
         },
@@ -1057,11 +1306,17 @@
     "dating-profile": {
       "wciNodes": 94,
       "wciAttributes": 535,
-      "pageElements": 222,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 222,
       "totalElements": 222,
       "wciNodeSharePct": 42.3,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -73,
           "zScore": -0.58
         },
@@ -1082,11 +1337,17 @@
     "rental-car": {
       "wciNodes": 127,
       "wciAttributes": 749,
-      "pageElements": 338,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 338,
       "totalElements": 338,
       "wciNodeSharePct": 37.6,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 43,
           "zScore": 0.34
         },
@@ -1107,11 +1368,17 @@
     "concert-tickets": {
       "wciNodes": 99,
       "wciAttributes": 573,
-      "pageElements": 247,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 247,
       "totalElements": 247,
       "wciNodeSharePct": 40.1,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -48,
           "zScore": -0.38
         },
@@ -1132,11 +1399,17 @@
     "grocery-list": {
       "wciNodes": 96,
       "wciAttributes": 556,
-      "pageElements": 264,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 264,
       "totalElements": 264,
       "wciNodeSharePct": 36.4,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -31,
           "zScore": -0.25
         },
@@ -1157,11 +1430,17 @@
     "pet-adoption": {
       "wciNodes": 88,
       "wciAttributes": 508,
-      "pageElements": 240,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 240,
       "totalElements": 240,
       "wciNodeSharePct": 36.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -55,
           "zScore": -0.44
         },
@@ -1182,11 +1461,17 @@
     "scholarship-apply": {
       "wciNodes": 105,
       "wciAttributes": 631,
-      "pageElements": 360,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 360,
       "totalElements": 360,
       "wciNodeSharePct": 29.2,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 65,
           "zScore": 0.52
         },
@@ -1207,11 +1492,17 @@
     "wifi-setup": {
       "wciNodes": 96,
       "wciAttributes": 552,
-      "pageElements": 221,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 221,
       "totalElements": 221,
       "wciNodeSharePct": 43.4,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -74,
           "zScore": -0.59
         },
@@ -1232,11 +1523,17 @@
     "invoice-pay": {
       "wciNodes": 123,
       "wciAttributes": 722,
-      "pageElements": 274,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 274,
       "totalElements": 274,
       "wciNodeSharePct": 44.9,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -21,
           "zScore": -0.17
         },
@@ -1257,11 +1554,17 @@
     "newsletter-sub": {
       "wciNodes": 92,
       "wciAttributes": 529,
-      "pageElements": 234,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 234,
       "totalElements": 234,
       "wciNodeSharePct": 39.3,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -61,
           "zScore": -0.49
         },
@@ -1282,11 +1585,17 @@
     "api-keys": {
       "wciNodes": 164,
       "wciAttributes": 965,
-      "pageElements": 502,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 502,
       "totalElements": 502,
       "wciNodeSharePct": 32.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": 207,
           "zScore": 1.65
         },
@@ -1307,11 +1616,17 @@
     "privacy-settings": {
       "wciNodes": 86,
       "wciAttributes": 501,
-      "pageElements": 197,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 197,
       "totalElements": 197,
       "wciNodeSharePct": 43.7,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -98,
           "zScore": -0.78
         },
@@ -1332,11 +1647,17 @@
     "bug-report": {
       "wciNodes": 84,
       "wciAttributes": 488,
-      "pageElements": 230,
+      "inAppPages": 1,
+      "inAppPagesKind": "single-view",
+      "domElements": 230,
       "totalElements": 230,
       "wciNodeSharePct": 36.5,
       "vsSuiteMean": {
-        "pageElements": {
+        "inAppPages": {
+          "delta": -0.8,
+          "zScore": -0.31
+        },
+        "domElements": {
           "delta": -65,
           "zScore": -0.52
         },

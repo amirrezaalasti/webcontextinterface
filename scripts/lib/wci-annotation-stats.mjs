@@ -46,6 +46,33 @@ export function countWciAnnotations(html) {
   return { wciNodes, wciAttributes, wciIds, totalElements, wciNodeSharePct };
 }
 
+/**
+ * Navigable in-app pages/views within one scenario HTML file (SPA routes, document pages, etc.).
+ * @param {string} html
+ * @returns {{ inAppPages: number, inAppPagesKind: 'spa-routes' | 'document-pages' | 'page-count-meta' | 'single-view' }}
+ */
+export function countInAppPages(html) {
+  const doc = new JSDOM(html).window.document;
+  const routePages = doc.querySelectorAll(
+    'div.qc-page[data-route], div.sw-page[data-route], section.np-page[data-route], section.cb-page[data-route]'
+  );
+  if (routePages.length > 0) {
+    return { inAppPages: routePages.length, inAppPagesKind: 'spa-routes' };
+  }
+  const documentPages = doc.querySelectorAll('.sn-page[data-page-num]');
+  if (documentPages.length > 0) {
+    return { inAppPages: documentPages.length, inAppPagesKind: 'document-pages' };
+  }
+  const pageCountEl = doc.getElementById('pageCount');
+  if (pageCountEl) {
+    const n = parseInt(pageCountEl.textContent, 10);
+    if (Number.isFinite(n) && n > 0) {
+      return { inAppPages: n, inAppPagesKind: 'page-count-meta' };
+    }
+  }
+  return { inAppPages: 1, inAppPagesKind: 'single-view' };
+}
+
 /** @param {WciAnnotationCounts} counts */
 export function enrichBenchmarkMeta(counts) {
   return {
@@ -97,21 +124,24 @@ const HANDMADE_IDS = new Set([
 
 /**
  * Build suite-level benchmark annotation statistics.
- * @param {Array<{ id: string, wciNodes: number, wciAttributes: number, totalElements: number, wciNodeSharePct: number, legacy?: boolean }>} rows
+ * @param {Array<{ id: string, wciNodes: number, wciAttributes: number, totalElements: number, wciNodeSharePct: number, inAppPages: number, inAppPagesKind: string, legacy?: boolean }>} rows
  */
 export function buildBenchmarkInfo(rows) {
   const nodeValues = rows.map((r) => r.wciNodes);
   const attrValues = rows.map((r) => r.wciAttributes);
   const totalValues = rows.map((r) => r.totalElements);
   const shareValues = rows.map((r) => r.wciNodeSharePct);
+  const inAppPageValues = rows.map((r) => r.inAppPages);
   const handmade = rows.filter((r) => HANDMADE_IDS.has(r.id) || r.legacy);
   const synthetic = rows.filter((r) => !HANDMADE_IDS.has(r.id) && !r.legacy);
 
   const suite = {
     wciAttributes: summarizeCounts(attrValues),
     wciNodes: summarizeCounts(nodeValues),
-    /** One static HTML page per scenario; count = all DOM nodes on that page. */
-    pageElements: summarizeCounts(totalValues),
+    /** Navigable in-app views per website (SPA routes or document pages). */
+    inAppPages: summarizeCounts(inAppPageValues),
+    /** All DOM nodes on the single annotated.html file for that site. */
+    domElements: summarizeCounts(totalValues),
     totalElements: summarizeCounts(totalValues),
     wciNodeSharePct: summarizeCounts(shareValues),
   };
@@ -122,14 +152,21 @@ export function buildBenchmarkInfo(rows) {
       {
         wciNodes: r.wciNodes,
         wciAttributes: r.wciAttributes,
-        pageElements: r.totalElements,
+        inAppPages: r.inAppPages,
+        inAppPagesKind: r.inAppPagesKind,
+        domElements: r.totalElements,
         totalElements: r.totalElements,
         wciNodeSharePct: r.wciNodeSharePct,
         vsSuiteMean: {
-          pageElements: deltaFromMean(
+          inAppPages: deltaFromMean(
+            r.inAppPages,
+            suite.inAppPages.mean,
+            suite.inAppPages.stdDev
+          ),
+          domElements: deltaFromMean(
             r.totalElements,
-            suite.pageElements.mean,
-            suite.pageElements.stdDev
+            suite.domElements.mean,
+            suite.domElements.stdDev
           ),
           wciNodes: deltaFromMean(r.wciNodes, suite.wciNodes.mean, suite.wciNodes.stdDev),
           wciNodeSharePct: deltaFromMean(
@@ -149,8 +186,8 @@ export function buildBenchmarkInfo(rows) {
 
   const fmt = (n) => Math.round(n);
   const methodology =
-    'Each scenario is one fake website (one annotated.html page). pageElements is every DOM node on that page; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ pageElements. Per-site vsSuiteMean reports delta and z-score from the suite mean. ' +
-    `Suite mean ± σ (${rows.length} sites): ~${fmt(suite.wciNodes.mean)} ± ${fmt(suite.wciNodes.stdDev)} WCI nodes per page among ~${fmt(suite.pageElements.mean)} ± ${fmt(suite.pageElements.stdDev)} DOM elements per page (~${fmt(suite.wciNodeSharePct.mean)}% ± ${fmt(suite.wciNodeSharePct.stdDev)}% of the DOM annotated), plus ~${fmt(suite.wciAttributes.mean)} ± ${fmt(suite.wciAttributes.stdDev)} labels on those nodes.`;
+    'Each scenario is one fake website (one annotated.html file). inAppPages = navigable views inside that site (hash-routed SPA panels or document viewer pages). domElements = every DOM node in the file. wciNodes carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ domElements. ' +
+    `Suite mean ± σ (${rows.length} sites): ~${fmt(suite.inAppPages.mean)} ± ${fmt(suite.inAppPages.stdDev)} in-app pages per website, ~${fmt(suite.wciNodes.mean)} ± ${fmt(suite.wciNodes.stdDev)} WCI nodes, ~${fmt(suite.domElements.mean)} ± ${fmt(suite.domElements.stdDev)} DOM elements (~${fmt(suite.wciNodeSharePct.mean)}% ± ${fmt(suite.wciNodeSharePct.stdDev)}% annotated), ~${fmt(suite.wciAttributes.mean)} ± ${fmt(suite.wciAttributes.stdDev)} labels.`;
 
   return {
     generatedAt: new Date().toISOString(),
@@ -160,14 +197,16 @@ export function buildBenchmarkInfo(rows) {
     byTier: {
       handmade: {
         count: handmade.length,
-        pageElements: summarizeCounts(handmade.map((r) => r.totalElements)),
+        inAppPages: summarizeCounts(handmade.map((r) => r.inAppPages)),
+        domElements: summarizeCounts(handmade.map((r) => r.totalElements)),
         wciAttributes: summarizeCounts(handmade.map((r) => r.wciAttributes)),
         wciNodes: summarizeCounts(handmade.map((r) => r.wciNodes)),
         wciNodeSharePct: summarizeCounts(handmade.map((r) => r.wciNodeSharePct)),
       },
       synthetic: {
         count: synthetic.length,
-        pageElements: summarizeCounts(synthetic.map((r) => r.totalElements)),
+        inAppPages: summarizeCounts(synthetic.map((r) => r.inAppPages)),
+        domElements: summarizeCounts(synthetic.map((r) => r.totalElements)),
         wciAttributes: summarizeCounts(synthetic.map((r) => r.wciAttributes)),
         wciNodes: summarizeCounts(synthetic.map((r) => r.wciNodes)),
         wciNodeSharePct: summarizeCounts(synthetic.map((r) => r.wciNodeSharePct)),
@@ -190,8 +229,9 @@ export function refreshBenchmarkAnnotationArtifacts(scenariosDir, scenarioIds, f
     const metaPath = path.join(scenariosDir, id, 'meta.json');
     const annotatedHtml = fs.readFileSync(annPath, 'utf8');
     const counts = countWciAnnotations(annotatedHtml);
+    const pages = countInAppPages(annotatedHtml);
     const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
-    meta.benchmark = enrichBenchmarkMeta(counts);
+    meta.benchmark = { ...enrichBenchmarkMeta(counts), ...pages };
     fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
     rows.push({
       id,
@@ -199,6 +239,8 @@ export function refreshBenchmarkAnnotationArtifacts(scenariosDir, scenarioIds, f
       wciAttributes: counts.wciAttributes,
       totalElements: counts.totalElements,
       wciNodeSharePct: counts.wciNodeSharePct,
+      inAppPages: pages.inAppPages,
+      inAppPagesKind: pages.inAppPagesKind,
       legacy: HANDMADE_IDS.has(id),
     });
   }

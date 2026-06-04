@@ -30,12 +30,15 @@ Each scenario is **one fake website** (`raw.html`). The WCI version (`annotated.
 
 | | Typical site (median) | Mean ± σ (50 sites) | Range |
 |---|----------------------|---------------------|-------|
-| **Pages** (one `annotated.html` per website; `pageElements` = DOM nodes on that page) | **~257** | **295 ± 125** | 172–739 |
+| **In-app pages** (`inAppPages` — SPA routes or document viewer pages inside the site) | **1** | **1.8 ± 2.6** | 1–12 |
+| **DOM elements** (`domElements` — nodes in the single `annotated.html` file) | **~257** | **295 ± 125** | 172–739 |
 | **WCI-annotated elements** (`wciNodes`) | **~105** | **106 ± 26** | 64–193 |
-| **Share of page annotated** (`wciNodeSharePct`) | **~39%** | **38% ± 6%** | 22–50% |
+| **Share of DOM annotated** (`wciNodeSharePct`) | **~39%** | **38% ± 6%** | 22–50% |
 | **WCI labels** (`data-wci-*` on those nodes) | **~598** | **620 ± 155** | 383–1,140 |
 
-In plain terms: **one website = one page → ~255 DOM elements (±125 σ across sites) → ~105 get WCI markup (~39% of the page) → ~600 semantic labels** on those nodes (~6 labels per annotated element). σ is population standard deviation across the 50 benchmark sites. Each entry in `benchmark-info.json` → `scenarios` includes `vsSuiteMean` (delta and z-score vs the suite mean for page size, WCI nodes, share, and labels).
+**Multi-page sites (5):** `admin-dashboard` **12** hash-routed views, `document-sign` **12** document pages, `flight-booking` **9**, `banking` **7**, `social-feed` **6**. The other **45** scenarios are **single-view** pages (`inAppPages: 1`).
+
+In plain terms: **one website file → usually 1 in-app page (5 sites have 6–12) → ~255 DOM elements → ~105 get WCI markup (~39%) → ~600 labels**. σ is population standard deviation across the 50 benchmark sites. See `benchmark-info.json` → `scenarios.<id>.inAppPages`.
 
 Example (`weather-app`): **90 WCI nodes out of 252 page elements (35.7%)**, with 511 labels.
 

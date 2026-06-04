@@ -15,12 +15,15 @@ interface ScenarioBenchmarkCounts {
   wciNodes: number;
   wciAttributes: number;
   wciIds?: number;
-  pageElements?: number;
+  inAppPages?: number;
+  inAppPagesKind?: string;
+  domElements?: number;
   totalElements?: number;
   wciNodeSharePct?: number;
   attrsPerNode?: number;
   vsSuiteMean?: {
-    pageElements?: VsSuiteMeanMetric;
+    inAppPages?: VsSuiteMeanMetric;
+    domElements?: VsSuiteMeanMetric;
     wciNodes?: VsSuiteMeanMetric;
     wciNodeSharePct?: VsSuiteMeanMetric;
     wciAttributes?: VsSuiteMeanMetric;
@@ -305,20 +308,95 @@ function resolveWciNode(doc: Document, clientX: number, clientY: number): HTMLEl
   return best;
 }
 
+/** Merge live DOM control state into the annotated JSON snapshot. */
+function getLiveWciState(el: HTMLElement): Record<string, unknown> {
+  let state: Record<string, unknown> = {};
+  try {
+    state = JSON.parse(el.getAttribute('data-wci-state') ?? '{}');
+  } catch {
+    /* ignore */
+  }
+
+  if (el instanceof HTMLInputElement) {
+    if (el.type === 'checkbox' || el.type === 'radio') {
+      state.checked = el.checked;
+    } else if (el.type !== 'button' && el.type !== 'submit' && el.type !== 'reset' && el.type !== 'file') {
+      state.value = el.value;
+    }
+    if (el.disabled) state.disabled = true;
+    else delete state.disabled;
+  } else if (el instanceof HTMLTextAreaElement) {
+    state.value = el.value;
+    if (el.disabled) state.disabled = true;
+    else delete state.disabled;
+  } else if (el instanceof HTMLSelectElement) {
+    state.value = el.value;
+    const opt = el.selectedOptions[0];
+    if (opt) state.selected = opt.textContent?.trim() ?? el.value;
+    if (el.disabled) state.disabled = true;
+    else delete state.disabled;
+  } else if (el instanceof HTMLButtonElement) {
+    if (el.disabled) state.disabled = true;
+    else delete state.disabled;
+  }
+
+  return state;
+}
+
+/** Write live DOM state back to data-wci-state so annotations match user actions. */
+function syncWciStateAttribute(el: HTMLElement): void {
+  if (!el.hasAttribute('data-wci-state') && !el.dataset.wciId) return;
+  const next = JSON.stringify(getLiveWciState(el));
+  if (el.getAttribute('data-wci-state') !== next) {
+    el.setAttribute('data-wci-state', next);
+  }
+}
+
+function isInspectableActionTarget(el: HTMLElement): boolean {
+  const action = el.getAttribute('data-wci-action');
+  if (!action) return false;
+  if (action === 'check') {
+    return el instanceof HTMLInputElement && (el.type === 'checkbox' || el.type === 'radio');
+  }
+  if (action === 'click') {
+    return (
+      el instanceof HTMLButtonElement ||
+      (el instanceof HTMLInputElement &&
+        (el.type === 'button' || el.type === 'submit' || el.type === 'reset'))
+    );
+  }
+  return false;
+}
+
+function performInspectableAction(el: HTMLElement): void {
+  if (el instanceof HTMLInputElement && (el.type === 'checkbox' || el.type === 'radio')) {
+    el.click();
+  } else {
+    el.click();
+  }
+  syncWciStateAttribute(el);
+}
+
 function collectWciAttributes(el: HTMLElement): WciAttributeRow[] {
+  syncWciStateAttribute(el);
   const rows: WciAttributeRow[] = [];
   for (const attr of el.attributes) {
     if (!attr.name.startsWith('data-wci-') || attr.name === 'data-wci-legacy-styles') continue;
     const isJson = JSON_WCI_ATTRS.has(attr.name);
+    let rawValue = attr.value;
     let displayValue = attr.value;
-    if (isJson) {
+    if (attr.name === 'data-wci-state') {
+      const live = getLiveWciState(el);
+      rawValue = JSON.stringify(live);
+      displayValue = JSON.stringify(live, null, 2);
+    } else if (isJson) {
       try {
         displayValue = JSON.stringify(JSON.parse(attr.value), null, 2);
       } catch {
         /* raw */
       }
     }
-    rows.push({ name: attr.name, rawValue: attr.value, displayValue, isJson });
+    rows.push({ name: attr.name, rawValue, displayValue, isJson });
   }
   rows.sort((a, b) => {
     const ai = WCI_ATTR_ORDER.indexOf(a.name as (typeof WCI_ATTR_ORDER)[number]);
@@ -388,9 +466,20 @@ function hideHighlight(): void {
   highlightBox.setAttribute('aria-hidden', 'true');
 }
 
-function renderInspectorPanel(el: HTMLElement, isSelected: boolean): void {
+function refreshInspectorPanel(): void {
+  const el = selectedNode ?? hoverNode;
+  if (!el) return;
+  renderInspectorPanel(el, el === selectedNode, true);
+}
+
+function onWciDomStateChange(el: HTMLElement): void {
+  syncWciStateAttribute(el);
+  if (el === selectedNode || el === hoverNode) refreshInspectorPanel();
+}
+
+function renderInspectorPanel(el: HTMLElement, isSelected: boolean, forceRefresh = false): void {
   const key = nodeKey(el);
-  const sameNode = key === displayedNodeKey;
+  const sameNode = !forceRefresh && key === displayedNodeKey;
 
   if (!sameNode) {
     displayedNodeKey = key;
@@ -553,12 +642,44 @@ function attachInspector(doc: Document): void {
       clearSelection();
       return;
     }
+    if (selectedNode === node && isInspectableActionTarget(node)) {
+      performInspectableAction(node);
+      showNode(node, true);
+      return;
+    }
     if (selectedNode === node) {
       clearSelection();
     } else {
       showNode(node, true);
     }
   };
+
+  const onFormInput = (e: Event) => {
+    const t = e.target;
+    if (!(t instanceof HTMLElement) || !t.closest('[data-wci-id]')) return;
+    const el = t.closest<HTMLElement>('[data-wci-id]') ?? (t.matches('[data-wci-id]') ? t : null);
+    if (el) onWciDomStateChange(el);
+  };
+
+  const onWciStateChange = (e: Event) => {
+    const detail = (e as CustomEvent<{ nodeId?: string }>).detail;
+    const id = detail?.nodeId;
+    const el = id ? wciNodeById.get(id) : null;
+    if (el) onWciDomStateChange(el);
+  };
+
+  const stateObserver = new MutationObserver((records) => {
+    for (const rec of records) {
+      if (rec.type !== 'attributes' || rec.attributeName !== 'data-wci-state') continue;
+      const el = rec.target;
+      if (el instanceof HTMLElement) onWciDomStateChange(el);
+    }
+  });
+  stateObserver.observe(doc.body, {
+    attributes: true,
+    attributeFilter: ['data-wci-state'],
+    subtree: true,
+  });
 
   const onLayerLeave = () => {
     if (!selectedNode) {
@@ -579,14 +700,21 @@ function attachInspector(doc: Document): void {
   inspectLayer.addEventListener('mousemove', onLayerMove, { passive: true });
   inspectLayer.addEventListener('click', onLayerClick);
   inspectLayer.addEventListener('mouseleave', onLayerLeave);
+  doc.addEventListener('input', onFormInput, true);
+  doc.addEventListener('change', onFormInput, true);
+  doc.addEventListener('wci:state-change', onWciStateChange);
   doc.defaultView?.addEventListener('scroll', onScroll, { passive: true, capture: true });
   window.addEventListener('resize', onScroll, { passive: true });
 
   inspectorCleanup = () => {
     cancelAnimationFrame(pointerRaf);
+    stateObserver.disconnect();
     inspectLayer.removeEventListener('mousemove', onLayerMove);
     inspectLayer.removeEventListener('click', onLayerClick);
     inspectLayer.removeEventListener('mouseleave', onLayerLeave);
+    doc.removeEventListener('input', onFormInput, true);
+    doc.removeEventListener('change', onFormInput, true);
+    doc.removeEventListener('wci:state-change', onWciStateChange);
     doc.defaultView?.removeEventListener('scroll', onScroll, true);
     window.removeEventListener('resize', onScroll);
     wciNodes.forEach((el) => el.classList.remove('wci-node'));
@@ -642,32 +770,36 @@ function formatVsSuite(delta?: VsSuiteMeanMetric): string {
 function formatAnnotationSummary(counts: ScenarioBenchmarkCounts): string {
   const pieces = counts.wciNodes;
   const labels = counts.wciAttributes;
-  const total = counts.pageElements ?? counts.totalElements;
+  const dom = counts.domElements ?? counts.totalElements;
   const pct = counts.wciNodeSharePct;
   const vs = counts.vsSuiteMean;
-  if (total != null && pct != null) {
+  const pages = counts.inAppPages ?? 1;
+  const pageLabel = pages === 1 ? '1 in-app page' : `${pages} in-app pages`;
+  if (dom != null && pct != null) {
     return (
-      `${pieces} of ${total} page elements WCI-annotated (${pct}%)` +
-      `${formatVsSuite(vs?.pageElements)} · ${labels.toLocaleString()} labels` +
+      `${pageLabel} · ${pieces} of ${dom} DOM nodes WCI-annotated (${pct}%)` +
+      `${formatVsSuite(vs?.domElements)} · ${labels.toLocaleString()} labels` +
       `${formatVsSuite(vs?.wciAttributes)}`
     );
   }
-  return `~${labels.toLocaleString()} WCI labels on ${pieces} UI pieces`;
+  return `${pageLabel} · ~${labels.toLocaleString()} WCI labels on ${pieces} UI pieces`;
 }
 
 function renderBenchmarkInfoPanel(): void {
   const suite = benchmarkInfo.suite;
   const labels = suite.wciAttributes;
   const pieces = suite.wciNodes;
-  const pages = suite.pageElements ?? suite.totalElements;
+  const inApp = suite.inAppPages;
+  const dom = suite.domElements ?? suite.totalElements;
   const share = suite.wciNodeSharePct;
   benchmarkInfoSummary.innerHTML = [
-    `<strong>${benchmarkInfo.scenarioCount} fake websites</strong> (one page each). `,
-    `Average page size <strong>~${Math.round(pages?.mean ?? 0)} ± ${Math.round(pages?.stdDev ?? 0)} DOM elements</strong> `,
-    `(median ~${Math.round(pages?.median ?? 0)}). `,
-    `Typically <strong>~${Math.round(pieces.median)} ± ${Math.round(pieces.stdDev)} WCI nodes</strong> per page `,
-    `(<strong>~${Math.round(share?.median ?? 0)}% ± ${Math.round(share?.stdDev ?? 0)}%</strong> of that page annotated). `,
-    `Plus <strong>~${Math.round(labels.median).toLocaleString()} ± ${Math.round(labels.stdDev).toLocaleString()} labels</strong> on those nodes.`,
+    `<strong>${benchmarkInfo.scenarioCount} fake websites.</strong> `,
+    `Average <strong>~${Math.round(inApp?.mean ?? 1)} ± ${Math.round(inApp?.stdDev ?? 0)} in-app pages</strong> per site `,
+    `(median ${Math.round(inApp?.median ?? 1)}; 5 multi-page SPAs). `,
+    `Typically <strong>~${Math.round(pieces.median)} ± ${Math.round(pieces.stdDev)} WCI nodes</strong> across `,
+    `<strong>~${Math.round(dom?.median ?? 0)} ± ${Math.round(dom?.stdDev ?? 0)} DOM nodes</strong> `,
+    `(<strong>~${Math.round(share?.median ?? 0)}% ± ${Math.round(share?.stdDev ?? 0)}%</strong> annotated). `,
+    `Plus <strong>~${Math.round(labels.median).toLocaleString()} ± ${Math.round(labels.stdDev).toLocaleString()} labels</strong>.`,
   ].join('');
 
   const ms = evalConfig.inference?.multistep;

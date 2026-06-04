@@ -177,6 +177,8 @@
     "wciIds": 64,
     "totalElements": 228,
     "wciNodeSharePct": 28.1,
-    "attrsPerNode": 5.98
+    "attrsPerNode": 5.98,
+    "inAppPages": 1,
+    "inAppPagesKind": "single-view"
   }
 }

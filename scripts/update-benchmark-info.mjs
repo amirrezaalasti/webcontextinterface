@@ -24,16 +24,18 @@ const info = refreshBenchmarkAnnotationArtifacts(
 
 const labels = info.suite.wciAttributes;
 const pieces = info.suite.wciNodes;
-const pages = info.suite.pageElements ?? info.suite.totalElements;
+const inApp = info.suite.inAppPages;
+const dom = info.suite.domElements ?? info.suite.totalElements;
 const share = info.suite.wciNodeSharePct;
 const handmade = info.byTier.handmade;
 const synthetic = info.byTier.synthetic;
 console.log(
   `Updated ${manifest.scenarios.length} sites → benchmark-info.json\n` +
-    `  Pages (DOM elements per website): mean ${pages.mean} ± ${pages.stdDev} (median ${pages.median})\n` +
-    `  WCI nodes per page: mean ${pieces.mean} ± ${pieces.stdDev} (median ${pieces.median})\n` +
+    `  In-app pages per website: mean ${inApp.mean} ± ${inApp.stdDev} (median ${inApp.median}; admin-dashboard=${info.scenarios['admin-dashboard'].inAppPages})\n` +
+    `  DOM elements per site: mean ${dom.mean} ± ${dom.stdDev} (median ${dom.median})\n` +
+    `  WCI nodes: mean ${pieces.mean} ± ${pieces.stdDev} (median ${pieces.median})\n` +
     `  Annotated share: mean ${share.mean}% ± ${share.stdDev}% (median ${share.median}%)\n` +
     `  Labels: median ${labels.median} (mean ${labels.mean} ± ${labels.stdDev})\n` +
-    `  Handmade (${handmade.count}): ${handmade.pageElements.mean} ± ${handmade.pageElements.stdDev} elements, ${handmade.wciNodes.mean} ± ${handmade.wciNodes.stdDev} WCI nodes\n` +
-    `  Synthetic (${synthetic.count}): ${synthetic.pageElements.mean} ± ${synthetic.pageElements.stdDev} elements, ${synthetic.wciNodes.mean} ± ${synthetic.wciNodes.stdDev} WCI nodes`
+    `  Handmade (${handmade.count}): ${handmade.inAppPages.mean} ± ${handmade.inAppPages.stdDev} in-app pages, ${handmade.domElements.mean} ± ${handmade.domElements.stdDev} DOM nodes\n` +
+    `  Synthetic (${synthetic.count}): ${synthetic.inAppPages.mean} ± ${synthetic.inAppPages.stdDev} in-app pages, ${synthetic.domElements.mean} ± ${synthetic.domElements.stdDev} DOM nodes`
 );

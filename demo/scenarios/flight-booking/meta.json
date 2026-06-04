@@ -240,6 +240,8 @@
     "wciIds": 193,
     "totalElements": 649,
     "wciNodeSharePct": 29.7,
-    "attrsPerNode": 5.91
+    "attrsPerNode": 5.91,
+    "inAppPages": 9,
+    "inAppPagesKind": "spa-routes"
   }
 }

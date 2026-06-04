@@ -74,8 +74,10 @@ export interface BenchmarkCountSummary {
 export interface BenchmarkSuiteAnnotationStats {
   wciAttributes: BenchmarkCountSummary;
   wciNodes: BenchmarkCountSummary;
-  /** DOM nodes per website (one static page per scenario). */
-  pageElements?: BenchmarkCountSummary;
+  /** Navigable in-app views per website (SPA routes / document pages). */
+  inAppPages?: BenchmarkCountSummary;
+  /** DOM nodes in the scenario HTML file. */
+  domElements?: BenchmarkCountSummary;
   totalElements?: BenchmarkCountSummary;
   wciNodeSharePct?: BenchmarkCountSummary;
 }
