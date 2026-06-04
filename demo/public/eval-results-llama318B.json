@@ -3,7 +3,7 @@
   "sourceReport": "eval-multistep-report-llama318B.json",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [
     {
       "id": "llama31_8b",
@@ -14,21 +14,21 @@
   "llama31_8b": {
     "methodology": "multistep",
     "passRule": "unified",
-    "minCoverage": 0.6,
+    "minCoverage": 0.8,
     "standard": {
-      "successRate": 13,
+      "successRate": 11,
       "avgTokens": 2185
     },
     "wci": {
-      "successRate": 82,
+      "successRate": 78,
       "avgTokens": 807
     },
     "wciFull": {
-      "successRate": 78,
+      "successRate": 74,
       "avgTokens": 834
     },
     "agentDom": {
-      "successRate": 82,
+      "successRate": 78,
       "avgTokens": 807
     },
     "approaches": {
@@ -41,15 +41,15 @@
         "avgTokens": 1197
       },
       "candidates": {
-        "successRate": 38,
+        "successRate": 34,
         "avgTokens": 1227
       },
       "wciFull": {
-        "successRate": 78,
+        "successRate": 74,
         "avgTokens": 834
       },
       "wciGrounding": {
-        "successRate": 82,
+        "successRate": 78,
         "avgTokens": 807
       }
     }

@@ -3,7 +3,7 @@
   "sourceReport": "eval-multistep-report-qwen-gptoss.json",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [
     {
       "id": "gptoss20B",
@@ -14,26 +14,26 @@
   "gptoss20B": {
     "methodology": "multistep",
     "passRule": "unified",
-    "minCoverage": 0.6,
+    "minCoverage": 0.8,
     "standard": {
-      "successRate": 1,
+      "successRate": 0,
       "avgTokens": 2334
     },
     "wci": {
-      "successRate": 86,
+      "successRate": 82,
       "avgTokens": 731
     },
     "wciFull": {
-      "successRate": 92,
+      "successRate": 88,
       "avgTokens": 723
     },
     "agentDom": {
-      "successRate": 86,
+      "successRate": 82,
       "avgTokens": 731
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 2,
+        "successRate": 0,
         "avgTokens": 4402
       },
       "domOutline": {
@@ -41,15 +41,15 @@
         "avgTokens": 1352
       },
       "candidates": {
-        "successRate": 2,
+        "successRate": 0,
         "avgTokens": 1248
       },
       "wciFull": {
-        "successRate": 92,
+        "successRate": 88,
         "avgTokens": 723
       },
       "wciGrounding": {
-        "successRate": 86,
+        "successRate": 82,
         "avgTokens": 731
       }
     }

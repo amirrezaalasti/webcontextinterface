@@ -3,7 +3,7 @@
   "sourceReport": "eval-multistep-report-gpt5.json",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [
     {
       "id": "gpt5",
@@ -14,26 +14,26 @@
   "gpt5": {
     "methodology": "multistep",
     "passRule": "unified",
-    "minCoverage": 0.6,
+    "minCoverage": 0.8,
     "standard": {
-      "successRate": 31,
+      "successRate": 29,
       "avgTokens": 2387
     },
     "wci": {
-      "successRate": 94,
+      "successRate": 84,
       "avgTokens": 764
     },
     "wciFull": {
-      "successRate": 94,
+      "successRate": 84,
       "avgTokens": 782
     },
     "agentDom": {
-      "successRate": 94,
+      "successRate": 84,
       "avgTokens": 764
     },
     "approaches": {
       "rawHtml": {
-        "successRate": 2,
+        "successRate": 0,
         "avgTokens": 4336
       },
       "domOutline": {
@@ -41,15 +41,15 @@
         "avgTokens": 1490
       },
       "candidates": {
-        "successRate": 74,
+        "successRate": 68,
         "avgTokens": 1334
       },
       "wciFull": {
-        "successRate": 94,
+        "successRate": 84,
         "avgTokens": 782
       },
       "wciGrounding": {
-        "successRate": 94,
+        "successRate": 84,
         "avgTokens": 764
       }
     }

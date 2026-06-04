@@ -3,7 +3,7 @@
   "sourceReport": "eval-multistep-report-gemini35flash.json",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [
     {
       "id": "gemini35Flash",
@@ -14,9 +14,9 @@
   "gemini35Flash": {
     "methodology": "multistep",
     "passRule": "unified",
-    "minCoverage": 0.6,
+    "minCoverage": 0.8,
     "standard": {
-      "successRate": 1,
+      "successRate": 0,
       "avgTokens": 3043
     },
     "wci": {
@@ -24,7 +24,7 @@
       "avgTokens": 777
     },
     "wciFull": {
-      "successRate": 94,
+      "successRate": 92,
       "avgTokens": 829
     },
     "agentDom": {
@@ -41,11 +41,11 @@
         "avgTokens": 1752
       },
       "candidates": {
-        "successRate": 2,
+        "successRate": 0,
         "avgTokens": 1438
       },
       "wciFull": {
-        "successRate": 94,
+        "successRate": 92,
         "avgTokens": 829
       },
       "wciGrounding": {

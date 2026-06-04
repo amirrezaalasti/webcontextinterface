@@ -2,7 +2,15 @@
 
 Published **multi-step** evaluation outputs from `npm run eval:multistep`. The demo leaderboard reads `eval-results-all.json` (derived from archived multistep reports via `npm run eval:merge-leaderboard`).
 
-**Methodology:** All approaches use the **unified pass rule** — correct `final_action`, no decoy (WCI), flow coverage ≥ 0.6. See [evals/README.md](../../evals/README.md) for full scope, limitations, and how to interpret WCI vs baseline gaps.
+## Source of truth
+
+**Use `eval-results-*.json` and `eval-results-all.json` for published pass rates and leaderboard numbers.**
+
+Those files are built by `npm run eval:merge-leaderboard`, which recomputes `flowCoverage` and `passed` from each archive’s `models[].results[].rawResponse` using the current scorer in `evals/lib/flow-coverage.ts` and `minCoverage` **0.8**.
+
+Do **not** read per-row `passed`, `flowCoverage`, or `models[].summary` directly from `eval-multistep-report-*.json` after a scorer change — those fields are often stale until you re-run merge. The audit trail in reports is still authoritative for `rawResponse`, `parsedFinalAction`, and `validationError`.
+
+**Methodology:** All approaches use the **unified pass rule** — correct `final_action`, no decoy (WCI), flow coverage ≥ **0.8**. See [evals/README.md](../../evals/README.md) for full scope, limitations, and how to interpret WCI vs baseline gaps.
 
 ## Files
 
@@ -42,7 +50,7 @@ npm run demo                     # refresh leaderboard in the site
   "generatedAt": "ISO-8601",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [{ "id", "name", "openRouterModel" }],
   "<modelId>": {
     "standard": { "successRate": 0-100, "avgTokens": number },
@@ -57,10 +65,10 @@ npm run demo                     # refresh leaderboard in the site
 
 **`eval-multistep-report-*.json`** (audit trail):
 
-- `methodology`, `minCoverage` — run configuration
-- `models[].summary` — per approach: `passRate`, `finalActionAccuracy`, `avgCoverage`, `avgTokens` (may be stale until re-merged)
-- `models[].results` — per scenario: `correctFinalAction`, `flowCoverage`, `passed`, `parsedFinalAction`, `rawResponse`, `validationError`, …
+- `methodology`, `minCoverage` — run configuration (header should be **0.8**; older archives may list 0.6 or 0.667 from earlier defaults)
+- `models[].summary` — per approach: `passRate`, `finalActionAccuracy`, `avgCoverage`, `avgTokens` (**stale** until `eval:merge-leaderboard`; use `eval-results-*.json` instead)
+- `models[].results` — per scenario: `correctFinalAction`, `flowCoverage`, `passed`, `parsedFinalAction`, `rawResponse`, `validationError`, … (`passed` / `flowCoverage` here may be stale; merge recomputes from `rawResponse`)
 
-Use reports to inspect **which scenario failed** and the model’s plan / final action. Leaderboard pass rates are recomputed from `results` + current `evals/lib/flow-coverage.ts` when you run `eval:merge-leaderboard`.
+Use reports to inspect **which scenario failed** and the model’s plan / final action. **Leaderboard pass rates** live only in `eval-results-*.json`, recomputed from `results[].rawResponse` + current `evals/lib/flow-coverage.ts` when you run `eval:merge-leaderboard`.
 
 See [evals/README.md](../../evals/README.md) for methodology, comparison tables, limitations, and analysis.

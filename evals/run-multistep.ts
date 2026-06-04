@@ -159,7 +159,7 @@ function parseArgs() {
     approaches = requested.map((a) => (a === 'wci-distilled' ? 'wci-grounding' : a));
   }
 
-  const minCoverage = minCoverageArg ? Number(minCoverageArg) : 0.6;
+  const minCoverage = minCoverageArg ? Number(minCoverageArg) : EVAL_INFERENCE.multistep.minCoverageDefault;
   if (!Number.isFinite(minCoverage) || minCoverage < 0 || minCoverage > 1) {
     throw new Error(`Invalid --min-coverage=${minCoverageArg}. Use a number in [0,1].`);
   }
@@ -308,8 +308,9 @@ async function evaluateTaskRun(
   const flowCoverage = scoreFlowCoverage(flow, parsed, approach, {
     correctFinalAction,
   });
+  const flowCoverageRounded = Number(flowCoverage.toFixed(3));
   const passed =
-    correctFinalAction && !hitDecoy && flowCoverage >= minCoverage;
+    correctFinalAction && !hitDecoy && flowCoverageRounded >= minCoverage;
 
   return {
     scenarioId: s.id,
@@ -317,7 +318,7 @@ async function evaluateTaskRun(
     approach,
     correctFinalAction,
     hitDecoy,
-    flowCoverage: Number(flowCoverage.toFixed(3)),
+    flowCoverage: flowCoverageRounded,
     passed,
     parsedFinalAction,
     expectedFinalAction,
@@ -381,7 +382,7 @@ async function runModel(
     for (const task of multi) {
       console.log(`  ${s.id}`);
       for (const approach of approaches) {
-        const ctx = buildMultistepEvalContext(scenarioLike(s), task, approach);
+        const ctx = buildMultistepEvalContext(scenarioLike(s) as any, task, approach);
         process.stdout.write(`    [${approach}] ... `);
         try {
           const resp = heuristicOnly

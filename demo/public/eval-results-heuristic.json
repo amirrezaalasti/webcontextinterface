@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-06-04T10:44:34.295Z",
+  "sourceReport": "eval-multistep-report.json",
+  "methodology": "multistep",
+  "passRule": "unified",
+  "minCoverage": 0.8,
+  "modelOrder": [
+    {
+      "id": "heuristic",
+      "name": "Deterministic heuristic",
+      "openRouterModel": "(none)"
+    }
+  ],
+  "heuristic": {
+    "methodology": "multistep",
+    "passRule": "unified",
+    "minCoverage": 0.8,
+    "standard": {
+      "successRate": 92,
+      "avgTokens": 1619
+    },
+    "wci": {
+      "successRate": 90,
+      "avgTokens": 353
+    },
+    "wciFull": {
+      "successRate": 90,
+      "avgTokens": 374
+    },
+    "agentDom": {
+      "successRate": 90,
+      "avgTokens": 353
+    },
+    "approaches": {
+      "rawHtml": {
+        "successRate": 92,
+        "avgTokens": 3171
+      },
+      "domOutline": {
+        "successRate": 92,
+        "avgTokens": 953
+      },
+      "candidates": {
+        "successRate": 92,
+        "avgTokens": 734
+      },
+      "wciFull": {
+        "successRate": 90,
+        "avgTokens": 374
+      },
+      "wciGrounding": {
+        "successRate": 90,
+        "avgTokens": 353
+      }
+    }
+  }
+}

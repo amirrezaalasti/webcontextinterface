@@ -599,14 +599,14 @@ function buildLeaderboardRow(
   return tr;
 }
 
-function chartMetrics(stats: LeaderboardEntry): {
+function chartMetrics(stats: LeaderboardEntry | undefined): {
   raw: ApproachBlock;
   dom: ApproachBlock;
   candidates: ApproachBlock;
   wci: ApproachBlock;
   full: ApproachBlock;
 } | null {
-  if (!stats.standard) return null;
+  if (!stats?.standard) return null;
   const approaches = stats.approaches;
   const wci = stats.wci ?? stats.agentDom;
   if (approaches) {
@@ -884,7 +884,7 @@ function renderEvalConfigPanel(data: EvalConfigFile): void {
         <dt>temperature</dt><dd><strong>${ms?.temperature ?? 0}</strong></dd>
         <dt>max_tokens</dt><dd><strong>${ms?.maxTokens ?? '—'}</strong></dd>
         <dt>reasoning.effort</dt><dd><strong>${escapeHtmlText(ms?.reasoning.effort ?? 'low')}</strong></dd>
-        <dt>minCoverage</dt><dd><strong>${ms?.minCoverageDefault ?? 0.6}</strong></dd>
+        <dt>minCoverage</dt><dd><strong>${ms?.minCoverageDefault ?? 0.8}</strong></dd>
         <dt>passRule</dt><dd><code>${escapeHtmlText(ms?.passRule ?? 'unified')}</code></dd>
       </dl>
       <p class="eval-config-note">Single-shot <code>eval:benchmark</code> uses temperature <strong>${data.inference?.singleShot.temperature ?? 0}</strong>, max_tokens <strong>${data.inference?.singleShot.maxTokens ?? 1000}</strong> (not on this leaderboard).</p>

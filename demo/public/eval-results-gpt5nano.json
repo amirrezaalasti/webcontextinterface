@@ -3,7 +3,7 @@
   "sourceReport": "eval-multistep-report-gpt5nano.json",
   "methodology": "multistep",
   "passRule": "unified",
-  "minCoverage": 0.6,
+  "minCoverage": 0.8,
   "modelOrder": [
     {
       "id": "gpt5Nano",
@@ -14,21 +14,21 @@
   "gpt5Nano": {
     "methodology": "multistep",
     "passRule": "unified",
-    "minCoverage": 0.6,
+    "minCoverage": 0.8,
     "standard": {
       "successRate": 15,
       "avgTokens": 2306
     },
     "wci": {
-      "successRate": 86,
+      "successRate": 74,
       "avgTokens": 790
     },
     "wciFull": {
-      "successRate": 80,
+      "successRate": 74,
       "avgTokens": 816
     },
     "agentDom": {
-      "successRate": 86,
+      "successRate": 74,
       "avgTokens": 790
     },
     "approaches": {
@@ -41,15 +41,15 @@
         "avgTokens": 1329
       },
       "candidates": {
-        "successRate": 46,
+        "successRate": 44,
         "avgTokens": 1249
       },
       "wciFull": {
-        "successRate": 80,
+        "successRate": 74,
         "avgTokens": 816
       },
       "wciGrounding": {
-        "successRate": 86,
+        "successRate": 74,
         "avgTokens": 790
       }
     }

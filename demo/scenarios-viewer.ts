@@ -191,7 +191,7 @@ const scenarioAnnotationsEl = document.getElementById('scenario-annotations')!;
 
 let activeId: string | null = null;
 let viewMode: ViewMode = 'raw';
-let htmlCache: Partial<Record<string, { raw: string; annotated: string }>> = {};
+let htmlCache: Record<string, { raw?: string; annotated?: string }> = {};
 let inspectorCleanup: (() => void) | null = null;
 
 let wciNodes: HTMLElement[] = [];

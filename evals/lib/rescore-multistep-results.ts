@@ -66,12 +66,13 @@ export function rescoreResultRow(row: ResultRow, minCoverage: number): ResultRow
   const flowCoverage = scoreFlowCoverage(flow, parsed, row.approach, {
     correctFinalAction: row.correctFinalAction,
   });
+  const flowCoverageRounded = Number(flowCoverage.toFixed(3));
   const passed =
-    row.correctFinalAction && !row.hitDecoy && flowCoverage >= minCoverage;
+    row.correctFinalAction && !row.hitDecoy && flowCoverageRounded >= minCoverage;
 
   return {
     ...row,
-    flowCoverage: Number(flowCoverage.toFixed(3)),
+    flowCoverage: flowCoverageRounded,
     passed,
   };
 }

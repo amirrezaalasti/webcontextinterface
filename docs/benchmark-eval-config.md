@@ -1,6 +1,6 @@
 # Benchmark evaluation configuration
 
-Generated from `evals/lib/eval-config.ts` at **2026-06-04T06:35:48.354Z**.
+Generated from `evals/lib/eval-config.ts` at **2026-06-04T10:57:52.226Z**.
 Regenerate: `npm run eval:export-config`.
 
 ## Provider
@@ -21,7 +21,7 @@ Regenerate: `npm run eval:export-config`.
 | temperature | **0** |
 | max_tokens | **800** |
 | reasoning.effort | **low** |
-| minCoverage (default) | **0.6** |
+| minCoverage (default) | **0.8** |
 | passRule | **unified** |
 
 ### Single-shot (`eval:benchmark`, not on demo leaderboard)

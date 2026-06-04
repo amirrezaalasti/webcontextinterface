@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T06:35:48.354Z",
+  "generatedAt": "2026-06-04T10:57:52.226Z",
   "source": "evals/lib/eval-config.ts",
   "methodology": {
     "publishedHarness": "multistep",
@@ -38,7 +38,8 @@
       "reasoning": {
         "effort": "low"
       },
-      "minCoverageDefault": 0.6,
+      "minCoverageDefault": 0.8,
+      "scoringMetric": "f1",
       "passRule": "unified",
       "rateLimitPauseMs": 250,
       "defaultQueryOptions": {

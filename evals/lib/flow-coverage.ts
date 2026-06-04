@@ -164,11 +164,24 @@ function stepMatched(
 }
 
 /**
+ * Compute the set-based F1 score between expected and observed unique buckets.
+ * F1 is the harmonic mean of precision and recall.
+ */
+export function computeF1(expected: Set<string>, observed: Set<string>): { p: number; r: number; f1: number } {
+  if (expected.size === 0) return { p: 1, r: 1, f1: 1 };
+  if (observed.size === 0) return { p: 0, r: 0, f1: 0 };
+  const intersection = [...expected].filter((e) => observed.has(e)).length;
+  const p = intersection / observed.size;
+  const r = intersection / expected.size;
+  const f1 = p + r > 0 ? (2 * p * r) / (p + r) : 0;
+  return { p, r, f1 };
+}
+
+/**
  * Robust flow coverage in [0, 1]:
- * - type overlap with text inference + final_action credit
- * - step-level overlap for multi-step narratives
- * - WCI imputation when final grounding is correct
- * Returns max(typeScore, stepScore) so a strong plan is not penalized by one view.
+ * Computes the set-based F1 score over unique flow-type buckets.
+ * F1 balances precision (not hallucinating incorrect action types) and recall (covering required types).
+ * Imputes WCI context buckets when final grounding is correct.
  */
 export function scoreFlowCoverage(
   expected: FlowStep[],
@@ -178,19 +191,11 @@ export function scoreFlowCoverage(
 ): number {
   if (!expected.length) return 1;
 
-  const expectedTypes = [
-    ...new Set(expected.map((s) => bucketForApproach(approach, s.type))),
-  ];
+  const expectedTypes = new Set(expected.map((s) => bucketForApproach(approach, s.type)));
   const observed = collectObservedBuckets(parsed, approach, {
     correctFinalAction: opts.correctFinalAction,
     expected,
   });
 
-  const typeHits = expectedTypes.filter((t) => observed.has(t)).length;
-  const typeScore = typeHits / expectedTypes.length;
-
-  const stepHits = expected.filter((s) => stepMatched(s, parsed, approach)).length;
-  const stepScore = stepHits / expected.length;
-
-  return Math.max(typeScore, stepScore);
+  return computeF1(expectedTypes, observed).f1;
 }

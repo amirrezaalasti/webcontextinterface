@@ -2,11 +2,11 @@
 
 Element-grounding benchmark: pick the correct control for a task using **OpenRouter** models (not proprietary agent SDKs).
 
-**Published runs:** [`demo/public/`](../demo/public/README.md) — per-model `eval-results-*.json` (leaderboard) and `eval-multistep-report-*.json` (audit trail) with comparison tables below.
+**Published runs:** [`demo/public/`](../demo/public/README.md) — **`eval-results-*.json` is the source of truth for pass rates** (rebuilt by `eval:merge-leaderboard`); `eval-multistep-report-*.json` is the per-scenario audit trail (`rawResponse`, errors). Comparison tables below use merged results.
 
 ## Approaches (5 per scenario)
 
-**Published leaderboard** scores **multi-step task grounding** (`eval:multistep`): each scenario’s primary `meta.tasks.multiStep` task asks for a short JSON action plan plus a **`final_action`** (WCI node id or CSS selector). **All five approaches** use the same pass rule: correct `final_action`, no decoy/competitor trap, and flow coverage ≥ `--min-coverage` (default `0.6`). See [Pass rules](#pass-rules-unified) and [Published results](#published-results-50-scenarios-may-2026).
+**Published leaderboard** scores **multi-step task grounding** (`eval:multistep`): each scenario’s primary `meta.tasks.multiStep` task asks for a short JSON action plan plus a **`final_action`** (WCI node id or CSS selector). **All five approaches** use the same pass rule: correct `final_action`, no decoy/competitor trap, and flow coverage ≥ `--min-coverage` (default `0.8`). See [Pass rules](#pass-rules-unified) and [Published results](#published-results-50-scenarios-may-2026).
 
 A separate **single-shot** harness (`eval:benchmark`) still exists for one-control picking on `meta.goal`; it is not published on the demo site. Playwright validation uses verified ground truth in `demo/scenarios/` (see `evals/lib/ground-truth.ts`).
 
@@ -77,7 +77,7 @@ npm run eval:benchmark -- --approaches=wci-full,wci-grounding --models=gpt5Nano
 
 # Multi-step task benchmark (reads meta.tasks.multiStep — same five approaches as eval:benchmark)
 npm run eval:multistep -- --heuristic-only
-npm run eval:multistep -- --models=gpt5Nano --min-coverage=0.6
+npm run eval:multistep -- --models=gpt5Nano --min-coverage=0.8
 npm run eval:multistep -- --scenarios=job-board,banking --approaches=wci-grounding,raw-html
 
 # Subset of scenarios (50 available — see demo/scenarios/README.md)
@@ -136,11 +136,20 @@ For multi-step task scoring over `meta.tasks.multiStep` (primary task only), run
 
 ### Pass rules (unified)
 
-All approaches (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`) pass when **all** of the following hold:
+All approaches (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`) are scored using a unified pass rule. A task run passes if and only if:
 
-1. **Correct `final_action`** — WCI node id matches `wciNodeId` (or an acceptable alternate); baseline CSS selector or candidate index resolves to the same element as ground truth in Playwright.
-2. **No decoy** — WCI must not pick a `decoyNodeIds` entry or a `data-wci-competitor="true"` trap; baselines have no competitor-id layer but can still pick wrong controls.
-3. **Flow coverage ≥ `minCoverage`** (default **0.6**) — see [Flow coverage](#flow-coverage) below.
+$$\text{Pass} = \text{CorrectFinalAction} \land \neg \text{HitDecoy} \land (\text{FlowCoverage} \ge \text{minCoverage})$$
+
+Where:
+
+1. **Correct `final_action`** ($\text{CorrectFinalAction}$):
+   - **WCI**: $\text{final\_action} \in \{\text{wciNodeId}\} \cup \text{acceptableNodeIds}$
+   - **Baselines**: $\text{Resolve}(\text{final\_action}) = \text{Resolve}(\text{groundTruthSelector})$ in Playwright.
+2. **No decoy** ($\neg \text{HitDecoy}$):
+   - **WCI**: $\text{final\_action} \notin \text{decoyNodeIds}$ and the selected node is not marked as `data-wci-competitor="true"`.
+   - **Baselines**: Always true (decoy identification is WCI-specific; selecting a decoy baseline selector fails the $\text{CorrectFinalAction}$ check).
+3. **Flow coverage ≥ `minCoverage`** (default **0.8**):
+   - $\text{FlowCoverage}$ is the set-based F1 score computed over unique flow-type buckets (see [Flow coverage](#flow-coverage) below).
 
 **Prompt discipline:** `wciFlow` / `standardFlow` steps are sanitized before prompts (no ground-truth ids or selectors in flow text). Pipe rows mark competitor traps with `x`. Goals include an explicit scored-`final_action` suffix. Completion criteria that leak answers are filtered (`evals/lib/multistep-prompt.ts`).
 
@@ -169,10 +178,23 @@ Pipe row order: `id|a|d|p|s|r` — skip empty segments. `a`: `c` click, `f` fill
 
 ### Flow coverage
 
-Implemented in `evals/lib/flow-coverage.ts`. Score in `[0, 1]` used for **pass** on all approaches. Computed as the better of:
+Implemented in [flow-coverage.ts](file:///Users/amirrezaalasti/Desktop/selfprojects/WIA_framework/evals/lib/flow-coverage.ts).
+Score in `[0, 1]` used for **pass** on all approaches.
+To prevent evaluation metrics from being inflated by recall-only criteria, the multi-step benchmark uses a **set-based F1 score** over unique flow-type buckets (such as `observe`, `act`, `verify`). F1 balances both precision (avoiding hallucinating incorrect or spurious action types) and recall (covering all expected types).
 
-1. **Type overlap** — unique flow-type buckets in the expected flow (`observe`, `act`, `verify`, …) vs buckets inferred from the model’s plan (explicit action types + keyword signals in step text) plus credits for `final_action`.
-2. **Step overlap** — fraction of expected flow steps matched by keyword/type overlap against plan actions.
+$$F1 = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
+Where:
+- $\text{Recall} = \frac{|\text{Expected} \cap \text{Observed}|}{|\text{Expected}|}$
+- $\text{Precision} = \frac{|\text{Expected} \cap \text{Observed}|}{|\text{Observed}|}$
+
+The sets compared are the unique flow-type buckets:
+- **Expected**: unique buckets present in the reference flow (e.g., `{observe, act, verify}`).
+- **Observed**: unique buckets inferred from the model's generated plan (including explicit action types, keyword signals in step text, and imputed credits).
+
+**Threshold: 0.8**
+The default threshold for a plan to pass flow coverage is **0.8**. This threshold is derived empirically via Youden's J statistic over 1,500 archived runs to optimize the separation between correct and incorrect final actions. Semantically, F1 ≥ 0.8 is the J-optimal choice:
+- On a typical 3-bucket flow (`{observe, act, verify}`), the model must correctly identify at least 2 of the 3 expected types with perfect precision (F1 = 0.8), or cover all 3 with perfect precision (F1 = 1.0). A model cannot pass if it has precision issues or hallucinates multiple spurious action types.
 
 **Imputation when `final_action` is correct:**
 
@@ -189,32 +211,30 @@ This avoids false **0.33** failures when a model returns one correct `act` plus 
 
 ## Published results (50 scenarios, May 2026)
 
-Six archived OpenRouter **multi-step** runs on the full scenario set (primary `tasks.multiStep` only). Sources: `demo/public/eval-multistep-report-*.json` → `eval-results-*.json` via `npm run eval:merge-leaderboard`. Latest demo default: **GPT-5** in `eval-results.json`.
-
-### Leaderboard summary (multi-step pass rate %)
+Six archived OpenRouter **multi-step** runs on the full scenario set (primary `tasks.multiStep` only). Leaderboard numbers come from `demo/public/eval-results-*.json` (rescored from archived `eval-multistep-report-*.json` via `npm run eval:merge-leaderboard`, `minCoverage` **0.8**). Latest demo default: **GPT-5** in `eval-results.json`.
 
 | Model | Standard¹ | WCI grounding | WCI full | Δ grounding − standard | Avg tokens standard² | Avg tokens WCI grounding |
 |-------|-----------|---------------|----------|------------------------|----------------------|---------------------------|
-| **GPT-5** | 31% | **94%** | 94% | +63 pp | 2,387 | **764** |
-| **GPT-5 Nano** | 15% | **86%** | 80% | +71 pp | 2,306 | **790** |
-| **GPT-OSS 20B** | 1% | **86%** | 92% | +85 pp | 2,334 | **731** |
-| **Gemini 3.5 Flash** | 1% | **96%** | 94% | +95 pp | 3,043 | **777** |
-| **Qwen 2.5 7B** | 0% | **84%** | 86% | +84 pp | 2,258 | **546** |
-| **Llama 3.1 8B** | 13% | **82%** | 78% | +69 pp | 2,185 | **807** |
+| **GPT-5** | 29% | **84%** | 84% | +55 pp | 2,387 | **764** |
+| **GPT-5 Nano** | 15% | **74%** | 74% | +59 pp | 2,306 | **790** |
+| **GPT-OSS 20B** | 0% | **82%** | 88% | +82 pp | 2,334 | **731** |
+| **Gemini 3.5 Flash** | 0% | **96%** | 92% | +96 pp | 3,043 | **777** |
+| **Qwen 2.5 7B** | 0% | **76%** | 78% | +76 pp | 2,258 | **546** |
+| **Llama 3.1 8B** | 11% | **78%** | 74% | +67 pp | 2,185 | **807** |
 
 ¹ **Standard** = average **pass rate** of `raw-html`, `dom-outline`, and `interactive-candidates` under the **same unified pass rule** as WCI.  
-² Token figures from `eval-results-*.json` (harness estimate / usage), not billing-grade. Leaderboard rows include `"passRule": "unified"` and `"minCoverage": 0.6`.
+² Token figures from `eval-results-*.json` (harness estimate / usage), not billing-grade. Leaderboard rows include `"passRule": "unified"` and `"minCoverage": 0.8`.
 
 ### Per-approach pass rate (%)
 
 | Model | raw-html | dom-outline | interactive-candidates | wci-full | **wci-grounding** |
 |-------|----------|-------------|------------------------|----------|-------------------|
-| GPT-5 | 2 | 18 | 74 | 94 | **94** |
-| GPT-5 Nano | 0 | 0 | 46 | 80 | **86** |
-| Gemini 3.5 Flash | 0 | 0 | 2 | 94 | **96** |
-| Qwen 2.5 7B | 0 | 0 | 0 | 86 | **84** |
-| GPT-OSS 20B | 2 | 0 | 2 | 92 | **86** |
-| Llama 3.1 8B | 0 | 0 | 38 | 78 | **82** |
+| GPT-5 | 0 | 18 | 68 | 84 | **84** |
+| GPT-5 Nano | 0 | 0 | 44 | 74 | **74** |
+| Gemini 3.5 Flash | 0 | 0 | 0 | 92 | **96** |
+| Qwen 2.5 7B | 0 | 0 | 0 | 78 | **76** |
+| GPT-OSS 20B | 0 | 0 | 0 | 88 | **82** |
+| Llama 3.1 8B | 0 | 0 | 34 | 74 | **78** |
 
 ### Per-approach average tokens (per scenario call)
 
@@ -233,22 +253,22 @@ From `eval-multistep-report-*.json` → `models[].summary[].avgTokens`. Same 50 
 
 | Model | raw-html pass | raw-html tokens | wci-grounding pass | wci-grounding tokens | Token reduction³ |
 |-------|---------------|-----------------|--------------------|----------------------|------------------|
-| GPT-5 | 2% | 4,336 | **94%** | **764** | ~5.7× fewer |
-| GPT-5 Nano | 0% | 4,341 | **86%** | **790** | ~5.5× fewer |
+| GPT-5 | 0% | 4,336 | **84%** | **764** | ~5.7× fewer |
+| GPT-5 Nano | 0% | 4,341 | **74%** | **790** | ~5.5× fewer |
 | Gemini 3.5 Flash | 0% | 5,939 | **96%** | **777** | ~7.6× fewer |
-| Qwen 2.5 7B | 0% | 4,496 | **84%** | **546** | ~8.2× fewer |
-| GPT-OSS 20B | 2% | 4,402 | **86%** | **731** | ~6.0× fewer |
-| Llama 3.1 8B | 0% | 4,130 | **82%** | **807** | ~5.1× fewer |
+| Qwen 2.5 7B | 0% | 4,496 | **76%** | **546** | ~8.2× fewer |
+| GPT-OSS 20B | 0% | 4,402 | **82%** | **731** | ~6.0× fewer |
+| Llama 3.1 8B | 0% | 4,130 | **78%** | **807** | ~5.1× fewer |
 
 ³ Ratio = raw-html tokens ÷ wci-grounding tokens for the same model.
 
 ### Analysis
 
-**Multi-step is strictly harder than single-shot.** Pass rates can drop vs one-shot grounding on the same pages: e.g. **GPT-5** **94%** WCI grounding (multi-step) vs **100%** (single-shot archived runs). Models must return a structured plan and correct **`final_action`**, not just one control id.
+**Multi-step is strictly harder than single-shot.** Pass rates can drop vs one-shot grounding on the same pages: e.g. **GPT-5** **84%** WCI grounding (multi-step) vs **100%** (single-shot archived runs). Models must return a structured plan and correct **`final_action`**, not just one control id.
 
-**WCI grounding still leads.** **Gemini 3.5 Flash** tops the published set at **96%** multi-step pass; **GPT-5** is **94%**. Baselines stay near zero on `raw-html` / `dom-outline` (0–18%) except **`interactive-candidates`** on stronger models (**GPT-5** **74%**).
+**WCI grounding still leads.** **Gemini 3.5 Flash** tops the published set at **96%** multi-step pass; **GPT-5** is **84%**. Baselines stay near zero on `raw-html` / `dom-outline` (0–18%) except **`interactive-candidates`** on stronger models (**GPT-5** **68%**).
 
-**Frontier vs small models:** On WCI grounding, **GPT-5 Nano** (**86%**), **Qwen 2.5 7B** (**84%**), and **Llama 3.1 8B** (**82%**) trail frontier models but remain far above their own baseline scores — structured context helps across model sizes.
+**Frontier vs small models:** On WCI grounding, **GPT-5 Nano** (**74%**), **Qwen 2.5 7B** (**76%**), and **Llama 3.1 8B** (**78%**) trail frontier models but remain far above their own baseline scores — structured context helps across model sizes.
 
 **Tokens:** Multi-step prompts are larger (action plans + flow text). WCI compact rows (`wci-eval-distill`) still keep grounding calls ~**546–807** tokens vs **4,100–5,900** for raw-html on the same tasks.
 

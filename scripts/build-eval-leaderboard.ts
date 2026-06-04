@@ -38,7 +38,7 @@ const MODEL_ORDER = [
   'llama31_8b',
 ];
 
-const DEFAULT_MIN_COVERAGE = 0.6;
+const DEFAULT_MIN_COVERAGE = 0.8;
 
 type SummaryRow = {
   tasks: number;
@@ -155,8 +155,7 @@ function loadMultistepReports() {
       minCoverage?: number;
       models?: ModelEntry[];
     };
-    const minCoverage =
-      typeof data.minCoverage === 'number' ? data.minCoverage : DEFAULT_MIN_COVERAGE;
+    const minCoverage = DEFAULT_MIN_COVERAGE;
     for (const model of data.models ?? []) {
       if (!model.modelId || (!model.summary && !model.results)) continue;
       const existing = byModelId.get(model.modelId);
