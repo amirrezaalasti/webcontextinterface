@@ -241,16 +241,19 @@ If you use WCI in research or publications, please cite:
 **Amirreza Alasti** — [amirrezaalasti@gmail.com](mailto:amirrezaalasti@gmail.com)
 
 ```bibtex
-@software{wci2026,
-  author       = {Amirreza Alasti, Niloufar Ghandeharioun, Oliver Karras},
-  title        = {WCI: Web Context Interface},
-  year         = {2026},
-  publisher    = {GitHub},
-  note         = {Contact: amirrezaalasti@gmail.com}
+@software{Alasti_WCI_Web_Context_2026,
+  author = {Alasti, Amirreza and Ghandeharioun, Niloufar and Karras, Oliver},
+  license = {MIT},
+  month = may,
+  title = {{WCI: Web Context Interface}},
+  url = {https://github.com/amirrezaalasti/webcontextinterface},
+  version = {1.1.0},
+  year = {2026},
+  note = {Contact: amirrezaalasti@gmail.com}
 }
 ```
 
-**Benchmark dataset:**
+**Evaluation dataset:**
 
 ```bibtex
 @dataset{wci_eval_dataset_2026,

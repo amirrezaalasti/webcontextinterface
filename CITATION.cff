@@ -1,25 +1,47 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
-title: "WCI: Web Context Interface"
-message: "If you use this software, please cite it as below."
+title: 'WCI: Web Context Interface'
+message: 'If you use this software, please cite it as below.'
 type: software
 authors:
   - family-names: Alasti
     given-names: Amirreza
     email: amirrezaalasti@gmail.com
-version: 1.0.0
-date-released: 2026-05-22
-license: MIT
-url: "https://webcontextinterface.vercel.app/"
-repository-code: "https://github.com/amirrezaalasti/webcontextinterface"
+    orcid: 'https://orcid.org/0009-0002-1165-773X'
+    affiliation: Leibniz University Hannover
+  - given-names: Niloufar
+    family-names: Ghandeharioun
+    email: niloufar.ghandeharioun@stud.unihannover.de
+    orcid: 'https://orcid.org/0009-0005-3736-5745'
+    affiliation: Leibniz University Hannover
+  - given-names: Oliver
+    family-names: Karras
+    email: oliver.karras@tib.eu
+    affiliation: >-
+      TIB - Leibniz Information Centre for Science and
+      Technology
+    orcid: 'https://orcid.org/0000-0001-5336-6899'
+repository-code: 'https://github.com/amirrezaalasti/webcontextinterface'
+url: 'https://webcontextinterface.vercel.app/'
+repository: 'https://www.npmjs.com/package/@webcontextinterface/core'
+repository-artifact: 'https://doi.org/10.5281/zenodo.20434088'
+abstract: >-
+  WCI (Web Context Interface) is a three-layer open standard
+  that augments standard HTML with structured semantic
+  metadata, compresses it into agent-optimised context, and
+  provides a typed action protocol — all in < 8 KB per
+  layer.
 keywords:
-  - web agents
+  - Web agent
   - LLM
-  - semantic HTML
-  - open standard
-preferred-citation:
-  type: software
-  authors:
-    - family-names: Alasti
-      given-names: Amirreza
-  title: "WCI: Web Context Interface"
-  year: 2026
+  - Web Automation
+  - Semantic HTML
+  - UI grounding
+  - DOM distillation
+license: MIT
+commit: 2e403fad0b7a66c9dfabd2c0c893bf2b4fba23ff
+version: 1.1.0
+date-released: '2026-05-31'
+
