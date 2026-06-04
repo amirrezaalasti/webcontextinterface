@@ -59,18 +59,31 @@ export function enrichBenchmarkMeta(counts) {
  */
 export function summarizeCounts(values) {
   if (!values.length) {
-    return { mean: 0, median: 0, min: 0, max: 0 };
+    return { mean: 0, median: 0, min: 0, max: 0, stdDev: 0 };
   }
   const sorted = [...values].sort((a, b) => a - b);
   const sum = sorted.reduce((s, x) => s + x, 0);
+  const mean = sum / sorted.length;
+  const variance =
+    sorted.reduce((s, x) => s + (x - mean) ** 2, 0) / sorted.length;
   const mid = Math.floor(sorted.length / 2);
   const median =
     sorted.length % 2 === 1 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   return {
-    mean: Math.round((sum / sorted.length) * 10) / 10,
+    mean: Math.round(mean * 10) / 10,
     median,
     min: sorted[0],
     max: sorted[sorted.length - 1],
+    stdDev: Math.round(Math.sqrt(variance) * 10) / 10,
+  };
+}
+
+/** @param {number} value @param {number} mean @param {number} stdDev */
+function deltaFromMean(value, mean, stdDev) {
+  const delta = value - mean;
+  return {
+    delta: Math.round(delta * 10) / 10,
+    zScore: stdDev > 0 ? Math.round((delta / stdDev) * 100) / 100 : 0,
   };
 }
 
@@ -94,39 +107,70 @@ export function buildBenchmarkInfo(rows) {
   const handmade = rows.filter((r) => HANDMADE_IDS.has(r.id) || r.legacy);
   const synthetic = rows.filter((r) => !HANDMADE_IDS.has(r.id) && !r.legacy);
 
+  const suite = {
+    wciAttributes: summarizeCounts(attrValues),
+    wciNodes: summarizeCounts(nodeValues),
+    /** One static HTML page per scenario; count = all DOM nodes on that page. */
+    pageElements: summarizeCounts(totalValues),
+    totalElements: summarizeCounts(totalValues),
+    wciNodeSharePct: summarizeCounts(shareValues),
+  };
+
   const perScenario = Object.fromEntries(
     rows.map((r) => [
       r.id,
       {
         wciNodes: r.wciNodes,
         wciAttributes: r.wciAttributes,
+        pageElements: r.totalElements,
         totalElements: r.totalElements,
         wciNodeSharePct: r.wciNodeSharePct,
+        vsSuiteMean: {
+          pageElements: deltaFromMean(
+            r.totalElements,
+            suite.pageElements.mean,
+            suite.pageElements.stdDev
+          ),
+          wciNodes: deltaFromMean(r.wciNodes, suite.wciNodes.mean, suite.wciNodes.stdDev),
+          wciNodeSharePct: deltaFromMean(
+            r.wciNodeSharePct,
+            suite.wciNodeSharePct.mean,
+            suite.wciNodeSharePct.stdDev
+          ),
+          wciAttributes: deltaFromMean(
+            r.wciAttributes,
+            suite.wciAttributes.mean,
+            suite.wciAttributes.stdDev
+          ),
+        },
       },
     ])
   );
 
+  const fmt = (n) => Math.round(n);
+  const methodology =
+    'Each scenario is one fake website (one annotated.html page). pageElements is every DOM node on that page; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ pageElements. Per-site vsSuiteMean reports delta and z-score from the suite mean. ' +
+    `Suite mean ± σ (${rows.length} sites): ~${fmt(suite.wciNodes.mean)} ± ${fmt(suite.wciNodes.stdDev)} WCI nodes per page among ~${fmt(suite.pageElements.mean)} ± ${fmt(suite.pageElements.stdDev)} DOM elements per page (~${fmt(suite.wciNodeSharePct.mean)}% ± ${fmt(suite.wciNodeSharePct.stdDev)}% of the DOM annotated), plus ~${fmt(suite.wciAttributes.mean)} ± ${fmt(suite.wciAttributes.stdDev)} labels on those nodes.`;
+
   return {
     generatedAt: new Date().toISOString(),
     scenarioCount: rows.length,
-    methodology:
-      'Each scenario is one fake website (annotated.html). totalElements is every DOM node; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ totalElements. Typical site: ~105 WCI nodes among ~250 page elements (~42% of the DOM), plus ~600 labels on those nodes.',
-    suite: {
-      wciAttributes: summarizeCounts(attrValues),
-      wciNodes: summarizeCounts(nodeValues),
-      totalElements: summarizeCounts(totalValues),
-      wciNodeSharePct: summarizeCounts(shareValues),
-    },
+    methodology,
+    suite,
     byTier: {
       handmade: {
         count: handmade.length,
+        pageElements: summarizeCounts(handmade.map((r) => r.totalElements)),
         wciAttributes: summarizeCounts(handmade.map((r) => r.wciAttributes)),
         wciNodes: summarizeCounts(handmade.map((r) => r.wciNodes)),
+        wciNodeSharePct: summarizeCounts(handmade.map((r) => r.wciNodeSharePct)),
       },
       synthetic: {
         count: synthetic.length,
+        pageElements: summarizeCounts(synthetic.map((r) => r.totalElements)),
         wciAttributes: summarizeCounts(synthetic.map((r) => r.wciAttributes)),
         wciNodes: summarizeCounts(synthetic.map((r) => r.wciNodes)),
+        wciNodeSharePct: summarizeCounts(synthetic.map((r) => r.wciNodeSharePct)),
       },
     },
     scenarios: perScenario,

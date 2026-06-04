@@ -1,6 +1,6 @@
 {
   "name": "@webcontextinterface/core",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Web Context Interface (WCI) — complete SDK: spec, distiller, bridge, and site context",
   "license": "MIT",
   "type": "module",
@@ -33,10 +33,10 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/spec": "^1.1.0",
-    "@webcontextinterface/distiller": "^1.1.0",
-    "@webcontextinterface/bridge": "^1.1.0",
-    "@webcontextinterface/context": "^1.1.0"
+    "@webcontextinterface/spec": "^1.2.0",
+    "@webcontextinterface/distiller": "^1.2.0",
+    "@webcontextinterface/bridge": "^1.2.0",
+    "@webcontextinterface/context": "^1.2.0"
   },
   "keywords": ["wci", "llm", "agents", "dom", "accessibility", "sdk", "web-context-interface"]
 }

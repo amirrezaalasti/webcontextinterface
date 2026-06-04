@@ -4,11 +4,11 @@ Monorepo packages published as `@webcontextinterface/*` on npm.
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@webcontextinterface/spec`](./spec) | 1.1.0 | WCI 1.0 types and `readWciNodeSpec` |
-| [`@webcontextinterface/distiller`](./distiller) | 1.1.0 | DOM pruning and LLM context serialization |
-| [`@webcontextinterface/bridge`](./bridge) | 1.1.0 | Typed action dispatch + policy enforcement |
-| [`@webcontextinterface/context`](./context) | 1.1.0 | `wci.txt` / `wci.json` / `wci.md` loader |
-| [`@webcontextinterface/core`](./core) | 1.1.0 | All-in-one SDK |
+| [`@webcontextinterface/spec`](./spec) | 1.2.0 | WCI 1.0 types and `readWciNodeSpec` |
+| [`@webcontextinterface/distiller`](./distiller) | 1.2.0 | DOM pruning and LLM context serialization |
+| [`@webcontextinterface/bridge`](./bridge) | 1.2.0 | Typed action dispatch + policy enforcement |
+| [`@webcontextinterface/context`](./context) | 1.2.0 | `wci.txt` / `wci.json` / `wci.md` loader |
+| [`@webcontextinterface/core`](./core) | 1.2.0 | All-in-one SDK |
 
 ## Build
 

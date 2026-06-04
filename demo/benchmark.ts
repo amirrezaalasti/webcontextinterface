@@ -63,9 +63,21 @@ export interface BenchmarkMetrics {
   stepReduction: number;
 }
 
+export interface BenchmarkCountSummary {
+  mean: number;
+  median: number;
+  min: number;
+  max: number;
+  stdDev: number;
+}
+
 export interface BenchmarkSuiteAnnotationStats {
-  wciAttributes: { mean: number; median: number; min: number; max: number };
-  wciNodes: { mean: number; median: number; min: number; max: number };
+  wciAttributes: BenchmarkCountSummary;
+  wciNodes: BenchmarkCountSummary;
+  /** DOM nodes per website (one static page per scenario). */
+  pageElements?: BenchmarkCountSummary;
+  totalElements?: BenchmarkCountSummary;
+  wciNodeSharePct?: BenchmarkCountSummary;
 }
 
 interface ScenarioMeta {

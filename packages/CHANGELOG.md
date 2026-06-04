@@ -2,6 +2,12 @@
 
 All notable changes to `@webcontextinterface/*` packages are documented here.
 
+## [1.2.0] — 2026-06-04
+
+### @webcontextinterface/spec, @webcontextinterface/distiller, @webcontextinterface/context, @webcontextinterface/bridge, @webcontextinterface/core
+
+- Version bump for npm republication; no API changes.
+
 ## [1.1.0] — 2026-05-31
 
 ### @webcontextinterface/bridge
@@ -28,5 +34,6 @@ All notable changes to `@webcontextinterface/*` packages are documented here.
 - `@webcontextinterface/context` — `WciContextLoader`, `PolicyEngine`
 - `@webcontextinterface/core` — unified SDK re-export
 
+[1.2.0]: https://github.com/amirrezaalasti/webcontextinterface/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/amirrezaalasti/webcontextinterface/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/amirrezaalasti/webcontextinterface/releases/tag/v1.0.0

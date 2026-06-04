@@ -13,7 +13,7 @@ Each scenario is a folder under `demo/scenarios/`:
 ```
 demo/scenarios/
   manifest.json              # ordered list of all scenario ids
-  benchmark-info.json        # suite-wide data-wci-* annotation stats (mean/median per page)
+  benchmark-info.json        # suite-wide data-wci-* annotation stats (mean/median/σ per page)
   ground-truth.generated.json # Playwright-verified selectors (regenerate via script)
   multi-step.generated.json  # catalog of richer multi-step tasks per scenario
   {scenario-id}/
@@ -28,19 +28,19 @@ Each scenario is **one fake website** (`raw.html`). The WCI version (`annotated.
 
 **Q3 — how much annotation does one benchmark site need?**
 
-| | Typical site (median) | Average across 50 sites | Range |
-|---|----------------------|-------------------------|-------|
-| **Page elements** (all DOM nodes on the site) | **~250** | ~260 | 170–450 |
-| **WCI-annotated elements** (`wciNodes`) | **~105** | ~106 | 64–193 |
-| **Share of page annotated** (`wciNodeSharePct`) | **~42%** | ~41% | 28–58% |
-| **WCI labels** (`data-wci-*` on those nodes) | **~600** | ~620 | 383–1,140 |
+| | Typical site (median) | Mean ± σ (50 sites) | Range |
+|---|----------------------|---------------------|-------|
+| **Pages** (one `annotated.html` per website; `pageElements` = DOM nodes on that page) | **~257** | **295 ± 125** | 172–739 |
+| **WCI-annotated elements** (`wciNodes`) | **~105** | **106 ± 26** | 64–193 |
+| **Share of page annotated** (`wciNodeSharePct`) | **~39%** | **38% ± 6%** | 22–50% |
+| **WCI labels** (`data-wci-*` on those nodes) | **~598** | **620 ± 155** | 383–1,140 |
 
-In plain terms: **one website → ~250 DOM elements → ~105 get WCI markup (~42% of the page) → ~600 semantic labels** on those nodes (~6 labels per annotated element).
+In plain terms: **one website = one page → ~255 DOM elements (±125 σ across sites) → ~105 get WCI markup (~39% of the page) → ~600 semantic labels** on those nodes (~6 labels per annotated element). σ is population standard deviation across the 50 benchmark sites. Each entry in `benchmark-info.json` → `scenarios` includes `vsSuiteMean` (delta and z-score vs the suite mean for page size, WCI nodes, share, and labels).
 
 Example (`weather-app`): **90 WCI nodes out of 252 page elements (35.7%)**, with 511 labels.
 
-- **Handmade sites (5)** — bigger pages (flight booking, banking, checkout, …): about **160** pieces and **~980** labels per site (median).
-- **Synthetic sites (45)** — domain templates with shared chrome: about **101** pieces and **~580** labels per site (median).
+- **Handmade sites (5)** — **587 ± 181** DOM elements per page (mean ± σ), **143 ± 44** WCI nodes, **~980** labels (median).
+- **Synthetic sites (45)** — **263 ± 57** DOM elements per page, **102 ± 19** WCI nodes, **~580** labels (median).
 
 Counts are stored in `meta.json` (`benchmark`) and aggregated in `benchmark-info.json` (excludes `data-wci-legacy-styles`, a styling marker only).
 

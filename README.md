@@ -77,10 +77,10 @@ npm install
 npm run build
 ```
 
-**npm packages** (v1.1.0):
+**npm packages** (v1.2.0):
 
 ```bash
-npm install @webcontextinterface/core@^1.1.0
+npm install @webcontextinterface/core@^1.2.0
 ```
 
 Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterface/distiller`, `@webcontextinterface/bridge`, `@webcontextinterface/context`.
@@ -91,11 +91,11 @@ Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterfa
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@webcontextinterface/spec`](./packages/spec) | 1.1.0 | TypeScript types, role enum, `readWciNodeSpec()` |
-| [`@webcontextinterface/distiller`](./packages/distiller) | 1.1.0 | Pruner, JSON/Markdown serializers, `WciDistiller` |
-| [`@webcontextinterface/bridge`](./packages/bridge) | 1.1.0 | `WciBridge`, policy enforcement, `ActionResult` |
-| [`@webcontextinterface/context`](./packages/context) | 1.1.0 | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
-| [`@webcontextinterface/core`](./packages/core) | 1.1.0 | **All-in-one SDK** — re-exports every package |
+| [`@webcontextinterface/spec`](./packages/spec) | 1.2.0 | TypeScript types, role enum, `readWciNodeSpec()` |
+| [`@webcontextinterface/distiller`](./packages/distiller) | 1.2.0 | Pruner, JSON/Markdown serializers, `WciDistiller` |
+| [`@webcontextinterface/bridge`](./packages/bridge) | 1.2.0 | `WciBridge`, policy enforcement, `ActionResult` |
+| [`@webcontextinterface/context`](./packages/context) | 1.2.0 | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
+| [`@webcontextinterface/core`](./packages/core) | 1.2.0 | **All-in-one SDK** — re-exports every package |
 
 ---
 
@@ -247,7 +247,7 @@ If you use WCI in research or publications, please cite:
   month = may,
   title = {{WCI: Web Context Interface}},
   url = {https://github.com/amirrezaalasti/webcontextinterface},
-  version = {1.1.0},
+  version = {1.2.0},
   year = {2026},
   note = {Contact: amirrezaalasti@gmail.com}
 }

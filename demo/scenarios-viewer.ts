@@ -6,13 +6,25 @@ import manifest from './scenarios/manifest.json';
 import benchmarkInfo from './scenarios/benchmark-info.json';
 import evalConfig from './public/eval-config.json';
 
+interface VsSuiteMeanMetric {
+  delta: number;
+  zScore: number;
+}
+
 interface ScenarioBenchmarkCounts {
   wciNodes: number;
   wciAttributes: number;
   wciIds?: number;
+  pageElements?: number;
   totalElements?: number;
   wciNodeSharePct?: number;
   attrsPerNode?: number;
+  vsSuiteMean?: {
+    pageElements?: VsSuiteMeanMetric;
+    wciNodes?: VsSuiteMeanMetric;
+    wciNodeSharePct?: VsSuiteMeanMetric;
+    wciAttributes?: VsSuiteMeanMetric;
+  };
 }
 
 interface ScenarioMeta {
@@ -621,13 +633,24 @@ async function renderScenario(id: string): Promise<void> {
   }
 }
 
+function formatVsSuite(delta?: VsSuiteMeanMetric): string {
+  if (!delta) return '';
+  const sign = delta.delta >= 0 ? '+' : '';
+  return ` (${sign}${delta.delta} vs suite mean, z=${delta.zScore})`;
+}
+
 function formatAnnotationSummary(counts: ScenarioBenchmarkCounts): string {
   const pieces = counts.wciNodes;
   const labels = counts.wciAttributes;
-  const total = counts.totalElements;
+  const total = counts.pageElements ?? counts.totalElements;
   const pct = counts.wciNodeSharePct;
+  const vs = counts.vsSuiteMean;
   if (total != null && pct != null) {
-    return `${pieces} of ${total} page elements WCI-annotated (${pct}%) · ${labels.toLocaleString()} labels`;
+    return (
+      `${pieces} of ${total} page elements WCI-annotated (${pct}%)` +
+      `${formatVsSuite(vs?.pageElements)} · ${labels.toLocaleString()} labels` +
+      `${formatVsSuite(vs?.wciAttributes)}`
+    );
   }
   return `~${labels.toLocaleString()} WCI labels on ${pieces} UI pieces`;
 }
@@ -636,14 +659,15 @@ function renderBenchmarkInfoPanel(): void {
   const suite = benchmarkInfo.suite;
   const labels = suite.wciAttributes;
   const pieces = suite.wciNodes;
-  const total = suite.totalElements;
+  const pages = suite.pageElements ?? suite.totalElements;
   const share = suite.wciNodeSharePct;
   benchmarkInfoSummary.innerHTML = [
-    `<strong>${benchmarkInfo.scenarioCount} fake websites.</strong> `,
-    `Typically <strong>~${Math.round(pieces.median)} WCI nodes</strong> among `,
-    `<strong>~${Math.round(total?.median ?? 0)} page elements</strong> `,
-    `(<strong>~${Math.round(share?.median ?? 0)}%</strong> of the DOM annotated; median). `,
-    `Plus <strong>~${Math.round(labels.median).toLocaleString()} labels</strong> on those nodes.`,
+    `<strong>${benchmarkInfo.scenarioCount} fake websites</strong> (one page each). `,
+    `Average page size <strong>~${Math.round(pages?.mean ?? 0)} ± ${Math.round(pages?.stdDev ?? 0)} DOM elements</strong> `,
+    `(median ~${Math.round(pages?.median ?? 0)}). `,
+    `Typically <strong>~${Math.round(pieces.median)} ± ${Math.round(pieces.stdDev)} WCI nodes</strong> per page `,
+    `(<strong>~${Math.round(share?.median ?? 0)}% ± ${Math.round(share?.stdDev ?? 0)}%</strong> of that page annotated). `,
+    `Plus <strong>~${Math.round(labels.median).toLocaleString()} ± ${Math.round(labels.stdDev).toLocaleString()} labels</strong> on those nodes.`,
   ].join('');
 
   const ms = evalConfig.inference?.multistep;
@@ -678,8 +702,10 @@ function selectScenario(id: string, updateUrl = true): void {
   diffEl.textContent = displayDifficultyLabel(displayDiff);
   diffEl.className = `scenarios-main__difficulty scenarios-main__difficulty--${displayDiff}`;
 
-  const perPage =
-    meta.benchmark ?? benchmarkInfo.scenarios[id as keyof typeof benchmarkInfo.scenarios];
+  const infoRow = benchmarkInfo.scenarios[id as keyof typeof benchmarkInfo.scenarios];
+  const perPage = meta.benchmark
+    ? { ...meta.benchmark, vsSuiteMean: infoRow?.vsSuiteMean ?? meta.benchmark.vsSuiteMean }
+    : infoRow;
   if (perPage && 'wciAttributes' in perPage) {
     scenarioAnnotationsEl.textContent = formatAnnotationSummary(perPage as ScenarioBenchmarkCounts);
     scenarioAnnotationsEl.hidden = false;

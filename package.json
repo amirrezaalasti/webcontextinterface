@@ -55,6 +55,6 @@
     "vitepress": "^1.6.3"
   },
   "dependencies": {
-    "@webcontextinterface/core": "^1.1.0"
+    "@webcontextinterface/core": "^1.2.0"
   }
 }

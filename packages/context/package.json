@@ -1,6 +1,6 @@
 {
   "name": "@webcontextinterface/context",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "WCI site context — wci.txt, wci.json, wci.md loader and policy engine",
   "license": "MIT",
   "type": "module",
@@ -33,7 +33,7 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/spec": "^1.1.0"
+    "@webcontextinterface/spec": "^1.2.0"
   },
   "keywords": ["wci", "wci.txt", "policy", "site-context", "web-context-interface"]
 }

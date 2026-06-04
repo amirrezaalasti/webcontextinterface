@@ -1,62 +1,105 @@
 {
-  "generatedAt": "2026-06-04T06:40:01.593Z",
+  "generatedAt": "2026-06-04T10:03:29.969Z",
   "scenarioCount": 50,
-  "methodology": "Each scenario is one fake website (annotated.html). totalElements is every DOM node; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ totalElements. Typical site: ~105 WCI nodes among ~250 page elements (~42% of the DOM), plus ~600 labels on those nodes.",
+  "methodology": "Each scenario is one fake website (one annotated.html page). pageElements is every DOM node on that page; wciNodes is how many carry semantic data-wci-* labels (excluding data-wci-legacy-styles). wciNodeSharePct = wciNodes ÷ pageElements. Per-site vsSuiteMean reports delta and z-score from the suite mean. Suite mean ± σ (50 sites): ~106 ± 26 WCI nodes per page among ~295 ± 125 DOM elements per page (~38% ± 6% of the DOM annotated), plus ~620 ± 155 labels on those nodes.",
   "suite": {
     "wciAttributes": {
       "mean": 620.1,
       "median": 598,
       "min": 383,
-      "max": 1140
+      "max": 1140,
+      "stdDev": 154.7
     },
     "wciNodes": {
       "mean": 106.4,
       "median": 104.5,
       "min": 64,
-      "max": 193
+      "max": 193,
+      "stdDev": 25.6
+    },
+    "pageElements": {
+      "mean": 295,
+      "median": 256.5,
+      "min": 172,
+      "max": 739,
+      "stdDev": 125.2
     },
     "totalElements": {
       "mean": 295,
       "median": 256.5,
       "min": 172,
-      "max": 739
+      "max": 739,
+      "stdDev": 125.2
     },
     "wciNodeSharePct": {
       "mean": 37.9,
       "median": 38.85,
       "min": 21.7,
-      "max": 49.6
+      "max": 49.6,
+      "stdDev": 6.3
     }
   },
   "byTier": {
     "handmade": {
       "count": 5,
+      "pageElements": {
+        "mean": 586.8,
+        "median": 649,
+        "min": 248,
+        "max": 739,
+        "stdDev": 180.7
+      },
       "wciAttributes": {
         "mean": 855.8,
         "median": 979,
         "min": 408,
-        "max": 1140
+        "max": 1140,
+        "stdDev": 257.7
       },
       "wciNodes": {
         "mean": 143.2,
         "median": 160,
         "min": 65,
-        "max": 193
+        "max": 193,
+        "stdDev": 44.3
+      },
+      "wciNodeSharePct": {
+        "mean": 24.7,
+        "median": 23.2,
+        "min": 21.7,
+        "max": 29.7,
+        "stdDev": 2.9
       }
     },
     "synthetic": {
       "count": 45,
+      "pageElements": {
+        "mean": 262.6,
+        "median": 252,
+        "min": 172,
+        "max": 502,
+        "stdDev": 57.1
+      },
       "wciAttributes": {
         "mean": 593.9,
         "median": 582,
         "min": 383,
-        "max": 965
+        "max": 965,
+        "stdDev": 111.1
       },
       "wciNodes": {
         "mean": 102.3,
         "median": 101,
         "min": 64,
-        "max": 164
+        "max": 164,
+        "stdDev": 18.6
+      },
+      "wciNodeSharePct": {
+        "mean": 39.4,
+        "median": 39.3,
+        "min": 28.1,
+        "max": 49.6,
+        "stdDev": 4.7
       }
     }
   },
@@ -64,302 +107,1252 @@
     "flight-booking": {
       "wciNodes": 193,
       "wciAttributes": 1140,
+      "pageElements": 649,
       "totalElements": 649,
-      "wciNodeSharePct": 29.7
+      "wciNodeSharePct": 29.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 354,
+          "zScore": 2.83
+        },
+        "wciNodes": {
+          "delta": 86.6,
+          "zScore": 3.38
+        },
+        "wciNodeSharePct": {
+          "delta": -8.2,
+          "zScore": -1.3
+        },
+        "wciAttributes": {
+          "delta": 519.9,
+          "zScore": 3.36
+        }
+      }
     },
     "banking": {
       "wciNodes": 170,
       "wciAttributes": 1008,
+      "pageElements": 732,
       "totalElements": 732,
-      "wciNodeSharePct": 23.2
+      "wciNodeSharePct": 23.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 437,
+          "zScore": 3.49
+        },
+        "wciNodes": {
+          "delta": 63.6,
+          "zScore": 2.48
+        },
+        "wciNodeSharePct": {
+          "delta": -14.7,
+          "zScore": -2.33
+        },
+        "wciAttributes": {
+          "delta": 387.9,
+          "zScore": 2.51
+        }
+      }
     },
     "checkout": {
       "wciNodes": 65,
       "wciAttributes": 408,
+      "pageElements": 248,
       "totalElements": 248,
-      "wciNodeSharePct": 26.2
+      "wciNodeSharePct": 26.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -47,
+          "zScore": -0.38
+        },
+        "wciNodes": {
+          "delta": -41.4,
+          "zScore": -1.62
+        },
+        "wciNodeSharePct": {
+          "delta": -11.7,
+          "zScore": -1.86
+        },
+        "wciAttributes": {
+          "delta": -212.1,
+          "zScore": -1.37
+        }
+      }
     },
     "social-feed": {
       "wciNodes": 128,
       "wciAttributes": 744,
+      "pageElements": 566,
       "totalElements": 566,
-      "wciNodeSharePct": 22.6
+      "wciNodeSharePct": 22.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 271,
+          "zScore": 2.16
+        },
+        "wciNodes": {
+          "delta": 21.6,
+          "zScore": 0.84
+        },
+        "wciNodeSharePct": {
+          "delta": -15.3,
+          "zScore": -2.43
+        },
+        "wciAttributes": {
+          "delta": 123.9,
+          "zScore": 0.8
+        }
+      }
     },
     "admin-dashboard": {
       "wciNodes": 160,
       "wciAttributes": 979,
+      "pageElements": 739,
       "totalElements": 739,
-      "wciNodeSharePct": 21.7
+      "wciNodeSharePct": 21.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 444,
+          "zScore": 3.55
+        },
+        "wciNodes": {
+          "delta": 53.6,
+          "zScore": 2.09
+        },
+        "wciNodeSharePct": {
+          "delta": -16.2,
+          "zScore": -2.57
+        },
+        "wciAttributes": {
+          "delta": 358.9,
+          "zScore": 2.32
+        }
+      }
     },
     "job-board": {
       "wciNodes": 124,
       "wciAttributes": 725,
+      "pageElements": 316,
       "totalElements": 316,
-      "wciNodeSharePct": 39.2
+      "wciNodeSharePct": 39.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 21,
+          "zScore": 0.17
+        },
+        "wciNodes": {
+          "delta": 17.6,
+          "zScore": 0.69
+        },
+        "wciNodeSharePct": {
+          "delta": 1.3,
+          "zScore": 0.21
+        },
+        "wciAttributes": {
+          "delta": 104.9,
+          "zScore": 0.68
+        }
+      }
     },
     "healthcare-portal": {
       "wciNodes": 109,
       "wciAttributes": 637,
+      "pageElements": 276,
       "totalElements": 276,
-      "wciNodeSharePct": 39.5
+      "wciNodeSharePct": 39.5,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -19,
+          "zScore": -0.15
+        },
+        "wciNodes": {
+          "delta": 2.6,
+          "zScore": 0.1
+        },
+        "wciNodeSharePct": {
+          "delta": 1.6,
+          "zScore": 0.25
+        },
+        "wciAttributes": {
+          "delta": 16.9,
+          "zScore": 0.11
+        }
+      }
     },
     "email-client": {
       "wciNodes": 123,
       "wciAttributes": 723,
+      "pageElements": 356,
       "totalElements": 356,
-      "wciNodeSharePct": 34.6
+      "wciNodeSharePct": 34.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 61,
+          "zScore": 0.49
+        },
+        "wciNodes": {
+          "delta": 16.6,
+          "zScore": 0.65
+        },
+        "wciNodeSharePct": {
+          "delta": -3.3,
+          "zScore": -0.52
+        },
+        "wciAttributes": {
+          "delta": 102.9,
+          "zScore": 0.67
+        }
+      }
     },
     "calendar-app": {
       "wciNodes": 117,
       "wciAttributes": 694,
+      "pageElements": 344,
       "totalElements": 344,
-      "wciNodeSharePct": 34
+      "wciNodeSharePct": 34,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 49,
+          "zScore": 0.39
+        },
+        "wciNodes": {
+          "delta": 10.6,
+          "zScore": 0.41
+        },
+        "wciNodeSharePct": {
+          "delta": -3.9,
+          "zScore": -0.62
+        },
+        "wciAttributes": {
+          "delta": 73.9,
+          "zScore": 0.48
+        }
+      }
     },
     "food-delivery": {
       "wciNodes": 134,
       "wciAttributes": 767,
+      "pageElements": 270,
       "totalElements": 270,
-      "wciNodeSharePct": 49.6
+      "wciNodeSharePct": 49.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -25,
+          "zScore": -0.2
+        },
+        "wciNodes": {
+          "delta": 27.6,
+          "zScore": 1.08
+        },
+        "wciNodeSharePct": {
+          "delta": 11.7,
+          "zScore": 1.86
+        },
+        "wciAttributes": {
+          "delta": 146.9,
+          "zScore": 0.95
+        }
+      }
     },
     "insurance-quote": {
       "wciNodes": 70,
       "wciAttributes": 400,
+      "pageElements": 206,
       "totalElements": 206,
-      "wciNodeSharePct": 34
+      "wciNodeSharePct": 34,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -89,
+          "zScore": -0.71
+        },
+        "wciNodes": {
+          "delta": -36.4,
+          "zScore": -1.42
+        },
+        "wciNodeSharePct": {
+          "delta": -3.9,
+          "zScore": -0.62
+        },
+        "wciAttributes": {
+          "delta": -220.1,
+          "zScore": -1.42
+        }
+      }
     },
     "real-estate": {
       "wciNodes": 121,
       "wciAttributes": 717,
+      "pageElements": 333,
       "totalElements": 333,
-      "wciNodeSharePct": 36.3
+      "wciNodeSharePct": 36.3,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 38,
+          "zScore": 0.3
+        },
+        "wciNodes": {
+          "delta": 14.6,
+          "zScore": 0.57
+        },
+        "wciNodeSharePct": {
+          "delta": -1.6,
+          "zScore": -0.25
+        },
+        "wciAttributes": {
+          "delta": 96.9,
+          "zScore": 0.63
+        }
+      }
     },
     "lms-course": {
       "wciNodes": 106,
       "wciAttributes": 618,
+      "pageElements": 285,
       "totalElements": 285,
-      "wciNodeSharePct": 37.2
+      "wciNodeSharePct": 37.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -10,
+          "zScore": -0.08
+        },
+        "wciNodes": {
+          "delta": -0.4,
+          "zScore": -0.02
+        },
+        "wciNodeSharePct": {
+          "delta": -0.7,
+          "zScore": -0.11
+        },
+        "wciAttributes": {
+          "delta": -2.1,
+          "zScore": -0.01
+        }
+      }
     },
     "support-ticket": {
       "wciNodes": 108,
       "wciAttributes": 636,
+      "pageElements": 261,
       "totalElements": 261,
-      "wciNodeSharePct": 41.4
+      "wciNodeSharePct": 41.4,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -34,
+          "zScore": -0.27
+        },
+        "wciNodes": {
+          "delta": 1.6,
+          "zScore": 0.06
+        },
+        "wciNodeSharePct": {
+          "delta": 3.5,
+          "zScore": 0.56
+        },
+        "wciAttributes": {
+          "delta": 15.9,
+          "zScore": 0.1
+        }
+      }
     },
     "ecommerce-search": {
       "wciNodes": 123,
       "wciAttributes": 708,
+      "pageElements": 278,
       "totalElements": 278,
-      "wciNodeSharePct": 44.2
+      "wciNodeSharePct": 44.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -17,
+          "zScore": -0.14
+        },
+        "wciNodes": {
+          "delta": 16.6,
+          "zScore": 0.65
+        },
+        "wciNodeSharePct": {
+          "delta": 6.3,
+          "zScore": 1
+        },
+        "wciAttributes": {
+          "delta": 87.9,
+          "zScore": 0.57
+        }
+      }
     },
     "streaming-service": {
       "wciNodes": 99,
       "wciAttributes": 574,
+      "pageElements": 223,
       "totalElements": 223,
-      "wciNodeSharePct": 44.4
+      "wciNodeSharePct": 44.4,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -72,
+          "zScore": -0.58
+        },
+        "wciNodes": {
+          "delta": -7.4,
+          "zScore": -0.29
+        },
+        "wciNodeSharePct": {
+          "delta": 6.5,
+          "zScore": 1.03
+        },
+        "wciAttributes": {
+          "delta": -46.1,
+          "zScore": -0.3
+        }
+      }
     },
     "hotel-booking": {
       "wciNodes": 90,
       "wciAttributes": 531,
+      "pageElements": 276,
       "totalElements": 276,
-      "wciNodeSharePct": 32.6
+      "wciNodeSharePct": 32.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -19,
+          "zScore": -0.15
+        },
+        "wciNodes": {
+          "delta": -16.4,
+          "zScore": -0.64
+        },
+        "wciNodeSharePct": {
+          "delta": -5.3,
+          "zScore": -0.84
+        },
+        "wciAttributes": {
+          "delta": -89.1,
+          "zScore": -0.58
+        }
+      }
     },
     "tax-filing": {
       "wciNodes": 106,
       "wciAttributes": 611,
+      "pageElements": 265,
       "totalElements": 265,
-      "wciNodeSharePct": 40
+      "wciNodeSharePct": 40,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -30,
+          "zScore": -0.24
+        },
+        "wciNodes": {
+          "delta": -0.4,
+          "zScore": -0.02
+        },
+        "wciNodeSharePct": {
+          "delta": 2.1,
+          "zScore": 0.33
+        },
+        "wciAttributes": {
+          "delta": -9.1,
+          "zScore": -0.06
+        }
+      }
     },
     "weather-app": {
       "wciNodes": 90,
       "wciAttributes": 511,
+      "pageElements": 252,
       "totalElements": 252,
-      "wciNodeSharePct": 35.7
+      "wciNodeSharePct": 35.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -43,
+          "zScore": -0.34
+        },
+        "wciNodes": {
+          "delta": -16.4,
+          "zScore": -0.64
+        },
+        "wciNodeSharePct": {
+          "delta": -2.2,
+          "zScore": -0.35
+        },
+        "wciAttributes": {
+          "delta": -109.1,
+          "zScore": -0.71
+        }
+      }
     },
     "parking-reservation": {
       "wciNodes": 111,
       "wciAttributes": 643,
+      "pageElements": 231,
       "totalElements": 231,
-      "wciNodeSharePct": 48.1
+      "wciNodeSharePct": 48.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -64,
+          "zScore": -0.51
+        },
+        "wciNodes": {
+          "delta": 4.6,
+          "zScore": 0.18
+        },
+        "wciNodeSharePct": {
+          "delta": 10.2,
+          "zScore": 1.62
+        },
+        "wciAttributes": {
+          "delta": 22.9,
+          "zScore": 0.15
+        }
+      }
     },
     "gym-membership": {
       "wciNodes": 109,
       "wciAttributes": 622,
+      "pageElements": 306,
       "totalElements": 306,
-      "wciNodeSharePct": 35.6
+      "wciNodeSharePct": 35.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 11,
+          "zScore": 0.09
+        },
+        "wciNodes": {
+          "delta": 2.6,
+          "zScore": 0.1
+        },
+        "wciNodeSharePct": {
+          "delta": -2.3,
+          "zScore": -0.37
+        },
+        "wciAttributes": {
+          "delta": 1.9,
+          "zScore": 0.01
+        }
+      }
     },
     "pharmacy-order": {
       "wciNodes": 113,
       "wciAttributes": 657,
+      "pageElements": 300,
       "totalElements": 300,
-      "wciNodeSharePct": 37.7
+      "wciNodeSharePct": 37.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 5,
+          "zScore": 0.04
+        },
+        "wciNodes": {
+          "delta": 6.6,
+          "zScore": 0.26
+        },
+        "wciNodeSharePct": {
+          "delta": -0.2,
+          "zScore": -0.03
+        },
+        "wciAttributes": {
+          "delta": 36.9,
+          "zScore": 0.24
+        }
+      }
     },
     "ride-share": {
       "wciNodes": 101,
       "wciAttributes": 582,
+      "pageElements": 240,
       "totalElements": 240,
-      "wciNodeSharePct": 42.1
+      "wciNodeSharePct": 42.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -55,
+          "zScore": -0.44
+        },
+        "wciNodes": {
+          "delta": -5.4,
+          "zScore": -0.21
+        },
+        "wciNodeSharePct": {
+          "delta": 4.2,
+          "zScore": 0.67
+        },
+        "wciAttributes": {
+          "delta": -38.1,
+          "zScore": -0.25
+        }
+      }
     },
     "voting-poll": {
       "wciNodes": 73,
       "wciAttributes": 417,
+      "pageElements": 190,
       "totalElements": 190,
-      "wciNodeSharePct": 38.4
+      "wciNodeSharePct": 38.4,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -105,
+          "zScore": -0.84
+        },
+        "wciNodes": {
+          "delta": -33.4,
+          "zScore": -1.3
+        },
+        "wciNodeSharePct": {
+          "delta": 0.5,
+          "zScore": 0.08
+        },
+        "wciAttributes": {
+          "delta": -203.1,
+          "zScore": -1.31
+        }
+      }
     },
     "wiki-edit": {
       "wciNodes": 82,
       "wciAttributes": 474,
+      "pageElements": 213,
       "totalElements": 213,
-      "wciNodeSharePct": 38.5
+      "wciNodeSharePct": 38.5,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -82,
+          "zScore": -0.65
+        },
+        "wciNodes": {
+          "delta": -24.4,
+          "zScore": -0.95
+        },
+        "wciNodeSharePct": {
+          "delta": 0.6,
+          "zScore": 0.1
+        },
+        "wciAttributes": {
+          "delta": -146.1,
+          "zScore": -0.94
+        }
+      }
     },
     "code-review": {
       "wciNodes": 96,
       "wciAttributes": 551,
+      "pageElements": 246,
       "totalElements": 246,
-      "wciNodeSharePct": 39
+      "wciNodeSharePct": 39,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -49,
+          "zScore": -0.39
+        },
+        "wciNodes": {
+          "delta": -10.4,
+          "zScore": -0.41
+        },
+        "wciNodeSharePct": {
+          "delta": 1.1,
+          "zScore": 0.17
+        },
+        "wciAttributes": {
+          "delta": -69.1,
+          "zScore": -0.45
+        }
+      }
     },
     "inventory-mgmt": {
       "wciNodes": 115,
       "wciAttributes": 666,
+      "pageElements": 297,
       "totalElements": 297,
-      "wciNodeSharePct": 38.7
+      "wciNodeSharePct": 38.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 2,
+          "zScore": 0.02
+        },
+        "wciNodes": {
+          "delta": 8.6,
+          "zScore": 0.34
+        },
+        "wciNodeSharePct": {
+          "delta": 0.8,
+          "zScore": 0.13
+        },
+        "wciAttributes": {
+          "delta": 45.9,
+          "zScore": 0.3
+        }
+      }
     },
     "subscription-cancel": {
       "wciNodes": 105,
       "wciAttributes": 603,
+      "pageElements": 233,
       "totalElements": 233,
-      "wciNodeSharePct": 45.1
+      "wciNodeSharePct": 45.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -62,
+          "zScore": -0.5
+        },
+        "wciNodes": {
+          "delta": -1.4,
+          "zScore": -0.05
+        },
+        "wciNodeSharePct": {
+          "delta": 7.2,
+          "zScore": 1.14
+        },
+        "wciAttributes": {
+          "delta": -17.1,
+          "zScore": -0.11
+        }
+      }
     },
     "password-reset": {
       "wciNodes": 114,
       "wciAttributes": 663,
+      "pageElements": 279,
       "totalElements": 279,
-      "wciNodeSharePct": 40.9
+      "wciNodeSharePct": 40.9,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -16,
+          "zScore": -0.13
+        },
+        "wciNodes": {
+          "delta": 7.6,
+          "zScore": 0.3
+        },
+        "wciNodeSharePct": {
+          "delta": 3,
+          "zScore": 0.48
+        },
+        "wciAttributes": {
+          "delta": 42.9,
+          "zScore": 0.28
+        }
+      }
     },
     "document-sign": {
       "wciNodes": 91,
       "wciAttributes": 513,
+      "pageElements": 263,
       "totalElements": 263,
-      "wciNodeSharePct": 34.6
+      "wciNodeSharePct": 34.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -32,
+          "zScore": -0.26
+        },
+        "wciNodes": {
+          "delta": -15.4,
+          "zScore": -0.6
+        },
+        "wciNodeSharePct": {
+          "delta": -3.3,
+          "zScore": -0.52
+        },
+        "wciAttributes": {
+          "delta": -107.1,
+          "zScore": -0.69
+        }
+      }
     },
     "survey-form": {
       "wciNodes": 96,
       "wciAttributes": 558,
+      "pageElements": 208,
       "totalElements": 208,
-      "wciNodeSharePct": 46.2
+      "wciNodeSharePct": 46.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -87,
+          "zScore": -0.69
+        },
+        "wciNodes": {
+          "delta": -10.4,
+          "zScore": -0.41
+        },
+        "wciNodeSharePct": {
+          "delta": 8.3,
+          "zScore": 1.32
+        },
+        "wciAttributes": {
+          "delta": -62.1,
+          "zScore": -0.4
+        }
+      }
     },
     "charity-donate": {
       "wciNodes": 104,
       "wciAttributes": 593,
+      "pageElements": 242,
       "totalElements": 242,
-      "wciNodeSharePct": 43
+      "wciNodeSharePct": 43,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -53,
+          "zScore": -0.42
+        },
+        "wciNodes": {
+          "delta": -2.4,
+          "zScore": -0.09
+        },
+        "wciNodeSharePct": {
+          "delta": 5.1,
+          "zScore": 0.81
+        },
+        "wciAttributes": {
+          "delta": -27.1,
+          "zScore": -0.18
+        }
+      }
     },
     "flight-checkin": {
       "wciNodes": 116,
       "wciAttributes": 672,
+      "pageElements": 252,
       "totalElements": 252,
-      "wciNodeSharePct": 46
+      "wciNodeSharePct": 46,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -43,
+          "zScore": -0.34
+        },
+        "wciNodes": {
+          "delta": 9.6,
+          "zScore": 0.37
+        },
+        "wciNodeSharePct": {
+          "delta": 8.1,
+          "zScore": 1.29
+        },
+        "wciAttributes": {
+          "delta": 51.9,
+          "zScore": 0.34
+        }
+      }
     },
     "visa-application": {
       "wciNodes": 92,
       "wciAttributes": 533,
+      "pageElements": 219,
       "totalElements": 219,
-      "wciNodeSharePct": 42
+      "wciNodeSharePct": 42,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -76,
+          "zScore": -0.61
+        },
+        "wciNodes": {
+          "delta": -14.4,
+          "zScore": -0.56
+        },
+        "wciNodeSharePct": {
+          "delta": 4.1,
+          "zScore": 0.65
+        },
+        "wciAttributes": {
+          "delta": -87.1,
+          "zScore": -0.56
+        }
+      }
     },
     "stock-trade": {
       "wciNodes": 64,
       "wciAttributes": 383,
+      "pageElements": 228,
       "totalElements": 228,
-      "wciNodeSharePct": 28.1
+      "wciNodeSharePct": 28.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -67,
+          "zScore": -0.54
+        },
+        "wciNodes": {
+          "delta": -42.4,
+          "zScore": -1.66
+        },
+        "wciNodeSharePct": {
+          "delta": -9.8,
+          "zScore": -1.56
+        },
+        "wciAttributes": {
+          "delta": -237.1,
+          "zScore": -1.53
+        }
+      }
     },
     "podcast-subscribe": {
       "wciNodes": 69,
       "wciAttributes": 386,
+      "pageElements": 172,
       "totalElements": 172,
-      "wciNodeSharePct": 40.1
+      "wciNodeSharePct": 40.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -123,
+          "zScore": -0.98
+        },
+        "wciNodes": {
+          "delta": -37.4,
+          "zScore": -1.46
+        },
+        "wciNodeSharePct": {
+          "delta": 2.2,
+          "zScore": 0.35
+        },
+        "wciAttributes": {
+          "delta": -234.1,
+          "zScore": -1.51
+        }
+      }
     },
     "photo-upload": {
       "wciNodes": 84,
       "wciAttributes": 491,
+      "pageElements": 205,
       "totalElements": 205,
-      "wciNodeSharePct": 41
+      "wciNodeSharePct": 41,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -90,
+          "zScore": -0.72
+        },
+        "wciNodes": {
+          "delta": -22.4,
+          "zScore": -0.88
+        },
+        "wciNodeSharePct": {
+          "delta": 3.1,
+          "zScore": 0.49
+        },
+        "wciAttributes": {
+          "delta": -129.1,
+          "zScore": -0.83
+        }
+      }
     },
     "forum-post": {
       "wciNodes": 96,
       "wciAttributes": 559,
+      "pageElements": 224,
       "totalElements": 224,
-      "wciNodeSharePct": 42.9
+      "wciNodeSharePct": 42.9,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -71,
+          "zScore": -0.57
+        },
+        "wciNodes": {
+          "delta": -10.4,
+          "zScore": -0.41
+        },
+        "wciNodeSharePct": {
+          "delta": 5,
+          "zScore": 0.79
+        },
+        "wciAttributes": {
+          "delta": -61.1,
+          "zScore": -0.39
+        }
+      }
     },
     "dating-profile": {
       "wciNodes": 94,
       "wciAttributes": 535,
+      "pageElements": 222,
       "totalElements": 222,
-      "wciNodeSharePct": 42.3
+      "wciNodeSharePct": 42.3,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -73,
+          "zScore": -0.58
+        },
+        "wciNodes": {
+          "delta": -12.4,
+          "zScore": -0.48
+        },
+        "wciNodeSharePct": {
+          "delta": 4.4,
+          "zScore": 0.7
+        },
+        "wciAttributes": {
+          "delta": -85.1,
+          "zScore": -0.55
+        }
+      }
     },
     "rental-car": {
       "wciNodes": 127,
       "wciAttributes": 749,
+      "pageElements": 338,
       "totalElements": 338,
-      "wciNodeSharePct": 37.6
+      "wciNodeSharePct": 37.6,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 43,
+          "zScore": 0.34
+        },
+        "wciNodes": {
+          "delta": 20.6,
+          "zScore": 0.8
+        },
+        "wciNodeSharePct": {
+          "delta": -0.3,
+          "zScore": -0.05
+        },
+        "wciAttributes": {
+          "delta": 128.9,
+          "zScore": 0.83
+        }
+      }
     },
     "concert-tickets": {
       "wciNodes": 99,
       "wciAttributes": 573,
+      "pageElements": 247,
       "totalElements": 247,
-      "wciNodeSharePct": 40.1
+      "wciNodeSharePct": 40.1,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -48,
+          "zScore": -0.38
+        },
+        "wciNodes": {
+          "delta": -7.4,
+          "zScore": -0.29
+        },
+        "wciNodeSharePct": {
+          "delta": 2.2,
+          "zScore": 0.35
+        },
+        "wciAttributes": {
+          "delta": -47.1,
+          "zScore": -0.3
+        }
+      }
     },
     "grocery-list": {
       "wciNodes": 96,
       "wciAttributes": 556,
+      "pageElements": 264,
       "totalElements": 264,
-      "wciNodeSharePct": 36.4
+      "wciNodeSharePct": 36.4,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -31,
+          "zScore": -0.25
+        },
+        "wciNodes": {
+          "delta": -10.4,
+          "zScore": -0.41
+        },
+        "wciNodeSharePct": {
+          "delta": -1.5,
+          "zScore": -0.24
+        },
+        "wciAttributes": {
+          "delta": -64.1,
+          "zScore": -0.41
+        }
+      }
     },
     "pet-adoption": {
       "wciNodes": 88,
       "wciAttributes": 508,
+      "pageElements": 240,
       "totalElements": 240,
-      "wciNodeSharePct": 36.7
+      "wciNodeSharePct": 36.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -55,
+          "zScore": -0.44
+        },
+        "wciNodes": {
+          "delta": -18.4,
+          "zScore": -0.72
+        },
+        "wciNodeSharePct": {
+          "delta": -1.2,
+          "zScore": -0.19
+        },
+        "wciAttributes": {
+          "delta": -112.1,
+          "zScore": -0.72
+        }
+      }
     },
     "scholarship-apply": {
       "wciNodes": 105,
       "wciAttributes": 631,
+      "pageElements": 360,
       "totalElements": 360,
-      "wciNodeSharePct": 29.2
+      "wciNodeSharePct": 29.2,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 65,
+          "zScore": 0.52
+        },
+        "wciNodes": {
+          "delta": -1.4,
+          "zScore": -0.05
+        },
+        "wciNodeSharePct": {
+          "delta": -8.7,
+          "zScore": -1.38
+        },
+        "wciAttributes": {
+          "delta": 10.9,
+          "zScore": 0.07
+        }
+      }
     },
     "wifi-setup": {
       "wciNodes": 96,
       "wciAttributes": 552,
+      "pageElements": 221,
       "totalElements": 221,
-      "wciNodeSharePct": 43.4
+      "wciNodeSharePct": 43.4,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -74,
+          "zScore": -0.59
+        },
+        "wciNodes": {
+          "delta": -10.4,
+          "zScore": -0.41
+        },
+        "wciNodeSharePct": {
+          "delta": 5.5,
+          "zScore": 0.87
+        },
+        "wciAttributes": {
+          "delta": -68.1,
+          "zScore": -0.44
+        }
+      }
     },
     "invoice-pay": {
       "wciNodes": 123,
       "wciAttributes": 722,
+      "pageElements": 274,
       "totalElements": 274,
-      "wciNodeSharePct": 44.9
+      "wciNodeSharePct": 44.9,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -21,
+          "zScore": -0.17
+        },
+        "wciNodes": {
+          "delta": 16.6,
+          "zScore": 0.65
+        },
+        "wciNodeSharePct": {
+          "delta": 7,
+          "zScore": 1.11
+        },
+        "wciAttributes": {
+          "delta": 101.9,
+          "zScore": 0.66
+        }
+      }
     },
     "newsletter-sub": {
       "wciNodes": 92,
       "wciAttributes": 529,
+      "pageElements": 234,
       "totalElements": 234,
-      "wciNodeSharePct": 39.3
+      "wciNodeSharePct": 39.3,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -61,
+          "zScore": -0.49
+        },
+        "wciNodes": {
+          "delta": -14.4,
+          "zScore": -0.56
+        },
+        "wciNodeSharePct": {
+          "delta": 1.4,
+          "zScore": 0.22
+        },
+        "wciAttributes": {
+          "delta": -91.1,
+          "zScore": -0.59
+        }
+      }
     },
     "api-keys": {
       "wciNodes": 164,
       "wciAttributes": 965,
+      "pageElements": 502,
       "totalElements": 502,
-      "wciNodeSharePct": 32.7
+      "wciNodeSharePct": 32.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": 207,
+          "zScore": 1.65
+        },
+        "wciNodes": {
+          "delta": 57.6,
+          "zScore": 2.25
+        },
+        "wciNodeSharePct": {
+          "delta": -5.2,
+          "zScore": -0.83
+        },
+        "wciAttributes": {
+          "delta": 344.9,
+          "zScore": 2.23
+        }
+      }
     },
     "privacy-settings": {
       "wciNodes": 86,
       "wciAttributes": 501,
+      "pageElements": 197,
       "totalElements": 197,
-      "wciNodeSharePct": 43.7
+      "wciNodeSharePct": 43.7,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -98,
+          "zScore": -0.78
+        },
+        "wciNodes": {
+          "delta": -20.4,
+          "zScore": -0.8
+        },
+        "wciNodeSharePct": {
+          "delta": 5.8,
+          "zScore": 0.92
+        },
+        "wciAttributes": {
+          "delta": -119.1,
+          "zScore": -0.77
+        }
+      }
     },
     "bug-report": {
       "wciNodes": 84,
       "wciAttributes": 488,
+      "pageElements": 230,
       "totalElements": 230,
-      "wciNodeSharePct": 36.5
+      "wciNodeSharePct": 36.5,
+      "vsSuiteMean": {
+        "pageElements": {
+          "delta": -65,
+          "zScore": -0.52
+        },
+        "wciNodes": {
+          "delta": -22.4,
+          "zScore": -0.88
+        },
+        "wciNodeSharePct": {
+          "delta": -1.4,
+          "zScore": -0.22
+        },
+        "wciAttributes": {
+          "delta": -132.1,
+          "zScore": -0.85
+        }
+      }
     }
   }
 }
