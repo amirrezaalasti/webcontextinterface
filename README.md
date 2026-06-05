@@ -5,7 +5,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="https://webcontextinterface.vercel.app/"><img src="https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1" alt="Documentation" /></a>
-  <a href="https://doi.org/10.5281/zenodo.20434088"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20434088.svg" alt="Evaluation dataset (Zenodo)" /></a>
+  <a href="https://doi.org/10.5281/zenodo.20434088"><img src="https://img.shields.io/badge/dataset-Zenodo-1682d4?style=flat&logo=zenodo&logoColor=white" alt="Evaluation dataset (Zenodo)" /></a>
   <br />
   <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec?label=spec&color=6366f1&logo=npm" alt="npm @webcontextinterface/spec" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller?label=distiller&color=6366f1&logo=npm" alt="npm @webcontextinterface/distiller" /></a>
