@@ -4,7 +4,7 @@ layout: home
 hero:
   name: WCI
   text: Web Context Interface
-  tagline: An open standard and TypeScript SDK that makes web pages natively readable and actionable for LLM-based agents — in under 8 KB per layer.
+  tagline: An open standard and TypeScript SDK that makes web pages natively readable and actionable for LLM-based agents — compact modular layers (~2–12 KB minified each).
   image:
     src: /logo.png
     alt: WCI — Web Context Interface

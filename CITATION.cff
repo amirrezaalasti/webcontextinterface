@@ -31,8 +31,8 @@ abstract: >-
   WCI (Web Context Interface) is a three-layer open standard
   that augments standard HTML with structured semantic
   metadata, compresses it into agent-optimised context, and
-  provides a typed action protocol — all in < 8 KB per
-  layer.
+  provides a typed action protocol — shipped as compact
+  modular layers (~2–12 KB minified each).
 keywords:
   - Web agent
   - LLM

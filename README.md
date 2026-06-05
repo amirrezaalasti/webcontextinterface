@@ -20,7 +20,7 @@
   <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/dm/@webcontextinterface/core?label=core" alt="npm downloads/month @webcontextinterface/core" /></a>
 </p>
 
-**WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — all in **< 8 KB** per layer.
+**WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — shipped as **compact modular layers** (~2–12 KB minified each).
 
 ![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](assets/architecture.png)
 
