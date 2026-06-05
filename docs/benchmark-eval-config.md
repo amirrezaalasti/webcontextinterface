@@ -1,6 +1,6 @@
 # Benchmark evaluation configuration
 
-Generated from `evals/lib/eval-config.ts` at **2026-06-04T10:57:52.226Z**.
+Generated from `evals/lib/eval-config.ts` at **2026-06-05T16:44:43.468Z**.
 Regenerate: `npm run eval:export-config`.
 
 ## Provider
@@ -148,5 +148,5 @@ Reply JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief",
 
 ## Related
 
-- Methodology and results: [`evals/README.md`](../evals/README.md)
-- Machine-readable export: [`demo/public/eval-config.json`](../demo/public/eval-config.json)
+- Methodology and results: [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md)
+- Machine-readable export: [`demo/public/eval-config.json`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/demo/public/eval-config.json)
