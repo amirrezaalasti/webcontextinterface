@@ -339,6 +339,37 @@ function getLiveWciState(el: HTMLElement): Record<string, unknown> {
   } else if (el instanceof HTMLButtonElement) {
     if (el.disabled) state.disabled = true;
     else delete state.disabled;
+  } else {
+    // Container/form group: aggregate states of child controls
+    if (Array.isArray(state.selected)) {
+      const checkboxes = Array.from(el.querySelectorAll('input[type="checkbox"]')) as HTMLInputElement[];
+      if (checkboxes.length > 0) {
+        const selectedValues: string[] = [];
+        for (const cb of checkboxes) {
+          if (cb.checked) {
+            let text = '';
+            const spanLabel = cb.parentElement?.querySelector('.sw-filter-check__label, span');
+            if (spanLabel) {
+              text = spanLabel.textContent?.trim() ?? '';
+            } else {
+              text = cb.parentElement?.textContent?.trim() ?? '';
+            }
+            // Strip any parenthetical counts like "(4)" or " (4)"
+            text = text.replace(/\s*\(\d+\)\s*/g, '').trim();
+            if (text) {
+              selectedValues.push(text);
+            }
+          }
+        }
+        state.selected = selectedValues;
+      }
+    }
+    if (typeof state.min === 'number' && typeof state.max === 'number') {
+      const minInput = el.querySelector('input[id*="min" i], input[name*="min" i]') as HTMLInputElement | null;
+      const maxInput = el.querySelector('input[id*="max" i], input[name*="max" i]') as HTMLInputElement | null;
+      if (minInput) state.min = parseFloat(minInput.value);
+      if (maxInput) state.max = parseFloat(maxInput.value);
+    }
   }
 
   return state;
@@ -656,10 +687,14 @@ function attachInspector(doc: Document): void {
   };
 
   const onFormInput = (e: Event) => {
-    const t = e.target;
-    if (!(t instanceof HTMLElement) || !t.closest('[data-wci-id]')) return;
-    const el = t.closest<HTMLElement>('[data-wci-id]') ?? (t.matches('[data-wci-id]') ? t : null);
-    if (el) onWciDomStateChange(el);
+    let curr = e.target as HTMLElement | null;
+    if (!(curr instanceof HTMLElement)) return;
+    while (curr) {
+      if (curr.hasAttribute && curr.hasAttribute('data-wci-id')) {
+        onWciDomStateChange(curr);
+      }
+      curr = curr.parentElement;
+    }
   };
 
   const onWciStateChange = (e: Event) => {
