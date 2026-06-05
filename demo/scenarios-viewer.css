@@ -21,6 +21,18 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .scenarios-toolbar__inner {
+    padding: 0.625rem 1rem;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .scenarios-toolbar__brand span {
+    font-size: 0.875rem;
+  }
 }
 
 .scenarios-toolbar__brand {
@@ -72,7 +84,29 @@
 @media (max-width: 900px) {
   .scenarios-layout {
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: minmax(240px, 42vh) 1fr;
+  }
+
+  .scenarios-page {
+    height: 100dvh;
+  }
+
+  .scenarios-controls {
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .scenarios-view-tab {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+
+  .scenarios-main__header {
+    padding: 12px 14px 10px;
+  }
+
+  .scenarios-main__title {
+    font-size: 1.1rem;
   }
 }
 

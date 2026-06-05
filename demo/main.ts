@@ -8,6 +8,7 @@ import { WciBridge } from '@webcontextinterface/bridge';
 import { WciContextLoader } from '@webcontextinterface/context';
 import bundledEvalConfig from './public/eval-config.json';
 import bundledEvalResults from './public/eval-results-all.json';
+import { initMobileNav } from './nav-mobile';
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
 const jsonPanel    = document.getElementById('json-output')    as HTMLElement;
@@ -353,6 +354,29 @@ function getEl<T extends HTMLElement>(id: string): T {
   return document.getElementById(id) as T;
 }
 
+/** Visible emoji + plain text; screen readers hear only the message. */
+function setStatusMessage(
+  el: HTMLElement,
+  message: string,
+  type: 'ok' | 'warn' | 'idle',
+  icon?: string
+): void {
+  if (type === 'idle' || !message) {
+    el.replaceChildren();
+    el.className = 'status-msg';
+    return;
+  }
+  el.className = `status-msg status-${type}`;
+  el.replaceChildren();
+  if (icon) {
+    const iconEl = document.createElement('span');
+    iconEl.setAttribute('aria-hidden', 'true');
+    iconEl.textContent = `${icon} `;
+    el.appendChild(iconEl);
+  }
+  el.appendChild(document.createTextNode(message));
+}
+
 function validateForm(): void {
   const email       = getEl<HTMLInputElement>('email-input');
   const password    = getEl<HTMLInputElement>('password-input');
@@ -382,16 +406,13 @@ function validateForm(): void {
   if (emailStatus) {
     if (emailValid) {
       emailStatus.dataset.wciState = JSON.stringify({ status: 'available', message: 'Email is available' });
-      emailStatus.textContent = '✅ Email is available';
-      emailStatus.className = 'status-msg status-ok';
+      setStatusMessage(emailStatus, 'Email is available', 'ok', '✅');
     } else if (email.value) {
       emailStatus.dataset.wciState = JSON.stringify({ status: 'invalid', message: 'Email format invalid' });
-      emailStatus.textContent = '⚠️ Invalid email format';
-      emailStatus.className = 'status-msg status-warn';
+      setStatusMessage(emailStatus, 'Invalid email format', 'warn', '⚠️');
     } else {
       emailStatus.dataset.wciState = JSON.stringify({ status: 'idle', message: '' });
-      emailStatus.textContent = '';
-      emailStatus.className = 'status-msg';
+      setStatusMessage(emailStatus, '', 'idle');
     }
   }
 
@@ -554,7 +575,7 @@ function buildLeaderboardRow(
     tr.innerHTML = `
       <td>
         <div class="agent-name">
-          <div class="agent-icon">${icon}</div>
+          <div class="agent-icon" aria-hidden="true">${icon}</div>
           <div class="agent-info">
             <span class="agent-title">${meta.name}</span>
             <span class="agent-desc">${slug} · <span class="leaderboard-lift">${liftLabel}</span></span>
@@ -578,7 +599,7 @@ function buildLeaderboardRow(
   tr.innerHTML = `
     <td>
       <div class="agent-name">
-        <div class="agent-icon">${icon}</div>
+        <div class="agent-icon" aria-hidden="true">${icon}</div>
         <div class="agent-info">
           <span class="agent-title">${meta.name}</span>
           <span class="agent-desc">${slug}</span>
@@ -910,3 +931,4 @@ function initEvalConfigPanel(): void {
 
 void loadEvalResults();
 initEvalConfigPanel();
+initMobileNav();

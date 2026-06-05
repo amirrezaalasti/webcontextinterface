@@ -20,7 +20,18 @@
       <img src="./logo.png" alt="" width="28" height="28" decoding="async" />
       <span>WCI Scenarios</span>
     </a>
-    <nav class="scenarios-toolbar__nav" aria-label="Site">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="scenarios-nav"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle__bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+    <nav class="scenarios-toolbar__nav" id="scenarios-nav" aria-label="Site">
       <a href="./index.html">Demo home</a>
       <a href="./index.html#eval-results">Results</a>
       <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset ↗</a>

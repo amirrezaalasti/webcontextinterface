@@ -5,6 +5,7 @@
 import manifest from './scenarios/manifest.json';
 import benchmarkInfo from './scenarios/benchmark-info.json';
 import evalConfig from './public/eval-config.json';
+import { initMobileNav } from './nav-mobile';
 
 interface VsSuiteMeanMetric {
   delta: number;
@@ -1023,3 +1024,4 @@ document.querySelectorAll<HTMLButtonElement>('.scenarios-view-tab').forEach((tab
 syncInspectUI();
 
 selectScenario(urlId && metaById[urlId] ? urlId : manifest.scenarios[0], Boolean(urlId));
+initMobileNav();

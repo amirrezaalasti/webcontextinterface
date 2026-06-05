@@ -35,7 +35,18 @@
       <img src="./logo-with-title.png" alt="WCI — Web Context Interface" class="logo-img logo-img--titled" decoding="async" />
       <span class="version-badge">v1.2</span>
     </a>
-    <nav class="header-nav">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle__bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+    <nav class="header-nav" id="site-nav" aria-label="Main">
       <a href="#demo">Live Demo</a>
       <a href="./scenarios.html">Scenarios</a>
       <a href="#eval-results">Results</a>
@@ -121,8 +132,8 @@
         <thead>
           <tr>
             <th>Feature</th>
-            <th>🧑 Human-Friendly (Standard)</th>
-            <th>🤖 Agent-Friendly (WCI)</th>
+            <th><span aria-hidden="true">🧑</span> Human-Friendly (Standard)</th>
+            <th><span aria-hidden="true">🤖</span> Agent-Friendly (WCI)</th>
           </tr>
         </thead>
         <tbody>
@@ -157,7 +168,7 @@
       <!-- ── LEFT: Human View (the form) ─────────────────────────────────── -->
       <div class="demo-col demo-col-form" id="demo-human-view">
         <div class="panel-header">
-          <span class="panel-badge human-badge">🧑 Human View</span>
+          <span class="panel-badge human-badge"><span aria-hidden="true">🧑</span> Human View</span>
           <span class="panel-title">Registration Form</span>
         </div>
 
@@ -205,6 +216,7 @@
               <p
                 id="email-availability-status"
                 class="status-msg"
+                aria-live="polite"
                 data-wci-id="email-availability-status"
                 data-wci-role="status"
                 data-wci-desc="Real-time check — is this email already registered?"
@@ -286,7 +298,7 @@
         <!-- ── Agent Action Panel ─────────────────────────────────────────── -->
         <div class="agent-actions-panel" id="demo-agent-actions">
           <div class="panel-header">
-            <span class="panel-badge agent-badge">🤖 Agent Actions</span>
+            <span class="panel-badge agent-badge"><span aria-hidden="true">🤖</span> Agent Actions</span>
             <span class="panel-title">Dispatch Commands</span>
           </div>
           <p class="actions-hint">Click to dispatch typed actions via <code>WciBridge</code>:</p>
@@ -304,7 +316,7 @@
               <code>click</code> submit-btn
             </button>
             <button id="agent-bad-email"   class="action-btn action-btn-danger" title="fill email-input with invalid value">
-              <code>fill</code> bad email ⚠️
+              <code>fill</code> bad email <span aria-hidden="true">⚠️</span>
             </button>
             <button id="agent-reset"       class="action-btn action-btn-ghost" title="reset form">
               Reset form
@@ -316,7 +328,7 @@
       <!-- ── RIGHT: Agent View (output panels) ─────────────────────────────── -->
       <div class="demo-col demo-col-output" id="demo-agent-view">
         <div class="panel-header">
-          <span class="panel-badge agent-badge">🤖 Agent View</span>
+          <span class="panel-badge agent-badge"><span aria-hidden="true">🤖</span> Agent View</span>
           <div class="token-metrics">
             <span id="token-count" class="token-count">— tokens</span>
             <span id="token-saved" class="token-saved"></span>
@@ -375,7 +387,7 @@
     <div class="demo-layout">
       <div class="demo-col">
         <div class="panel-header">
-          <span class="panel-badge human-badge">🧑 Raw DOM</span>
+          <span class="panel-badge human-badge"><span aria-hidden="true">🧑</span> Raw DOM</span>
           <span class="panel-title">Structural outline of pasted browser DOM</span>
         </div>
         <pre class="converter-pre"><code id="external-dom-output" class="language-html">No page loaded yet.</code></pre>
@@ -383,7 +395,7 @@
 
       <div class="demo-col">
         <div class="panel-header">
-          <span class="panel-badge agent-badge">🤖 Inferred Agent View</span>
+          <span class="panel-badge agent-badge"><span aria-hidden="true">🤖</span> Inferred Agent View</span>
           <span class="panel-title">Heuristic conversion without custom tags</span>
         </div>
         <pre class="converter-pre"><code id="external-agent-output" class="language-json">No page loaded yet.</code></pre>
@@ -406,7 +418,7 @@
     <div class="share-resources" id="share">
       <article class="share-card" id="dataset">
         <div class="share-card__body">
-          <h3 class="share-card__title">📦 Official evaluation dataset</h3>
+          <h3 class="share-card__title"><span aria-hidden="true">📦</span> Official evaluation dataset</h3>
           <p class="share-card__text">
             Reproduce or extend these benchmarks with the published Zenodo release:
             <strong>50 scenarios</strong> × five context representations
@@ -434,7 +446,7 @@
 
       <article class="share-card share-card--notebooklm" id="notebooklm">
         <div class="share-card__body">
-          <h3 class="share-card__title">🎧 NotebookLM overview</h3>
+          <h3 class="share-card__title"><span aria-hidden="true">🎧</span> NotebookLM overview</h3>
           <p class="share-card__text">
             Share WCI with others via a public NotebookLM notebook — audio summaries,
             briefings, and grounded Q&amp;A over the paper, spec, and benchmark docs.
@@ -454,7 +466,7 @@
     <!-- Charts (from eval-results-all.json) -->
     <div class="eval-charts" id="eval-charts">
       <div class="eval-charts__header">
-        <h3 class="eval-charts__title">📈 Benchmark Results</h3>
+        <h3 class="eval-charts__title"><span aria-hidden="true">📈</span> Benchmark Results</h3>
         <p class="eval-charts__subtitle" id="eval-charts-meta">
           Multi-step grounding on 50 scenarios — all five evaluation approaches.
         </p>
@@ -488,7 +500,7 @@
     <!-- Agent Performance Leaderboard -->
     <div class="agent-leaderboard" id="agent-leaderboard">
       <div class="agent-leaderboard__header">
-        <h3 class="agent-leaderboard__title">🏆 Agent Performance Comparison</h3>
+        <h3 class="agent-leaderboard__title"><span aria-hidden="true">🏆</span> Agent Performance Comparison</h3>
         <p class="agent-leaderboard__subtitle">
           Performance comparison across <strong>50 multi-step grounding scenarios</strong> evaluated over six LLMs (OpenRouter, May 2026).
           See the <a href="/benchmark">benchmark overview</a> for methodology and limitations.
@@ -497,6 +509,7 @@
       </div>
       
       <div class="leaderboard-table-container">
+        <p class="table-scroll-hint" aria-hidden="true">← Scroll for full table →</p>
         <table class="leaderboard-table leaderboard-table--full" id="leaderboard-table">
           <thead>
             <tr class="leaderboard-table__group-row">
@@ -559,7 +572,7 @@
     <div class="context-files-grid">
       <div class="context-file-card">
         <div class="context-file-header">
-          <span class="file-icon">📄</span>
+          <span class="file-icon" aria-hidden="true">📄</span>
           <code class="file-name">wci.txt</code>
         </div>
         <p>Directive file — allow/deny scopes, rate limits, auth requirements, human-confirmation guards. Machine-parsed by the agent runtime.</p>
@@ -567,7 +580,7 @@
       </div>
       <div class="context-file-card">
         <div class="context-file-header">
-          <span class="file-icon">📋</span>
+          <span class="file-icon" aria-hidden="true">📋</span>
           <code class="file-name">wci.json</code>
         </div>
         <p>Structured site manifest — capabilities, authentication flows, multi-step task flows, scope descriptors. For tool-calling agents.</p>
@@ -575,7 +588,7 @@
       </div>
       <div class="context-file-card">
         <div class="context-file-header">
-          <span class="file-icon">📖</span>
+          <span class="file-icon" aria-hidden="true">📖</span>
           <code class="file-name">wci.md</code>
         </div>
         <p>Rich Markdown narrative injected into the LLM's system prompt. Explains purpose, allowed actions, task flows, and error recovery.</p>
@@ -585,7 +598,7 @@
 
     <div class="context-loaded-panel">
       <div class="panel-header">
-        <span class="panel-badge agent-badge">🌐 Loaded Context</span>
+        <span class="panel-badge agent-badge"><span aria-hidden="true">🌐</span> Loaded Context</span>
         <span class="panel-title">Parsed from this page's site context files</span>
       </div>
       <pre id="context-output" class="context-pre">Loading site context files…</pre>
