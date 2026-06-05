@@ -2,44 +2,7 @@
 
 WCI separates **what the agent sees**, **what the site allows**, and **how actions execute** into three cooperating layers.
 
-```mermaid
-flowchart TB
-  subgraph html [HTML Layer]
-    A[data-wci-* attributes]
-    S[wci.txt / wci.json / wci.md]
-  end
-
-  subgraph distill [Distiller Layer]
-    P[pruneDOM]
-    J[JSON serializer]
-    M[Markdown serializer]
-  end
-
-  subgraph bridge [Bridge Layer]
-    D[dispatchAction]
-    B[WciBridge]
-    R[ActionResult]
-  end
-
-  subgraph ctx [Context Layer]
-    L[WciContextLoader]
-    E[PolicyEngine]
-  end
-
-  A --> P
-  P --> J
-  P --> M
-  J --> LLM[LLM / Agent]
-  M --> LLM
-  S --> L
-  L --> E
-  LLM --> B
-  B --> D
-  D --> DOM[Live DOM]
-  DOM --> R
-  R --> LLM
-  E -.->|scope checks| B
-```
+![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](../assets/architecture.png)
 
 ## Layer 1 — Semantic HTML (`@webcontextinterface/spec`)
 
