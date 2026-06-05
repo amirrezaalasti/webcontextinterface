@@ -43,6 +43,7 @@ export default defineConfig({
       { text: 'Guide', link: '/getting-started', activeMatch: '/getting-started' },
       { text: 'Specification', link: '/specification' },
       { text: 'API', link: '/api/spec' },
+      { text: 'Benchmark', link: '/benchmark' },
       { text: 'Dataset', link: 'https://doi.org/10.5281/zenodo.20434088', target: '_blank' },
       {
         text: 'NotebookLM',
@@ -70,6 +71,7 @@ export default defineConfig({
           { text: 'Action protocol', link: '/action-protocol' },
           { text: 'Site policy', link: '/site-policy' },
           { text: 'LLM integration', link: '/llm-integration' },
+          { text: 'Benchmark overview', link: '/benchmark' },
         ],
       },
       {

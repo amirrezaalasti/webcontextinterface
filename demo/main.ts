@@ -633,7 +633,7 @@ function updateLeaderboardMeta(data: EvalResultsFile, modelCount: number) {
   const el = document.getElementById('leaderboard-meta');
   if (!el) return;
   const when = data.generatedAt ? new Date(data.generatedAt).toLocaleDateString() : '—';
-  el.textContent = `${modelCount} models · 50 multi-step scenarios · 5 approaches · snapshot ${when}. Methodology: evals/README.md`;
+  el.textContent = `${modelCount} models · 50 multi-step scenarios · 5 approaches · snapshot ${when}. Methodology: /benchmark`;
 }
 
 function chartBarLine(

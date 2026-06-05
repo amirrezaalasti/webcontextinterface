@@ -1,9 +1,9 @@
 {
   "wci_version": "1.0",
   "site": {
-    "name": "ExampleShop Demo",
+    "name": "WCI Demo",
     "base_url": ".",
-    "purpose": "Demo e-commerce site for the WCI framework showcase",
+    "purpose": "Interactive showcase and public benchmark for the Web Context Interface (WCI) standard",
     "language": "en",
     "contact": "agents@wci.dev"
   },
@@ -13,55 +13,56 @@
     "action_protocol_version": "1.0"
   },
   "authentication": {
-    "required_for": ["checkout", "user-profile", "order-history"],
-    "method": "session-cookie",
-    "auth_flow_scope": "login-form",
-    "auth_flow_url": "login"
+    "required_for": [],
+    "method": "none"
   },
   "task_flows": [
     {
-      "id": "create-account",
-      "description": "Register a new user account",
+      "id": "try-live-demo",
+      "description": "Fill and submit the registration form on the demo home page",
       "steps": [
-        { "scope": "registration-form", "url_pattern": "register" }
+        { "scope": "registration-form", "url_pattern": "index.html#demo" }
       ]
     },
     {
-      "id": "purchase-item",
-      "description": "Search for a product, add it to cart, and complete checkout",
+      "id": "convert-untagged-dom",
+      "description": "Paste a DOM snapshot and infer a WCI-like agent view",
       "steps": [
-        { "scope": "product-search", "url_pattern": "search?q={query}" },
-        { "scope": "product-detail", "url_pattern": "product/{id}" },
-        { "scope": "cart", "url_pattern": "cart" },
-        {
-          "scope": "checkout",
-          "url_pattern": "checkout",
-          "requires_auth": true,
-          "requires_human_confirmation": true
-        }
+        { "scope": "dom-converter", "url_pattern": "index.html#converter" }
+      ]
+    },
+    {
+      "id": "browse-scenarios",
+      "description": "Open a benchmark scenario in raw or annotated mode",
+      "steps": [
+        { "scope": "scenarios-browser", "url_pattern": "scenarios.html" }
       ]
     }
   ],
   "scopes": [
     {
       "id": "registration-form",
-      "desc": "New user registration — capture email, password, and accept terms",
-      "url_pattern": "register",
+      "desc": "Live registration form — email, password, terms, submit",
+      "url_pattern": "index.html#demo",
       "key_actions": ["email-input", "password-input", "terms-checkbox", "submit-btn"]
     },
     {
-      "id": "checkout",
-      "desc": "Payment and shipping confirmation — irreversible",
-      "url_pattern": "checkout",
-      "sensitivity": "high",
-      "requires_human_confirmation": true,
-      "key_actions": ["place-order-btn"]
+      "id": "dom-converter",
+      "desc": "Paste browser DOM HTML and infer an agentic view without data-wci-* tags",
+      "url_pattern": "index.html#converter",
+      "key_actions": ["parse-dom-btn"]
+    },
+    {
+      "id": "scenarios-browser",
+      "desc": "Browse 50 benchmark scenarios — raw HTML vs annotated WCI pages",
+      "url_pattern": "scenarios.html",
+      "sensitivity": "low"
     }
   ],
-  "denied_scopes": ["admin-panel", "user-settings-billing", "internal-debug"],
+  "denied_scopes": ["admin-panel", "internal-debug", "eval-config-raw"],
   "rate_limits": {
     "actions_per_minute": 60,
     "distil_requests_per_minute": 120
   },
-  "last_updated": "2026-04-22"
+  "last_updated": "2026-06-05"
 }

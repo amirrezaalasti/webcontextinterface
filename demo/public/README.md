@@ -10,7 +10,7 @@ Those files are built by `npm run eval:merge-leaderboard`, which recomputes `flo
 
 Do **not** read per-row `passed`, `flowCoverage`, or `models[].summary` directly from `eval-multistep-report-*.json` after a scorer change — those fields are often stale until you re-run merge. The audit trail in reports is still authoritative for `rawResponse`, `parsedFinalAction`, and `validationError`.
 
-**Methodology:** All approaches use the **unified pass rule** — correct `final_action`, no decoy (WCI), flow coverage ≥ **0.8**. See [evals/README.md](../../evals/README.md) for full scope, limitations, and how to interpret WCI vs baseline gaps.
+**Methodology:** All approaches use the **unified pass rule** — correct `final_action`, no decoy (WCI), flow coverage ≥ **0.8**. See the [Benchmark overview](../../docs/benchmark.md) for a public summary; [evals/README.md](../../evals/README.md) has full commands, limitations, and analysis.
 
 ## Files
 
@@ -71,4 +71,4 @@ npm run demo                     # refresh leaderboard in the site
 
 Use reports to inspect **which scenario failed** and the model’s plan / final action. **Leaderboard pass rates** live only in `eval-results-*.json`, recomputed from `results[].rawResponse` + current `evals/lib/flow-coverage.ts` when you run `eval:merge-leaderboard`.
 
-See [evals/README.md](../../evals/README.md) for methodology, comparison tables, limitations, and analysis.
+See [docs/benchmark.md](../../docs/benchmark.md) for methodology and [evals/README.md](../../evals/README.md) for comparison tables, limitations, and analysis.

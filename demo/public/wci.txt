@@ -1,12 +1,11 @@
 # wci.txt - WCI Site Directives
-# ExampleShop Demo Site
-# https://example.com/demo/wci.txt
+# WCI Demo — https://webcontextinterface.vercel.app/demo/
 
 WCI-Version: 1.0
 
 # -- Identity ------------------------------------------------
-Site-Name: ExampleShop Demo
-Site-Purpose: Demo e-commerce site for the WCI framework showcase
+Site-Name: WCI Demo
+Site-Purpose: Interactive showcase and public benchmark for the Web Context Interface (WCI) standard
 Contact: agents@wci.dev
 
 # -- Agent Capability Declarations ---------------------------
@@ -16,27 +15,23 @@ Context: wci.md
 
 # -- Allow / Deny Rules -------------------------------------
 Allow-Scope: registration-form
-Allow-Scope: login-form
-Allow-Scope: product-search
-Allow-Scope: product-detail
-Allow-Scope: cart
-Allow-Scope: checkout
+Allow-Scope: dom-converter
+Allow-Scope: scenarios-browser
 
 Deny-Scope: admin-panel
-Deny-Scope: user-settings-billing
 Deny-Scope: internal-debug
+Deny-Scope: eval-config-raw
 
 # -- Rate Limits --------------------------------------------
 Rate-Limit-Actions: 60/minute
 Rate-Limit-Distil: 120/minute
 
 # -- Authentication -----------------------------------------
-Auth-Required: checkout, user-profile, order-history
-Auth-Method: session-cookie
-Auth-Flow-Scope: login-form
+Auth-Required: none
+Auth-Method: none
 
 # -- Data Sensitivity ---------------------------------------
-Require-Human-Confirmation: checkout, delete-account
+Require-Human-Confirmation: none
 
 # -- Versioning ---------------------------------------------
-Last-Updated: 2026-04-22
+Last-Updated: 2026-06-05

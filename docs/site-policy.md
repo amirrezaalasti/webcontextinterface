@@ -14,11 +14,11 @@ Example `wci.txt` (from the demo):
 
 ```
 WCI-Version: 1.0
-Site-Name: ExampleShop Demo
-Allow-Scope: registration-form, checkout
+Site-Name: WCI Demo
+Allow-Scope: registration-form, dom-converter
 Deny-Scope: admin-panel
-Auth-Required: checkout
-Require-Human-Confirmation: checkout
+Auth-Required: none
+Require-Human-Confirmation: none
 Rate-Limit-Actions: 60/minute
 ```
 
@@ -61,9 +61,9 @@ import { WciDistiller } from '@webcontextinterface/distiller';
 
 const distiller = new WciDistiller({
   siteContext: {
-    name: 'ExampleShop',
-    purpose: 'E-commerce demo',
-    auth_required_for: ['checkout'],
+    name: 'WCI Demo',
+    purpose: 'WCI framework showcase',
+    auth_required_for: [],
     denied_scopes: ['admin-panel'],
   },
 });

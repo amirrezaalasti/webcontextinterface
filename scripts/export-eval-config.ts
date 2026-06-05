@@ -133,7 +133,8 @@ function renderMarkdown(r: ReturnType<typeof buildEvalConfigReport>): string {
     '',
     '## Related',
     '',
-    '- Methodology and results: [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md)',
+    '- Methodology (public summary): [Benchmark overview](./benchmark.md)',
+    '- Full developer guide: [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md)',
     '- Machine-readable export: [`demo/public/eval-config.json`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/demo/public/eval-config.json)',
     ''
   );

@@ -222,7 +222,8 @@ WIA_framework/
 
 The same scenario tree ships in-repo under [`demo/scenarios/`](./demo/scenarios/) — **5 handmade** scenarios (flight booking, banking, checkout, dashboard, social media) plus **45 synthetic** layouts. The published harness scores **multi-step task grounding** (`meta.tasks.multiStep`, primary task) across those five context formats via OpenRouter.
 
-- **Methodology, commands, and comparison tables:** [`evals/README.md`](./evals/README.md)
+- **Methodology (public summary):** [`docs/benchmark.md`](./docs/benchmark.md)
+- **Commands, comparison tables, and analysis:** [`evals/README.md`](./evals/README.md)
 - **Archived run artifacts:** [`demo/public/README.md`](./demo/public/README.md) (`eval-results-gpt5nano.json`, `eval-multistep-report-gemini35flash.json`, …)
 
 ```bash
