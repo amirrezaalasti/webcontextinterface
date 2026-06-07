@@ -279,6 +279,12 @@ A machine-readable citation file is also provided in [`CITATION.cff`](./CITATION
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](./CONTRIBUTING.md) to learn about our branch naming conventions, development setup, and Conventional Commit principles.
+
+---
+
 ## ⚖️ License
 
 MIT — Open Standard. See [LICENSE](./LICENSE).
