@@ -1,4 +1,4 @@
-# Benchmark scenarios
+# 🗂️ Benchmark scenarios
 
 Fifty synthetic “fake site” pages for the AgentDOM / WCI benchmark demo and evals.
 
@@ -6,7 +6,7 @@ Fifty synthetic “fake site” pages for the AgentDOM / WCI benchmark demo and 
 
 **Official release:** [Zenodo 10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) (CC BY 4.0).
 
-## Layout
+## 📁 Layout
 
 Each scenario is a folder under `demo/scenarios/`:
 
@@ -22,7 +22,7 @@ demo/scenarios/
     meta.json                # title, icon, difficulty, tasks, benchmark.{wciNodes,wciAttributes}
 ```
 
-## Benchmark information (annotation cost)
+## 📈 Benchmark information (annotation cost)
 
 Each scenario is **one fake website** (`raw.html`). The WCI version (`annotated.html`) is the same page with semantic `data-wci-*` labels on buttons, forms, nav, and landmarks so agents can act without reading the full DOM.
 

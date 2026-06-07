@@ -1,4 +1,4 @@
-# @webcontextinterface/distiller
+# ⚗️ @webcontextinterface/distiller
 
 Prune annotated DOM and serialize **WciView** (JSON) or Markdown for LLM context windows.
 

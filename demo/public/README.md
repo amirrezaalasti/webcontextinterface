@@ -1,8 +1,8 @@
-# Benchmark result artifacts
+# 📊 Benchmark result artifacts
 
 Published **multi-step** evaluation outputs from `npm run eval:multistep`. The demo leaderboard reads `eval-results-all.json` (derived from archived multistep reports via `npm run eval:merge-leaderboard`).
 
-## Source of truth
+## 📌 Source of truth
 
 **Use `eval-results-*.json` and `eval-results-all.json` for published pass rates and leaderboard numbers.**
 
@@ -12,7 +12,7 @@ Do **not** read per-row `passed`, `flowCoverage`, or `models[].summary` directly
 
 **Methodology:** All approaches use the **unified pass rule** — correct `final_action`, no decoy (WCI), flow coverage ≥ **0.8**. See the [Benchmark overview](../../docs/benchmark.md) for a public summary; [evals/README.md](../../evals/README.md) has full commands, limitations, and analysis.
 
-## Files
+## 📁 Files
 
 | File | Contents |
 |------|----------|
@@ -22,7 +22,7 @@ Do **not** read per-row `passed`, `flowCoverage`, or `models[].summary` directly
 | `eval-results-<model>.json` | Leaderboard row for one model (e.g. `eval-results-gpt5nano.json`) |
 | `eval-multistep-report-<model>.json` | Full per-scenario audit trail for that run |
 
-## Current snapshots (50 scenarios × 5 approaches, primary multi-step task)
+## 🏆 Current snapshots (50 scenarios × 5 approaches, primary multi-step task)
 
 | Results | Report | Model |
 |---------|--------|-------|
@@ -41,7 +41,7 @@ npm run eval:merge-leaderboard   # recomputes pass/coverage; writes eval-results
 npm run demo                     # refresh leaderboard in the site
 ```
 
-## Report JSON shape
+## 📋 Report JSON shape
 
 **`eval-results-*.json`** (leaderboard; built by `npm run eval:merge-leaderboard`):
 

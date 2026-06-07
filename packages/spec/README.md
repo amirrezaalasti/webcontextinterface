@@ -1,4 +1,4 @@
-# @webcontextinterface/spec
+# 🏷️ @webcontextinterface/spec
 
 TypeScript types and DOM helpers for the [WCI 1.0 specification](https://webcontextinterface.vercel.app/specification).
 

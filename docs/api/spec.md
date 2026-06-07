@@ -1,4 +1,4 @@
-# `@webcontextinterface/spec` API
+# 🏷️ `@webcontextinterface/spec` API
 
 Types and DOM helpers for the WCI 1.0 specification.
 

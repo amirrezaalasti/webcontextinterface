@@ -1,4 +1,4 @@
-# Specification
+# 📋 Specification
 
 WCI version **1.0** extends HTML with `data-wci-*` attributes and three optional site root files.
 

@@ -1,4 +1,4 @@
-# Site policy and context
+# 🛡️ Site policy and context
 
 Site-wide files give agents grounding **before** they interact with a single page—similar to `robots.txt` for crawlers.
 

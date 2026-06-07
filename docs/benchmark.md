@@ -1,14 +1,14 @@
-# Benchmark overview
+# 📊 Benchmark overview
 
 Public summary of the **50-scenario WCI grounding benchmark** shown on the [demo site](https://webcontextinterface.vercel.app/demo/#eval-results). For full commands, scoring math, and per-model tables, see the developer guide in [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md).
 
-## What we measure
+## 🎯 What we measure
 
 Can an LLM pick the **right control** for a task when given different views of the same page?
 
 Each scenario is a fictional web UI (checkout, banking, job board, etc.) with a verified ground-truth target. Models answer via **OpenRouter** chat completions — not proprietary agent SDKs or live browser loops.
 
-## Five approaches (same task, different context)
+## 🔬 Five approaches (same task, different context)
 
 | Approach | What the model sees |
 |----------|---------------------|
@@ -22,7 +22,7 @@ Each scenario is a fictional web UI (checkout, banking, job board, etc.) with a 
 
 Baseline approaches simulate agents **without** WCI annotations. The gap between baselines and WCI grounding is the benefit of the annotation layer — that asymmetry is intentional.
 
-## Pass rule (all approaches)
+## ✅ Pass rule (all approaches)
 
 A run **passes** when all of the following hold:
 
@@ -32,13 +32,13 @@ A run **passes** when all of the following hold:
 
 Published leaderboard numbers use this **unified pass rule** with `minCoverage` **0.8**.
 
-## Dataset
+## 🗂️ Dataset
 
 - **50 scenarios** — five handmade (flight booking, banking, checkout, admin dashboard, social feed) and 45 synthetic layouts.
 - Each scenario ships **raw HTML**, **annotated HTML**, and five context representations.
 - Published on [Zenodo](https://doi.org/10.5281/zenodo.20434088) (CC BY 4.0). Browse live at [`/demo/scenarios.html`](https://webcontextinterface.vercel.app/demo/scenarios.html).
 
-## What the numbers support
+## ✔️ What the numbers support
 
 | Claim | Supported? |
 |-------|------------|
@@ -46,14 +46,14 @@ Published leaderboard numbers use this **unified pass rule** with `minCoverage` 
 | WCI grounding uses far fewer tokens than raw HTML | **Yes** — typically ~5–8× fewer per call |
 | Which OpenRouter models ground best on this fixture set | **Yes** — compare models on the same input |
 
-## What the numbers do **not** prove
+## ⛔ What the numbers do **not** prove
 
 - **Not** a full autonomous agent benchmark — each task is one LLM plan + one scored `final_action`, not a multi-turn observe→act loop.
 - **Not** live web browsing — static HTML fixtures in headless Chromium, not dynamic SPAs or auth flows.
 - **Not** annotation-free — WCI paths assume correct `data-wci-*` annotations already exist.
 - **Not** end-user outcomes — success means the chosen element matches ground truth, not "payment cleared" or "form submitted to a backend."
 
-## Where to go next
+## 🔗 Where to go next
 
 | Resource | Contents |
 |----------|----------|

@@ -1,4 +1,4 @@
-# `@webcontextinterface/context` API
+# 🛡️ `@webcontextinterface/context` API
 
 Site-wide context loader and **`PolicyEngine`** for `wci.txt` / `wci.json` / `wci.md`.
 

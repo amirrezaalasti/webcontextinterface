@@ -1,4 +1,4 @@
-# @webcontextinterface/bridge
+# ⚡ @webcontextinterface/bridge
 
 Typed action dispatch from agent decisions to live DOM, with **`ActionResult`** feedback and optional **`PolicyEngine`** enforcement.
 

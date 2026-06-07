@@ -1,4 +1,4 @@
-# LLM integration
+# 🤖 LLM integration
 
 This guide sketches a **closed loop**: load policy → distil page → LLM plans action → bridge executes → re-distil.
 

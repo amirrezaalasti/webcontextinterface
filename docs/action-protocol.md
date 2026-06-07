@@ -1,4 +1,4 @@
-# Action protocol
+# ⚡ Action protocol
 
 The Bridge executes agent-chosen actions on live DOM and returns a typed **`ActionResult`** every time.
 

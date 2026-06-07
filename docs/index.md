@@ -38,11 +38,11 @@ features:
     details: Root-level wci.txt, wci.json, and wci.md files define policy, manifests, and LLM system-prompt narrative — like robots.txt for agents.
 ---
 
-## How it works
+## 🏗️ How it works
 
 ![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](/architecture.png)
 
-## Install
+## 📦 Install
 
 ```bash
 npm install @webcontextinterface/core
@@ -50,7 +50,7 @@ npm install @webcontextinterface/core
 
 Or use individual packages: `@webcontextinterface/spec`, `@webcontextinterface/distiller`, `@webcontextinterface/bridge`, `@webcontextinterface/context`.
 
-## Site root files
+## 🛡️ Site root files
 
 | File | Purpose |
 |------|---------|
@@ -58,7 +58,7 @@ Or use individual packages: `@webcontextinterface/spec`, `@webcontextinterface/d
 | `/wci.json` | Structured manifest and task flows |
 | `/wci.md` | Narrative context for the LLM system prompt |
 
-## Evaluation dataset
+## 🧪 Evaluation dataset
 
 The official **50-scenario** grounding benchmark is published on Zenodo (CC BY 4.0):
 
@@ -70,7 +70,7 @@ Each scenario includes raw HTML, DOM outline, interactive candidates, WCI full, 
 
 **Handmade (5)** — rich, hand-authored DOM preserved on disk: flight booking, banking, checkout, dashboard, and social media (`flight-booking`, `banking`, `checkout`, `admin-dashboard`, `social-feed`). The other **45** scenarios are synthetic layouts generated from domain templates.
 
-## NotebookLM
+## 🎧 NotebookLM
 
 A [shared NotebookLM notebook](https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738) is a good way to introduce WCI — audio overviews, briefings, and Q&A grounded in the paper, specification, and benchmark materials. Viewers need a Google account to open the notebook.
 

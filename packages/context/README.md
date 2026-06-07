@@ -1,4 +1,4 @@
-# @webcontextinterface/context
+# 🛡️ @webcontextinterface/context
 
 Load site-wide **`wci.txt`**, **`wci.json`**, and **`wci.md`**; enforce scopes with **`PolicyEngine`**.
 

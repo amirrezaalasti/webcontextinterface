@@ -1,4 +1,4 @@
-# Architecture
+# 🏗️ Architecture
 
 WCI separates **what the agent sees**, **what the site allows**, and **how actions execute** into three cooperating layers.
 

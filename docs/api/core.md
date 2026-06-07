@@ -1,4 +1,4 @@
-# `@webcontextinterface/core` API
+# 📦 `@webcontextinterface/core` API
 
 All-in-one **Web Context Interface** SDK — re-exports every `@webcontextinterface/*` package.
 

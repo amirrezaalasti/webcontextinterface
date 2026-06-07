@@ -1,4 +1,4 @@
-# WCI npm packages
+# 📦 WCI npm packages
 
 Monorepo packages published as `@webcontextinterface/*` on npm.
 
@@ -10,7 +10,7 @@ Monorepo packages published as `@webcontextinterface/*` on npm.
 | [`@webcontextinterface/context`](./context) | 1.2.0 | `wci.txt` / `wci.json` / `wci.md` loader |
 | [`@webcontextinterface/core`](./core) | 1.2.0 | All-in-one SDK |
 
-## Build
+## 🔨 Build
 
 ```bash
 npm run build
@@ -18,7 +18,7 @@ npm run build
 
 Build order is enforced by the root `package.json` script (spec → distiller → bridge → context → core).
 
-## Publish
+## 🚀 Publish
 
 ```bash
 # Verify tarball contents without publishing
@@ -32,7 +32,7 @@ Packages publish in dependency order. Each package runs `prepublishOnly` → `np
 
 See [CHANGELOG.md](./CHANGELOG.md) for release notes.
 
-## Install for agents
+## 🤖 Install for agents
 
 ```bash
 npm install @webcontextinterface/core
@@ -40,7 +40,7 @@ npm install @webcontextinterface/core
 
 Or install layers individually to minimize bundle size.
 
-## Documentation
+## 📚 Documentation
 
 - [WCI site](https://webcontextinterface.vercel.app/)
 - [Getting started](https://webcontextinterface.vercel.app/getting-started)

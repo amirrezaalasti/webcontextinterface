@@ -22,6 +22,14 @@
 
 **WCI (Web Context Interface)** is a three-layer open standard that augments standard HTML with structured semantic metadata, compresses it into agent-optimised context, and provides a typed action protocol — shipped as **compact modular layers** (~2–12 KB minified each).
 
+| | |
+|---|---|
+| 🏷️ | Semantic HTML annotations (`data-wci-*`) |
+| ⚗️ | Token-efficient distillation for LLM context |
+| ⚡ | Typed browser actions via `WciBridge` |
+| 🛡️ | Site-wide agent policy (`wci.txt` / `wci.json` / `wci.md`) |
+| 🧪 | 50-scenario grounding benchmark (see below) + [Zenodo dataset](https://doi.org/10.5281/zenodo.20434088) |
+
 ![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](assets/architecture.png)
 
 Additionally, three **site root files** give agents site-wide grounding before they touch a single page — analogous to `robots.txt`:
@@ -34,7 +42,7 @@ Additionally, three **site root files** give agents site-wide grounding before t
 
 ---
 
-## Documentation website
+## 🌐 Documentation website
 
 **Live (Vercel):** [webcontextinterface.vercel.app](https://webcontextinterface.vercel.app/) · [Demo](https://webcontextinterface.vercel.app/demo/)
 
@@ -58,17 +66,17 @@ Markdown sources live in [`docs/`](./docs/). Quick links:
 
 | Guide | Topic |
 |-------|--------|
-| [Getting started](./docs/getting-started.md) | Install, annotate, distil, dispatch |
-| [Architecture](./docs/architecture.md) | Layers and data flow |
-| [Specification](./docs/specification.md) | `data-wci-*` and site files |
-| [Distillation](./docs/distillation.md) | `WciDistiller` |
-| [Action protocol](./docs/action-protocol.md) | `WciBridge` / `ActionResult` |
-| [Site policy](./docs/site-policy.md) | `wci.txt` and policy engine |
-| [LLM integration](./docs/llm-integration.md) | Closed-loop agent patterns |
+| [🚀 Getting started](./docs/getting-started.md) | Install, annotate, distil, dispatch |
+| [🏗️ Architecture](./docs/architecture.md) | Layers and data flow |
+| [📋 Specification](./docs/specification.md) | `data-wci-*` and site files |
+| [⚗️ Distillation](./docs/distillation.md) | `WciDistiller` |
+| [⚡ Action protocol](./docs/action-protocol.md) | `WciBridge` / `ActionResult` |
+| [🛡️ Site policy](./docs/site-policy.md) | `wci.txt` and policy engine |
+| [🤖 LLM integration](./docs/llm-integration.md) | Closed-loop agent patterns |
 
 ---
 
-## Install
+## 📦 Install
 
 **Monorepo (development):**
 
@@ -87,7 +95,7 @@ Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterfa
 
 ---
 
-## Packages
+## 🧩 Packages
 
 | Package | Version | Description |
 |---------|---------|-------------|
@@ -99,7 +107,7 @@ Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterfa
 
 ---
 
-## Quick start
+## 🚀 Quick start
 
 ### 1. Annotate your HTML
 
@@ -166,7 +174,7 @@ ctx.policy.assertScopeAllowed('checkout');
 
 ---
 
-## `data-wci-*` attribute reference
+## 🏷️ `data-wci-*` attribute reference
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -187,7 +195,7 @@ See [Specification](./docs/specification.md) for details.
 
 ---
 
-## Development
+## 🔧 Development
 
 ```bash
 npm install          # install workspaces
@@ -216,7 +224,7 @@ WIA_framework/
 
 ---
 
-## Benchmark
+## 🧪 Benchmark
 
 **Official evaluation dataset (Zenodo):** [10.5281/zenodo.20434088](https://doi.org/10.5281/zenodo.20434088) — [Evaluation Dataset for WCI](https://zenodo.org/records/20434088) (CC BY 4.0). Download [`scenarios.zip`](https://zenodo.org/records/20434088/files/scenarios.zip?download=1) for all **50 single-shot grounding scenarios** with five representations each (raw HTML, DOM outline, interactive candidates, WCI full, WCI grounding).
 
@@ -235,7 +243,7 @@ npm run demo                     # live leaderboard on the website
 
 ---
 
-## Citation
+## 📝 Citation
 
 If you use WCI in research or publications, please cite:
 
@@ -271,6 +279,6 @@ A machine-readable citation file is also provided in [`CITATION.cff`](./CITATION
 
 ---
 
-## License
+## ⚖️ License
 
 MIT — Open Standard. See [LICENSE](./LICENSE).

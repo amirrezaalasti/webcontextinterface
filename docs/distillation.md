@@ -1,4 +1,4 @@
-# Distillation
+# ⚗️ Distillation
 
 The distiller compresses annotated DOM into an **WciView** (JSON) or Markdown for LLM context.
 

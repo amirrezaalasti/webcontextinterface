@@ -1,4 +1,4 @@
-# @webcontextinterface/core
+# 📦 @webcontextinterface/core
 
 Complete **Web Context Interface (WCI)** SDK — spec types, distiller, bridge, and site context in one package.
 

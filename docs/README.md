@@ -1,8 +1,8 @@
-# WCI documentation sources
+# 📚 WCI documentation sources
 
 This folder is the **Web Context Interface** documentation website, built with [VitePress](https://vitepress.dev).
 
-## Commands
+## ⌨️ Commands
 
 | Command | What it does |
 |---------|----------------|
@@ -10,6 +10,6 @@ This folder is the **Web Context Interface** documentation website, built with [
 | `npm run website:build` | Production build — docs + demo in `docs/.vitepress/dist` |
 | `npm run website:preview` | Preview the production build locally |
 
-## Deploy
+## 🚀 Deploy
 
 See the root [README — Documentation website](https://github.com/amirrezaalasti/webcontextinterface#documentation-website) for Vercel, GitHub Pages, and local build commands.

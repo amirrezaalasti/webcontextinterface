@@ -1,4 +1,4 @@
-# Getting started
+# 🚀 Getting started
 
 **WCI (Web Context Interface)** is an open standard and TypeScript SDK for annotating web pages, distilling them for LLM context, and dispatching typed browser actions.
 

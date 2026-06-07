@@ -1,10 +1,10 @@
-# WCI benchmark evaluation
+# 🧪 WCI benchmark evaluation
 
 Element-grounding benchmark: pick the correct control for a task using **OpenRouter** models (not proprietary agent SDKs).
 
 **Published runs:** [`demo/public/`](../demo/public/README.md) — **`eval-results-*.json` is the source of truth for pass rates** (rebuilt by `eval:merge-leaderboard`); `eval-multistep-report-*.json` is the per-scenario audit trail (`rawResponse`, errors). Comparison tables below use merged results.
 
-## Approaches (5 per scenario)
+## 🔬 Approaches (5 per scenario)
 
 **Published leaderboard** scores **multi-step task grounding** (`eval:multistep`): each scenario’s primary `meta.tasks.multiStep` task asks for a short JSON action plan plus a **`final_action`** (WCI node id or CSS selector). **All five approaches** use the same pass rule: correct `final_action`, no decoy/competitor trap, and flow coverage ≥ `--min-coverage` (default `0.8`). See [Pass rules](#pass-rules-unified) and [Published results](#published-results-50-scenarios-may-2026).
 
@@ -12,13 +12,13 @@ A separate **single-shot** harness (`eval:benchmark`) still exists for one-contr
 
 | ID | What the model sees | What it must return | How we score |
 |----|---------------------|---------------------|--------------|
-| **`raw-html`** | Full `raw.html` (truncated at ~28k chars if huge) — unannotated page, ads, decoys, generic button labels | One **CSS selector** | Selector must match the same element as ground-truth selectors in headless Chromium |
-| **`dom-outline`** | Shallow tree (~100 lines) from raw HTML; interactive nodes marked `[interactive]` | One **CSS selector** | Same Playwright validation as raw-html |
-| **`interactive-candidates`** | Numbered list of up to 50 controls scraped from raw HTML (Mind2Web-style) | Candidate **index** `[n]` or a CSS selector | Index resolved to a DOM node, then validated like raw-html |
-| **`wci-full`** | JSON from `annotated.html`: **all** WCI nodes (landmarks, forms, displays, actions), parent `scope_context` merged onto children (e.g. flight `stops` on fare buttons). **No** eval state patches — page state is whatever the annotated file contains | One WCI node **`id`** string | Exact match to `wciNodeId` (or acceptable alternates); decoy ids tracked separately |
-| **`wci-grounding`** | JSON from `annotated.html`: **actionable nodes only** (click/select/fill), disabled nodes omitted, same scope merge, plus **eval snapshot patches** on a few multi-step handmade scenarios (e.g. banking amount filled, checkout express selected) so the scored step is the final action | One WCI node **`id`** string | Same node-id scoring as `wci-full` |
+| **`raw-html`** 📄 | Full `raw.html` (truncated at ~28k chars if huge) — unannotated page, ads, decoys, generic button labels | JSON plan + **CSS selector** `final_action` | Selector must match the same element as ground-truth selectors in headless Chromium |
+| **`dom-outline`** 🌳 | Shallow tree (~100 lines) from raw HTML; interactive nodes marked `[interactive]` | JSON plan + **CSS selector** `final_action` | Same Playwright validation as raw-html |
+| **`interactive-candidates`** 🔢 | Numbered list of up to 50 controls scraped from raw HTML (Mind2Web-style) | JSON plan + candidate **index** `[n]` or CSS selector | Index resolved to a DOM node, then validated like raw-html |
+| **`wci-full`** 🗺️ | JSON from `annotated.html`: **all** WCI nodes (landmarks, forms, displays, actions), parent `scope_context` merged onto children (e.g. flight `stops` on fare buttons). **No** eval state patches — page state is whatever the annotated file contains | JSON plan + WCI node **`id`** `final_action` | Exact match to `wciNodeId` (or acceptable alternates); decoy ids tracked separately |
+| **`wci-grounding`** 🎯 | JSON from `annotated.html`: **actionable nodes only** (click/select/fill), disabled nodes omitted, same scope merge, plus **eval snapshot patches** on a few multi-step handmade scenarios (e.g. banking amount filled, checkout express selected) so the scored step is the final action | JSON plan + WCI node **`id`** `final_action` | Same node-id scoring as `wci-full` |
 
-### How to read the comparison
+### 📖 How to read the comparison
 
 **This benchmark is not a “fair fight” between equal inputs.** It measures whether **good WCI annotations** make element grounding more reliable and cheaper than agents working from raw or derived DOM alone. The gap between `standard` and `wci-grounding` is the **benefit of the annotation layer** — that is the product thesis, not a scoring bug.
 
@@ -35,16 +35,18 @@ Legacy CLI alias: `--approaches=wci-distilled` → `wci-grounding`.
 
 Implementation: `evals/lib/contexts.ts` (`buildEvalContext`), prompts and truncation per row above.
 
-## Models, prompts, and inference settings
+## 🤖 Models, prompts, and inference settings
 
 Exact system prompts, temperature, `max_tokens`, reasoning effort, and OpenRouter model slugs are defined in **`evals/lib/eval-config.ts`** and exported to:
+
+> **📌 Prompt note:** Multistep baseline system prompts require JSON action plans (aligned with the user block). Archived CIKM submission-era reports may predate this harness update — tag `paper-cikm2026-submitted` for the snapshot used in the paper.
 
 - [`docs/benchmark-eval-config.md`](../docs/benchmark-eval-config.md) — human-readable report
 - [`demo/public/eval-config.json`](../demo/public/eval-config.json) — machine-readable (demo site **Evaluation Results** section)
 
 Regenerate after prompt changes: `npm run eval:export-config`.
 
-## Models (default roster)
+## 🦾 Models (default roster)
 
 Configured in `evals/lib/eval-config.ts` (re-exported from `evals/lib/llm.ts`):
 
@@ -56,7 +58,7 @@ Configured in `evals/lib/eval-config.ts` (re-exported from `evals/lib/llm.ts`):
 | `qwen25_7b` | `qwen/qwen-2.5-7b-instruct` |
 | `llama31_8b` | `meta-llama/llama-3.1-8b-instruct` |
 
-## Commands
+## ⌨️ Commands
 
 ```bash
 npm install
@@ -92,7 +94,7 @@ Full run ≈ **10 models × 50 scenarios × 5 approaches = 2,500** API calls. Us
 
 **Inference (published multi-step):** `temperature: 0`, `max_tokens: 800`, `reasoning: { effort: "low" }`. Single-shot `eval:benchmark` uses `max_tokens: 1000`. See [`docs/benchmark-eval-config.md`](../docs/benchmark-eval-config.md).
 
-## How the benchmark runs (end-to-end)
+## 🔄 How the benchmark runs (end-to-end)
 
 ```mermaid
 flowchart LR
@@ -134,7 +136,7 @@ flowchart LR
 **Single-shot report (`eval:benchmark`) does not measure full trajectories.**
 For multi-step task scoring over `meta.tasks.multiStep` (primary task only), run `eval:multistep` — same five approaches as single-shot (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`).
 
-### Pass rules (unified)
+### ✅ Pass rules (unified)
 
 All approaches (`raw-html`, `dom-outline`, `interactive-candidates`, `wci-full`, `wci-grounding`) are scored using a unified pass rule. A task run passes if and only if:
 
@@ -176,7 +178,7 @@ Pipe row order: `id|a|d|p|s|r` — skip empty segments. `a`: `c` click, `f` fill
 
 **Benchmark discipline (priority):** `scripts/lib/priority-competitors.mjs` runs on rebuild. Each scenario marks the ground-truth node with `data-wci-primary="true"` and adds 1–2 `data-wci-competitor="true"` nodes at **priority 1** so models cannot pass by always picking the first p=1 row. Prompt row order is shuffled per scenario id. Verify with `node scripts/verify-wci-ground-truth.mjs`. Eval state patches (`evals/lib/eval-snapshot.ts`) enable decisive actions (e.g. `review-transfer-btn`, `upload-iceland-album` when the raw page keeps them disabled).
 
-### Flow coverage
+### 📐 Flow coverage
 
 Implemented in [flow-coverage.ts](file:///Users/amirrezaalasti/Desktop/selfprojects/WIA_framework/evals/lib/flow-coverage.ts).
 Score in `[0, 1]` used for **pass** on all approaches.
@@ -209,7 +211,7 @@ This avoids false **0.33** failures when a model returns one correct `act` plus 
 
 ---
 
-## Published results (50 scenarios, May 2026)
+## 📊 Published results (50 scenarios, May 2026)
 
 Six archived OpenRouter **multi-step** runs on the full scenario set (primary `tasks.multiStep` only). Leaderboard numbers come from `demo/public/eval-results-*.json` (rescored from archived `eval-multistep-report-*.json` via `npm run eval:merge-leaderboard`, `minCoverage` **0.8**). Latest demo default: **GPT-5** in `eval-results.json`.
 
@@ -262,7 +264,7 @@ From `eval-multistep-report-*.json` → `models[].summary[].avgTokens`. Same 50 
 
 ³ Ratio = raw-html tokens ÷ wci-grounding tokens for the same model.
 
-### Analysis
+### 💡 Analysis
 
 **Multi-step is strictly harder than single-shot.** Pass rates can drop vs one-shot grounding on the same pages: e.g. **GPT-5** **84%** WCI grounding (multi-step) vs **100%** (single-shot archived runs). Models must return a structured plan and correct **`final_action`**, not just one control id.
 
@@ -276,7 +278,7 @@ Inspect per-scenario failures in `demo/public/eval-multistep-report-*.json` (`fl
 
 ---
 
-## Limitations and scope
+## ⚠️ Limitations and scope
 
 These numbers are useful for comparing **context formats on a fixed grounding task** and for arguing that **WCI annotations help agents**. They are **not** a complete measure of autonomous agent success on the open web. Read this section before citing the leaderboard.
 
@@ -391,7 +393,7 @@ The benchmark **by design** gives WCI paths advantages that reflect the product 
 
 ---
 
-## Outputs
+## 📁 Outputs
 
 | Artifact | Role |
 |----------|------|
@@ -403,7 +405,7 @@ The benchmark **by design** gives WCI paths advantages that reflect the product 
 | `demo/public/eval-report.json` | Single-shot audit trail (`eval:benchmark` only; not on demo) |
 | `evals/logs/<run-id>/` | Per-call LLM I/O (JSON + Markdown). Disable with `--no-logs`. |
 
-### LLM I/O logs
+### 📝 LLM I/O logs
 
 ```
 evals/logs/2026-05-22_21-20-48/

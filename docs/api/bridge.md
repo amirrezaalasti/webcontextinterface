@@ -1,4 +1,4 @@
-# `@webcontextinterface/bridge` API
+# ⚡ `@webcontextinterface/bridge` API
 
 Typed action dispatch with **`ActionResult`** feedback and optional **`PolicyEngine`** enforcement.
 

@@ -1,4 +1,4 @@
-# Benchmark evaluation configuration
+# ⚙️ Benchmark evaluation configuration
 
 Generated from `evals/lib/eval-config.ts` at **2026-06-07T10:59:48.499Z**.
 Regenerate: `npm run eval:export-config`.
