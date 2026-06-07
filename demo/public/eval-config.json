@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T16:44:43.468Z",
+  "generatedAt": "2026-06-07T10:59:48.499Z",
   "source": "evals/lib/eval-config.ts",
   "methodology": {
     "publishedHarness": "multistep",
@@ -124,13 +124,13 @@
       }
     },
     "multistep": {
-      "description": "Published leaderboard (eval:multistep). System prompt is WCI-specific or baseline single-shot + suffix. User block is compact (goal, flow, rules, context).",
+      "description": "Published leaderboard (eval:multistep). System prompt is WCI-specific or multistep baseline JSON-plan prompt. User block is compact (goal, flow, rules, context).",
       "systemByApproach": {
         "wci-full": "WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.",
         "wci-grounding": "WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.",
-        "raw-html": "You are a web automation agent. Reply with ONE line only: a valid CSS selector for the element that achieves the goal. No markdown, no quotes, no explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).",
-        "dom-outline": "You are a web agent using a DOM outline. Output ONLY one CSS selector for the element that best achieves the goal. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).",
-        "interactive-candidates": "You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step)."
+        "raw-html": "You are a web automation agent on raw HTML. Reply with JSON only: {\"actions\":[{\"type\":\"observe|reason|act|verify\",\"step\":\"brief\",\"target\":\"...\"}],\"final_action\":\"valid CSS selector\"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps. final_action must be one valid CSS selector.",
+        "dom-outline": "You are a web agent using a DOM outline. Reply with JSON only: {\"actions\":[{\"type\":\"observe|reason|act|verify\",\"step\":\"brief\",\"target\":\"...\"}],\"final_action\":\"valid CSS selector\"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps. final_action must be one valid CSS selector.",
+        "interactive-candidates": "You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Reply with JSON only: {\"actions\":[{\"type\":\"observe|reason|act|verify\",\"step\":\"brief\",\"target\":\"...\"}],\"final_action\":\"candidate index (e.g. \"12\") or CSS selector\"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps."
       },
       "userBlockFormat": {
         "replyJson": "Reply JSON only: {\"actions\":[{\"type\":\"observe|reason|act|verify\",\"step\":\"brief\",\"target\":\"...\"}],\"final_action\":\"<hint>\"}",

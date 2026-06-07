@@ -1,6 +1,6 @@
 # Benchmark evaluation configuration
 
-Generated from `evals/lib/eval-config.ts` at **2026-06-05T16:44:43.468Z**.
+Generated from `evals/lib/eval-config.ts` at **2026-06-07T10:59:48.499Z**.
 Regenerate: `npm run eval:export-config`.
 
 ## Provider
@@ -64,19 +64,19 @@ Regenerate: `npm run eval:export-config`.
 ### `raw-html`
 
 ```
-You are a web automation agent. Reply with ONE line only: a valid CSS selector for the element that achieves the goal. No markdown, no quotes, no explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).
+You are a web automation agent on raw HTML. Reply with JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"valid CSS selector"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps. final_action must be one valid CSS selector.
 ```
 
 ### `dom-outline`
 
 ```
-You are a web agent using a DOM outline. Output ONLY one CSS selector for the element that best achieves the goal. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).
+You are a web agent using a DOM outline. Reply with JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"valid CSS selector"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps. final_action must be one valid CSS selector.
 ```
 
 ### `interactive-candidates`
 
 ```
-You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Output ONLY the candidate index number (e.g. 12) OR a CSS selector for the best match. No explanation. Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).
+You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. Reply with JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"candidate index (e.g. "12") or CSS selector"}. No markdown or text outside JSON. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps.
 ```
 
 ### `wci-full`

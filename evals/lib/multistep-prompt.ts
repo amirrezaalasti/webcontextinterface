@@ -150,14 +150,18 @@ export function buildMultistepEvalContext(
   ].join('\n');
 
   const singleShot = buildEvalContext(scenario, approach);
+  const baselineApproaches = ['raw-html', 'dom-outline', 'interactive-candidates'] as const;
+  const systemPrompt = isWciContextKind(approach)
+    ? EVAL_MULTISTEP_SYSTEM_PROMPTS.wci
+    : EVAL_MULTISTEP_SYSTEM_PROMPTS[
+        approach as (typeof baselineApproaches)[number]
+      ];
 
   return {
     kind: isWciContextKind(approach) ? approach : singleShot.kind,
     content: payload,
     tokenEstimate: estimateTokens(payload),
-    systemPrompt: isWciContextKind(approach)
-      ? EVAL_MULTISTEP_SYSTEM_PROMPTS.wci
-      : singleShot.systemPrompt + EVAL_MULTISTEP_SYSTEM_PROMPTS.baselineSuffix,
+    systemPrompt,
     userPromptPrefix: '',
   };
 }

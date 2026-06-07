@@ -92,12 +92,33 @@ export const EVAL_WCI_VIEW_HINTS = {
     'Actionable nodes only (no landmarks). Use scope_context and state to satisfy every part of the goal.',
 } as const;
 
+const MULTISTEP_JSON_REPLY =
+  'Reply with JSON only: {"actions":[{"type":"observe|reason|act|verify","step":"brief","target":"..."}],"final_action":"<hint>"}. No markdown or text outside JSON.';
+
+const MULTISTEP_FINAL_ACTION_RULE =
+  'final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step). Use actions for prerequisite observe/recovery steps.';
+
 /** Exact multistep system prompts (evals/lib/multistep-prompt.ts). */
 export const EVAL_MULTISTEP_SYSTEM_PROMPTS = {
   wci:
     'WCI agent. WCI_NODES v2: N[]=pipe rows id|a|d|p|x|s|r (omit empty). a: c=click f=fill s=select S=submit. s: k:v (!=disabled). x=competitor trap — never final_action. p=1 is high salience but may include traps; use desc+goal. final_action=exact row id that completes the goal. Never CSS.',
-  baselineSuffix:
-    ' Plan briefly. final_action is the single scored control that completes the goal (not a follow-up confirm/checkout step).',
+  'raw-html':
+    'You are a web automation agent on raw HTML. ' +
+    MULTISTEP_JSON_REPLY.replace('<hint>', 'valid CSS selector') +
+    ' ' +
+    MULTISTEP_FINAL_ACTION_RULE +
+    ' final_action must be one valid CSS selector.',
+  'dom-outline':
+    'You are a web agent using a DOM outline. ' +
+    MULTISTEP_JSON_REPLY.replace('<hint>', 'valid CSS selector') +
+    ' ' +
+    MULTISTEP_FINAL_ACTION_RULE +
+    ' final_action must be one valid CSS selector.',
+  'interactive-candidates':
+    'You are a Mind2Web-style agent. Candidates omit #ids on purpose. Use button text, classes, and data-* context to disambiguate. ' +
+    MULTISTEP_JSON_REPLY.replace('<hint>', 'candidate index (e.g. "12") or CSS selector') +
+    ' ' +
+    MULTISTEP_FINAL_ACTION_RULE,
 } as const;
 
 export const EVAL_MULTISTEP_USER_FORMAT = {
@@ -161,17 +182,13 @@ export function buildEvalConfigReport() {
       },
       multistep: {
         description:
-          'Published leaderboard (eval:multistep). System prompt is WCI-specific or baseline single-shot + suffix. User block is compact (goal, flow, rules, context).',
+          'Published leaderboard (eval:multistep). System prompt is WCI-specific or multistep baseline JSON-plan prompt. User block is compact (goal, flow, rules, context).',
         systemByApproach: {
           'wci-full': EVAL_MULTISTEP_SYSTEM_PROMPTS.wci,
           'wci-grounding': EVAL_MULTISTEP_SYSTEM_PROMPTS.wci,
-          'raw-html':
-            EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['raw-html'] + EVAL_MULTISTEP_SYSTEM_PROMPTS.baselineSuffix,
-          'dom-outline':
-            EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['dom-outline'] + EVAL_MULTISTEP_SYSTEM_PROMPTS.baselineSuffix,
-          'interactive-candidates':
-            EVAL_SINGLE_SHOT_SYSTEM_PROMPTS['interactive-candidates'] +
-            EVAL_MULTISTEP_SYSTEM_PROMPTS.baselineSuffix,
+          'raw-html': EVAL_MULTISTEP_SYSTEM_PROMPTS['raw-html'],
+          'dom-outline': EVAL_MULTISTEP_SYSTEM_PROMPTS['dom-outline'],
+          'interactive-candidates': EVAL_MULTISTEP_SYSTEM_PROMPTS['interactive-candidates'],
         },
         userBlockFormat: EVAL_MULTISTEP_USER_FORMAT,
         flowSanitization:
