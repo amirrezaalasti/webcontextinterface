@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation website
+    url: https://webcontextinterface.vercel.app/
+    about: Please check the documentation website before raising general questions or configuration help.
