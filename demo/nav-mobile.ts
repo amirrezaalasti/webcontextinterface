@@ -12,6 +12,10 @@ export function initMobileNav(): void {
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     document.body.classList.remove('nav-open');
+    nav.querySelectorAll('.nav-group.is-open').forEach((group) => {
+      group.classList.remove('is-open');
+      group.querySelector('.nav-group__trigger')?.setAttribute('aria-expanded', 'false');
+    });
   };
 
   const open = (): void => {
@@ -24,6 +28,25 @@ export function initMobileNav(): void {
   toggle.addEventListener('click', () => {
     if (nav.classList.contains('is-open')) close();
     else open();
+  });
+
+  nav.querySelectorAll('.nav-group__trigger').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      if (!mq.matches) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const group = trigger.closest('.nav-group');
+      if (!group) return;
+      const willOpen = !group.classList.contains('is-open');
+      nav.querySelectorAll('.nav-group.is-open').forEach((openGroup) => {
+        if (openGroup !== group) {
+          openGroup.classList.remove('is-open');
+          openGroup.querySelector('.nav-group__trigger')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      group.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+    });
   });
 
   nav.querySelectorAll('a').forEach((link) => {

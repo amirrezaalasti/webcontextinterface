@@ -30,6 +30,21 @@
   height: 28px;
 }
 
+/* Align docs navbar with shared site nav grouping */
+.VPNavBarMenu .VPNavBarMenuGroup + .VPNavBarMenuGroup {
+  margin-left: 0.15rem;
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+  font-weight: 500;
+}
+
+.VPNavBarMenuGroup .button[aria-expanded='true'],
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1);
+}
+
 .VPFeature .icon {
   font-size: 1.75rem;
 }

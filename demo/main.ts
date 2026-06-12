@@ -8,7 +8,7 @@ import { WciBridge } from '@webcontextinterface/bridge';
 import { WciContextLoader } from '@webcontextinterface/context';
 import bundledEvalConfig from './public/eval-config.json';
 import bundledEvalResults from './public/eval-results-all.json';
-import { initMobileNav } from './nav-mobile';
+import { resolveDocsBase } from '../shared/site-nav';
 // ── Grab DOM refs ─────────────────────────────────────────────────────────────
 const formScope    = document.getElementById('form-scope')     as HTMLElement;
 const jsonPanel    = document.getElementById('json-output')    as HTMLElement;
@@ -931,4 +931,5 @@ function initEvalConfigPanel(): void {
 
 void loadEvalResults();
 initEvalConfigPanel();
-initMobileNav();
+const playgroundDocsLink = document.querySelector<HTMLAnchorElement>('[data-playground-docs-link]');
+if (playgroundDocsLink) playgroundDocsLink.href = resolveDocsBase();

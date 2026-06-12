@@ -25,98 +25,46 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════════════════ -->
-<!-- HEADER                                                                     -->
-<!-- ══════════════════════════════════════════════════════════════════════════ -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#" class="logo" aria-label="WCI — Web Context Interface">
-      <img src="./logo.png" alt="" class="logo-img" width="36" height="36" decoding="async" />
-      <img src="./logo-with-title.png" alt="WCI — Web Context Interface" class="logo-img logo-img--titled" decoding="async" />
-      <span class="version-badge">v1.2</span>
-    </a>
-    <button
-      type="button"
-      class="nav-toggle"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      aria-label="Open menu"
-    >
-      <span class="nav-toggle__bars" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
-    <nav class="header-nav" id="site-nav" aria-label="Main">
-      <a href="#demo">Live Demo</a>
-      <a href="./scenarios.html">Scenarios</a>
-      <a href="#eval-results">Results</a>
-      <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset ↗</a>
-      <a href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738" target="_blank" rel="noreferrer">NotebookLM ↗</a>
-      <a href="#context">Site Context</a>
-      <a href="#spec">Specification</a>
-      <a href="/" target="_blank" rel="noreferrer" id="docs-link">Docs ↗</a>
-      <a href="https://github.com/amirrezaalasti/webcontextinterface" target="_blank" rel="noreferrer">GitHub ↗</a>
-    </nav>
-  </div>
-</header>
+<div id="site-header-mount" class="site-header-mount" aria-busy="true"></div>
+<script type="module">
+  import { initSiteNav } from './site-nav';
+  initSiteNav('demo');
+</script>
 
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
-<!-- HERO                                                                        -->
+<!-- PLAYGROUND BANNER (distinct from docs home — compact workbench intro)       -->
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-  <div class="hero-content">
-    <img
-      src="./logo-with-title.png"
-      alt="WCI — Web Context Interface"
-      class="hero-logo"
-      width="320"
-      height="auto"
-      decoding="async"
-    />
-    <div class="hero-kicker">Open Standard · TypeScript SDK</div>
-    <h1 class="hero-title">
-      The Web,<br />
-      <span class="gradient-text">Context-Ready</span>
-    </h1>
-    <p class="hero-subtitle">
-      <strong>Web Context Interface (WCI)</strong> makes sites natively readable for LLM-based agents through
-      structured <code>data-wci-*</code> markup, a semantic Distiller Engine,
-      and a typed Interactivity Protocol — compact modular layers (~2–12 KB each).
-    </p>
-    <div class="hero-actions">
-      <a href="#demo" class="btn btn-primary">Try the Live Demo</a>
-      <a href="#spec" class="btn btn-ghost">View Specification →</a>
-      <a
-        href="https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738"
-        class="btn btn-ghost"
-        target="_blank"
-        rel="noreferrer"
-      >NotebookLM overview ↗</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-value">~66%</span>
-        <span class="stat-label">Token reduction</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-value">2–12 KB</span>
-        <span class="stat-label">Per-layer bundles</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-value">0</span>
-        <span class="stat-label">Breaking changes</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-value">3</span>
-        <span class="stat-label">Core layers</span>
+<section class="playground-banner" aria-label="Playground introduction">
+  <div class="playground-banner__grid" aria-hidden="true"></div>
+  <div class="section-inner playground-banner__inner">
+    <div class="playground-banner__copy">
+      <p class="playground-banner__eyebrow">Interactive Playground</p>
+      <h1 class="playground-banner__title">Experiment with WCI in the browser</h1>
+      <p class="playground-banner__lead">
+        Distill annotated DOM, dispatch typed agent actions, and inspect benchmark scenarios —
+        without leaving this page. For concepts and API details, use the
+        <a href="/" data-playground-docs-link>documentation</a>.
+      </p>
+      <div class="playground-banner__actions">
+        <a href="#demo" class="btn btn-primary">Jump to live demo</a>
+        <a href="./scenarios.html" class="btn btn-ghost">Browse scenarios</a>
+        <a href="#eval-results" class="btn btn-ghost btn-quiet">Eval results</a>
       </div>
     </div>
+    <aside class="playground-banner__metrics" aria-label="Quick stats">
+      <div class="playground-metric">
+        <span class="playground-metric__value">~66%</span>
+        <span class="playground-metric__label">Token reduction</span>
+      </div>
+      <div class="playground-metric">
+        <span class="playground-metric__value">50</span>
+        <span class="playground-metric__label">Benchmark scenarios</span>
+      </div>
+      <div class="playground-metric">
+        <span class="playground-metric__value">3</span>
+        <span class="playground-metric__label">Core layers</span>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -656,14 +604,6 @@
   </div>
 </footer>
 
-<script>
-  (function () {
-    var el = document.getElementById('docs-link');
-    if (!el) return;
-    var path = location.pathname.replace(/\/?demo\/?.*$/, '/');
-    el.href = path || '/';
-  })();
-</script>
 <script type="module" src="./main.ts"></script>
 </body>
 </html>

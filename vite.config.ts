@@ -11,6 +11,7 @@ export default defineConfig({
   assetsInclude: ['**/scenarios/**/*.html'],
   resolve: {
     alias: {
+      '@shared': resolve(__dirname, 'shared'),
       '@webcontextinterface/core':      resolve(__dirname, 'packages/core/src/index.ts'),
       '@webcontextinterface/spec':      resolve(__dirname, 'packages/spec/src/index.ts'),
       '@webcontextinterface/distiller': resolve(__dirname, 'packages/distiller/src/index.ts'),

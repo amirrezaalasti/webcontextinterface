@@ -14,31 +14,11 @@
 </head>
 <body class="scenarios-page">
 
-<header class="scenarios-toolbar">
-  <div class="scenarios-toolbar__inner">
-    <a href="./index.html" class="scenarios-toolbar__brand">
-      <img src="./logo.png" alt="" width="28" height="28" decoding="async" />
-      <span>WCI Scenarios</span>
-    </a>
-    <button
-      type="button"
-      class="nav-toggle"
-      aria-expanded="false"
-      aria-controls="scenarios-nav"
-      aria-label="Open menu"
-    >
-      <span class="nav-toggle__bars" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
-    <nav class="scenarios-toolbar__nav" id="scenarios-nav" aria-label="Site">
-      <a href="./index.html">Demo home</a>
-      <a href="./index.html#eval-results">Results</a>
-      <a href="https://doi.org/10.5281/zenodo.20434088" target="_blank" rel="noreferrer">Dataset ↗</a>
-      <a href="#" id="scenarios-docs-link">Docs ↗</a>
-    </nav>
-  </div>
-</header>
+<div id="site-header-mount" class="site-header-mount" aria-busy="true"></div>
+<script type="module">
+  import { initSiteNav } from './site-nav';
+  initSiteNav('scenarios');
+</script>
 
 <div class="scenarios-layout">
   <aside class="scenarios-sidebar" aria-label="Scenario list">
@@ -159,14 +139,6 @@
   </main>
 </div>
 
-<script>
-  (function () {
-    var el = document.getElementById('scenarios-docs-link');
-    if (!el) return;
-    var path = location.pathname.replace(/\/?demo\/?.*$/, '/');
-    el.href = path || '/';
-  })();
-</script>
 <script type="module" src="./scenarios-viewer.ts"></script>
 </body>
 </html>

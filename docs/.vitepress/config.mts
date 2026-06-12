@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { vitePressNav } from '../../shared/site-nav';
 
 const repo =
   process.env.VITEPRESS_GITHUB_REPO ??
@@ -39,20 +40,7 @@ export default defineConfig({
     logo: { src: '/logo.png', alt: 'WCI — Web Context Interface' },
     siteTitle: 'Web Context Interface',
 
-    nav: [
-      { text: 'Guide', link: '/getting-started', activeMatch: '/getting-started' },
-      { text: 'Specification', link: '/specification' },
-      { text: 'API', link: '/api/spec' },
-      { text: 'Benchmark', link: '/benchmark' },
-      { text: 'Dataset', link: 'https://doi.org/10.5281/zenodo.20434088', target: '_blank' },
-      {
-        text: 'NotebookLM',
-        link: 'https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738',
-        target: '_blank',
-      },
-      { text: 'Demo', link: demoUrl, target: '_blank' },
-      { text: 'Scenarios', link: `${demoBase}scenarios.html`, target: '_blank' },
-    ],
+    nav: vitePressNav(demoUrl, demoBase),
 
     sidebar: [
       {
