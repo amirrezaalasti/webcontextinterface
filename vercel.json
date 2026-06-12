@@ -8,7 +8,10 @@
     "DOCS_BASE": "/"
   },
   "rewrites": [
-    { "source": "/demo", "destination": "/demo/index.html" }
+    { "source": "/demo", "destination": "/demo/index.html" },
+    { "source": "/demo/", "destination": "/demo/index.html" },
+    { "source": "/demo/scenarios", "destination": "/demo/scenarios.html" },
+    { "source": "/demo/scenarios/", "destination": "/demo/scenarios.html" }
   ],
   "headers": [
     {

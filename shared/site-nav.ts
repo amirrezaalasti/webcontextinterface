@@ -45,13 +45,13 @@ export const SITE_NAV_GROUPS: NavGroup[] = [
         docsHref: '/specification',
         activeOn: ['docs'],
       },
-      { id: 'api', label: 'API', docsHref: '/api/spec', activeOn: ['docs'] },
       {
         id: 'benchmark',
         label: 'Benchmark',
         docsHref: '/benchmark',
         activeOn: ['docs'],
       },
+      { id: 'api', label: 'API', docsHref: '/api/core', activeOn: ['docs'] },
     ],
   },
   {
@@ -68,7 +68,7 @@ export const SITE_NAV_GROUPS: NavGroup[] = [
       {
         id: 'scenarios',
         label: 'Scenarios',
-        docsHref: '/demo/scenarios.html',
+        docsHref: '/demo/scenarios',
         demoHref: './scenarios.html',
         activeOn: ['scenarios'],
       },
@@ -106,6 +106,23 @@ export function resolveDemoBase(): string {
   return docsBase.endsWith('/') ? `${docsBase}demo/` : `${docsBase}/demo/`;
 }
 
+/** True when a path belongs to the static demo app (not VitePress). */
+export function isDemoAppPath(pathname: string): boolean {
+  const path = pathname.replace(/\/+$/, '') || '/';
+  return path === '/demo' || path.startsWith('/demo/');
+}
+
+/**
+ * Map demo paths to static HTML files on the combined docs+demo deployment.
+ * VitePress `cleanUrls` can normalize `/demo/scenarios.html` → `/demo/scenarios`, which 404s in the SPA.
+ */
+export function toDemoAppUrl(pathname: string, hash = ''): string {
+  const path = pathname.replace(/\/+$/, '') || '/';
+  if (path === '/demo') return `/demo/index.html${hash}`;
+  if (path === '/demo/scenarios') return `/demo/scenarios.html${hash}`;
+  return `${pathname}${hash}`;
+}
+
 export function hrefForDemoItem(item: NavLink): string {
   if (item.external) return item.docsHref;
   if (item.demoHref) return item.demoHref;
@@ -130,7 +147,7 @@ export function isGroupActive(group: NavGroup, page: SitePage): boolean {
 /** VitePress `themeConfig.nav` entries derived from the shared config. */
 export function vitePressNav(demoUrl: string, demoBase: string) {
   const demoLink = demoUrl.endsWith('/') ? demoUrl : `${demoUrl}/`;
-  const scenariosLink = `${demoBase}scenarios.html`;
+  const scenariosLink = `${demoBase}scenarios`;
 
   return [
     {
@@ -140,8 +157,8 @@ export function vitePressNav(demoUrl: string, demoBase: string) {
         { text: 'Home', link: '/' },
         { text: 'Guide', link: '/getting-started', activeMatch: '/getting-started' },
         { text: 'Specification', link: '/specification' },
-        { text: 'API', link: '/api/spec' },
         { text: 'Benchmark', link: '/benchmark' },
+        { text: 'API', link: '/api/core' },
       ],
     },
     {
