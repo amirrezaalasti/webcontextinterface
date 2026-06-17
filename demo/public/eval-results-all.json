@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T11:29:22.331Z",
+  "generatedAt": "2026-06-17T11:41:43.836Z",
   "methodology": "multistep",
   "passRule": "unified",
   "passRuleNote": "All approaches pass when correctFinalAction && !hitDecoy && flowCoverage >= minCoverage. flowCoverage recomputed from archived rawResponse with current flow-coverage.ts (no API re-run).",

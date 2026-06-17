@@ -1,51 +1,11 @@
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-import { isDemoAppPath, toDemoAppUrl } from '../../../shared/site-nav';
+import { installVitePressStaticRouting } from '../../../shared/static-site-routing';
 import './custom.css';
-
-function navigateToDemoApp(href: string): boolean {
-  let url: URL;
-  try {
-    url = new URL(href, window.location.origin);
-  } catch {
-    return false;
-  }
-  if (!isDemoAppPath(url.pathname)) return false;
-  window.location.assign(toDemoAppUrl(url.pathname, url.hash));
-  return true;
-}
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ router }) {
-    if (typeof window === 'undefined') return;
-
-    // VitePress client routing treats /demo/* as in-app routes and shows its 404.
-    // Hard-navigate so Vercel/static hosting serves the Vite-built demo HTML.
-    router.beforeEach((to) => {
-      if (!isDemoAppPath(to.path)) return;
-      window.location.assign(toDemoAppUrl(to.path, to.hash));
-      return false;
-    });
-
-    window.addEventListener(
-      'click',
-      (event) => {
-        if (event.defaultPrevented || event.button !== 0) return;
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-
-        const anchor = (event.target as Element | null)?.closest('a');
-        if (!anchor) return;
-
-        const href = anchor.getAttribute('href');
-        if (!href || href.startsWith('#')) return;
-
-        if (navigateToDemoApp(href)) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-      },
-      true
-    );
+  enhanceApp({ router, siteData }) {
+    installVitePressStaticRouting(router, siteData.value.base);
   },
 } satisfies Theme;

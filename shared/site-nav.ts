@@ -106,26 +106,11 @@ export function resolveDemoBase(): string {
   return docsBase.endsWith('/') ? `${docsBase}demo/` : `${docsBase}/demo/`;
 }
 
-/** VitePress SPA routes that must hard-navigate to static demo HTML (not VitePress pages). */
-const DEMO_SPA_TRAP_PATHS = new Set(['/demo', '/demo/index', '/demo/scenarios']);
-
-/** True when VitePress client routing would 404 instead of loading the static demo app. */
-export function isDemoAppPath(pathname: string): boolean {
-  const path = pathname.replace(/\/+$/, '') || '/';
-  if (path.endsWith('.html')) return false;
-  return DEMO_SPA_TRAP_PATHS.has(path);
-}
-
-/**
- * Map demo paths to static HTML files on the combined docs+demo deployment.
- * VitePress `cleanUrls` can normalize `/demo/scenarios.html` → `/demo/scenarios`, which 404s in the SPA.
- */
-export function toDemoAppUrl(pathname: string, hash = ''): string {
-  const path = pathname.replace(/\/+$/, '') || '/';
-  if (path === '/demo' || path === '/demo/index') return `/demo/index.html${hash}`;
-  if (path === '/demo/scenarios') return `/demo/scenarios.html${hash}`;
-  return `${pathname}${hash}`;
-}
+export {
+  isDemoAppPath,
+  resolveDemoEntryUrl,
+  toDemoAppUrl,
+} from './static-site-routing';
 
 export function hrefForDemoItem(item: NavLink): string {
   if (item.external) return item.docsHref;

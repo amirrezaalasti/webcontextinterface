@@ -10,6 +10,7 @@ import {
   resolveDocsBase,
   type SitePage,
 } from '../shared/site-nav';
+import { installDemoStaticRouting } from '../shared/static-site-routing';
 import { initMobileNav } from './nav-mobile';
 
 function escapeHtml(value: string): string {
@@ -206,6 +207,7 @@ export function initSiteNav(page: SitePage): void {
   mount.classList.remove('site-header-mount');
   mount.removeAttribute('aria-busy');
   patchDocsLinks();
+  installDemoStaticRouting();
   initDesktopDropdowns();
   initMobileNav();
   syncHeaderOffset(mount);
