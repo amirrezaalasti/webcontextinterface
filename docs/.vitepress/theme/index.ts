@@ -17,8 +17,16 @@ function navigateToDemoApp(href: string): boolean {
 
 export default {
   extends: DefaultTheme,
-  enhanceApp() {
+  enhanceApp({ router }) {
     if (typeof window === 'undefined') return;
+
+    // VitePress client routing treats /demo/* as in-app routes and shows its 404.
+    // Hard-navigate so Vercel/static hosting serves the Vite-built demo HTML.
+    router.beforeEach((to) => {
+      if (!isDemoAppPath(to.path)) return;
+      window.location.assign(toDemoAppUrl(to.path, to.hash));
+      return false;
+    });
 
     window.addEventListener(
       'click',

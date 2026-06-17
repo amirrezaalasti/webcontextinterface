@@ -17,7 +17,7 @@ hero:
       link: /specification
     - theme: alt
       text: Live Demo
-      link: /demo/
+      link: /demo/index.html
     - theme: alt
       text: NotebookLM
       link: https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738

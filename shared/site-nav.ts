@@ -61,14 +61,14 @@ export const SITE_NAV_GROUPS: NavGroup[] = [
       {
         id: 'live-demo',
         label: 'Live Demo',
-        docsHref: '/demo/',
+        docsHref: '/demo/index.html',
         demoHref: './index.html#demo',
         activeOn: ['demo'],
       },
       {
         id: 'scenarios',
         label: 'Scenarios',
-        docsHref: '/demo/scenarios',
+        docsHref: '/demo/scenarios.html',
         demoHref: './scenarios.html',
         activeOn: ['scenarios'],
       },
@@ -106,10 +106,14 @@ export function resolveDemoBase(): string {
   return docsBase.endsWith('/') ? `${docsBase}demo/` : `${docsBase}/demo/`;
 }
 
-/** True when a path belongs to the static demo app (not VitePress). */
+/** VitePress SPA routes that must hard-navigate to static demo HTML (not VitePress pages). */
+const DEMO_SPA_TRAP_PATHS = new Set(['/demo', '/demo/index', '/demo/scenarios']);
+
+/** True when VitePress client routing would 404 instead of loading the static demo app. */
 export function isDemoAppPath(pathname: string): boolean {
   const path = pathname.replace(/\/+$/, '') || '/';
-  return path === '/demo' || path.startsWith('/demo/');
+  if (path.endsWith('.html')) return false;
+  return DEMO_SPA_TRAP_PATHS.has(path);
 }
 
 /**
@@ -118,7 +122,7 @@ export function isDemoAppPath(pathname: string): boolean {
  */
 export function toDemoAppUrl(pathname: string, hash = ''): string {
   const path = pathname.replace(/\/+$/, '') || '/';
-  if (path === '/demo') return `/demo/index.html${hash}`;
+  if (path === '/demo' || path === '/demo/index') return `/demo/index.html${hash}`;
   if (path === '/demo/scenarios') return `/demo/scenarios.html${hash}`;
   return `${pathname}${hash}`;
 }
@@ -146,8 +150,8 @@ export function isGroupActive(group: NavGroup, page: SitePage): boolean {
 
 /** VitePress `themeConfig.nav` entries derived from the shared config. */
 export function vitePressNav(demoUrl: string, demoBase: string) {
-  const demoLink = demoUrl.endsWith('/') ? demoUrl : `${demoUrl}/`;
-  const scenariosLink = `${demoBase}scenarios`;
+  const demoLink = `${demoBase}index.html`;
+  const scenariosLink = `${demoBase}scenarios.html`;
 
   return [
     {
