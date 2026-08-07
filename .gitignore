@@ -13,6 +13,8 @@ node_modules
 .env.production.local
 dist/
 packages/*/dist/
+coverage/
+*.tsbuildinfo
 docs/.vitepress/cache
 docs/.vitepress/dist
 .DS_Store

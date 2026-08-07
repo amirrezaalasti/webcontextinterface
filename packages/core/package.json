@@ -1,7 +1,7 @@
 {
   "name": "@webcontextinterface/core",
-  "version": "1.2.0",
-  "description": "Web Context Interface (WCI) — complete SDK: spec, distiller, bridge, and site context",
+  "version": "1.3.0",
+  "description": "Web Context Interface (WCI) \u2014 complete SDK: spec, distiller, bridge, site context, and validator",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,7 +15,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build"
@@ -33,10 +36,19 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/spec": "^1.2.0",
-    "@webcontextinterface/distiller": "^1.2.0",
-    "@webcontextinterface/bridge": "^1.2.0",
-    "@webcontextinterface/context": "^1.2.0"
+    "@webcontextinterface/spec": "^1.3.0",
+    "@webcontextinterface/distiller": "^1.3.0",
+    "@webcontextinterface/bridge": "^1.3.0",
+    "@webcontextinterface/context": "^1.3.0",
+    "@webcontextinterface/validator": "^1.3.0"
   },
-  "keywords": ["wci", "llm", "agents", "dom", "accessibility", "sdk", "web-context-interface"]
+  "keywords": [
+    "wci",
+    "llm",
+    "agents",
+    "dom",
+    "accessibility",
+    "sdk",
+    "web-context-interface"
+  ]
 }

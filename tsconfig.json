@@ -3,14 +3,31 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2020", "DOM"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "strict": true,
     "declaration": true,
     "outDir": "dist",
     "rootDir": ".",
     "skipLibCheck": true,
     "noEmit": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "types": ["vitest/globals", "node"],
+    "baseUrl": ".",
+    // Resolve workspace imports to source so `tsc --noEmit` checks the code as
+    // written; without this it reads each package's stale dist/*.d.ts and
+    // reports phantom "has no exported member" errors after every refactor.
+    "paths": {
+      "@webcontextinterface/spec": ["packages/spec/src/index.ts"],
+      "@webcontextinterface/distiller": ["packages/distiller/src/index.ts"],
+      "@webcontextinterface/bridge": ["packages/bridge/src/index.ts"],
+      "@webcontextinterface/context": ["packages/context/src/index.ts"],
+      "@webcontextinterface/validator": ["packages/validator/src/index.ts"],
+      "@webcontextinterface/cli": ["packages/cli/src/index.ts"],
+      "@webcontextinterface/mcp": ["packages/mcp/src/index.ts"],
+      "@webcontextinterface/react": ["packages/react/src/index.ts"],
+      "@webcontextinterface/core": ["packages/core/src/index.ts"]
+    }
   },
-  "include": ["packages/*/src", "demo", "evals"]
+  "include": ["packages/*/src", "packages/*/test", "demo", "evals", "scripts"]
 }

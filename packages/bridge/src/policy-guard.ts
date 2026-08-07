@@ -3,6 +3,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import type { PolicyEngine } from '@webcontextinterface/context';
+import { findWciElement } from '@webcontextinterface/spec';
 import type { ActionRequest, ActionResult } from './result';
 
 /** Resolve the scope id used for wci.txt Allow/Deny/Auth rules. */
@@ -99,7 +100,7 @@ export function checkPolicyBeforeDispatch(
   req: ActionRequest,
   root: Element
 ): ActionResult | null {
-  const target = root.querySelector<HTMLElement>(`[data-wci-id="${req.nodeId}"]`);
+  const target = findWciElement(root, req.nodeId);
 
   if (!target) {
     return {

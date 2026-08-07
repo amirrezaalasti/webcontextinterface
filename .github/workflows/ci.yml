@@ -1,0 +1,119 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 20 is the oldest maintenance release the packages support; 24 is
+        # current. Testing both catches syntax and API drift in either direction.
+        node: [20, 22, 24]
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Verify built artifacts are consumable
+        run: node scripts/verify-dist.mjs
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Test with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
+
+  self-validate:
+    name: Validate own markup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The benchmark scenarios are generated fixtures, and the validator
+      # currently reports pre-existing issues in them (scopes pointing at no
+      # landmark, `select` on a <div>). Those are worth seeing on every run,
+      # but they are fixture debt rather than a regression in this commit, so
+      # this job reports without blocking. Tighten to a hard gate once the
+      # scenario generator is fixed.
+      - name: Report scenario annotation issues
+        continue-on-error: true
+        run: |
+          npx tsx packages/cli/src/cli.ts validate \
+            demo/scenarios/*/annotated.html \
+            --allow-attr data-wci-competitor \
+            --format json > /tmp/report.json || true
+
+          node -e "
+            const r = require('/tmp/report.json');
+            const byRule = {};
+            for (const i of r.issues) byRule[i.rule] = (byRule[i.rule] ?? 0) + 1;
+
+            const rows = Object.entries(byRule).sort((a, b) => b[1] - a[1]);
+            let md = '## WCI scenario annotations\n\n';
+            md += \`\${r.counts.error} error(s), \${r.counts.warning} warning(s), \${r.counts.info} info\n\n\`;
+            md += '| Rule | Count |\n|------|-------|\n';
+            for (const [rule, n] of rows) md += \`| \${rule} | \${n} |\n\`;
+
+            require('node:fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
+            console.log(md);
+          "
+
+      # The scaffolder's own output must always be clean: `wci init` producing
+      # files that `wci validate` rejects would be an outright bug.
+      - name: Scaffolded site files must validate
+        run: |
+          npx tsx packages/cli/src/cli.ts init --dir /tmp/scaffold --name CI --url https://ci.test
+          npx tsx packages/cli/src/cli.ts validate /tmp/scaffold/wci.txt /tmp/scaffold/wci.json --strict

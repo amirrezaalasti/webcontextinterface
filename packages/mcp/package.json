@@ -1,0 +1,59 @@
+{
+  "name": "@webcontextinterface/mcp",
+  "version": "1.3.0",
+  "description": "WCI Model Context Protocol server \u2014 expose any WCI-annotated site to MCP-speaking agents",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "wci-mcp": "./dist/server.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@webcontextinterface/bridge": "^1.3.0",
+    "@webcontextinterface/context": "^1.3.0",
+    "@webcontextinterface/distiller": "^1.3.0",
+    "@webcontextinterface/spec": "^1.3.0",
+    "@webcontextinterface/validator": "^1.3.0",
+    "jsdom": "^26.1.0",
+    "zod": "^3.25.0"
+  },
+  "keywords": [
+    "wci",
+    "mcp",
+    "model-context-protocol",
+    "agents",
+    "llm",
+    "web-context-interface"
+  ]
+}

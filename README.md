@@ -11,6 +11,10 @@
   <a href="https://www.npmjs.com/package/@webcontextinterface/distiller"><img src="https://img.shields.io/npm/v/@webcontextinterface/distiller?label=distiller&color=6366f1&logo=npm" alt="npm @webcontextinterface/distiller" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/bridge"><img src="https://img.shields.io/npm/v/@webcontextinterface/bridge?label=bridge&color=6366f1&logo=npm" alt="npm @webcontextinterface/bridge" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/context"><img src="https://img.shields.io/npm/v/@webcontextinterface/context?label=context&color=6366f1&logo=npm" alt="npm @webcontextinterface/context" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/validator"><img src="https://img.shields.io/npm/v/@webcontextinterface/validator?label=validator&color=6366f1&logo=npm" alt="npm @webcontextinterface/validator" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/react"><img src="https://img.shields.io/npm/v/@webcontextinterface/react?label=react&color=6366f1&logo=npm" alt="npm @webcontextinterface/react" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/cli"><img src="https://img.shields.io/npm/v/@webcontextinterface/cli?label=cli&color=6366f1&logo=npm" alt="npm @webcontextinterface/cli" /></a>
+  <a href="https://www.npmjs.com/package/@webcontextinterface/mcp"><img src="https://img.shields.io/npm/v/@webcontextinterface/mcp?label=mcp&color=6366f1&logo=npm" alt="npm @webcontextinterface/mcp" /></a>
   <a href="https://www.npmjs.com/package/@webcontextinterface/core"><img src="https://img.shields.io/npm/v/@webcontextinterface/core?label=core&color=6366f1&logo=npm" alt="npm @webcontextinterface/core" /></a>
   <br />
   <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/dm/@webcontextinterface/spec?label=spec" alt="npm downloads/month @webcontextinterface/spec" /></a>
@@ -28,6 +32,9 @@
 | ⚗️ | Token-efficient distillation for LLM context |
 | ⚡ | Typed browser actions via `WciBridge` |
 | 🛡️ | Site-wide agent policy (`wci.txt` / `wci.json` / `wci.md`) |
+| 🔌 | [MCP server](./packages/mcp) — use WCI from Claude, Cursor, or any agent runtime |
+| 🩺 | [Validator + CLI](./packages/cli) — `wci validate`, `wci distil`, `wci stats`, `wci init` |
+| ⚛️ | [React bindings](./packages/react) — typed annotations with scope inheritance |
 | 🧪 | 50-scenario grounding benchmark (see below) + [Zenodo dataset](https://doi.org/10.5281/zenodo.20434088) |
 
 ![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](assets/architecture.png)
@@ -85,13 +92,15 @@ npm install
 npm run build
 ```
 
-**npm packages** (v1.2.0):
+**npm packages** (v1.3.0):
 
 ```bash
-npm install @webcontextinterface/core@^1.2.0
+npm install @webcontextinterface/core@^1.3.0
 ```
 
-Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterface/distiller`, `@webcontextinterface/bridge`, `@webcontextinterface/context`.
+Or install layers individually: `spec`, `distiller`, `bridge`, `context`, `validator`, `react`.
+
+Tooling installs separately: `@webcontextinterface/cli` and `@webcontextinterface/mcp`.
 
 ---
 
@@ -99,11 +108,44 @@ Or install layers individually: `@webcontextinterface/spec`, `@webcontextinterfa
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@webcontextinterface/spec`](./packages/spec) | 1.2.0 | TypeScript types, role enum, `readWciNodeSpec()` |
-| [`@webcontextinterface/distiller`](./packages/distiller) | 1.2.0 | Pruner, JSON/Markdown serializers, `WciDistiller` |
-| [`@webcontextinterface/bridge`](./packages/bridge) | 1.2.0 | `WciBridge`, policy enforcement, `ActionResult` |
-| [`@webcontextinterface/context`](./packages/context) | 1.2.0 | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
-| [`@webcontextinterface/core`](./packages/core) | 1.2.0 | **All-in-one SDK** — re-exports every package |
+| [`@webcontextinterface/spec`](./packages/spec) | 1.3.0 | TypeScript types, role enum, `readWciNodeSpec()`, realm-safe DOM guards |
+| [`@webcontextinterface/distiller`](./packages/distiller) | 1.3.0 | Pruner, JSON/Markdown serializers, token budgeting, incremental diffs |
+| [`@webcontextinterface/bridge`](./packages/bridge) | 1.3.0 | `WciBridge`, policy enforcement, typed `ActionResult` |
+| [`@webcontextinterface/context`](./packages/context) | 1.3.0 | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
+| [`@webcontextinterface/validator`](./packages/validator) | 1.3.0 | Lint markup, `wci.txt`, and `wci.json` |
+| [`@webcontextinterface/react`](./packages/react) | 1.3.0 | Components and hooks for declarative annotation |
+| [`@webcontextinterface/cli`](./packages/cli) | 1.3.0 | `wci validate` / `distil` / `stats` / `init` |
+| [`@webcontextinterface/mcp`](./packages/mcp) | 1.3.0 | Model Context Protocol server — 8 tools |
+| [`@webcontextinterface/core`](./packages/core) | 1.3.0 | **All-in-one SDK** — re-exports the library layers |
+
+---
+
+## ⚡ Two-minute start
+
+**Use WCI from an agent** — no code, works with Claude Desktop, Claude Code, and Cursor:
+
+```json
+{ "mcpServers": { "wci": { "command": "npx", "args": ["-y", "@webcontextinterface/mcp"] } } }
+```
+
+**Make your own site agent-ready:**
+
+```bash
+npx @webcontextinterface/cli init --dir public --name "Acme" --url https://acme.com
+# annotate your markup, then:
+npx @webcontextinterface/cli validate dist/**/*.html --strict
+npx @webcontextinterface/cli stats dist/index.html
+```
+
+**Keep it honest in CI:**
+
+```yaml
+- uses: amirrezaalasti/webcontextinterface/.github/actions/wci-validate@main
+  with:
+    files: 'dist/**/*.html public/wci.txt public/wci.json'
+    strict: 'true'
+```
+
 
 ---
 

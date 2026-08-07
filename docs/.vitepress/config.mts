@@ -63,6 +63,15 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Tooling',
+        items: [
+          { text: 'MCP server', link: '/mcp-server' },
+          { text: 'CLI', link: '/cli' },
+          { text: 'Validation', link: '/validation' },
+          { text: 'React bindings', link: '/react' },
+        ],
+      },
+      {
         text: 'API Reference',
         collapsed: false,
         items: [
@@ -71,6 +80,10 @@ export default defineConfig({
           { text: '@webcontextinterface/distiller', link: '/api/distiller' },
           { text: '@webcontextinterface/bridge', link: '/api/bridge' },
           { text: '@webcontextinterface/context', link: '/api/context' },
+          { text: '@webcontextinterface/validator', link: '/api/validator' },
+          { text: '@webcontextinterface/react', link: '/api/react' },
+          { text: '@webcontextinterface/cli', link: '/api/cli' },
+          { text: '@webcontextinterface/mcp', link: '/api/mcp' },
         ],
       },
     ],

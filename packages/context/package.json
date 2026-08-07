@@ -1,7 +1,7 @@
 {
   "name": "@webcontextinterface/context",
-  "version": "1.2.0",
-  "description": "WCI site context — wci.txt, wci.json, wci.md loader and policy engine",
+  "version": "1.3.0",
+  "description": "WCI site context \u2014 wci.txt, wci.json, wci.md loader and policy engine",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,7 +15,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build"
@@ -33,7 +36,13 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/spec": "^1.2.0"
+    "@webcontextinterface/spec": "^1.3.0"
   },
-  "keywords": ["wci", "wci.txt", "policy", "site-context", "web-context-interface"]
+  "keywords": [
+    "wci",
+    "wci.txt",
+    "policy",
+    "site-context",
+    "web-context-interface"
+  ]
 }

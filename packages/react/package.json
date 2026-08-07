@@ -1,0 +1,40 @@
+{
+  "name": "@webcontextinterface/react",
+  "version": "1.3.0",
+  "description": "WCI React bindings — declarative data-wci-* annotation, hooks, and bridge integration",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "bugs": { "url": "https://github.com/amirrezaalasti/webcontextinterface/issues" },
+  "dependencies": {
+    "@webcontextinterface/bridge": "^1.3.0",
+    "@webcontextinterface/distiller": "^1.3.0",
+    "@webcontextinterface/spec": "^1.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "keywords": ["wci", "react", "hooks", "agents", "llm", "web-context-interface"]
+}

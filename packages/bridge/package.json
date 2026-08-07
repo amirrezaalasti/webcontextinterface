@@ -1,7 +1,7 @@
 {
   "name": "@webcontextinterface/bridge",
-  "version": "1.2.0",
-  "description": "WCI bridge — typed action dispatch and ActionResult protocol",
+  "version": "1.3.0",
+  "description": "WCI bridge \u2014 typed action dispatch and ActionResult protocol",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,7 +15,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build"
@@ -33,8 +36,15 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/context": "^1.2.0",
-    "@webcontextinterface/spec": "^1.2.0"
+    "@webcontextinterface/context": "^1.3.0",
+    "@webcontextinterface/spec": "^1.3.0"
   },
-  "keywords": ["wci", "bridge", "actions", "automation", "llm", "web-context-interface"]
+  "keywords": [
+    "wci",
+    "bridge",
+    "actions",
+    "automation",
+    "llm",
+    "web-context-interface"
+  ]
 }

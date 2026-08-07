@@ -3,7 +3,22 @@
 // Produces a compact Markdown representation for chat/RAG agents.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciNodeSpec, SiteContextSummary } from '@webcontextinterface/spec';
+import type { WciNodeSpec } from '@webcontextinterface/spec';
+import type { SerializeMeta } from './serializer-json';
+import { WCI_VIEW_VERSION } from './serializer-json';
+
+/**
+ * Make arbitrary author text safe inside a Markdown table cell.
+ *
+ * An unescaped `|` in a description silently splits the row into extra
+ * columns, which shifts every later field and hands the model a garbled table.
+ */
+export function escapeTableCell(text: string): string {
+  return text
+    .replace(/\\/g, '\\\\')
+    .replace(/\|/g, '\\|')
+    .replace(/\r?\n/g, ' ');
+}
 
 function stateStr(state: Record<string, unknown>): string {
   return Object.entries(state)
@@ -13,12 +28,7 @@ function stateStr(state: Record<string, unknown>): string {
 
 export function serializeMarkdown(
   nodes: WciNodeSpec[],
-  meta: {
-    pageTitle: string;
-    scope?: string;
-    scopeDesc?: string;
-    siteContext?: SiteContextSummary;
-  }
+  meta: SerializeMeta,
 ): string {
   const lines: string[] = [];
 
@@ -26,10 +36,10 @@ export function serializeMarkdown(
   if (meta.siteContext) {
     const sc = meta.siteContext;
     lines.push(`> **Site:** ${sc.name} — ${sc.purpose}`);
-    if (sc.denied_scopes.length) {
+    if (sc.denied_scopes?.length) {
       lines.push(`> **Denied scopes:** ${sc.denied_scopes.join(', ')}`);
     }
-    if (sc.auth_required_for.length) {
+    if (sc.auth_required_for?.length) {
       lines.push(`> **Auth required for:** ${sc.auth_required_for.join(', ')}`);
     }
     if (sc.active_task_flow) {
@@ -56,12 +66,15 @@ export function serializeMarkdown(
     lines.push('| ID | Role | Description | Action | Required | State |');
     lines.push('|----|------|-------------|--------|----------|-------|');
     for (const n of actionable) {
-      const req  = n.required ? '✅' : '—';
-      const st   = stateStr(n.state);
-      const act  = n.action ? `\`${n.action}\`` : '—';
-      lines.push(`| \`${n.id}\` | ${n.role} | ${n.desc} | ${act} | ${req} | ${st} |`);
+      const req = n.required ? '✅' : '—';
+      const st = escapeTableCell(stateStr(n.state));
+      const act = n.action ? `\`${n.action}\`` : '—';
+      lines.push(
+        `| \`${escapeTableCell(n.id)}\` | ${n.role} | ${escapeTableCell(n.desc)} | ${act} | ${req} | ${st} |`,
+      );
       if (n.options?.length) {
-        lines.push(`| | | *Options:* ${n.options.map(o => `\`${o}\``).join(', ')} | | | |`);
+        const opts = n.options.map(o => `\`${escapeTableCell(o)}\``).join(', ');
+        lines.push(`| | | *Options:* ${opts} | | | |`);
       }
     }
     lines.push('');
@@ -74,7 +87,9 @@ export function serializeMarkdown(
     lines.push('| ID | Description | State |');
     lines.push('|----|-------------|-------|');
     for (const n of statusNodes) {
-      lines.push(`| \`${n.id}\` | ${n.desc} | ${stateStr(n.state)} |`);
+      lines.push(
+        `| \`${escapeTableCell(n.id)}\` | ${escapeTableCell(n.desc)} | ${escapeTableCell(stateStr(n.state))} |`,
+      );
     }
     lines.push('');
   }
@@ -87,7 +102,8 @@ export function serializeMarkdown(
 
   if (preconditioned.length) lines.push('');
 
-  lines.push(`*Distilled at ${new Date().toISOString()} · WCI v1.0*`);
+  const at = meta.distilledAt ?? new Date().toISOString();
+  lines.push(`*Distilled at ${at} · WCI v${WCI_VIEW_VERSION}*`);
 
   return lines.join('\n');
 }

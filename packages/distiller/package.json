@@ -1,7 +1,7 @@
 {
   "name": "@webcontextinterface/distiller",
-  "version": "1.2.0",
-  "description": "WCI distiller — prune DOM and serialize agent-optimised views",
+  "version": "1.3.0",
+  "description": "WCI distiller \u2014 prune DOM and serialize agent-optimised views",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,7 +15,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build"
@@ -33,7 +36,14 @@
     "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
   },
   "dependencies": {
-    "@webcontextinterface/spec": "^1.2.0"
+    "@webcontextinterface/spec": "^1.3.0"
   },
-  "keywords": ["wci", "distiller", "llm", "context", "pruning", "web-context-interface"]
+  "keywords": [
+    "wci",
+    "distiller",
+    "llm",
+    "context",
+    "pruning",
+    "web-context-interface"
+  ]
 }

@@ -1,0 +1,75 @@
+name: WCI Validate
+description: Lint data-wci-* markup, wci.txt directives, and wci.json manifests, annotating the pull request diff.
+author: WCI
+
+branding:
+  icon: check-circle
+  color: purple
+
+inputs:
+  files:
+    description: Space-separated files or globs to validate.
+    required: true
+  strict:
+    description: Treat warnings as errors.
+    required: false
+    default: 'false'
+  ignore:
+    description: Comma-separated rule ids to skip.
+    required: false
+    default: ''
+  allow-attr:
+    description: Comma-separated project-specific data-wci-* attributes to permit.
+    required: false
+    default: ''
+  version:
+    description: Version of @webcontextinterface/cli to run.
+    required: false
+    default: 'latest'
+
+outputs:
+  errors:
+    description: Number of errors found.
+    value: ${{ steps.validate.outputs.errors }}
+  warnings:
+    description: Number of warnings found.
+    value: ${{ steps.validate.outputs.warnings }}
+
+runs:
+  using: composite
+  steps:
+    - id: validate
+      shell: bash
+      run: |
+        set -uo pipefail
+
+        ARGS=()
+        [ "${{ inputs.strict }}" = "true" ] && ARGS+=(--strict)
+        [ -n "${{ inputs.ignore }}" ] && ARGS+=(--ignore "${{ inputs.ignore }}")
+        [ -n "${{ inputs.allow-attr }}" ] && ARGS+=(--allow-attr "${{ inputs.allow-attr }}")
+
+        # Two passes: the github format writes inline PR annotations but no
+        # summary, and json gives the counts to gate on. Both read the same
+        # files, so the second pass is cheap.
+        npx --yes @webcontextinterface/cli@${{ inputs.version }} validate \
+          ${{ inputs.files }} "${ARGS[@]}" --format github || true
+
+        npx --yes @webcontextinterface/cli@${{ inputs.version }} validate \
+          ${{ inputs.files }} "${ARGS[@]}" --format json > wci-report.json || true
+
+        ERRORS=$(node -p "require('./wci-report.json').counts.error")
+        WARNINGS=$(node -p "require('./wci-report.json').counts.warning")
+        echo "errors=$ERRORS"   >> "$GITHUB_OUTPUT"
+        echo "warnings=$WARNINGS" >> "$GITHUB_OUTPUT"
+
+        {
+          echo "## WCI validation"
+          echo ""
+          echo "| Level | Count |"
+          echo "|-------|-------|"
+          echo "| Errors | $ERRORS |"
+          echo "| Warnings | $WARNINGS |"
+        } >> "$GITHUB_STEP_SUMMARY"
+
+        rm -f wci-report.json
+        [ "$ERRORS" -eq 0 ] || exit 1

@@ -1,0 +1,55 @@
+{
+  "name": "@webcontextinterface/cli",
+  "version": "1.3.0",
+  "description": "WCI command line \u2014 validate, distil, and scaffold Web Context Interface sites",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "wci": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirrezaalasti/webcontextinterface.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://webcontextinterface.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/amirrezaalasti/webcontextinterface/issues"
+  },
+  "dependencies": {
+    "@webcontextinterface/distiller": "^1.3.0",
+    "@webcontextinterface/spec": "^1.3.0",
+    "@webcontextinterface/validator": "^1.3.0",
+    "jsdom": "^26.1.0"
+  },
+  "keywords": [
+    "wci",
+    "cli",
+    "validate",
+    "lint",
+    "agents",
+    "web-context-interface"
+  ]
+}

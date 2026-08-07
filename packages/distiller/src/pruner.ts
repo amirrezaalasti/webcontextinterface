@@ -3,50 +3,66 @@
 // Strips decorative / invisible nodes, leaving only semantic WCI nodes.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WciNodeSpec, readWciNodeSpec } from '@webcontextinterface/spec';
+import {
+  DEFAULT_WCI_PRIORITY,
+  readWciNodeSpec,
+  type WciNodeSpec,
+  type WciRole,
+} from '@webcontextinterface/spec';
+
+/** Matches any element carrying WCI markup. */
+const WCI_ELEMENT_SELECTOR = '[data-wci-id],[data-wci-role]';
 
 export interface PrunerOptions {
   /** If set, only collect nodes belonging to this landmark scope */
   scope?: string;
   /** Hard cap on returned nodes (to respect context-window budgets) */
   maxNodes?: number;
+  /** Include nodes marked `data-wci-hidden="true"` (default false) */
+  includeHidden?: boolean;
+  /** If set, only collect nodes whose role is in this list */
+  roles?: readonly WciRole[];
+  /** Drop nodes whose priority is numerically greater than this (5 = keep all) */
+  maxPriority?: number;
+  /** Called instead of `console.warn` for invalid markup */
+  onWarn?: (message: string) => void;
 }
 
 /**
- * Walk the DOM tree starting from `root`, collecting all nodes that carry
- * WCI attributes, pruning hidden subtrees and layout-only wrappers.
+ * Collect all WCI nodes under `root`, pruning hidden nodes and layout wrappers.
+ *
+ * Traversal uses `querySelectorAll` rather than a hand-rolled recursive walk:
+ * the engine's native tree walk is markedly faster on large documents, and it
+ * yields the same document-ordered result set.
  */
 export function pruneDOM(root: Element = document.body, opts: PrunerOptions = {}): WciNodeSpec[] {
   const nodes: WciNodeSpec[] = [];
+  const readOptions = { onWarn: opts.onWarn };
 
-  function walk(el: Element): void {
-    const htmlEl = el as HTMLElement;
+  const consider = (el: Element): void => {
+    const spec = readWciNodeSpec(el as HTMLElement, readOptions);
+    if (!spec) return;
 
-    // Try to read a spec from this element
-    const spec = readWciNodeSpec(htmlEl);
+    // Hiding is per-node, not per-subtree: children of a hidden node are still
+    // eligible, which is why the flat selector scan matches the old walk.
+    if (spec.hidden && !opts.includeHidden) return;
+    if (opts.scope && spec.scope !== opts.scope && spec.id !== opts.scope) return;
+    if (opts.roles && !opts.roles.includes(spec.role)) return;
+    if (opts.maxPriority !== undefined && (spec.priority ?? DEFAULT_WCI_PRIORITY) > opts.maxPriority) return;
 
-    if (spec) {
-      // If a scope filter is active, only include nodes in that scope.
-      // Nodes marked data-wci-hidden="true" are excluded but their children
-      // are still visited (hiding is per-node, not per-subtree).
-      if (!spec.hidden) {
-        if (!opts.scope || spec.scope === opts.scope || spec.id === opts.scope) {
-          nodes.push(spec);
-        }
-      }
-    }
+    nodes.push(spec);
+  };
 
-    // Always recurse into children (even for hidden or landmark nodes)
-    for (const child of Array.from(el.children)) walk(child);
-  }
+  // querySelectorAll only reaches descendants, so the root is checked directly.
+  if (root.matches?.(WCI_ELEMENT_SELECTOR)) consider(root);
+  for (const el of Array.from(root.querySelectorAll(WCI_ELEMENT_SELECTOR))) consider(el);
 
-  walk(root);
+  // Sort by priority (ascending — 1 is highest importance). Array#sort is
+  // stable, so nodes of equal priority stay in document order.
+  nodes.sort((a, b) => (a.priority ?? DEFAULT_WCI_PRIORITY) - (b.priority ?? DEFAULT_WCI_PRIORITY));
 
-  // Sort by priority (ascending — 1 is highest importance)
-  nodes.sort((a, b) => (a.priority ?? 3) - (b.priority ?? 3));
-
-  if (opts.maxNodes && nodes.length > opts.maxNodes) {
-    return nodes.slice(0, opts.maxNodes);
+  if (opts.maxNodes !== undefined && nodes.length > opts.maxNodes) {
+    return nodes.slice(0, Math.max(0, opts.maxNodes));
   }
 
   return nodes;
