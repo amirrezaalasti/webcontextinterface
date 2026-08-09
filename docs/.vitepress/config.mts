@@ -25,6 +25,13 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: `${base}logo.png` }],
     ['meta', { name: 'theme-color', content: '#4f46e5' }],
+    [
+      'meta',
+      {
+        name: 'google-site-verification',
+        content: '8J50ZQRqMWvOeLK_G5meB9KWiU3DFNyg8Kuwwd3dZEY',
+      },
+    ],
     ['meta', { property: 'og:title', content: 'WCI — Web Context Interface' }],
     [
       'meta',
