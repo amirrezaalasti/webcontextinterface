@@ -15,7 +15,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w @webcontextinterface/spec && npm run build -w @webcontextinterface/distiller && npm run build -w @webcontextinterface/context && npm run build -w @webcontextinterface/bridge && npm run build -w @webcontextinterface/validator && npm run build -w @webcontextinterface/react && npm run build -w @webcontextinterface/cli && npm run build -w @webcontextinterface/mcp && npm run build -w @webcontextinterface/core",
+    "build": "npm run build -w @webcontextinterface/spec && npm run build -w @webcontextinterface/distiller && npm run build -w @webcontextinterface/context && npm run build -w @webcontextinterface/bridge && npm run build -w @webcontextinterface/validator && npm run build -w @webcontextinterface/annotator && npm run build -w @webcontextinterface/react && npm run build -w @webcontextinterface/cli && npm run build -w @webcontextinterface/mcp && npm run build -w @webcontextinterface/core",
     "build:packages": "npm run build",
     "dev": "vite demo --open",
     "demo": "vite demo --open",
@@ -38,6 +38,8 @@
     "scenarios:restyle": "node scripts/setup-benchmark-scenarios.mjs && node scripts/inject-legacy-styles.mjs",
     "scenarios:rebuild-annotations": "node scripts/rebuild-scenario-annotations.mjs",
     "scenarios:benchmark-info": "node scripts/update-benchmark-info.mjs",
+    "version:bump": "node scripts/bump-version.mjs",
+    "version:bump:dry-run": "node scripts/bump-version.mjs --dry-run",
     "publish:packages": "node scripts/publish-packages.mjs",
     "publish:packages:dry-run": "node scripts/publish-packages.mjs --dry-run",
     "test": "vitest run",
@@ -45,7 +47,9 @@
     "test:coverage": "vitest run --coverage",
     "check": "npm run lint && npm run test && npm run build",
     "wci": "tsx packages/cli/src/cli.ts",
-    "mcp": "tsx packages/mcp/src/server.ts"
+    "mcp": "tsx packages/mcp/src/server.ts",
+    "eval:diagnose": "tsx evals/diagnose-truncation.ts",
+    "eval:inference-gap": "tsx evals/measure-inference-gap.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

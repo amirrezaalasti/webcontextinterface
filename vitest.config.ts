@@ -15,6 +15,7 @@ export default defineConfig({
       '@webcontextinterface/bridge': pkg('bridge'),
       '@webcontextinterface/context': pkg('context'),
       '@webcontextinterface/validator': pkg('validator'),
+      '@webcontextinterface/annotator': pkg('annotator'),
       '@webcontextinterface/cli': pkg('cli'),
       '@webcontextinterface/mcp': pkg('mcp'),
       '@webcontextinterface/react': pkg('react'),

@@ -28,6 +28,9 @@ paper/*.log
 paper/*.out
 paper/*.pdf
 paper/*.synctex.gz
+# Submission and review planning notes stay local — the published docs site
+# ships product documentation, not paper-process material.
+docs/camera-ready-plan.md
 .vercel
 shopping_final_0712
 shopping_final_0712.tar

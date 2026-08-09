@@ -57,7 +57,19 @@ export const EVAL_CONTEXT_LIMITS = {
     interactiveCandidatesMax: 60,
   },
   multistep: {
-    rawHtmlMaxChars: 12_000,
+    /**
+     * Raw HTML character budget for the baseline approaches.
+     *
+     * Earlier runs used 12,000. `evals/diagnose-truncation.ts` shows that at
+     * that budget the ground-truth element survives truncation in only 2 of 49
+     * scenarios — the raw-html baseline was capped at a 4.1% ceiling because
+     * the answer was usually cut from the page before the model saw it, which
+     * measures the harness rather than the model. At 40,000 every target
+     * survives, for ~11k tokens, which every model in the roster accepts. Use
+     * `rawHtmlMaxCharsLegacy` to reproduce the older leaderboard numbers.
+     */
+    rawHtmlMaxChars: 40_000,
+    rawHtmlMaxCharsLegacy: 12_000,
     domOutlineMaxLines: 55,
     interactiveCandidatesMax: 40,
     wciPipeBudgetCharsGrounding: 2400,

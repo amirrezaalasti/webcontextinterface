@@ -5,6 +5,7 @@
 import { parseArgs } from './args';
 import {
   HELP,
+  runAnnotate,
   runDistil,
   runInit,
   runStats,
@@ -34,6 +35,8 @@ export async function run(argv: readonly string[], ctx: CommandContext): Promise
     case 'validate':
     case 'lint':
       return runValidate(ctx, args);
+    case 'annotate':
+      return runAnnotate(ctx, args);
     case 'distil':
     case 'distill':
       return runDistil(ctx, args);

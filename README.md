@@ -35,6 +35,7 @@
 | 🔌 | [MCP server](./packages/mcp) — use WCI from Claude, Cursor, or any agent runtime |
 | 🩺 | [Validator + CLI](./packages/cli) — `wci validate`, `wci distil`, `wci stats`, `wci init` |
 | ⚛️ | [React bindings](./packages/react) — typed annotations with scope inheritance |
+| 🤖 | [Annotator](./packages/annotator) — works on sites that never adopted WCI |
 | 🧪 | 50-scenario grounding benchmark (see below) + [Zenodo dataset](https://doi.org/10.5281/zenodo.20434088) |
 
 ![WCI architecture: data-wci-* markup, distiller, LLM context, WciBridge actions, and site context files](assets/architecture.png)
@@ -113,6 +114,7 @@ Tooling installs separately: `@webcontextinterface/cli` and `@webcontextinterfac
 | [`@webcontextinterface/bridge`](./packages/bridge) | 1.3.0 | `WciBridge`, policy enforcement, typed `ActionResult` |
 | [`@webcontextinterface/context`](./packages/context) | 1.3.0 | `WciContextLoader`, `PolicyEngine`, `wci.txt` parser |
 | [`@webcontextinterface/validator`](./packages/validator) | 1.3.0 | Lint markup, `wci.txt`, and `wci.json` |
+| [`@webcontextinterface/annotator`](./packages/annotator) | 1.3.0 | Derive `data-wci-*` from unannotated HTML via ARIA and accessible names |
 | [`@webcontextinterface/react`](./packages/react) | 1.3.0 | Components and hooks for declarative annotation |
 | [`@webcontextinterface/cli`](./packages/cli) | 1.3.0 | `wci validate` / `distil` / `stats` / `init` |
 | [`@webcontextinterface/mcp`](./packages/mcp) | 1.3.0 | Model Context Protocol server — 8 tools |
@@ -127,6 +129,15 @@ Tooling installs separately: `@webcontextinterface/cli` and `@webcontextinterfac
 ```json
 { "mcpServers": { "wci": { "command": "npx", "args": ["-y", "@webcontextinterface/mcp"] } } }
 ```
+
+**Already have a site? Derive the annotations:**
+
+```bash
+npx @webcontextinterface/cli annotate legacy-page.html --out annotated.html
+```
+
+WCI is not inert on unannotated pages — the annotator reconstructs the layer from
+ARIA roles, accessible names, and form structure, then you edit the descriptions.
 
 **Make your own site agent-ready:**
 

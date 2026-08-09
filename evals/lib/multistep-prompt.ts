@@ -111,7 +111,10 @@ function multistepContextBody(
       EVAL_CONTEXT_LIMITS.multistep.interactiveCandidatesMax
     )}`;
   }
-  const maxRaw = EVAL_CONTEXT_LIMITS.multistep.rawHtmlMaxChars;
+  // Overridable so a run can reproduce the submitted 12,000-char budget or
+  // sweep the budget to separate model failure from truncation.
+  const maxRaw = Number(process.env.WCI_RAW_HTML_MAX_CHARS)
+    || EVAL_CONTEXT_LIMITS.multistep.rawHtmlMaxChars;
   const truncated =
     scenario.rawHtml.length > maxRaw
       ? scenario.rawHtml.slice(0, maxRaw) + '\n<!-- TRUNCATED -->'

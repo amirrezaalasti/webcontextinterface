@@ -74,3 +74,16 @@ export type {
   ValidationReport,
   FormatOptions,
 } from '@webcontextinterface/validator';
+
+export {
+  inferAnnotations,
+  applyInferredAnnotations,
+  inferView,
+} from '@webcontextinterface/annotator';
+export type {
+  InferOptions,
+  InferredNode,
+  InferenceReport,
+  ApplyOptions,
+  ApplyResult,
+} from '@webcontextinterface/annotator';

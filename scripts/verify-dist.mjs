@@ -52,6 +52,7 @@ const distiller = await import('@webcontextinterface/distiller');
 const bridge = await import('@webcontextinterface/bridge');
 const context = await import('@webcontextinterface/context');
 const validator = await import('@webcontextinterface/validator');
+const annotator = await import('@webcontextinterface/annotator');
 const core = await import('@webcontextinterface/core');
 
 check('spec exports readWciNodeSpec + guards', () => {
@@ -100,10 +101,28 @@ check('validator lints site files', () => {
   }
 });
 
+check('annotator derives nodes from unannotated HTML', () => {
+  // A page with no data-wci-* at all: everything here has to come from the
+  // accessibility semantics, which is the whole point of the package.
+  const plain = new JSDOM(
+    '<!doctype html><html><body><main>' +
+    '<label for="email">Billing email</label><input id="email" type="email">' +
+    '<button type="submit">Place order</button>' +
+    '</main></body></html>',
+  );
+  const view = annotator.inferView(plain.window.document);
+  if (!view.nodes?.length) throw new Error('inferView derived no nodes');
+  if (!view.nodes.some((n) => n.desc === 'Billing email')) {
+    throw new Error('label[for] was not used as the description');
+  }
+  plain.window.close();
+});
+
 check('core re-exports every layer', () => {
   for (const name of [
     'WciDistiller', 'WciDistillerSession', 'WciBridge', 'PolicyEngine',
     'WciContextLoader', 'validateMarkup', 'diffViews', 'readWciNodeSpec',
+    'inferAnnotations', 'applyInferredAnnotations', 'inferView',
   ]) {
     if (core[name] === undefined) throw new Error(`core is missing ${name}`);
   }
@@ -125,7 +144,8 @@ console.log('\nType declarations');
 
 check('every package ships an index.d.ts', () => {
   const missing = [
-    'spec', 'distiller', 'bridge', 'context', 'validator', 'react', 'cli', 'mcp', 'core',
+    'spec', 'distiller', 'bridge', 'context', 'validator', 'annotator',
+    'react', 'cli', 'mcp', 'core',
   ].filter(p => !existsSync(resolve(repoRoot, 'packages', p, 'dist/index.d.ts')));
   if (missing.length) throw new Error(`no index.d.ts for: ${missing.join(', ')}`);
 });

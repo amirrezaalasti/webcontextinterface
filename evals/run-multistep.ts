@@ -21,7 +21,7 @@ import {
   type ContextKind,
 } from './lib/contexts';
 import { SCENARIO_GROUND_TRUTH } from './lib/ground-truth';
-import { EVAL_INFERENCE } from './lib/eval-config';
+import { EVAL_CONTEXT_LIMITS, EVAL_INFERENCE } from './lib/eval-config';
 import { EVAL_MODELS, queryModel } from './lib/llm';
 import { closeBrowser, resolveGroundTruthLocator, scoreRawPrediction } from './lib/playwright-validate';
 import { scoreFlowCoverage } from './lib/flow-coverage';
@@ -377,6 +377,10 @@ async function runModel(
     approaches.map((a) => [a, [] as TaskRunResult[]])
   ) as Record<ContextKind, TaskRunResult[]>;
 
+  // Counts calls where the provider returned no usage block and the reported
+  // token figure fell back to a character-based estimate.
+  let tokenFallbackCount = 0;
+
   for (const s of scenarios) {
     const multi = primaryTasksOnly(s.meta.tasks?.multiStep ?? []);
     for (const task of multi) {
@@ -389,17 +393,27 @@ async function runModel(
             ? {
                 raw: heuristicResponse(s, task, approach),
                 usageTokens: ctx.tokenEstimate,
+                promptTokens: 0,
               }
             : await queryModel(model.model, ctx, EVAL_INFERENCE.multistep.defaultQueryOptions);
+
+          // Prefer the provider's measured prompt_tokens. The character-based
+          // estimate is only a fallback for providers that omit usage, and any
+          // run that relied on it is flagged so the distinction survives into
+          // the reported numbers.
+          const measured = resp.promptTokens || 0;
+          const tokensMeasured = measured > 0;
+          if (!tokensMeasured) tokenFallbackCount += 1;
 
           const result = await evaluateTaskRun(
             s,
             task,
             approach,
             resp.raw,
-            resp.usageTokens || ctx.tokenEstimate,
+            measured || resp.usageTokens || ctx.tokenEstimate,
             minCoverage
           );
+          (result as { tokensMeasured?: boolean }).tokensMeasured = tokensMeasured;
           byApproach[approach].push(result);
           console.log(result.passed ? '✓' : '✗');
         } catch (e) {
@@ -433,12 +447,24 @@ async function runModel(
     summary[approach] = summarize(byApproach[approach]);
   }
 
+  if (tokenFallbackCount > 0) {
+    console.log(
+      `\n  note: ${tokenFallbackCount} call(s) returned no usage block; ` +
+      'their token figures are character-based estimates.',
+    );
+  }
+
   return {
     modelId: model.id,
     modelName: model.name,
     openRouterModel: model.model,
     summary,
     results: byApproach,
+    // Provenance for the token column: 0 means every reported figure is a
+    // measured prompt_tokens value from the provider.
+    tokenFallbackCount,
+    rawHtmlMaxChars: Number(process.env.WCI_RAW_HTML_MAX_CHARS)
+      || EVAL_CONTEXT_LIMITS.multistep.rawHtmlMaxChars,
   };
 }
 

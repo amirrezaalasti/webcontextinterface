@@ -69,6 +69,7 @@ export default defineConfig({
           { text: 'CLI', link: '/cli' },
           { text: 'Validation', link: '/validation' },
           { text: 'React bindings', link: '/react' },
+          { text: 'Annotating existing sites', link: '/api/annotator' },
         ],
       },
       {
@@ -81,6 +82,7 @@ export default defineConfig({
           { text: '@webcontextinterface/bridge', link: '/api/bridge' },
           { text: '@webcontextinterface/context', link: '/api/context' },
           { text: '@webcontextinterface/validator', link: '/api/validator' },
+          { text: '@webcontextinterface/annotator', link: '/api/annotator' },
           { text: '@webcontextinterface/react', link: '/api/react' },
           { text: '@webcontextinterface/cli', link: '/api/cli' },
           { text: '@webcontextinterface/mcp', link: '/api/mcp' },

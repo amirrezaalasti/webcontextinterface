@@ -6,6 +6,7 @@
 // real disk, and keeps the process-level wiring confined to cli.ts.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { applyInferredAnnotations, inferView } from '@webcontextinterface/annotator';
 import { WciDistiller, estimateTokens } from '@webcontextinterface/distiller';
 import {
   formatReport,
@@ -237,6 +238,64 @@ export async function runStats(ctx: CommandContext, args: ParsedArgs): Promise<E
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// annotate
+// ─────────────────────────────────────────────────────────────────────────────
+
+export async function runAnnotate(ctx: CommandContext, args: ParsedArgs): Promise<ExitCode> {
+  const target = args.positionals[0];
+  if (!target) {
+    ctx.error('wci annotate: no file or URL given.\n\nUsage: wci annotate <file|url> [--out <file>] [--min-confidence <0-1>]');
+    return 2;
+  }
+
+  let source: string;
+  try {
+    source = await loadSource(ctx, target);
+  } catch (err) {
+    ctx.error(`Cannot read ${target}: ${err instanceof Error ? err.message : String(err)}`);
+    return 2;
+  }
+
+  const minConfidence = numberFlag(args.flags, 'min-confidence', 0);
+  const dom = ctx.parseHtml(source);
+
+  try {
+    // --view emits the agent-facing JSON directly; the default rewrites the
+    // page so a developer can read, edit, and commit the annotations.
+    if (boolFlag(args.flags, 'view')) {
+      ctx.log(JSON.stringify(inferView(dom.document, { minConfidence }), null, 2));
+      return 0;
+    }
+
+    const result = applyInferredAnnotations(dom.document, {
+      minConfidence,
+      preserveExisting: !boolFlag(args.flags, 'overwrite'),
+    });
+
+    const html = dom.document.documentElement.outerHTML;
+    const outPath = stringFlag(args.flags, 'out', '', 'o');
+
+    if (outPath) {
+      await ctx.writeFile(outPath, `<!doctype html>\n${html}\n`);
+      ctx.error(`Wrote ${outPath}`);
+    } else {
+      ctx.log(`<!doctype html>\n${html}`);
+    }
+
+    const { report } = result;
+    ctx.error(
+      `Annotated ${result.annotated} node(s) · mean confidence ${report.meanConfidence} · ` +
+      `${result.preserved} preserved · ${result.belowThreshold} below threshold · ` +
+      `${report.skipped} skipped`,
+    );
+    ctx.error('Derived annotations are a starting point — review the descriptions before shipping.');
+    return 0;
+  } finally {
+    dom.close();
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // init
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -299,6 +358,7 @@ Usage
 
 Commands
   validate <file...>     Lint HTML markup, wci.txt directives, or wci.json manifests
+  annotate <file|url>    Derive data-wci-* annotations from unannotated HTML
   distil <file|url>      Produce the agent-facing view of a page
   stats <file|url>       Report node counts and token compression
   init                   Scaffold wci.txt, wci.json, and wci.md
@@ -320,6 +380,12 @@ Distil options
   --include-hidden       Include data-wci-hidden nodes
   --out, -o <file>       Write to a file instead of stdout
 
+Annotate options
+  --out, -o <file>       Write annotated HTML to a file
+  --view                 Emit the distilled JSON view instead of HTML
+  --min-confidence <n>   Drop inferences below this score (0-1)
+  --overwrite            Replace existing data-wci-* attributes
+
 Init options
   --dir, -d <dir>        Output directory                (default public)
   --name <name>          Site name
@@ -330,6 +396,7 @@ Init options
   --force                Overwrite existing files
 
 Examples
+  wci annotate legacy-page.html --out annotated.html
   wci init --dir public --name "Acme Shop" --url https://acme.com
   wci validate dist/**/*.html --strict
   wci validate public/wci.txt public/wci.json

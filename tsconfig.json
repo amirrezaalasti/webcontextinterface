@@ -23,6 +23,7 @@
       "@webcontextinterface/bridge": ["packages/bridge/src/index.ts"],
       "@webcontextinterface/context": ["packages/context/src/index.ts"],
       "@webcontextinterface/validator": ["packages/validator/src/index.ts"],
+      "@webcontextinterface/annotator": ["packages/annotator/src/index.ts"],
       "@webcontextinterface/cli": ["packages/cli/src/index.ts"],
       "@webcontextinterface/mcp": ["packages/mcp/src/index.ts"],
       "@webcontextinterface/react": ["packages/react/src/index.ts"],

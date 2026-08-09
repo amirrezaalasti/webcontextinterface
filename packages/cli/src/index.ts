@@ -7,7 +7,7 @@ export { run, VERSION } from './run';
 export { parseArgs, boolFlag, listFlag, numberFlag, stringFlag } from './args';
 export type { ParsedArgs } from './args';
 export {
-  runValidate, runDistil, runStats, runInit, HELP,
+  runValidate, runAnnotate, runDistil, runStats, runInit, HELP,
 } from './commands';
 export type { CommandContext, ExitCode } from './commands';
 export { createNodeContext } from './node-context';

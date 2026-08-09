@@ -386,3 +386,82 @@ describe('createNodeContext', () => {
     expect(typeof ctx.fetchText).toBe('function');
   });
 });
+
+describe('run — annotate', () => {
+  const PLAIN = `<!doctype html><html><head><title>Legacy</title></head><body>
+    <form id="signup">
+      <label for="email">Email address</label>
+      <input id="email" type="email" required />
+      <button type="submit">Create account</button>
+    </form>
+  </body></html>`;
+
+  it('writes annotated HTML to stdout', async () => {
+    const h = harness({ 'p.html': PLAIN });
+    expect(await h.run('annotate p.html')).toBe(0);
+    expect(h.stdout()).toContain('data-wci-role="action"');
+    expect(h.stdout()).toContain('data-wci-desc="Email address"');
+  });
+
+  it('writes to a file with --out', async () => {
+    const h = harness({ 'p.html': PLAIN });
+    expect(await h.run('annotate p.html --out out.html')).toBe(0);
+    expect(h.written.get('out.html')).toContain('data-wci-id');
+    expect(h.stderr()).toContain('Wrote out.html');
+  });
+
+  it('reports how many nodes it annotated and its confidence', async () => {
+    const h = harness({ 'p.html': PLAIN });
+    await h.run('annotate p.html --out out.html');
+    expect(h.stderr()).toMatch(/Annotated \d+ node\(s\)/);
+    expect(h.stderr()).toContain('mean confidence');
+    expect(h.stderr()).toContain('review the descriptions');
+  });
+
+  it('emits the distilled view with --view', async () => {
+    const h = harness({ 'p.html': PLAIN });
+    await h.run('annotate p.html --view');
+    const view = JSON.parse(h.stdout());
+    expect(view.nodes.some((n: { action: string }) => n.action === 'click')).toBe(true);
+  });
+
+  it('honours --min-confidence', async () => {
+    // A bare <div role="button"> is the weakest kind of inference: no accessible
+    // name, no native semantics. A labelled native input is the strongest and
+    // should survive a threshold that drops the div.
+    const mixed = `<!doctype html><html><body>
+      <label for="e">Email address</label><input id="e" type="email" />
+      <div role="button"></div>
+    </body></html>`;
+
+    const all = harness({ 'p.html': mixed });
+    await all.run('annotate p.html --view');
+    const allNodes = JSON.parse(all.stdout()).nodes as unknown[];
+
+    const filtered = harness({ 'p.html': mixed });
+    await filtered.run('annotate p.html --view --min-confidence 0.7');
+    const keptNodes = JSON.parse(filtered.stdout()).nodes as { id: string }[];
+
+    expect(keptNodes.length).toBeLessThan(allNodes.length);
+    expect(keptNodes.some(n => n.id === 'e')).toBe(true);
+  });
+
+  it('produces output that validates cleanly', async () => {
+    const h = harness({ 'p.html': PLAIN });
+    await h.run('annotate p.html --out annotated.html');
+
+    const v = harness({ 'annotated.html': h.written.get('annotated.html')! });
+    await v.run('validate annotated.html --ignore weak-desc,missing-desc');
+    expect(v.stdout()).not.toContain('error');
+  });
+
+  it('exits 2 with no target', async () => {
+    expect(await harness().run('annotate')).toBe(2);
+  });
+
+  it('exits 2 for an unreadable target', async () => {
+    const h = harness();
+    expect(await h.run('annotate nope.html')).toBe(2);
+    expect(h.stderr()).toContain('Cannot read');
+  });
+});

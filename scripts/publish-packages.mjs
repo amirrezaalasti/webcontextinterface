@@ -34,6 +34,7 @@ const packages = [
   { name: '@webcontextinterface/context', dir: 'context' },
   { name: '@webcontextinterface/bridge', dir: 'bridge' },
   { name: '@webcontextinterface/validator', dir: 'validator' },
+  { name: '@webcontextinterface/annotator', dir: 'annotator' },
   { name: '@webcontextinterface/react', dir: 'react' },
   { name: '@webcontextinterface/cli', dir: 'cli' },
   { name: '@webcontextinterface/mcp', dir: 'mcp' },
