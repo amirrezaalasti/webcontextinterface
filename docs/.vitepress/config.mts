@@ -1,5 +1,15 @@
 import { defineConfig } from 'vitepress';
 import { vitePressNav } from '../../shared/site-nav';
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_OG_DESCRIPTION,
+  SITE_OG_IMAGE,
+  SITE_SHORT_NAME,
+  SITE_URL,
+  vitePressCanonicalPath,
+  websiteJsonLd,
+} from '../../shared/site-seo';
 
 const repo =
   process.env.VITEPRESS_GITHUB_REPO ??
@@ -11,19 +21,34 @@ const demoUrl =
   (process.env.NODE_ENV === 'production' ? `${base}demo/` : 'http://localhost:5173');
 const demoBase = demoUrl.endsWith('/') ? demoUrl : `${demoUrl}/`;
 
+const jsonLd = JSON.stringify(websiteJsonLd());
+
 export default defineConfig({
-  title: 'WCI',
-  titleTemplate: ':title · Web Context Interface',
-  description:
-    'Web Context Interface (WCI) — an open standard and TypeScript SDK for LLM-native web pages.',
+  title: SITE_NAME,
+  titleTemplate: ':title · WCI',
+  description: SITE_DESCRIPTION,
   lang: 'en-US',
   base,
   cleanUrls: true,
   lastUpdated: true,
   ignoreDeadLinks: [/^http:\/\/localhost/],
 
+  sitemap: {
+    hostname: SITE_URL,
+  },
+
+  transformHead({ pageData }) {
+    const canonical = vitePressCanonicalPath(pageData.relativePath, base);
+    return [
+      ['link', { rel: 'canonical', href: canonical }],
+      ['meta', { property: 'og:url', content: canonical }],
+    ];
+  },
+
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: `${base}logo.png` }],
+    ['meta', { name: 'application-name', content: SITE_NAME }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: SITE_SHORT_NAME }],
     ['meta', { name: 'theme-color', content: '#4f46e5' }],
     [
       'meta',
@@ -32,20 +57,27 @@ export default defineConfig({
         content: '8J50ZQRqMWvOeLK_G5meB9KWiU3DFNyg8Kuwwd3dZEY',
       },
     ],
-    ['meta', { property: 'og:title', content: 'WCI — Web Context Interface' }],
+    ['meta', { property: 'og:site_name', content: SITE_NAME }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
+    ['meta', { property: 'og:title', content: `${SITE_NAME} (${SITE_SHORT_NAME})` }],
+    ['meta', { property: 'og:description', content: SITE_OG_DESCRIPTION }],
+    ['meta', { property: 'og:image', content: SITE_OG_IMAGE }],
+    ['meta', { property: 'og:image:alt', content: `${SITE_NAME} logo` }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: `${SITE_NAME} (${SITE_SHORT_NAME})` }],
+    ['meta', { name: 'twitter:description', content: SITE_OG_DESCRIPTION }],
+    ['meta', { name: 'twitter:image', content: SITE_OG_IMAGE }],
     [
-      'meta',
-      {
-        property: 'og:description',
-        content:
-          'Open standard and TypeScript SDK for LLM-readable web pages: data-wci-* markup, distillation, and typed actions.',
-      },
+      'script',
+      { type: 'application/ld+json' },
+      jsonLd,
     ],
   ],
 
   themeConfig: {
-    logo: { src: '/logo.png', alt: 'WCI — Web Context Interface' },
-    siteTitle: 'Web Context Interface',
+    logo: { src: '/logo.png', alt: `${SITE_NAME} (${SITE_SHORT_NAME})` },
+    siteTitle: SITE_NAME,
 
     nav: vitePressNav(demoUrl, demoBase),
 

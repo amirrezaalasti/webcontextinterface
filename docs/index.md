@@ -1,5 +1,7 @@
 ---
 layout: home
+title: Web Context Interface (WCI) — Open Standard for LLM-Native Web Pages
+description: WCI is an open standard and TypeScript SDK that makes web pages natively readable and actionable for LLM agents via data-wci-* markup, distillation, and typed actions.
 
 hero:
   name: WCI

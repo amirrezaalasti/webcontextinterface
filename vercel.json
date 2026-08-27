@@ -5,7 +5,8 @@
   "installCommand": "npm ci",
   "framework": null,
   "env": {
-    "DOCS_BASE": "/"
+    "DOCS_BASE": "/",
+    "SITE_URL": "https://webcontextinterface.vercel.app"
   },
   "rewrites": [
     { "source": "/demo", "destination": "/demo/index.html" },

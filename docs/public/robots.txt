@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Benchmark scenario fixtures are demo content; keep them out of search indexes.
+Disallow: /demo/scenarios/
+
+Sitemap: https://webcontextinterface.vercel.app/sitemap.xml
