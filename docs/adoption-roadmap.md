@@ -274,7 +274,7 @@ Phase 3: Network effects
 - **MCP server:** `@webcontextinterface/mcp` — use WCI from any agent platform
 - **Getting started:** [`docs/getting-started.md`](./getting-started.md)
 - **Site policy:** [`docs/site-policy.md`](./site-policy.md)
-- **Benchmark (synthetic):** [`evals/README.md`](../evals/README.md)
+- **Benchmark (synthetic):** [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md)
 
 ---
 

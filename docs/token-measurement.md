@@ -173,6 +173,6 @@ The distiller's internal estimate tends to be more accurate than our benchmark f
 
 ## See also
 
-- [`evals/README.md`](../evals/README.md) — Full evaluation harness, commands, and limitations
+- [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md) — Full evaluation harness, commands, and limitations
 - [`docs/distillation.md`](./distillation.md) — How WCI distiller calculates token budgets
 - [Zenodo dataset](https://doi.org/10.5281/zenodo.20434088) — Raw evaluation artifacts with complete OpenRouter logs

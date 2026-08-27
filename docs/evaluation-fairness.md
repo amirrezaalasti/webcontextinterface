@@ -114,6 +114,6 @@ The candidate-list advantage parallels WCI—structured input beats raw DOM.
 
 ## See also
 
-- [`evals/README.md`](../evals/README.md) — Full scoring rules, limitations, responsible use guide
+- [`evals/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/evals/README.md) — Full scoring rules, limitations, responsible use guide
 - [`docs/benchmark.md`](./benchmark.md) — Quick summary of what is/isn't measured
-- [`demo/public/README.md`](../demo/public/README.md) — Archived results and how to reproduce
+- [`demo/public/README.md`](https://github.com/amirrezaalasti/webcontextinterface/blob/main/demo/public/README.md) — Archived results and how to reproduce
