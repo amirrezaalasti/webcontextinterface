@@ -5,6 +5,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="https://webcontextinterface.vercel.app/"><img src="https://img.shields.io/badge/docs-webcontextinterface.vercel.app-6366f1" alt="Documentation" /></a>
+  <a href="https://doi.org/10.1145/3799682.3840197"><img src="https://img.shields.io/badge/DOI-10.1145%2F3799682.3840197-blue?logo=acm" alt="DOI: 10.1145/3799682.3840197" /></a>
   <a href="https://doi.org/10.5281/zenodo.20434088"><img src="https://img.shields.io/badge/dataset-Zenodo-1682d4?style=flat&logo=zenodo&logoColor=white" alt="Evaluation dataset (Zenodo)" /></a>
   <br />
   <a href="https://www.npmjs.com/package/@webcontextinterface/spec"><img src="https://img.shields.io/npm/v/@webcontextinterface/spec?label=spec&color=6366f1&logo=npm" alt="npm @webcontextinterface/spec" /></a>
@@ -67,6 +68,8 @@ npm run website:preview   # preview the full site locally
 **Deploy:** push to `main` — Vercel rebuilds automatically ([`vercel.json`](./vercel.json)). For GitHub Pages, enable **Settings → Pages → Source: GitHub Actions**, then the [deploy workflow](.github/workflows/deploy-website.yml) runs on each push.
 
 **Full concept & implementation reference:** [`agent.md`](./agent.md) — vision, agentic interface/AX, spec, APIs, and codebase map.
+
+**Paper (CIKM '26):** [WCI: The Web Context Interface for Agentic Web Automation](https://doi.org/10.1145/3799682.3840197) — Proceedings of the 35th ACM International Conference on Information and Knowledge Management, pp. 8832–8836. DOI: [10.1145/3799682.3840197](https://doi.org/10.1145/3799682.3840197)
 
 **NotebookLM (shareable overview):** [WCI notebook](https://notebooklm.google.com/notebook/aa9fa965-4a1b-400d-a605-37f0632c2738) — audio summaries, Q&A, and briefings grounded in the paper, specification, and benchmark materials (Google sign-in required).
 
@@ -301,6 +304,25 @@ npm run demo                     # live leaderboard on the website
 If you use WCI in research or publications, please cite:
 
 **Amirreza Alasti** — [amirrezaalasti@gmail.com](mailto:amirrezaalasti@gmail.com)
+
+**Paper:**
+
+```bibtex
+@inproceedings{Alasti_WCI_CIKM_2026,
+  author    = {Alasti, Amirreza and Ghandeharioun, Niloufar and Karras, Oliver},
+  title     = {WCI: The Web Context Interface for Agentic Web Automation},
+  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management},
+  series    = {CIKM '26},
+  year      = {2026},
+  pages     = {8832--8836},
+  publisher = {ACM},
+  address   = {Rome, Italy},
+  doi       = {10.1145/3799682.3840197},
+  url       = {https://doi.org/10.1145/3799682.3840197}
+}
+```
+
+**Software:**
 
 ```bibtex
 @software{Alasti_WCI_Web_Context_2026,

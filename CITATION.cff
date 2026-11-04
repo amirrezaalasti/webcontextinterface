@@ -27,6 +27,13 @@ repository-code: 'https://github.com/amirrezaalasti/webcontextinterface'
 url: 'https://webcontextinterface.vercel.app/'
 repository: 'https://www.npmjs.com/package/@webcontextinterface/core'
 repository-artifact: 'https://doi.org/10.5281/zenodo.20434088'
+identifiers:
+  - type: doi
+    value: 10.1145/3799682.3840197
+    description: CIKM '26 paper
+  - type: doi
+    value: 10.5281/zenodo.20434088
+    description: Evaluation dataset (Zenodo)
 abstract: >-
   WCI (Web Context Interface) is a three-layer open standard
   that augments standard HTML with structured semantic
@@ -44,4 +51,31 @@ license: MIT
 commit: 2e403fad0b7a66c9dfabd2c0c893bf2b4fba23ff
 version: 1.2.0
 date-released: '2026-05-31'
-
+preferred-citation:
+  type: conference-paper
+  title: 'WCI: The Web Context Interface for Agentic Web Automation'
+  authors:
+    - family-names: Alasti
+      given-names: Amirreza
+      orcid: 'https://orcid.org/0009-0002-1165-773X'
+    - family-names: Ghandeharioun
+      given-names: Niloufar
+      orcid: 'https://orcid.org/0009-0005-3736-5745'
+    - family-names: Karras
+      given-names: Oliver
+      orcid: 'https://orcid.org/0000-0001-5336-6899'
+  collection-title: >-
+    Proceedings of the 35th ACM International Conference on
+    Information and Knowledge Management
+  collection-type: proceedings
+  conference:
+    name: "CIKM '26"
+    city: Rome
+    country: IT
+  publisher:
+    name: ACM
+  start: 8832
+  end: 8836
+  year: 2026
+  doi: 10.1145/3799682.3840197
+  url: 'https://doi.org/10.1145/3799682.3840197'
