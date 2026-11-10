@@ -346,7 +346,9 @@ function slugify(text: string, max = 40): string {
 
 function cssPath(el: Element): string {
   const id = el.getAttribute('id');
-  if (id) return `#${id}`;
+  // An id is not a CSS identifier: `user[0].name`, `form:field` or `123abc`
+  // are valid HTML ids but `#`-prefixed they throw or match something else.
+  if (id) return `[id="${escapeCssString(id)}"]`;
 
   const parts: string[] = [];
   let cur: Element | null = el;

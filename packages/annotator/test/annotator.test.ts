@@ -292,6 +292,15 @@ describe('applyInferredAnnotations', () => {
     expect(result.belowThreshold).toBeGreaterThan(0);
     expect(document.querySelector('div')!.dataset.wciId).toBeUndefined();
   });
+
+  it('annotates elements whose id is not a valid CSS identifier', () => {
+    const ids = ['user[0].name', 'user[email]', 'a.b', 'form:field', ':r1:', '123abc'];
+    mount(ids.map(id => `<label for="${id}">Field ${id}</label><input type="text" id="${id}" />`).join(''));
+    applyInferredAnnotations(document);
+    for (const id of ids) {
+      expect(document.getElementById(id)!.dataset.wciId, id).toBeDefined();
+    }
+  });
 });
 
 describe('inferView', () => {
